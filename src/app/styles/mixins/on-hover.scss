@@ -1,0 +1,7 @@
+@mixin on-hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

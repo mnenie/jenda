@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import { router, pinia } from './providers';
 import App from './App.vue';
+import '@/app/styles/primary/index.scss';
 
 const app = createApp(App);
 
