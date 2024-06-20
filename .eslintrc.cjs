@@ -7,7 +7,8 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
     '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier/skip-formatting'
+    '@vue/eslint-config-prettier/skip-formatting',
+    'plugin:storybook/recommended'
   ],
   rules: {
     'vue/multi-word-component-names': 'off',
@@ -16,7 +17,7 @@ module.exports = {
       'PascalCase',
       {
         registeredComponentsOnly: false,
-        ignores: ["/^d-/"]
+        ignores: ['/^d-/']
       }
     ],
     'vue/html-self-closing': [
