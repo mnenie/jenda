@@ -3,5 +3,5 @@ import { DefaultLayout } from '@/layouts';
 </script>
 
 <template>
-    <DefaultLayout> app </DefaultLayout>
+  <DefaultLayout> app </DefaultLayout>
 </template>
