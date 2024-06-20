@@ -11,7 +11,15 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.js": "prettier --write",
+    "*.ts": [
+      "prettier --write",
+      "eslint --no-error-on-unmatched-pattern --fix"
+    ]
   },
   "dependencies": {
     "pinia": "^2.1.7",
@@ -31,7 +39,9 @@
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
+    "husky": "^9.0.11",
     "jsdom": "^24.1.0",
+    "lint-staged": "^15.2.7",
     "npm-run-all2": "^6.2.0",
     "prettier": "^3.2.5",
     "typescript": "~5.4.0",
