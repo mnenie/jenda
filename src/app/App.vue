@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DefaultLayout } from '@/layouts'
+import { DefaultLayout } from '@/layouts';
 </script>
 
 <template>
