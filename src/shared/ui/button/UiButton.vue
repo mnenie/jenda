@@ -19,7 +19,7 @@ withDefaults(
   </button>
 </template>
 
-<style lang="scss" module>
+<style module lang="scss">
 @import '@/app/styles/mixins';
 
 .button {
@@ -28,7 +28,7 @@ withDefaults(
   align-items: center;
   white-space: nowrap;
   border-radius: 6px;
-  font-weight: 500;
+  font-weight: 500 !important;
   opacity: 1;
 
   @include on-focus {
@@ -36,8 +36,6 @@ withDefaults(
   }
   @include transition;
 }
-
-// variant
 
 .default {
   background-color: var(--zinc-900);
@@ -99,8 +97,6 @@ withDefaults(
     opacity: 0.5;
   }
 }
-
-// size
 
 .md {
   height: 32px;
