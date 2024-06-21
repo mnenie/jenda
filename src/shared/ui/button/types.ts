@@ -1,2 +1,2 @@
-export type ButtonType = 'default' | 'secondary' | 'ghost' | 'destructive';
-export type ButtonSize = 'default' | 'sm' | 'md' | 'lg';
+export type ButtonType = 'default' | 'secondary' | 'ghost' | 'destructive' | 'outline';
+export type ButtonSize = 'sm' | 'md' | 'lg';
