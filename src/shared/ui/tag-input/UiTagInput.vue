@@ -13,7 +13,7 @@ const props = withDefaults(
   }
 );
 
-const inputTags = ref(props.tags);
+const inputTags = ref([...props.tags]);
 
 const addTag = (event: Event) => {
   let val = (event.target as HTMLInputElement).value.trim();
