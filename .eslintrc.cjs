@@ -11,13 +11,18 @@ module.exports = {
     'plugin:storybook/recommended'
   ],
   rules: {
-    'vue/multi-word-component-names': 'off',
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['Header', 'Sidebar', 'Footer']
+      }
+    ],
     'vue/component-name-in-template-casing': [
       'error',
       'PascalCase',
       {
         registeredComponentsOnly: false,
-        ignores: ['/^d-/']
+        ignores: ['/^router-/', 'keep-alive']
       }
     ],
     'vue/html-self-closing': [

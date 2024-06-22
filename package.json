@@ -24,14 +24,21 @@
     ]
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.2",
+    "@vee-validate/zod": "^4.13.1",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/integrations": "^10.11.0",
+    "axios": "^1.7.2",
     "lucide-vue-next": "^0.396.0",
     "pinia": "^2.1.7",
+    "vee-validate": "^4.13.1",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.3.3",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@mnenie/prettier": "^1.0.4",
     "@rushstack/eslint-patch": "^1.8.0",
-    "@siberiacancode/prettier": "^1.1.1",
     "@storybook/addon-essentials": "^8.1.10",
     "@storybook/addon-interactions": "^8.1.10",
     "@storybook/addon-links": "^8.1.10",

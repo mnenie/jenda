@@ -1,7 +1,7 @@
-<script setup lang="ts">
-import { DefaultLayout } from '@/layouts';
-</script>
-
 <template>
-  <DefaultLayout> dizzo </DefaultLayout>
+  <router-view v-slot="{ Component }">
+    <keep-alive :include="['LoginPage', 'RegistrationPage']">
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
 </template>

@@ -1,11 +1,11 @@
 <template>
-  <div :class="$style.default_layout">
+  <div :class="$style.welcome_layout">
     <router-view />
   </div>
 </template>
 
 <style module lang="scss">
-.default_layout {
+.welcome_layout {
   height: 100dvh;
   width: 100%;
 }
