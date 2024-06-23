@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import { BgPanel, SignInForm } from '@/features/auth';
+import { AuthContainer } from '@/widgets/auth';
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: 'Dizzo | Login'
+});
 </script>
 
 <template>
   <div :class="$style.login">
-    <SignInForm />
+    <AuthContainer>
+      <SignInForm />
+    </AuthContainer>
     <BgPanel />
   </div>
 </template>

@@ -32,7 +32,7 @@ const emit = defineEmits(['update:modelValue']);
 .input_default {
   display: flex;
   width: 100%;
-  height: 32px;
+  height: 36px;
   border: 1px solid var(--zinc-200);
   border-radius: 6px;
   background-color: transparent;
@@ -40,10 +40,23 @@ const emit = defineEmits(['update:modelValue']);
   &::placeholder {
     color: var(--zinc-500);
   }
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   @include transition;
   @include on-focus {
     outline: none;
     border: 1px solid var(--zinc-800);
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type='password'] {
+    font-size: 17px !important;
+    letter-spacing: 0.05em;
+
+    &::placeholder {
+      font-size: 14px !important;
+      letter-spacing: 0;
+    }
   }
 }
 </style>

@@ -48,7 +48,7 @@ const { currentIndex } = useTextChanging(reviews);
 
     blockquote {
       z-index: 10;
-      font-size: 32px;
+      font-size: 28px;
       max-width: 42rem;
     }
 

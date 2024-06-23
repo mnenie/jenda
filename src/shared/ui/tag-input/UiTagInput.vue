@@ -68,6 +68,7 @@ const removeLastTag = (event: Event) => {
   border-radius: 6px;
   background-color: transparent;
   padding: 4px 12px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   &::placeholder {
     color: var(--zinc-500);
   }

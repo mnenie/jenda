@@ -10,6 +10,11 @@ export const reviews = ref<Review[]>([
   {
     id: '1',
     author: '@airvt1x',
-    text: `Check out this amazing product Dizzo. A must give try #newidea #tasks`
+    text: `I just learned about Dizzo and im in love 💫 Dizzo is a Trello/Jira alternative!💡so, simple for understanding !!!`
+  },
+  {
+    id: '2',
+    author: '@alexpeshkov',
+    text: `Dizzo is just 🔥 Now I understand why many people like to use it instead of analogues.`
   }
 ]);

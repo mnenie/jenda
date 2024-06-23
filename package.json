@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
+    "@unhead/vue": "^1.9.14",
     "@vee-validate/zod": "^4.13.1",
     "@vueuse/core": "^10.11.0",
     "@vueuse/integrations": "^10.11.0",

@@ -18,6 +18,11 @@
   line-height: 32px;
   font-weight: 500;
 }
+.text-xl {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
 .text-lg {
   font-size: 18px;
   line-height: 28px;
@@ -25,7 +30,7 @@
 }
 .text-base {
   font-size: 16px;
-  line-height: 26px;
+  line-height: 24px;
   font-weight: 400;
 }
 .text-sm {
@@ -35,6 +40,6 @@
 }
 .text-xs {
   font-size: 12px;
-  line-height: 18px;
+  line-height: 16px;
   font-weight: 400;
 }

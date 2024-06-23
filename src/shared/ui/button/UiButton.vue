@@ -40,6 +40,9 @@ withDefaults(
 .default {
   background-color: var(--zinc-900);
   color: var(--zinc-50);
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
 
   @include on-hover {
     opacity: 0.9;
@@ -52,6 +55,7 @@ withDefaults(
 .secondary {
   background-color: rgba(228, 228, 231, 0.8);
   color: var(--zinc-900);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
   @include on-hover {
     background-color: rgba(228, 228, 231, 0.7);
@@ -64,6 +68,7 @@ withDefaults(
 .destructive {
   background-color: var(--destructive);
   color: var(--zinc-50);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
   @include on-hover {
     opacity: 0.9;

@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-export default z.object({
+export const validationRules = z.object({
   email: z
     .string({ required_error: 'Email is a required field' })
     .nonempty('Email is a required field')
