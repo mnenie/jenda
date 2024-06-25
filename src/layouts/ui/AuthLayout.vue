@@ -1,6 +1,10 @@
 <template>
   <div :class="$style.auth_layout">
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <keep-alive :include="['Login', 'Registration']">
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
   </div>
 </template>
 

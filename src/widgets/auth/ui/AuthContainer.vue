@@ -16,7 +16,7 @@ const info = computed(() => {
 <template>
   <div :class="$style.container">
     <div :class="$style.container_inside">
-      <div :class="$style.top_part">
+      <div :class="$style.top_part" @click="$router.push({ name: RouteNames.dashboard })">
         <img src="/icons/kanban.png" />
         <h3 class="text-xl">Dizzo</h3>
       </div>
@@ -68,6 +68,7 @@ const info = computed(() => {
       align-items: center;
       justify-content: center;
       gap: 6px;
+      cursor: pointer;
 
       & img {
         width: 28px;

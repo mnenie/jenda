@@ -1,4 +1,4 @@
-import { onMounted, ref } from 'vue';
+import { onActivated, ref } from 'vue';
 import type { Ref } from 'vue';
 import type { Review } from '../types';
 
@@ -8,7 +8,7 @@ export default function useTextChanging(reviews: Ref<Review[]>) {
   const changeReviewText = () => {
     currentIndex.value = Math.floor(Math.random() * reviews.value.length);
   };
-  onMounted(() => {
+  onActivated(() => {
     changeReviewText();
   });
 

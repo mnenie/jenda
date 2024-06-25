@@ -1,7 +1,6 @@
 <template>
   <router-view v-slot="{ Component }">
-    <keep-alive :include="['LoginPage', 'RegistrationPage']">
-      <component :is="Component" />
-    </keep-alive>
+    <component :is="Component" />
+    <!-- keep alive at auth layout level -->
   </router-view>
 </template>

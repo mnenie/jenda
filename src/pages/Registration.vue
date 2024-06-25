@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { BgPanel, SignUpForm } from '@/features/auth';
 import { AuthContainer } from '@/widgets/auth';
-import { useHead } from '@unhead/vue'
+import { useHead } from '@unhead/vue';
 
 useHead({
   title: 'Dizzo | Registration'
-})
+});
 </script>
 
 <template>
