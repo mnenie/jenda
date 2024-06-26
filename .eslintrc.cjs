@@ -11,13 +11,7 @@ module.exports = {
     'plugin:storybook/recommended'
   ],
   rules: {
-    'vue/multi-word-component-names': [
-      'error',
-      {
-        ignores: ['Header', 'Sidebar', 'Footer'],
-        ignorePatterns: '^/pages/'
-      }
-    ],
+    'vue/multi-word-component-names': 'off',
     'vue/component-name-in-template-casing': [
       'error',
       'PascalCase',

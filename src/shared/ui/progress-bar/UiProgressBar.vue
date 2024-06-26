@@ -18,13 +18,13 @@ const activeWidth = computed(() => {
 
 <style module lang="scss">
 .progress_bar_container {
-  background-color: var(--zinc-300);
+  background-color: var(--zinc-200);
   height: 5px;
   width: 100%;
   border-radius: 10px;
 
   .progress_bar_active {
-    background-color: var(--zinc-700);
+    background-color: var(--purple-main);
     width: v-bind('activeWidth');
     height: 100%;
     border-radius: 10px;

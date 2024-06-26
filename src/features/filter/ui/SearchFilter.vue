@@ -10,9 +10,9 @@ const filter = ref('');
   <div :class="$style.search_container">
     <Search :class="$style.icon" :color="'rgb(82 82 91 / 0.9)'" />
     <UiInput
-      v-model.trim="filter"
-      ref="inputRef"
       id="input"
+      ref="inputRef"
+      v-model.trim="filter"
       :placeholder="'Search'"
       :class="$style.input_filter"
     />

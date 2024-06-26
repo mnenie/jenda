@@ -9,11 +9,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 20;
-  width: 20;
+  height: 32px;
+  width: 32px;
   user-select: none;
   overflow: hidden;
-  background-color: var(--zinc-200);
+  background-color: var(--zinc-100);
   color: var(--zinc-950);
+  border-radius: 50%;
 }
 </style>

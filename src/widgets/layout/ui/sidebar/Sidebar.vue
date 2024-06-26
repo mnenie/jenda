@@ -2,15 +2,15 @@
 import { UiBadge } from '@/shared/ui';
 import { links } from '../../config/links';
 import WorkSpace from './WorkSpace.vue';
-import SearchFilter from './SearchFilter.vue';
-import PlanCard from './PlanCard.vue';
+import { SearchFilter } from '@/features/filter';
+import { PlanCard } from '@/features/plan';
 </script>
 
 <template>
   <nav :class="$style.sidebar">
     <div :class="$style.name">
       <img src="/icons/kanban.png" />
-      <h3 class="heading-3">Dizzo</h3>
+      <h3 class="heading-4">Dizzo</h3>
       <UiBadge>free</UiBadge>
     </div>
     <div :class="$style.content">
@@ -32,7 +32,9 @@ import PlanCard from './PlanCard.vue';
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 15px 20px 12px 20px;
+  padding: 10px 15px 12px 15px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border-right: 1px solid var(--zinc-100);
 
   .name {
     display: flex;
@@ -42,8 +44,8 @@ import PlanCard from './PlanCard.vue';
     margin-bottom: 18px;
 
     & img {
-      width: 30px;
-      height: 30px;
+      width: 24px;
+      height: 24px;
     }
   }
 
