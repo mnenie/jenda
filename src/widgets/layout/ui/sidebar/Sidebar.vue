@@ -27,8 +27,8 @@ import { PlanCard } from '@/features/plan';
 @import '@/app/styles/mixins';
 
 .sidebar {
-  max-width: 240px;
-  min-width: 240px;
+  max-width: 260px;
+  min-width: 260px;
   width: 100%;
   display: flex;
   flex-direction: column;

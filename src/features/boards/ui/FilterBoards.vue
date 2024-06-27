@@ -19,7 +19,7 @@ const filter = ref('');
       />
     </div>
     <UiButton :variant="'dashed'">
-      <span style="margin-right: 6px; font-size: 13px; line-height: 1px">More Popular</span>
+      <span style="margin-right: 8px">More Popular</span>
       <ArrowUpWideNarrow :size="18" :color="'rgb(82 82 91 / 0.9)'" />
     </UiButton>
   </div>

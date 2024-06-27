@@ -24,7 +24,7 @@ import { Sidebar, HeaderMain } from '@/widgets/layout';
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: calc(100% - 240px);
+    width: calc(100% - 260px);
   }
 }
 </style>
