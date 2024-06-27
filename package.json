@@ -30,6 +30,7 @@
     "@vueuse/core": "^10.11.0",
     "@vueuse/integrations": "^10.11.0",
     "axios": "^1.7.2",
+    "chart.js": "^4.4.3",
     "lucide-vue-next": "^0.396.0",
     "pinia": "^2.1.7",
     "vee-validate": "^4.13.1",

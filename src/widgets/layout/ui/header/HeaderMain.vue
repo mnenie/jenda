@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { UserAvatar } from '@/entities/user';
 import { UiButton } from '@/shared/ui';
-import { Link, Play } from 'lucide-vue-next';
+import { Link } from 'lucide-vue-next';
 </script>
 
 <template>
@@ -36,9 +36,8 @@ import { Link, Play } from 'lucide-vue-next';
   align-items: center;
   justify-content: space-between;
   padding: 8px 15px;
-  border-bottom: 1px solid var(--zinc-100);
+  border-bottom: 1px solid var(--zinc-200);
   width: 100%;
-  // background-color: var(--zinc-50);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
   .about {

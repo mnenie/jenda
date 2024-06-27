@@ -16,7 +16,7 @@ const info = computed(() => {
 <template>
   <div :class="$style.container">
     <div :class="$style.container_inside">
-      <div :class="$style.top_part" @click="$router.push({ name: RouteNames.dashboard })">
+      <div :class="$style.top_part" @click="$router.push({ name: RouteNames.boards })">
         <img src="/icons/kanban.png" />
         <h3 class="text-xl">Dizzo</h3>
       </div>

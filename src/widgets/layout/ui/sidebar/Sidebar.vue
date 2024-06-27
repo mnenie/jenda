@@ -28,13 +28,14 @@ import { PlanCard } from '@/features/plan';
 
 .sidebar {
   max-width: 240px;
+  min-width: 240px;
   width: 100%;
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: 10px 15px 12px 15px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  border-right: 1px solid var(--zinc-100);
+  border-right: 1px solid var(--zinc-200);
 
   .name {
     display: flex;

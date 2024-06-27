@@ -42,6 +42,7 @@ import { WandSparkles } from 'lucide-vue-next';
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      margin-bottom: 2px;
 
       & p,
       & span {

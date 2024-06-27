@@ -103,6 +103,17 @@ withDefaults(
   }
 }
 
+.dashed {
+  border: 1px dashed var(--zinc-200);
+  color: var(--zinc-900);
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  
+  @include on-hover {
+    background-color: var(--zinc-50);
+  }
+}
+
 .md {
   height: 32px;
   padding: 8px 16px;

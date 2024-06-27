@@ -3,7 +3,7 @@ import { UiInput, UiBadge } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
 import { ref } from 'vue';
 
-const filter = ref('');
+const search = ref('');
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const filter = ref('');
     <UiInput
       id="input"
       ref="inputRef"
-      v-model.trim="filter"
+      v-model.trim="search"
       :placeholder="'Search'"
       :class="$style.input_filter"
     />

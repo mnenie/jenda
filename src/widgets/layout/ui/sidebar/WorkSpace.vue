@@ -15,7 +15,7 @@ defineProps<{
       :key="link.id"
       :variant="$route.name === link.pathName ? 'secondary' : 'ghost'"
     >
-      <RouterLink :to="{ name: 'dashboard' }" :class="$style.link">
+      <RouterLink :to="{ name: 'boards' }" :class="$style.link">
         <component :is="link.icon" :size="18" :color="'rgb(39 39 42)'" />
         <span class="text-sm">{{ link.title }}</span>
       </RouterLink>

@@ -10,8 +10,8 @@ const routes = [
     children: [
       {
         path: '',
-        name: RouteNames.dashboard,
-        component: () => import('@/pages/Dashboard.vue')
+        name: RouteNames.boards,
+        component: () => import('@/pages/Boards.vue')
       }
     ]
   },

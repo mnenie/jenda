@@ -13,7 +13,7 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      options: ['default', 'ghost', 'secondary', 'destructive', 'outline'],
+      options: ['default', 'ghost', 'secondary', 'destructive', 'outline', 'dashed'],
       defaultValue: 'default'
     }
   }
