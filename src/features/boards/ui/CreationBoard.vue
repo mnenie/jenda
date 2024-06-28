@@ -1,9 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { UiSheet } from '@/shared/ui';
+import type { SheetElement } from '@/shared/ui';
+import { ref } from 'vue';
+
+const sheet = ref<SheetElement | null>(null);
+
+const open = () => {
+  if (sheet.value) {
+    sheet.value.open();
+  }
+};
+</script>
 
 <template>
-  <div :class="$style.creation">
+  <div :class="$style.creation" @click="open">
     <span>+ Create new board</span>
   </div>
+  <UiSheet ref="sheet"> hello from sheet </UiSheet>
 </template>
 
 <style module lang="scss">
