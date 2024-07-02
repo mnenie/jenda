@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { UiSheet } from '@/shared/ui';
 import type { SheetElement } from '@/shared/ui';
-import { ref } from 'vue';
+import FormCreation from './FormCreation.vue';
 
 const sheet = ref<SheetElement | null>(null);
 
@@ -16,7 +17,17 @@ const open = () => {
   <div :class="$style.creation" @click="open">
     <span>+ Create new board</span>
   </div>
-  <UiSheet ref="sheet"> hello from sheet </UiSheet>
+  <UiSheet ref="sheet">
+    <template #header>
+      <p class="text-lg" style="font-weight: 500">Create board</p>
+      <span class="text-sm" style="color: var(--zinc-500)">
+        The new board will allow you to create tasks for solving them.
+      </span>
+    </template>
+    <template #default>
+      <FormCreation />
+    </template>
+  </UiSheet>
 </template>
 
 <style module lang="scss">

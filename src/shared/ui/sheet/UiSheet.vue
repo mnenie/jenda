@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, useCssModule } from 'vue';
+import { X } from 'lucide-vue-next';
 
 interface Props {
   overlay?: boolean;
@@ -95,6 +96,7 @@ defineExpose({ open, close });
       <div ref="sideSheetContent" :class="sheetContentClasses">
         <header ref="sideSheetHeader" :class="$style.sheet_header">
           <slot name="header" />
+          <X :size="17" :class="$style.header_icon" @click="close" />
         </header>
         <main ref="sideSheetMain" :class="$style.sheet_main">
           <slot />
@@ -177,15 +179,26 @@ defineExpose({ open, close });
   .sheet_footer:empty {
     display: none;
   }
-}
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity v-bind('transitionDurationTime') ease;
-}
+  .sheet_header{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 5px 0px;
+    margin-bottom: 20px;
 
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
+    .header_icon{
+      cursor: pointer;
+      color: var(--zinc-600);
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      transition: color 0.1s ease-in;
+
+      &:hover{
+        color: var(--zinc-900);
+      }
+    }
+  }
 }
 </style>
