@@ -15,7 +15,7 @@ const { value: name } = useField('name');
 const description = ref('');
 
 const create = handleSubmit((values) => {
-  // on login event
+  // create new board
 });
 </script>
 <template>
@@ -24,7 +24,7 @@ const create = handleSubmit((values) => {
       <div :class="$style.form_fields">
         <div v-auto-animate :class="$style.field">
           <label class="text-sm" for="name">Board name</label>
-          <UiInput id="name" v-model="name" :placeholder="'e.g. Nice Board'" />
+          <UiInput id="name" v-model="name" :placeholder="'e.g. Nice board'" />
           <span v-if="errors.name" class="text-xs">{{ errors.name }}</span>
         </div>
         <div v-auto-animate :class="$style.field">

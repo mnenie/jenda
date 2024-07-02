@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChartsBlock, TeamBoards } from '@/widgets/boards';
+import { ActivityСharts, TeamBoards } from '@/widgets/boards';
 import { useHead } from '@unhead/vue';
 
 useHead({
@@ -10,7 +10,7 @@ useHead({
 <template>
   <div :class="$style.boards">
     <TeamBoards />
-    <ChartsBlock />
+    <ActivityСharts />
   </div>
 </template>
 

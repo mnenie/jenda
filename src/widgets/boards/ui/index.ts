@@ -1,4 +1,4 @@
 import TeamBoards from './TeamBoards.vue';
-import ChartsBlock from './ChartsBlock.vue';
+import ActivityСharts from './ActivityСharts.vue';
 
-export { TeamBoards, ChartsBlock };
+export { TeamBoards, ActivityСharts };

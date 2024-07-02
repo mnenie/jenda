@@ -1,9 +1,8 @@
 <script setup lang="ts">
+import { BoardPreviewCard } from '@/entities/board';
 import type { BoardPreview } from '@/entities/board/model';
-import { UserAvatar } from '@/entities/user';
-import type { UserType } from '@/entities/user/model';
 import { CreationBoard, FilterBoards } from '@/features/boards';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 
 const boards = ref<BoardPreview[]>([
   {
@@ -17,12 +16,6 @@ const boards = ref<BoardPreview[]>([
     ]
   }
 ]);
-
-const userPosition = computed(() => {
-  return (board: BoardPreview, user: UserType) => {
-    return (board.users.length - 1 - +user._id!) * 12;
-  };
-});
 </script>
 
 <template>
@@ -38,29 +31,7 @@ const userPosition = computed(() => {
     </div>
     <div :class="$style.container">
       <CreationBoard />
-      <div v-for="board in boards" :key="board._id" :class="$style.active_board">
-        <div>
-          <p class="text-base" style="font-weight: 500">{{ board.title }}</p>
-          <span class="text-xs" style="color: var(--zinc-500)">{{ board.description }}</span>
-        </div>
-        <div :class="$style.bottom_part">
-          <span class="text-xs" style="color: var(--zinc-500)"> Updated: May 2024</span>
-          <div :class="$style.users">
-            <template v-for="user in board.users" :key="user._id">
-              <UserAvatar
-                :class="$style.user"
-                :style="{
-                  right: userPosition(board, user) + 'px',
-                  zIndex: userPosition(board, user),
-                  border: `1px solid ${user._id === '0' ? 'var(--purple-main)' : 'var(--zinc-300)'}`
-                }"
-              >
-                <img :src="user.photoUrl" style="width: 100%" />
-              </UserAvatar>
-            </template>
-          </div>
-        </div>
-      </div>
+      <BoardPreviewCard :boards="boards" />
     </div>
   </div>
 </template>
