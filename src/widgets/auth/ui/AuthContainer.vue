@@ -18,7 +18,7 @@ const info = computed(() => {
     <div :class="$style.container_inside">
       <div :class="$style.top_part" @click="$router.push({ name: RouteNames.boards })">
         <img src="/icons/kanban.png" />
-        <h3 class="text-xl">Dizzo</h3>
+        <h3 class="text-xl">Jenda</h3>
       </div>
       <div :class="$style.form_wrapper">
         <h2 class="heading-2">

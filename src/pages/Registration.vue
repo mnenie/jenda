@@ -4,7 +4,7 @@ import { AuthContainer } from '@/widgets/auth';
 import { useHead } from '@unhead/vue';
 
 useHead({
-  title: 'Dizzo | Registration'
+  title: 'Jenda | Registration'
 });
 </script>
 

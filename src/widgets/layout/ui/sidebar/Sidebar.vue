@@ -10,7 +10,7 @@ import { PlanCard } from '@/features/plan';
   <nav :class="$style.sidebar">
     <div :class="$style.name">
       <img src="/icons/kanban.png" />
-      <h3 class="heading-4">Dizzo</h3>
+      <h3 class="heading-4">Jenda</h3>
       <UiBadge>free</UiBadge>
     </div>
     <div :class="$style.content">

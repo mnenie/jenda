@@ -27,7 +27,7 @@ const create = handleSubmit((values) => {
           <UiInput id="name" v-model="name" :placeholder="'e.g. Nice board'" />
           <span v-if="errors.name" class="text-xs">{{ errors.name }}</span>
         </div>
-        <div v-auto-animate :class="$style.field">
+        <div :class="$style.field">
           <label class="text-sm" for="description">Board description</label>
           <UiInput
             id="description"

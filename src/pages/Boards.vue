@@ -3,7 +3,7 @@ import { ActivityСharts, TeamBoards } from '@/widgets/boards';
 import { useHead } from '@unhead/vue';
 
 useHead({
-  title: 'Dizzo - cloud program for project and task management'
+  title: 'Jenda - cloud program for project and task management'
 });
 </script>
 
