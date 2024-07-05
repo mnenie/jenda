@@ -1,17 +1,9 @@
 name: 'Create issues from TODOs'
 
-on:
-  push:
-    branches:
-      - dev
+on: [ "push" ]
 
 jobs:
-  todo:
-    permissions:
-      pull-requests: read
-      contents: read
-      actions: read
-      issues: write
+  build:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v3'
