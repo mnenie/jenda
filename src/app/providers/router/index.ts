@@ -39,7 +39,7 @@ export const router = createRouter({
 });
 
 router.beforeEach((to, from) => {
-  // TODO Add guards logic
+  // TODO: Add guards logic
   // Needs to add guard auth logic in router
 
   if (to.meta.requiresAuth === true) {
