@@ -5,6 +5,7 @@ import { toTypedSchema } from '@vee-validate/zod';
 import { Loader2 } from 'lucide-vue-next';
 import { validationRules } from '../config/validation';
 import { useField, useForm } from 'vee-validate';
+import { toast } from 'vue-sonner';
 
 const validationSchema = toTypedSchema(validationRules);
 
@@ -16,6 +17,7 @@ const { value: password } = useField('password');
 
 const onRegistration = handleSubmit((values) => {
   // on registration event
+  toast.warning('Jenda in dev mode and temporarily unavailable');
 });
 </script>
 

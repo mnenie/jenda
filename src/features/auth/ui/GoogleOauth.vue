@@ -2,12 +2,17 @@
 import { ref } from 'vue';
 import { UiButton } from '@/shared/ui';
 import { Loader2 } from 'lucide-vue-next';
+import { toast } from 'vue-sonner';
 
 const isLoading = ref(false);
+
+const onGoogleAuth = () => {
+  toast.warning('Jenda in dev mode and temporarily unavailable');
+};
 </script>
 
 <template>
-  <UiButton :variant="'outline'" :disabled="isLoading">
+  <UiButton :variant="'outline'" :disabled="isLoading" @click="onGoogleAuth">
     <Loader2 v-if="isLoading" :class="$style.loader" />
     <img src="/icons/google.png" :class="$style.google_img" />
     Google
