@@ -3,7 +3,7 @@ name: 'Create issues from TODOs'
 on:
   push:
     branches:
-      - dev
+      - 'dev'
 
 jobs:
   todo:
@@ -19,4 +19,5 @@ jobs:
         uses: 'alstr/todo-to-issue-action@v4'
         with:
           AUTO_ASSIGN: true
-          IGNORE: 'node_modules/, .vscode/.*'
+          CLOSE_ISSUES: true
+          IGNORE: "./vscode/*, node_modules"
