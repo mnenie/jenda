@@ -1,12 +1,6 @@
 name: Create issues from TODOs
 
 on:
-  workflow_dispatch:
-    inputs:
-      importAll:
-        default: false
-        required: false
-        type: boolean
   push:
     branches: 
       - dev
