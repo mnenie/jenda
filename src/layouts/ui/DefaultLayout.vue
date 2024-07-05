@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.default_layout">
-    <router-view />
+    <slot />
   </div>
 </template>
 

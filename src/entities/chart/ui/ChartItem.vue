@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import type { Chart } from '../model';
 
-defineProps<Omit<Chart, 'id'>>();
+defineProps<{
+  chart: Chart;
+}>();
 </script>
 
 <template>
   <div :class="$style.chart_container">
-    <h4 class="heading-4">{{ title }}</h4>
+    <h4 class="heading-4">{{ chart.title }}</h4>
     <p class="text-sm" style="color: var(--zinc-500)">
-      {{ description }}
+      {{ chart.description }}
     </p>
     <div :class="$style.chart">
-      <component :is="chart" />
+      <component :is="chart.chart" />
     </div>
   </div>
 </template>

@@ -5,7 +5,7 @@ import { UserAvatar } from '@/entities/user';
 import { computed } from 'vue';
 
 defineProps<{
-  boards: BoardPreview[],
+  board: BoardPreview,
 }>()
 
 const userPosition = computed(() => {
@@ -15,7 +15,7 @@ const userPosition = computed(() => {
 });
 </script>
 <template>
-  <div v-for="board in boards" :key="board._id" :class="$style.active_board">
+  <div :class="$style.active_board">
     <div>
       <p class="text-base" style="font-weight: 500">{{ board.title }}</p>
       <span class="text-xs" style="color: var(--zinc-500)">{{ board.description }}</span>

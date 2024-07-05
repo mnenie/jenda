@@ -7,7 +7,7 @@ import { Sidebar, HeaderMain } from '@/widgets/layout';
     <Sidebar />
     <div :class="$style.main_part">
       <HeaderMain />
-      <router-view style="background-color: var(--zinc-50);" />
+      <slot style="background-color: var(--zinc-50);" />
     </div>
   </div>
 </template>

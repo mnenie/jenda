@@ -31,7 +31,7 @@ const boards = ref<BoardPreview[]>([
     </div>
     <div :class="$style.container">
       <CreationBoard />
-      <BoardPreviewCard :boards="boards" />
+      <BoardPreviewCard v-for="board in boards" :key="board._id" :board="board" />
     </div>
   </div>
 </template>

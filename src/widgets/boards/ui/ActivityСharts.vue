@@ -5,13 +5,7 @@ import { ChartItem } from '@/entities/chart';
 
 <template>
   <div :class="$style.charts_container">
-    <ChartItem
-      v-for="data in chartsData"
-      :key="data.id"
-      :title="data.title"
-      :description="data.description"
-      :chart="data.chart"
-    />
+    <ChartItem v-for="data in chartsData" :key="data.id" :chart="data" />
   </div>
 </template>
 
