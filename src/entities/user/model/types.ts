@@ -8,6 +8,7 @@ export interface UserType extends DateParams {
   _id?: string;
   email: string;
   photoUrl?: string;
+  role?: string;
 }
 
 export interface UserAuth extends UserType {

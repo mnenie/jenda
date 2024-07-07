@@ -14,6 +14,46 @@ const routes = [
     }
   },
   {
+    name: RouteNames.templates,
+    path: '/templates',
+    component: () => import('@/pages/Templates.vue'),
+    meta: {
+      layout: SidebarLayout,
+      requiresAuth: true
+    }
+  },
+  {
+    name: RouteNames.settings,
+    path: '/settings',
+    component: () => import('@/pages/Settings.vue'),
+    meta: {
+      layout: SidebarLayout,
+      requiresAuth: true
+    }
+  },
+  {
+    name: RouteNames.members,
+    path: '/members',
+    component: () => import('@/pages/members/MembersOverview.vue'),
+    redirect: { name: RouteNames.members + '.all' },
+    children: [
+      {
+        name: RouteNames.members + '.all',
+        path: '',
+        component: () => import('@/pages/members/AllParticipants.vue')
+      },
+      {
+        name: RouteNames.members + '.guests',
+        path: 'guests',
+        component: () => import('@/pages/members/Guests.vue')
+      }
+    ],
+    meta: {
+      layout: SidebarLayout,
+      requiresAuth: true
+    }
+  },
+  {
     name: RouteNames.login,
     path: '/user/login',
     component: () => import('@/pages/Login.vue'),
@@ -41,7 +81,4 @@ export const router = createRouter({
 router.beforeEach((to, from) => {
   // TODO(@mnenie): Add guards logic
   // Needs to add guard auth logic in router
-  if (to.meta.requiresAuth === true) {
-    return router.push({ name: RouteNames.login });
-  }
 });

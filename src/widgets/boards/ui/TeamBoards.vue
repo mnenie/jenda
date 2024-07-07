@@ -2,7 +2,7 @@
 import { BoardPreviewCard } from '@/entities/board';
 import type { BoardPreview } from '@/entities/board/model';
 import { CreationBoard, FilterBoards } from '@/features/boards';
-import { ref } from 'vue';
+import { ref } from 'vue';;
 
 const boards = ref<BoardPreview[]>([
   {
