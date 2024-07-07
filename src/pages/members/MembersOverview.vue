@@ -1,0 +1,40 @@
+<script setup lang="ts">
+import { MainWrapper } from '@/widgets/members';
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: 'Jenda | Members'
+});
+</script>
+
+<template>
+  <div :class="$style.members">
+    <div :class="$style.top">
+      <h4 class="heading-4">Workspace participants (1)</h4>
+      <p v-once class="text-sm" style="color: var(--zinc-500)">
+        Members can view and join whiteboards for the workspace, as well as create new whiteboards in that
+        space.
+      </p>
+    </div>
+    <MainWrapper>
+      <RouterView />
+    </MainWrapper>
+  </div>
+</template>
+
+<style module lang="scss">
+.members {
+  height: 100%;
+  width: 100%;
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--zinc-200);
+  }
+}
+</style>

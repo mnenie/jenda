@@ -66,12 +66,13 @@ withDefaults(
 }
 
 .destructive {
-  background-color: var(--destructive);
-  color: var(--zinc-50);
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  background-color: white;
+  color: var(--destructive);
+  border: 1px solid var(--destructive);
 
   @include on-hover {
     opacity: 0.9;
+    background-color: rgb(254 242 242);
   }
   &:disabled {
     opacity: 0.5;

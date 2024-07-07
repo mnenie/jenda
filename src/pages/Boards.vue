@@ -18,7 +18,5 @@ useHead({
 .boards {
   height: 100%;
   width: 100%;
-  border-radius: 10px;
-  padding: 30px 45px;
 }
 </style>

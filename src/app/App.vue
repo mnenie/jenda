@@ -4,11 +4,11 @@ import { Toaster } from 'vue-sonner';
 
 <template>
   <component :is="$route.meta.layout">
-    <router-view v-slot="{ Component }">
-      <keep-alive :include="['Login', 'Registration']">
+    <RouterView v-slot="{ Component }">
+      <KeepAlive :include="['Login', 'Registration']">
         <component :is="Component" />
-      </keep-alive>
-    </router-view>
+      </KeepAlive>
+    </RouterView>
   </component>
   <Toaster position="bottom-right" closeButton />
 </template>

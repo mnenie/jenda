@@ -80,6 +80,7 @@ const onRegistration = handleSubmit((values) => {
 
       & span {
         color: var(--destructive);
+        font-weight: 500 !important;
       }
     }
   }
