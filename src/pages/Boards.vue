@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ActivityСharts, TeamBoards } from '@/widgets/boards';
 import { useHead } from '@unhead/vue';
+import { ActivityСharts, TeamBoards } from '@/widgets/boards';
 
 useHead({
   title: 'Jenda - cloud program for project and task management'

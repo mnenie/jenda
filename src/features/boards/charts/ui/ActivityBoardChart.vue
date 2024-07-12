@@ -27,6 +27,9 @@ onMounted(() => {
           grid: {
             display: false,
             color: 'rgb(244 244 245)'
+          },
+          ticks: {
+            precision: 0
           }
         }
       }

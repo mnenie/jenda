@@ -81,7 +81,4 @@ export const router = createRouter({
 router.beforeEach((to, from) => {
   // TODO(@mnenie): Add guards logic
   // Needs to add guard auth logic in router
-  if (to.meta.requiresAuth === true) {
-    return router.push({ name: RouteNames.login });
-  }
 });

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { MainWrapper } from '@/widgets/members';
 import { useHead } from '@unhead/vue';
+import { MainWrapper } from '@/widgets/members';
 
 useHead({
   title: 'Jenda | Members'

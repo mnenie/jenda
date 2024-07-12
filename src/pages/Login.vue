@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue';
 import { BgPanel, SignInForm } from '@/features/auth';
 import { AuthContainer } from '@/widgets/auth';
-import { useHead } from '@unhead/vue';
 
 useHead({
   title: 'Jenda | Login'
