@@ -14,7 +14,7 @@ import { ChartItem } from '@/entities/chart';
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
+  gap: 50px;
   padding-top: 20px;
   border-radius: 10px;
 }

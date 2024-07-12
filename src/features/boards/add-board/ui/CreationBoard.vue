@@ -15,7 +15,7 @@ const open = () => {
 
 <template>
   <div :class="$style.creation" @click="open">
-    <span>+ Create new board</span>
+    <span style="font-weight: 500;">+ Create new board</span>
   </div>
   <UiSheet ref="sheet">
     <template #header>
