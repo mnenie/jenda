@@ -1,5 +1,7 @@
 @mixin on-focus {
-  &:focus-visible {
-    @content;
+  & {
+    &:focus-visible {
+      @content;
+    }
   }
 }

@@ -12,7 +12,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   overlay: true,
   maxWidth: 640,
-  transitionDuration: 0.4,
+  transitionDuration: 0.35,
   overlayClickClose: true
 });
 
@@ -32,7 +32,7 @@ const sideSheetFooter = ref<HTMLElement | null>(null);
 const sideSheetContent = ref<HTMLElement | null>(null);
 
 const isFocused = (element: HTMLElement) => document.activeElement === element;
-window.addEventListener('keyup', (event: KeyboardEvent) => {
+document.addEventListener('keyup', (event: KeyboardEvent) => {
   const isSheetElementFocused =
     sideSheet.value!.contains(event.target as HTMLElement) && isFocused(event.target as HTMLElement);
 

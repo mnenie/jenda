@@ -1,8 +1,8 @@
 import type { Chart } from '@/entities/chart/model';
 import { ActivityBoardChart, ActivityTaskChart } from '@/features/boards';
-import { ref } from 'vue';
+import { shallowRef } from 'vue';
 
-export const chartsData = ref<Chart[]>([
+export const chartsData = shallowRef<Chart[]>([
   {
     id: '0',
     title: 'Сreated boards',
