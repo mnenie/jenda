@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
+import { SettingsElements } from '@/widgets/settings';
 
 useHead({
   title: 'Jenda | Settings'
@@ -13,10 +14,7 @@ useHead({
       Manage your account settings and set some preferences.
     </p>
   </div>
-  <div :class="$style.theme">
-    <p class="text-sm" style="font-weight: 500;">Theme</p>
-    <span class="text-xs" style="color: var(--zinc-500);">Select the theme for the dashboard.</span>
-  </div>
+  <SettingsElements />
 </template>
 
 <style module lang="scss">

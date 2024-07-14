@@ -69,13 +69,14 @@ const removeLastTag = (event: Event) => {
   background-color: transparent;
   padding: 4px 12px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  &::placeholder {
-    color: var(--zinc-500);
-  }
-  @include transition;
   @include on-focus {
     outline: none;
     border: 1px solid var(--zinc-800);
+  }
+  @include transition;
+
+  &::placeholder {
+    color: var(--zinc-500);
   }
 
   .badge {

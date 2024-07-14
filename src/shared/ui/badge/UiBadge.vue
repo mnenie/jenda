@@ -3,7 +3,7 @@ import type { BadgeType } from './types';
 
 withDefaults(
   defineProps<{
-    variant: BadgeType;
+    variant?: BadgeType;
   }>(),
   {
     variant: 'default'
