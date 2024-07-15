@@ -7,6 +7,7 @@ import { RouteNames } from '@/shared/config/consts';
 
 const props = defineProps<{
   links: Link[];
+  isExpanded: boolean;
 }>();
 
 const route = useRoute();
@@ -28,15 +29,33 @@ const pathName = computed(() => {
     isActive: isCurrentPath(link)
   }));
 });
+
+const contentPosition = computed(() => {
+  return props.isExpanded ? 'flex-start' : 'center';
+});
 </script>
 
 <template>
-  <p :class="[$style.name_block, 'text-sm']">workspace</p>
+  <p v-show="isExpanded" :class="[$style.name_block, 'text-sm']">workspace</p>
   <div :class="$style.sidebar_main_links">
-    <RouterLink v-for="link in pathName" :key="link.id" :to="{ name: link.pathName }" :class="$style.link">
-      <UiButton :variant="link.isActive ? 'secondary' : 'ghost'" :class="$style.link_btn">
+    <RouterLink
+      v-for="link in pathName"
+      :key="link.id"
+      v-tooltip.right="{
+        content: link.title,
+        triggers: ['hover'],
+        disabled: isExpanded
+      }"
+      :to="{ name: link.pathName }"
+      :class="$style.link"
+    >
+      <UiButton
+        :variant="link.isActive ? 'secondary' : 'ghost'"
+        :class="$style.link_btn"
+        :style="{ padding: !isExpanded ? '0px' : '' }"
+      >
         <component :is="link.icon" :size="18" :color="'rgb(39 39 42)'" />
-        <span class="text-sm">{{ link.title }}</span>
+        <span v-show="isExpanded" class="text-sm">{{ link.title }}</span>
       </UiButton>
     </RouterLink>
   </div>
@@ -67,9 +86,9 @@ const pathName = computed(() => {
     justify-content: flex-start;
     width: 100%;
 
-    .link_btn{
+    .link_btn {
       width: 100%;
-      justify-content: flex-start;
+      justify-content: v-bind('contentPosition');
       gap: 6px;
       box-shadow: none;
     }

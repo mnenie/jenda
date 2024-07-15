@@ -10,5 +10,5 @@ import { Toaster } from 'vue-sonner';
       </KeepAlive>
     </RouterView>
   </component>
-  <Toaster position="bottom-right" closeButton />
+  <Toaster position="bottom-right" close-button />
 </template>

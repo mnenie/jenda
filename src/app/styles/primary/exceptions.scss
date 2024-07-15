@@ -29,3 +29,15 @@ canvas{
   width: 100% !important;
   height: 100% !important;
 }
+
+.splitpanes--vertical .splitpanes__pane{
+  transition: none;
+}
+
+.splitpanes--vertical > .splitpanes__splitter {
+  display: none;
+}
+
+.splitpanes__pane{
+  overflow: unset;
+}

@@ -1,22 +1,42 @@
 <script setup lang="ts">
 import { UiInput, UiBadge } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import useFilter from '../lib/composables/useFilter';
+
+const props = defineProps<{
+  isExpanded: boolean;
+}>();
+
+const emit = defineEmits<{
+  (e: 'onToggle'): void;
+}>();
 
 const search = ref('');
+const inputRef = ref<HTMLElement | null>(null);
+const iconColor = computed(() => {
+  return props.isExpanded ? 'rgb(82 82 91 / 0.9)' : 'var(--zinc-700)';
+});
+
+const { onToggleArea } = useFilter(inputRef, props, emit);
 </script>
 
 <template>
   <div :class="$style.search_container">
-    <Search :class="$style.icon" :color="'rgb(82 82 91 / 0.9)'" />
+    <Search
+      :class="[isExpanded ? $style.icon : $style.icon_no_expanded]"
+      :color="iconColor"
+      @click="onToggleArea"
+    />
     <UiInput
+      v-show="isExpanded"
       id="input"
       ref="inputRef"
       v-model.trim="search"
       :placeholder="'Search'"
       :class="$style.input_filter"
     />
-    <UiBadge variant="secondary" :class="$style.badge">
+    <UiBadge v-show="isExpanded" variant="secondary" :class="$style.badge">
       <span>⌘</span>
       <span>K</span>
     </UiBadge>
@@ -34,6 +54,16 @@ const search = ref('');
     left: 0px;
     top: 50%;
     transform: translateY(-50%);
+    height: 16px;
+    width: 16px;
+  }
+
+  .icon_no_expanded {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     height: 16px;
     width: 16px;
   }
