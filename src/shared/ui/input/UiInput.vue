@@ -22,6 +22,7 @@ const emit = defineEmits(['update:modelValue']);
     :placeholder="placeholder"
     :type="type"
     :class="[$style.input_default, 'text-sm']"
+    autocomplete="on"
     @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
   />
 </template>
@@ -59,6 +60,17 @@ const emit = defineEmits(['update:modelValue']);
     &::placeholder {
       font-size: 14px !important;
       letter-spacing: 0;
+    }
+  }
+}
+
+:global(html.dark){
+  .input_default{
+    border-color: var(--zinc-600);
+    background-color: rgba(var(--zinc-rgb-700), 0.8);
+
+    &::placeholder {
+      color: var(--zinc-200);
     }
   }
 }

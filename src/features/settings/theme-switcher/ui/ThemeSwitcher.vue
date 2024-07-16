@@ -70,4 +70,13 @@ const themeAbout = computed(() => {
     border-color: var(--zinc-900);
   }
 }
+
+:global(html.dark) {
+  .active {
+    border-color: var(--zinc-300);
+    &:hover {
+      border-color: var(--zinc-300);
+    }
+  }
+}
 </style>

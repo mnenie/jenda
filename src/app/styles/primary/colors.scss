@@ -1,15 +1,26 @@
 :root {
-  --zinc-950: rgb(9 9 11);
-  --zinc-900: rgb(24 24 27);
-  --zinc-800: rgb(39 39 42);
-  --zinc-700: rgb(63 63 70);
-  --zinc-600: rgb(82 82 91);
-  --zinc-500: rgb(113 113 122);
-  --zinc-400: rgb(161 161 170);
-  --zinc-300: rgb(212 212 216);
-  --zinc-200: rgb(228 228 231);
-  --zinc-100: rgb(244 244 245);
+  --zinc-950: rgb(10 10 10);
+  --zinc-900: rgb(23 23 23);
+  --zinc-800: rgb(28, 28, 28);
+  --zinc-700: rgb(38 38 38);
+  --zinc-600: rgb(64 64 64);
+  --zinc-500: rgb(82 82 82);
+  --zinc-400: rgb(115 115 115);
+  --zinc-300: rgb(163 163 163);
+  --zinc-200: rgb(229 229 229);
+  --zinc-100: rgb(245 245 245);
   --zinc-50: rgb(250 250 250);
   --destructive: rgb(239 68 68);
-  --purple-main: rgb(105 101 219);
+  --purple-main: rgb(136, 133, 226);
+  --dark-border: rgb(28, 28, 28);
+  --dark-destructive: rgb(135, 34, 34);
+
+  // rgb for hover
+  --zinc-rgb-900: 24, 24, 27;
+  --zinc-rgb-800: 28, 28, 28;
+  --zinc-rgb-700: 38, 38, 38;
+  --zinc-rgb-600: 64, 64, 64;
+  --zinc-rgb-50: 250, 250, 250;
+  --purple-rgb: 136, 133, 226;
+  --dark-rgb-destructive: 135, 34, 34;
 }

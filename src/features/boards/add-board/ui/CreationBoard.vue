@@ -15,12 +15,12 @@ const open = () => {
 
 <template>
   <div :class="$style.creation" @click="open">
-    <span style="font-weight: 500;">+ Create new board</span>
+    <span style="font-weight: 500">+ Create new board</span>
   </div>
   <UiSheet ref="sheet">
     <template #header>
       <p class="text-lg" style="font-weight: 500">Create board</p>
-      <span class="text-sm" style="color: var(--zinc-500)">
+      <span :class="[$style.desc, 'text-sm']">
         The new board will allow you to create tasks for solving them.
       </span>
     </template>
@@ -42,5 +42,20 @@ const open = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.desc {
+  color: var(--zinc-500);
+}
+
+:global(html.dark) {
+  .creation {
+    background-color: rgba(var(--zinc-rgb-600), 0.4);
+    border-color: var(--zinc-600);
+    color: var(--zinc-100);
+  }
+  .desc {
+    color: var(--zinc-300);
+  }
 }
 </style>

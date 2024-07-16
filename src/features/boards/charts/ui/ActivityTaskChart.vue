@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { dataTasks } from '../config/charts';
 import { Chart } from 'chart.js/auto';
 import type { ChartItem } from 'chart.js';
+import { dataTasks, options } from '../config';
+import useChart from '../lib/composables/useChart';
 
 const chartRef = ref<ChartItem>();
 
@@ -10,29 +11,11 @@ onMounted(() => {
   new Chart(chartRef.value!, {
     type: 'line',
     data: dataTasks,
-    options: {
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-      scales: {
-        x: {
-          grid: {
-            display: false,
-            color: 'rgb(244 244 245)'
-          }
-        },
-        y: {
-          grid: {
-            display: false,
-            color: 'rgb(244 244 245)'
-          }
-        }
-      }
-    }
+    options: options
   });
 });
+
+useChart(dataTasks, options);
 </script>
 
 <template>

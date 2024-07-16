@@ -21,16 +21,16 @@ a {
   padding: 4px 10px !important;
 }
 
-.v-popper__arrow-container{
+.v-popper__arrow-container {
   display: none !important;
 }
 
-canvas{
+canvas {
   width: 100% !important;
   height: 100% !important;
 }
 
-.splitpanes--vertical .splitpanes__pane{
+.splitpanes--vertical .splitpanes__pane {
   transition: none;
 }
 
@@ -38,6 +38,10 @@ canvas{
   display: none;
 }
 
-.splitpanes__pane{
-  overflow: unset;
+[data-sonner-toaster][data-theme='dark'] {
+  --normal-bg: var(--zinc-700) !important;
+  --normal-border: hsl(0, 0%, 20%);
+  --normal-text: var(--gray1);
+  --success-border: hsl(147, 100%, 12%);
+  --info-bg: var(--zinc-700);
 }

@@ -79,4 +79,13 @@
   border-radius: 50%;
   background-color: #e2e8f0;
 }
+
+:global(html.dark) {
+  .main_container {
+    border-color: var(--zinc-500);
+    &:hover {
+      border-color: var(--zinc-400);
+    }
+  }
+}
 </style>

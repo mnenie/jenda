@@ -9,8 +9,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 29px;
+  width: 29px;
   user-select: none;
   overflow: hidden;
   background-color: var(--zinc-100);

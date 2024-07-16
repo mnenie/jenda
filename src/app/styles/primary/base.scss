@@ -12,12 +12,18 @@ html {
   text-size-adjust: 100%;
 }
 
+html.dark {
+  background-color: var(--zinc-700);
+  color-scheme: dark;
+}
+
 body {
   height: 100%;
   width: 100%;
   font-family: Geist, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
 }
 
 .container {

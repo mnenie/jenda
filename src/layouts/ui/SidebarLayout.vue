@@ -63,4 +63,14 @@ const onToggleArea = () => {
     }
   }
 }
+
+:global(.dark) {
+  .sidebar_layout {
+    .main_part {
+      .slot {
+        background-color: var(--zinc-700);
+      }
+    }
+  }
+}
 </style>

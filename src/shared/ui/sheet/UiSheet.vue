@@ -31,12 +31,8 @@ const sideSheetMain = ref<HTMLElement | null>(null);
 const sideSheetFooter = ref<HTMLElement | null>(null);
 const sideSheetContent = ref<HTMLElement | null>(null);
 
-const isFocused = (element: HTMLElement) => document.activeElement === element;
 document.addEventListener('keyup', (event: KeyboardEvent) => {
-  const isSheetElementFocused =
-    sideSheet.value!.contains(event.target as HTMLElement) && isFocused(event.target as HTMLElement);
-
-  if (event.key === 'Escape' && !isSheetElementFocused) {
+  if (event.key === 'Escape') {
     close();
   }
 });
@@ -198,6 +194,14 @@ defineExpose({ open, close });
       &:hover{
         color: var(--zinc-900);
       }
+    }
+  }
+}
+
+:global(html.dark){
+  .sheet {
+    .sheet_content{
+      background-color: rgba(var(--zinc-rgb-800), 1);
     }
   }
 }

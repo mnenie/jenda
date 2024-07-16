@@ -5,8 +5,8 @@ import { UserAvatar } from '@/entities/user';
 import { computed } from 'vue';
 
 defineProps<{
-  board: BoardPreview,
-}>()
+  board: BoardPreview;
+}>();
 
 const userPosition = computed(() => {
   return (board: BoardPreview, user: UserType) => {
@@ -16,12 +16,12 @@ const userPosition = computed(() => {
 </script>
 <template>
   <div :class="$style.active_board">
-    <div>
+    <div :class="$style.text">
       <p class="text-base" style="font-weight: 500">{{ board.title }}</p>
-      <span class="text-xs" style="color: var(--zinc-500)">{{ board.description }}</span>
+      <span class="text-xs">{{ board.description }}</span>
     </div>
     <div :class="$style.bottom_part">
-      <span class="text-xs" style="color: var(--zinc-500)"> Updated: May 2024</span>
+      <span class="text-xs"> Updated: May 2024</span>
       <div :class="$style.users">
         <template v-for="user in board.users" :key="user._id">
           <UserAvatar
@@ -54,11 +54,21 @@ const userPosition = computed(() => {
   padding: 15px;
   cursor: pointer;
 
+  .text {
+    & span {
+      color: var(--zinc-500);
+    }
+  }
+
   .bottom_part {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     width: 100%;
+
+    & > span {
+      color: var(--zinc-500);
+    }
 
     .users {
       position: relative;
@@ -72,6 +82,29 @@ const userPosition = computed(() => {
         width: 22px;
         position: absolute;
         top: 0;
+      }
+    }
+  }
+}
+
+:global(html.dark) {
+  .active_board {
+    background-color: rgba(var(--zinc-rgb-600), 0.4);
+    border-color: var(--zinc-600);
+    color: var(--zinc-100);
+
+    .text {
+      & p {
+        color: var(--zinc-100);
+      }
+      & span {
+        color: var(--zinc-200);
+      }
+    }
+
+    .bottom_part{
+      & > span {
+        color: var(--zinc-300)
       }
     }
   }

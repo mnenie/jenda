@@ -42,7 +42,7 @@ defineProps<{
   align-items: flex-start;
   @include transition;
 
-  &:hover{
+  &:hover {
     border: 1px solid var(--purple-main);
   }
 
@@ -82,6 +82,24 @@ defineProps<{
       width: 20px;
       height: 20px;
       border-radius: 50%;
+    }
+  }
+}
+
+:global(html.dark) {
+  .item {
+    background-color: rgba(var(--zinc-rgb-600), 0.4);
+    border-color: var(--zinc-600);
+    &:hover {
+      border-color: var(--zinc-400);
+    }
+    .img_wrapper{
+      border-color: var(--zinc-600);
+    }
+    .main_content{
+      & span {
+        color: var(--zinc-200);
+      }
     }
   }
 }

@@ -15,9 +15,11 @@ import { redirect } from '@/shared/lib/helpers';
 
 <style module lang="scss">
 .main_text {
-  padding: 13px 0px 0px 0px;
+  padding: 10px 0px 0px 0px;
   text-align: center;
   color: #72717a;
+  max-width: 320px;
+  margin: 0 auto;
 
   .inside {
     cursor: pointer;
@@ -27,6 +29,19 @@ import { redirect } from '@/shared/lib/helpers';
 
     &:hover {
       color: var(--zinc-900);
+    }
+  }
+}
+
+:global(html.dark){
+  .main_text{
+    color: var(--zinc-300);
+
+    .inside{
+
+      &:hover{
+        color: var(--zinc-400);
+      }
     }
   }
 }

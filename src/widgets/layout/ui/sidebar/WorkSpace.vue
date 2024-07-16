@@ -3,6 +3,7 @@ import { UiButton } from '@/shared/ui';
 import type { Link } from '../../types';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { useDark } from '@vueuse/core';
 import { RouteNames } from '@/shared/config/consts';
 
 const props = defineProps<{
@@ -11,6 +12,7 @@ const props = defineProps<{
 }>();
 
 const route = useRoute();
+const isDark = useDark();
 
 const isCurrentPath = (link: Link) => {
   if (
@@ -33,6 +35,13 @@ const pathName = computed(() => {
 const contentPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center';
 });
+const iconColor = computed(() => {
+  if (isDark.value) {
+    return !props.isExpanded ? 'var(--zinc-200)' : 'var(--zinc-300)';
+  } else {
+    return !props.isExpanded ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
+  }
+});
 </script>
 
 <template>
@@ -54,7 +63,7 @@ const contentPosition = computed(() => {
         :class="$style.link_btn"
         :style="{ padding: !isExpanded ? '0px' : '' }"
       >
-        <component :is="link.icon" :size="18" :color="'rgb(39 39 42)'" />
+        <component :is="link.icon" :size="18" :color="iconColor" />
         <span v-show="isExpanded" class="text-sm">{{ link.title }}</span>
       </UiButton>
     </RouterLink>
@@ -96,6 +105,18 @@ const contentPosition = computed(() => {
     & span {
       font-weight: 500 !important;
       color: var(--zinc-900);
+    }
+  }
+}
+
+:global(html.dark) {
+  .sidebar_main_links {
+    .link {
+      .link_btn {
+        & span {
+          color: var(--zinc-100);
+        }
+      }
     }
   }
 }

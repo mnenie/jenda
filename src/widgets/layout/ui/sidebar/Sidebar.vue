@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useDark } from '@vueuse/core';
 import { UiBadge } from '@/shared/ui';
 import { links } from '../../config/links';
 import WorkSpace from './WorkSpace.vue';
 import { SearchFilter } from '@/features/filter';
 import { PlanCard } from '@/features/plan';
-import { computed } from 'vue';
+import { ArrowsDouble } from '@/shared/assets/icons';
 import { ChevronRight } from 'lucide-vue-next';
 
 const props = defineProps<{
@@ -21,20 +23,26 @@ const contentPosition = computed(() => {
 const paddingExpanded = computed(() => {
   return props.isExpanded ? '10px 15px 12px 15px' : '10px';
 });
+
+const isDark = useDark();
+
+const iconUrl = computed(() => {
+  return isDark.value ? '/icons/kanban-dark.png' : '/icons/kanban.png';
+});
 </script>
 
 <template>
   <nav :class="$style.sidebar" :style="{ padding: paddingExpanded }">
     <div :class="$style.name">
       <div :class="$style.text">
-        <img src="/icons/kanban.png" :style="{ marginTop: isExpanded ? '0px' : '3px' }" />
+        <img :src="iconUrl" :style="{ marginTop: isExpanded ? '0px' : '3px' }" />
         <h3 v-show="isExpanded" class="heading-4">Jenda</h3>
         <UiBadge v-show="isExpanded">free</UiBadge>
       </div>
       <div v-if="!isExpanded" :class="$style.arrow_expanded">
-        <ChevronRight :size="14" color="white" @click="emit('onToggle')" />
+        <ChevronRight :size="14" @click="emit('onToggle')" />
       </div>
-      <img v-show="isExpanded" src="/icons/arrows.svg" :class="$style.icon" @click="emit('onToggle')" />
+      <ArrowsDouble v-show="isExpanded" :class="$style.icon" @click="emit('onToggle')" />
     </div>
     <div :class="$style.content">
       <div>
@@ -102,9 +110,9 @@ const paddingExpanded = computed(() => {
   }
 
   .arrow_expanded {
-    position: absolute;
-    right: -20px;
-    top: 60%;
+    position: fixed;
+    left: 46px;
+    top: 40%;
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
@@ -113,10 +121,23 @@ const paddingExpanded = computed(() => {
     background-color: rgba(0, 0, 0, 0.4);
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
+    color: var(--zinc-100);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 100;
+  }
+}
+
+:global(.dark) {
+  .sidebar {
+    background-color: rgba(var(--zinc-rgb-800), 0.5);
+    border-color: var(--dark-border);
+  }
+
+  .arrow_expanded{
+    background-color: rgba(var(--zinc-rgb-600), 0.8);
+    color: var(--zinc-200);
   }
 }
 </style>

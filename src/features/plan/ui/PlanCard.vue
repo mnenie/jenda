@@ -1,33 +1,41 @@
 <script setup lang="ts">
-import { UiProgressBar } from '@/shared/ui';
-import { WandSparkles } from 'lucide-vue-next';
 import { computed } from 'vue';
+import { useDark } from '@vueuse/core';
+import { UiProgressBar } from '@/shared/ui';
+import { WandSparkles, DollarSign } from 'lucide-vue-next';
 
 const props = defineProps<{
   isExpanded: boolean;
 }>();
 
+const isDark = useDark();
+
 const planPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center';
 });
-
 const iconSize = computed(() => {
   return props.isExpanded ? '18px' : '17px';
+});
+const iconColor = computed(() => {
+  return isDark.value ? 'var(--zinc-300)' : 'var(--zinc-700)';
 });
 </script>
 <template>
   <div>
-    <div :class="$style.content">
-      <WandSparkles :class="$style.icon" :color="'var(--zinc-700)'" />
-      <div v-if="isExpanded" :class="$style.plan_about">
+    <div v-if="isExpanded" :class="$style.content">
+      <WandSparkles :class="$style.icon" :color="iconColor" />
+      <div :class="$style.plan_about">
         <div :class="$style.text">
           <span class="text-xs">Upgrade your plan</span>
           <span class="text-xs">6/10</span>
         </div>
         <UiProgressBar :progress="6" />
       </div>
-      <div v-else :class="$style.absolute_plan">
-        <span>6</span>
+    </div>
+    <div v-else :class="$style.no_expanded_plan">
+      <span class="text-sm">free</span>
+      <div :class="$style.absolute_plan">
+        <DollarSign :class="$style.icon" :color="'var(--purple-main)'" />
       </div>
     </div>
   </div>
@@ -68,23 +76,45 @@ const iconSize = computed(() => {
       }
     }
   }
+}
+.no_expanded_plan {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > span {
+    color: var(--zinc-600);
+    font-weight: 500 !important;
+  }
 
   .absolute_plan {
+    cursor: pointer;
     position: absolute;
-    right: -2px;
-    top: -4px;
+    left: -3px;
+    top: 0px;
     width: 11px;
     height: 11px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--purple-main);
-    border-radius: 50%;
+  }
+}
 
-    & > span {
-      color: white;
-      font-weight: 500 !important;
-      font-size: 9px;
+:global(html.dark) {
+  .content {
+    .plan_about {
+      .text {
+        & p,
+        span {
+          color: var(--zinc-200);
+        }
+      }
+    }
+  }
+  .no_expanded_plan {
+    & span {
+      color: var(--zinc-300);
     }
   }
 }

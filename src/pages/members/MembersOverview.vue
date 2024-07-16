@@ -11,7 +11,7 @@ useHead({
   <div :class="$style.members">
     <div :class="$style.top">
       <h4 class="heading-4">Workspace participants (1)</h4>
-      <p v-once class="text-sm" style="color: var(--zinc-500)">
+      <p v-once class="text-sm">
         Members can view and join whiteboards for the workspace, as well as create new whiteboards in that
         space.
       </p>
@@ -35,6 +35,21 @@ useHead({
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--zinc-200);
+
+    & > p {
+      color: var(--zinc-500);
+    }
+  }
+}
+
+:global(html.dark){
+  .members{
+    .top{
+      border-color: var(--zinc-600);
+      & > p {
+        color: var(--zinc-300);
+      }
+    }
   }
 }
 </style>

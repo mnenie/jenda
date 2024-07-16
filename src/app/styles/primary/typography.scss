@@ -51,3 +51,60 @@
   line-height: 16px;
   font-weight: 400;
 }
+
+@media screen and (max-width: 1440px) {
+  .heading-1 {
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: 600;
+  }
+  
+  .heading-2 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  
+  .heading-3 {
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+  
+  .heading-4 {
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 500;
+  }
+  
+  .text-xl {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+  
+  .text-lg {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+  
+  .text-base {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  
+  .text-sm {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  
+  .text-xs {
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 400;
+  }
+  
+}

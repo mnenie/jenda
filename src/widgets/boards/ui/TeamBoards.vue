@@ -2,7 +2,7 @@
 import { BoardPreviewCard } from '@/entities/board';
 import type { BoardPreview } from '@/entities/board/model';
 import { CreationBoard, FilterBoards } from '@/features/boards';
-import { ref } from 'vue';;
+import { ref } from 'vue';
 
 const boards = ref<BoardPreview[]>([
   {
@@ -21,11 +21,9 @@ const boards = ref<BoardPreview[]>([
 <template>
   <div :class="$style.boards_inside">
     <div :class="$style.top_part">
-      <div>
+      <div :class="$style.text">
         <h4 class="heading-4">Boards in this team</h4>
-        <p class="text-sm" style="color: var(--zinc-500)">
-          All your active boards are located here, which you can switch to and work on
-        </p>
+        <p class="text-sm">All your active boards are located here, which you can switch to and work on</p>
       </div>
       <FilterBoards />
     </div>
@@ -44,6 +42,12 @@ const boards = ref<BoardPreview[]>([
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    .text {
+      & p {
+        color: var(--zinc-500);
+      }
+    }
   }
 
   .container {
@@ -88,6 +92,18 @@ const boards = ref<BoardPreview[]>([
           width: 22px;
           position: absolute;
           top: 0;
+        }
+      }
+    }
+  }
+}
+
+:global(html.dark) {
+  .boards_inside {
+    .top_part {
+      .text {
+        & p {
+          color: var(--zinc-300);
         }
       }
     }

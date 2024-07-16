@@ -36,7 +36,7 @@
     flex-direction: column;
     gap: 8px;
     border-radius: 4px;
-    background-color: var(--zinc-800);
+    background-color: var(--zinc-700);
     padding: 8px;
 
     .item {
@@ -75,6 +75,15 @@
         border-radius: 50%;
         background-color: var(--zinc-100);
       }
+    }
+  }
+}
+
+:global(html.dark) {
+  .main_container {
+    border-color: var(--zinc-500);
+    &:hover {
+      border-color: var(--zinc-400);
     }
   }
 }

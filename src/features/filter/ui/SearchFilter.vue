@@ -3,6 +3,7 @@ import { UiInput, UiBadge } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 import useFilter from '../lib/composables/useFilter';
+import { useDark } from '@vueuse/core';
 
 const props = defineProps<{
   isExpanded: boolean;
@@ -14,8 +15,14 @@ const emit = defineEmits<{
 
 const search = ref('');
 const inputRef = ref<HTMLElement | null>(null);
+
+const isDark = useDark();
 const iconColor = computed(() => {
-  return props.isExpanded ? 'rgb(82 82 91 / 0.9)' : 'var(--zinc-700)';
+  if (isDark.value) {
+    return !props.isExpanded ? 'var(--zinc-200)' : 'var(--zinc-300)';
+  } else {
+    return !props.isExpanded ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
+  }
 });
 
 const { onToggleArea } = useFilter(inputRef, props, emit);
@@ -89,6 +96,19 @@ const { onToggleArea } = useFilter(inputRef, props, emit);
     & span {
       color: var(--zinc-500);
       font-size: 10px;
+    }
+  }
+}
+
+:global(html.dark) {
+  .search_container {
+    .input_filter {
+      background-color: transparent;
+    }
+    .badge {
+      & span {
+        color: var(--zinc-300);
+      }
     }
   }
 }
