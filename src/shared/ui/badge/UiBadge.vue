@@ -43,4 +43,16 @@ withDefaults(
   color: var(--zinc-900);
   background-color: white;
 }
+
+:global(html.dark) {
+  .default {
+    background-color: var(--zinc-100);
+    color: var(--zinc-900);
+  }
+
+  .secondary {
+    background-color: rgba(var(--zinc-rgb-600), 0.5);
+    color: var(--zinc-200);
+  }
+}
 </style>

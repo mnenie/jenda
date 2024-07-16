@@ -26,6 +26,10 @@ import { LanguageSwitcher } from '@/features/settings/lang-switcher';
   margin-bottom: 40px;
   align-items: flex-start;
 
+  & > p {
+    color: var(--zinc-950);
+  }
+
   & > span {
     color: var(--zinc-500);
   }
@@ -35,8 +39,33 @@ import { LanguageSwitcher } from '@/features/settings/lang-switcher';
   .text {
     margin-bottom: 12px;
 
+    & p {
+      color: var(--zinc-950);
+    }
+
     & span {
       color: var(--zinc-500);
+    }
+  }
+}
+
+:global(html.dark) {
+  .lang {
+    & > p {
+      color: var(--zinc-200);
+    }
+    & > span {
+      color: var(--zinc-300);
+    }
+  }
+  .theme {
+    .text {
+      & p {
+        color: var(--zinc-200);
+      }
+      & span {
+        color: var(--zinc-300);
+      }
     }
   }
 }

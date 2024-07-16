@@ -37,4 +37,12 @@ const members = reactive<UserType[]>([
     max-width: 540px;
   }
 }
+
+:global(html.dark){
+  .about {
+    & p {
+      color: var(--zinc-300);
+    }
+  }
+}
 </style>

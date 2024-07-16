@@ -9,22 +9,22 @@ import { Link } from 'lucide-vue-next';
     <div :class="$style.about">
       <div :class="$style.workspace_part">
         <div :class="$style.box">
-          <span style="color: var(--zinc-900)">T</span>
+          <span>T</span>
         </div>
         <div :class="$style.name">
-          <p class="text-base" style="font-weight: 500; line-height: 22px;">Test Workspace</p>
+          <p class="text-base" style="font-weight: 500; line-height: 22px">Test Workspace</p>
           <span class="text-xs">Boards</span>
         </div>
       </div>
     </div>
     <div :class="$style.user_section">
-      <UiButton :size="'lg'" style="background-color: var(--purple-main)"> Upgrade "Pro" </UiButton>
-      <UiButton :size="'lg'" :variant="'secondary'">
+      <UiButton :class="$style.upgrade"> Upgrade "Pro" </UiButton>
+      <UiButton :variant="'secondary'">
         <Link :size="18" style="margin-right: 8px" />
         <span>Invite members</span>
       </UiButton>
       <UserAvatar>
-        <img src="https://www.shadcn-vue.com/avatars/02.png" style="width: 100%" />
+        <img src="https://avatars.githubusercontent.com/u/121057011?v=4" style="width: 100%" />
       </UserAvatar>
     </div>
   </div>
@@ -35,7 +35,7 @@ import { Link } from 'lucide-vue-next';
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 15px;
+  padding: 6px 15px;
   border-bottom: 1px solid var(--zinc-200);
   width: 100%;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -59,6 +59,10 @@ import { Link } from 'lucide-vue-next';
         justify-content: center;
         align-items: center;
         border-radius: 6px;
+
+        & > span {
+          color: var(--zinc-900);
+        }
       }
 
       .name {
@@ -73,6 +77,36 @@ import { Link } from 'lucide-vue-next';
     align-items: center;
     height: 100%;
     gap: 10px;
+
+    .upgrade {
+      background-color: var(--purple-main);
+      &:hover {
+        background-color: rgba(var(--purple-rgb), 0.9);
+      }
+    }
+  }
+}
+
+:global(html.dark) {
+  .header {
+    border-color: var(--dark-border);
+
+    .about {
+      .workspace_part {
+        .box {
+          background: rgba(var(--zinc-rgb-600), 0.8);
+          & > span {
+            color: var(--zicn-600);
+          }
+        }
+      }
+    }
+
+    .user_section {
+      .upgrade {
+        color: var(--zinc-100);
+      }
+    }
   }
 }
 </style>

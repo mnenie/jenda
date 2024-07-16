@@ -45,7 +45,7 @@ withDefaults(
     0 1px 2px -1px rgb(0 0 0 / 0.1);
 
   @include on-hover {
-    opacity: 0.9;
+    background-color: rgba(var(--zinc-rgb-900), 0.9);
   }
   &:disabled {
     opacity: 0.5;
@@ -109,7 +109,7 @@ withDefaults(
   color: var(--zinc-900);
   background-color: white;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  
+
   @include on-hover {
     background-color: var(--zinc-50);
   }
@@ -128,5 +128,62 @@ withDefaults(
 .sm {
   height: 28px;
   padding: 8px 12px;
+}
+
+:global(html.dark) {
+  .default {
+    background-color: var(--zinc-200);
+    color: var(--zinc-950);
+
+    @include on-hover {
+      background-color: rgba(var(--zinc-rgb-50), 0.9);
+    }
+  }
+
+  .secondary {
+    background-color: rgba(var(--zinc-rgb-600), 0.55);
+    color: var(--zinc-200);
+
+    @include on-hover {
+      background-color: rgba(var(--zinc-rgb-600), 0.5);
+    }
+  }
+  .ghost {
+    color: var(--zinc-100);
+
+    @include on-hover {
+      background-color: var(--zinc-700);
+    }
+  }
+
+  .outline {
+    border: 1px solid var(--zinc-600);
+    color: var(--zinc-200);
+    background-color: rgba(var(--zinc-rgb-700), 0.8);
+
+    @include on-hover {
+      border-color: var(--zinc-500);
+    }
+  }
+
+  .destructive {
+    background-color: var(--dark-destructive);
+    color: var(--zinc-100);
+    border-color: var(--dark-destructive);
+
+    @include on-hover {
+      background-color: rgba(var(--dark-rgb-destructive), 0.95);
+    }
+  }
+
+  .dashed {
+    border: 1px dashed var(--zinc-600);
+    color: var(--zinc-200);
+    background-color: rgba(var(--zinc-rgb-600), 0.5);
+
+    @include on-hover {
+      background-color: rgba(var(--zinc-rgb-600), 0.4);
+    }
+  }
 }
 </style>

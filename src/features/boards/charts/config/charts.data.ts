@@ -18,7 +18,8 @@ export const dataTasks: ChartData = {
     {
       label: 'Tasks',
       data: [65, 59, 80, 81, 56, 55, 40, 20, 22, 100, 32, 15],
-      backgroundColor: 'rgb(228 228 231)'
+      backgroundColor: 'rgb(228 228 231)',
+      borderColor: 'rgb(228 228 231)'
     }
   ]
 };

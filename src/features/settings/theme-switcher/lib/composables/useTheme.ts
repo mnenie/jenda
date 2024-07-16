@@ -4,7 +4,9 @@ import { useColorMode } from '@vueuse/core';
 import type { ThemeBlock } from '../../model';
 
 export default function useTheme(themeBlocks: Ref<ThemeBlock[]>) {
-  const { store } = useColorMode();
+  const { store } = useColorMode({
+    initialValue: 'auto'
+  });
 
   const selectedThemeId = ref(themeBlocks.value.find((item) => item.active)?.id || 0);
 
@@ -21,7 +23,6 @@ export default function useTheme(themeBlocks: Ref<ThemeBlock[]>) {
     if (selectedTheme) {
       store.value = selectedTheme.value;
     }
-    console.log(store.value);
   };
 
   return {

@@ -15,6 +15,6 @@ export const reviews = ref<Review[]>([
   {
     id: '2',
     author: '@alexpeshkov',
-    text: `Jenda is just 🔥 Now I understand why many people like to use it instead of analogues.`
+    text: `So, Jenda is just 🔥 Now I understand why many people like to use it.`
   }
 ]);

@@ -46,8 +46,8 @@ const selected = ref(props.modelValue);
             emit('update:modelValue', option);
           "
         >
-          <div style="width: 16px; height: 16px">
-            <Check v-if="option === selected" :size="14" color="var(--zinc-800)" />
+          <div :class="$style.icon">
+            <Check v-if="option === selected" :size="14"  />
           </div>
           <span class="text-sm">{{ option }}</span>
         </div>
@@ -110,6 +110,12 @@ const selected = ref(props.modelValue);
       &:hover {
         background-color: var(--zinc-100);
       }
+
+      .icon{
+        width: 16px;
+        height: 16px;
+        color: var(--zinc-800);
+      }
     }
   }
 }
@@ -130,5 +136,31 @@ const selected = ref(props.modelValue);
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+:global(html.dark) {
+  .custom_select {
+    background-color: rgba(var(--zinc-rgb-600), 0.4);
+    color: var(--zinc-200);
+    border-color: var(--zinc-600);
+
+    .items {
+      background-color: #313131;
+      border-color: var(--zinc-600);
+      color: var(--zinc-200);
+
+      .item {
+        &:hover {
+          background-color: rgba(var(--zinc-rgb-600), 0.4);
+        }
+        .icon{
+          color: var(--zinc-300);
+        }
+      }
+    }
+  }
+  .active {
+    background-color: rgba(var(--zinc-rgb-600), 0.6);
+  }
 }
 </style>

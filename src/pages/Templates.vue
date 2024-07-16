@@ -10,9 +10,7 @@ useHead({
 <template>
   <div v-once :class="$style.top">
     <h4 class="heading-4">Templates</h4>
-    <p class="text-sm" style="color: var(--zinc-500)">
-      Choose one of the available templates to create your project
-    </p>
+    <p class="text-sm">Choose one of the available templates to create your project</p>
   </div>
   <AllTemplates />
 </template>
@@ -23,5 +21,17 @@ useHead({
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 20px;
+
+  & > p {
+    color: var(--zinc-500);
+  }
+}
+
+:global(html.dark){
+  .top{
+    & > p {
+      color: var(--zinc-300);
+    }
+  }
 }
 </style>

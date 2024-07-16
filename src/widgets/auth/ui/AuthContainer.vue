@@ -116,4 +116,28 @@ const info = computed(() => {
     }
   }
 }
+
+:global(html.dark){
+  .container{
+    background-color: var(--zinc-800);
+
+    .container_inside{
+      .form_wrapper{
+
+        .info_text{
+          color: var(--zinc-300);
+        }
+
+        .line_container{
+          .line{
+            background-color: var(--zinc-600);
+          }
+          & span{
+            color: var(--zinc-300);
+          }
+        }
+      }
+    }
+  }
+}
 </style>

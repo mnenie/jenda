@@ -72,4 +72,15 @@ const create = handleSubmit((values) => {
   }
 }
 
+:global(html.dark) {
+  .form_container {
+    .form_fields {
+      .field {
+        & label {
+          color: var(--zinc-200);
+        }
+      }
+    }
+  }
+}
 </style>

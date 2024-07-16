@@ -46,9 +46,9 @@ const onRegistration = handleSubmit((values) => {
           <!-- <Loader2 :class="$style.loader" /> -->
           Sign Up with Email
         </UiButton>
-        <p :class="[$style.login, 'text-sm']">
+        <p :class="[$style.reg, 'text-sm']">
           Have an account?
-          <span :class="$style.login_route" @click="$router.push({ name: RouteNames.login })">
+          <span :class="$style.reg_route" @click="$router.push({ name: RouteNames.login })">
             Sign In Now
           </span>
         </p>
@@ -96,11 +96,11 @@ const onRegistration = handleSubmit((values) => {
       @include on-spin;
     }
 
-    .login {
+    .reg {
       text-align: center;
       color: var(--zinc-500);
 
-      .login_route {
+      .reg_route {
         cursor: pointer;
         text-decoration: underline;
         text-underline-offset: 4px;
@@ -108,6 +108,30 @@ const onRegistration = handleSubmit((values) => {
 
         &:hover {
           color: var(--zinc-900);
+        }
+      }
+    }
+  }
+}
+
+:global(html.dark) {
+  .form_container {
+
+    .form_fields {
+      .field {
+        & label {
+          color: var(--zinc-200);
+        }
+      }
+    }
+
+    .choose_block{
+      .reg{
+        color: var(--zinc-200);
+      }
+      .reg_route{
+        &:hover{
+          color: var(--zinc-300);
         }
       }
     }

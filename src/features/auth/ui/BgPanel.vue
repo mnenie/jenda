@@ -1,22 +1,27 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useDark } from '@vueuse/core';
 import { reviews } from '../config/reviews';
 import useTextChanging from '../lib/composables/useTextChanging';
 
 const { currentIndex } = useTextChanging(reviews);
+
+const isDark = useDark()
+const imgBlockquote = computed(() => {
+  return isDark.value ? '/icons/blockquote-dark.png' : '/icons/blockquote-light.png'
+})
 </script>
 
 <template>
   <div :class="$style.container">
     <div :class="$style.blocks">
-      <div :class="$style.absolute_text">
-        <span>“</span>
-      </div>
       <blockquote>
+        <img :src="imgBlockquote" :class="$style.blockquote_img" />
         {{ reviews[currentIndex].text }}
       </blockquote>
       <div :class="$style.avatar_section">
         <img
-          src="https://www.shadcn-vue.com/avatars/02.png"
+          src="https://avatars.githubusercontent.com/u/121057011?v=4"
           :alt="reviews[currentIndex].author"
           :class="$style.avatar_img"
         />
@@ -42,27 +47,23 @@ const { currentIndex } = useTextChanging(reviews);
 
   .blocks {
     position: relative;
+    z-index: 99;
     display: flex;
     flex-direction: column;
     gap: 24px;
 
     blockquote {
-      z-index: 10;
+      position: relative;
+      z-index: 99;
       font-size: 28px;
       max-width: 42rem;
-    }
 
-    .absolute_text {
-      position: absolute;
-      left: -44px;
-      top: -48px;
-      user-select: none;
-
-      span {
-        font-family: serif;
-        font-size: 160px;
-        color: var(--zinc-300);
-        line-height: 1;
+      .blockquote_img {
+        position: absolute;
+        top: -24px;
+        left: -40px;
+        width: 60px;
+        z-index: -1;
       }
     }
 
@@ -72,8 +73,8 @@ const { currentIndex } = useTextChanging(reviews);
       gap: 12px;
 
       .avatar_img {
-        width: 48px;
-        height: 48px;
+        width: 38px;
+        height: 38px;
         border-radius: 50%;
       }
       .who {
@@ -83,6 +84,26 @@ const { currentIndex } = useTextChanging(reviews);
           white-space: nowrap;
           font-weight: 500;
           font-style: normal;
+        }
+      }
+    }
+  }
+}
+
+:global(html.dark) {
+  .container {
+    background-color: var(--zinc-900);
+
+    .blocks {
+      blockquote {
+        color: var(--zinc-200);
+      }
+
+      .avatar_section {
+        .who {
+          .author_name {
+            color: var(--zinc-300);
+          }
         }
       }
     }

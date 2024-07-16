@@ -113,4 +113,27 @@ const onLogin = handleSubmit((values) => {
     }
   }
 }
+
+:global(html.dark) {
+  .form_container {
+    .form_fields {
+      .field {
+        & label {
+          color: var(--zinc-200);
+        }
+      }
+    }
+
+    .choose_block {
+      .login {
+        color: var(--zinc-200);
+      }
+      .login_route {
+        &:hover {
+          color: var(--zinc-300);
+        }
+      }
+    }
+  }
+}
 </style>

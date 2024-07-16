@@ -1,5 +1,16 @@
 <script setup lang="ts">
+import { useColorMode, useDark } from '@vueuse/core';
+import { computed } from 'vue';
 import { Toaster } from 'vue-sonner';
+
+type ToasterTheme = 'dark' | 'light';
+
+useColorMode();
+const isDark = useDark();
+
+const toasterTheme = computed<ToasterTheme>(() => {
+  return isDark.value ? 'dark' : 'light';
+});
 </script>
 
 <template>
@@ -10,5 +21,5 @@ import { Toaster } from 'vue-sonner';
       </KeepAlive>
     </RouterView>
   </component>
-  <Toaster position="bottom-right" closeButton />
+  <Toaster :theme="toasterTheme" position="bottom-right" />
 </template>

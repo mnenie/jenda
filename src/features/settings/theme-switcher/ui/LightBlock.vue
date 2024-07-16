@@ -78,4 +78,13 @@
     }
   }
 }
+
+:global(html.dark) {
+  .main_container {
+    border-color: var(--zinc-500);
+    &:hover {
+      border-color: var(--zinc-400);
+    }
+  }
+}
 </style>

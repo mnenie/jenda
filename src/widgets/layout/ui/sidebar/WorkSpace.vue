@@ -3,13 +3,16 @@ import { UiButton } from '@/shared/ui';
 import type { Link } from '../../types';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
+import { useDark } from '@vueuse/core';
 import { RouteNames } from '@/shared/config/consts';
 
 const props = defineProps<{
   links: Link[];
+  isExpanded: boolean;
 }>();
 
 const route = useRoute();
+const isDark = useDark();
 
 const isCurrentPath = (link: Link) => {
   if (
@@ -28,15 +31,40 @@ const pathName = computed(() => {
     isActive: isCurrentPath(link)
   }));
 });
+
+const contentPosition = computed(() => {
+  return props.isExpanded ? 'flex-start' : 'center';
+});
+const iconColor = computed(() => {
+  if (isDark.value) {
+    return !props.isExpanded ? 'var(--zinc-200)' : 'var(--zinc-300)';
+  } else {
+    return !props.isExpanded ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
+  }
+});
 </script>
 
 <template>
-  <p :class="[$style.name_block, 'text-sm']">workspace</p>
+  <p v-show="isExpanded" :class="[$style.name_block, 'text-sm']">workspace</p>
   <div :class="$style.sidebar_main_links">
-    <RouterLink v-for="link in pathName" :key="link.id" :to="{ name: link.pathName }" :class="$style.link">
-      <UiButton :variant="link.isActive ? 'secondary' : 'ghost'" :class="$style.link_btn">
-        <component :is="link.icon" :size="18" :color="'rgb(39 39 42)'" />
-        <span class="text-sm">{{ link.title }}</span>
+    <RouterLink
+      v-for="link in pathName"
+      :key="link.id"
+      v-tooltip.right="{
+        content: link.title,
+        triggers: ['hover'],
+        disabled: isExpanded
+      }"
+      :to="{ name: link.pathName }"
+      :class="$style.link"
+    >
+      <UiButton
+        :variant="link.isActive ? 'secondary' : 'ghost'"
+        :class="$style.link_btn"
+        :style="{ padding: !isExpanded ? '0px' : '' }"
+      >
+        <component :is="link.icon" :size="18" :color="iconColor" />
+        <span v-show="isExpanded" class="text-sm">{{ link.title }}</span>
       </UiButton>
     </RouterLink>
   </div>
@@ -67,9 +95,9 @@ const pathName = computed(() => {
     justify-content: flex-start;
     width: 100%;
 
-    .link_btn{
+    .link_btn {
       width: 100%;
-      justify-content: flex-start;
+      justify-content: v-bind('contentPosition');
       gap: 6px;
       box-shadow: none;
     }
@@ -77,6 +105,18 @@ const pathName = computed(() => {
     & span {
       font-weight: 500 !important;
       color: var(--zinc-900);
+    }
+  }
+}
+
+:global(html.dark) {
+  .sidebar_main_links {
+    .link {
+      .link_btn {
+        & span {
+          color: var(--zinc-100);
+        }
+      }
     }
   }
 }
