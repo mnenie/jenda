@@ -1,15 +1,25 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router';
+import { useDark } from '@vueuse/core';
+import { useI18n } from 'vue-i18n';
 import { GoogleOauth, PrivacyPolicy } from '@/features/auth';
 import { RouteNames } from '@/shared/config/consts';
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
 
 const route = useRoute();
+const { t } = useI18n();
 
+const isDark = useDark();
+
+const title = computed(() => {
+  return route.name === RouteNames.login
+    ? t('authentication.login.title')
+    : t('authentication.registration.title');
+});
 const info = computed(() => {
   return route.name === RouteNames.login
-    ? 'Enter your info below to sign in your account'
-    : 'Enter your info below to create your account';
+    ? t('authentication.login.description')
+    : t('authentication.registration.description');
 });
 </script>
 
@@ -17,20 +27,16 @@ const info = computed(() => {
   <div :class="$style.container">
     <div :class="$style.container_inside">
       <div :class="$style.top_part" @click="$router.push({ name: RouteNames.boards })">
-        <img src="/icons/kanban.png" />
+        <img :src="isDark ? '/icons/kanban-dark.png' : '/icons/kanban.png'" />
         <h3 class="text-xl">Jenda</h3>
       </div>
       <div :class="$style.form_wrapper">
-        <h2 class="heading-2">
-          {{ route.name === RouteNames.login ? 'Welcome back' : 'Get started' }}
-        </h2>
-        <p :class="[$style.info_text, 'text-sm']">
-          {{ info }}
-        </p>
+        <h2 class="heading-2">{{ title }}</h2>
+        <p :class="[$style.info_text, 'text-sm']">{{ info }}</p>
         <slot />
         <div :class="[$style.line_container, 'text-xs']">
           <div :class="$style.line" />
-          <span>Or continue with</span>
+          <span>{{ t('authentication.line') }}</span>
           <div :class="$style.line" />
         </div>
         <GoogleOauth />
@@ -117,22 +123,21 @@ const info = computed(() => {
   }
 }
 
-:global(html.dark){
-  .container{
+:global(html.dark) {
+  .container {
     background-color: var(--zinc-800);
 
-    .container_inside{
-      .form_wrapper{
-
-        .info_text{
+    .container_inside {
+      .form_wrapper {
+        .info_text {
           color: var(--zinc-300);
         }
 
-        .line_container{
-          .line{
+        .line_container {
+          .line {
             background-color: var(--zinc-600);
           }
-          & span{
+          & span {
             color: var(--zinc-300);
           }
         }

@@ -1,15 +1,28 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { redirect } from '@/shared/lib/helpers';
+import { computed } from 'vue';
+
+const { tm, locale } = useI18n();
+
+// @ts-expect-error tm types
+const privacyItems = tm('authentication.privacy');
+
+const maxWidth = computed(() => {
+  return locale.value === 'ru-RU' ? '400px' : '320px';
+});
 </script>
 
 <template>
   <p :class="[$style.main_text, 'text-sm']">
-    By clicking continue, you agree to our
+    {{ privacyItems[0] }}
     <span :class="$style.inside" @click="redirect('https://github.com/mnenie/dizzo')">
-      Terms of Service
+      {{ privacyItems[1] }}
     </span>
-    and
-    <span :class="$style.inside" @click="redirect('https://github.com/mnenie/dizzo')"> Privacy Policy. </span>
+    {{ privacyItems[2] }}
+    <span :class="$style.inside" @click="redirect('https://github.com/mnenie/dizzo')">
+      {{ privacyItems[3] }}
+    </span>
   </p>
 </template>
 
@@ -18,7 +31,7 @@ import { redirect } from '@/shared/lib/helpers';
   padding: 10px 0px 0px 0px;
   text-align: center;
   color: #72717a;
-  max-width: 320px;
+  max-width: v-bind('maxWidth');
   margin: 0 auto;
 
   .inside {
@@ -33,13 +46,12 @@ import { redirect } from '@/shared/lib/helpers';
   }
 }
 
-:global(html.dark){
-  .main_text{
+:global(html.dark) {
+  .main_text {
     color: var(--zinc-300);
 
-    .inside{
-
-      &:hover{
+    .inside {
+      &:hover {
         color: var(--zinc-400);
       }
     }

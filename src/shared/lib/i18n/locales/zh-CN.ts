@@ -61,6 +61,49 @@ export default {
       }
     ]
   },
+  members: {
+    title: '工作区参与者',
+    description: '成员可以查看和加入工作区的白板，并在该空间中创建新的白板。',
+    content: {
+      all: {
+        title: '邀请用户',
+        description:
+          '任何拥有邀请链接的人都可以加入这个免费的工作区。链接可以在任何时候被禁用和重新创建。待处理的邀请计入10名参与者的限制。',
+        btn: '所有参与者'
+      },
+      guests: {
+        title: '访客',
+        description: '访客只能查看和编辑他们被添加的板。',
+        btn: '访客'
+      }
+    },
+    role: {
+      member: '成员',
+      admin: '管理员'
+    },
+    btns: {
+      leave: '离开',
+      view: '查看白板'
+    }
+  },
+  settings: {
+    title: '设置',
+    description: '管理您的帐户设置和设定一些偏好。',
+    lang: {
+      label: '语言',
+      about: '这是将在仪表板中使用的语言。'
+    },
+    theme: {
+      label: '主题',
+      about: '选择仪表板的主题。',
+      variants: {
+        light: '浅色',
+        dark: '深色',
+        auto: '系统'
+      },
+      btn: '更新偏好设置'
+    }
+  },
   sheet: {
     title: '创建看板',
     description: '新看板将允许你创建任务以进行解决。',
@@ -75,5 +118,27 @@ export default {
       },
       submit: '创建看板'
     }
+  },
+  authentication: {
+    login: {
+      title: '欢迎回来',
+      description: '请输入下面的信息以登录您的帐户',
+      btn: '用电子邮件登录',
+      proposal: '还没有帐户？',
+      route: '立即注册'
+    },
+    registration: {
+      title: '开始使用',
+      description: '请输入下面的信息以创建您的帐户',
+      btn: '用电子邮件注册',
+      proposal: '已有帐户？',
+      route: '立即登录'
+    },
+    form: {
+      email: '电子邮件',
+      password: '密码'
+    },
+    line: '或继续使用',
+    privacy: ['点击继续即表示您同意我们的', '服务条款', '和', '隐私政策。']
   }
 };

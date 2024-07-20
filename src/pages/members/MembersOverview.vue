@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
+import { useI18n } from 'vue-i18n';
 import { MainWrapper } from '@/widgets/members';
 
 useHead({
   title: 'Jenda | Members'
 });
+
+const { t } = useI18n();
 </script>
 
 <template>
   <div :class="$style.members">
     <div :class="$style.top">
-      <h4 class="heading-4">Workspace participants (1)</h4>
-      <p v-once class="text-sm">
-        Members can view and join whiteboards for the workspace, as well as create new whiteboards in that
-        space.
+      <h4 class="heading-4">{{ t('members.title') }} (1)</h4>
+      <p class="text-sm">
+        {{ t('members.description') }}
       </p>
     </div>
     <MainWrapper>
@@ -42,9 +44,9 @@ useHead({
   }
 }
 
-:global(html.dark){
-  .members{
-    .top{
+:global(html.dark) {
+  .members {
+    .top {
       border-color: var(--zinc-600);
       & > p {
         color: var(--zinc-300);

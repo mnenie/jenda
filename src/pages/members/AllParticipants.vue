@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { MembersList } from '@/widgets/members';
 import type { UserType } from '@/entities/user/model';
+
+const { t } = useI18n();
 
 const members = reactive<UserType[]>([
   { _id: '0', photoUrl: 'https://www.shadcn-vue.com/avatars/02.png', email: 'Alex Peshkov', role: 'admin' },
@@ -13,10 +16,9 @@ const members = reactive<UserType[]>([
 <template>
   <div style="width: 100%">
     <div v-once :class="$style.about">
-      <h4 class="heading-4">Invite users</h4>
+      <h4 class="heading-4">{{ t('members.content.all.title') }}</h4>
       <p class="text-sm">
-        Anyone who has an invitation link can join this free workspace. The link can be disabled and recreated
-        at any time. Pending invitations count towards a limit of 10 participants.
+        {{ t('members.content.all.description') }}
       </p>
     </div>
     <MembersList :members />
@@ -34,11 +36,11 @@ const members = reactive<UserType[]>([
 
   & p {
     color: var(--zinc-500);
-    max-width: 540px;
+    max-width: 560px;
   }
 }
 
-:global(html.dark){
+:global(html.dark) {
   .about {
     & p {
       color: var(--zinc-300);

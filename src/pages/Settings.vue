@@ -1,16 +1,19 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
+import { useI18n } from 'vue-i18n';
 import { SettingsElements } from '@/widgets/settings';
 
 useHead({
   title: 'Jenda | Settings'
 });
+
+const { t } = useI18n();
 </script>
 
 <template>
-  <div v-once :class="$style.settings">
-    <h4 class="heading-4">Settings</h4>
-    <p class="text-sm">Manage your account settings and set some preferences.</p>
+  <div :class="$style.settings">
+    <h4 class="heading-4">{{ t('settings.title') }}</h4>
+    <p class="text-sm">{{ t('settings.description') }}</p>
   </div>
   <SettingsElements />
 </template>
