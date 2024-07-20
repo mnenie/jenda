@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { UiButton, UiInput } from '@/shared/ui';
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useField, useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
+import { UiButton, UiInput } from '@/shared/ui';
 import { Loader2 } from 'lucide-vue-next';
 import { validationRules } from '../config/validation';
-import { useField, useForm } from 'vee-validate';
-import { ref } from 'vue';
 
 const validationSchema = toTypedSchema(validationRules);
+const { t } = useI18n();
 
 const { handleSubmit, errors } = useForm({
   validationSchema
@@ -23,16 +25,16 @@ const create = handleSubmit((values) => {
     <div :class="$style.form_container">
       <div :class="$style.form_fields">
         <div v-auto-animate :class="$style.field">
-          <label class="text-sm" for="name">Board name</label>
-          <UiInput id="name" v-model="name" :placeholder="'e.g. Nice board'" />
+          <label class="text-sm" for="name">{{ t('sheet.form.name.label') }}</label>
+          <UiInput id="name" v-model="name" :placeholder="t('sheet.form.name.placeholder')" />
           <span v-if="errors.name" class="text-xs">{{ errors.name }}</span>
         </div>
         <div :class="$style.field">
-          <label class="text-sm" for="description">Board description</label>
+          <label class="text-sm" for="description">{{ t('sheet.form.description.label') }}</label>
           <UiInput
             id="description"
             v-model="description"
-            :placeholder="'e.g. development board for our company'"
+            :placeholder="t('sheet.form.description.placeholder')"
           />
         </div>
       </div>

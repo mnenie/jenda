@@ -106,6 +106,9 @@ const { t } = useI18n();
   .search_container {
     .input_filter {
       background-color: transparent;
+      &::placeholder {
+        color: var(--zinc-200);
+      }
     }
     .badge {
       & span {

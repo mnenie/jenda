@@ -1,7 +1,7 @@
-import { reactive } from 'vue';
+import { shallowReactive } from 'vue';
 import type { Template } from '../model';
 
-export const templates = reactive<Template[]>([
+export const _templates = shallowReactive<Template[]>([
   {
     id: '0',
     title: 'Base Kanban',
@@ -17,7 +17,7 @@ export const templates = reactive<Template[]>([
     img: 'https://storage.weeek.net/templates/tm/development-and-product/roadmap.png',
     tag: 'New',
     description: `Create a project based on our "Roadmap" template`,
-    date: 'June 12, 2024',
+    date: 'June 18, 2024',
     user: 'https://avatars.githubusercontent.com/u/121057011?v=4'
   },
   {
@@ -26,7 +26,7 @@ export const templates = reactive<Template[]>([
     img: 'https://storage.weeek.net/templates/tm/development-and-product/web-development.png',
     tag: 'New',
     description: `Create a basic project with "Web Development" template`,
-    date: 'June 12, 2024',
+    date: 'July 16, 2024',
     user: 'https://avatars.githubusercontent.com/u/121057011?v=4'
   }
 ]);

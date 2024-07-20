@@ -9,8 +9,9 @@ const props = defineProps<{
   isExpanded: boolean;
 }>();
 
-const isDark = useDark();
 const { t } = useI18n();
+
+const isDark = useDark();
 
 const planPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center';

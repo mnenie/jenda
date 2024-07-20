@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import type { UserType } from '@/entities/user/model';
-import type { BoardPreview } from '../model';
-import { UserAvatar } from '@/entities/user';
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import type { UserType } from '@/entities/user/model';
+import { UserAvatar } from '@/entities/user';
+import type { BoardPreview } from '../model';
 
 defineProps<{
   board: BoardPreview;
 }>();
+
+const { t } = useI18n();
 
 const userPosition = computed(() => {
   return (board: BoardPreview, user: UserType) => {
@@ -21,7 +24,7 @@ const userPosition = computed(() => {
       <span class="text-xs">{{ board.description }}</span>
     </div>
     <div :class="$style.bottom_part">
-      <span class="text-xs"> Updated: May 2024</span>
+      <span class="text-xs"> {{ t('boards.card.date_updated') }}: May 2024</span>
       <div :class="$style.users">
         <template v-for="user in board.users" :key="user._id">
           <UserAvatar
@@ -102,9 +105,9 @@ const userPosition = computed(() => {
       }
     }
 
-    .bottom_part{
+    .bottom_part {
       & > span {
-        color: var(--zinc-300)
+        color: var(--zinc-300);
       }
     }
   }

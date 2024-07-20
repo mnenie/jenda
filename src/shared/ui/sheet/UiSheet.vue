@@ -176,14 +176,14 @@ defineExpose({ open, close });
     display: none;
   }
 
-  .sheet_header{
+  .sheet_header {
     display: flex;
     flex-direction: column;
     gap: 6px;
     padding: 5px 0px;
     margin-bottom: 20px;
 
-    .header_icon{
+    .header_icon {
       cursor: pointer;
       color: var(--zinc-600);
       position: absolute;
@@ -191,17 +191,25 @@ defineExpose({ open, close });
       top: 15px;
       transition: color 0.1s ease-in;
 
-      &:hover{
+      &:hover {
         color: var(--zinc-900);
       }
     }
   }
 }
 
-:global(html.dark){
+:global(html.dark) {
   .sheet {
-    .sheet_content{
+    .sheet_content {
       background-color: rgba(var(--zinc-rgb-800), 1);
+    }
+    .sheet_header {
+      .header_icon {
+        color: var(--zinc-400);
+        &:hover {
+          color: var(--zinc-300);
+        }
+      }
     }
   }
 }

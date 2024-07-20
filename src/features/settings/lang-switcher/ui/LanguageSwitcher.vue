@@ -10,7 +10,7 @@ const { locale } = useI18n();
 const options = shallowReactive<Options[]>([
   { name: 'English', value: 'en-US' },
   { name: 'Русский', value: 'ru-RU' },
-  { name: '简体中文', value: 'zn-CN' }
+  { name: '简体中文', value: 'zh-CN' }
 ]);
 
 const cookies = useCookies();

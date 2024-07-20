@@ -1,16 +1,19 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import type { Chart } from '../model';
 
 defineProps<{
   chart: Chart;
 }>();
+
+const { t } = useI18n();
 </script>
 
 <template>
   <div :class="$style.chart_container">
-    <h4 class="heading-4">{{ chart.title }}</h4>
+    <h4 class="heading-4">{{ t(`boards.chart.${chart.titleKeyI18n}`) }}</h4>
     <p class="text-sm">
-      {{ chart.description }}
+      {{ t(`boards.chart.${chart.descriptionKeyI18n}`) }}
     </p>
     <div :class="$style.chart">
       <component :is="chart.chart" />
