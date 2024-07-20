@@ -7,7 +7,7 @@ import { Check, ChevronsUpDown } from 'lucide-vue-next';
 const props = withDefaults(
   defineProps<{
     modelValue?: null | string;
-    options: Options;
+    options: Options[];
   }>(),
   {
     modelValue: null
@@ -39,17 +39,17 @@ const selected = ref(props.modelValue);
         <div
           v-for="(option, i) of options"
           :key="i"
-          :class="[$style.item, { [$style.active]: option === selected }]"
+          :class="[$style.item, { [$style.active]: option.name === selected }]"
           @click="
-            selected = option;
+            selected = option.name;
             open = false;
-            emit('update:modelValue', option);
+            emit('update:modelValue', option.name);
           "
         >
           <div :class="$style.icon">
-            <Check v-if="option === selected" :size="14"  />
+            <Check v-if="option.name === selected" :size="14"  />
           </div>
-          <span class="text-sm">{{ option }}</span>
+          <span class="text-sm">{{ option.name }}</span>
         </div>
       </div>
     </Transition>

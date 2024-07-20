@@ -1,1 +1,4 @@
-export type Options = Array<string>;
+export type Options = {
+  name: string;
+  value: string;
+};
