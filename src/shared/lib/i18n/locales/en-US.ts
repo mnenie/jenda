@@ -119,5 +119,27 @@ export default {
       },
       submit: 'Create board'
     }
+  },
+  authentication: {
+    login: {
+      title: 'Welcome back',
+      description: 'Enter your info below to sign in your account',
+      btn: 'Sign In with Email',
+      proposal: "Don't have an account?",
+      route: 'Sign Up Now'
+    },
+    registration: {
+      title: 'Get started',
+      description: 'Enter your info below to create your account',
+      btn: 'Sign Up with Email',
+      proposal: 'Have an account?',
+      route: 'Sign In Now'
+    },
+    form: {
+      email: 'Email',
+      password: 'Password'
+    },
+    line: 'Or continue with',
+    privacy: ['By clicking continue, you agree to our', 'Terms of Service', 'and', 'Privacy Policy.']
   }
 };

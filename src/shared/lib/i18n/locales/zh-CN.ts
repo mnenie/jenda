@@ -118,5 +118,27 @@ export default {
       },
       submit: '创建看板'
     }
+  },
+  authentication: {
+    login: {
+      title: '欢迎回来',
+      description: '请输入下面的信息以登录您的帐户',
+      btn: '用电子邮件登录',
+      proposal: '还没有帐户？',
+      route: '立即注册'
+    },
+    registration: {
+      title: '开始使用',
+      description: '请输入下面的信息以创建您的帐户',
+      btn: '用电子邮件注册',
+      proposal: '已有帐户？',
+      route: '立即登录'
+    },
+    form: {
+      email: '电子邮件',
+      password: '密码'
+    },
+    line: '或继续使用',
+    privacy: ['点击继续即表示您同意我们的', '服务条款', '和', '隐私政策。']
   }
 };

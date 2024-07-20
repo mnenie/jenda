@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+import { useField, useForm } from 'vee-validate';
+import { toTypedSchema } from '@vee-validate/zod';
+import { toast } from 'vue-sonner';
 import { RouteNames } from '@/shared/config/consts';
 import { UiButton, UiInput } from '@/shared/ui';
-import { toTypedSchema } from '@vee-validate/zod';
 import { Loader2 } from 'lucide-vue-next';
 import { validationRules } from '../config/validation';
-import { useField, useForm } from 'vee-validate';
-import { toast } from 'vue-sonner';
 
 const validationSchema = toTypedSchema(validationRules);
+const { t } = useI18n();
 
 const { handleSubmit, errors } = useForm({
   validationSchema
@@ -26,12 +28,12 @@ const onLogin = handleSubmit((values) => {
     <div :class="$style.form_container">
       <div :class="$style.form_fields">
         <div v-auto-animate :class="$style.field">
-          <label class="text-sm" for="email">Email</label>
+          <label class="text-sm" for="email">{{ t('authentication.form.email') }}</label>
           <UiInput id="email" v-model="email" :placeholder="'user@example.com'" :type="'email'" />
           <span v-if="errors.email" class="text-xs">{{ errors.email }}</span>
         </div>
         <div v-auto-animate :class="$style.field">
-          <label class="text-sm" for="password">Password</label>
+          <label class="text-sm" for="password">{{ t('authentication.form.password') }}</label>
           <UiInput
             id="password"
             v-model="password"
@@ -44,12 +46,12 @@ const onLogin = handleSubmit((values) => {
       <div :class="$style.choose_block">
         <UiButton type="submit">
           <!-- <Loader2 :class="$style.loader" /> -->
-          Sign In with Email
+          {{ t('authentication.login.btn') }}
         </UiButton>
         <p :class="[$style.login, 'text-sm']">
-          Don't have an account?
+          {{ t('authentication.login.proposal') }}
           <span :class="$style.login_route" @click="$router.push({ name: RouteNames.registration })">
-            Sign Up Now
+            {{ t('authentication.login.route') }}
           </span>
         </p>
       </div>
