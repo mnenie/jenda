@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue';
+import { useDark } from '@vueuse/core';
+import { useI18n } from 'vue-i18n';
 import { UiInput, UiBadge } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
-import { computed, ref } from 'vue';
 import useFilter from '../lib/composables/useFilter';
-import { useDark } from '@vueuse/core';
 
 const props = defineProps<{
   isExpanded: boolean;
@@ -26,6 +27,7 @@ const iconColor = computed(() => {
 });
 
 const { onToggleArea } = useFilter(inputRef, props, emit);
+const { t } = useI18n();
 </script>
 
 <template>
@@ -40,7 +42,7 @@ const { onToggleArea } = useFilter(inputRef, props, emit);
       id="input"
       ref="inputRef"
       v-model.trim="search"
-      :placeholder="'Search'"
+      :placeholder="t('sidebar.input')"
       :class="$style.input_filter"
     />
     <UiBadge v-show="isExpanded" variant="secondary" :class="$style.badge">
@@ -104,6 +106,9 @@ const { onToggleArea } = useFilter(inputRef, props, emit);
   .search_container {
     .input_filter {
       background-color: transparent;
+      &::placeholder {
+        color: var(--zinc-200);
+      }
     }
     .badge {
       & span {

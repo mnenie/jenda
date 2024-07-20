@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
+import { useI18n } from 'vue-i18n';
 import { UiBadge } from '@/shared/ui';
 import { links } from '../../config/links';
 import WorkSpace from './WorkSpace.vue';
@@ -25,6 +26,7 @@ const paddingExpanded = computed(() => {
 });
 
 const isDark = useDark();
+const { t } = useI18n();
 
 const iconUrl = computed(() => {
   return isDark.value ? '/icons/kanban-dark.png' : '/icons/kanban.png';
@@ -37,7 +39,7 @@ const iconUrl = computed(() => {
       <div :class="$style.text">
         <img :src="iconUrl" :style="{ marginTop: isExpanded ? '0px' : '3px' }" />
         <h3 v-show="isExpanded" class="heading-4">Jenda</h3>
-        <UiBadge v-show="isExpanded">free</UiBadge>
+        <UiBadge v-show="isExpanded">{{ t('sidebar.badge') }}</UiBadge>
       </div>
       <div v-if="!isExpanded" :class="$style.arrow_expanded">
         <ChevronRight :size="14" @click="emit('onToggle')" />
@@ -135,7 +137,7 @@ const iconUrl = computed(() => {
     border-color: var(--dark-border);
   }
 
-  .arrow_expanded{
+  .arrow_expanded {
     background-color: rgba(var(--zinc-rgb-600), 0.8);
     color: var(--zinc-200);
   }

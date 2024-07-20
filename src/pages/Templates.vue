@@ -1,16 +1,19 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
+import { useI18n } from 'vue-i18n';
 import { AllTemplates } from '@/widgets/templates';
 
 useHead({
   title: 'Jenda | Templates'
 });
+
+const { t } = useI18n();
 </script>
 
 <template>
-  <div v-once :class="$style.top">
-    <h4 class="heading-4">Templates</h4>
-    <p class="text-sm">Choose one of the available templates to create your project</p>
+  <div :class="$style.top">
+    <h4 class="heading-4">{{ t('templates.title') }}</h4>
+    <p class="text-sm">{{ t('templates.description') }}</p>
   </div>
   <AllTemplates />
 </template>
@@ -27,8 +30,8 @@ useHead({
   }
 }
 
-:global(html.dark){
-  .top{
+:global(html.dark) {
+  .top {
     & > p {
       color: var(--zinc-300);
     }

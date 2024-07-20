@@ -1,7 +1,21 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { UserAvatar } from '@/entities/user';
 import { UiButton } from '@/shared/ui';
 import { Link } from 'lucide-vue-next';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { RouteNames } from '@/shared/config/consts';
+
+const { t } = useI18n();
+const route = useRoute();
+
+const path = computed(() => {
+  if (route.name!.toString().startsWith(RouteNames.members)) {
+    return t('sidebar.members');
+  }
+  return t('sidebar.' + route.name?.toString());
+});
 </script>
 
 <template>
@@ -9,19 +23,19 @@ import { Link } from 'lucide-vue-next';
     <div :class="$style.about">
       <div :class="$style.workspace_part">
         <div :class="$style.box">
-          <span>T</span>
+          <span>{{ t('header.name').slice(0, 1) }}</span>
         </div>
         <div :class="$style.name">
-          <p class="text-base" style="font-weight: 500; line-height: 22px">Test Workspace</p>
-          <span class="text-xs">Boards</span>
+          <p class="text-base" style="font-weight: 500; line-height: 22px">{{ t('header.name') }}</p>
+          <span class="text-xs">{{ path }}</span>
         </div>
       </div>
     </div>
     <div :class="$style.user_section">
-      <UiButton :class="$style.upgrade"> Upgrade "Pro" </UiButton>
+      <UiButton :class="$style.upgrade"> {{ t('header.upgrade') }} </UiButton>
       <UiButton :variant="'secondary'">
         <Link :size="18" style="margin-right: 8px" />
-        <span>Invite members</span>
+        <span>{{ t('header.collaboration') }}</span>
       </UiButton>
       <UserAvatar>
         <img src="https://avatars.githubusercontent.com/u/121057011?v=4" style="width: 100%" />

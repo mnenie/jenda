@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
+import { useI18n } from 'vue-i18n';
 import { UiProgressBar } from '@/shared/ui';
 import { WandSparkles, DollarSign } from 'lucide-vue-next';
 
 const props = defineProps<{
   isExpanded: boolean;
 }>();
+
+const { t } = useI18n();
 
 const isDark = useDark();
 
@@ -26,7 +29,7 @@ const iconColor = computed(() => {
       <WandSparkles :class="$style.icon" :color="iconColor" />
       <div :class="$style.plan_about">
         <div :class="$style.text">
-          <span class="text-xs">Upgrade your plan</span>
+          <span class="text-xs">{{ t('sidebar.plan') }}</span>
           <span class="text-xs">6/10</span>
         </div>
         <UiProgressBar :progress="6" />

@@ -70,7 +70,7 @@ const emit = defineEmits(['update:modelValue']);
     background-color: rgba(var(--zinc-rgb-700), 0.8);
 
     &::placeholder {
-      color: var(--zinc-200);
+      color: var(--zinc-300);
     }
   }
 }

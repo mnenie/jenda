@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { UiBadge } from '@/shared/ui';
 import type { Template } from '../model';
 
 defineProps<{
   template: Template;
 }>();
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -20,7 +23,7 @@ defineProps<{
       </div>
       <div :class="$style.bottom">
         <span class="text-xs">{{ template.date }}</span>
-        <img v-tooltip.bottom-end="'creator'" :src="template.user" />
+        <img v-tooltip.bottom-end="t('templates.user')" :src="template.user" />
       </div>
     </div>
   </div>
@@ -60,6 +63,7 @@ defineProps<{
   }
   .main_content {
     padding: 15px;
+    width: 100%;
 
     .text {
       display: flex;
@@ -77,6 +81,7 @@ defineProps<{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 
     & img {
       width: 20px;
@@ -93,10 +98,10 @@ defineProps<{
     &:hover {
       border-color: var(--zinc-400);
     }
-    .img_wrapper{
+    .img_wrapper {
       border-color: var(--zinc-600);
     }
-    .main_content{
+    .main_content {
       & span {
         color: var(--zinc-200);
       }
