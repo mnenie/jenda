@@ -86,6 +86,24 @@ export default {
       view: '查看白板'
     }
   },
+  settings: {
+    title: '设置',
+    description: '管理您的帐户设置和设定一些偏好。',
+    lang: {
+      label: '语言',
+      about: '这是将在仪表板中使用的语言。'
+    },
+    theme: {
+      label: '主题',
+      about: '选择仪表板的主题。',
+      variants: {
+        light: '浅色',
+        dark: '深色',
+        auto: '系统'
+      },
+      btn: '更新偏好设置'
+    }
+  },
   sheet: {
     title: '创建看板',
     description: '新看板将允许你创建任务以进行解决。',

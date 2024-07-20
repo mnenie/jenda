@@ -87,6 +87,24 @@ export default {
       view: 'View the boards'
     }
   },
+  settings: {
+    title: 'Settings',
+    description: 'Manage your account settings and set some preferences.',
+    lang: {
+      label: 'Language',
+      about: 'This is the language that will be used in the dashboard.'
+    },
+    theme: {
+      label: 'Theme',
+      about: 'Select the theme for the dashboard.',
+      variants: {
+        light: 'Light',
+        dark: 'Dark',
+        auto: 'System'
+      },
+      btn: 'Update preferences'
+    }
+  },
   sheet: {
     title: 'Create board',
     description: 'The new board will allow you to create tasks for solving them.',

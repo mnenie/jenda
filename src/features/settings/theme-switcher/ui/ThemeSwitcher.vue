@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, shallowRef } from 'vue';
 import { useColorMode } from '@vueuse/core';
+import { useI18n } from 'vue-i18n';
 import useTheme from '../lib/composables/useTheme';
 import type { ThemeBlock } from '../model';
 import { UiButton, UiRadioGroupContainer } from '@/shared/ui';
@@ -16,6 +17,7 @@ const themeBlocks = shallowRef<ThemeBlock[]>([
   { id: 2, item: SystemBlock, active: store.value === 'auto', value: 'auto' }
 ]);
 const { onNewPreferences, changeActiveTheme } = useTheme(themeBlocks);
+const { t } = useI18n();
 
 const themeAbout = computed(() => {
   return (value: string) => {
@@ -39,10 +41,10 @@ const themeAbout = computed(() => {
           :class="{ [$style.active]: theme.active }"
           @click="changeActiveTheme(theme.id)"
         />
-        <span class="text-xs">{{ themeAbout(theme.value) }}</span>
+        <span class="text-xs">{{ themeAbout(t(`settings.theme.variants.${theme.value}`)) }}</span>
       </div>
     </UiRadioGroupContainer>
-    <UiButton variant="outline" type="submit">Update Preferences</UiButton>
+    <UiButton variant="outline" type="submit">{{ t('settings.theme.btn') }}</UiButton>
   </form>
 </template>
 

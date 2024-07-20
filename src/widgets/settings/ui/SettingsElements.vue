@@ -1,18 +1,21 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { ThemeSwitcher } from '@/features/settings/theme-switcher';
 import { LanguageSwitcher } from '@/features/settings/lang-switcher';
+
+const { t } = useI18n();
 </script>
 
 <template>
   <div :class="$style.lang">
-    <p class="text-sm" style="font-weight: 500">Language</p>
+    <p class="text-sm" style="font-weight: 500">{{ t('settings.lang.label') }}</p>
     <LanguageSwitcher />
-    <span class="text-xs"> This is the language that will be used in the dashboard. </span>
+    <span class="text-xs"> {{ t('settings.lang.about') }} </span>
   </div>
   <div :class="$style.theme">
     <div :class="$style.text">
-      <p class="text-sm" style="font-weight: 500">Theme</p>
-      <span class="text-xs">Select the theme for the dashboard.</span>
+      <p class="text-sm" style="font-weight: 500">{{ t('settings.theme.label') }}</p>
+      <span class="text-xs">{{ t('settings.theme.about') }}</span>
     </div>
     <ThemeSwitcher />
   </div>
