@@ -61,6 +61,32 @@ export default {
       }
     ]
   },
+  members: {
+    title: 'Workspace participants',
+    description:
+      'Members can view and join whiteboards for the workspace, as well as create new whiteboards in that space.',
+    content: {
+      all: {
+        title: 'Invite users',
+        description:
+          'Anyone who has an invitation link can join this free workspace. The link can be disabled and recreated at any time. Pending invitations count towards a limit of 10 participants.',
+        btn: 'All participants'
+      },
+      guests: {
+        title: 'Guests',
+        description: 'Guests can only view and edit the boards they have been added to.',
+        btn: 'Guests'
+      }
+    },
+    role: {
+      member: 'member',
+      admin: 'admin'
+    },
+    btns: {
+      leave: 'Leave',
+      view: 'View the boards'
+    }
+  },
   sheet: {
     title: 'Create board',
     description: 'The new board will allow you to create tasks for solving them.',

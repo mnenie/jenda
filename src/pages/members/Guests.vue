@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { MembersList } from '@/widgets/members';
 import type { UserType } from '@/entities/user/model';
+
+const { t } = useI18n();
 
 const members = reactive<UserType[]>([
   { _id: '1', photoUrl: 'https://www.shadcn-vue.com/avatars/03.png', email: 'John Doe', role: 'member' },
@@ -11,11 +14,9 @@ const members = reactive<UserType[]>([
 
 <template>
   <div style="width: 100%">
-    <div v-once :class="$style.about">
-      <h4 class="heading-4">Guests</h4>
-      <p class="text-sm">
-        Guests can only view and edit the boards they have been added to.
-      </p>
+    <div :class="$style.about">
+      <h4 class="heading-4">{{ t('members.content.guests.title') }}</h4>
+      <p class="text-sm">{{ t('members.content.guests.description') }}</p>
     </div>
     <MembersList :members />
   </div>
@@ -36,8 +37,8 @@ const members = reactive<UserType[]>([
   }
 }
 
-:global(html.dark){
-  .about{
+:global(html.dark) {
+  .about {
     & p {
       color: var(--zinc-300);
     }

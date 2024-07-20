@@ -61,6 +61,31 @@ export default {
       }
     ]
   },
+  members: {
+    title: '工作区参与者',
+    description: '成员可以查看和加入工作区的白板，并在该空间中创建新的白板。',
+    content: {
+      all: {
+        title: '邀请用户',
+        description:
+          '任何拥有邀请链接的人都可以加入这个免费的工作区。链接可以在任何时候被禁用和重新创建。待处理的邀请计入10名参与者的限制。',
+        btn: '所有参与者'
+      },
+      guests: {
+        title: '访客',
+        description: '访客只能查看和编辑他们被添加的板。',
+        btn: '访客'
+      }
+    },
+    role: {
+      member: '成员',
+      admin: '管理员'
+    },
+    btns: {
+      leave: '离开',
+      view: '查看白板'
+    }
+  },
   sheet: {
     title: '创建看板',
     description: '新看板将允许你创建任务以进行解决。',
