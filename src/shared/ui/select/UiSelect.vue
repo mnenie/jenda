@@ -34,7 +34,7 @@ const selected = ref(props.modelValue);
       <span class="text-sm">{{ selected }}</span>
       <ChevronsUpDown :size="15" color="var(--zinc-400)" />
     </div>
-    <Transition>
+    <Transition name="dropdown">
       <div v-show="open" :class="$style.items">
         <div
           v-for="(option, i) of options"
@@ -126,16 +126,6 @@ const selected = ref(props.modelValue);
 
 .selectHide {
   display: none;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
 }
 
 :global(html.dark) {
