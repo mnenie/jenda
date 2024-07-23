@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { UserAvatar } from '@/entities/user';
 import { UiDropdown, UiDropdownItem, UiDropdownShortcut } from '@/shared/ui';
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -15,11 +18,11 @@ import { UiDropdown, UiDropdownItem, UiDropdownShortcut } from '@/shared/ui';
     </template>
     <template #content>
       <UiDropdownItem>
-        Go to Welcome
+        {{ t('header.user.welcome') }}
         <UiDropdownShortcut>⌘B</UiDropdownShortcut>
       </UiDropdownItem>
       <UiDropdownItem>
-        Log Out
+        {{ t('header.user.logout') }}
         <UiDropdownShortcut>⇧⌘Q</UiDropdownShortcut>
       </UiDropdownItem>
     </template>
