@@ -12,7 +12,11 @@ export default {
   header: {
     upgrade: '升级到“专业版”',
     collaboration: '邀请成员',
-    name: '测试工作区'
+    name: '测试工作区',
+    user: {
+      welcome: '前往欢迎页面',
+      logout: '登出'
+    }
   },
   boards: {
     title: '此团队的看板',

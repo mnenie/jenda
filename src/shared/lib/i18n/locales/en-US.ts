@@ -12,7 +12,11 @@ export default {
   header: {
     upgrade: 'Upgrade "Pro"',
     collaboration: 'Invite members',
-    name: 'Test Workspace'
+    name: 'Test Workspace',
+    user: {
+      welcome: 'Go to Welcome',
+      logout: 'Log out'
+    }
   },
   boards: {
     title: 'Boards in this team',

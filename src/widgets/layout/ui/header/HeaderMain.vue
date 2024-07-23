@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
-import { UserAvatar } from '@/entities/user';
-import { UiButton, UiDropdown } from '@/shared/ui';
+import { UiButton } from '@/shared/ui';
 import { Link } from 'lucide-vue-next';
-import { computed, shallowReactive } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { RouteNames } from '@/shared/config/consts';
+import UserMenu from './UserMenu.vue';
 
 const { t } = useI18n();
 const route = useRoute();
@@ -16,11 +16,6 @@ const path = computed(() => {
   }
   return t('sidebar.' + route.name?.toString());
 });
-
-const dropdownItems = shallowReactive([
-  { id: '0', content: 'Go to Welcome', shortcut: '⌘B', routeName: RouteNames.boards },
-  { id: '1', content: 'Log Out', shortcut: '⌘Q', routeName: RouteNames.boards }
-]);
 </script>
 
 <template>
@@ -42,16 +37,7 @@ const dropdownItems = shallowReactive([
         <Link :size="18" style="margin-right: 8px" />
         <span>{{ t('header.collaboration') }}</span>
       </UiButton>
-      <UiDropdown :items="dropdownItems">
-        <template #trigger>
-          <UserAvatar>
-            <img src="https://avatars.githubusercontent.com/u/121057011?v=4" style="width: 100%" />
-          </UserAvatar>
-        </template>
-        <template #header>
-          <span class="text-sm" style="font-weight: 500">1alexpeshkov@gmail.com</span>
-        </template>
-      </UiDropdown>
+      <UserMenu />
     </div>
   </div>
 </template>
