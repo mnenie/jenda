@@ -1,6 +1,5 @@
 import UiDropdown from './UiDropdown.vue';
 import UiDropdownItem from './UiDropdownItem.vue';
+import UiDropdownShortcut from './UiDropdownShortcut.vue';
 
-// TODO: see to optimization and refactoring in components
-
-export { UiDropdown, UiDropdownItem };
+export { UiDropdown, UiDropdownItem, UiDropdownShortcut };

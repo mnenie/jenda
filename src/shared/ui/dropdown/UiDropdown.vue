@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core';
 import { ref } from 'vue';
-import UiDropdownItem from './UiDropdownItem.vue';
-import type { DropdownItem } from './types';
-
-defineProps<{
-  items: DropdownItem[];
-}>();
 
 const dropdown = ref<HTMLElement | null>(null);
 const isOpen = ref(false);
@@ -25,6 +19,7 @@ onClickOutside(dropdown, () => {
 defineSlots<{
   header: () => any;
   trigger: () => any;
+  content: () => any;
 }>();
 </script>
 
@@ -38,10 +33,8 @@ defineSlots<{
         <div :class="$style.header">
           <slot name="header" />
         </div>
-        <div :class="$style.content">
-          <div v-for="item in items" :key="item.id">
-            <UiDropdownItem :item @on-dropdown="onDropdownContent" />
-          </div>
+        <div :class="$style.content" @click="onDropdownContent">
+          <slot name="content" />
         </div>
       </div>
     </Transition>
@@ -73,11 +66,17 @@ defineSlots<{
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
     .header {
+      width: 100%;
       padding: 0.5rem 10px;
       border-bottom: 1px solid var(--zinc-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .content {
+      width: 100%;
       padding: 4px;
     }
   }
