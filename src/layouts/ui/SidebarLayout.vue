@@ -57,6 +57,7 @@ const onToggleArea = () => {
 
     .slot {
       background-color: var(--zinc-50);
+      position: relative;
       padding: 30px 45px;
       height: 100%;
       width: 100%;
