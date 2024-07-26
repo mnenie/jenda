@@ -54,6 +54,15 @@ const routes = [
     }
   },
   {
+    name: RouteNames.board,
+    path: '/board/:id',
+    component: () => import('@/pages/Kanban.vue'),
+    meta: {
+      layout: SidebarLayout,
+      requiresAuth: true
+    }
+  },
+  {
     name: RouteNames.login,
     path: '/user/login',
     component: () => import('@/pages/Login.vue'),

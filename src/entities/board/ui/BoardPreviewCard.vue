@@ -18,7 +18,7 @@ const userPosition = computed(() => {
 });
 </script>
 <template>
-  <div :class="$style.active_board">
+  <div :class="$style.active_board" @click="$router.push('/board/1')">
     <div :class="$style.text">
       <p class="text-base" style="font-weight: 500">{{ board.title }}</p>
       <span class="text-xs">{{ board.description }}</span>
