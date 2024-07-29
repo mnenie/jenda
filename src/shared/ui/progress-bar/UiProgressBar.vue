@@ -24,7 +24,7 @@ const activeWidth = computed(() => {
   border-radius: 10px;
 
   .progress_bar_active {
-    background-color: var(--purple-main);
+    background-color: var(--zinc-400);
     width: v-bind('activeWidth');
     height: 100%;
     border-radius: 10px;

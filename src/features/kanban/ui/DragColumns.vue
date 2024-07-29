@@ -50,6 +50,7 @@ const dragOptions = ref({
   flex-direction: row;
   list-style: none;
   gap: 15px;
+  max-height: 100%;
 }
 
 .flip-list-move {

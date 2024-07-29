@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useDark } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { UiProgressBar } from '@/shared/ui';
 import { WandSparkles, DollarSign } from 'lucide-vue-next';
@@ -11,22 +10,17 @@ const props = defineProps<{
 
 const { t } = useI18n();
 
-const isDark = useDark();
-
 const planPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center';
 });
 const iconSize = computed(() => {
   return props.isExpanded ? '18px' : '17px';
 });
-const iconColor = computed(() => {
-  return isDark.value ? 'var(--zinc-300)' : 'var(--zinc-700)';
-});
 </script>
 <template>
   <div>
     <div v-if="isExpanded" :class="$style.content">
-      <WandSparkles :class="$style.icon" :color="iconColor" />
+      <WandSparkles :class="$style.icon" />
       <div :class="$style.plan_about">
         <div :class="$style.text">
           <span class="text-xs">{{ t('sidebar.plan') }}</span>
@@ -38,7 +32,7 @@ const iconColor = computed(() => {
     <div v-else :class="$style.no_expanded_plan">
       <span class="text-sm">free</span>
       <div :class="$style.absolute_plan">
-        <DollarSign :class="$style.icon" :color="'var(--purple-main)'" />
+        <DollarSign :class="$style.icon" />
       </div>
     </div>
   </div>
@@ -57,6 +51,7 @@ const iconColor = computed(() => {
     min-width: 16px;
     width: v-bind('iconSize');
     height: v-bind('iconSize');
+    color: var(--zinc-700);
   }
 
   .plan_about {
@@ -101,22 +96,29 @@ const iconColor = computed(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--zinc-500);
   }
 }
 
 :global(html.dark) {
   .content {
+    .icon{
+      color: var(--zinc-300);
+    }
     .plan_about {
       .text {
         & p,
         span {
-          color: var(--zinc-200);
+          color: var(--zinc-100);
         }
       }
     }
   }
   .no_expanded_plan {
     & span {
+      color: var(--zinc-300);
+    }
+    .absolute_plan{
       color: var(--zinc-300);
     }
   }

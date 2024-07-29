@@ -4,13 +4,13 @@ type DateParams = {
   deletedAt?: Date;
 };
 
-export interface UserType extends DateParams {
+export interface User extends DateParams {
   _id?: string;
   email: string;
   photoUrl?: string;
   role?: string;
 }
 
-export interface UserAuth extends UserType {
+export interface UserAuth extends User {
   token: string;
 }

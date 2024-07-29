@@ -40,7 +40,7 @@ const open = () => {
   min-width: 220px;
   height: 120px;
   border-radius: 15px;
-  color: var(--purple-main);
+  color: var(--zinc-600);
   cursor: pointer;
   display: flex;
   align-items: center;

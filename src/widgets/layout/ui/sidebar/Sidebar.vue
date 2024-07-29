@@ -8,7 +8,7 @@ import WorkSpace from './WorkSpace.vue';
 import { SearchFilter } from '@/features/filter';
 import { PlanCard } from '@/features/plan';
 import { ArrowsDouble } from '@/shared/assets/icons';
-import { ChevronRight } from 'lucide-vue-next';
+import { AlignJustify } from 'lucide-vue-next';
 
 const props = defineProps<{
   isExpanded: boolean;
@@ -35,15 +35,18 @@ const iconUrl = computed(() => {
 
 <template>
   <nav :class="$style.sidebar" :style="{ padding: paddingExpanded }">
-    <div :class="$style.name">
-      <div :class="$style.text">
-        <img :src="iconUrl" :style="{ marginTop: isExpanded ? '0px' : '3px' }" />
-        <h3 v-show="isExpanded" class="heading-4">Jenda</h3>
-        <UiBadge v-show="isExpanded">{{ t('sidebar.badge') }}</UiBadge>
+    <div :class="$style.name" :style="{ marginBottom: isExpanded ? '18px' : '22px' }">
+      <div v-if="isExpanded" :class="$style.text">
+        <img :src="iconUrl" />
+        <h3 class="heading-4">Jenda</h3>
+        <UiBadge>{{ t('sidebar.badge') }}</UiBadge>
       </div>
-      <div v-if="!isExpanded" :class="$style.arrow_expanded">
-        <ChevronRight :size="14" @click="emit('onToggle')" />
-      </div>
+      <AlignJustify
+        v-else
+        :class="$style.icon_menu"
+        :style="{ marginTop: isExpanded ? '0px' : '3px' }"
+        @click="emit('onToggle')"
+      />
       <ArrowsDouble v-show="isExpanded" :class="$style.icon" @click="emit('onToggle')" />
     </div>
     <div :class="$style.content">
@@ -72,7 +75,6 @@ const iconUrl = computed(() => {
     display: flex;
     align-items: center;
     justify-content: v-bind('contentPosition');
-    margin-bottom: 18px;
 
     .text {
       display: flex;
@@ -89,6 +91,11 @@ const iconUrl = computed(() => {
       &:hover {
         color: var(--zinc-500);
       }
+    }
+
+    .icon_menu {
+      color: var(--zinc-800);
+      cursor: pointer;
     }
 
     & img {
@@ -110,36 +117,17 @@ const iconUrl = computed(() => {
       padding: 0 auto;
     }
   }
-
-  .arrow_expanded {
-    position: fixed;
-    left: 46px;
-    top: 40%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    color: var(--zinc-100);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-  }
 }
 
 :global(.dark) {
   .sidebar {
     background-color: rgba(var(--zinc-rgb-800), 0.5);
     border-color: var(--dark-border);
-  }
-
-  .arrow_expanded {
-    background-color: rgba(var(--zinc-rgb-600), 0.8);
-    color: var(--zinc-200);
+    .name {
+      .icon_menu {
+        color: var(--zinc-200);
+      }
+    }
   }
 }
 </style>

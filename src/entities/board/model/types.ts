@@ -1,4 +1,4 @@
-import type { UserType } from '@/entities/user/model';
+import type { User } from '@/entities/user/model';
 
 type DateParams = {
   createdAt?: Date;
@@ -10,12 +10,15 @@ export interface BoardPreview extends DateParams {
   _id: string;
   title: string;
   description: string;
-  users: UserType[];
+  users: User[];
 }
 
 export interface Board extends DateParams {
   _id: string;
   columns?: Column[];
+  name: string;
+  users: User[];
+  status: 'work' | 'archive' | 'closed';
 }
 
 type Tag = {
@@ -29,7 +32,8 @@ export interface Card extends DateParams {
   priority: 'none' | 'low' | 'medium' | 'high';
   tags?: Tag[];
   chat?: boolean;
-  users: UserType[];
+  chatCount?: number;
+  users: User[];
 }
 
 export interface Column extends DateParams {

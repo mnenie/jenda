@@ -2,20 +2,9 @@
 import { useI18n } from 'vue-i18n';
 import { UiButton } from '@/shared/ui';
 import { Link } from 'lucide-vue-next';
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import { RouteNames } from '@/shared/config/consts';
 import UserMenu from './UserMenu.vue';
 
 const { t } = useI18n();
-const route = useRoute();
-
-const path = computed(() => {
-  if (route.name!.toString().startsWith(RouteNames.members)) {
-    return t('sidebar.members');
-  }
-  return t('sidebar.' + route.name?.toString());
-});
 </script>
 
 <template>
@@ -23,16 +12,17 @@ const path = computed(() => {
     <div :class="$style.about">
       <div :class="$style.workspace_part">
         <div :class="$style.box">
-          <span>{{ t('header.name').slice(0, 1) }}</span>
+          <span>1a</span>
         </div>
         <div :class="$style.name">
-          <p class="text-base" style="font-weight: 500; line-height: 22px">{{ t('header.name') }}</p>
-          <span class="text-xs">{{ path }}</span>
+          <p class="text-base" style="font-weight: 500; line-height: 22px">My Workspace</p>
+          <span class="text-xs">1alexpeshkov@gmail.com</span>
         </div>
       </div>
     </div>
+    <div />
     <div :class="$style.user_section">
-      <UiButton :class="$style.upgrade"> {{ t('header.upgrade') }} </UiButton>
+      <UiButton :variant="'secondary'" :class="$style.upgrade"> {{ t('header.upgrade') }} </UiButton>
       <UiButton :variant="'secondary'">
         <Link :size="18" style="margin-right: 8px" />
         <span>{{ t('header.collaboration') }}</span>
@@ -89,13 +79,6 @@ const path = computed(() => {
     align-items: center;
     height: 100%;
     gap: 10px;
-
-    .upgrade {
-      background-color: var(--purple-main);
-      &:hover {
-        background-color: rgba(var(--purple-rgb), 0.9);
-      }
-    }
   }
 }
 

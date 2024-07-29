@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import type { UserType } from '@/entities/user/model';
+import type { User} from '@/entities/user/model';
 import { UserAvatar } from '@/entities/user';
 import type { BoardPreview } from '../model';
 
@@ -12,7 +12,7 @@ defineProps<{
 const { t } = useI18n();
 
 const userPosition = computed(() => {
-  return (board: BoardPreview, user: UserType) => {
+  return (board: BoardPreview, user: User) => {
     return (board.users.length - 1 - +user._id!) * 12;
   };
 });

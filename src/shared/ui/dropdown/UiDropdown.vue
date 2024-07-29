@@ -44,7 +44,7 @@ defineSlots<{
 <style module lang="scss">
 .dropdown {
   position: relative;
-  z-index: 50;
+  z-index: 9999;
 
   .wrapper {
     max-height: 29px;
