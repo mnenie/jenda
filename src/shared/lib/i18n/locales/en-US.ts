@@ -145,5 +145,16 @@ export default {
     },
     line: 'Or continue with',
     privacy: ['By clicking continue, you agree to our', 'Terms of Service', 'and', 'Privacy Policy.']
+  },
+  kanban: {
+    sorting: {
+      activity: 'By activity',
+      workload: 'Sort by workload'
+    },
+    statuses: ['work', 'archive', 'closed'],
+    new: 'Add new column',
+    cards: {
+      add: 'Add card'
+    }
   }
 };

@@ -39,7 +39,7 @@ const priority = computed(() => {
         <span> #{{ card._id }}</span>
         <div v-if="card.chat" :class="$style.messages">
           <MessagesSquare :size="14" />
-          <span>2</span>
+          <span>{{ card.chatCount }}</span>
         </div>
       </div>
       <div :class="$style.right_container">

@@ -31,7 +31,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <div :class="$style.search_container">
+  <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '15px' : '16px' }">
     <Search
       :class="[isExpanded ? $style.icon : $style.icon_no_expanded]"
       :color="iconColor"
@@ -45,7 +45,11 @@ const { t } = useI18n();
       :placeholder="t('sidebar.input')"
       :class="$style.input_filter"
     />
-    <UiBadge v-show="isExpanded" variant="secondary" :class="$style.badge">
+    <UiBadge
+      variant="secondary"
+      :class="$style.badge"
+      :style="{ top: isExpanded ? '50%' : '20%', right: isExpanded ? '8px' : '-2px' }"
+    >
       <span>⌘</span>
       <span>K</span>
     </UiBadge>
@@ -56,7 +60,6 @@ const { t } = useI18n();
 .search_container {
   position: relative;
   height: 32px;
-  margin-bottom: 15px;
 
   .icon {
     position: absolute;
@@ -89,8 +92,6 @@ const { t } = useI18n();
 
   .badge {
     position: absolute;
-    right: 8px;
-    top: 50%;
     height: 16px;
     transform: translateY(-50%);
     padding-left: 4px;

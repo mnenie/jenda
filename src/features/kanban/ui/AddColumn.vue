@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { useDark } from '@vueuse/core';
+import { useI18n } from 'vue-i18n';
 import { Plus } from 'lucide-vue-next';
 
 const isDark = useDark();
+const { t } = useI18n();
 </script>
 
 <template>
-  <div :class="$style.block">
+  <div class="text-sm" :class="$style.block">
     <Plus :size="16" :color="isDark ? 'var(--zinc-300)' : 'var(--zinc-500)'" />
-    Add new column
+    {{ t('kanban.new') }}
   </div>
 </template>
 
@@ -26,6 +28,7 @@ const isDark = useDark();
   border-radius: 12px;
   padding: 0.8rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
 }
 
 :global(html.dark) {

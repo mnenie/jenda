@@ -5,6 +5,7 @@ import 'splitpanes/dist/splitpanes.css';
 import { computed, ref } from 'vue';
 import { Sidebar, HeaderMain } from '@/widgets/layout';
 import { useLocalStorage } from '@vueuse/core';
+import { RouteNames } from '@/shared/config/consts';
 
 const isExpanded = useLocalStorage('isExpanded', true);
 const transitionFl = ref(false);
@@ -34,7 +35,7 @@ const onToggleArea = () => {
     <Pane :size="widthMainContainer">
       <div :class="$style.main_part">
         <HeaderMain />
-        <div :class="$style.slot">
+        <div :class="$style.slot" :style="{ padding: $route.name !== RouteNames.board ? '30px 45px' : '0' }">
           <slot />
         </div>
       </div>
@@ -63,6 +64,15 @@ const onToggleArea = () => {
       width: 100%;
     }
   }
+}
+
+.new_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 15px;
+  width: 100%;
+  background-color: var(--zinc-50);
 }
 
 :global(.dark) {

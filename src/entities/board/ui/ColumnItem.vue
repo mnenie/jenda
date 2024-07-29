@@ -2,6 +2,7 @@
 import { useDark } from '@vueuse/core';
 import { Ellipsis, Plus } from 'lucide-vue-next';
 import type { Column } from '../model';
+import { useI18n } from 'vue-i18n';
 
 defineProps<{
   column: Column;
@@ -11,6 +12,7 @@ defineOptions({
 });
 
 const isDark = useDark();
+const { t } = useI18n();
 
 defineSlots<{
   content: () => any;
@@ -31,9 +33,9 @@ defineSlots<{
       <slot name="content" />
     </div>
     <div :class="$style.bottom">
-      <div :class="$style.add">
+      <div class="text-sm" :class="$style.add">
         <Plus :size="16" :color="isDark ? 'var(--zinc-300)' : 'var(--zinc-500)'" />
-        Add card
+        {{ t('kanban.cards.add') }}
       </div>
     </div>
   </div>
@@ -56,9 +58,12 @@ defineSlots<{
   scroll-margin: 8px;
 
   .top_part {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
     padding: 0.8rem;
     border-radius: 12px 12px 0 0;
-    // border-bottom: 1px solid #ddd;
     background-color: #f9f9f9;
     cursor: grab;
     display: flex;
@@ -70,9 +75,12 @@ defineSlots<{
 
   .content {
     padding: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
   }
 
   .name {

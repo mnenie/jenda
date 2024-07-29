@@ -1,58 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import type { Column } from '@/entities/board';
 import { DragCards, AddColumn, DragColumns } from '@/features/kanban';
 
-// mocks -> after data from backend
-const columns = ref<Column[]>([
-  {
-    _id: '0',
-    title: 'TO DO',
-    cards: [
-      {
-        _id: '12',
-        title: 'Preparing onboarding materials for new UI designers',
-        chat: false,
-        users: [{ _id: '0', email: 'al', photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4' }],
-        priority: 'low'
-      }
-    ]
-  },
-  {
-    _id: '0',
-    title: 'IN PROGRESS',
-    cards: [
-      {
-        _id: '64',
-        title: 'Preparing onboarding materials for new UI designers',
-        chat: true,
-        users: [{ _id: '0', email: 'al', photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4' }],
-        priority: 'none'
-      },
-      {
-        _id: '23',
-        title: 'Offer notification email',
-        chat: false,
-        users: [
-          { _id: '0', email: 'al', photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4' },
-          { _id: '1', email: 'ai', photoUrl: 'https://avatars.githubusercontent.com/u/95149637?v=4' }
-        ],
-        priority: 'medium'
-      },
-      {
-        _id: '8',
-        title: 'Check all internal URLs',
-        tags: [
-          { _id: '0', name: 'dev' },
-          { _id: '1', name: 'new' }
-        ],
-        chat: true,
-        users: [{ _id: '0', email: 'al', photoUrl: 'https://avatars.githubusercontent.com/u/95149637?v=4' }],
-        priority: 'none'
-      }
-    ]
-  }
-]);
+defineProps<{
+  columns?: Column[];
+}>();
 </script>
 
 <template>
@@ -71,7 +23,7 @@ const columns = ref<Column[]>([
 <style module lang="scss">
 .kanban_wrapper {
   padding: 15px;
-  bottom: 0;
+  bottom: 50px;
   left: 0;
   overflow-x: auto;
   overflow-y: hidden;

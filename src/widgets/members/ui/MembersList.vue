@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { UserAvatar } from '@/entities/user';
-import type { UserType } from '@/entities/user/model';
+import type { User } from '@/entities/user/model';
 import { UiBadge } from '@/shared/ui';
 import { useI18n } from 'vue-i18n';
 
 defineProps<{
-  members: UserType[];
+  members: User[];
 }>();
 
 const { t } = useI18n();

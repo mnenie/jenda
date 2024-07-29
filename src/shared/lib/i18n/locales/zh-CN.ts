@@ -144,5 +144,16 @@ export default {
     },
     line: '或继续使用',
     privacy: ['点击继续即表示您同意我们的', '服务条款', '和', '隐私政策。']
+  },
+  kanban: {
+    sorting: {
+      activity: '按活动排序',
+      workload: '按工作量排序'
+    },
+    statuses: ['工作', '归档', '关闭'],
+    new: '添加新列',
+    cards: {
+      add: '添加卡片'
+    }
   }
 };

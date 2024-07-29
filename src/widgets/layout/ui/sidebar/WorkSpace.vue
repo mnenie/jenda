@@ -21,6 +21,9 @@ const isCurrentPath = (link: Link) => {
   if (route.name?.toString().startsWith(RouteNames.members)) {
     return link.pathName === RouteNames.members;
   }
+  if (route.name === RouteNames.board) {
+    return link.pathName === RouteNames.boards;
+  }
   return link.pathName === route.name;
 };
 
@@ -44,7 +47,7 @@ const iconColor = computed(() => {
 </script>
 
 <template>
-  <p v-show="isExpanded" :class="[$style.name_block, 'text-sm']">{{ t('sidebar.section') }}</p>
+  <p :class="[$style.name_block, 'text-sm']">{{ t('sidebar.section') }}</p>
   <div :class="$style.sidebar_main_links">
     <RouterLink
       v-for="link in pathName"
@@ -76,6 +79,9 @@ const iconColor = computed(() => {
   color: var(--zinc-300);
   margin-bottom: 12px;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .sidebar_main_links {
