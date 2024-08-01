@@ -154,6 +154,17 @@ export default {
     new: '添加新列',
     cards: {
       add: '添加卡片'
+    },
+    sheet: {
+      column: {
+        title: '添加新列',
+        description: '创建新列时，您可以创建卡片并使用看板。',
+        form: {
+          label: '列名称',
+          placeholder: '输入列名称',
+          submit: '创建列'
+        }
+      }
     }
   }
 };

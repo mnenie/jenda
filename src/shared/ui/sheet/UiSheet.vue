@@ -11,7 +11,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   overlay: true,
-  maxWidth: 640,
+  maxWidth: 450,
   transitionDuration: 0.35,
   overlayClickClose: true
 });
