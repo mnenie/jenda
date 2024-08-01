@@ -155,6 +155,17 @@ export default {
     new: 'Add new column',
     cards: {
       add: 'Add card'
+    },
+    sheet: {
+      column: {
+        title: 'Add new column',
+        description: 'When creating a new column, you can create cards and use the kanban board.',
+        form: {
+          label: 'Column name',
+          placeholder: 'Enter the column name',
+          submit: 'Create column'
+        }
+      }
     }
   }
 };

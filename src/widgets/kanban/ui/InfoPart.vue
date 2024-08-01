@@ -5,6 +5,7 @@ import { UserAvatar } from '@/entities/user';
 import type { Board } from '@/entities/board';
 import { UiBadge, UiButton } from '@/shared/ui';
 import { Users } from 'lucide-vue-next';
+import { toast } from 'vue-sonner';
 
 const props = defineProps<{
   board: Board;
@@ -18,6 +19,10 @@ const extraUsers = computed(() => {
 const previewUsers = computed(() => {
   return props.board.users.slice(0, 4);
 });
+
+const toggleVisible = () => {
+  toast.info('Now this feature in dev mode')
+}
 </script>
 
 <template>
@@ -31,7 +36,7 @@ const previewUsers = computed(() => {
         <span class="text-sm">{{ board.status }}</span>
       </div>
       <div :class="$style.line" />
-      <div :class="$style.visible">
+      <div :class="$style.visible" @click="toggleVisible">
         <UiButton variant="secondary" size="sm" :class="$style.btn">
           <Users :size="16" />
           Team Visible
