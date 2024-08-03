@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import type { RouterRecord } from './types';
-import { AuthLayout, SidebarLayout } from '@/layouts';
 import { RouteNames } from '@/shared/config/consts';
+import { LayoutsEnum } from '@/layouts/model';
+import { layoutResolverMiddleware } from './middleware';
 
 const routes = [
   {
@@ -9,7 +10,6 @@ const routes = [
     path: '/',
     component: () => import('@/pages/Boards.vue'),
     meta: {
-      layout: SidebarLayout,
       requiresAuth: true
     }
   },
@@ -18,7 +18,6 @@ const routes = [
     path: '/templates',
     component: () => import('@/pages/Templates.vue'),
     meta: {
-      layout: SidebarLayout,
       requiresAuth: true
     }
   },
@@ -27,7 +26,6 @@ const routes = [
     path: '/settings',
     component: () => import('@/pages/Settings.vue'),
     meta: {
-      layout: SidebarLayout,
       requiresAuth: true
     }
   },
@@ -49,7 +47,6 @@ const routes = [
       }
     ],
     meta: {
-      layout: SidebarLayout,
       requiresAuth: true
     }
   },
@@ -58,7 +55,6 @@ const routes = [
     path: '/board/:id',
     component: () => import('@/pages/Kanban.vue'),
     meta: {
-      layout: SidebarLayout,
       requiresAuth: true
     }
   },
@@ -67,7 +63,7 @@ const routes = [
     path: '/user/login',
     component: () => import('@/pages/Login.vue'),
     meta: {
-      layout: AuthLayout,
+      layout: LayoutsEnum.auth,
       requiresAuth: false
     }
   },
@@ -76,7 +72,7 @@ const routes = [
     path: '/user/registration',
     component: () => import('@/pages/Registration.vue'),
     meta: {
-      layout: AuthLayout,
+      layout: LayoutsEnum.auth,
       requiresAuth: false
     }
   }
@@ -94,3 +90,5 @@ router.beforeEach((to, from) => {
     return router.push({ name: RouteNames.login });
   }
 });
+
+router.beforeEach(layoutResolverMiddleware);

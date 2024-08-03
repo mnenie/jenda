@@ -1,5 +1,6 @@
+import AppLayout from './ui/AppLayout.vue';
 import DefaultLayout from './ui/DefaultLayout.vue';
-import SidebarLayout from './ui/SidebarLayout.vue';
+import WelcomeLayout from './ui/WelcomeLayout.vue';
 import AuthLayout from './ui/AuthLayout.vue';
 
-export { DefaultLayout, SidebarLayout, AuthLayout };
+export { AppLayout, DefaultLayout, WelcomeLayout, AuthLayout };
