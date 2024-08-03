@@ -51,8 +51,6 @@ const open = () => {
   padding: 0.8rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-weight: 500;
-  transition: none !important;
-  transform: none !important;
 }
 
 .desc {
