@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useColorMode, useDark } from '@vueuse/core';
 import { computed } from 'vue';
+import { useColorMode, useDark } from '@vueuse/core';
 import { Toaster } from 'vue-sonner';
+import { AppLayout } from '@/layouts';
 
 type ToasterTheme = 'dark' | 'light';
 
@@ -14,12 +15,12 @@ const toasterTheme = computed<ToasterTheme>(() => {
 </script>
 
 <template>
-  <component :is="$route.meta.layout">
+  <AppLayout>
     <RouterView v-slot="{ Component }">
       <KeepAlive :include="['Login', 'Registration']">
         <component :is="Component" />
       </KeepAlive>
     </RouterView>
-  </component>
+  </AppLayout>
   <Toaster :theme="toasterTheme" position="bottom-right" />
 </template>
