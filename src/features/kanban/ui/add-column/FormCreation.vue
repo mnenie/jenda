@@ -36,6 +36,8 @@ const createColumn = handleSubmit((values) => {
 .form_container {
   display: grid;
   gap: 24px;
+  transition: none !important;
+  transform: none !important;
 
   .field {
     display: grid;

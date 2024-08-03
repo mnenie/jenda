@@ -7,7 +7,7 @@ import i18n from '@/shared/lib/i18n';
 import './styles/primary/index.scss';
 import 'floating-vue/dist/style.css';
 
-import { autoAnimatePlugin } from '@formkit/auto-animate/vue';
+import autoAnimatePlugin from './plugins/formkit';
 import { vTooltip } from 'floating-vue';
 
 const app = createApp(App);
