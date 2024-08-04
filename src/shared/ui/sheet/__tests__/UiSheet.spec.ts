@@ -35,7 +35,7 @@ describe('UiSheet', () => {
     expect(wrapper.find('[class*="sheet_footer"]').text()).toContain('sheet footer');
   });
 
-  it('should open/close the sheet', async () => {
+  it('should open and close the sheet', async () => {
     wrapper.vm.open();
     await wrapper.vm.$nextTick();
     expect(wrapper.find('[class*="sheet"]').attributes('aria-hidden')).toBe('false');
