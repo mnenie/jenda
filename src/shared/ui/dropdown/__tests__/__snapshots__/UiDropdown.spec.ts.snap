@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiDropdown > should render correctly 1`] = `
+"<div class="_dropdown_e2935a">
+  <div class="_wrapper_e2935a">
+    <div>trigger</div>
+  </div>
+  <transition-stub name="dropdown" appear="false" persisted="false" css="true">
+    <div class="_inside_e2935a">
+      <div class="_header_e2935a">
+        <div>header</div>
+      </div>
+      <div class="_content_e2935a">
+        <div>content</div>
+      </div>
+    </div>
+  </transition-stub>
+</div>"
+`;

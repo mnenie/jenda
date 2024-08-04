@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiSheet > should render correctly 1`] = `
+"<teleport-stub to="body">
+  <div class="_sheet_0ceba3" aria-hidden="false" role="dialog">
+    <transition-stub appear="false" persisted="true" css="true">
+      <div class="_sheet_overlay_0ceba3"></div>
+    </transition-stub>
+    <div class="_sheet_content_0ceba3">
+      <header class="_sheet_header_0ceba3">sheet header<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-xicon _header_icon_0ceba3">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg></header>
+      <main class="_sheet_main_0ceba3">test</main>
+      <footer class="_sheet_footer_0ceba3">sheet footer</footer>
+    </div>
+  </div>
+</teleport-stub>"
+`;
