@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiInput > should render correctly 1`] = `"<input id="radio-input-id" type="radio" class="_radio_item_90e1b5" name="radio-input-name">"`;
+
+exports[`UiRadioGroup > should render correctly 1`] = `"<input id="radio-input-id" type="radio" class="_radio_item_90e1b5" name="radio-input-name">"`;

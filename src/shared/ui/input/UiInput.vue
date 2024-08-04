@@ -9,7 +9,7 @@ type InputProps = {
 
 withDefaults(defineProps<InputProps>(), {
   modelValue: '',
-  placeholder: 'dizzo',
+  placeholder: 'jenda',
   type: 'text'
 });
 

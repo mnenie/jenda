@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiSelect > should render correctly 1`] = `
+"<div class="_custom_select_b14453">
+  <div class="_selected_b14453"><span class="text-sm">test</span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon">
+      <path d="m7 15 5 5 5-5"></path>
+      <path d="m7 9 5-5 5 5"></path>
+    </svg></div>
+  <transition-stub name="dropdown" appear="false" persisted="true" css="true">
+    <div class="_items_b14453" style=""></div>
+  </transition-stub>
+</div>"
+`;
