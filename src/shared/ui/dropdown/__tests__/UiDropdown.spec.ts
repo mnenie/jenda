@@ -34,7 +34,7 @@ describe('UiDropdown', () => {
     expect(wrapper.find('[class*="inside"]').exists()).toBe(false);
   });
 
-  it('should close dropdown when we clicking outside', () => {
+  it('should close dropdown when clicking outside', () => {
     const _w = mount(UiDropdown, {
       attachTo: document.body,
       slots: {
