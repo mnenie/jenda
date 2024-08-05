@@ -19,19 +19,18 @@ describe('UiDropdown', () => {
   });
 
   it('toggles dropdown on trigger', async () => {
-    // TODO: think about changing it to $style (vitest.config.ts -> classes())
-    const trigger = wrapper.find('[class*="wrapper"]');
+    const trigger = wrapper.find('.wrapper');
     expect(trigger.exists()).toBe(true);
     //@ts-expect-error instance
     wrapper.vm.isOpen = false;
 
     trigger.trigger('click');
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('[class*="inside"]').exists()).toBe(true);
+    expect(wrapper.find('.inside').exists()).toBe(true);
 
     trigger.trigger('click');
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('[class*="inside"]').exists()).toBe(false);
+    expect(wrapper.find('.inside').exists()).toBe(false);
   });
 
   it('should close dropdown when clicking outside', () => {
