@@ -35,7 +35,7 @@ const selected = ref(props.modelValue);
       <ChevronsUpDown :size="15" color="var(--zinc-400)" />
     </div>
     <Transition name="dropdown">
-      <div v-show="open" :class="$style.items">
+      <div v-if="open" :class="$style.items">
         <div
           v-for="(option, i) of options"
           :key="i"

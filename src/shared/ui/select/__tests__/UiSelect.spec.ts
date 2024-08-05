@@ -18,14 +18,14 @@ describe('UiSelect', () => {
   });
 
   it('toggles select on button(trigger)', async () => {
-    const trigger = wrapper.find('[class*="selected"]');
+    const trigger = wrapper.find('.selected');
     expect(trigger.exists()).toBe(true);
     //@ts-expect-error instance
     wrapper.vm.open = false;
 
     trigger.trigger('click');
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('[class*="items"]').exists()).toBe(true);
+    expect(wrapper.find('.items').exists()).toBe(true);
   });
 
   it('should close select when we clicking outside', () => {

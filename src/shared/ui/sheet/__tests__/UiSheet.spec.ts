@@ -30,18 +30,18 @@ describe('UiSheet', () => {
   });
 
   it('should render slots correctly', () => {
-    expect(wrapper.find('[class*="sheet_header"]').text()).toContain('sheet header');
-    expect(wrapper.find('[class*="sheet_main"]').text()).toContain('test');
-    expect(wrapper.find('[class*="sheet_footer"]').text()).toContain('sheet footer');
+    expect(wrapper.find('.sheet_header').text()).toContain('sheet header');
+    expect(wrapper.find('.sheet_main').text()).toContain('test');
+    expect(wrapper.find('.sheet_footer').text()).toContain('sheet footer');
   });
 
   it('should open/close the sheet', async () => {
     wrapper.vm.open();
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('[class*="sheet"]').attributes('aria-hidden')).toBe('false');
+    expect(wrapper.find('.sheet').attributes('aria-hidden')).toBe('false');
 
     wrapper.vm.close();
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('[class*="sheet"]').attributes('aria-hidden')).toBe('true');
+    expect(wrapper.find('.sheet').attributes('aria-hidden')).toBe('true');
   });
 });

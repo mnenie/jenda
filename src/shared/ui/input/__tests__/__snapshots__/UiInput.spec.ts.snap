@@ -1,3 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`UiInput > should render correctly 1`] = `"<input placeholder="jenda" type="text" class="_input_default_1b38d4 text-sm" autocomplete="on" value="value">"`;
+exports[`UiInput > should render correctly 1`] = `"<input placeholder="jenda" type="text" class="input_default text-sm" autocomplete="on" value="value">"`;

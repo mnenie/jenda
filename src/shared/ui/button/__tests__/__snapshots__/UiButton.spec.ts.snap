@@ -1,3 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`UiButton > should have content at slot 1`] = `"<button class="text-sm _button_8511b8 _default_8511b8 _md_8511b8">ui button</button>"`;
+exports[`UiButton > should have content at slot 1`] = `"<button class="text-sm button default md">ui button</button>"`;
