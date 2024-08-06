@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import UiButton from '../UiButton.vue';
 import type { ButtonSize, ButtonType } from '../types';
 
 describe('UiButton', () => {
-  const wrapper = mount(UiButton, {
+  const wrapper = shallowMount(UiButton, {
     props: {
       variant: 'default',
       size: 'md'
@@ -16,7 +16,7 @@ describe('UiButton', () => {
   });
 
   it('should have content at slot', () => {
-    const _w = mount(UiButton, {
+    const _w = shallowMount(UiButton, {
       slots: {
         default: 'ui button'
       }
@@ -28,7 +28,7 @@ describe('UiButton', () => {
     const variants = ['default', 'secondary', 'destructive', 'ghost', 'outline', 'dashed'] as ButtonType[];
 
     variants.forEach((variant) => {
-      const wrapper = mount(UiButton, {
+      const wrapper = shallowMount(UiButton, {
         props: {
           variant,
           size: 'md'
@@ -42,7 +42,7 @@ describe('UiButton', () => {
   it('should apply correct styles for size', () => {
     const sizes = ['lg', 'md', 'sm'] as ButtonSize[];
     sizes.forEach((size) => {
-      const wrapper = mount(UiButton, {
+      const wrapper = shallowMount(UiButton, {
         props: {
           variant: 'dashed',
           size

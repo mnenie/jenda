@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import UiBadge from '../UiBadge.vue';
 import type { BadgeType } from '../types';
 
 describe('UiBadge', () => {
-  const wrapper = mount(UiBadge, {
+  const wrapper = shallowMount(UiBadge, {
     props: {
       variant: 'default'
     }
@@ -15,7 +15,7 @@ describe('UiBadge', () => {
   });
 
   it('should have content at slot', () => {
-    const _w = mount(UiBadge, {
+    const _w = shallowMount(UiBadge, {
       slots: {
         default: 'badge'
       }
@@ -26,7 +26,7 @@ describe('UiBadge', () => {
   it('should apply correct styles for variants', () => {
     const variants = ['default', 'secondary', 'outline'] as BadgeType[];
     variants.forEach((variant) => {
-      const wrapper = mount(UiBadge, {
+      const wrapper = shallowMount(UiBadge, {
         props: {
           variant
         }

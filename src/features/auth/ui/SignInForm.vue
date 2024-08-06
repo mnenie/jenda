@@ -14,8 +14,8 @@ const { t } = useI18n();
 const { handleSubmit, errors } = useForm({
   validationSchema
 });
-const { value: email } = useField('email');
-const { value: password } = useField('password');
+const { value: email } = useField<string>('email');
+const { value: password } = useField<string | number>('password');
 
 const onLogin = handleSubmit((values) => {
   // on login event

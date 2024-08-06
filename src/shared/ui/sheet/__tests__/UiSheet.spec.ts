@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import UiSheet from '../UiSheet.vue';
 
 describe('UiSheet', () => {
@@ -25,7 +26,7 @@ describe('UiSheet', () => {
   it('should render correctly', async () => {
     // @ts-expect-error
     wrapper.vm.showSheet = true;
-    await wrapper.vm.$nextTick();
+    await nextTick();
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -37,11 +38,11 @@ describe('UiSheet', () => {
 
   it('should open/close the sheet', async () => {
     wrapper.vm.open();
-    await wrapper.vm.$nextTick();
+    await nextTick();
     expect(wrapper.find('.sheet').attributes('aria-hidden')).toBe('false');
 
     wrapper.vm.close();
-    await wrapper.vm.$nextTick();
+    await nextTick();
     expect(wrapper.find('.sheet').attributes('aria-hidden')).toBe('true');
   });
 });

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import UiDropdown from '../UiDropdown.vue';
 
 describe('UiDropdown', () => {
@@ -14,7 +15,7 @@ describe('UiDropdown', () => {
   it('should render correctly', async () => {
     //@ts-expect-error instance
     wrapper.vm.isOpen = true;
-    await wrapper.vm.$nextTick();
+    await nextTick();
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -25,11 +26,11 @@ describe('UiDropdown', () => {
     wrapper.vm.isOpen = false;
 
     trigger.trigger('click');
-    await wrapper.vm.$nextTick();
+    await nextTick();
     expect(wrapper.find('.inside').exists()).toBe(true);
 
     trigger.trigger('click');
-    await wrapper.vm.$nextTick();
+    await nextTick();
     expect(wrapper.find('.inside').exists()).toBe(false);
   });
 

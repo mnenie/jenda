@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import UiSelect from '../UiSelect.vue';
 
 describe('UiSelect', () => {
@@ -13,7 +14,7 @@ describe('UiSelect', () => {
   it('should render correctly', async () => {
     //@ts-expect-error instance
     wrapper.vm.open = true;
-    await wrapper.vm.$nextTick();
+    await nextTick();
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -24,7 +25,7 @@ describe('UiSelect', () => {
     wrapper.vm.open = false;
 
     trigger.trigger('click');
-    await wrapper.vm.$nextTick();
+    await nextTick();
     expect(wrapper.find('.items').exists()).toBe(true);
   });
 

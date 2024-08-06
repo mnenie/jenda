@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import UiRadioGroupItem from '../UiRadioGroupItem.vue';
 
 describe('UiRadioGroup', () => {
-  const wrapper = mount(UiRadioGroupItem, {
+  const wrapper = shallowMount(UiRadioGroupItem, {
     props: {
       inputId: 'radio-input-id',
       modelValue: '',

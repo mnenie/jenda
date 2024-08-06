@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for CardItem > should render correctly 1`] = `
+"<div class="text-sm card card">
+  <div class="top">
+    <div class="name"><span>Test Card</span></div>
+    <div class="tags">
+      <div class="text-xs badge secondary">test</div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="left_container"><span> #0</span>
+      <div class="messages"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-messages-square-icon">
+          <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"></path>
+          <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>
+        </svg><span>2</span></div>
+    </div>
+    <div class="right_container">
+      <div class="user_container"></div>
+    </div>
+  </div>
+  <div class="indicator"></div>
+  <div class="user_container"></div>
+</div>"
+`;
+
+exports[`tests for CardItem.vue > should render correctly 1`] = `
+"<div class="text-sm card card">
+  <div class="top">
+    <div class="name"><span>Test Card</span></div>
+    <div class="tags">
+      <div class="text-xs badge secondary">test</div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="left_container"><span> #0</span>
+      <div class="messages"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-messages-square-icon">
+          <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"></path>
+          <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>
+        </svg><span>2</span></div>
+    </div>
+    <div class="right_container">
+      <div class="user_container"></div>
+    </div>
+  </div>
+  <div class="indicator"></div>
+  <div class="user_container"></div>
+</div>"
+`;

@@ -11,7 +11,7 @@ const { t } = useI18n();
 const { handleSubmit, errors } = useForm({
   validationSchema
 });
-const { value: name } = useField('name');
+const { value: name } = useField<string>('name');
 
 const createColumn = handleSubmit((values) => {
   // create new column

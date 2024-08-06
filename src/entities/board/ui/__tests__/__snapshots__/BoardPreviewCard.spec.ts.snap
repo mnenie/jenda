@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for BoardPreviewCard > should render correctly 1`] = `
+"<div class="active_board">
+  <div class="text">
+    <p class="text-base" style="font-weight: 500;">test title</p><span class="text-xs">test description</span>
+  </div>
+  <div class="bottom_part"><span class="text-xs">Date Updated (test): May 2024</span>
+    <div class="users"></div>
+  </div>
+</div>"
+`;
+
+exports[`tests for BoardPreviewCard.vue > should render correctly 1`] = `
+"<div class="active_board">
+  <div class="text">
+    <p class="text-base" style="font-weight: 500;">test title</p><span class="text-xs">test description</span>
+  </div>
+  <div class="bottom_part"><span class="text-xs">Date Updated (test): May 2024</span>
+    <div class="users"></div>
+  </div>
+</div>"
+`;
