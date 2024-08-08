@@ -13,7 +13,7 @@ const { t } = useI18n();
 const { handleSubmit, errors } = useForm({
   validationSchema
 });
-const { value: name } = useField('name');
+const { value: name } = useField<string>('name');
 const description = ref('');
 
 const create = handleSubmit((values) => {

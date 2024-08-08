@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import UiInput from '../UiInput.vue';
 
 describe('UiInput', () => {
-  const wrapper = mount(UiInput, {
+  const wrapper = shallowMount(UiInput, {
     props: {
       modelValue: 'value',
       placeholder: 'jenda',
