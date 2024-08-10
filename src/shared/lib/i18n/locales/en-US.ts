@@ -148,8 +148,9 @@ export default {
   },
   kanban: {
     sorting: {
+      all: 'All Tasks',
       activity: 'By activity',
-      workload: 'Sort by workload'
+      workload: 'By workload'
     },
     statuses: ['work', 'archive', 'closed'],
     new: 'Add new column',
@@ -166,6 +167,14 @@ export default {
           submit: 'Create column'
         }
       }
+    },
+    configuration: {
+      title: 'Configure your board',
+      description: 'Customize the board for your convenience',
+      name: 'Here the name and the color indicator of your project',
+      status: 'Select the status of your project',
+      clear: 'Clear the board',
+      update: 'Apply changes'
     }
   }
 };

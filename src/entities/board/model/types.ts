@@ -18,7 +18,7 @@ export interface Board extends DateParams {
   columns?: Column[];
   name: string;
   users: User[];
-  status: 'work' | 'archive' | 'closed';
+  status: 'work' | 'archive' | 'closed' | 'not active';
 }
 
 type Tag = {

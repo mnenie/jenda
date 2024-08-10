@@ -147,6 +147,7 @@ export default {
   },
   kanban: {
     sorting: {
+      all: '所有任务',
       activity: '按活动排序',
       workload: '按工作量排序'
     },
@@ -165,6 +166,14 @@ export default {
           submit: '创建列'
         }
       }
+    },
+    configuration: {
+      title: '配置您的看板',
+      description: '自定义您的看板以方便使用',
+      name: '项目的名称和颜色指示器"',
+      status: '选择您的项目状态',
+      clear: '清空看板',
+      update: '应用更改'
     }
   }
 };

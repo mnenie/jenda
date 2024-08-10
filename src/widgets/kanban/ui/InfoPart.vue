@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { SettingsSheet, SortingItems, RemoveBoard } from '@/features/kanban';
+import { SettingsSheet, FilterTasks, RemoveBoard } from '@/features/kanban';
 import { UserAvatar } from '@/entities/user';
 import type { Board } from '@/entities/board';
 import { UiBadge, UiButton } from '@/shared/ui';
@@ -21,8 +21,8 @@ const previewUsers = computed(() => {
 });
 
 const toggleVisible = () => {
-  toast.info('Now this feature in dev mode')
-}
+  toast.info('Now this feature in dev mode');
+};
 </script>
 
 <template>
@@ -57,7 +57,7 @@ const toggleVisible = () => {
       </div>
     </div>
     <div :class="$style.right_container">
-      <SortingItems />
+      <FilterTasks />
       <div :class="$style.line" />
       <SettingsSheet />
       <RemoveBoard />
