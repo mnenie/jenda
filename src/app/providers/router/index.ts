@@ -75,6 +75,15 @@ const routes = [
       layout: LayoutsEnum.auth,
       requiresAuth: false
     }
+  },
+  {
+    name: '404',
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/pages/404.vue'),
+    meta: {
+      layout: LayoutsEnum.auth,
+      requiresAuth: true
+    }
   }
 ] satisfies readonly RouterRecord[];
 
