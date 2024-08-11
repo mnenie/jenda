@@ -10,6 +10,8 @@ import { Trash2 } from 'lucide-vue-next';
 </template>
 
 <style module lang="scss">
+@import '@/app/styles/mixins';
+
 .trash {
   height: 30px;
   gap: 8px;
@@ -17,17 +19,27 @@ import { Trash2 } from 'lucide-vue-next';
   & > svg {
     color: var(--zinc-500);
   }
+  @include transition;
+
+  @include on-hover {
+    & > svg {
+      color: var(--destructive) !important;
+    }
+  }
 }
 
 :global(html.dark) {
   .trash {
     background-color: transparent;
-    &:hover {
-      background-color: transparent;
-      border-color: var(--zinc-500);
-    }
     & > svg {
       color: var(--zinc-300);
+    }
+    @include on-hover {
+      background-color: transparent;
+      border-color: var(--zinc-500);
+      & > svg {
+        color: var(--dark-destructive) !important;
+      }
     }
   }
 }

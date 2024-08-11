@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { SettingsSheet, SortingItems, RemoveBoard } from '@/features/kanban';
+import { FilterTasks, RemoveBoard } from '@/features/kanban';
 import { UserAvatar } from '@/entities/user';
 import type { Board } from '@/entities/board';
 import { UiBadge, UiButton } from '@/shared/ui';
 import { Users } from 'lucide-vue-next';
 import { toast } from 'vue-sonner';
+import ProjectSettings from './ProjectSettings.vue';
 
 const props = defineProps<{
   board: Board;
@@ -21,8 +22,8 @@ const previewUsers = computed(() => {
 });
 
 const toggleVisible = () => {
-  toast.info('Now this feature in dev mode')
-}
+  toast.info('Now this feature in dev mode');
+};
 </script>
 
 <template>
@@ -57,9 +58,9 @@ const toggleVisible = () => {
       </div>
     </div>
     <div :class="$style.right_container">
-      <SortingItems />
+      <FilterTasks />
       <div :class="$style.line" />
-      <SettingsSheet />
+      <ProjectSettings />
       <RemoveBoard />
     </div>
   </div>

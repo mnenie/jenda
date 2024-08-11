@@ -6,6 +6,8 @@ type DateParams = {
   deletedAt?: Date;
 };
 
+export type Status = 'work' | 'archive' | 'closed' | 'not active';
+
 export interface BoardPreview extends DateParams {
   _id: string;
   title: string;
@@ -17,8 +19,9 @@ export interface Board extends DateParams {
   _id: string;
   columns?: Column[];
   name: string;
+  color?: string;
   users: User[];
-  status: 'work' | 'archive' | 'closed';
+  status: Status;
 }
 
 type Tag = {
@@ -40,4 +43,10 @@ export interface Column extends DateParams {
   _id: string;
   title: string;
   cards?: Card[];
+}
+
+export interface StatusBadge {
+  _id: string;
+  indicator: string;
+  status: Status;
 }

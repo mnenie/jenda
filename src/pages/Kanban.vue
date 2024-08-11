@@ -20,13 +20,20 @@ const board = ref<Board>({
 </script>
 
 <template>
-  <InfoPart :board />
-  <div :class="$style.kanban">
-    <KanbanWrapper :columns="board.columns" />
+  <div :class="$style.page_container">
+    <InfoPart :board />
+    <div :class="$style.kanban">
+      <KanbanWrapper :columns="board.columns" />
+    </div>
   </div>
 </template>
 
 <style module lang="scss">
+.page_container {
+  height: 100%;
+  width: 100%;
+}
+
 .kanban {
   position: relative;
   height: 100%;

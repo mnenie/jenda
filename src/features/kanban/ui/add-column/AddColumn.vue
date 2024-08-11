@@ -48,7 +48,7 @@ const open = () => {
   width: 260px;
   height: fit-content;
   border-radius: 12px;
-  padding: 0.8rem;
+  padding: 0.7rem 0.8rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-weight: 500;
 }
