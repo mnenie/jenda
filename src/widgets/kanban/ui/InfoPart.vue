@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { SettingsSheet, FilterTasks, RemoveBoard } from '@/features/kanban';
+import { FilterTasks, RemoveBoard } from '@/features/kanban';
 import { UserAvatar } from '@/entities/user';
 import type { Board } from '@/entities/board';
 import { UiBadge, UiButton } from '@/shared/ui';
 import { Users } from 'lucide-vue-next';
 import { toast } from 'vue-sonner';
+import ProjectSettings from './ProjectSettings.vue';
 
 const props = defineProps<{
   board: Board;
@@ -59,7 +60,7 @@ const toggleVisible = () => {
     <div :class="$style.right_container">
       <FilterTasks />
       <div :class="$style.line" />
-      <SettingsSheet />
+      <ProjectSettings />
       <RemoveBoard />
     </div>
   </div>

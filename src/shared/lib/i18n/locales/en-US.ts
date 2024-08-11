@@ -172,6 +172,7 @@ export default {
       title: 'Configure your board',
       description: 'Customize the board for your convenience',
       name: 'Here the name and the color indicator of your project',
+      users: 'Participants',
       status: 'Select the status of your project',
       clear: 'Clear the board',
       update: 'Apply changes'

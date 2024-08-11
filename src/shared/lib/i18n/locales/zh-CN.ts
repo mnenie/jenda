@@ -171,6 +171,7 @@ export default {
       title: '配置您的看板',
       description: '自定义您的看板以方便使用',
       name: '项目的名称和颜色指示器"',
+      users: '參與者',
       status: '选择您的项目状态',
       clear: '清空看板',
       update: '应用更改'
