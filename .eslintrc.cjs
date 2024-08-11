@@ -11,7 +11,6 @@ module.exports = {
     'plugin:storybook/recommended'
   ],
   rules: {
-    'vue/multi-word-component-names': 'off',
     'vue/component-name-in-template-casing': [
       'error',
       'PascalCase',
@@ -29,6 +28,14 @@ module.exports = {
       }
     ]
   },
+  overrides: [
+    {
+      files: ['./src/pages/**/*.vue'],
+      rules: {
+        'vue/multi-word-component-names': 'off'
+      }
+    }
+  ],
   parserOptions: {
     ecmaVersion: 'latest'
   }
