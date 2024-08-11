@@ -22,8 +22,8 @@ const { t } = useI18n();
     </div>
     <div />
     <div :class="$style.user_section">
-      <UiButton :variant="'secondary'" :class="$style.upgrade"> {{ t('header.upgrade') }} </UiButton>
-      <UiButton :variant="'secondary'">
+      <UiButton variant="secondary" :class="$style.upgrade"> {{ t('header.upgrade') }} </UiButton>
+      <UiButton variant="secondary">
         <Link :size="18" style="margin-right: 8px" />
         <span>{{ t('header.collaboration') }}</span>
       </UiButton>
