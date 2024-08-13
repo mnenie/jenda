@@ -121,6 +121,9 @@ const iconColor = computed(() => {
         & span {
           color: var(--zinc-100);
         }
+        &:hover{
+          background-color: var(--zinc-700);
+        }
       }
     }
   }

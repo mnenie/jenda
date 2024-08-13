@@ -176,5 +176,12 @@ export default {
       clear: '清空看板',
       update: '应用更改'
     }
+  },
+  welcome: {
+    header: {
+      links: ['关于我们', '看板', '成员', '协作', '聊天', '计划'],
+      login: '登录',
+      reg: '注册'
+    }
   }
 };

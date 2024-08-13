@@ -75,6 +75,24 @@ const routes = [
       layout: LayoutsEnum.auth,
       requiresAuth: false
     }
+  },
+  {
+    name: RouteNames.welcome,
+    path: '/welcome',
+    component: () => import('@/pages/Home.vue'),
+    meta: {
+      layout: LayoutsEnum.welcome,
+      requiresAuth: true
+    }
+  },
+  {
+    name: RouteNames.error,
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/pages/404.vue'),
+    meta: {
+      layout: LayoutsEnum.auth,
+      requiresAuth: true
+    }
   }
 ] satisfies readonly RouterRecord[];
 
