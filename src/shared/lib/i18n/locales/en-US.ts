@@ -177,5 +177,12 @@ export default {
       clear: 'Clear the board',
       update: 'Apply changes'
     }
+  },
+  welcome: {
+    header: {
+      links: ['About', 'Kanban', 'Members', 'Collaborative', 'Chats', 'Plans'],
+      login: 'Log In',
+      reg: 'Get started'
+    }
   }
 };

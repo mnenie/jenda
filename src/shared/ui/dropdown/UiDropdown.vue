@@ -30,7 +30,7 @@ defineSlots<{
     </div>
     <Transition name="dropdown">
       <div v-if="isOpen" :class="$style.inside">
-        <div :class="$style.header">
+        <div v-if="$slots.header" :class="$style.header">
           <slot name="header" />
         </div>
         <div :class="$style.content" @click="onDropdownContent">

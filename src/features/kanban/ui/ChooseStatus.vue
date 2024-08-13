@@ -87,6 +87,9 @@ const activeStatus = computed(() => {
       background-color: var(--zinc-600);
       border: 1px solid var(--zinc-600);
     }
+    .active {
+      border: 1px solid var(--zinc-300);
+    }
   }
 }
 </style>

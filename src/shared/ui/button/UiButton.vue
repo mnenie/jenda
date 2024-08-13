@@ -152,7 +152,7 @@ withDefaults(
     color: var(--zinc-100);
 
     @include on-hover {
-      background-color: var(--zinc-700);
+      background-color: rgba(var(--zinc-rgb-600), 0.4);
     }
   }
 

@@ -6,3 +6,9 @@ export type Link = {
   pathName: string;
   icon: Component;
 };
+
+export type HeaderNavLink = {
+  id: number;
+  name: string;
+  pagePrefix: string;
+};
