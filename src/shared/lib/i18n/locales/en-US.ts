@@ -183,6 +183,13 @@ export default {
       links: ['About', 'Kanban', 'Members', 'Collaborative', 'Chats', 'Plans'],
       login: 'Log In',
       reg: 'Get started'
+    },
+    about: {
+      tagline: 'Your path to perfection',
+      description:
+        'Jenda is a cloud-based program for efficient collaborative and individual project and task management.',
+      badge: 'Core: Task Boards, Real-Time Tracking',
+      btn: 'Get started'
     }
   }
 };

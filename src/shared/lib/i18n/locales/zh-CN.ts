@@ -182,6 +182,12 @@ export default {
       links: ['关于我们', '看板', '成员', '协作', '聊天', '计划'],
       login: '登录',
       reg: '注册'
+    },
+    about: {
+      tagline: '通往完美的道路',
+      description: 'Jenda 是一款基于云的程序，用于高效协作和个人项目与任务管理。',
+      badge: '核心功能：任务板、实时跟踪',
+      btn: '注册'
     }
   }
 };

@@ -180,9 +180,9 @@ const links = computed(() => {
 
 :global(html.dark) {
   .box {
-    background-color: rgba(var(--zinc-rgb-600), 0.4);
+    background-color: #313131;
     border-color: var(--zinc-600);
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    box-shadow: 0 3px 2px 0 rgb(0 0 0 / 0.05);
   }
   .separator {
     background-color: var(--zinc-600);

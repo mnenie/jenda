@@ -132,7 +132,7 @@ withDefaults(
 
 :global(html.dark) {
   .default {
-    background-color: var(--zinc-200);
+    background-color: var(--zinc-100);
     color: var(--zinc-950);
 
     @include on-hover {
