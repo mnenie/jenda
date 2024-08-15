@@ -188,6 +188,32 @@ export default {
       description: 'Jenda 是一款基于云的程序，用于高效协作和个人项目与任务管理。',
       badge: '核心功能：任务板、实时跟踪',
       btn: '注册'
-    }
+    },
+    cards: [
+      {
+        title: '看板 🧑‍💻',
+        description: '使用我们直观的看板板来组织和可视化您的项目。'
+      },
+      {
+        title: '协作工作 👥',
+        description: '提高你的团队合作能力！'
+      },
+      {
+        title: '成员 🌐',
+        description: '邀请新成员加入您的项目。'
+      },
+      {
+        title: '模板 🔧',
+        description: '您可以使用多个入门模板。'
+      },
+      {
+        title: '聊天 💬',
+        description: '沟通、分享、讨论。'
+      }
+      // {
+      //   title: '计划 📄',
+      //   description: '升级您的免费计划，享受所有功能。'
+      // }
+    ]
   }
 };
