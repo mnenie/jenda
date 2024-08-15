@@ -180,7 +180,7 @@ export default {
   },
   welcome: {
     header: {
-      links: ['About', 'Kanban', 'Members', 'Collaborative', 'Templates', 'Chats'],
+      links: ['About', 'Kanban', 'Members', 'Templates', 'Collaborative', 'Chats'],
       login: 'Log In',
       reg: 'Get started'
     },
