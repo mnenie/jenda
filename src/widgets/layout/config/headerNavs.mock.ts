@@ -4,7 +4,7 @@ export const headerLinks = [
   { id: 0, name: 'About', pagePrefix: 'about' },
   { id: 1, name: 'Kanban', pagePrefix: 'kanban' },
   { id: 2, name: 'Members', pagePrefix: 'members' },
-  { id: 3, name: 'Collaborative', pagePrefix: 'collaborative' },
-  { id: 4, name: 'Chats', pagePrefix: 'chats' },
-  { id: 5, name: 'Plans', pagePrefix: 'plans' }
-] as HeaderNavLink[];
+  { id: 3, name: 'Templates', pagePrefix: 'templates' },
+  { id: 4, name: 'Collaborative', pagePrefix: 'collaborative' },
+  { id: 5, name: 'Chats', pagePrefix: 'chats' }
+] satisfies HeaderNavLink[];

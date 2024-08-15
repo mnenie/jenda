@@ -180,9 +180,39 @@ export default {
   },
   welcome: {
     header: {
-      links: ['About', 'Kanban', 'Members', 'Collaborative', 'Chats', 'Plans'],
+      links: ['About', 'Kanban', 'Members', 'Templates', 'Collaborative', 'Chats'],
       login: 'Log In',
       reg: 'Get started'
-    }
+    },
+    about: {
+      tagline: 'Your path to perfection',
+      description:
+        'Jenda is a cloud-based program for efficient collaborative and individual project and task management.',
+      badge: 'Core: Task Boards, Real-Time Tracking',
+      btn: 'Get started'
+    },
+    cards: [
+      {
+        title: 'Kanban 🧑‍💻',
+        description:
+          'Organize and visualize your projects with our intuitive Kanban board. Enhance productivity with ease.'
+      },
+      {
+        title: 'Collaborative 👥',
+        description: 'Improve your teamwork!'
+      },
+      {
+        title: 'Members 🌐',
+        description: 'Invite new participants to your projects.'
+      },
+      {
+        title: 'Templates 🔧',
+        description: 'Several starter templates are available to you.'
+      },
+      {
+        title: 'Chats 💬',
+        description: 'Communicate, share, discuss.'
+      }
+    ]
   }
 };

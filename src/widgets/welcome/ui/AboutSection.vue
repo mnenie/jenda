@@ -1,0 +1,104 @@
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+import { useDark } from '@vueuse/core';
+import { UiButton } from '@/shared/ui';
+import { ArrowRight } from 'lucide-vue-next';
+import { RouteNames } from '@/shared/config/consts';
+
+const isDark = useDark();
+
+const { t } = useI18n();
+</script>
+
+<template>
+  <section :class="$style.container">
+    <div :class="$style.badge">
+      <span style="margin-right: 3px">✨</span>
+      <span class="text-sm">{{ t('welcome.about.badge') }}</span>
+      <ArrowRight :size="14" />
+    </div>
+    <h1>{{ t('welcome.about.tagline') }}</h1>
+    <p class="text-lg">
+      {{ t('welcome.about.description') }}
+    </p>
+    <div :class="$style.btns">
+      <UiButton @click="$router.push({ name: RouteNames.registration })">
+        {{ t('welcome.about.btn') }}
+      </UiButton>
+      <UiButton variant="outline" :class="$style.btn_git">
+        <img :src="!isDark ? '/icons/github.png' : '/icons/github-d.png'" />
+        GitHub
+      </UiButton>
+    </div>
+  </section>
+</template>
+
+<style module lang="scss">
+.container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 980px;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 16px;
+
+  & > h1 {
+    margin-bottom: 2px;
+    text-align: center;
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.05em;
+  }
+
+  & > p {
+    max-width: 600px;
+    text-align: center;
+    color: var(--zinc-500);
+  }
+
+  .badge {
+    background-color: var(--zinc-100);
+    padding: 2px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: var(--zinc-500);
+  }
+
+  .btns {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 12px 0;
+
+    .btn_git {
+      & > img {
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+      }
+    }
+  }
+}
+
+:global(html.dark) {
+  .container {
+    .badge {
+      background-color: var(--zinc-600);
+      color: var(--zinc-300);
+    }
+    & > p {
+      color: var(--zinc-300);
+    }
+    // & > h1{
+    //   color: var(--zinc-200);
+    // }
+  }
+}
+</style>

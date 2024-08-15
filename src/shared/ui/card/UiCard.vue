@@ -30,4 +30,10 @@ defineSlots<{
   bottom: 6px;
   right: 6px;
 }
+
+:global(html.dark){
+  .card{
+    border: 1px solid var(--zinc-600);
+  }
+}
 </style>

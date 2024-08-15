@@ -8,7 +8,7 @@ import { redirect } from '@/shared/lib/helpers';
 import { RouteNames } from '@/shared/config/consts';
 import { Globe, Moon, Sun } from 'lucide-vue-next';
 import type { Options } from '@/shared/ui/select/types';
-import { headerLinks } from '../../config/headerNavs';
+import { headerLinks } from '../../config/headerNavs.mock';
 import type { HeaderNavLink } from '../../types';
 
 const isDark = useDark();
@@ -180,9 +180,9 @@ const links = computed(() => {
 
 :global(html.dark) {
   .box {
-    background-color: rgba(var(--zinc-rgb-600), 0.4);
+    background-color: #313131;
     border-color: var(--zinc-600);
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    box-shadow: 0 3px 2px 0 rgb(0 0 0 / 0.05);
   }
   .separator {
     background-color: var(--zinc-600);
