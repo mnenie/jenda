@@ -5,13 +5,13 @@ export const _cards = [
     id: 0,
     pagePrefix: 'kanban',
     height: '270',
-    width: '800'
+    width: '640'
   },
   {
     id: 1,
     pagePrefix: 'collaborative',
     height: '300',
-    width: '800'
+    width: '640'
   },
   {
     id: 2,
@@ -26,7 +26,6 @@ export const _cards = [
   },
   {
     id: 4,
-    pagePrefix: 'chats',
-    width: '340'
+    pagePrefix: 'chats'
   }
 ] satisfies MarketingCard[];

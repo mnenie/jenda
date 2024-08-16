@@ -22,7 +22,7 @@ const colors = [
   { light: '#fbfbfc', dark: 'rgba(var(--zinc-rgb-600), 0.2)' },
   { light: '#f7f9fe', dark: '#232527' },
   { light: '#fef7f9', dark: '#302528' },
-  { light: '#fbfbfc', dark: 'rgba(var(--zinc-rgb-600), 0.2)' },
+  { light: '#fbfbfc', dark: 'rgba(var(--zinc-rgb-600), 0.2)' }
 ];
 
 const isDark = useDark();
@@ -46,46 +46,46 @@ const currentHeight = computed(() => {
 </script>
 
 <template>
-  <div :class="$style.container">
-    <div :class="$style.wrapper">
-      <div :class="$style.combinedCard">
-        <UiCard
-          v-for="card in cards.slice(0, 2)"
-          :key="card.id"
-          :class="$style.card"
-          :style="{
-            backgroundColor: getCurrentColor(card.id),
-            maxWidth: currentWidth(card.width),
-            height: currentHeight(card.height)
-          }"
-        >
-          <h3 class="heading-3">{{ card.title }}</h3>
-          <p class="text-base">{{ card.description }}</p>
-          <img :src="isDark ? '/kanban-d.png' : '/kanban.png'" />
-        </UiCard>
-      </div>
-      <div :class="$style.combinedCard">
-        <UiCard
-          v-for="card in cards.slice(2, 4)"
-          :key="card.id"
-          :class="$style.card"
-          :style="{
-            backgroundColor: getCurrentColor(card.id),
-            maxWidth: currentWidth(card.width),
-            height: currentHeight(card.height)
-          }"
-        >
-          <h3 class="heading-3">{{ card.title }}</h3>
-          <p class="text-base">{{ card.description }}</p>
-          <img :src="isDark ? '/kanban-d.png' : '/kanban.png'" />
-        </UiCard>
-      </div>
+  <div :class="$style.wrapper">
+    <div :class="$style.combinedCard">
       <UiCard
-        :key="cards[4].id"
+        v-for="card in cards.slice(0, 2)"
+        :key="card.id"
         :class="$style.card"
         :style="{
+          backgroundColor: getCurrentColor(card.id),
+          maxWidth: currentWidth(card.width),
+          height: currentHeight(card.height)
+        }"
+      >
+        <h3 class="heading-3">{{ card.title }}</h3>
+        <p class="text-base">{{ card.description }}</p>
+        <img :src="isDark ? '/kanban-d.png' : '/kanban.png'" />
+      </UiCard>
+    </div>
+    <div :class="$style.combinedCard">
+      <UiCard
+        v-for="card in cards.slice(2, 4)"
+        :key="card.id"
+        :class="$style.card"
+        :style="{
+          backgroundColor: getCurrentColor(card.id),
+          maxWidth: currentWidth(card.width),
+          height: currentHeight(card.height)
+        }"
+      >
+        <h3 class="heading-3">{{ card.title }}</h3>
+        <p class="text-base">{{ card.description }}</p>
+        <img :src="isDark ? '/kanban-d.png' : '/kanban.png'" />
+      </UiCard>
+    </div>
+    <div :class="$style.combinedCard">
+      <UiCard
+        :key="cards[4].id"
+        :class="[$style.card, $style.flexGrowCard]"
+        :style="{
           backgroundColor: getCurrentColor(cards[4].id),
-          maxWidth: currentWidth(cards[4].width)
+          maxWidth: currentWidth(cards[4].width),
         }"
       >
         <h3 class="heading-3">{{ cards[4].title }}</h3>
@@ -97,53 +97,46 @@ const currentHeight = computed(() => {
 </template>
 
 <style module lang="scss">
-.container {
+.wrapper {
+  display: flex;
+  margin-top: 70px;
+  width: 100%;
+}
+
+.combinedCard {
+  gap: 20px;
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
+  flex-grow: 1;
 
-  .wrapper {
-    display: flex;
-    gap: 20px;
-    flex-grow: 1;
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}
 
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
+.card {
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1;
+
+  & > h3 {
+    margin-bottom: 8px;
   }
 
-  .combinedCard {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: 20px;
-    max-width: 580px;
+  & > p {
+    color: var(--zinc-500);
   }
 
-  .card {
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    width: 100%;
-
-    & > h3 {
-      margin-bottom: 8px;
-    }
-
-    & > p {
-      color: var(--zinc-500);
-    }
-
-    & > img {
-      position: absolute;
-      bottom: -260px;
-      right: -360px;
-      width: 720px;
-      border-radius: 8px;
-    }
+  & > img {
+    position: absolute;
+    bottom: -260px;
+    right: -360px;
+    width: 720px;
+    border-radius: 8px;
   }
 }
 
