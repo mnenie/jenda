@@ -192,23 +192,23 @@ export default {
     cards: [
       {
         title: '看板 🧑‍💻',
-        description: '使用我们直观的看板板来组织和可视化您的项目。'
+        description: '使用我们直观的看板来组织和可视化您的项目。轻松提升生产力。'
       },
       {
-        title: '协作工作 👥',
-        description: '提高你的团队合作能力！'
+        title: '协作 👥',
+        description: '提升你的团队合作！'
       },
       {
         title: '成员 🌐',
-        description: '邀请新成员加入您的项目。'
+        description: '邀请新成员参与您的项目。一起享受开发的乐趣！'
       },
       {
         title: '模板 🔧',
-        description: '您可以使用多个入门模板。'
+        description: '为您提供多个起始模板。'
       },
       {
         title: '聊天 💬',
-        description: '沟通、分享、讨论。'
+        description: '交流、分享、讨论。我们为您提供便利 😉'
       }
     ]
   }

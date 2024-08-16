@@ -203,7 +203,7 @@ export default {
       },
       {
         title: 'Members 🌐',
-        description: 'Invite new participants to your projects.'
+        description: 'Invite new participants to your projects. Enjoy the development together!'
       },
       {
         title: 'Templates 🔧',
@@ -211,7 +211,7 @@ export default {
       },
       {
         title: 'Chats 💬',
-        description: 'Communicate, share, discuss.'
+        description: 'Communicate, share, discuss. Our convenience for you 😉'
       }
     ]
   }
