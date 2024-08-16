@@ -39,7 +39,7 @@ const links = computed(() => {
 </script>
 
 <template>
-  <div :class="$style.header_welcome">
+  <header :class="$style.header_welcome">
     <div :class="$style.left_container">
       <div :class="$style.box">
         <div :class="$style.inside">
@@ -77,7 +77,7 @@ const links = computed(() => {
         {{ t('welcome.header.reg') }}
       </UiButton>
     </div>
-  </div>
+  </header>
 </template>
 
 <style module lang="scss">

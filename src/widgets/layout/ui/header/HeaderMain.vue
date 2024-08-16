@@ -8,7 +8,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <div :class="$style.header">
+  <header :class="$style.header">
     <div :class="$style.about">
       <div :class="$style.workspace_part">
         <div :class="$style.box">
@@ -29,7 +29,7 @@ const { t } = useI18n();
       </UiButton>
       <UserMenu />
     </div>
-  </div>
+  </header>
 </template>
 
 <style module lang="scss">

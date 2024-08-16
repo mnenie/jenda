@@ -99,7 +99,7 @@ const currentHeight = computed(() => {
 <style module lang="scss">
 .wrapper {
   display: flex;
-  margin-top: 70px;
+  margin: 70px 0 80px 0;
   width: 100%;
 }
 
