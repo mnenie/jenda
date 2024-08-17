@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for FooterWelcome.vue > should be render correctly 1`] = `
+"<footer class="footer">
+  <div class="container">
+    <p class="text-base"><span class="brand">Jenda</span> - footer <a class="link"> Github </a></p>
+  </div>
+</footer>"
+`;
