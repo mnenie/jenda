@@ -213,6 +213,7 @@ export default {
         title: 'Chats 💬',
         description: 'Communicate, share, discuss. Our convenience for you 😉'
       }
-    ]
+    ],
+    footer: 'cloud-based program for task management. The source code is available on'
   }
 };

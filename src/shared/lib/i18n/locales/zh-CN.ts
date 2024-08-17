@@ -210,6 +210,7 @@ export default {
         title: '聊天 💬',
         description: '交流、分享、讨论。我们为您提供便利 😉'
       }
-    ]
+    ],
+    footer: '基于云的任务管理程序。源代码可在'
   }
 };

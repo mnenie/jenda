@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { redirect } from '@/shared/lib/helpers';
+
+const { t } = useI18n();
 </script>
 
 <template>
   <footer :class="$style.footer">
     <div :class="$style.container">
       <p class="text-base">
-        <span :class="$style.brand">Jenda</span> - cloud-based program for task management. The source code is
-        available on
+        <span :class="$style.brand">Jenda</span> - {{ t('welcome.footer') }}
         <a :class="$style.link" @click.prevent="redirect('https://github.com/mnenie/jenda')"> Github </a>
       </p>
     </div>
@@ -44,7 +46,7 @@ import { redirect } from '@/shared/lib/helpers';
 }
 
 :global(html.dark) {
-  .footer{
+  .footer {
     border-color: rgba(var(--zinc-rgb-600), 0.5);
   }
   .container {
