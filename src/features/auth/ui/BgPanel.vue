@@ -109,4 +109,10 @@ const imgBlockquote = computed(() => {
     }
   }
 }
+
+@media screen and (max-width: 1440px){
+  .container{
+    padding: 0 100px;
+  }
+}
 </style>

@@ -50,7 +50,7 @@ const info = computed(() => {
 .container {
   position: relative;
   height: 100%;
-  width: 66.6%;
+  width: 68%;
   margin-right: auto;
   margin-left: auto;
   padding-right: 2rem;

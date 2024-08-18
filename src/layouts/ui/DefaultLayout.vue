@@ -6,12 +6,15 @@ import { computed, ref } from 'vue';
 import { Sidebar, HeaderMain } from '@/widgets/layout';
 import { useLocalStorage } from '@vueuse/core';
 import { RouteNames } from '@/shared/config/consts';
+import { useWindowSize } from '@vueuse/core';
+
+const { width } = useWindowSize();
 
 const isExpanded = useLocalStorage('isExpanded', true);
 const transitionFl = ref(false);
 
 const widthSidebar = computed(() => {
-  return isExpanded.value ? '22%' : '4%';
+  return isExpanded.value ? (width.value >= 1380 ? '22%' : '26%') : width.value >= 1380 ? '4%' : '5%';
 });
 const widthMainContainer = computed(() => {
   return `calc(100% - ${widthSidebar.value})`;

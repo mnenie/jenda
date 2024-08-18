@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for UserMenu.vue > should be render correctly 1`] = `
+"<div class="dropdown">
+  <div class="wrapper">
+    <div class="avatar text-sm"><img src="https://avatars.githubusercontent.com/u/121057011?v=4" style="width: 100%;"></div>
+  </div>
+  <transition-stub name="dropdown" appear="false" persisted="false" css="true">
+    <div class="inside">
+      <div class="header"><span class="text-sm" style="font-weight: 500;">1alexpeshkov@gmail.com</span></div>
+      <div class="content">
+        <div class="item">welcome <div class="shortcut">⌘B</div>
+        </div>
+        <div class="item">logout <div class="shortcut">⇧⌘Q</div>
+        </div>
+      </div>
+    </div>
+  </transition-stub>
+</div>"
+`;
