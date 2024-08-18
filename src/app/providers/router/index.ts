@@ -32,18 +32,18 @@ const routes = [
   {
     name: RouteNames.members,
     path: '/members',
-    component: () => import('@/pages/members/MembersOverview.vue'),
+    component: () => import('@/pages/Members.vue'),
     redirect: { name: RouteNames.members + '.all' },
     children: [
       {
         name: RouteNames.members + '.all',
         path: '',
-        component: () => import('@/pages/members/AllParticipants.vue')
+        component: () => import('@/pages/MainTeam.vue')
       },
       {
         name: RouteNames.members + '.guests',
         path: 'guests',
-        component: () => import('@/pages/members/Guests.vue')
+        component: () => import('@/pages/Guests.vue')
       }
     ],
     meta: {
