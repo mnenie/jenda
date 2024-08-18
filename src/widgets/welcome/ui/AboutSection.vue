@@ -96,9 +96,6 @@ const { t } = useI18n();
     & > p {
       color: var(--zinc-300);
     }
-    // & > h1{
-    //   color: var(--zinc-200);
-    // }
   }
 }
 </style>

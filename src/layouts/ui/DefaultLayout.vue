@@ -14,7 +14,7 @@ const isExpanded = useLocalStorage('isExpanded', true);
 const transitionFl = ref(false);
 
 const widthSidebar = computed(() => {
-  return isExpanded.value ? (width.value >= 1380 ? '22%' : '24%') : width.value >= 1380 ? '4%' : '5%';
+  return isExpanded.value ? (width.value >= 1380 ? '22%' : '26%') : width.value >= 1380 ? '4%' : '5%';
 });
 const widthMainContainer = computed(() => {
   return `calc(100% - ${widthSidebar.value})`;
