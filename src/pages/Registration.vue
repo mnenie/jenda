@@ -9,7 +9,7 @@ useHead({
 </script>
 
 <template>
-  <div :class="$style.regitration">
+  <div :class="$style.registration">
     <AuthContainer>
       <SignUpForm />
     </AuthContainer>
@@ -18,7 +18,7 @@ useHead({
 </template>
 
 <style module lang="scss">
-.regitration {
+.registration {
   height: 100%;
   width: 100%;
   display: flex;
