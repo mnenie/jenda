@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
-import Login from '../Login.vue';
+import Login from '../LoginPage.vue';
 import { useHead } from '@unhead/vue';
 
 vi.mock('@unhead/vue', () => ({

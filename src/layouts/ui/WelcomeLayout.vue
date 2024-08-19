@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HeaderWelcome, FooterWelcome } from '@/widgets/layout';
+import { HeaderWelcome, AppFooter } from '@/widgets/layout';
 </script>
 
 <template>
@@ -8,7 +8,7 @@ import { HeaderWelcome, FooterWelcome } from '@/widgets/layout';
     <div :class="$style.slot">
       <slot />
     </div>
-    <FooterWelcome />
+    <AppFooter />
   </div>
 </template>
 
