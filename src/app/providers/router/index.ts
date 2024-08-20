@@ -8,7 +8,7 @@ const routes = [
   {
     name: RouteNames.boards,
     path: '/',
-    component: () => import('@/pages/Boards.vue'),
+    component: () => import('@/pages/BoardsPage.vue'),
     meta: {
       requiresAuth: true
     }
@@ -16,7 +16,7 @@ const routes = [
   {
     name: RouteNames.templates,
     path: '/templates',
-    component: () => import('@/pages/Templates.vue'),
+    component: () => import('@/pages/TemplatesPage.vue'),
     meta: {
       requiresAuth: true
     }
@@ -24,7 +24,7 @@ const routes = [
   {
     name: RouteNames.settings,
     path: '/settings',
-    component: () => import('@/pages/Settings.vue'),
+    component: () => import('@/pages/SettingsPage.vue'),
     meta: {
       requiresAuth: true
     }
@@ -32,18 +32,18 @@ const routes = [
   {
     name: RouteNames.members,
     path: '/members',
-    component: () => import('@/pages/Members.vue'),
+    component: () => import('@/pages/MembersPage.vue'),
     redirect: { name: RouteNames.members + '.all' },
     children: [
       {
         name: RouteNames.members + '.all',
         path: '',
-        component: () => import('@/pages/MainTeam.vue')
+        component: () => import('@/pages/MainTeamPage.vue')
       },
       {
         name: RouteNames.members + '.guests',
         path: 'guests',
-        component: () => import('@/pages/Guests.vue')
+        component: () => import('@/pages/GuestsPage.vue')
       }
     ],
     meta: {
@@ -53,7 +53,7 @@ const routes = [
   {
     name: RouteNames.board,
     path: '/board/:id',
-    component: () => import('@/pages/Kanban.vue'),
+    component: () => import('@/pages/KanbanPage.vue'),
     meta: {
       requiresAuth: true
     }
@@ -61,7 +61,7 @@ const routes = [
   {
     name: RouteNames.login,
     path: '/user/login',
-    component: () => import('@/pages/Login.vue'),
+    component: () => import('@/pages/LoginPage.vue'),
     meta: {
       layout: LayoutsEnum.auth,
       requiresAuth: false
@@ -70,7 +70,7 @@ const routes = [
   {
     name: RouteNames.registration,
     path: '/user/registration',
-    component: () => import('@/pages/Registration.vue'),
+    component: () => import('@/pages/RegistrationPage.vue'),
     meta: {
       layout: LayoutsEnum.auth,
       requiresAuth: false
@@ -79,7 +79,7 @@ const routes = [
   {
     name: RouteNames.welcome,
     path: '/welcome',
-    component: () => import('@/pages/Home.vue'),
+    component: () => import('@/pages/HomePage.vue'),
     meta: {
       layout: LayoutsEnum.welcome,
       requiresAuth: true
@@ -88,7 +88,7 @@ const routes = [
   {
     name: RouteNames.error,
     path: '/:pathMatch(.*)*',
-    component: () => import('@/pages/404.vue'),
+    component: () => import('@/pages/NotFoundPage.vue'),
     meta: {
       layout: LayoutsEnum.auth,
       requiresAuth: true

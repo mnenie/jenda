@@ -13,3 +13,10 @@ exports[`tests for Registration.vue > should be render correctly 1`] = `
   <bg-panel-stub></bg-panel-stub>
 </div>"
 `;
+
+exports[`tests for RegistrationPage.vue > should be render correctly 1`] = `
+"<div class="registration">
+  <auth-container-stub></auth-container-stub>
+  <bg-panel-stub></bg-panel-stub>
+</div>"
+`;

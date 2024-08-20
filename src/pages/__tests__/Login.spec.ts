@@ -1,13 +1,13 @@
 import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
-import Login from '../Login.vue';
+import Login from '../LoginPage.vue';
 import { useHead } from '@unhead/vue';
 
 vi.mock('@unhead/vue', () => ({
   useHead: vi.fn()
 }));
 
-describe('tests for Login.vue', () => {
+describe('tests for LoginPage.vue', () => {
   const wrapper = shallowMount(Login);
 
   it('should be render correctly', () => {

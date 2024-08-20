@@ -14,6 +14,13 @@ exports[`tests for Login.vue > should be render correctly 1`] = `
 </div>"
 `;
 
+exports[`tests for LoginPage.vue > should be render correctly 1`] = `
+"<div class="login">
+  <auth-container-stub></auth-container-stub>
+  <bg-panel-stub></bg-panel-stub>
+</div>"
+`;
+
 exports[`tests for Registration.vue > should be render correctly 1`] = `
 "<div class="login">
   <auth-container-stub></auth-container-stub>

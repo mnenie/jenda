@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import { RouteNames } from '@/shared/config/consts';
+import { useHead } from '@unhead/vue';
 import { UiButton } from '@/shared/ui';
+import { RouteNames } from '@/shared/config/consts';
+
+useHead({
+  title: '404 | Not Found :/'
+});
 </script>
 
 <template>

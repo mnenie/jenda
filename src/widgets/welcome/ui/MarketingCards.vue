@@ -85,7 +85,7 @@ const currentHeight = computed(() => {
         :class="[$style.card, $style.flexGrowCard]"
         :style="{
           backgroundColor: getCurrentColor(cards[4].id),
-          maxWidth: currentWidth(cards[4].width),
+          maxWidth: currentWidth(cards[4].width)
         }"
       >
         <h3 class="heading-3">{{ cards[4].title }}</h3>

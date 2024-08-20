@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
-import FooterWelcome from '../FooterWelcome.vue';
+import FooterWelcome from '../AppFooter.vue';
 import i18n from '@/shared/lib/i18n';
 
 vi.mock('@vueuse/integrations/useCookies', () => {
