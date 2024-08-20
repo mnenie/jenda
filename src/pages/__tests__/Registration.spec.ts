@@ -7,7 +7,7 @@ vi.mock('@unhead/vue', () => ({
   useHead: vi.fn()
 }));
 
-describe('tests for Registration.vue', () => {
+describe('tests for RegistrationPage.vue', () => {
   const wrapper = shallowMount(Registration);
 
   it('should be render correctly', () => {
