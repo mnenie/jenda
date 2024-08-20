@@ -11,6 +11,12 @@ module.exports = {
     'plugin:storybook/recommended'
   ],
   rules: {
+    'vue/block-order': [
+      'error',
+      {
+        order: ['script', 'template', 'style']
+      }
+    ],
     'vue/component-name-in-template-casing': [
       'error',
       'PascalCase',
@@ -24,9 +30,10 @@ module.exports = {
       {
         html: {
           void: 'always'
-        }
+        } 
       }
-    ]
+    ],
+    'vue/multi-word-component-names': 'warn'
   },
   parserOptions: {
     ecmaVersion: 'latest'
