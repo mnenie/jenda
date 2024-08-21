@@ -91,7 +91,7 @@ const routes = [
     component: () => import('@/pages/NotFoundPage.vue'),
     meta: {
       layout: LayoutsEnum.auth,
-      requiresAuth: true
+      requiresAuth: false
     }
   }
 ] satisfies readonly RouterRecord[];
