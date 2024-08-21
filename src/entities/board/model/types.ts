@@ -10,17 +10,14 @@ export type Status = 'work' | 'archive' | 'closed' | 'not active';
 
 export interface BoardPreview extends DateParams {
   _id: string;
-  title: string;
-  description: string;
+  name: string;
+  description?: string;
   users: User[];
 }
 
-export interface Board extends DateParams {
-  _id: string;
+export interface Board extends BoardPreview, DateParams {
   columns?: Column[];
-  name: string;
   color?: string;
-  users: User[];
   status: Status;
 }
 

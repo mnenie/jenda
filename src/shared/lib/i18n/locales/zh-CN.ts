@@ -3,6 +3,7 @@ export default {
     badge: '免费',
     input: '搜索',
     section: '工作区',
+    projects: '项目',
     boards: '看板',
     templates: '模板',
     members: '成员',

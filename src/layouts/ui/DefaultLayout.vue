@@ -3,7 +3,7 @@
 import { Splitpanes, Pane } from 'splitpanes';
 import 'splitpanes/dist/splitpanes.css';
 import { computed, ref } from 'vue';
-import { Sidebar, HeaderMain } from '@/widgets/layout';
+import { AppSidebar, HeaderMain } from '@/widgets/layout';
 import { useLocalStorage } from '@vueuse/core';
 import { RouteNames } from '@/shared/config/consts';
 import { useWindowSize } from '@vueuse/core';
@@ -33,7 +33,7 @@ const onToggleArea = () => {
       :size="widthSidebar"
       :style="{ transition: transitionFl && 'width .2s ease-out' }"
     >
-      <Sidebar :is-expanded @on-toggle="onToggleArea" />
+      <AppSidebar :is-expanded @on-toggle="onToggleArea" />
     </Pane>
     <Pane :size="widthMainContainer">
       <div :class="$style.main_part">

@@ -1,3 +1,3 @@
-import Sidebar from './Sidebar.vue';
+import AppSidebar from './AppSidebar.vue';
 
-export { Sidebar };
+export { AppSidebar };

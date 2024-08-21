@@ -20,7 +20,7 @@ const userPosition = computed(() => {
 <template>
   <div :class="$style.active_board" @click="$router.push('/board/1')">
     <div :class="$style.text">
-      <p class="text-base" style="font-weight: 500">{{ board.title }}</p>
+      <p class="text-base" style="font-weight: 500">{{ board.name }}</p>
       <span class="text-xs">{{ board.description }}</span>
     </div>
     <div :class="$style.bottom_part">

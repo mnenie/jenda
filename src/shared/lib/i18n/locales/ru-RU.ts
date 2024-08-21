@@ -3,6 +3,7 @@ export default {
     badge: 'free',
     input: 'Поиск',
     section: 'рабочее пространство',
+    projects: 'проекты',
     boards: 'Доски',
     templates: 'Шаблоны',
     members: 'Участники',
