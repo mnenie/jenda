@@ -10,7 +10,7 @@ const { t } = useI18n();
 const boards = ref<BoardPreview[]>([
   {
     _id: '0',
-    title: 'GTM Campaign',
+    name: 'GTM Campaign',
     description: 'crm system development',
     users: [
       { _id: '0', email: 'al', photoUrl: 'https://www.shadcn-vue.com/avatars/02.png' },

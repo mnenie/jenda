@@ -38,7 +38,7 @@ describe('tests for BoardPreviewCard.vue', () => {
     props: {
       board: {
         _id: '0',
-        title: 'test title',
+        name: 'test title',
         description: 'test description',
         users: []
       }

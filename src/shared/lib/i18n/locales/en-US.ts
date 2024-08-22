@@ -3,6 +3,7 @@ export default {
     badge: 'free',
     input: 'Search',
     section: 'workspace',
+    projects: 'projects',
     boards: 'Boards',
     templates: 'Templates',
     members: 'Members',

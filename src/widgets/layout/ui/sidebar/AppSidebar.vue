@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useDark } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { UiBadge } from '@/shared/ui';
@@ -9,6 +9,8 @@ import { SearchFilter } from '@/features/filter';
 import { PlanCard } from '@/features/plan';
 import { ArrowsDouble } from '@/shared/assets/icons';
 import { AlignJustify } from 'lucide-vue-next';
+import ProjectsList from './ProjectsList.vue';
+import type { Board } from '@/entities/board';
 
 const props = defineProps<{
   isExpanded: boolean;
@@ -31,6 +33,13 @@ const { t } = useI18n();
 const iconUrl = computed(() => {
   return isDark.value ? '/icons/kanban-dark.png' : '/icons/kanban.png';
 });
+
+// mock -> after data from backend
+//@ts-ignore
+const boards = ref<Board[]>([
+  { _id: '0', name: 'test', users: [], status: 'work', color: '#a1612a' },
+  { _id: '1', name: 'New board', users: [], status: 'work', color: '#45ad2d' }
+]);
 </script>
 
 <template>
@@ -53,6 +62,7 @@ const iconUrl = computed(() => {
       <div>
         <SearchFilter :is-expanded @on-toggle="emit('onToggle')" />
         <WorkSpace :links :is-expanded />
+        <ProjectsList :boards :is-expanded />
       </div>
       <PlanCard :is-expanded />
     </div>
