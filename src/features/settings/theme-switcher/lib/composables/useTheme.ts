@@ -1,9 +1,9 @@
 import { ref } from 'vue';
-import type { Ref } from 'vue';
+import type { ShallowRef } from 'vue';
 import { useColorMode } from '@vueuse/core';
 import type { ThemeBlock } from '../../model';
 
-export default function useTheme(themeBlocks: Ref<ThemeBlock[]>) {
+export default function useTheme(themeBlocks: ShallowRef<ThemeBlock[]>) {
   const { store } = useColorMode({
     initialValue: 'auto'
   });
