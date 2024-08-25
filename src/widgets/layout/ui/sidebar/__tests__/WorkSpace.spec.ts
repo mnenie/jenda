@@ -1,23 +1,14 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount, RouterLinkStub } from '@vue/test-utils';
+import { h } from 'vue';
+import { useRoute } from 'vue-router';
+import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import WorkSpace from '../WorkSpace.vue';
 import i18n from '@/shared/lib/i18n';
 import { RouteNames } from '@/shared/config/consts';
-import { h } from 'vue';
 import { SquareDashedKanban } from 'lucide-vue-next';
-import { useRoute } from 'vue-router';
 
 vi.mock('vue-router');
-
-vi.mock('@vueuse/integrations/useCookies', () => {
-  return {
-    useCookies: () => ({
-      get(key: string) {
-        return key === 'i18n' ? 'en-US' : undefined;
-      }
-    })
-  };
-});
 
 describe('tests for WorkSpace.vue', () => {
   //@ts-expect-error mock types

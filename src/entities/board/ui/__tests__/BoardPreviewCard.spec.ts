@@ -1,19 +1,8 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
+import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import i18n from '@/shared/lib/i18n';
 import BoardPreviewCard from '../BoardPreviewCard.vue';
-
-// TODO: think about putting this mock in /shared/vitest-utils maybe
-// so, the problem - is often used in many tests
-vi.mock('@vueuse/integrations/useCookies', () => {
-  return {
-    useCookies: () => ({
-      get: (key: string) => {
-        return key === 'i18n' ? 'en-US' : undefined;
-      }
-    })
-  };
-});
 
 const mockRouter = {
   push: vi.fn(),

@@ -1,20 +1,11 @@
 import { mount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
-import LanguageSwitcher from '../LanguageSwitcher.vue';
-import i18n from '@/shared/lib/i18n';
 import { nextTick, ref, shallowReactive } from 'vue';
+import '@/shared/lib/vitest-utils/cookiesI18n-mock';
+import i18n from '@/shared/lib/i18n';
+import LanguageSwitcher from '../LanguageSwitcher.vue';
 import { useLanguage } from '@/shared/lib/composables';
 import { useI18n } from 'vue-i18n';
-
-vi.mock('@vueuse/integrations/useCookies', () => {
-  return {
-    useCookies: () => ({
-      get(key: string) {
-        return key === 'i18n' ? 'en-US' : undefined;
-      }
-    })
-  };
-});
 
 vi.mock('vue-i18n', async (importOriginal) => {
   const actual = await importOriginal();

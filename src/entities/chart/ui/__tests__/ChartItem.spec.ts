@@ -1,18 +1,9 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
-import ChartItem from '../ChartItem.vue';
 import { defineComponent, h } from 'vue';
+import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import i18n from '@/shared/lib/i18n';
-
-vi.mock('@vueuse/integrations/useCookies', () => {
-  return {
-    useCookies: () => ({
-      get(key: string) {
-        return key === 'i18n' ? 'en-US' : undefined;
-      }
-    })
-  };
-});
+import ChartItem from '../ChartItem.vue';
 
 const TestChartComponent = defineComponent({
   render() {
