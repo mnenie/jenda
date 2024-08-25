@@ -4,7 +4,6 @@ import { nextTick } from 'vue';
 import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import HeaderWelcome from '../HeaderWelcome.vue';
 import i18n from '@/shared/lib/i18n';
-import { UiButton, UiSelect } from '@/shared/ui';
 import { Moon, Sun } from 'lucide-vue-next';
 
 const mockRouter = {
@@ -41,8 +40,8 @@ describe('tests for HeaderWelcome.vue', () => {
   });
 
   it('should render subcomponents', () => {
-    expect(wrapper.findComponent(UiButton).exists()).toBe(true);
-    expect(wrapper.findComponent(UiSelect).exists()).toBe(true);
+    expect(wrapper.findComponent({ name: 'UiButton' }).exists()).toBe(true);
+    expect(wrapper.findComponent({ name: 'UiSelect' }).exists()).toBe(true);
   });
 
   it('should handle mode + icon changing', async () => {
@@ -62,14 +61,14 @@ describe('tests for HeaderWelcome.vue', () => {
   });
 
   it('should redirect correctly to login', async () => {
-    const loginButton = wrapper.find('.btns').findAllComponents(UiButton).at(0);
+    const loginButton = wrapper.find('.btns').findAllComponents({ name: 'UiButton' }).at(0);
 
     await loginButton.trigger('click');
     expect(mockRouter.push).toHaveBeenCalledWith({ name: 'login' });
   });
 
   it('should redirect correctly to registration', async () => {
-    const registrationButton = wrapper.find('.btns').findAllComponents(UiButton).at(1);
+    const registrationButton = wrapper.find('.btns').findAllComponents({ name: 'UiButton' }).at(1);
 
     await registrationButton.trigger('click');
     expect(mockRouter.push).toHaveBeenCalledWith({ name: 'registration' });

@@ -2,7 +2,6 @@ import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
 import NotFound from '../NotFoundPage.vue';
 import { useHead } from '@unhead/vue';
-import { UiButton } from '@/shared/ui';
 
 vi.mock('@unhead/vue', () => ({
   useHead: vi.fn()
@@ -33,7 +32,7 @@ describe('tests for NotFoundPage.vue', () => {
   });
 
   it('should redirect correctly', async () => {
-    await wrapper.findComponent(UiButton).trigger('click');
+    await wrapper.findComponent({ name: 'UiButton' }).trigger('click');
     expect(mockRouter.push).toHaveBeenCalledWith({ name: 'boards' });
   });
 });
