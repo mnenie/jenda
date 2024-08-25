@@ -1,17 +1,8 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
-import ColumnItem from '../ColumnItem.vue';
+import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import i18n from '@/shared/lib/i18n';
-
-vi.mock('@vueuse/integrations/useCookies', () => {
-  return {
-    useCookies: () => ({
-      get(key: string) {
-        return key === 'i18n' ? 'en-US' : undefined;
-      }
-    })
-  };
-});
+import ColumnItem from '../ColumnItem.vue';
 
 describe('tests for ColumnItem.vue', () => {
   const wrapper = mount(ColumnItem, {

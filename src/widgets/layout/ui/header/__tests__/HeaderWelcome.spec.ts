@@ -1,20 +1,11 @@
 import { mount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
+import { nextTick } from 'vue';
+import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import HeaderWelcome from '../HeaderWelcome.vue';
 import i18n from '@/shared/lib/i18n';
 import { UiButton, UiSelect } from '@/shared/ui';
 import { Moon, Sun } from 'lucide-vue-next';
-import { nextTick } from 'vue';
-
-vi.mock('@vueuse/integrations/useCookies', () => {
-  return {
-    useCookies: () => ({
-      get: (key: string) => {
-        return key === 'i18n' ? 'en-US' : undefined;
-      }
-    })
-  };
-});
 
 const mockRouter = {
   push: vi.fn(),

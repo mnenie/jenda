@@ -11,6 +11,6 @@ export const THEME: Record<string, Theme> = {
 export interface ThemeBlock {
   id: number;
   item: Component;
-  active: boolean;
+  active?: boolean;
   value: Theme;
 }

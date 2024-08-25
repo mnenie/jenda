@@ -1,19 +1,10 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import UserMenu from '../UserMenu.vue';
+import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import i18n from '@/shared/lib/i18n';
+import UserMenu from '../UserMenu.vue';
 import { UiDropdownItem } from '@/shared/ui';
-
-vi.mock('@vueuse/integrations/useCookies', () => {
-  return {
-    useCookies: () => ({
-      get: (key: string) => {
-        return key === 'i18n' ? 'en-US' : undefined;
-      }
-    })
-  };
-});
 
 const mockRouter = {
   push: vi.fn(),
