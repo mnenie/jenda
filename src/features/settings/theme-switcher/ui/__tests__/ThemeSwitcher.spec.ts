@@ -34,8 +34,6 @@ describe('tests for ThemeSwitcher.vue', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
   it('should render subcomponents', () => {
-    // TODO: change `findComponent` selector -> name in another tests
-    // So the problem with component import is solved ✅
     expect(wrapper.findComponent({ name: 'UiRadioGroupContainer' }).exists()).toBe(true);
     expect(wrapper.findComponent({ name: 'UiButton' }).exists()).toBe(true);
   });
