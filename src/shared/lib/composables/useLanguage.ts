@@ -1,4 +1,4 @@
-import { effectScope, onUnmounted, watch } from 'vue';
+import { effectScope, onScopeDispose, watch } from 'vue';
 import type { Ref } from 'vue';
 import type { Options } from '@/shared/ui/select/types';
 import { useCookies } from '@vueuse/integrations/useCookies';
@@ -34,7 +34,7 @@ export function useLanguage(options: Options[], language: Ref<string>) {
       }
     );
   });
-  onUnmounted(() => {
+  onScopeDispose(() => {
     scope.stop();
   });
 }
