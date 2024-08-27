@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for KanbanWrapper.vue > should be render correctly 1`] = `
+"<div class="kanban_wrapper">
+  <div>
+    <div class="columns" tag="ul" name="flip-list" type="transition"></div>
+  </div>
+  <div class="text-sm block"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon">
+      <path d="M5 12h14"></path>
+      <path d="M12 5v14"></path>
+    </svg> Add new column</div>
+  <!--teleport start-->
+  <!--teleport end-->
+</div>"
+`;

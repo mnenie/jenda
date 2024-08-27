@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Column } from '@/entities/board';
 import { DragCards, AddColumn, DragColumns } from '@/features/kanban';
+import type { Column } from '@/entities/board';
 
 defineProps<{
   columns?: Column[];

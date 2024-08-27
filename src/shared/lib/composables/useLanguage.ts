@@ -11,8 +11,7 @@ export function useLanguage(options: Options[], language: Ref<string>) {
   const { locale } = useI18n();
 
   scope.run(() => {
-    // TODO: think to way of computed property instead
-    // So anyway the problem in nested watchers is solved, issue #11
+    // resolves #31
     watch(
       () => locale.value,
       (newLocale) => {
