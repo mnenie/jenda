@@ -1,4 +1,4 @@
-import { effectScope, onUnmounted, watch } from 'vue';
+import { effectScope, onScopeDispose, watch } from 'vue';
 import type { Ref } from 'vue';
 import type { Options } from '@/shared/ui/select/types';
 import { useCookies } from '@vueuse/integrations/useCookies';
@@ -11,8 +11,7 @@ export function useLanguage(options: Options[], language: Ref<string>) {
   const { locale } = useI18n();
 
   scope.run(() => {
-    // TODO: think to way of computed property instead
-    // So anyway the problem in nested watchers is solved, issue #11
+    // resolves #31
     watch(
       () => locale.value,
       (newLocale) => {
@@ -34,7 +33,7 @@ export function useLanguage(options: Options[], language: Ref<string>) {
       }
     );
   });
-  onUnmounted(() => {
+  onScopeDispose(() => {
     scope.stop();
   });
 }
