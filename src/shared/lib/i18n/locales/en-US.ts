@@ -216,5 +216,10 @@ export default {
       }
     ],
     footer: 'cloud-based program for task management. The source code is available on'
+  },
+  not_found: {
+    title: 'Not Found',
+    description: "The page you were looking for can't be found",
+    btn: 'Go to Home'
   }
 };

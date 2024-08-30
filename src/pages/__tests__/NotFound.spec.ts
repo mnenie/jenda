@@ -1,7 +1,9 @@
 import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
+import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import NotFound from '../NotFoundPage.vue';
 import { useHead } from '@unhead/vue';
+import i18n from '@/shared/lib/i18n';
 
 vi.mock('@unhead/vue', () => ({
   useHead: vi.fn()
@@ -15,6 +17,7 @@ const mockRouter = {
 describe('tests for NotFoundPage.vue', () => {
   const wrapper = shallowMount(NotFound, {
     global: {
+      plugins: [i18n],
       mocks: {
         $router: mockRouter
       }

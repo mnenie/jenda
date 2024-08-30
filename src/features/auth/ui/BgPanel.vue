@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
-import { reviews } from '../config/reviews';
+import { reviews } from '../model';
 import useTextChanging from '../lib/composables/useTextChanging';
 
 const { currentIndex } = useTextChanging(reviews);

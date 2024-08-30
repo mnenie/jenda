@@ -1,6 +1,6 @@
 import type { MarketingCard } from '../types';
 
-export const cardsInfo = [
+export const cardsInfo: MarketingCard[] = [
   {
     id: 0,
     pagePrefix: 'kanban',
@@ -28,4 +28,4 @@ export const cardsInfo = [
     id: 4,
     pagePrefix: 'chats'
   }
-] satisfies MarketingCard[];
+];

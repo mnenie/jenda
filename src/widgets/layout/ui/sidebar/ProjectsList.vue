@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { UiButton } from '@/shared/ui';
-import type { Board } from '@/entities/board';
-import { CircleFadingPlus } from 'lucide-vue-next';
 import { useDark } from '@vueuse/core';
+import { UiButton } from '@/shared/ui';
+import { CircleFadingPlus } from 'lucide-vue-next';
+import type { Board } from '@/entities/board';
 
 const props = defineProps<{
   boards: Board[];

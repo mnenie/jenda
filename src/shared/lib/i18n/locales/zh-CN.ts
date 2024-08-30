@@ -213,5 +213,10 @@ export default {
       }
     ],
     footer: '基于云的任务管理程序。源代码可在'
+  },
+  not_found: {
+    title: '未找到',
+    description: '找不到您要查找的页面',
+    btn: '返回首页'
   }
 };

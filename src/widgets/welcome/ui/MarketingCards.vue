@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
-import { cardsInfo } from '../config/cards';
+import { cardsInfo } from '../model';
 import type { MarketingCard } from '../types';
 import { UiCard } from '@/shared/ui';
 

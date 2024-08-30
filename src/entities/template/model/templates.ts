@@ -1,7 +1,6 @@
-import { shallowReactive } from 'vue';
 import type { Template } from '../model';
 
-export const _templates = shallowReactive<Template[]>([
+export const templatesInfo: Template[] = [
   {
     id: '0',
     title: 'Base Kanban',
@@ -29,4 +28,4 @@ export const _templates = shallowReactive<Template[]>([
     date: 'July 16, 2024',
     user: 'https://avatars.githubusercontent.com/u/121057011?v=4'
   }
-]);
+];

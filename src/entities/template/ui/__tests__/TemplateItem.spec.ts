@@ -3,7 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import i18n from '@/shared/lib/i18n';
 import TemplateItem from '../TemplateItem.vue';
-import { _templates } from '../../config';
+import { templatesInfo } from '../../model';
 
 describe('tests for TemplateItem.vue ', () => {
   const wrapper = shallowMount(TemplateItem, {
@@ -19,7 +19,7 @@ describe('tests for TemplateItem.vue ', () => {
       }
     },
     props: {
-      template: _templates[0]
+      template: templatesInfo[0]
     }
   });
 

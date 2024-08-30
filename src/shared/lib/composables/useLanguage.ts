@@ -33,6 +33,7 @@ export function useLanguage(options: Options[], language: Ref<string>) {
       }
     );
   });
+
   onScopeDispose(() => {
     scope.stop();
   });

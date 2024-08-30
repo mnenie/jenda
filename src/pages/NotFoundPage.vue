@@ -11,11 +11,10 @@ useHead({
 <template>
   <div :class="$style.container">
     <div :class="$style.items">
-      <!-- TODO: i18n  -->
       <h1>404</h1>
-      <h3>Not Found</h3>
-      <p>The page you were looking for can't be found</p>
-      <UiButton @click="$router.push({ name: RouteNames.boards })">Go to Home</UiButton>
+      <h3>{{ $t('not_found.title') }}</h3>
+      <p>{{ $t('not_found.description') }}</p>
+      <UiButton @click="$router.push({ name: RouteNames.boards })">{{ $t('not_found.btn') }}</UiButton>
     </div>
   </div>
 </template>
@@ -33,7 +32,7 @@ useHead({
     align-items: center;
 
     & > h1 {
-      font-size: 160px;
+      font-size: 180px;
       color: var(--zinc-800);
     }
 
@@ -53,13 +52,24 @@ useHead({
   }
 }
 
-:global(html.dark){
-  .container{
-    .items{
-      & h1, & h3{
+@media screen and (max-width: 1560px) {
+  .container {
+    .items {
+      & > h1 {
+        font-size: 160px;
+      }
+    }
+  }
+}
+
+:global(html.dark) {
+  .container {
+    .items {
+      & h1,
+      & h3 {
         color: var(--zinc-200);
       }
-      & p{
+      & p {
         color: var(--zinc-300);
       }
     }

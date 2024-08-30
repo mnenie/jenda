@@ -3,7 +3,7 @@ import { useI18n } from 'vue-i18n';
 import { useField, useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import { UiButton, UiInput } from '@/shared/ui';
-import { validationColumnRules } from '../../config/validation';
+import { validationColumnRules } from '../../model';
 
 const validationSchema = toTypedSchema(validationColumnRules);
 const { t } = useI18n();

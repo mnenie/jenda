@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useDark } from '@vueuse/core';
-import { UiBadge } from '@/shared/ui';
-import { links } from '../../config/links';
-import WorkSpace from './WorkSpace.vue';
+import { links } from '../../model';
 import { SearchFilter } from '@/features/filter';
+import { UiBadge } from '@/shared/ui';
 import { PlanCard } from '@/features/plan';
 import { ArrowsDouble } from '@/shared/assets/icons';
-import { AlignJustify } from 'lucide-vue-next';
+import WorkSpace from './WorkSpace.vue';
 import ProjectsList from './ProjectsList.vue';
+import { AlignJustify } from 'lucide-vue-next';
 import type { Board } from '@/entities/board';
 
 const props = defineProps<{

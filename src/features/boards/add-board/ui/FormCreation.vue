@@ -4,7 +4,7 @@ import { useField, useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import { UiButton, UiInput } from '@/shared/ui';
 import { Loader2 } from 'lucide-vue-next';
-import { validationRules } from '../config/validation';
+import { validationRules } from '../model';
 
 const validationSchema = toTypedSchema(validationRules);
 
