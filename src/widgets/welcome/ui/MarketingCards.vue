@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { cardsInfo } from '../model';
-import type { MarketingCard } from '../types';
+import type { MarketingCard } from '../model';
 import { UiCard } from '@/shared/ui';
 
 const { tm } = useI18n();

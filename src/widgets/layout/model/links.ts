@@ -1,5 +1,5 @@
 import { h, markRaw } from 'vue';
-import type { Link } from '../types';
+import type { Link } from './types';
 import { RouteNames } from '@/shared/config/consts';
 import { SquareDashedKanban, Settings, Users, BringToFront } from 'lucide-vue-next';
 

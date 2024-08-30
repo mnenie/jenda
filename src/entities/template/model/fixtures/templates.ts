@@ -1,5 +1,6 @@
-import type { Template } from '../model';
+import type { Template } from '../../model';
 
+// mocks -> after data from backend
 export const templatesInfo: Template[] = [
   {
     id: '0',

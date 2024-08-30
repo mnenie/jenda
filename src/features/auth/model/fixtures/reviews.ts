@@ -1,7 +1,7 @@
-import { markRaw } from 'vue';
-import type { Review } from '../lib/types';
+import type { Review } from '../../lib/types';
 
-export const reviews = markRaw<Review[]>([
+// mocks -> after data from backend
+export const reviews: Review[] = [
   {
     id: '0',
     author: '@alexpeshkov',
@@ -17,4 +17,4 @@ export const reviews = markRaw<Review[]>([
     author: '@alexpeshkov',
     text: `So, Jenda is just 🔥 Now I understand why many people like to use it.`
   }
-]);
+];

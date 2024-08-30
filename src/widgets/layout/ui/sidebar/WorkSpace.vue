@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import { useDark } from '@vueuse/core';
 import { RouteNames } from '@/shared/config/consts';
 import { UiButton } from '@/shared/ui';
-import type { Link } from '../../types';
+import type { Link } from '../../model';
 
 const props = defineProps<{
   links: Link[];
