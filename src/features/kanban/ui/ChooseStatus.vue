@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
-import type { StatusBadge } from '@/entities/board';
 import { computed } from 'vue';
+import type { StatusBadge } from '@/entities/board';
 
 defineOptions({
   inheritAttrs: false
@@ -14,8 +13,6 @@ const props = defineProps<{
 const emits = defineEmits<{
   (e: 'updateStatus', status: StatusBadge['status']): void;
 }>();
-
-const { t } = useI18n();
 
 const activeStatus = computed(() => {
   return (s: string) => {
@@ -38,7 +35,7 @@ const activeStatus = computed(() => {
     </div>
   </div>
   <p :class="[$style.status_p, 'text-sm']">
-    {{ t('kanban.configuration.status') }}
+    {{ $t('kanban.configuration.status') }}
   </p>
 </template>
 

@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { markRaw } from 'vue';
 import { UiButton } from '@/shared/ui';
 import { RouteNames } from '@/shared/config/consts';
 import { LeaveButton } from '@/features/members/leave-team';
 
-const { t } = useI18n();
-
-const links = reactive([
+const links = markRaw([
   { id: '0', title: 'All participants', pathName: RouteNames.members + '.all', i18nKey: 'all.btn' },
   { id: '1', title: 'Guests', pathName: RouteNames.members + '.guests', i18nKey: 'guests.btn' }
 ]);
@@ -20,7 +17,7 @@ const links = reactive([
           :variant="$route.name === link.pathName ? 'outline' : 'ghost'"
           :class="{ [$style.ghost_exception]: $route.name !== link.pathName }"
         >
-          <span class="text-sm">{{ t(`members.content.${link.i18nKey}`) }}</span>
+          <span class="text-sm">{{ $t(`members.content.${link.i18nKey}`) }}</span>
         </UiButton>
       </RouterLink>
     </div>
@@ -29,7 +26,7 @@ const links = reactive([
       <div :class="$style.btns_section">
         <LeaveButton />
         <UiButton :variant="'outline'" @click="$router.push({ name: RouteNames.boards })">
-          {{ t('members.btns.view') }} (3)
+          {{ $t('members.btns.view') }} (3)
         </UiButton>
       </div>
     </div>

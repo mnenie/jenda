@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
 import { UiButton } from '@/shared/ui';
 import { Link } from 'lucide-vue-next';
 import UserMenu from './UserMenu.vue';
-
-const { t } = useI18n();
 </script>
 
 <template>
@@ -22,10 +19,10 @@ const { t } = useI18n();
     </div>
     <div />
     <div :class="$style.user_section">
-      <UiButton variant="secondary" :class="$style.upgrade"> {{ t('header.upgrade') }} </UiButton>
+      <UiButton variant="secondary" :class="$style.upgrade"> {{ $t('header.upgrade') }} </UiButton>
       <UiButton variant="secondary">
         <Link :size="18" style="margin-right: 8px" />
-        <span>{{ t('header.collaboration') }}</span>
+        <span>{{ $t('header.collaboration') }}</span>
       </UiButton>
       <UserMenu />
     </div>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { useI18n } from 'vue-i18n';
 import { useDark } from '@vueuse/core';
 import { RouteNames } from '@/shared/config/consts';
 import { UiButton } from '@/shared/ui';
@@ -14,8 +13,6 @@ const props = defineProps<{
 
 const route = useRoute();
 const isDark = useDark();
-
-const { t } = useI18n();
 
 const isCurrentPath = (link: Link) => {
   if (route.name?.toString().startsWith(RouteNames.members)) {
@@ -47,13 +44,13 @@ const iconColor = computed(() => {
 </script>
 
 <template>
-  <p :class="[$style.name_block, 'text-sm']">{{ t('sidebar.section') }}</p>
+  <p :class="[$style.name_block, 'text-sm']">{{ $t('sidebar.section') }}</p>
   <div :class="$style.sidebar_main_links">
     <RouterLink
       v-for="link in pathName"
       :key="link.id"
       v-tooltip.right="{
-        content: t(`sidebar.${link.title}`),
+        content: $t(`sidebar.${link.title}`),
         triggers: ['hover'],
         disabled: isExpanded
       }"
@@ -66,7 +63,7 @@ const iconColor = computed(() => {
         :style="{ padding: !isExpanded ? '0px' : '' }"
       >
         <component :is="link.icon" :size="18" :color="iconColor" />
-        <span v-show="isExpanded" class="text-sm">{{ t(`sidebar.${link.title}`) }}</span>
+        <span v-show="isExpanded" class="text-sm">{{ $t(`sidebar.${link.title}`) }}</span>
       </UiButton>
     </RouterLink>
   </div>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { useI18n } from 'vue-i18n';
 import { UiButton } from '@/shared/ui';
 import type { Board } from '@/entities/board';
 import { CircleFadingPlus } from 'lucide-vue-next';
@@ -26,13 +25,11 @@ const _projects = computed(() => {
   }));
 });
 
-const { t } = useI18n();
 const isDark = useDark();
 
 const contentPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center';
 });
-
 const projectName = computed(() => {
   return (project: Board) => {
     return project.name.slice(0, 1);
@@ -42,7 +39,7 @@ const projectName = computed(() => {
 
 <template>
   <div :class="$style.about">
-    <p class="text-sm" :class="$style.section">{{ t('sidebar.projects') }}</p>
+    <p class="text-sm" :class="$style.section">{{ $t('sidebar.projects') }}</p>
     <CircleFadingPlus
       v-if="isExpanded"
       :size="14"

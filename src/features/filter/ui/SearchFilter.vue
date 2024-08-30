@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useDark } from '@vueuse/core';
-import { useI18n } from 'vue-i18n';
 import { UiInput, UiBadge } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
 import useFilter from '../lib/composables/useFilter';
@@ -27,7 +26,6 @@ const iconColor = computed(() => {
 });
 
 const { onToggleArea } = useFilter(inputRef, props, emit);
-const { t } = useI18n();
 </script>
 
 <template>
@@ -42,7 +40,7 @@ const { t } = useI18n();
       id="input"
       ref="inputRef"
       v-model.trim="search"
-      :placeholder="t('sidebar.input')"
+      :placeholder="$t('sidebar.input')"
       :class="$style.input_filter"
     />
     <UiBadge

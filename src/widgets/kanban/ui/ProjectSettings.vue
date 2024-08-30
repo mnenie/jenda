@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, shallowReactive } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { UiButton, UiSheet } from '@/shared/ui';
 import type { SheetElement } from '@/shared/ui';
 import { Settings2 } from 'lucide-vue-next';
@@ -15,8 +14,6 @@ const open = () => {
     sheet.value.open();
   }
 };
-
-const { t } = useI18n();
 
 // mock data -> after data from backend
 const name = ref('Startup');
@@ -43,15 +40,15 @@ const updateStatus = (status: StatusBadge['status']) => {
   </UiButton>
   <UiSheet ref="sheet">
     <template #header>
-      <p class="text-lg" style="font-weight: 500">{{ t('kanban.configuration.title') }}</p>
+      <p class="text-lg" style="font-weight: 500">{{ $t('kanban.configuration.title') }}</p>
       <span :class="[$style.desc, 'text-sm']">
-        {{ t('kanban.configuration.description') }}
+        {{ $t('kanban.configuration.description') }}
       </span>
     </template>
     <template #default>
       <ChangeName v-model="name" :name :colors :proj-color @update-color="projColor = $event" />
       <div :class="$style.users">
-        <p class="text-base">{{ t('kanban.configuration.users') }}:</p>
+        <p class="text-base">{{ $t('kanban.configuration.users') }}:</p>
         <UserAvatar style="width: 24px; height: 24px">
           <img style="width: 100%" src="https://avatars.githubusercontent.com/u/121057011?v=4" />
         </UserAvatar>

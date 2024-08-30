@@ -15,12 +15,6 @@ describe('tests for BoardPreviewCard.vue', () => {
       plugins: [i18n],
 
       mocks: {
-        t: (key: string) => {
-          const translations: Record<string, string> = {
-            'boards.card.date_updated': 'Date Updated (test)'
-          };
-          return translations[key];
-        },
         $router: mockRouter
       }
     },
@@ -40,7 +34,7 @@ describe('tests for BoardPreviewCard.vue', () => {
 
   it('should correctly works with i18n', () => {
     const date = wrapper.find('.bottom_part');
-    expect(date.text()).toContain('Date Updated (test)');
+    expect(date.text()).toContain('Updated: May 2024');
   });
 
   it('should redirect to "/board/1" ', async () => {

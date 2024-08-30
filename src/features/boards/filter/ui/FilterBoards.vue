@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { useDark } from '@vueuse/core';
 import { UiButton, UiInput } from '@/shared/ui';
 import { ArrowUpDown, Search, History } from 'lucide-vue-next';
@@ -11,8 +10,6 @@ const isDark = useDark();
 const iconColor = computed(() => {
   return isDark.value ? 'var(--zinc-300)' : 'rgb(82 82 91 / 0.9)';
 });
-
-const { t } = useI18n();
 </script>
 
 <template>
@@ -23,20 +20,20 @@ const { t } = useI18n();
         id="filter"
         ref="filterRef"
         v-model.trim="filter"
-        :placeholder="t('boards.filter.input')"
+        :placeholder="$t('boards.filter.input')"
         :class="$style.filter"
       />
     </div>
     <UiButton
-      v-tooltip.bottom="t('boards.filter.tooltips.first_sort')"
+      v-tooltip.bottom="$t('boards.filter.tooltips.first_sort')"
       :variant="'dashed'"
       style="padding: 0 12px"
     >
       <ArrowUpDown :size="17" :color="iconColor" />
-      <span style="margin-left: 6px">{{ t('boards.filter.popularity') }}</span>
+      <span style="margin-left: 6px">{{ $t('boards.filter.popularity') }}</span>
     </UiButton>
     <UiButton
-      v-tooltip.bottom="t('boards.filter.tooltips.second_sort')"
+      v-tooltip.bottom="$t('boards.filter.tooltips.second_sort')"
       :variant="'dashed'"
       style="padding: 0 12px"
     >

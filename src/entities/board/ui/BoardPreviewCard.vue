@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
 import type { User} from '@/entities/user/model';
 import { UserAvatar } from '@/entities/user';
 import type { BoardPreview } from '../model';
@@ -8,8 +7,6 @@ import type { BoardPreview } from '../model';
 defineProps<{
   board: BoardPreview;
 }>();
-
-const { t } = useI18n();
 
 const userPosition = computed(() => {
   return (board: BoardPreview, user: User) => {
@@ -24,7 +21,7 @@ const userPosition = computed(() => {
       <span class="text-xs">{{ board.description }}</span>
     </div>
     <div :class="$style.bottom_part">
-      <span class="text-xs"> {{ t('boards.card.date_updated') }}: May 2024</span>
+      <span class="text-xs"> {{ $t('boards.card.date_updated') }}: May 2024</span>
       <div :class="$style.users">
         <template v-for="user in board.users" :key="user._id">
           <UserAvatar

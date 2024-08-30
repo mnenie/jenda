@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { UiProgressBar } from '@/shared/ui';
 import { WandSparkles, DollarSign } from 'lucide-vue-next';
 
 const props = defineProps<{
   isExpanded: boolean;
 }>();
-
-const { t } = useI18n();
 
 const planPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center';
@@ -23,7 +20,7 @@ const iconSize = computed(() => {
       <WandSparkles :class="$style.icon" />
       <div :class="$style.plan_about">
         <div :class="$style.text">
-          <span class="text-xs">{{ t('sidebar.plan') }}</span>
+          <span class="text-xs">{{ $t('sidebar.plan') }}</span>
           <span class="text-xs">6/10</span>
         </div>
         <UiProgressBar :progress="6" />

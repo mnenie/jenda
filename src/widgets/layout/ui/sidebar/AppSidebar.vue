@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useDark } from '@vueuse/core';
-import { useI18n } from 'vue-i18n';
 import { UiBadge } from '@/shared/ui';
 import { links } from '../../config/links';
 import WorkSpace from './WorkSpace.vue';
@@ -28,7 +27,6 @@ const paddingExpanded = computed(() => {
 });
 
 const isDark = useDark();
-const { t } = useI18n();
 
 const iconUrl = computed(() => {
   return isDark.value ? '/icons/kanban-dark.png' : '/icons/kanban.png';
@@ -48,7 +46,7 @@ const boards = ref<Board[]>([
       <div v-if="isExpanded" :class="$style.text">
         <img :src="iconUrl" />
         <h3 class="heading-4">Jenda</h3>
-        <UiBadge>{{ t('sidebar.badge') }}</UiBadge>
+        <UiBadge>{{ $t('sidebar.badge') }}</UiBadge>
       </div>
       <AlignJustify
         v-else

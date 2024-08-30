@@ -19,7 +19,6 @@ describe('tests for ThemeSwitcher.vue', () => {
       mocks: {
         t: (key: string) => {
           const translations: Record<string, string> = {
-            'settings.theme.btn': 'change theme',
             'settings.theme.variants.light': 'light',
             'settings.theme.variants.dark': 'dark',
             'settings.theme.variants.auto': 'system'

@@ -2,18 +2,18 @@
 import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
-import { _cards } from '../config/cards';
+import { cardsInfo } from '../config/cards';
 import type { MarketingCard } from '../types';
 import { UiCard } from '@/shared/ui';
 
 const { tm } = useI18n();
 
 const cards = computed(() => {
-  const localeArr = tm('welcome.cards') as MarketingCard[];
-  return _cards.map((card, i) => ({
+  const _arr = tm('welcome.cards') as MarketingCard[];
+  return cardsInfo.map((card, i) => ({
     ...card,
-    title: localeArr[i].title,
-    description: localeArr[i].description
+    title: _arr[i].title,
+    description: _arr[i].description
   }));
 });
 

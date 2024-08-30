@@ -18,5 +18,5 @@ exports[`tests for WorkSpace.vue > should be render correctly 1`] = `
         <path d="M5 21a2 2 0 0 1-2-2"></path>
         <path d="M3 14v1"></path>
         <path d="M3 9v1"></path>
-      </svg><span class="text-sm">boards</span></button></a></div>"
+      </svg><span class="text-sm">Boards</span></button></a></div>"
 `;

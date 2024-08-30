@@ -57,6 +57,6 @@ exports[`tests for ThemeSwitcher.vue > should render correctly 1`] = `
         </div>
       </div><span class="text-xs">System</span>
     </div>
-  </div><button class="text-sm button outline md" type="submit">change theme</button>
+  </div><button class="text-sm button outline md" type="submit">Update preferences</button>
 </form>"
 `;

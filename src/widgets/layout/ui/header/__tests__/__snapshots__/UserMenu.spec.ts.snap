@@ -9,9 +9,9 @@ exports[`tests for UserMenu.vue > should be render correctly 1`] = `
     <div class="inside">
       <div class="header"><span class="text-sm" style="font-weight: 500;">1alexpeshkov@gmail.com</span></div>
       <div class="content">
-        <div class="item">welcome <div class="shortcut">⌘B</div>
+        <div class="item">Go to Welcome <div class="shortcut">⌘B</div>
         </div>
-        <div class="item">logout <div class="shortcut">⇧⌘Q</div>
+        <div class="item">Log out <div class="shortcut">⇧⌘Q</div>
         </div>
       </div>
     </div>

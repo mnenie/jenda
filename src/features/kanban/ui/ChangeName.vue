@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
-import { useI18n } from 'vue-i18n';
 import { UiBadge, UiInput } from '@/shared/ui';
 import { Check } from 'lucide-vue-next';
 
@@ -15,9 +14,7 @@ const emits = defineEmits<{
   (e: 'updateColor', color: string): void;
 }>();
 
-const { t } = useI18n();
 const isDark = useDark();
-
 const modelName = defineModel<string>();
 
 const isCurrentColor = computed(() => {
@@ -45,7 +42,7 @@ const isCurrentColor = computed(() => {
     </div>
   </div>
   <p :class="[$style.desc, 'text-sm']">
-    {{ t('kanban.configuration.name') }}
+    {{ $t('kanban.configuration.name') }}
   </p>
 </template>
 

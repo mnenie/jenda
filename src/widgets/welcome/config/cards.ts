@@ -1,6 +1,6 @@
 import type { MarketingCard } from '../types';
 
-export const _cards = [
+export const cardsInfo = [
   {
     id: 0,
     pagePrefix: 'kanban',

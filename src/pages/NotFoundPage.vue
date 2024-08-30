@@ -11,6 +11,7 @@ useHead({
 <template>
   <div :class="$style.container">
     <div :class="$style.items">
+      <!-- TODO: i18n  -->
       <h1>404</h1>
       <h3>Not Found</h3>
       <p>The page you were looking for can't be found</p>

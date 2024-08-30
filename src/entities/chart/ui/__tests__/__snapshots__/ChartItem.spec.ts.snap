@@ -2,8 +2,8 @@
 
 exports[`tests for ChartItem.vue  > should render correctly 1`] = `
 "<div class="chart_container">
-  <h4 class="heading-4"></h4>
-  <p class="text-sm"></p>
+  <h4 class="heading-4">boards.chart.test-title</h4>
+  <p class="text-sm">boards.chart.test-description</p>
   <div class="chart">
     <anonymous-stub></anonymous-stub>
   </div>
