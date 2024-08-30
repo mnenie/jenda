@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
 import { redirect } from '@/shared/lib/helpers';
-
-const { t } = useI18n();
 </script>
 
 <template>
   <footer :class="$style.footer">
     <div :class="$style.container">
       <p class="text-base">
-        <span :class="$style.brand">Jenda</span> - {{ t('welcome.footer') }}
+        <span :class="$style.brand">Jenda</span> - {{ $t('welcome.footer') }}
         <a :class="$style.link" @click.prevent="redirect('https://github.com/mnenie/jenda')"> Github </a>
       </p>
     </div>

@@ -1,19 +1,16 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
-import { useI18n } from 'vue-i18n';
 import { AllTemplates } from '@/widgets/templates';
 
 useHead({
   title: 'Jenda | Templates'
 });
-
-const { t } = useI18n();
 </script>
 
 <template>
   <div :class="$style.top">
-    <h4 class="heading-4">{{ t('templates.title') }}</h4>
-    <p class="text-sm">{{ t('templates.description') }}</p>
+    <h4 class="heading-4">{{ $t('templates.title') }}</h4>
+    <p class="text-sm">{{ $t('templates.description') }}</p>
   </div>
   <AllTemplates />
 </template>

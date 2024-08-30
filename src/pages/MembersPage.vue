@@ -1,21 +1,18 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
-import { useI18n } from 'vue-i18n';
 import { MainWrapper } from '@/widgets/members';
 
 useHead({
   title: 'Jenda | Members'
 });
-
-const { t } = useI18n();
 </script>
 
 <template>
   <div :class="$style.members">
     <div :class="$style.top">
-      <h4 class="heading-4">{{ t('members.title') }} (1)</h4>
+      <h4 class="heading-4">{{ $t('members.title') }} (1)</h4>
       <p class="text-sm">
-        {{ t('members.description') }}
+        {{ $t('members.description') }}
       </p>
     </div>
     <MainWrapper>

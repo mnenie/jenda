@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
 import { UserAvatar } from '@/entities/user';
 import { UiDropdown, UiDropdownItem, UiDropdownShortcut } from '@/shared/ui';
 import { RouteNames } from '@/shared/config/consts';
-
-const { t } = useI18n();
 </script>
 
 <template>
@@ -19,11 +16,11 @@ const { t } = useI18n();
     </template>
     <template #content>
       <UiDropdownItem @click="$router.push({ name: RouteNames.welcome })">
-        {{ t('header.user.welcome') }}
+        {{ $t('header.user.welcome') }}
         <UiDropdownShortcut>⌘B</UiDropdownShortcut>
       </UiDropdownItem>
       <UiDropdownItem>
-        {{ t('header.user.logout') }}
+        {{ $t('header.user.logout') }}
         <UiDropdownShortcut>⇧⌘Q</UiDropdownShortcut>
       </UiDropdownItem>
     </template>

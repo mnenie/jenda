@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
 import { UiBadge } from '@/shared/ui';
 import type { Template } from '../model';
 
 defineProps<{
   template: Template;
 }>();
-
-const { t } = useI18n();
 </script>
 
 <template>
@@ -23,7 +20,7 @@ const { t } = useI18n();
       </div>
       <div :class="$style.bottom">
         <span class="text-xs">{{ template.date }}</span>
-        <img v-tooltip.bottom-end="t('templates.user')" :src="template.user" />
+        <img v-tooltip.bottom-end="$t('templates.user')" :src="template.user" />
       </div>
     </div>
   </div>

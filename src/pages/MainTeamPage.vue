@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { shallowReactive } from 'vue';
 import { MembersList } from '@/widgets/members';
 import type { User } from '@/entities/user/model';
 
-const { t } = useI18n();
-
-const members = reactive<User[]>([
+// mocks -> after data from backend
+const members = shallowReactive<User[]>([
   { _id: '0', photoUrl: 'https://www.shadcn-vue.com/avatars/02.png', email: 'Alex Peshkov', role: 'admin' },
   { _id: '1', photoUrl: 'https://www.shadcn-vue.com/avatars/03.png', email: 'John Doe', role: 'member' },
   { _id: '2', photoUrl: 'https://www.shadcn-vue.com/avatars/04.png', email: 'Emily Johnson', role: 'member' }
@@ -16,9 +14,9 @@ const members = reactive<User[]>([
 <template>
   <div style="width: 100%">
     <div v-once :class="$style.about">
-      <h4 class="heading-4">{{ t('members.content.all.title') }}</h4>
+      <h4 class="heading-4">{{ $t('members.content.all.title') }}</h4>
       <p class="text-sm">
-        {{ t('members.content.all.description') }}
+        {{ $t('members.content.all.description') }}
       </p>
     </div>
     <MembersList :members />

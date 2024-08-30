@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { UiSheet } from '@/shared/ui';
 import type { SheetElement } from '@/shared/ui';
 import FormCreation from './FormCreation.vue';
 
 const sheet = ref<SheetElement | null>(null);
-
-const { t } = useI18n();
 
 const open = () => {
   if (sheet.value) {
@@ -18,13 +15,13 @@ const open = () => {
 
 <template>
   <div :class="$style.creation" @click="open">
-    <span style="font-weight: 500">+ {{ t('boards.create') }}</span>
+    <span style="font-weight: 500">+ {{ $t('boards.create') }}</span>
   </div>
   <UiSheet ref="sheet">
     <template #header>
-      <p class="text-lg" style="font-weight: 500">{{ t('sheet.title') }}</p>
+      <p class="text-lg" style="font-weight: 500">{{ $t('sheet.title') }}</p>
       <span :class="[$style.desc, 'text-sm']">
-        {{ t('sheet.description') }}
+        {{ $t('sheet.description') }}
       </span>
     </template>
     <template #default>

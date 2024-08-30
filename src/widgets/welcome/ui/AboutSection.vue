@@ -1,29 +1,26 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
 import { useDark } from '@vueuse/core';
 import { UiButton } from '@/shared/ui';
 import { ArrowRight } from 'lucide-vue-next';
 import { RouteNames } from '@/shared/config/consts';
 
 const isDark = useDark();
-
-const { t } = useI18n();
 </script>
 
 <template>
   <section :class="$style.container">
     <div :class="$style.badge">
       <span style="margin-right: 3px">✨</span>
-      <span class="text-sm">{{ t('welcome.about.badge') }}</span>
+      <span class="text-sm">{{ $t('welcome.about.badge') }}</span>
       <ArrowRight :size="14" />
     </div>
-    <h1>{{ t('welcome.about.tagline') }}</h1>
+    <h1>{{ $t('welcome.about.tagline') }}</h1>
     <p class="text-lg">
-      {{ t('welcome.about.description') }}
+      {{ $t('welcome.about.description') }}
     </p>
     <div :class="$style.btns">
       <UiButton @click="$router.push({ name: RouteNames.registration })">
-        {{ t('welcome.about.btn') }}
+        {{ $t('welcome.about.btn') }}
       </UiButton>
       <UiButton variant="outline" :class="$style.btn_git">
         <img :src="!isDark ? '/icons/github.png' : '/icons/github-d.png'" />

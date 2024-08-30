@@ -21,8 +21,8 @@ describe('tests for WorkSpace.vue', () => {
       mocks: {
         t: (key: string) => {
           const translations: Record<string, string> = {
-            'sidebar.boards': 'boards',
-            'sidebar.section': 'workspace'
+            'sidebar.boards': 'Boards',
+            'sidebar.section': 'Workspace'
           };
           return translations[key];
         }

@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { BoardPreviewCard } from '@/entities/board';
 import type { BoardPreview } from '@/entities/board/model';
 import { CreationBoard, FilterBoards } from '@/features/boards';
-
-const { t } = useI18n();
 
 const boards = ref<BoardPreview[]>([
   {
@@ -25,8 +22,8 @@ const boards = ref<BoardPreview[]>([
   <div :class="$style.boards_inside">
     <div :class="$style.top_part">
       <div :class="$style.text">
-        <h4 class="heading-4">{{ t('boards.title') }}</h4>
-        <p class="text-sm">{{ t('boards.description') }}</p>
+        <h4 class="heading-4">{{ $t('boards.title') }}</h4>
+        <p class="text-sm">{{ $t('boards.description') }}</p>
       </div>
       <FilterBoards />
     </div>

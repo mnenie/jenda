@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { TemplateItem, _templates } from '@/entities/template';
+import { TemplateItem, templatesInfo } from '@/entities/template';
 
 const { tm } = useI18n();
 
 const templates = computed(() => {
   const localeArr = tm('templates.items') as (typeof TemplateItem)[];
-  return _templates.map((template, index) => ({
+  return templatesInfo.map((template, index) => ({
     ...template,
     title: localeArr[index].title,
     tag: localeArr[index].tag,

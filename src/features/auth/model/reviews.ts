@@ -1,7 +1,7 @@
-import { ref } from 'vue';
+import { markRaw } from 'vue';
 import type { Review } from '../lib/types';
 
-export const reviews = ref<Review[]>([
+export const reviews = markRaw<Review[]>([
   {
     id: '0',
     author: '@alexpeshkov',

@@ -8,7 +8,7 @@ import { redirect } from '@/shared/lib/helpers';
 import { RouteNames } from '@/shared/config/consts';
 import { Globe, Moon, Sun } from 'lucide-vue-next';
 import type { Options } from '@/shared/ui/select/types';
-import { headerLinks } from '../../config/header';
+import { headerLinks } from '../../model';
 import type { HeaderNavLink } from '../../types';
 
 const isDark = useDark();

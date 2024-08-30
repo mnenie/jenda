@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { chartsData } from '../config';
+import { chartsData } from '../model';
 import { ChartItem } from '@/entities/chart';
 </script>
 

@@ -31,6 +31,7 @@ const getCurrentLocale = () => {
 const i18n = createI18n<[MessageSchema], 'en-US' | 'ru-RU' | 'zh-CN'>({
   legacy: false,
   locale: getCurrentLocale(),
+  globalInjection: true,
   messages: messages
 });
 

@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { UserAvatar } from '@/entities/user';
-import type { User } from '@/entities/user/model';
 import { UiBadge } from '@/shared/ui';
-import { useI18n } from 'vue-i18n';
+import type { User } from '@/entities/user/model';
 
 defineProps<{
   members: User[];
 }>();
-
-const { t } = useI18n();
 </script>
 
 <template>
@@ -20,7 +17,7 @@ const { t } = useI18n();
         </UserAvatar>
         <p class="text-sm">{{ member.email }}</p>
       </div>
-      <UiBadge :variant="'secondary'">{{ t(`members.role.${member.role}`) }}</UiBadge>
+      <UiBadge :variant="'secondary'">{{ $t(`members.role.${member.role}`) }}</UiBadge>
     </li>
   </ul>
 </template>
