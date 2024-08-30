@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { Chart } from 'chart.js/auto';
 import type { ChartItem } from 'chart.js';
-import { dataBoards, options } from '../config';
+import { dataBoards, options } from '../model';
 import useChart from '../lib/composables/useChart';
 
 const chartRef = ref<ChartItem>();
