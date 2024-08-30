@@ -9,7 +9,7 @@ import { RouteNames } from '@/shared/config/consts';
 import { Globe, Moon, Sun } from 'lucide-vue-next';
 import type { Options } from '@/shared/ui/select/types';
 import { headerLinks } from '../../model';
-import type { HeaderNavLink } from '../../types';
+import type { HeaderNavLink } from '../../model';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);

@@ -1,2 +1,2 @@
-export * from './reviews';
+export * from './fixtures';
 export * from './validation';
