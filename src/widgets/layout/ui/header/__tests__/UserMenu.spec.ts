@@ -30,7 +30,7 @@ describe('tests for UserMenu.vue', () => {
   });
 
   it('should be render correctly', async () => {
-    // TODO: change {name: 'Component'} to Component(instance) for (!all tests) -> name - deprecated
+    // TODO(@mnenie): change {name: 'Component'} to Component(instance) for (!all tests) -> name - deprecated
     await wrapper.findComponent({ name: 'UiDropdown' }).vm.handleDropdown();
     await nextTick();
     expect(wrapper.html()).toMatchSnapshot();
