@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ThemeSwitcher } from '@/features/settings/theme-switcher';
-import { LanguageSwitcher } from '@/features/settings/lang-switcher';
+import { ThemeSwitcher, LanguageSwitcher } from '@/features/settings';
 </script>
 
 <template>
