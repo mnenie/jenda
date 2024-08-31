@@ -29,7 +29,7 @@ defineProps<{
   overflow-y: hidden;
   position: absolute;
   right: 0;
-  scrollbar-color: rgba(var(--zinc-rgb-300), 0.4) #00000026;
+  scrollbar-color: rgba(var(--zinc-rgb-300), 0.3);
   scrollbar-width: auto;
   top: 0;
   -webkit-user-select: none;

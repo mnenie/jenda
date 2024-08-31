@@ -3,7 +3,7 @@
 exports[`tests for FooterWelcome.vue > should be render correctly 1`] = `
 "<footer class="footer">
   <div class="container">
-    <p class="text-base"><span class="brand">Jenda</span> - cloud-based program for task management. The source code is available on <a class="link"> Github </a></p>
+    <p class="text-sm"><span class="brand">Jenda</span> - cloud-based program for task management. The source code is available on <a class="link"> Github </a></p>
   </div>
 </footer>"
 `;
