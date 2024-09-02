@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for AboutSection.vue > should be render correctly 1`] = `
+"<section class="container">
+  <div class="badge"><span style="margin-right: 3px;">✨</span><span class="text-sm">Core: Task Boards, Real-Time Tracking</span>
+    <anonymous-stub size="14"></anonymous-stub>
+  </div>
+  <h1>Your path to perfection</h1>
+  <p class="text-lg">Jenda is a cloud-based program for efficient collaborative and individual project and task management.</p>
+  <div class="btns">
+    <ui-button-stub variant="default" size="md"></ui-button-stub>
+    <ui-button-stub variant="outline" size="md" class="btn_git"></ui-button-stub>
+  </div>
+</section>"
+`;
+
+exports[`tests for AboutSection.vue > should navigate correctly  1`] = `
+"<section class="container">
+  <div class="badge"><span style="margin-right: 3px;">✨</span><span class="text-sm">Core: Task Boards, Real-Time Tracking</span>
+    <anonymous-stub size="14"></anonymous-stub>
+  </div>
+  <h1>Your path to perfection</h1>
+  <p class="text-lg">Jenda is a cloud-based program for efficient collaborative and individual project and task management.</p>
+  <div class="btns">
+    <ui-button-stub variant="default" size="md"></ui-button-stub>
+    <ui-button-stub variant="outline" size="md" class="btn_git"></ui-button-stub>
+  </div>
+</section>"
+`;
