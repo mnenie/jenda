@@ -4,6 +4,7 @@ import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import NotFound from '../NotFoundPage.vue';
 import { useHead } from '@unhead/vue';
 import i18n from '@/shared/lib/i18n';
+import { UiButton } from '@/shared/ui';
 
 vi.mock('@unhead/vue', () => ({
   useHead: vi.fn()
@@ -35,7 +36,7 @@ describe('tests for NotFoundPage.vue', () => {
   });
 
   it('should redirect correctly', async () => {
-    await wrapper.findComponent({ name: 'UiButton' }).trigger('click');
+    await wrapper.findComponent(UiButton).trigger('click');
     expect(mockRouter.push).toHaveBeenCalledWith({ name: 'boards' });
   });
 });
