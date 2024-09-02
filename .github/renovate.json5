@@ -1,0 +1,4 @@
+{
+  extends: ['github>mnenie/renovate-config'],
+  automerge: true,
+}
