@@ -6,7 +6,6 @@ import MarketingCards from '../MarketingCards.vue';
 import type { ComponentPublicInstance } from 'vue';
 import { UiCard } from '@/shared/ui';
 
-// TODO: `ComponentPublicInstance` will need to set in other tests too
 type MarketingCardsInstance = ComponentPublicInstance<
   {},
   {},
