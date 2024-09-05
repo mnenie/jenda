@@ -1,4 +1,5 @@
-import { nextTick, onMounted, onUnmounted } from 'vue';
+import { useEventListener } from '@vueuse/core';
+import { nextTick } from 'vue';
 import type { Ref } from 'vue';
 
 export default function useFilter(
@@ -20,18 +21,13 @@ export default function useFilter(
   const handleKeyDownFilter = (e: KeyboardEvent) => {
     if (document) {
       inputRef.value = document.getElementById('input')!;
-      if (e.metaKey && e.key === 'k') {
+      if ((e.metaKey && e.key === 'k') || (e.ctrlKey && e.key === 'k')) {
         inputRef.value.focus();
       }
     }
   };
 
-  onMounted(() => {
-    window.addEventListener('keydown', handleKeyDownFilter);
-  });
-  onUnmounted(() => {
-    window.removeEventListener('keydown', handleKeyDownFilter);
-  });
+  useEventListener('keydown', handleKeyDownFilter);
 
   return {
     handleKeyDownFilter,
