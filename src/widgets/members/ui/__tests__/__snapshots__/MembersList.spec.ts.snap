@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for MembersList.vue > it should be render correctly 1`] = `
+"<ul class="list">
+  <li>
+    <div class="info">
+      <anonymous-stub></anonymous-stub>
+      <p class="text-sm">test@gmail.com</p>
+    </div>
+    <ui-badge-stub variant="secondary"></ui-badge-stub>
+  </li>
+</ul>"
+`;
