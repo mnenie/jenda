@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { useDark } from '@vueuse/core';
 import { UiInput, UiBadge } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
-import useFilter from '../lib/composables/useFilter';
+import useFilter from '../model/composables/useFilter';
 
 const props = defineProps<{
   isExpanded: boolean;

@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import type { ShallowRef } from 'vue';
 import { useColorMode } from '@vueuse/core';
-import type { ThemeBlock } from '../../model';
+import type { ThemeBlock } from '..';
 
 export default function useTheme(themeBlocks: ShallowRef<ThemeBlock[]>) {
   const { store } = useColorMode({

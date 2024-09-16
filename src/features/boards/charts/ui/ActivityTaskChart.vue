@@ -2,8 +2,8 @@
 import { onMounted, ref } from 'vue';
 import { Chart } from 'chart.js/auto';
 import type { ChartItem } from 'chart.js';
-import { dataTasks, options } from '../model';
-import useChart from '../lib/composables/useChart';
+import { dataTasks, options } from '../model/chart.js';
+import useChart from '../model/composables/useChart.js';
 
 const chartRef = ref<ChartItem>();
 

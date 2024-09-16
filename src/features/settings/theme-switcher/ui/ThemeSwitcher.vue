@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, shallowRef } from 'vue';
 import { useColorMode } from '@vueuse/core';
-import useTheme from '../lib/composables/useTheme';
+import useTheme from '../model/composables/useTheme';
 import type { ThemeBlock } from '../model';
 import { UiButton, UiRadioGroupContainer } from '@/shared/ui';
 import LightBlock from './LightBlock.vue';

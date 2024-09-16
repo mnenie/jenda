@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
 import { reviews } from '../model';
-import useTextChanging from '../lib/composables/useTextChanging';
+import useTextChanging from '../model/composables/useTextChanging';
 
 const { currentIndex } = useTextChanging(reviews);
 

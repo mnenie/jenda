@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { ref, shallowRef } from 'vue';
 import '@/shared/lib/vitest-utils/cookiesI18n-mock';
-import useTheme from '../../lib/composables/useTheme';
+import useTheme from '../../model/composables/useTheme';
 import ThemeSwitcher from '../ThemeSwitcher.vue';
 import i18n from '@/shared/lib/i18n';
 

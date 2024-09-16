@@ -1,4 +1,4 @@
-import type { Review } from '../../lib/types';
+import type { Review } from '../types';
 
 // mocks -> after data from backend
 export const reviews: Review[] = [

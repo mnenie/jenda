@@ -10,6 +10,7 @@ export default function useFilter(
   const onToggleArea = () => {
     if (!props.isExpanded) {
       emit('onToggle');
+
       nextTick(() => {
         inputRef.value = document.getElementById('input') as HTMLInputElement;
         if (inputRef.value) {
