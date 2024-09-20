@@ -1,11 +1,22 @@
-import { mount } from '@vue/test-utils';
+import { mount, VueWrapper } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
-import { nextTick } from 'vue';
+import { nextTick, type ComponentPublicInstance } from 'vue';
 import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import HeaderWelcome from '../HeaderWelcome.vue';
 import i18n from '@/shared/lib/i18n';
 import { Moon, Sun } from 'lucide-vue-next';
 import { UiButton, UiSelect } from '@/shared/ui';
+import type { Options } from '@/shared/ui/select/types';
+
+type HeaderWelcomeInstance = ComponentPublicInstance<
+  {},
+  {},
+  {
+    isDark: boolean;
+    languages: Options[];
+    links: () => any[];
+  }
+>;
 
 const mockRouter = {
   push: vi.fn(),
@@ -34,7 +45,7 @@ describe('tests for HeaderWelcome.vue', () => {
         $router: mockRouter
       }
     }
-  });
+  }) as VueWrapper<HeaderWelcomeInstance>;
 
   it('should be render correctly', () => {
     expect(wrapper.html()).toMatchSnapshot();
@@ -47,14 +58,12 @@ describe('tests for HeaderWelcome.vue', () => {
 
   it('should handle mode + icon changing', async () => {
     const darkModeButton = wrapper.find('.btn');
-    //@ts-expect-error instance
     wrapper.vm.isDark = false;
 
     expect(wrapper.findComponent(Moon).exists()).toBe(true);
     expect(wrapper.findComponent(Sun).exists()).toBe(false);
 
     darkModeButton.trigger('click');
-    //@ts-expect-error instance
     wrapper.vm.isDark = true;
     await nextTick();
     expect(wrapper.findComponent(Moon).exists()).toBe(false);

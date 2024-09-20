@@ -1,10 +1,18 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
+import { nextTick, type ComponentPublicInstance } from 'vue';
 import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import i18n from '@/shared/lib/i18n';
 import UserMenu from '../UserMenu.vue';
 import { UiDropdown, UiDropdownItem } from '@/shared/ui';
+
+type UserMenuDropdownInstance = ComponentPublicInstance<
+  {},
+  {},
+  {
+    handleDropdown: () => void;
+  }
+>;
 
 const mockRouter = {
   push: vi.fn(),
@@ -30,8 +38,7 @@ describe('tests for UserMenu.vue', () => {
   });
 
   it('should be render correctly', async () => {
-    // @ts-expect-error inctance
-    await wrapper.findComponent(UiDropdown).vm.handleDropdown();
+    wrapper.findComponent(UiDropdown as unknown as UserMenuDropdownInstance).vm.handleDropdown();
     await nextTick();
     expect(wrapper.html()).toMatchSnapshot();
   });
