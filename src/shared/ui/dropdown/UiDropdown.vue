@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core';
-import { ref } from 'vue';
+import { ref, useTemplateRef } from 'vue';
 
-const dropdown = ref<HTMLElement | null>(null);
 const isOpen = ref(false);
+const dropdown = useTemplateRef<HTMLElement | null>('dropdown');
 
 const handleDropdown = () => {
   isOpen.value = !isOpen.value;

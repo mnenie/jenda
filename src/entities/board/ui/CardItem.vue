@@ -9,16 +9,11 @@ const props = defineProps<{
   card: Card;
 }>();
 
+const colors = ['low', 'medium', 'high', 'none'] as const
+
 const priority = computed(() => {
-  if (props.card.priority === 'low') {
-    return 'var(--low-color)';
-  } else if (props.card.priority === 'medium') {
-    return 'var(--medium-color)';
-  } else if (props.card.priority === 'high') {
-    return 'var(--high-color)';
-  } else {
-    return 'white';
-  }
+  const index = colors.indexOf(props.card.priority)
+  return index !== -1 && index !== 3 ? `var(--${colors[index]}-color)` : 'white'
 });
 </script>
 

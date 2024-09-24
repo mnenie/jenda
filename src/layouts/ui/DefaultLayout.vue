@@ -14,7 +14,7 @@ const isExpanded = useLocalStorage('isExpanded', true);
 const transitionFl = ref(false);
 
 const widthSidebar = computed(() => {
-  return isExpanded.value ? (width.value >= 1380 ? '22%' : '26%') : width.value >= 1380 ? '4%' : '5%';
+  return isExpanded.value ? (width.value >= 1380 ? '18%' : '26%') : width.value >= 1380 ? '3%' : '5%';
 });
 const widthMainContainer = computed(() => {
   return `calc(100% - ${widthSidebar.value})`;
@@ -29,7 +29,7 @@ const onToggleArea = () => {
   <Splitpanes :class="$style.default_layout">
     <Pane
       min-size="4"
-      max-size="22"
+      max-size="18"
       :size="widthSidebar"
       :style="{ transition: transitionFl && 'width .2s ease-out' }"
     >

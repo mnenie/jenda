@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useTemplateRef } from 'vue';
 import { useDark } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { Plus } from 'lucide-vue-next';
@@ -9,7 +9,7 @@ import FormCreation from './FormCreation.vue';
 const isDark = useDark();
 const { t } = useI18n();
 
-const sheetColumn = ref<SheetElement | null>(null);
+const sheetColumn = useTemplateRef<SheetElement | null>('sheet');
 
 const open = () => {
   if (sheetColumn.value) {
@@ -23,7 +23,7 @@ const open = () => {
     <Plus :size="16" :color="isDark ? 'var(--zinc-300)' : 'var(--zinc-500)'" />
     {{ t('kanban.new') }}
   </div>
-  <UiSheet ref="sheetColumn">
+  <UiSheet ref="sheet">
     <template #header>
       <p class="text-lg" style="font-weight: 500">{{ t('kanban.sheet.column.title') }}</p>
       <span :class="[$style.desc, 'text-sm']">

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useTemplateRef } from 'vue';
 import { UiSheet } from '@/shared/ui';
 import type { SheetElement } from '@/shared/ui';
 import FormCreation from './FormCreation.vue';
 
-const sheet = ref<SheetElement | null>(null);
+const sheet = useTemplateRef<SheetElement | null>('sheet');
 
 const open = () => {
   if (sheet.value) {

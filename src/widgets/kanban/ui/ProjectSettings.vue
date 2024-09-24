@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, shallowReactive } from 'vue';
+import { ref, shallowReactive, useTemplateRef } from 'vue';
 import { UiButton, UiSheet } from '@/shared/ui';
 import type { SheetElement } from '@/shared/ui';
 import { Settings2 } from 'lucide-vue-next';
@@ -7,7 +7,7 @@ import { UserAvatar } from '@/entities/user';
 import type { StatusBadge } from '@/entities/board';
 import { ChangeName, ChooseStatus, UpdateBoard } from '@/features/kanban';
 
-const sheet = ref<SheetElement | null>(null);
+const sheet = useTemplateRef<SheetElement | null>('sheet');
 
 const open = () => {
   if (sheet.value) {

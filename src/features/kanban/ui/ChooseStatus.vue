@@ -10,6 +10,7 @@ const props = defineProps<{
   statuses: StatusBadge[];
   projStatus: StatusBadge['status'];
 }>();
+
 const emits = defineEmits<{
   (e: 'updateStatus', status: StatusBadge['status']): void;
 }>();

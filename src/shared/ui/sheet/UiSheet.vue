@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, useCssModule } from 'vue';
+import { computed, ref, useCssModule, useTemplateRef } from 'vue';
 import { X } from 'lucide-vue-next';
 
 interface Props {
@@ -25,11 +25,11 @@ const overlayColor = ref('#0000004D');
 
 const style = useCssModule();
 
-const sideSheet = ref<HTMLElement | null>(null);
-const sideSheetHeader = ref<HTMLElement | null>(null);
-const sideSheetMain = ref<HTMLElement | null>(null);
-const sideSheetFooter = ref<HTMLElement | null>(null);
-const sideSheetContent = ref<HTMLElement | null>(null);
+const sideSheet = useTemplateRef<HTMLElement | null>('sideSheet');
+const sideSheetHeader = useTemplateRef<HTMLElement | null>('sideSheetHeader');
+const sideSheetMain = useTemplateRef<HTMLElement | null>('sideSheetMain');
+const sideSheetFooter = useTemplateRef<HTMLElement | null>('sideSheetFooter');
+const sideSheetContent = useTemplateRef<HTMLElement | null>('sideSheetContent');
 
 document.addEventListener('keyup', (event: KeyboardEvent) => {
   if (event.key === 'Escape') {
