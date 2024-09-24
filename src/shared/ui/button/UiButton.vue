@@ -116,7 +116,7 @@ withDefaults(
 }
 
 .md {
-  height: 32px;
+  height: 34px;
   padding: 8px 16px;
 }
 

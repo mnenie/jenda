@@ -6,15 +6,16 @@
 
 <style module lang="scss">
 .avatar {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 29px;
-  width: 29px;
+  height: 30px;
+  width: 30px;
   user-select: none;
   overflow: hidden;
   background-color: var(--zinc-100);
   color: var(--zinc-950);
   border-radius: 50%;
+  cursor: pointer;
 }
 </style>

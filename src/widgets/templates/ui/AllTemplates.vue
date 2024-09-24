@@ -2,8 +2,10 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { TemplateItem, templatesInfo } from '@/entities/template';
+import { useLocalStorage } from '@vueuse/core';
 
 const { tm } = useI18n();
+const isExpanded = useLocalStorage('isExpanded', true);
 
 const templates = computed(() => {
   const localeArr = tm('templates.items') as (typeof TemplateItem)[];
@@ -15,6 +17,8 @@ const templates = computed(() => {
     date: localeArr[index].date
   }));
 });
+
+const gridVariant = computed(() => (isExpanded.value ? 'repeat(4, 1fr)' : 'repeat(5, 1fr)'));
 </script>
 
 <template>
@@ -26,7 +30,7 @@ const templates = computed(() => {
 <style module lang="scss">
 .container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: v-bind('gridVariant');
   gap: 20px;
   width: 100%;
 }
