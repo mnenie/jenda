@@ -11,14 +11,27 @@ import { useWindowSize } from '@vueuse/core';
 const { width } = useWindowSize();
 
 const isExpanded = useLocalStorage('isExpanded', true);
-const transitionFl = ref(false);
+const transitionFl = ref<boolean>(false);
 
 const widthSidebar = computed(() => {
-  return isExpanded.value ? (width.value >= 1380 ? '18%' : '26%') : width.value >= 1380 ? '3%' : '5%';
+  return isExpanded.value
+    ? width.value >= 1820
+      ? '18%'
+      : width.value >= 1400
+        ? '22%'
+        : '26%'
+    : width.value >= 1820
+      ? '3%'
+      : width.value >= 1500
+        ? '3.5%'
+        : width.value >= 1380
+          ? '4%'
+          : '5%';
 });
 const widthMainContainer = computed(() => {
   return `calc(100% - ${widthSidebar.value})`;
 });
+
 const onToggleArea = () => {
   isExpanded.value = !isExpanded.value;
   transitionFl.value = true;
