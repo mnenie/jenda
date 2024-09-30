@@ -1,18 +1,39 @@
 <script setup lang="ts">
 import { useDark } from '@vueuse/core';
 import { UiButton } from '@/shared/ui';
-import { ArrowRight } from 'lucide-vue-next';
+import { ChevronRight } from 'lucide-vue-next';
 import { RouteNames } from '@/shared/config/consts';
+import { computed, ref } from 'vue';
+import { redirect } from '@/shared/lib/helpers';
 
 const isDark = useDark();
+
+const isHovered = ref(false);
+
+function onMouseEnter() {
+  isHovered.value = true;
+}
+
+function onMouseLeave() {
+  isHovered.value = false;
+}
+
+const arrowMargin = computed(() => {
+  return isHovered.value ? '4px' : '0px';
+});
 </script>
 
 <template>
   <section :class="$style.container">
-    <div :class="$style.badge">
+    <div
+      :class="$style.badge"
+      @mouseenter="onMouseEnter"
+      @mouseleave="onMouseLeave"
+      @click="redirect('https://github.com/mnenie/jenda')"
+    >
       <span style="margin-right: 3px">✨</span>
       <span class="text-sm">{{ $t('welcome.about.badge') }}</span>
-      <ArrowRight :size="14" />
+      <ChevronRight :size="14" :class="$style.arrow" :style="{ marginLeft: arrowMargin }" />
     </div>
     <h1>{{ $t('welcome.about.tagline') }}</h1>
     <p class="text-lg">
@@ -22,7 +43,11 @@ const isDark = useDark();
       <UiButton @click="$router.push({ name: RouteNames.registration })">
         {{ $t('welcome.about.btn') }}
       </UiButton>
-      <UiButton variant="outline" :class="$style.btn_git">
+      <UiButton
+        variant="outline"
+        :class="$style.btn_git"
+        @click="redirect('https://github.com/mnenie/jenda')"
+      >
         <img :src="!isDark ? '/icons/github.png' : '/icons/github-d.png'" />
         GitHub
       </UiButton>
@@ -43,7 +68,7 @@ const isDark = useDark();
   & > h1 {
     margin-bottom: 2px;
     text-align: center;
-    font-size: 72px;
+    font-size: 76px;
     font-weight: 600;
     line-height: 1.25;
     letter-spacing: -0.05em;
@@ -64,6 +89,10 @@ const isDark = useDark();
     cursor: pointer;
     border-radius: 8px;
     color: var(--zinc-500);
+
+    .arrow {
+      transition: 0.2s ease-in;
+    }
   }
 
   .btns {

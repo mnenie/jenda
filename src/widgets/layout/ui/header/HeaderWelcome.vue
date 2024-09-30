@@ -40,43 +40,46 @@ const links = computed(() => {
 
 <template>
   <header :class="$style.header_welcome">
-    <div :class="$style.left_container">
-      <div :class="$style.box">
-        <div :class="$style.inside">
-          <div :class="$style.name_container" @click="redirect('https://github.com/mnenie/jenda')">
-            <img :src="iconUrl" />
-            <h3 class="text-xl">Jenda</h3>
+    <slot name="offer" />
+    <section :class="$style.containers">
+      <div :class="$style.left_container">
+        <div :class="$style.box">
+          <div :class="$style.inside">
+            <div :class="$style.name_container" @click="redirect('https://github.com/mnenie/jenda')">
+              <img :src="iconUrl" />
+              <h3 class="text-xl">Jenda</h3>
+            </div>
+            <UiButton v-for="link in links" :key="link.id" variant="ghost" size="sm" :class="$style.item">
+              {{ link.name }}
+            </UiButton>
           </div>
-          <UiButton v-for="link in links" :key="link.id" variant="ghost" size="sm" :class="$style.item">
-            {{ link.name }}
+        </div>
+        <div :class="$style.additional">
+          <UiSelect v-model="language" :options="languages" as="btn">
+            <Globe :size="16" />
+          </UiSelect>
+          <div :class="$style.separator" />
+          <UiButton
+            v-tooltip="'Change theme'"
+            variant="ghost"
+            size="sm"
+            :class="$style.btn"
+            @click="toggleDark()"
+          >
+            <Moon v-if="!isDark" :size="17" />
+            <Sun v-else :size="17" />
           </UiButton>
         </div>
       </div>
-      <div :class="$style.additional">
-        <UiSelect v-model="language" :options="languages" as="btn">
-          <Globe :size="16" />
-        </UiSelect>
-        <div :class="$style.separator" />
-        <UiButton
-          v-tooltip="'Change theme'"
-          variant="ghost"
-          size="sm"
-          :class="$style.btn"
-          @click="toggleDark()"
-        >
-          <Moon v-if="!isDark" :size="17" />
-          <Sun v-else :size="17" />
+      <div :class="$style.btns">
+        <UiButton variant="ghost" style="font-weight: 500" @click="$router.push({ name: RouteNames.login })">
+          {{ t('welcome.header.login') }}
+        </UiButton>
+        <UiButton @click="$router.push({ name: RouteNames.registration })">
+          {{ t('welcome.header.reg') }}
         </UiButton>
       </div>
-    </div>
-    <div :class="$style.btns">
-      <UiButton variant="ghost" style="font-weight: 500" @click="$router.push({ name: RouteNames.login })">
-        {{ t('welcome.header.login') }}
-      </UiButton>
-      <UiButton @click="$router.push({ name: RouteNames.registration })">
-        {{ t('welcome.header.reg') }}
-      </UiButton>
-    </div>
+    </section>
   </header>
 </template>
 
@@ -88,12 +91,18 @@ const links = computed(() => {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1040;
+  z-index: 999;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
   padding: 10px 16px;
+
+  .containers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   .name_container {
     display: flex;

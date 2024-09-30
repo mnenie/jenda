@@ -1,1 +1,4 @@
-export { default as ArrowsDouble } from './ArrowsDouble.vue';
+import ArrowsDouble from './ArrowsDouble.vue';
+import ProjectGrid from './ProjectGrid.vue';
+
+export { ProjectGrid, ArrowsDouble };

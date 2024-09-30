@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
-import { AboutSection, MarketingCards } from '@/widgets/welcome';
+import { AboutSection, MarketingCards, ProjectDemo } from '@/widgets/welcome';
 
 useHead({
   title: 'Jenda - cloud program for project and task management'
@@ -8,8 +8,15 @@ useHead({
 </script>
 
 <template>
-  <div class="container" style="padding-top: 152px">
+  <div :class="[$style.page, 'container']">
     <AboutSection />
+    <ProjectDemo />
     <MarketingCards />
   </div>
 </template>
+
+<style module lang="scss">
+.page{
+  padding-top: 170px;
+}
+</style>
