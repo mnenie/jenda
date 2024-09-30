@@ -398,5 +398,7 @@
   max-width: 1600px;
   justify-self: center;
   grid-area: 1 / 1 / 1 / 1;
+  position: relative;
+  z-index: -1;
 }
 </style>

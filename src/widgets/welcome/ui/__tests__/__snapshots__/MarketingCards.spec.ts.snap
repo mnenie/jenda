@@ -2,36 +2,46 @@
 
 exports[`tests for MarketingCards.vue > should be render correctly 1`] = `
 "<div class="wrapper">
-  <div class="combinedCard">
-    <div class="text-sm card card" style="background-color: rgb(255, 249, 243); max-width: 640px; height: 270px;">
-      <h3 class="heading-3">Kanban 🧑‍💻</h3>
-      <p class="text-base">Organize and visualize your projects with our intuitive Kanban board. Enhance productivity with ease.</p><img src="/kanban.png">
-      <div class="user_container"></div>
-    </div>
-    <div class="text-sm card card" style="background-color: rgb(251, 251, 252); max-width: 640px; height: 300px;">
-      <h3 class="heading-3">Collaborative 👥</h3>
-      <p class="text-base">Improve your teamwork!</p><img src="/kanban.png">
-      <div class="user_container"></div>
-    </div>
+  <div style="display: flex; gap: 20px;"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-icon">
+      <path d="m7.5 4.27 9 5.15"></path>
+      <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+      <path d="m3.3 7 8.7 5 8.7-5"></path>
+      <path d="M12 22V12"></path>
+    </svg>
+    <h2 style="font-size: 40px;" class="heading-2">Всё удобство в одном месте</h2>
   </div>
-  <div class="combinedCard">
-    <div class="text-sm card card" style="background-color: rgb(247, 249, 254); max-width: 500px; height: 420px;">
-      <h3 class="heading-3">Members 🌐</h3>
-      <p class="text-base">Invite new participants to your projects. Enjoy the development together!</p><img src="/kanban.png">
-      <div class="user_container"></div>
+  <section>
+    <div class="combinedCard">
+      <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 640px; height: 270px;">
+        <h3 class="heading-3">Kanban 🧑‍💻</h3>
+        <p class="text-base">Organize and visualize your projects with our intuitive Kanban board. Enhance productivity with ease.</p><img src="/dev-card.png" style="width: 720px; bottom: -260px; right: -360px;">
+        <div class="user_container"></div>
+      </div>
+      <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 640px; height: 300px;">
+        <h3 class="heading-3">Collaborative 👥</h3>
+        <p class="text-base">Improve your teamwork!</p><img src="/dev-card.png" style="width: 600px; bottom: -160px; right: 20px;">
+        <div class="user_container"></div>
+      </div>
     </div>
-    <div class="text-sm card card" style="background-color: rgb(254, 247, 249); max-width: 500px; height: 100%;">
-      <h3 class="heading-3">Templates 🔧</h3>
-      <p class="text-base">Several starter templates are available to you.</p><img src="/kanban.png">
-      <div class="user_container"></div>
+    <div class="combinedCard">
+      <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 500px; height: 420px;">
+        <h3 class="heading-3">Members 🌐</h3>
+        <p class="text-base">Invite new participants to your projects. Enjoy the development together!</p><img src="/dev-card.png" style="width: 600px; bottom: -230px; right: -290px;">
+        <div class="user_container"></div>
+      </div>
+      <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 500px; height: 100%;">
+        <h3 class="heading-3">Templates 🔧</h3>
+        <p class="text-base">Several starter templates are available to you.</p><img src="/dev-card.png" style="width: 700px; bottom: -200px; right: -500px;">
+        <div class="user_container"></div>
+      </div>
     </div>
-  </div>
-  <div class="combinedCard">
-    <div class="text-sm card card flexGrowCard" style="background-color: rgb(251, 251, 252); max-width: 100%;">
-      <h3 class="heading-3">Chats 💬</h3>
-      <p class="text-base">Communicate, share, discuss. Our convenience for you 😉</p><img src="/kanban.png">
-      <div class="user_container"></div>
+    <div class="combinedCard">
+      <div class="text-sm card card flexGrowCard" style="background-color: rgb(255, 255, 255); max-width: 100%;">
+        <h3 class="heading-3">Chats 💬</h3>
+        <p class="text-base">Communicate, share, discuss. Our convenience for you 😉</p><img src="/dev-card.png" style="width: 700px; bottom: 0px; right: -420px;">
+        <div class="user_container"></div>
+      </div>
     </div>
-  </div>
+  </section>
 </div>"
 `;

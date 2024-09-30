@@ -5,6 +5,7 @@ import { useI18n } from 'vue-i18n';
 import { cardsInfo } from '../model';
 import type { MarketingCard } from '../model';
 import { UiCard } from '@/shared/ui';
+import { Package } from 'lucide-vue-next';
 
 const { tm } = useI18n();
 
@@ -18,12 +19,12 @@ const cards = computed(() => {
 });
 
 const colors = [
-  { light: '#fff9f3', dark: '#2b2723' },
-  { light: '#fbfbfc', dark: 'rgba(var(--zinc-rgb-600), 0.2)' },
-  { light: '#f7f9fe', dark: '#232527' },
-  { light: '#fef7f9', dark: '#302528' },
-  { light: '#fbfbfc', dark: 'rgba(var(--zinc-rgb-600), 0.2)' }
-];
+  { light: '#fff', dark: '#2b2723' },
+  { light: '#fff', dark: 'rgba(var(--zinc-rgb-600), 0.2)' },
+  { light: '#fff', dark: '#232527' },
+  { light: '#fff', dark: '#302528' },
+  { light: '#fff', dark: 'rgba(var(--zinc-rgb-600), 0.2)' }
+] as const;
 
 const isDark = useDark();
 
@@ -43,64 +44,89 @@ const currentHeight = computed(() => {
     return height ? height + 'px' : '100%';
   };
 });
+
+const getImageAttributes = computed(() => {
+  return (card: MarketingCard) => {
+    const attributesObj = {
+      width: card.imgWidth,
+      bottom: card.bottom,
+      top: card.top,
+      right: card.right,
+      left: card.left
+    };
+    return attributesObj;
+  };
+});
 </script>
 
 <template>
   <div :class="$style.wrapper">
-    <div :class="$style.combinedCard">
-      <UiCard
-        v-for="card in cards.slice(0, 2)"
-        :key="card.id"
-        :class="$style.card"
-        :style="{
-          backgroundColor: getCurrentColor(card.id),
-          maxWidth: currentWidth(card.width),
-          height: currentHeight(card.height)
-        }"
-      >
-        <h3 class="heading-3">{{ card.title }}</h3>
-        <p class="text-base">{{ card.description }}</p>
-        <img :src="isDark ? '/kanban-d.png' : '/kanban.png'" />
-      </UiCard>
+    <div style="display: flex; gap: 20px">
+      <Package color="var(--zinc-600)" :size="40" />
+      <h2 style="font-size: 40px" class="heading-2">Всё удобство в одном месте</h2>
     </div>
-    <div :class="$style.combinedCard">
-      <UiCard
-        v-for="card in cards.slice(2, 4)"
-        :key="card.id"
-        :class="$style.card"
-        :style="{
-          backgroundColor: getCurrentColor(card.id),
-          maxWidth: currentWidth(card.width),
-          height: currentHeight(card.height)
-        }"
-      >
-        <h3 class="heading-3">{{ card.title }}</h3>
-        <p class="text-base">{{ card.description }}</p>
-        <img :src="isDark ? '/kanban-d.png' : '/kanban.png'" />
-      </UiCard>
-    </div>
-    <div :class="$style.combinedCard">
-      <UiCard
-        :key="cards[4].id"
-        :class="[$style.card, $style.flexGrowCard]"
-        :style="{
-          backgroundColor: getCurrentColor(cards[4].id),
-          maxWidth: currentWidth(cards[4].width)
-        }"
-      >
-        <h3 class="heading-3">{{ cards[4].title }}</h3>
-        <p class="text-base">{{ cards[4].description }}</p>
-        <img :src="isDark ? '/kanban-d.png' : '/kanban.png'" />
-      </UiCard>
-    </div>
+    <section>
+      <div :class="$style.combinedCard">
+        <UiCard
+          v-for="card in cards.slice(0, 2)"
+          :key="card.id"
+          :class="$style.card"
+          :style="{
+            backgroundColor: getCurrentColor(card.id),
+            maxWidth: currentWidth(card.width),
+            height: currentHeight(card.height)
+          }"
+        >
+          <h3 class="heading-3">{{ card.title }}</h3>
+          <p class="text-base">{{ card.description }}</p>
+          <img :src="card.url" :style="getImageAttributes(card)" />
+        </UiCard>
+      </div>
+      <div :class="$style.combinedCard">
+        <UiCard
+          v-for="card in cards.slice(2, 4)"
+          :key="card.id"
+          :class="$style.card"
+          :style="{
+            backgroundColor: getCurrentColor(card.id),
+            maxWidth: currentWidth(card.width),
+            height: currentHeight(card.height)
+          }"
+        >
+          <h3 class="heading-3">{{ card.title }}</h3>
+          <p class="text-base">{{ card.description }}</p>
+          <img :src="card.url" :style="getImageAttributes(card)" />
+        </UiCard>
+      </div>
+      <div :class="$style.combinedCard">
+        <UiCard
+          :key="cards[4].id"
+          :class="[$style.card, $style.flexGrowCard]"
+          :style="{
+            backgroundColor: getCurrentColor(cards[4].id),
+            maxWidth: currentWidth(cards[4].width)
+          }"
+        >
+          <h3 class="heading-3">{{ cards[4].title }}</h3>
+          <p class="text-base">{{ cards[4].description }}</p>
+          <img :src="cards[4].url" :style="getImageAttributes(cards[4])" />
+        </UiCard>
+      </div>
+    </section>
   </div>
 </template>
 
 <style module lang="scss">
 .wrapper {
-  display: flex;
-  margin: 70px 0 80px 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  & > section {
+    display: flex;
+    padding: 0 30px;
+  }
 }
 
 .combinedCard {
@@ -108,6 +134,7 @@ const currentHeight = computed(() => {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
   &:not(:last-child) {
     margin-right: 20px;
@@ -133,9 +160,6 @@ const currentHeight = computed(() => {
 
   & > img {
     position: absolute;
-    bottom: -260px;
-    right: -360px;
-    width: 720px;
     border-radius: 8px;
   }
 }
