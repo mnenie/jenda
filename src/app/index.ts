@@ -6,9 +6,10 @@ import i18n from '@/shared/lib/i18n';
 
 import './styles/primary/index.scss';
 import 'floating-vue/dist/style.css';
-import Vue3Marquee from 'vue3-marquee';
 
 import autoAnimatePlugin from './plugins/formkit';
+import Vue3Marquee from 'vue3-marquee';
+import VueWriter from 'vue-writer';
 import { vTooltip } from 'floating-vue';
 
 const app = createApp(App);
@@ -21,5 +22,6 @@ app.use(i18n);
 app.use(head);
 app.use(autoAnimatePlugin);
 app.use(Vue3Marquee);
+app.use(VueWriter);
 app.directive('tooltip', vTooltip);
 app.mount('#app');

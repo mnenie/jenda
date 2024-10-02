@@ -1,19 +1,7 @@
-<script setup lang="ts">
-const stack = [
-  'Мы знаем',
-  'Вы наслаждаетесь',
-  '👑 Лучший аналог в РФ',
-  'Open source',
-  '👻 У нас проще',
-  'Без рекламы',
-  'Совершенство рядом 🤟'
-] as const;
-</script>
-
 <template>
   <div :class="$style.container">
     <Vue3Marquee>
-      <div v-for="(s, index) in stack" :key="index" :class="$style.items">
+      <div v-for="(s, index) in $tm('welcome.marquee')" :key="index" :class="$style.items">
         <p class="text-lg">{{ s }}</p>
       </div>
     </Vue3Marquee>

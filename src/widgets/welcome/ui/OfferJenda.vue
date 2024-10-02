@@ -12,10 +12,11 @@ function onCloseOffer() {
 <template>
   <div v-if="open" :class="$style.container">
     <div :class="$style.content">
-      <p class="text-base">We've raised a $23.5m Series A led by Redpoint Ventures!</p>
-      <a href="https://github.com/mnenie/jenda" rel="noreferrer" class="text-xs">Read more</a>
+      <p class="text-xs">Следите за нашими новостями в
+        <a href="https://github.com/mnenie/jenda" rel="noreferrer">github</a>
+      </p>
     </div>
-    <X :size="16" :class="$style.icon" @click="onCloseOffer" />
+    <X :size="13" :class="$style.icon" @click="onCloseOffer" />
   </div>
 </template>
 
@@ -27,6 +28,7 @@ function onCloseOffer() {
   color: var(--zinc-200);
   border-radius: 10px;
   padding: 10px 20px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +38,7 @@ function onCloseOffer() {
     gap: 10px;
     align-items: center;
 
-    & > a {
+    & a {
       text-decoration: underline;
     }
   }

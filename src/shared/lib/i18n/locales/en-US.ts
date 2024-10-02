@@ -181,7 +181,7 @@ export default {
   },
   welcome: {
     header: {
-      links: ['About', 'Kanban', 'Members', 'Templates', 'Collaborative', 'Chats'],
+      links: ['About', 'Kanban', 'Collaborative', 'Activity', 'Members', 'Chats'],
       login: 'Log In',
       reg: 'Get started'
     },
@@ -192,29 +192,95 @@ export default {
       badge: 'Core: Task Boards, Real-Time Tracking',
       btn: 'Get started'
     },
-    cards: [
-      {
-        title: 'Kanban 🧑‍💻',
-        description:
-          'Organize and visualize your projects with our intuitive Kanban board. Enhance productivity with ease.'
-      },
-      {
-        title: 'Collaborative 👥',
-        description: 'Improve your teamwork!'
-      },
-      {
-        title: 'Members 🌐',
-        description: 'Invite new participants to your projects. Enjoy the development together!'
-      },
-      {
-        title: 'Templates 🔧',
-        description: 'Several starter templates are available to you.'
-      },
-      {
-        title: 'Chats 💬',
-        description: 'Communicate, share, discuss. Our convenience for you 😉'
-      }
+    marketing: {
+      heading: 'All convenience in one place',
+      cards: [
+        {
+          title: 'Kanban 🧑‍💻',
+          description:
+            'Organize and visualize your projects with our intuitive Kanban board. Enhance productivity with ease.'
+        },
+        {
+          title: 'Collaborative 👥',
+          description: 'Improve your teamwork!'
+        },
+        {
+          title: 'Members 🌐',
+          description: 'Invite new participants to your projects. Enjoy the development together!'
+        },
+        {
+          title: 'Activity 👔',
+          description: 'Analyze your activity and move forward.'
+        },
+        {
+          title: 'Chats 💬',
+          description: 'Communicate, share, discuss. Our convenience for you 😉'
+        }
+      ]
+    },
+    marquee: [
+      'We know',
+      'You enjoy',
+      '👑 The best alternative in Russia',
+      'Open source',
+      "👻 It's easier with us",
+      'No ads',
+      'Perfection is close 🤟'
     ],
+    kanban: {
+      name: 'Use Kanban',
+      heading: 'What do you know about our Kanban? 👀',
+      about:
+        'Kanban is a simple and effective way to manage projects, tasks, and time. By visualizing your tasks on a board, you can easily track progress and see what needs to be done next.',
+      writer: 'Try to conquer the world fully with our Kanban',
+      review: {
+        name: 'Alex Peshkov',
+        status: 'Frontend Developer, Open Source Enthusiast',
+        comment: 'I enjoy kanban every day and I advise everyone to try it. This is amazing!'
+      }
+    },
+    collaborative: {
+      name: 'Easier Together',
+      heading: 'Every task is a step towards 🤝 collective success!',
+      about:
+        'Our service is designed for teams striving for success through collaboration. With it, every participant can easily track tasks, share ideas, and move towards a common goal together with colleagues.',
+      writer: 'Join us and move towards success as a team!',
+      review: {
+        name: 'Bagaudtinov Airat',
+        status: 'Backend Developer',
+        comment: 'Working together is great! Jenda provides such a wonderful opportunity.'
+      }
+    },
+    activity: {
+      heading: 'Progress in action',
+      about:
+        'You can view statistics on completed tasks and open boards. This allows you to track team progress, see completed tasks, and manage current tasks and projects.'
+    },
+    members: {
+      name: 'Team of participants',
+      heading: 'Work with a friendly 😉 team of developers',
+      about:
+        'Our service allows you to create and manage teams, add participants, share tasks, and receive real-time feedback.',
+      writer: 'Join and be in the spotlight!',
+      review: {
+        name: 'Alex Peshkov',
+        status: 'Frontend Developer, Open Source Enthusiast',
+        comment:
+          'A great tool for collaboration. Convenient interface and useful features! 👍 Working with friends'
+      }
+    },
+    chats: {
+      name: 'Ease of communication',
+      heading: 'How often do you communicate with your team? 🤔',
+      about: `Our chats allow you to easily exchange messages, share ideas, and stay in sync with your team. Stay connected and work more efficiently!`,
+      writer: 'Share your thoughts and ideas in our convenient chats!',
+      review: {
+        name: 'Ayrat Bagaoutdinov',
+        status: 'Backend Developer',
+        comment:
+          "The chats here are really convenient! It's easy to exchange ideas and quickly resolve issues with the team."
+      }
+    },
     footer: 'cloud-based program for task management. The source code is available on'
   },
   not_found: {

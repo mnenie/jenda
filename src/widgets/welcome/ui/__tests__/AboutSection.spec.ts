@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
 import '@/shared/lib/vitest-utils/cookiesI18n-mock';
-import AboutSection from '../AboutSection.vue';
+import AboutSection from '../sections/AboutSection.vue';
 import i18n from '@/shared/lib/i18n';
 import { UiButton } from '@/shared/ui';
 

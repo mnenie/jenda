@@ -7203,6 +7203,11 @@ vue-tsc@^2.0.21:
     "@vue/language-core" "2.0.29"
     semver "^7.5.4"
 
+vue-writer@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/vue-writer/-/vue-writer-2.0.2.tgz#90fef65b4a4d1d74a30e6d6e8c76a615698ca480"
+  integrity sha512-k3Zos5f86REHoY6XRGjEHArUsd7EjUAUu0ehpPWnkHzbc9nPmzboZfw3PmPe9thN8L/QAJve69rHcUU+llFM/g==
+
 vue3-marquee@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/vue3-marquee/-/vue3-marquee-4.2.2.tgz#e5316591e5412931856d5a7e5aa2b34be4388673"

@@ -7,10 +7,10 @@ import type { MarketingCard } from '../model';
 import { UiCard } from '@/shared/ui';
 import { Package } from 'lucide-vue-next';
 
-const { tm } = useI18n();
+const { tm, t } = useI18n();
 
 const cards = computed(() => {
-  const _arr = tm('welcome.cards') as MarketingCard[];
+  const _arr = tm('welcome.marketing.cards') as MarketingCard[];
   return cardsInfo.map((card, i) => ({
     ...card,
     title: _arr[i].title,
@@ -63,7 +63,7 @@ const getImageAttributes = computed(() => {
   <div :class="$style.wrapper">
     <div style="display: flex; gap: 20px">
       <Package color="var(--zinc-600)" :size="40" />
-      <h2 style="font-size: 40px" class="heading-2">Всё удобство в одном месте</h2>
+      <h2 style="font-size: 40px" class="heading-2">{{ t('welcome.marketing.heading') }}</h2>
     </div>
     <section>
       <div :class="$style.combinedCard">
@@ -122,6 +122,7 @@ const getImageAttributes = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin-bottom: 110px;
 
   & > section {
     display: flex;

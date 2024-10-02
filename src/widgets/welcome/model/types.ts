@@ -15,3 +15,19 @@ interface ImgInCard {
   top?: string;
   imgWidth?: string;
 }
+
+export interface SectionWrapperType {
+  name: string;
+  heading: string;
+  about: string;
+  writer: string;
+  img: string;
+  review?: Partial<ReviewWrapper>;
+}
+
+export interface ReviewWrapper {
+  img: string;
+  name: string;
+  status: string;
+  comment: string;
+}
