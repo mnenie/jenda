@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, useTemplateRef } from 'vue';
 import { useDark } from '@vueuse/core';
 import { UiInput, UiBadge } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
@@ -14,7 +14,7 @@ const emit = defineEmits<{
 }>();
 
 const search = ref('');
-const inputRef = ref<HTMLElement | null>(null);
+const input = useTemplateRef<HTMLElement | null>('search-input');
 
 const isDark = useDark();
 const iconColor = computed(() => {
@@ -25,7 +25,7 @@ const iconColor = computed(() => {
   }
 });
 
-const { onToggleArea } = useFilter(inputRef, props, emit);
+const { onToggleArea } = useFilter(input, props, emit);
 </script>
 
 <template>
@@ -38,7 +38,7 @@ const { onToggleArea } = useFilter(inputRef, props, emit);
     <UiInput
       v-show="isExpanded"
       id="input"
-      ref="inputRef"
+      ref="search-input"
       v-model.trim="search"
       :placeholder="$t('sidebar.input')"
       :class="$style.input_filter"
