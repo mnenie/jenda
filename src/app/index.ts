@@ -9,8 +9,9 @@ import 'floating-vue/dist/style.css';
 
 import autoAnimatePlugin from './plugins/formkit';
 import Vue3Marquee from 'vue3-marquee';
-import VueWriter from 'vue-writer';
 import { vTooltip } from 'floating-vue';
+// @ts-expect-error: unresolved type definitions for vue-writer
+import VueWriter from 'vue-writer';
 
 const app = createApp(App);
 // head plugin
