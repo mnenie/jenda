@@ -8,6 +8,7 @@ const props = withDefaults(
   defineProps<{
     section: SectionWrapperType;
     direction?: 'default' | 'reverse';
+    id: string;
   }>(),
   {
     direction: 'default'
@@ -28,7 +29,7 @@ watch([() => props.section.writer, locale], () => {
 </script>
 
 <template>
-  <div :class="$style.wrapper">
+  <div :id :class="$style.wrapper">
     <div :class="$style.name">
       <slot name="icon" :size="36" :color="iconColor" />
       <h2 class="heading-2">

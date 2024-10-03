@@ -12,7 +12,7 @@ const { section } = useSection(
 </script>
 
 <template>
-  <SectionWrapper :section>
+  <SectionWrapper id="kanban" ref="kanban" :section>
     <template #icon="{ size, color }">
       <Check :size :color />
     </template>

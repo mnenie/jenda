@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, shallowReactive } from 'vue';
 import { useDark, useToggle } from '@vueuse/core';
-import { useLanguage } from '@/shared/lib/composables';
+import { useLanguage, useScroll } from '@/shared/lib/composables';
 import { useI18n } from 'vue-i18n';
 import { UiButton, UiSelect } from '@/shared/ui';
 import { redirect } from '@/shared/lib/helpers';
@@ -36,6 +36,7 @@ const links = computed(() => {
     name: localeArr[index]
   }));
 });
+const { scrollToEl } = useScroll(links.value.map((link) => link.pagePrefix));
 </script>
 
 <template>
@@ -49,7 +50,14 @@ const links = computed(() => {
               <img :src="iconUrl" />
               <h3 class="text-xl">Jenda</h3>
             </div>
-            <UiButton v-for="link in links" :key="link.id" variant="ghost" size="sm" :class="$style.item">
+            <UiButton
+              v-for="link in links"
+              :key="link.id"
+              variant="ghost"
+              size="sm"
+              :class="$style.item"
+              @click="scrollToEl(link.pagePrefix)"
+            >
               {{ link.name }}
             </UiButton>
           </div>

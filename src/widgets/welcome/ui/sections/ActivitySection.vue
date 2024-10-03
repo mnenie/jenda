@@ -8,7 +8,7 @@ const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc
 </script>
 
 <template>
-  <div :class="$style.activity">
+  <div id="activity" :class="$style.activity">
     <div :class="$style.name">
       <Activity :size="36" :color="iconColor" />
       <div>

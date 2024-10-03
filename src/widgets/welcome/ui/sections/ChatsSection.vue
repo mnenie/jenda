@@ -12,7 +12,7 @@ const { section } = useSection(
 </script>
 
 <template>
-  <SectionWrapper :section direction="reverse">
+  <SectionWrapper id="chats" :section direction="reverse">
     <template #icon="{ size, color }">
       <MessageCircle :size :color />
     </template>

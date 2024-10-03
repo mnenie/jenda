@@ -12,7 +12,7 @@ const { section } = useSection(
 </script>
 
 <template>
-  <SectionWrapper :section direction="reverse">
+  <SectionWrapper id="collaborative" :section direction="reverse">
     <template #icon="{ size, color }">
       <Earth :size :color />
     </template>

@@ -12,7 +12,7 @@ const { section } = useSection(
 </script>
 
 <template>
-  <SectionWrapper :section>
+  <SectionWrapper id="members" :section>
     <template #icon="{ size, color }">
       <SmilePlus :size :color />
     </template>

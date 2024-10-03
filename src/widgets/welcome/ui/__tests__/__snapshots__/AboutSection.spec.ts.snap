@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`tests for AboutSection.vue > should be render correctly 1`] = `
-"<section class="container">
+"<section id="about" class="container">
   <div class="badge"><span style="margin-right: 3px;">✨</span><span class="text-sm">Core: Task Boards, Real-Time Tracking</span>
     <anonymous-stub size="14" class="arrow" style="margin-left: 0px;"></anonymous-stub>
   </div>

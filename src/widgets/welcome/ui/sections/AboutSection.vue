@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, useTemplateRef } from 'vue';
 import { useDark } from '@vueuse/core';
 import { UiButton } from '@/shared/ui';
 import { ChevronRight } from 'lucide-vue-next';
@@ -24,7 +24,7 @@ const arrowMargin = computed(() => {
 </script>
 
 <template>
-  <section :class="$style.container">
+  <section id="about" :class="$style.container">
     <div
       :class="$style.badge"
       @mouseenter="onMouseEnter"
