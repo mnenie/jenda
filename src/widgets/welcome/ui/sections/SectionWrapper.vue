@@ -78,7 +78,7 @@ watch([() => props.section.writer, locale], () => {
       margin-bottom: 30px;
     }
     & p {
-      max-width: 722px;
+      max-width: 696px;
       margin-bottom: 50px;
     }
 
