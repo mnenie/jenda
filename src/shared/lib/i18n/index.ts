@@ -1,3 +1,4 @@
+import { computed } from 'vue';
 import { createI18n } from 'vue-i18n';
 import { useCookies } from '@vueuse/integrations/useCookies';
 import enLocale from './locales/en-US';
@@ -19,18 +20,20 @@ const messages = {
 };
 const cookies = useCookies();
 
-const getCurrentLocale = () => {
+const getCurrentLocale = computed(() => {
   const cookieLanguage = cookies.get('i18n');
   if (cookieLanguage) {
     return cookieLanguage;
   }
-
+  if (navigator.language.split('-')[0] === 'ru') {
+    return 'ru-RU';
+  }
   return 'en-US';
-};
+});
 
 const i18n = createI18n<[MessageSchema], 'en-US' | 'ru-RU' | 'zh-CN'>({
   legacy: false,
-  locale: getCurrentLocale(),
+  locale: getCurrentLocale.value,
   globalInjection: true,
   messages: messages
 });
