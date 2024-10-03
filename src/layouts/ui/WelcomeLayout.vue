@@ -13,7 +13,9 @@ useColorMode({
     <div :class="$style.slot">
       <slot />
     </div>
-    <AppFooter />
+    <div :class="$style.footer_wrapper">
+      <AppFooter />
+    </div>
   </div>
 </template>
 
@@ -27,6 +29,11 @@ useColorMode({
 
   .slot {
     flex: 1 1 0%;
+  }
+
+  .footer_wrapper{
+    display: flex;
+    justify-content: center;
   }
 }
 </style>

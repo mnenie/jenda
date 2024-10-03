@@ -93,10 +93,12 @@ const links = computed(() => {
   right: 0;
   z-index: 999;
   display: flex;
+  justify-self: center;
   flex-direction: column;
   gap: 10px;
+  max-width: 1800px;
   width: 100%;
-  padding: 10px 16px;
+  padding: 12px 16px;
 
   .containers {
     display: flex;

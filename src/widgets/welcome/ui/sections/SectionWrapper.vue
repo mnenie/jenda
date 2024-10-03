@@ -57,6 +57,7 @@ watch([() => props.section.writer, locale], () => {
   flex-direction: column;
   gap: 40px;
   margin-bottom: 60px;
+  max-width: 1290px;
 
   .name {
     display: flex;
@@ -72,17 +73,19 @@ watch([() => props.section.writer, locale], () => {
     padding: 0 30px;
     justify-content: space-between;
     align-items: center;
+    gap: 60px;
 
     & h4 {
       margin-bottom: 30px;
     }
     & p {
-      max-width: 600px;
+      max-width: 580px;
       margin-bottom: 50px;
     }
 
     & img {
-      width: 500px;
+      max-width: 600px;
+      width: 100%;
       border-radius: 10px;
     }
 

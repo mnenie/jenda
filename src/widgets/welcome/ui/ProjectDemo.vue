@@ -28,14 +28,17 @@ const isDark = useDark();
   .img_container {
     position: relative;
     justify-self: center;
+    display: flex;
+    align-items: center;
     width: 100%;
     grid-area: 1 / 1 / 1 / 1;
-    max-width: 900px;
+    max-width: 70%;
     transform: translateY(-1%);
     box-shadow:
       0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
     border-radius: 12px;
+    height: 300px;
 
     & > img {
       max-width: 100%;

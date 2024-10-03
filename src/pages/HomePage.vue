@@ -39,6 +39,9 @@ useHead({
 
   .inside_container {
     padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 </style>
