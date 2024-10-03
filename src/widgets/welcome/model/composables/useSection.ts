@@ -1,9 +1,15 @@
 import { computed, type MaybeRefOrGetter } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useDark } from '@vueuse/core';
 import type { SectionWrapperType } from '../types';
 
-export default function useSection(_section: MaybeRefOrGetter<string>, imgUrl: string, userImg: string) {
+export default function useSection(_section: MaybeRefOrGetter<string>, imgPrefix: string, userImg: string) {
   const { t } = useI18n();
+  const isDark = useDark();
+
+  const img = computed(() =>
+    isDark.value ? `/dev/${imgPrefix}-section-dark.png` : `/dev/${imgPrefix}-section.png`
+  );
 
   const parentKeys = ['name', 'heading', 'about', 'writer'] as const;
   const childReviewKeys = ['name', 'status', 'comment'] as const;
@@ -14,7 +20,7 @@ export default function useSection(_section: MaybeRefOrGetter<string>, imgUrl: s
         SectionWrapperType,
         'name' | 'heading' | 'about' | 'writer'
       >),
-      img: imgUrl,
+      img: img.value,
       review: {
         ...Object.fromEntries(childReviewKeys.map((key) => [key, t(`welcome.${_section}.review.${key}`)])),
         img: userImg

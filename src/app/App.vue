@@ -7,7 +7,7 @@ import { AppLayout } from '@/layouts';
 type ToasterTheme = 'dark' | 'light';
 
 useColorMode({
-  initialValue: 'auto'
+  initialValue: 'light'
 });
 const isDark = useDark();
 

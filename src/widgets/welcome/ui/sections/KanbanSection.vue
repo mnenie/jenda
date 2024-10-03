@@ -6,7 +6,7 @@ import { Check } from 'lucide-vue-next';
 
 const { section } = useSection(
   'kanban',
-  '/dev/dev-card-section.png',
+  'dev-card',
   'https://avatars.githubusercontent.com/u/121057011?v=4'
 );
 </script>

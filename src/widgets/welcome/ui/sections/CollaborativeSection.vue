@@ -6,7 +6,7 @@ import { ReviewWrapper } from '../reviews';
 
 const { section } = useSection(
   'collaborative',
-  '/dev/dev-card-section.png',
+  'dev-card',
   'https://avatars.githubusercontent.com/u/95149637?v=4'
 );
 </script>
