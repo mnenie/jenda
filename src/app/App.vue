@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useColorMode, useDark } from '@vueuse/core';
+import { useDark } from '@vueuse/core';
 import { Toaster } from 'vue-sonner';
 import { AppLayout } from '@/layouts';
 
 type ToasterTheme = 'dark' | 'light';
 
-useColorMode({
-  initialValue: 'light'
-});
 const isDark = useDark();
 
 const toasterTheme = computed<ToasterTheme>(() => {

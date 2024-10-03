@@ -26,7 +26,7 @@ const info = computed(() => {
 <template>
   <div :class="$style.container">
     <div :class="$style.container_inside">
-      <div :class="$style.top_part" @click="$router.push({ name: RouteNames.boards })">
+      <div :class="$style.top_part" @click="$router.push({ name: RouteNames.welcome })">
         <img :src="isDark ? '/icons/kanban-dark.png' : '/icons/kanban.png'" />
         <h3 class="text-xl">Jenda</h3>
       </div>

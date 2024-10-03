@@ -14,7 +14,7 @@ useHead({
       <h1>404</h1>
       <h3>{{ $t('not_found.title') }}</h3>
       <p>{{ $t('not_found.description') }}</p>
-      <UiButton @click="$router.push({ name: RouteNames.boards })">{{ $t('not_found.btn') }}</UiButton>
+      <UiButton @click="$router.push({ name: RouteNames.welcome })">{{ $t('not_found.btn') }}</UiButton>
     </div>
   </div>
 </template>

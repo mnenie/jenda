@@ -6,8 +6,17 @@ import { layoutResolverMiddleware } from './middleware';
 
 const routes = [
   {
-    name: RouteNames.boards,
+    name: RouteNames.welcome,
     path: '/',
+    component: () => import('@/pages/HomePage.vue'),
+    meta: {
+      layout: LayoutsEnum.welcome,
+      requiresAuth: false
+    }
+  },
+  {
+    name: RouteNames.boards,
+    path: '/boards',
     component: () => import('@/pages/BoardsPage.vue'),
     meta: {
       requiresAuth: true
@@ -74,15 +83,6 @@ const routes = [
     meta: {
       layout: LayoutsEnum.auth,
       requiresAuth: false
-    }
-  },
-  {
-    name: RouteNames.welcome,
-    path: '/welcome',
-    component: () => import('@/pages/HomePage.vue'),
-    meta: {
-      layout: LayoutsEnum.welcome,
-      requiresAuth: true
     }
   },
   {

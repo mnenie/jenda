@@ -37,6 +37,6 @@ describe('tests for NotFoundPage.vue', () => {
 
   it('should redirect correctly', async () => {
     await wrapper.findComponent(UiButton).trigger('click');
-    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'boards' });
+    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'welcome' });
   });
 });

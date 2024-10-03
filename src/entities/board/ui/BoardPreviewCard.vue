@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { User} from '@/entities/user/model';
+import type { User } from '@/entities/user/model';
 import { UserAvatar } from '@/entities/user';
 import type { BoardPreview } from '../model';
 
