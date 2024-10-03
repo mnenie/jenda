@@ -8,7 +8,7 @@ export interface MarketingCard extends ImgInCard {
 }
 
 interface ImgInCard {
-  url: string;
+  url?: string;
   bottom?: string;
   right?: string;
   left?: string;

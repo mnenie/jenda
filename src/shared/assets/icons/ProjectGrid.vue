@@ -1,174 +1,40 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="843"
-    viewBox="0 0 1600 843"
-    fill="none"
-    class="svg"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" height="843" viewBox="0 0 1600 843" fill="none" class="svg">
     <g clip-path="url(#clip0_889_168141)">
-      <path d="M0 0H1600" stroke="#DEE2E7" class="video-hero-grid-line-horizontal animation-delay-[50ms]" />
-      <path d="M0 37H1600" stroke="#DEE2E7" class="video-hero-grid-line-horizontal animation-delay-[100ms]" />
-      <path
-        d="M0 74.5H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[150ms]"
-      />
-      <path
-        d="M0 118.5H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[200ms]"
-      />
-      <path
-        d="M0 178.3H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[250ms]"
-      />
-      <path
-        d="M0 219.2H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[300ms]"
-      />
-      <path
-        d="M0 260.1H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[350ms]"
-      />
-      <path
-        d="M0 300.8H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[400ms]"
-      />
-      <path
-        d="M0 341.7H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[450ms]"
-      />
-      <path
-        d="M0 382.6H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[500ms]"
-      />
-      <path
-        d="M0 423.5H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[550ms]"
-      />
-      <path
-        d="M0 464.3H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[600ms]"
-      />
-      <path
-        d="M0 505.2H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[650ms]"
-      />
-      <path
-        d="M0 545.9H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[700ms]"
-      />
-      <path
-        d="M0 586.8H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[750ms]"
-      />
-      <path
-        d="M0 627.7H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[800ms]"
-      />
-      <path
-        d="M0 668.5H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[850ms]"
-      />
-      <path
-        d="M0 709.3H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[900ms]"
-      />
-      <path
-        d="M0 750.5H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[1050ms]"
-      />
-      <path
-        d="M0 791.7H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[950ms]"
-      />
-      <path
-        d="M0 832.9H1600"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-horizontal animation-delay-[1000ms]"
-      />
-      <path
-        d="M82.5 920L82.5 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[50ms]"
-      />
-      <path
-        d="M199.5 920L199.5 -9.89437e-06"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[100ms]"
-      />
-      <path
-        d="M317,5 920L317,5 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[150ms]"
-      />
-      <path
-        d="M434.8 920L434.8 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[200ms]"
-      />
-      <path
-        d="M552.5 920L552.5 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[250ms]"
-      />
-      <path
-        d="M670 920L670 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[300ms]"
-      />
-      <path
-        d="M787.5 920L787.5 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[350ms]"
-      />
-      <path
-        d="M905 920L905 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[400ms]"
-      />
-      <path
-        d="M1022.5 920L1022.5 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[450ms]"
-      />
-      <path
-        d="M1140.3 920L1140.3 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[550ms]"
-      />
-      <path
-        d="M1270.5 920L1270.5 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[500ms]"
-      />
-      <path
-        d="M1400.5 920L1400.5 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[600ms]"
-      />
-      <path
-        d="M1517.5 920L1517.5 3.83295e-05"
-        stroke="#DEE2E7"
-        class="video-hero-grid-line-vertical animation-delay-[650ms]"
-      />
+      <path d="M0 0H1600" stroke="#DEE2E7" class="'' animation-delay-[50ms]" />
+      <path d="M0 37H1600" stroke="#DEE2E7" class="'' animation-delay-[100ms]" />
+      <path d="M0 74.5H1600" stroke="#DEE2E7" class="'' animation-delay-[150ms]" />
+      <path d="M0 118.5H1600" stroke="#DEE2E7" class="'' animation-delay-[200ms]" />
+      <path d="M0 178.3H1600" stroke="#DEE2E7" class="'' animation-delay-[250ms]" />
+      <path d="M0 219.2H1600" stroke="#DEE2E7" class="'' animation-delay-[300ms]" />
+      <path d="M0 260.1H1600" stroke="#DEE2E7" class="'' animation-delay-[350ms]" />
+      <path d="M0 300.8H1600" stroke="#DEE2E7" class="'' animation-delay-[400ms]" />
+      <path d="M0 341.7H1600" stroke="#DEE2E7" class="'' animation-delay-[450ms]" />
+      <path d="M0 382.6H1600" stroke="#DEE2E7" class="'' animation-delay-[500ms]" />
+      <path d="M0 423.5H1600" stroke="#DEE2E7" class="'' animation-delay-[550ms]" />
+      <path d="M0 464.3H1600" stroke="#DEE2E7" class="'' animation-delay-[600ms]" />
+      <path d="M0 505.2H1600" stroke="#DEE2E7" class="'' animation-delay-[650ms]" />
+      <path d="M0 545.9H1600" stroke="#DEE2E7" class="'' animation-delay-[700ms]" />
+      <path d="M0 586.8H1600" stroke="#DEE2E7" class="'' animation-delay-[750ms]" />
+      <path d="M0 627.7H1600" stroke="#DEE2E7" class="'' animation-delay-[800ms]" />
+      <path d="M0 668.5H1600" stroke="#DEE2E7" class="'' animation-delay-[850ms]" />
+      <path d="M0 709.3H1600" stroke="#DEE2E7" class="'' animation-delay-[900ms]" />
+      <path d="M0 750.5H1600" stroke="#DEE2E7" class="'' animation-delay-[1050ms]" />
+      <path d="M0 791.7H1600" stroke="#DEE2E7" class="'' animation-delay-[950ms]" />
+      <path d="M0 832.9H1600" stroke="#DEE2E7" class="'' animation-delay-[1000ms]" />
+      <path d="M82.5 920L82.5 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[50ms]" />
+      <path d="M199.5 920L199.5 -9.89437e-06" stroke="#DEE2E7" class="animation-delay-[100ms]" />
+      <path d="M317,5 920L317,5 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[150ms]" />
+      <path d="M434.8 920L434.8 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[200ms]" />
+      <path d="M552.5 920L552.5 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[250ms]" />
+      <path d="M670 920L670 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[300ms]" />
+      <path d="M787.5 920L787.5 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[350ms]" />
+      <path d="M905 920L905 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[400ms]" />
+      <path d="M1022.5 920L1022.5 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[450ms]" />
+      <path d="M1140.3 920L1140.3 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[550ms]" />
+      <path d="M1270.5 920L1270.5 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[500ms]" />
+      <path d="M1400.5 920L1400.5 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[600ms]" />
+      <path d="M1517.5 920L1517.5 3.83295e-05" stroke="#DEE2E7" class="animation-delay-[650ms]" />
       <ellipse cx="800" cy="-103.5" rx="605" ry="262.5" fill="url(#paint0_radial_889_168141)" />
     </g>
     <defs>
@@ -400,5 +266,16 @@
   grid-area: 1 / 1 / 1 / 1;
   position: relative;
   z-index: -1;
+}
+
+html.dark {
+  .svg {
+    path {
+      stroke: #3f3f46;
+    }
+    stop {
+      stop-color: #262626;
+    }
+  }
 }
 </style>

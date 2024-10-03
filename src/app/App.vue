@@ -6,7 +6,9 @@ import { AppLayout } from '@/layouts';
 
 type ToasterTheme = 'dark' | 'light';
 
-useColorMode();
+useColorMode({
+  initialValue: 'auto'
+});
 const isDark = useDark();
 
 const toasterTheme = computed<ToasterTheme>(() => {

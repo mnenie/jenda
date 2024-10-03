@@ -1,19 +1,32 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useDark } from '@vueuse/core';
 import { Activity } from 'lucide-vue-next';
+
+const isDark = useDark();
+const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc-600)'));
 </script>
 
 <template>
   <div :class="$style.activity">
     <div :class="$style.name">
-      <Activity :size="36" :color="'var(--zinc-600)'" />
+      <Activity :size="36" :color="iconColor" />
       <div>
         <h2 class="heading-2">{{ $t('welcome.activity.heading') }}</h2>
         <p>{{ $t('welcome.activity.about') }}</p>
       </div>
     </div>
     <section>
-      <img src="/dev-card-section.png" loading="lazy" decoding="async" />
-      <img src="/dev-card-section.png" loading="lazy" decoding="async" />
+      <img
+        :src="isDark ? '/dev/dev-card-section-dark.png' : '/dev/dev-card-section.png'"
+        loading="lazy"
+        decoding="async"
+      />
+      <img
+        :src="isDark ? '/dev/dev-card-section-dark.png' : '/dev/dev-card-section.png'"
+        loading="lazy"
+        decoding="async"
+      />
     </section>
   </div>
 </template>

@@ -1,7 +1,7 @@
-import { markRaw } from 'vue';
+import { shallowRef } from 'vue';
 import type { MarketingCard } from '../types';
 
-export const cardsInfo = markRaw<MarketingCard[]>([
+export const cardsInfo = shallowRef<MarketingCard[]>([
   {
     id: 0,
     pagePrefix: 'kanban',
@@ -10,8 +10,7 @@ export const cardsInfo = markRaw<MarketingCard[]>([
     // img
     bottom: '-260px',
     right: '-360px',
-    imgWidth: '720px',
-    url: '/dev-card.png'
+    imgWidth: '720px'
   },
   {
     id: 1,
@@ -21,8 +20,7 @@ export const cardsInfo = markRaw<MarketingCard[]>([
     // img
     bottom: '-160px',
     right: '20px',
-    imgWidth: '600px',
-    url: '/dev-card.png'
+    imgWidth: '600px'
   },
   {
     id: 2,
@@ -32,8 +30,7 @@ export const cardsInfo = markRaw<MarketingCard[]>([
     // img
     bottom: '-230px',
     right: '-290px',
-    imgWidth: '600px',
-    url: '/dev-card.png'
+    imgWidth: '600px'
   },
   {
     id: 3,
@@ -42,8 +39,7 @@ export const cardsInfo = markRaw<MarketingCard[]>([
     // img
     bottom: '-200px',
     right: '-500px',
-    imgWidth: '700px',
-    url: '/dev-card.png'
+    imgWidth: '700px'
   },
   {
     id: 4,
@@ -51,7 +47,6 @@ export const cardsInfo = markRaw<MarketingCard[]>([
     // img
     bottom: '0px',
     right: '-420px',
-    imgWidth: '700px',
-    url: '/dev-card.png'
+    imgWidth: '700px'
   }
 ]);

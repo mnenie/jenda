@@ -2,16 +2,18 @@
 import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
-import { cardsInfo } from '../model';
 import type { MarketingCard } from '../model';
 import { UiCard } from '@/shared/ui';
 import { Package } from 'lucide-vue-next';
+import { useCards } from '../model/composables';
 
 const { tm, t } = useI18n();
 
+const { cards: _cards } = useCards();
+
 const cards = computed(() => {
   const _arr = tm('welcome.marketing.cards') as MarketingCard[];
-  return cardsInfo.map((card, i) => ({
+  return _cards.value.map((card, i) => ({
     ...card,
     title: _arr[i].title,
     description: _arr[i].description
@@ -19,10 +21,10 @@ const cards = computed(() => {
 });
 
 const colors = [
-  { light: '#fff', dark: '#2b2723' },
   { light: '#fff', dark: 'rgba(var(--zinc-rgb-600), 0.2)' },
-  { light: '#fff', dark: '#232527' },
-  { light: '#fff', dark: '#302528' },
+  { light: '#fff', dark: 'rgba(var(--zinc-rgb-600), 0.2)' },
+  { light: '#fff', dark: 'rgba(var(--zinc-rgb-600), 0.2)' },
+  { light: '#fff', dark: 'rgba(var(--zinc-rgb-600), 0.2)' },
   { light: '#fff', dark: 'rgba(var(--zinc-rgb-600), 0.2)' }
 ] as const;
 
@@ -61,9 +63,9 @@ const getImageAttributes = computed(() => {
 
 <template>
   <div :class="$style.wrapper">
-    <div style="display: flex; gap: 20px">
-      <Package color="var(--zinc-600)" :size="40" />
-      <h2 style="font-size: 40px" class="heading-2">{{ t('welcome.marketing.heading') }}</h2>
+    <div :class="$style.heading">
+      <Package :size="40" :class="$style.icon" />
+      <h2 class="heading-2">{{ t('welcome.marketing.heading') }}</h2>
     </div>
     <section>
       <div :class="$style.combinedCard">
@@ -124,6 +126,19 @@ const getImageAttributes = computed(() => {
   gap: 40px;
   margin-bottom: 110px;
 
+  .heading {
+    display: flex;
+    gap: 20px;
+
+    & > h2 {
+      font-size: 40px;
+    }
+
+    .icon {
+      color: var(--zinc-600);
+    }
+  }
+
   & > section {
     display: flex;
     padding: 0 30px;
@@ -166,7 +181,20 @@ const getImageAttributes = computed(() => {
 }
 
 :global(html.dark) {
+  .wrapper {
+    .heading {
+      & > h2 {
+        color: var(--zinc-100);
+      }
+      .icon {
+        color: var(--zinc-400);
+      }
+    }
+  }
   .card {
+    & > h3 {
+      color: var(--zinc-100);
+    }
     & > p {
       color: var(--zinc-300);
     }

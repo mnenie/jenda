@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue';
 import { useDark } from '@vueuse/core';
 import { UiButton } from '@/shared/ui';
 import { ChevronRight } from 'lucide-vue-next';
 import { RouteNames } from '@/shared/config/consts';
-import { computed, ref } from 'vue';
 import { redirect } from '@/shared/lib/helpers';
 
 const isDark = useDark();

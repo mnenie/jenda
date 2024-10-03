@@ -2,7 +2,7 @@
   <div :class="$style.container">
     <Vue3Marquee>
       <div v-for="(s, index) in $tm('welcome.marquee')" :key="index" :class="$style.items">
-        <p class="text-lg">{{ s }}</p>
+        <p :class="[$style.tag, 'text-lg']">{{ s }}</p>
       </div>
     </Vue3Marquee>
   </div>
@@ -19,10 +19,13 @@
     align-items: center;
     margin-right: 60px;
   }
+}
 
-  & > p {
-    font-weight: 600 !important;
-    line-height: 1.25;
+:global(html.dark) {
+  .container {
+    .tag {
+      color: var(--zinc-100) !important;
+    }
   }
 }
 </style>

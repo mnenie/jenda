@@ -1,12 +1,15 @@
 <script setup lang="ts">
+import { useDark } from '@vueuse/core';
 import { ProjectGrid } from '@/shared/assets/icons';
+
+const isDark = useDark();
 </script>
 
 <template>
   <div :class="$style.wrapper">
     <ProjectGrid />
     <div :class="$style.img_container">
-      <img loading="lazy" decoding="async" src="/dev.png" />
+      <img loading="lazy" decoding="async" :src="isDark ? '/dev/dev-dark.png' : '/dev/dev.png'" />
     </div>
   </div>
 </template>
@@ -29,7 +32,9 @@ import { ProjectGrid } from '@/shared/assets/icons';
     grid-area: 1 / 1 / 1 / 1;
     max-width: 70%;
     transform: translateY(-1%);
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
     border-radius: 12px;
 
     & > img {

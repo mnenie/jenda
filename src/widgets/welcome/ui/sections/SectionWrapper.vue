@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import type { SectionWrapperType } from '../../model';
 import { useI18n } from 'vue-i18n';
+import { useDark } from '@vueuse/core';
+import type { SectionWrapperType } from '../../model';
 
 const props = withDefaults(
   defineProps<{
@@ -14,10 +15,12 @@ const props = withDefaults(
 );
 
 const { locale } = useI18n();
+const isDark = useDark();
 
 const writerKey = ref(0);
 
 const sectionDirection = computed(() => (props.direction === 'default' ? 'row' : 'row-reverse'));
+const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc-600)'));
 
 watch([() => props.section.writer, locale], () => {
   writerKey.value++;
@@ -27,7 +30,7 @@ watch([() => props.section.writer, locale], () => {
 <template>
   <div :class="$style.wrapper">
     <div :class="$style.name">
-      <slot name="icon" :size="36" :color="'var(--zinc-600)'" />
+      <slot name="icon" :size="36" :color="iconColor" />
       <h2 class="heading-2">
         {{ section.name }}
       </h2>
@@ -39,7 +42,7 @@ watch([() => props.section.writer, locale], () => {
           <p class="text-base">
             {{ section.about }}
           </p>
-          <VueWriter :key="writerKey" style="color: var(--zinc-500)" :array="[section.writer]" />
+          <VueWriter :key="writerKey" :array="[section.writer]" :class="$style.writer" />
         </div>
         <img :src="section.img" loading="lazy" decoding="async" />
       </slot>
@@ -81,6 +84,31 @@ watch([() => props.section.writer, locale], () => {
     & img {
       width: 500px;
       border-radius: 10px;
+    }
+
+    .writer {
+      color: var(--zinc-500);
+    }
+  }
+}
+
+:global(html.dark) {
+  .wrapper {
+    .name {
+      & > h2 {
+        color: var(--zinc-100);
+      }
+    }
+    & > section {
+      & h4 {
+        color: var(--zinc-200);
+      }
+      & p {
+        color: var(--zinc-300);
+      }
+      .writer {
+        color: var(--zinc-200);
+      }
     }
   }
 }

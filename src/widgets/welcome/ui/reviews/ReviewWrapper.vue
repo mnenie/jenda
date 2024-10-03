@@ -64,4 +64,24 @@ defineProps<{
     }
   }
 }
+
+:global(html.dark) {
+  .wrapper {
+    .card {
+      .about {
+        .name {
+          & > p {
+            color: var(--zinc-200);
+          }
+          & > span {
+            color: var(--zinc-400);
+          }
+        }
+      }
+      blockquote {
+        color: var(--zinc-200);
+      }
+    }
+  }
+}
 </style>
