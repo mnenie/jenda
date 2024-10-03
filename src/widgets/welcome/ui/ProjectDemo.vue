@@ -30,7 +30,7 @@ const isDark = useDark();
     justify-self: center;
     width: 100%;
     grid-area: 1 / 1 / 1 / 1;
-    max-width: 70%;
+    max-width: 900px;
     transform: translateY(-1%);
     box-shadow:
       0 10px 15px -3px rgb(0 0 0 / 0.1),

@@ -18,7 +18,7 @@ useHead({
 </script>
 
 <template>
-  <div :class="$style.wrapper">
+  <div :class="[$style.wrapper, 'container']">
     <AboutSection />
     <ProjectDemo />
     <div :class="$style.inside_container">
