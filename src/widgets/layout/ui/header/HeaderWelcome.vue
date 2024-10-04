@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, ref, shallowReactive } from 'vue';
-import { useDark, useToggle } from '@vueuse/core';
+import { useDark, useToggle, useWindowSize } from '@vueuse/core';
 import { useLanguage, useScroll } from '@/shared/lib/composables';
 import { useI18n } from 'vue-i18n';
 import { UiButton, UiSelect } from '@/shared/ui';
 import { redirect } from '@/shared/lib/helpers';
 import { RouteNames } from '@/shared/config/consts';
-import { Globe, Moon, Sun } from 'lucide-vue-next';
+import { Globe, Moon, Sun, Menu } from 'lucide-vue-next';
 import type { Options } from '@/shared/ui/select/types';
 import { headerLinks } from '../../model';
 import type { HeaderNavLink } from '../../model';
@@ -37,6 +37,7 @@ const links = computed(() => {
   }));
 });
 const { scrollToEl } = useScroll(links.value.map((link) => link.pagePrefix));
+const { width } = useWindowSize();
 </script>
 
 <template>
@@ -44,7 +45,7 @@ const { scrollToEl } = useScroll(links.value.map((link) => link.pagePrefix));
     <slot name="offer" />
     <section :class="$style.containers">
       <div :class="$style.left_container">
-        <div :class="$style.box">
+        <div v-if="width >= 1152" :class="$style.box">
           <div :class="$style.inside">
             <div :class="$style.name_container" @click="redirect('https://github.com/mnenie/jenda')">
               <img :src="iconUrl" />
@@ -62,7 +63,11 @@ const { scrollToEl } = useScroll(links.value.map((link) => link.pagePrefix));
             </UiButton>
           </div>
         </div>
-        <div :class="$style.additional">
+        <div v-else :class="$style.name_container" @click="redirect('https://github.com/mnenie/jenda')">
+          <img :src="iconUrl" />
+          <h3 class="heading-3">Jenda</h3>
+        </div>
+        <div v-if="width >= 1152" :class="$style.additional">
           <UiSelect v-model="language" :options="languages" as="btn">
             <Globe :size="16" />
           </UiSelect>
@@ -79,7 +84,7 @@ const { scrollToEl } = useScroll(links.value.map((link) => link.pagePrefix));
           </UiButton>
         </div>
       </div>
-      <div :class="$style.btns">
+      <div v-if="width >= 1152" :class="$style.btns">
         <UiButton variant="ghost" style="font-weight: 500" @click="$router.push({ name: RouteNames.login })">
           {{ t('welcome.header.login') }}
         </UiButton>
@@ -87,6 +92,7 @@ const { scrollToEl } = useScroll(links.value.map((link) => link.pagePrefix));
           {{ t('welcome.header.reg') }}
         </UiButton>
       </div>
+      <Menu v-else color="var(--zinc-600)" />
     </section>
   </header>
 </template>
@@ -225,6 +231,12 @@ const { scrollToEl } = useScroll(links.value.map((link) => link.pagePrefix));
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 1152px) {
+  .header_welcome{
+    max-width: 1064px;
   }
 }
 </style>

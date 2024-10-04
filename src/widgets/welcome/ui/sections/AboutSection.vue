@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, useTemplateRef } from 'vue';
+import { computed, ref } from 'vue';
 import { useDark } from '@vueuse/core';
 import { UiButton } from '@/shared/ui';
 import { ChevronRight } from 'lucide-vue-next';
@@ -121,6 +121,22 @@ const arrowMargin = computed(() => {
     }
     & > p {
       color: var(--zinc-300);
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .container {
+    & > h1 {
+      font-size: 68px;
+    }
+  }
+}
+
+@media screen and (max-width: 1152px) {
+  .container {
+    & > h1 {
+      font-size: 64px;
     }
   }
 }

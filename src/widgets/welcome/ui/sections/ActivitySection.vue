@@ -76,4 +76,24 @@ const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc
     }
   }
 }
+
+@media screen and (max-width: 1220px) {
+  .activity {
+    .name {
+      & h2 {
+        font-size: 38px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1152px) {
+  .wrapper {
+    .name {
+      & h2 {
+        font-size: 34px;
+      }
+    }
+  }
+}
 </style>

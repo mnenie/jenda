@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useDark } from '@vueuse/core';
+import { useDark, useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import type { MarketingCard } from '../model';
 import { UiCard } from '@/shared/ui';
@@ -9,14 +9,19 @@ import { useCards } from '../model/composables';
 
 const { tm, t } = useI18n();
 
+const { width } = useWindowSize();
+
 const { cards: _cards } = useCards();
 
 const cards = computed(() => {
-  const _arr = tm('welcome.marketing.cards') as MarketingCard[];
+  const tmArr = tm('welcome.marketing.cards') as MarketingCard[];
+  const _arr = computed<MarketingCard[]>(() => {
+    return width.value >= 1152 ? tmArr : tmArr.filter((_, i) => i !== 2);
+  });
   return _cards.value.map((card, i) => ({
     ...card,
-    title: _arr[i].title,
-    description: _arr[i].description
+    title: _arr.value[i]?.title,
+    description: _arr.value[i]?.description
   }));
 });
 
@@ -100,7 +105,7 @@ const getImageAttributes = computed(() => {
           <img :src="card.url" :style="getImageAttributes(card)" />
         </UiCard>
       </div>
-      <div :class="$style.combinedCard">
+      <div v-if="width >= 1152 && cards.length >= 5" :class="$style.combinedCard">
         <UiCard
           :key="cards[4].id"
           :class="[$style.card, $style.flexGrowCard]"
@@ -200,6 +205,26 @@ const getImageAttributes = computed(() => {
     }
     & > img {
       border: 1px solid var(--zinc-700);
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .wrapper {
+    .heading {
+      & > h2 {
+        font-size: 38px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1152px) {
+  .wrapper {
+    .heading {
+      & > h2 {
+        font-size: 34px;
+      }
     }
   }
 }

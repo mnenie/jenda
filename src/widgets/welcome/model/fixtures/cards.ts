@@ -5,7 +5,7 @@ export const cardsInfo = shallowRef<MarketingCard[]>([
   {
     id: 0,
     pagePrefix: 'kanban',
-    height: '270',
+    height: '290',
     width: '640',
     // img
     bottom: '-260px',
@@ -26,7 +26,7 @@ export const cardsInfo = shallowRef<MarketingCard[]>([
     id: 2,
     pagePrefix: 'members',
     width: '500',
-    height: '420',
+    height: '500',
     // img
     bottom: '-230px',
     right: '-290px',
@@ -34,7 +34,7 @@ export const cardsInfo = shallowRef<MarketingCard[]>([
   },
   {
     id: 3,
-    pagePrefix: 'templates',
+    pagePrefix: 'activity',
     width: '500',
     // img
     bottom: '-200px',

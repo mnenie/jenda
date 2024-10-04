@@ -15,11 +15,11 @@ defineProps<{
           <img style="width: 100%" :src="review?.img" />
         </UserAvatar>
         <div :class="$style.name">
-          <p>{{ review?.name }}</p>
-          <span>{{ review?.status }}</span>
+          <p class="text-base">{{ review?.name }}</p>
+          <span class="text-sm">{{ review?.status }}</span>
         </div>
       </div>
-      <blockquote>{{ `“${review?.comment}”` }}</blockquote>
+      <blockquote class="text-base">{{ `“${review?.comment}”` }}</blockquote>
     </div>
   </div>
 </template>

@@ -44,4 +44,10 @@ useHead({
     align-items: center;
   }
 }
+
+@media screen and (max-width: 1152px) {
+  .wrapper{
+    padding-top: 130px;
+  }
+}
 </style>

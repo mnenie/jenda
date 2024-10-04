@@ -3,7 +3,7 @@ import { mount, VueWrapper } from '@vue/test-utils';
 import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import i18n from '@/shared/lib/i18n';
 import MarketingCards from '../MarketingCards.vue';
-import type { ComponentPublicInstance } from 'vue';
+import { nextTick, type ComponentPublicInstance } from 'vue';
 import { UiCard } from '@/shared/ui';
 
 // TODO: `ComponentPublicInstance` will need to set in other tests too
@@ -12,6 +12,7 @@ type MarketingCardsInstance = ComponentPublicInstance<
   {},
   {
     cards: any[];
+    width: number;
     getCurrentColor: (id: number) => string;
     currentWidth: (width: string | undefined) => string;
     currentHeight: (height: string | undefined) => string;
@@ -33,8 +34,10 @@ describe('tests for MarketingCards.vue', () => {
     expect(wrapper.findComponent(UiCard).exists()).toBe(true);
   });
 
-  it('should count cards correctly', () => {
+  it('should count cards correctly', async () => {
     const cards = wrapper.vm.cards;
+    wrapper.vm.width = 1900;
+    await nextTick();
     expect(cards).toHaveLength(5);
   });
 

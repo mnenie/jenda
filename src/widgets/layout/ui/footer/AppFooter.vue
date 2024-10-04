@@ -18,11 +18,12 @@ import { redirect } from '@/shared/lib/helpers';
   border-top: 1px solid rgba(228, 228, 231, 0.4);
   padding: 16px 40px;
   background-color: transparent;
-  max-width: 1800px;
   width: 100%;
 }
 
 .container {
+  max-width: 1800px;
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -52,6 +53,12 @@ import { redirect } from '@/shared/lib/helpers';
     & > p {
       color: var(--zinc-200);
     }
+  }
+}
+
+@media screen and (max-width: 1152px) {
+  .container{
+    max-width: 1064px;
   }
 }
 </style>

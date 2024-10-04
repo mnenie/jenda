@@ -13,6 +13,7 @@ type HeaderWelcomeInstance = ComponentPublicInstance<
   {},
   {
     isDark: boolean;
+    width: number;
     languages: Options[];
     links: () => any[];
   }
@@ -47,11 +48,15 @@ describe('tests for HeaderWelcome.vue', () => {
     }
   }) as VueWrapper<HeaderWelcomeInstance>;
 
-  it('should be render correctly', () => {
+  it('should be render correctly', async () => {
+    wrapper.vm.width = 1600;
+    await nextTick();
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('should render subcomponents', () => {
+  it('should render subcomponents', async () => {
+    wrapper.vm.width = 1600;
+    await nextTick();
     expect(wrapper.findComponent(UiButton).exists()).toBe(true);
     expect(wrapper.findComponent(UiSelect).exists()).toBe(true);
   });
@@ -59,6 +64,8 @@ describe('tests for HeaderWelcome.vue', () => {
   it('should handle mode + icon changing', async () => {
     const darkModeButton = wrapper.find('.btn');
     wrapper.vm.isDark = false;
+    wrapper.vm.width = 1600;
+    await nextTick();
 
     expect(wrapper.findComponent(Moon).exists()).toBe(true);
     expect(wrapper.findComponent(Sun).exists()).toBe(false);

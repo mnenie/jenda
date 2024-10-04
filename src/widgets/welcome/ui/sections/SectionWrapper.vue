@@ -43,7 +43,7 @@ watch([() => props.section.writer, locale], () => {
           <p class="text-base">
             {{ section.about }}
           </p>
-          <VueWriter :key="writerKey" :array="[section.writer]" :class="$style.writer" />
+          <VueWriter :key="writerKey" :array="[section.writer]" :class="[$style.writer, 'text-sm']" />
         </div>
         <img :src="section.img" loading="lazy" decoding="async" />
       </slot>
@@ -111,6 +111,34 @@ watch([() => props.section.writer, locale], () => {
       }
       .writer {
         color: var(--zinc-200);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .wrapper {
+    .name {
+      & > h2 {
+        font-size: 38px;
+      }
+    }
+    & > section {
+      & div {
+        min-width: 390px;
+      }
+      & img {
+        max-width: 500px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1152px) {
+  .wrapper {
+    .name {
+      & > h2 {
+        font-size: 34px;
       }
     }
   }
