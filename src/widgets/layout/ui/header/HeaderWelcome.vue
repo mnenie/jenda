@@ -239,4 +239,10 @@ const { width } = useWindowSize();
     max-width: 1064px;
   }
 }
+
+@media screen and (max-width: 992px) {
+  .header_welcome{
+    max-width: 900px;
+  }
+}
 </style>

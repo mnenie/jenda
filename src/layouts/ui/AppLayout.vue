@@ -11,10 +11,10 @@ const NotAvailable = defineAsyncComponent(() => {
 </script>
 
 <template>
-  <div v-if="width >= 1100">
+  <div>
     <component :is="$route.meta.layoutComponent">
       <slot />
     </component>
   </div>
-  <NotAvailable v-else />
+  <!-- <NotAvailable v-else /> -->
 </template>

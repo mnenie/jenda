@@ -5,6 +5,7 @@ export interface MarketingCard extends ImgInCard {
   width?: string;
   height?: string;
   pagePrefix: string;
+  maxWidth?: string;
 }
 
 interface ImgInCard {

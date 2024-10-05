@@ -140,4 +140,45 @@ const arrowMargin = computed(() => {
     }
   }
 }
+
+@media screen and (max-width: 1100px) {
+  .container {
+    & > h1 {
+      font-size: 62px;
+    }
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .container {
+    & > h1 {
+      font-size: 54px;
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .container {
+    & > h1 {
+      font-size: 44px;
+    }
+    & > p {
+      max-width: 480px;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .container {
+    gap: 8px;
+    .badge{
+      margin-bottom: 10px;
+      justify-content: center;
+
+      & span {
+        text-align: center
+      }
+    }
+  }
+}
 </style>

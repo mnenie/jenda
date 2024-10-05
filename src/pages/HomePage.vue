@@ -50,4 +50,18 @@ useHead({
     padding-top: 130px;
   }
 }
+
+@media screen and (max-width: 890px) {
+  .wrapper{
+    padding: 130px 0px 0 0px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .wrapper{
+    .inside_container{
+      padding: 0 20px;
+    }
+  }
+}
 </style>

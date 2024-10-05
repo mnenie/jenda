@@ -16,7 +16,7 @@ const { cards: _cards } = useCards();
 const cards = computed(() => {
   const tmArr = tm('welcome.marketing.cards') as MarketingCard[];
   const _arr = computed<MarketingCard[]>(() => {
-    return width.value >= 1152 ? tmArr : tmArr.filter((_, i) => i !== 2);
+    return width.value >= 1220 ? tmArr : tmArr.filter((_, i) => i !== 2);
   });
   return _cards.value.map((card, i) => ({
     ...card,
@@ -64,12 +64,20 @@ const getImageAttributes = computed(() => {
     return attributesObj;
   };
 });
+
+const getMaxWidth = computed(() => {
+  return (card: MarketingCard) => {
+    return width.value < 1220 ? card.maxWidth : '';
+  };
+});
+
+const iconSize = computed(() => (width.value >= 1100 ? 36 : 30));
 </script>
 
 <template>
   <div :class="$style.wrapper">
     <div :class="$style.heading">
-      <Package :size="40" :class="$style.icon" />
+      <Package v-show="width > 520" :size="iconSize" :class="$style.icon" />
       <h2 class="heading-2">{{ t('welcome.marketing.heading') }}</h2>
     </div>
     <section>
@@ -79,14 +87,17 @@ const getImageAttributes = computed(() => {
           :key="card.id"
           :class="$style.card"
           :style="{
+            paddingRight: card.id === 1 && '40px',
             backgroundColor: getCurrentColor(card.id),
             maxWidth: currentWidth(card.width),
-            height: currentHeight(card.height)
+            height: width >= 1220 ? currentHeight(card.height) : '280px'
           }"
         >
-          <h3 class="heading-3">{{ card.title }}</h3>
-          <p class="text-base">{{ card.description }}</p>
-          <img :src="card.url" :style="getImageAttributes(card)" />
+          <div>
+            <h3 class="heading-3">{{ card.title }}</h3>
+            <p class="text-base">{{ card.description }}</p>
+          </div>
+          <img :src="card.url" :style="{ ...getImageAttributes(card), maxWidth: getMaxWidth(card) }" />
         </UiCard>
       </div>
       <div :class="$style.combinedCard">
@@ -100,12 +111,14 @@ const getImageAttributes = computed(() => {
             height: currentHeight(card.height)
           }"
         >
-          <h3 class="heading-3">{{ card.title }}</h3>
-          <p class="text-base">{{ card.description }}</p>
-          <img :src="card.url" :style="getImageAttributes(card)" />
+          <div>
+            <h3 class="heading-3">{{ card.title }}</h3>
+            <p class="text-base">{{ card.description }}</p>
+          </div>
+          <img :src="card.url" :style="{ ...getImageAttributes(card), maxWidth: getMaxWidth(card) }" />
         </UiCard>
       </div>
-      <div v-if="width >= 1152 && cards.length >= 5" :class="$style.combinedCard">
+      <div v-if="width >= 1220 && cards.length >= 5" :class="$style.combinedCard">
         <UiCard
           :key="cards[4].id"
           :class="[$style.card, $style.flexGrowCard]"
@@ -114,8 +127,10 @@ const getImageAttributes = computed(() => {
             maxWidth: currentWidth(cards[4].width)
           }"
         >
-          <h3 class="heading-3">{{ cards[4].title }}</h3>
-          <p class="text-base">{{ cards[4].description }}</p>
+          <div>
+            <h3 class="heading-3">{{ cards[4].title }}</h3>
+            <p class="text-base">{{ cards[4].description }}</p>
+          </div>
           <img :src="cards[4].url" :style="getImageAttributes(cards[4])" />
         </UiCard>
       </div>
@@ -133,6 +148,7 @@ const getImageAttributes = computed(() => {
 
   .heading {
     display: flex;
+    align-items: center;
     gap: 20px;
 
     & > h2 {
@@ -171,11 +187,11 @@ const getImageAttributes = computed(() => {
   width: 100%;
   flex-grow: 1;
 
-  & > h3 {
+  & h3 {
     margin-bottom: 8px;
   }
 
-  & > p {
+  & p {
     color: var(--zinc-500);
   }
 
@@ -217,6 +233,21 @@ const getImageAttributes = computed(() => {
       }
     }
   }
+  .card {
+    padding: 20px 0 0 20px;
+    justify-content: space-between;
+    & p {
+      margin-right: 20px;
+    }
+    & > img {
+      position: static;
+      height: unset;
+      width: 100% !important;
+      margin-bottom: -5px;
+      align-self: flex-end;
+      justify-self: end;
+    }
+  }
 }
 
 @media screen and (max-width: 1152px) {
@@ -225,6 +256,64 @@ const getImageAttributes = computed(() => {
       & > h2 {
         font-size: 34px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .wrapper {
+    .heading {
+      & > h2 {
+        font-size: 32px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    .heading {
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .wrapper {
+    & > section {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  .combinedCard {
+    margin-right: 0 !important;
+  }
+  .card {
+    & p {
+      margin-bottom: 20px;
+    }
+    max-width: 100% !important;
+    height: 100% !important;
+
+    & > img {
+      max-width: 300px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .wrapper {
+    margin-bottom: 80px;
+
+    .heading{
+      & h2 {
+        font-size: 28px;
+        text-align: center;
+      }
+    }
+
+    & > section {
+      padding: 0;
     }
   }
 }

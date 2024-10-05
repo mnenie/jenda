@@ -57,8 +57,14 @@ import { redirect } from '@/shared/lib/helpers';
 }
 
 @media screen and (max-width: 1152px) {
-  .container{
+  .container {
     max-width: 1064px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .footer {
+    padding: 16px 20px;
   }
 }
 </style>

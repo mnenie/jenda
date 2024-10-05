@@ -1,19 +1,23 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useDark } from '@vueuse/core';
+import { useDark, useWindowSize } from '@vueuse/core';
 import { Activity } from 'lucide-vue-next';
 
 const isDark = useDark();
+
+const { width } = useWindowSize();
+
 const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc-600)'));
+const iconSize = computed(() => (width.value >= 1100 ? 36 : 30));
 </script>
 
 <template>
   <div id="activity" :class="$style.activity">
     <div :class="$style.name">
-      <Activity :size="36" :color="iconColor" />
+      <Activity v-show="width > 768" :size="iconSize" :color="iconColor" />
       <div>
         <h2 class="heading-2">{{ $t('welcome.activity.heading') }}</h2>
-        <p>{{ $t('welcome.activity.about') }}</p>
+        <p class="text-base">{{ $t('welcome.activity.about') }}</p>
       </div>
     </div>
     <section>
@@ -41,11 +45,14 @@ const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc
 
   .name {
     display: flex;
+    align-items: start;
     width: 100%;
     gap: 20px;
 
     & > div {
       width: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     & .icon {
@@ -88,11 +95,58 @@ const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc
 }
 
 @media screen and (max-width: 1152px) {
-  .wrapper {
+  .activity {
     .name {
       & h2 {
         font-size: 34px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .activity {
+    align-items: center;
+    .name {
+      & h2 {
+        font-size: 32px;
+      }
+    }
+    & > section {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      max-width: 640px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .activity {
+    .name {
+      & h2 {
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      & p {
+        text-align: center;
+        max-width: 100%;
+      }
+    }
+    & > section {
+      max-width: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .activity {
+    .name {
+      & h2 {
+        font-size: 28px;
+      }
+    }
+    & > section {
+      max-width: unset;
+      padding: 0;
     }
   }
 }

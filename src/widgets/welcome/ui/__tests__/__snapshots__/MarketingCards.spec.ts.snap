@@ -2,7 +2,7 @@
 
 exports[`tests for MarketingCards.vue > should be render correctly 1`] = `
 "<div class="wrapper">
-  <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-icon icon">
+  <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-icon icon">
       <path d="m7.5 4.27 9 5.15"></path>
       <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
       <path d="m3.3 7 8.7 5 8.7-5"></path>
@@ -12,26 +12,34 @@ exports[`tests for MarketingCards.vue > should be render correctly 1`] = `
   </div>
   <section>
     <div class="combinedCard">
-      <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 640px; height: 290px;">
-        <h3 class="heading-3">Kanban 🧑‍💻</h3>
-        <p class="text-base">Organize and visualize your projects with our intuitive Kanban board. Enhance productivity with ease.</p><img src="/dev/dev-card.png" style="width: 720px; bottom: -260px; right: -360px;">
+      <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 640px; height: 280px;">
+        <div>
+          <h3 class="heading-3">Kanban 🧑‍💻</h3>
+          <p class="text-base">Organize and visualize your projects with our intuitive Kanban board. Enhance productivity with ease.</p>
+        </div><img src="/dev/dev-card.png" style="width: 720px; bottom: -260px; right: -360px; max-width: 400px;">
         <div class="user_container"></div>
       </div>
-      <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 640px; height: 300px;">
-        <h3 class="heading-3">Collaborative 👥</h3>
-        <p class="text-base">Improve your teamwork!</p><img src="/dev/dev-card.png" style="width: 600px; bottom: -160px; right: 20px;">
+      <div class="text-sm card card" style="padding-right: 40px; background-color: rgb(255, 255, 255); max-width: 640px; height: 280px;">
+        <div>
+          <h3 class="heading-3">Collaborative 👥</h3>
+          <p class="text-base">Improve your teamwork!</p>
+        </div><img src="/dev/dev-card.png" style="width: 600px; bottom: -160px; right: 20px; max-width: 360px;">
         <div class="user_container"></div>
       </div>
     </div>
     <div class="combinedCard">
-      <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 500px; height: 500px;">
-        <h3 class="heading-3">Activity 👔</h3>
-        <p class="text-base">Analyze your activity and move forward.</p><img src="/dev/dev-card.png" style="width: 600px; bottom: -230px; right: -290px;">
+      <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 500px; height: 460px;">
+        <div>
+          <h3 class="heading-3">Activity 👔</h3>
+          <p class="text-base">Analyze your activity and move forward.</p>
+        </div><img src="/dev/dev-card.png" style="width: 600px; bottom: -230px; right: -290px; max-width: 240px;">
         <div class="user_container"></div>
       </div>
       <div class="text-sm card card" style="background-color: rgb(255, 255, 255); max-width: 500px; height: 100%;">
-        <h3 class="heading-3">Chats 💬</h3>
-        <p class="text-base">Communicate, share, discuss. Our convenience for you 😉</p><img src="/dev/dev-card.png" style="width: 700px; bottom: -200px; right: -500px;">
+        <div>
+          <h3 class="heading-3">Chats 💬</h3>
+          <p class="text-base">Communicate, share, discuss. Our convenience for you 😉</p>
+        </div><img src="/dev/dev-card.png" style="width: 700px; bottom: -200px; right: -500px; max-width: 300px;">
         <div class="user_container"></div>
       </div>
     </div>

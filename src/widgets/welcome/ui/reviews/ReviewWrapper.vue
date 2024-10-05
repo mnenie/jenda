@@ -58,7 +58,6 @@ defineProps<{
     }
 
     blockquote {
-      font-size: 16px;
       color: var(--zinc-600);
       font-weight: 500;
     }
@@ -82,6 +81,24 @@ defineProps<{
         color: var(--zinc-200);
       }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper{
+    .card{
+      align-items: center;
+
+      blockquote{
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .wrapper {
+    margin-bottom: 80px;
   }
 }
 </style>

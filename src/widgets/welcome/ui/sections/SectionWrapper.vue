@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useDark } from '@vueuse/core';
+import { useDark, useWindowSize } from '@vueuse/core';
 import type { SectionWrapperType } from '../../model';
 
 const props = withDefaults(
@@ -18,10 +18,15 @@ const props = withDefaults(
 const { locale } = useI18n();
 const isDark = useDark();
 
+const { width } = useWindowSize();
+
 const writerKey = ref(0);
 
-const sectionDirection = computed(() => (props.direction === 'default' ? 'row' : 'row-reverse'));
+const sectionDirection = computed(() =>
+  width.value >= 1100 ? (props.direction === 'default' ? 'row' : 'row-reverse') : 'column'
+);
 const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc-600)'));
+const iconSize = computed(() => (width.value >= 1100 ? 36 : 30));
 
 watch([() => props.section.writer, locale], () => {
   writerKey.value++;
@@ -31,7 +36,9 @@ watch([() => props.section.writer, locale], () => {
 <template>
   <div :id :class="$style.wrapper">
     <div :class="$style.name">
-      <slot name="icon" :size="36" :color="iconColor" />
+      <div v-show="width > 520">
+        <slot name="icon" :size="iconSize" :color="iconColor" />
+      </div>
       <h2 class="heading-2">
         {{ section.name }}
       </h2>
@@ -61,6 +68,7 @@ watch([() => props.section.writer, locale], () => {
 
   .name {
     display: flex;
+    align-items: center;
     gap: 20px;
 
     & > h2 {
@@ -139,6 +147,57 @@ watch([() => props.section.writer, locale], () => {
     .name {
       & > h2 {
         font-size: 34px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .wrapper {
+    .name {
+      & > h2 {
+        font-size: 32px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    gap: 25px;
+    .name {
+      justify-content: center;
+    }
+    & > section {
+      gap: 30px;
+      & h4 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      & p {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .writer {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .wrapper {
+    .name {
+      & h2 {
+        text-align: center;
+        font-size: 28px;
+      }
+    }
+    & > section {
+      padding: 0;
+
+      & div {
+        min-width: unset;
       }
     }
   }

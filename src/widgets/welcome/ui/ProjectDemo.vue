@@ -47,4 +47,28 @@ const isDark = useDark();
     }
   }
 }
+
+@media screen and (max-width: 890px) {
+  .wrapper{
+    .img_container{
+      max-width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .wrapper{
+    .img_container{
+      height: fit-content;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .wrapper{
+    .img_container{
+      max-width: 90%;
+    }
+  }
+}
 </style>

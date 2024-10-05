@@ -28,4 +28,16 @@
     }
   }
 }
+
+@media screen and (max-width: 890px) {
+  .container {
+    margin: 80px 0;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .container {
+    margin: 60px 0;
+  }
+}
 </style>
