@@ -99,6 +99,7 @@ const onRegistration = handleSubmit((values) => {
     .reg {
       text-align: center;
       color: var(--zinc-500);
+      user-select: none;
 
       .reg_route {
         cursor: pointer;

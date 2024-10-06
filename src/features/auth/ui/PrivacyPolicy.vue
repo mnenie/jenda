@@ -16,11 +16,11 @@ const maxWidth = computed(() => {
 <template>
   <p :class="[$style.main_text, 'text-sm']">
     {{ privacyItems[0] }}
-    <span :class="$style.inside" @click="redirect('https://github.com/mnenie/dizzo')">
+    <span :class="$style.inside" @click="redirect('https://github.com/mnenie/jenda')">
       {{ privacyItems[1] }}
     </span>
     {{ privacyItems[2] }}
-    <span :class="$style.inside" @click="redirect('https://github.com/mnenie/dizzo')">
+    <span :class="$style.inside" @click="redirect('https://github.com/mnenie/jenda')">
       {{ privacyItems[3] }}
     </span>
   </p>
@@ -33,6 +33,7 @@ const maxWidth = computed(() => {
   color: #72717a;
   max-width: v-bind('maxWidth');
   margin: 0 auto;
+  user-select: none;
 
   .inside {
     cursor: pointer;

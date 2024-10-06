@@ -99,6 +99,7 @@ const onLogin = handleSubmit((values) => {
     .login {
       text-align: center;
       color: var(--zinc-500);
+      user-select: none;
 
       .login_route {
         cursor: pointer;

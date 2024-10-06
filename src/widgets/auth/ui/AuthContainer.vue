@@ -42,7 +42,9 @@ const { width } = useWindowSize();
       <div :class="$style.form_wrapper">
         <h2 class="heading-2">{{ title }}</h2>
         <p :class="[$style.info_text, 'text-sm']">{{ info }}</p>
+
         <slot />
+
         <div :class="[$style.line_container, 'text-xs']">
           <div :class="$style.line" />
           <span>{{ t('authentication.line') }}</span>
