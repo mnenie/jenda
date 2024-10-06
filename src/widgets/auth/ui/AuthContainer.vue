@@ -26,6 +26,15 @@ const info = computed(() => {
     ? t('authentication.login.description')
     : t('authentication.registration.description');
 });
+
+const alertString = computed(() => {
+  const authAlert = t('authentication.auth_alert');
+  const words = authAlert.split(' ');
+  words[2] = `<span style="font-weight: 600">${words[2]}</span>`;
+  words[7] = `<span style="font-weight: 600">${words[7]}</span>`;
+
+  return words.join(' ');
+});
 </script>
 
 <template>
@@ -49,10 +58,7 @@ const info = computed(() => {
           :class="$style.warning"
           @close="isWarningOpen = false"
         >
-          <span class="text-sm"
-            >aвторизация через <span style="font-weight: 600">google</span> будет заменена на
-            <span style="font-weight: 600">gitlab</span> после 10.11.2024</span
-          >
+          <span v-html="alertString" class="text-sm" />
         </UiAlert>
         <h2 class="heading-2">{{ title }}</h2>
         <p :class="[$style.info_text, 'text-sm']">{{ info }}</p>

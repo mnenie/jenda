@@ -146,7 +146,8 @@ export default {
     },
     line: 'Or continue with',
     privacy: ['By clicking continue, you agree to our', 'Terms of Service', 'and', 'Privacy Policy.'],
-    back: 'To Home'
+    back: 'To Home',
+    auth_alert: 'authorization via google will be replaced with gitlab after 10.11.2024'
   },
   kanban: {
     sorting: {

@@ -145,7 +145,8 @@ export default {
     },
     line: '或继续使用',
     privacy: ['点击继续即表示您同意我们的', '服务条款', '和', '隐私政策。'],
-    back: '回到首页'
+    back: '回到首页',
+    auth_alert: '通过 google 的授权将在 2024 年 11 月 10 日后被 gitlab 替代'
   },
   kanban: {
     sorting: {
