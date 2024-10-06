@@ -163,6 +163,7 @@ const { width } = useWindowSize();
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    user-select: none;
 
     .additional {
       display: flex;
