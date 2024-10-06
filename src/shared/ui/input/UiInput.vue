@@ -74,4 +74,20 @@ const emit = defineEmits(['update:modelValue']);
     }
   }
 }
+
+@media screen and (max-width: 1440px) {
+  input[type='password'] {
+    &::placeholder {
+      font-size: 13px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  input[type='password'] {
+    &::placeholder {
+      font-size: 12px !important;
+    }
+  }
+}
 </style>

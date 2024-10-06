@@ -69,7 +69,7 @@ const routes = [
   },
   {
     name: RouteNames.login,
-    path: '/user/login',
+    path: '/user/sign-in',
     component: () => import('@/pages/LoginPage.vue'),
     meta: {
       layout: LayoutsEnum.auth,
@@ -78,7 +78,7 @@ const routes = [
   },
   {
     name: RouteNames.registration,
-    path: '/user/registration',
+    path: '/user/sign-up',
     component: () => import('@/pages/RegistrationPage.vue'),
     meta: {
       layout: LayoutsEnum.auth,

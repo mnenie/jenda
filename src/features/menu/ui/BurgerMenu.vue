@@ -95,7 +95,7 @@ const { scrollToEl } = useScroll(items.value.map((i) => i.urlPrefix));
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   padding: 76px 16px 32px;
   background: #fff;
   z-index: 10;

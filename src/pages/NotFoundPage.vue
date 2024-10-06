@@ -23,7 +23,7 @@ useHead({
 .container {
   display: flex;
   justify-content: center;
-  padding-top: 15%;
+  align-items: center;
   height: 100%;
 
   .items {

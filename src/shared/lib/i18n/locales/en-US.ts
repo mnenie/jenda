@@ -145,7 +145,8 @@ export default {
       password: 'Password'
     },
     line: 'Or continue with',
-    privacy: ['By clicking continue, you agree to our', 'Terms of Service', 'and', 'Privacy Policy.']
+    privacy: ['By clicking continue, you agree to our', 'Terms of Service', 'and', 'Privacy Policy.'],
+    back: 'To Home'
   },
   kanban: {
     sorting: {

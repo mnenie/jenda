@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useDark } from '@vueuse/core';
+import { useDark, useWindowSize } from '@vueuse/core';
 import { reviews } from '../model';
 import useTextChanging from '../model/composables/useTextChanging';
 
 const { currentIndex } = useTextChanging(reviews);
 
-const isDark = useDark()
+const isDark = useDark();
 const imgBlockquote = computed(() => {
-  return isDark.value ? '/icons/blockquote-dark.png' : '/icons/blockquote-light.png'
-})
+  return isDark.value ? '/icons/blockquote-dark.png' : '/icons/blockquote-light.png';
+});
+
+const { width } = useWindowSize();
 </script>
 
 <template>
-  <div :class="$style.container">
+  <div v-if="width > 1100" :class="$style.container">
     <div :class="$style.blocks">
       <blockquote>
         <img :src="imgBlockquote" :class="$style.blockquote_img" />
@@ -26,7 +28,7 @@ const imgBlockquote = computed(() => {
           :class="$style.avatar_img"
         />
         <div :class="$style.who">
-          <cite :class="$style.author_name">{{ reviews[currentIndex].author }}</cite>
+          <cite :class="[$style.author_name, 'text-base']">{{ reviews[currentIndex].author }}</cite>
         </div>
       </div>
     </div>
@@ -110,9 +112,19 @@ const imgBlockquote = computed(() => {
   }
 }
 
-@media screen and (max-width: 1440px){
-  .container{
+@media screen and (max-width: 1440px) {
+  .container {
     padding: 0 100px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    .blocks {
+      blockquote {
+        font-size: 24px;
+      }
+    }
   }
 }
 </style>

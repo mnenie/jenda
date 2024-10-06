@@ -144,7 +144,8 @@ export default {
       password: '密码'
     },
     line: '或继续使用',
-    privacy: ['点击继续即表示您同意我们的', '服务条款', '和', '隐私政策。']
+    privacy: ['点击继续即表示您同意我们的', '服务条款', '和', '隐私政策。'],
+    back: '回到首页'
   },
   kanban: {
     sorting: {

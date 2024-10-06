@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { useDark } from '@vueuse/core';
+import { useDark, useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { GoogleOauth, PrivacyPolicy } from '@/features/auth';
 import { RouteNames } from '@/shared/config/consts';
-import { computed } from 'vue';
+import { ChevronLeft } from 'lucide-vue-next';
 
 const route = useRoute();
 const { t } = useI18n();
@@ -21,14 +22,22 @@ const info = computed(() => {
     ? t('authentication.login.description')
     : t('authentication.registration.description');
 });
+
+const { width } = useWindowSize();
 </script>
 
 <template>
   <div :class="$style.container">
     <div :class="$style.container_inside">
-      <div :class="$style.top_part" @click="$router.push({ name: RouteNames.welcome })">
+      <div v-if="width > 1100" :class="$style.top_part" @click="$router.push({ name: RouteNames.welcome })">
         <img :src="isDark ? '/icons/kanban-dark.png' : '/icons/kanban.png'" />
         <h3 class="text-xl">Jenda</h3>
+      </div>
+      <div v-else :class="$style.mobile_navigation">
+        <div :class="$style.arrow_container" @click="$router.push({ name: RouteNames.welcome })">
+          <ChevronLeft :class="$style.icon" :size="20" />
+          <span class="text-sm">{{ t('authentication.back') }}</span>
+        </div>
       </div>
       <div :class="$style.form_wrapper">
         <h2 class="heading-2">{{ title }}</h2>
@@ -50,7 +59,7 @@ const info = computed(() => {
 .container {
   position: relative;
   height: 100%;
-  width: 72%;
+  width: 68%;
   margin-right: auto;
   margin-left: auto;
   padding-right: 2rem;
@@ -83,6 +92,31 @@ const info = computed(() => {
 
       & h1 {
         font-weight: 500 !important;
+      }
+    }
+
+    .mobile_navigation {
+      position: absolute;
+      left: 150px;
+      top: 30px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      max-width: 700px;
+
+      .arrow_container {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        & span {
+          margin-top: 1px;
+          font-weight: 500 !important;
+        }
+        .icon {
+          color: var(--zinc-600);
+        }
       }
     }
 
@@ -126,13 +160,17 @@ const info = computed(() => {
 :global(html.dark) {
   .container {
     background-color: var(--zinc-800);
-
     .container_inside {
+      .mobile_navigation {
+        & span,
+        .icon {
+          color: var(--zinc-200);
+        }
+      }
       .form_wrapper {
         .info_text {
           color: var(--zinc-300);
         }
-
         .line_container {
           .line {
             background-color: var(--zinc-600);
@@ -141,6 +179,84 @@ const info = computed(() => {
             color: var(--zinc-300);
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    .container_inside {
+      .form_wrapper {
+        width: 360px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .container {
+    width: 100%;
+    .container_inside {
+      .form_wrapper {
+        width: 460px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .container {
+    .container_inside {
+      .mobile_navigation {
+        left: 80px;
+      }
+      .form_wrapper {
+        width: 380px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .container {
+    .container_inside {
+      .mobile_navigation {
+        left: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .container {
+    .container_inside {
+      .mobile_navigation {
+        left: 15px;
+        top: 15px;
+      }
+      .form_wrapper {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .container {
+    .container_inside {
+      .mobile_navigation {
+        left: 15px;
+        top: 15px;
+      }
+      .form_wrapper {
+        width: 100%;
       }
     }
   }
