@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { useDark } from '@vueuse/core';
 import { ProjectGrid } from '@/shared/assets/icons';
+import { computed } from 'vue';
 
 const isDark = useDark();
+
+const imgUrl = computed(() => isDark.value ? '/dev/dev-dark.png' : '/dev/dev.png')
 </script>
 
 <template>
   <div :class="$style.wrapper">
     <ProjectGrid />
     <div :class="$style.img_container">
-      <img loading="lazy" decoding="async" :src="isDark ? '/dev/dev-dark.png' : '/dev/dev.png'" />
+      <img decoding="async" :src="imgUrl" />
     </div>
   </div>
 </template>
