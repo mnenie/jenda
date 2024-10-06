@@ -6,6 +6,7 @@ interface Props {
   overlay?: boolean;
   maxWidth?: number;
   transitionDuration?: number;
+  minWidth?: number;
   overlayClickClose?: boolean;
 }
 
@@ -13,6 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
   overlay: true,
   maxWidth: 450,
   transitionDuration: 0.35,
+  minWidth: 450,
   overlayClickClose: true
 });
 
@@ -55,6 +57,9 @@ const translateValueString = computed(() => {
 });
 const maxWidthStyle = computed(() => {
   return `${props.maxWidth}px`;
+});
+const minWidthStyle = computed(() => {
+  return `${props.minWidth}px`;
 });
 
 const open = () => {
@@ -143,7 +148,7 @@ defineExpose({ open, close });
     display: flex;
     flex-direction: column;
     padding: 20px;
-    min-width: 450px;
+    min-width: v-bind('minWidthStyle');
     width: 100%;
     background: #ffffff;
     overflow-y: hidden;

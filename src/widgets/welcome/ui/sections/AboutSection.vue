@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { useDark } from '@vueuse/core';
+import { useDark, useWindowSize } from '@vueuse/core';
 import { UiButton } from '@/shared/ui';
 import { ChevronRight } from 'lucide-vue-next';
 import { RouteNames } from '@/shared/config/consts';
 import { redirect } from '@/shared/lib/helpers';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+const { width } = useWindowSize();
+
+const badge = computed(() =>
+  width.value > 420 ? t('welcome.about.badge') : t('welcome.about.badge_mobile')
+);
 
 const isDark = useDark();
 
@@ -13,11 +21,9 @@ const isHovered = ref(false);
 function onMouseEnter() {
   isHovered.value = true;
 }
-
 function onMouseLeave() {
   isHovered.value = false;
 }
-
 const arrowMargin = computed(() => {
   return isHovered.value ? '4px' : '0px';
 });
@@ -32,7 +38,7 @@ const arrowMargin = computed(() => {
       @click="redirect('https://github.com/mnenie/jenda')"
     >
       <span style="margin-right: 3px">✨</span>
-      <span class="text-sm">{{ $t('welcome.about.badge') }}</span>
+      <span class="text-sm">{{ badge }}</span>
       <ChevronRight :size="14" :class="$style.arrow" :style="{ marginLeft: arrowMargin }" />
     </div>
     <h1>{{ $t('welcome.about.tagline') }}</h1>
@@ -171,13 +177,13 @@ const arrowMargin = computed(() => {
 @media screen and (max-width: 520px) {
   .container {
     gap: 8px;
-    .badge{
+    .badge {
       margin-bottom: 10px;
       justify-content: center;
 
-      & span {
-        text-align: center
-      }
+      // & span {
+      //   text-align: center
+      // }
     }
   }
 }

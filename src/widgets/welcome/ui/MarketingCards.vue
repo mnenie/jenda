@@ -213,14 +213,11 @@ const iconSize = computed(() => (width.value >= 1100 ? 36 : 30));
     }
   }
   .card {
-    & > h3 {
+    & h3 {
       color: var(--zinc-100);
     }
-    & > p {
-      color: var(--zinc-300);
-    }
-    & > img {
-      border: 1px solid var(--zinc-700);
+    & p {
+      color: var(--zinc-200);
     }
   }
 }
@@ -305,7 +302,7 @@ const iconSize = computed(() => (width.value >= 1100 ? 36 : 30));
   .wrapper {
     margin-bottom: 80px;
 
-    .heading{
+    .heading {
       & h2 {
         font-size: 28px;
         text-align: center;

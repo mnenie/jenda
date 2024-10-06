@@ -188,6 +188,7 @@ export default {
       tagline: '通往完美的道路',
       description: 'Jenda 是一款基于云的程序，用于高效协作和个人项目与任务管理。',
       badge: '核心功能：任务板、实时跟踪',
+      badge_mobile: '核心功能：任务板、实时跟踪',
       btn: '注册'
     },
     marketing: {
@@ -275,7 +276,43 @@ export default {
         comment: '这里的聊天功能真的很方便！与团队轻松交换想法，快速解决问题。'
       }
     },
-    footer: '基于云的任务管理程序。源代码可在'
+    footer: '基于云的任务管理程序。源代码可在',
+    mobile: {
+      section_blocks: [
+        {
+          title: '关于我们',
+          description: '了解 Jenda'
+        },
+        {
+          title: '看板',
+          description: '使用看板管理项目'
+        },
+        {
+          title: '协作',
+          description: '提高你的团队合作！'
+        },
+        {
+          title: '成员',
+          description: '邀请成员加入项目'
+        },
+        {
+          title: '活动',
+          description: '分析您的活动'
+        },
+        {
+          title: '聊天',
+          description: '沟通、分享、讨论'
+        }
+      ],
+      links: [
+        {
+          title: '产品'
+        },
+        {
+          title: '通过 Telegram 联系我们'
+        }
+      ]
+    }
   },
   not_found: {
     title: '未找到',

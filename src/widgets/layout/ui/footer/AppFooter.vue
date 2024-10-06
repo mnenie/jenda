@@ -22,8 +22,8 @@ import { redirect } from '@/shared/lib/helpers';
 }
 
 .container {
-  max-width: 1800px;
-  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;

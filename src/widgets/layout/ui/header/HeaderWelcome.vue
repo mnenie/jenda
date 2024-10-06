@@ -6,10 +6,11 @@ import { useI18n } from 'vue-i18n';
 import { UiButton, UiSelect } from '@/shared/ui';
 import { redirect } from '@/shared/lib/helpers';
 import { RouteNames } from '@/shared/config/consts';
-import { Globe, Moon, Sun, Menu } from 'lucide-vue-next';
+import { Globe, Moon, Sun } from 'lucide-vue-next';
 import type { Options } from '@/shared/ui/select/types';
 import { headerLinks } from '../../model';
 import type { HeaderNavLink } from '../../model';
+import { BurgerMenu } from '@/features/menu';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -67,13 +68,12 @@ const { width } = useWindowSize();
           <img :src="iconUrl" />
           <h3 class="heading-3">Jenda</h3>
         </div>
-        <div v-if="width >= 1152" :class="$style.additional">
+        <div :class="$style.additional">
           <UiSelect v-model="language" :options="languages" as="btn">
             <Globe :size="16" />
           </UiSelect>
           <div :class="$style.separator" />
           <UiButton
-            v-tooltip="'Change theme'"
             variant="ghost"
             size="sm"
             :class="$style.btn"
@@ -92,7 +92,7 @@ const { width } = useWindowSize();
           {{ t('welcome.header.reg') }}
         </UiButton>
       </div>
-      <Menu v-else color="var(--zinc-600)" />
+      <BurgerMenu v-else />
     </section>
   </header>
 </template>

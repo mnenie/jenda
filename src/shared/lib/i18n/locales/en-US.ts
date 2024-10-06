@@ -190,6 +190,7 @@ export default {
       description:
         'Jenda is a cloud-based program for efficient collaborative and individual project and task management.',
       badge: 'Core: Task Boards, Real-Time Tracking',
+      badge_mobile: 'Core: Task Boards, Real-Time Tracking and etc.',
       btn: 'Get started'
     },
     marketing: {
@@ -281,7 +282,43 @@ export default {
           "The chats here are really convenient! It's easy to exchange ideas and quickly resolve issues with the team."
       }
     },
-    footer: 'cloud-based program for task management. The source code is available on'
+    footer: 'cloud-based program for task management. The source code is available on',
+    mobile: {
+      section_blocks: [
+        {
+          title: 'About Us',
+          description: 'Get to know Jenda'
+        },
+        {
+          title: 'Kanban',
+          description: 'Organize projects with Kanban'
+        },
+        {
+          title: 'Collaboration',
+          description: 'Improve your teamwork!'
+        },
+        {
+          title: 'Members',
+          description: 'Invite members to projects'
+        },
+        {
+          title: 'Activity',
+          description: 'Analyze your activity'
+        },
+        {
+          title: 'Chats',
+          description: 'Communicate, share, discuss'
+        }
+      ],
+      links: [
+        {
+          title: 'product'
+        },
+        {
+          title: 'contact us on Telegram'
+        }
+      ]
+    }
   },
   not_found: {
     title: 'Not Found',

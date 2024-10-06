@@ -71,4 +71,10 @@ const isDark = useDark();
     }
   }
 }
+
+@media screen and (max-width: 420px) {
+  .wrapper{
+    margin-top: 50px;
+  }
+}
 </style>
