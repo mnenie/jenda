@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useDark, useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { GoogleOauth, PrivacyPolicy } from '@/features/auth';
 import { RouteNames } from '@/shared/config/consts';
 import { ChevronLeft } from 'lucide-vue-next';
+import { UiAlert } from '@/shared/ui';
 
 const route = useRoute();
 const { t } = useI18n();
+const { width } = useWindowSize();
 
 const isDark = useDark();
+
+const isWarningOpen = ref(true);
 
 const title = computed(() => {
   return route.name === RouteNames.login
@@ -22,8 +26,6 @@ const info = computed(() => {
     ? t('authentication.login.description')
     : t('authentication.registration.description');
 });
-
-const { width } = useWindowSize();
 </script>
 
 <template>
@@ -40,6 +42,18 @@ const { width } = useWindowSize();
         </div>
       </div>
       <div :class="$style.form_wrapper">
+        <UiAlert
+          v-if="isWarningOpen"
+          variant="warning"
+          closable
+          :class="$style.warning"
+          @close="isWarningOpen = false"
+        >
+          <span class="text-sm"
+            >aвторизация через <span style="font-weight: 600">google</span> будет заменена на
+            <span style="font-weight: 600">gitlab</span> после 10.11.2024</span
+          >
+        </UiAlert>
         <h2 class="heading-2">{{ title }}</h2>
         <p :class="[$style.info_text, 'text-sm']">{{ info }}</p>
 
@@ -247,6 +261,9 @@ const { width } = useWindowSize();
         width: 100%;
       }
     }
+  }
+  .warning {
+    margin-bottom: 6px;
   }
 }
 
