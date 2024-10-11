@@ -65,6 +65,8 @@
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^8.57.0",
+    "eslint-plugin-antfu": "^2.7.0",
+    "eslint-define-config": "^2.1.0",
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-vue": "^9.23.0",
     "husky": "^9.0.11",

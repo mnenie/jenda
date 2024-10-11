@@ -14,7 +14,7 @@ const props = defineProps<{
 const route = useRoute();
 const isDark = useDark();
 
-const isCurrentPath = (link: Link) => {
+function isCurrentPath (link: Link) {
   if (route.name?.toString().startsWith(RouteNames.members)) {
     return link.pathName === RouteNames.members;
   }
@@ -22,7 +22,7 @@ const isCurrentPath = (link: Link) => {
     return link.pathName === RouteNames.boards;
   }
   return link.pathName === route.name;
-};
+}
 
 const pathName = computed(() => {
   return props.links.map((link) => ({

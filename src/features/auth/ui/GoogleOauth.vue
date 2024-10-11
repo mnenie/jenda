@@ -6,9 +6,9 @@ import { toast } from 'vue-sonner';
 
 const isLoading = ref(false);
 
-const onGoogleAuth = () => {
+function onGoogleAuth () {
   toast.warning('Jenda in dev mode and temporarily unavailable');
-};
+}
 </script>
 
 <template>

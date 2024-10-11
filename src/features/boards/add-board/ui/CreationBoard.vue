@@ -6,11 +6,11 @@ import FormCreation from './FormCreation.vue';
 
 const sheet = useTemplateRef<SheetElement | null>('sheet');
 
-const open = () => {
+function open () {
   if (sheet.value) {
     sheet.value.open();
   }
-};
+}
 </script>
 
 <template>
