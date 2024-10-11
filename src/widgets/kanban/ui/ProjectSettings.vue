@@ -9,11 +9,11 @@ import { ChangeName, ChooseStatus, UpdateBoard } from '@/features/kanban';
 
 const sheet = useTemplateRef<SheetElement | null>('sheet');
 
-const open = () => {
+function open () {
   if (sheet.value) {
     sheet.value.open();
   }
-};
+}
 
 // mock data -> after data from backend
 const name = ref('Startup');
@@ -28,10 +28,10 @@ const statuses = shallowReactive<StatusBadge[]>([
   { _id: '3', indicator: '#d01f1f', status: 'closed' }
 ]);
 
-const updateStatus = (status: StatusBadge['status']) => {
+function updateStatus (status: StatusBadge['status']) {
   projStatus.value = status;
   console.log(status);
-};
+}
 </script>
 
 <template>

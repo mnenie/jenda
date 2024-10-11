@@ -62,14 +62,14 @@ const minWidthStyle = computed(() => {
   return `${props.minWidth}px`;
 });
 
-const open = () => {
+function open () {
   translateValue.value = 0;
   document.documentElement.style.overflowY = 'hidden';
   document.documentElement.style.overscrollBehavior = 'none';
   showSheet.value = true;
   emit('opened');
-};
-const close = async () => {
+}
+async function close () {
   showSheet.value = false;
   translateValue.value = 100;
   setTimeout(() => {
@@ -77,13 +77,13 @@ const close = async () => {
     document.documentElement.style.overscrollBehavior = '';
     emit('closed');
   }, props.transitionDuration * 1000);
-};
+}
 
-const clickOnOverlayHandler = () => {
+function clickOnOverlayHandler () {
   if (props.overlayClickClose) {
     close();
   }
-};
+}
 
 defineExpose({ open, close });
 </script>

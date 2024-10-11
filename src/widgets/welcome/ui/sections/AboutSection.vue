@@ -18,10 +18,10 @@ const isDark = useDark();
 
 const isHovered = ref(false);
 
-function onMouseEnter() {
+function onMouseEnter () {
   isHovered.value = true;
 }
-function onMouseLeave() {
+function onMouseLeave () {
   isHovered.value = false;
 }
 const arrowMargin = computed(() => {

@@ -4,7 +4,7 @@ import { ref } from 'vue';
 
 const open = ref(true);
 
-function onCloseOffer() {
+function onCloseOffer () {
   open.value = !open.value;
 }
 </script>
@@ -12,7 +12,8 @@ function onCloseOffer() {
 <template>
   <div v-if="open" :class="$style.container">
     <div :class="$style.content">
-      <p class="text-xs">Следите за нашими новостями в
+      <p class="text-xs">
+        Следите за нашими новостями в
         <a href="https://github.com/mnenie/jenda" rel="noreferrer">github</a>
       </p>
     </div>
@@ -43,7 +44,7 @@ function onCloseOffer() {
     }
   }
 
-  .icon{
+  .icon {
     position: absolute;
     top: 50%;
     color: var(--zinc-300);
@@ -52,7 +53,7 @@ function onCloseOffer() {
     cursor: pointer;
     @include transition;
 
-    &:hover{
+    &:hover {
       color: var(--zinc-200);
     }
   }

@@ -11,11 +11,11 @@ const { t } = useI18n();
 
 const sheetColumn = useTemplateRef<SheetElement | null>('sheet');
 
-const open = () => {
+function open () {
   if (sheetColumn.value) {
     sheetColumn.value.open();
   }
-};
+}
 </script>
 
 <template>
