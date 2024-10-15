@@ -7,12 +7,12 @@ import { X } from 'lucide-vue-next';
 
 const router = useRouter();
 
-const leaveTeam = () => {
+function leaveTeam () {
   toast.info('You left the team', {
     description: 'Find suitable or become an admin of new team'
   });
   router.push({ name: RouteNames.boards });
-};
+}
 </script>
 
 <template>

@@ -21,9 +21,9 @@ const previewUsers = computed(() => {
   return props.board.users.slice(0, 4);
 });
 
-const toggleVisible = () => {
+function toggleVisible () {
   toast.info('Now this feature in dev mode');
-};
+}
 </script>
 
 <template>

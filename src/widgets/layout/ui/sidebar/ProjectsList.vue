@@ -13,10 +13,11 @@ const props = defineProps<{
 
 const route = useRoute();
 
-const isCurrentPath = (project: Board) =>
-  computed(() => {
+function isCurrentPath (project: Board) {
+  return computed(() => {
     return project._id === route.params.id && route.params.id !== undefined;
-  });
+  })
+}
 
 const _projects = computed(() => {
   return props.boards.map((proj) => ({

@@ -5,12 +5,12 @@ import { ref, useTemplateRef } from 'vue';
 const isOpen = ref(false);
 const dropdown = useTemplateRef<HTMLElement | null>('dropdown');
 
-const handleDropdown = () => {
+function handleDropdown () {
   isOpen.value = !isOpen.value;
-};
-const onDropdownContent = () => {
+}
+function onDropdownContent () {
   isOpen.value = false;
-};
+}
 
 onClickOutside(dropdown, () => {
   isOpen.value = false;

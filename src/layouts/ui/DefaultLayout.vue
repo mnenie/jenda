@@ -32,10 +32,10 @@ const widthMainContainer = computed(() => {
   return `calc(100% - ${widthSidebar.value})`;
 });
 
-const onToggleArea = () => {
+function onToggleArea () {
   isExpanded.value = !isExpanded.value;
   transitionFl.value = true;
-};
+}
 </script>
 
 <template>

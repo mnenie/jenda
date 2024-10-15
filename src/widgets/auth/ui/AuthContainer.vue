@@ -58,7 +58,7 @@ const alertString = computed(() => {
           :class="$style.warning"
           @close="isWarningOpen = false"
         >
-          <span v-html="alertString" class="text-sm" />
+          <span class="text-sm" v-html="alertString" />
         </UiAlert>
         <h2 class="heading-2">{{ title }}</h2>
         <p :class="[$style.info_text, 'text-sm']">{{ info }}</p>
