@@ -13,10 +13,10 @@ const props = defineProps<{
 
 const route = useRoute();
 
-function isCurrentPath (project: Board) {
+function isCurrentPath(project: Board) {
   return computed(() => {
     return project._id === route.params.id && route.params.id !== undefined;
-  })
+  });
 }
 
 const _projects = computed(() => {
@@ -39,15 +39,6 @@ const projectName = computed(() => {
 </script>
 
 <template>
-  <div :class="$style.about">
-    <p class="text-sm" :class="$style.section">{{ $t('sidebar.projects') }}</p>
-    <CircleFadingPlus
-      v-if="isExpanded"
-      :size="14"
-      :color="!isDark ? 'var(--zinc-800)' : 'var(--zinc-300)'"
-      style="cursor: pointer;"
-    />
-  </div>
   <div :class="$style.sidebar_projects">
     <RouterLink
       v-for="project in _projects"
@@ -114,6 +105,7 @@ const projectName = computed(() => {
       justify-content: v-bind('contentPosition');
       gap: 6px;
       box-shadow: none;
+      padding: 0 10px;
 
       .project_indicator {
         width: 20px;

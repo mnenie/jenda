@@ -1,29 +1,24 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, inject, ref } from 'vue';
 import { useDark } from '@vueuse/core';
 import { links } from '../../model';
 import { SearchFilter } from '@/features/filter';
-import { UiBadge } from '@/shared/ui';
 import { PlanCard } from '@/features/plan';
-import { ArrowsDouble } from '@/shared/assets/icons';
 import WorkSpace from './WorkSpace.vue';
 import ProjectsList from './ProjectsList.vue';
-import { AlignJustify } from 'lucide-vue-next';
 import type { Board } from '@/entities/board';
+import WorkspaceChooser from './WorkspaceChooser.vue';
+import { useExpanded } from '@/shared/lib/composables';
 
-const props = defineProps<{
-  isExpanded: boolean;
-}>();
+const expanded = useExpanded();
 
-const emit = defineEmits<{
-  (e: 'onToggle'): void;
-}>();
+const { isExpanded } = expanded.getExpanded();
 
 const contentPosition = computed(() => {
-  return props.isExpanded ? 'space-between' : 'center';
+  return isExpanded.value ? 'space-between' : 'center';
 });
 const paddingExpanded = computed(() => {
-  return props.isExpanded ? '10px 15px 12px 15px' : '10px';
+  return isExpanded.value ? '10px 15px 12px 15px' : '10px';
 });
 
 const isDark = useDark();
@@ -41,24 +36,11 @@ const boards = ref<Board[]>([
 </script>
 
 <template>
-  <nav :class="$style.sidebar" :style="{ padding: paddingExpanded }">
-    <div :class="$style.name" :style="{ marginBottom: isExpanded ? '18px' : '22px' }">
-      <div v-if="isExpanded" :class="$style.text">
-        <img :src="iconUrl" />
-        <h3 class="heading-4">Jenda</h3>
-        <UiBadge>{{ $t('sidebar.badge') }}</UiBadge>
-      </div>
-      <AlignJustify
-        v-else
-        :class="$style.icon_menu"
-        :style="{ marginTop: isExpanded ? '0px' : '3px' }"
-        @click="emit('onToggle')"
-      />
-      <ArrowsDouble v-show="isExpanded" :class="$style.icon" @click="emit('onToggle')" />
-    </div>
+  <nav :class="$style.sidebar">
+    <WorkspaceChooser />
     <div :class="$style.content">
       <div>
-        <SearchFilter :is-expanded @on-toggle="emit('onToggle')" />
+        <SearchFilter />
         <WorkSpace :links :is-expanded />
         <ProjectsList :boards :is-expanded />
       </div>
@@ -75,8 +57,9 @@ const boards = ref<Board[]>([
   flex-direction: column;
   height: 100%;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  background-color: #fafafa;
   user-select: none;
-  border-right: 1px solid var(--zinc-200);
+  border-right: 1.5px solid var(--zinc-200);
 
   .name {
     position: relative;
@@ -117,6 +100,8 @@ const boards = ref<Board[]>([
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 10.12px;
+    margin-top: 6px;
 
     .menu {
       width: 100%;
@@ -129,7 +114,6 @@ const boards = ref<Board[]>([
 
 :global(.dark) {
   .sidebar {
-    background-color: rgba(var(--zinc-rgb-800), 0.5);
     border-color: var(--dark-border);
     .name {
       .icon_menu {

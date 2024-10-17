@@ -6,6 +6,7 @@ export default {
     projects: '项目',
     boards: '看板',
     templates: '模板',
+    analytics: '分析',
     members: '成员',
     settings: '设置',
     plan: '升级你的计划'

@@ -4,12 +4,12 @@ import type { Ref } from 'vue';
 
 export default function useFilter(
   inputRef: Ref<HTMLElement | null>,
-  props: { isExpanded: boolean },
-  emit: (e: 'onToggle') => void
+  isExpanded: Ref<boolean>,
+  onToggle: () => void
 ) {
   const onToggleArea = () => {
-    if (!props.isExpanded) {
-      emit('onToggle');
+    if (!isExpanded.value) {
+      onToggle();
 
       nextTick(() => {
         inputRef.value = document.getElementById('input') as HTMLInputElement;

@@ -6,6 +6,7 @@ export default {
     projects: 'projects',
     boards: 'Boards',
     templates: 'Templates',
+    analytics: 'Analytics',
     members: 'Members',
     settings: 'Settings',
     plan: 'Upgrade your plan'

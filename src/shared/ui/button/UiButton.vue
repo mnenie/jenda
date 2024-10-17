@@ -53,7 +53,7 @@ withDefaults(
 }
 
 .secondary {
-  background-color: rgba(228, 228, 231, 0.6);
+  background-color: rgba(231, 231, 231, 0.6);
   color: var(--zinc-900);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 

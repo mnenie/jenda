@@ -14,7 +14,7 @@ const props = defineProps<{
 const route = useRoute();
 const isDark = useDark();
 
-function isCurrentPath (link: Link) {
+function isCurrentPath(link: Link) {
   if (route.name?.toString().startsWith(RouteNames.members)) {
     return link.pathName === RouteNames.members;
   }
@@ -38,13 +38,12 @@ const iconColor = computed(() => {
   if (isDark.value) {
     return !props.isExpanded ? 'var(--zinc-200)' : 'var(--zinc-300)';
   } else {
-    return !props.isExpanded ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
+    return !props.isExpanded ? 'var(--zinc-800)' : 'var(--zinc-600)';
   }
 });
 </script>
 
 <template>
-  <p :class="[$style.name_block, 'text-sm']">{{ $t('sidebar.section') }}</p>
   <div :class="$style.sidebar_main_links">
     <RouterLink
       v-for="link in pathName"
@@ -62,7 +61,7 @@ const iconColor = computed(() => {
         :class="$style.link_btn"
         :style="{ padding: !isExpanded ? '0px' : '' }"
       >
-        <component :is="link.icon" :size="18" :color="iconColor" />
+        <component :is="link.icon" :class="$style.icon" :color="iconColor" />
         <span v-show="isExpanded" class="text-sm">{{ $t(`sidebar.${link.title}`) }}</span>
       </UiButton>
     </RouterLink>
@@ -100,8 +99,13 @@ const iconColor = computed(() => {
     .link_btn {
       width: 100%;
       justify-content: v-bind('contentPosition');
-      gap: 6px;
+      gap: 8px;
       box-shadow: none;
+      padding: 0 8px;
+
+      .icon {
+        font-size: 17px;
+      }
     }
 
     & span {
@@ -118,7 +122,7 @@ const iconColor = computed(() => {
         & span {
           color: var(--zinc-100);
         }
-        &:hover{
+        &:hover {
           background-color: var(--zinc-700);
         }
       }

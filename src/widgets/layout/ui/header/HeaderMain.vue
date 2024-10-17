@@ -34,6 +34,7 @@ import UserMenu from './UserMenu.vue';
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--main-slotted);
   padding: 6px 15px;
   border-bottom: 1px solid var(--zinc-200);
   width: 100%;

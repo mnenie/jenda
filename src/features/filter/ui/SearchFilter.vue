@@ -4,32 +4,29 @@ import { useDark } from '@vueuse/core';
 import { UiInput, UiBadge } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
 import useFilter from '../model/composables/useFilter';
-
-const props = defineProps<{
-  isExpanded: boolean;
-}>();
-
-const emit = defineEmits<{
-  (e: 'onToggle'): void;
-}>();
+import { useExpanded } from '@/shared/lib/composables';
 
 const search = ref('');
 const input = useTemplateRef<HTMLElement | null>('search-input');
 
 const isDark = useDark();
+
+const { getExpanded } = useExpanded();
+
+const { isExpanded, onToggleArea: toggleExpaneded } = getExpanded();
+const { onToggleArea } = useFilter(input, isExpanded, toggleExpaneded);
+
 const iconColor = computed(() => {
   if (isDark.value) {
-    return !props.isExpanded ? 'var(--zinc-200)' : 'var(--zinc-300)';
+    return !isExpanded.value ? 'var(--zinc-200)' : 'var(--zinc-300)';
   } else {
-    return !props.isExpanded ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
+    return !isExpanded.value ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
   }
 });
-
-const { onToggleArea } = useFilter(input, props, emit);
 </script>
 
 <template>
-  <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '15px' : '16px' }">
+  <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '20px' : '21px' }">
     <Search
       :class="[isExpanded ? $style.icon : $style.icon_no_expanded]"
       :color="iconColor"
@@ -61,7 +58,7 @@ const { onToggleArea } = useFilter(input, props, emit);
 
   .icon {
     position: absolute;
-    left: 0px;
+    left: 7px;
     top: 50%;
     transform: translateY(-50%);
     height: 16px;
@@ -79,7 +76,7 @@ const { onToggleArea } = useFilter(input, props, emit);
   }
 
   .input_filter {
-    padding-left: 24px;
+    padding-left: 32px;
     padding-right: 40px;
     border: none;
     width: 100%;

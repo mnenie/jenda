@@ -6,6 +6,7 @@ export default {
     projects: 'проекты',
     boards: 'Доски',
     templates: 'Шаблоны',
+    analytics: 'Аналитика',
     members: 'Участники',
     settings: 'Настройки',
     plan: 'Обновите свой план'
