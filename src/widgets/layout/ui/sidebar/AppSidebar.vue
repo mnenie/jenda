@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useDark } from '@vueuse/core';
 import { links } from '../../model';
 import { SearchFilter } from '@/features/filter';
@@ -7,7 +7,7 @@ import { PlanCard } from '@/features/plan';
 import WorkSpace from './WorkSpace.vue';
 import ProjectsList from './ProjectsList.vue';
 import type { Board } from '@/entities/board';
-import WorkspaceChooser from './WorkspaceChooser.vue';
+import WorkspaceChooser from './WorkSpaceChooser.vue';
 import { useExpanded } from '@/shared/lib/composables';
 
 const expanded = useExpanded();
