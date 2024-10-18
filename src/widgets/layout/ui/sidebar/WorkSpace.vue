@@ -59,7 +59,7 @@ const iconColor = computed(() => {
       <UiButton
         :variant="link.isActive ? 'secondary' : 'ghost'"
         :class="$style.link_btn"
-        :style="{ padding: !isExpanded ? '0px' : '' }"
+        :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
         <component :is="link.icon" :class="$style.icon" :color="iconColor" />
         <span v-show="isExpanded" class="text-sm">{{ $t(`sidebar.${link.title}`) }}</span>
@@ -98,10 +98,10 @@ const iconColor = computed(() => {
 
     .link_btn {
       width: 100%;
-      justify-content: v-bind('contentPosition');
       gap: 8px;
       box-shadow: none;
       padding: 0 8px;
+      transition: all 0.2s ease;
 
       .icon {
         font-size: 17px;

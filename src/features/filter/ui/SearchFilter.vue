@@ -7,7 +7,7 @@ import useFilter from '../model/composables/useFilter';
 import { useExpanded } from '@/shared/lib/composables';
 
 const search = ref('');
-const input = useTemplateRef<HTMLElement | null>('search-input');
+const input = ref<HTMLElement | null>(null);
 
 const isDark = useDark();
 
@@ -26,7 +26,7 @@ const iconColor = computed(() => {
 </script>
 
 <template>
-  <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '20px' : '21px' }">
+  <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '20px' : '19px' }">
     <Search
       :class="[isExpanded ? $style.icon : $style.icon_no_expanded]"
       :color="iconColor"
