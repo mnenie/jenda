@@ -1,4 +1,4 @@
-import { provide, inject, type InjectionKey, type Ref, type ToRefs, toRefs, toRef } from 'vue';
+import { provide, inject, type InjectionKey, type Ref, toRef } from 'vue';
 
 interface Expanded {
   isExpanded: Ref<boolean>;

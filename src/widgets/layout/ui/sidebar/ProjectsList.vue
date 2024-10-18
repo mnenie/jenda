@@ -3,7 +3,6 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useDark } from '@vueuse/core';
 import { UiButton } from '@/shared/ui';
-import { CircleFadingPlus } from 'lucide-vue-next';
 import type { Board } from '@/entities/board';
 
 const props = defineProps<{
@@ -25,8 +24,6 @@ const _projects = computed(() => {
     isActive: isCurrentPath(proj).value
   }));
 });
-
-const isDark = useDark();
 
 const contentPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center';

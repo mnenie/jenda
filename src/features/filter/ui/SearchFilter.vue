@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, useTemplateRef } from 'vue';
+import { computed, ref } from 'vue';
 import { useDark } from '@vueuse/core';
 import { UiInput, UiBadge } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';

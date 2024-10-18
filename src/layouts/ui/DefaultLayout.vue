@@ -2,7 +2,7 @@
 // @ts-expect-error missing type
 import { Splitpanes, Pane } from 'splitpanes';
 import 'splitpanes/dist/splitpanes.css';
-import { computed, provide, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { AppSidebar, HeaderMain } from '@/widgets/layout';
 import { useLocalStorage } from '@vueuse/core';
 import { RouteNames } from '@/shared/config/consts';
