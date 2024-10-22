@@ -1,42 +1,51 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { useDark } from '@vueuse/core';
 import { UiButton } from '@/shared/ui';
 import type { Board } from '@/entities/board';
+import PlusIcon from '@/shared/assets/icons/_basic/plus.svg?component';
+import ArrowIcon from '@/shared/assets/icons/_basic/arrow.svg?component';
+import ProjectIcon from '@/shared/assets/icons/sidebar/project.svg?component';
 
 const props = defineProps<{
   boards: Board[];
   isExpanded: boolean;
 }>();
 
-const route = useRoute();
+const showList = ref(true);
 
-function isCurrentPath(project: Board) {
-  return computed(() => {
-    return project._id === route.params.id && route.params.id !== undefined;
-  });
-}
+const route = useRoute();
 
 const _projects = computed(() => {
   return props.boards.map((proj) => ({
     ...proj,
-    isActive: isCurrentPath(proj).value
+    isActive: proj._id === route.params.id && route.params.id !== undefined
   }));
 });
 
 const contentPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center';
 });
-const projectName = computed(() => {
-  return (project: Board) => {
-    return project.name.slice(0, 1);
-  };
-});
+
+function changeShowList() {
+  showList.value = !showList.value;
+}
 </script>
 
 <template>
-  <div :class="$style.sidebar_projects">
+  <div :class="$style.about">
+    <div :class="$style.name">
+      <ArrowIcon
+        v-show="isExpanded"
+        :class="$style.icon"
+        :style="{ transform: !showList ? 'rotate(-90deg)' : '' }"
+        @click="changeShowList"
+      />
+      <p class="text-sm" :class="$style.section">{{ $t('sidebar.projects') }}</p>
+    </div>
+    <PlusIcon v-show="isExpanded" :class="$style.icon" style="font-size: 16px" />
+  </div>
+  <div v-if="showList" :class="$style.sidebar_projects">
     <RouterLink
       v-for="project in _projects"
       :key="project._id"
@@ -51,11 +60,9 @@ const projectName = computed(() => {
       <UiButton
         :variant="project.isActive ? 'secondary' : 'ghost'"
         :class="$style.proj_btn"
-        :style="{ padding: !isExpanded ? '0px' : '' }"
+        :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
-        <div :class="$style.project_indicator" :style="{ backgroundColor: project.color }">
-          {{ projectName(project) }}
-        </div>
+        <ProjectIcon :class="$style.project_indicator" :style="{ color: project.color }" />
         <span v-show="isExpanded" class="text-sm">{{ project.name }}</span>
       </UiButton>
     </RouterLink>
@@ -70,14 +77,27 @@ const projectName = computed(() => {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 12px;
+  padding: 0 10px 12px 10px;
 
-  .section {
-    color: var(--zinc-300);
-    text-transform: uppercase;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  .name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+
+    .section {
+      color: var(--zinc-400);
+      text-transform: capitalize;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  .icon {
+    color: var(--zinc-400);
+    font-size: 18px;
+    cursor: pointer;
   }
 }
 
@@ -99,26 +119,35 @@ const projectName = computed(() => {
 
     .proj_btn {
       width: 100%;
-      justify-content: v-bind('contentPosition');
       gap: 6px;
       box-shadow: none;
       padding: 0 10px;
+      transition: all 0.1s ease;
 
       .project_indicator {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--zinc-50);
-        // text-transform: lowercase;
+        text-transform: lowercase;
+
+        & > span {
+          color: var(--zinc-50);
+          text-overflow: ellipsis;
+        }
       }
     }
 
     & span {
       font-weight: 500 !important;
       color: var(--zinc-900);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      max-width: 86%;
     }
   }
 }

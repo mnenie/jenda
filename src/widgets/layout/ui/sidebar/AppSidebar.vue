@@ -20,8 +20,8 @@ const paddingExpanded = computed(() => {
 // mock -> after data from backend
 //@ts-ignore
 const boards = ref<Board[]>([
-  { _id: '0', name: 'test', users: [], status: 'work', color: '#a1612a' },
-  { _id: '1', name: 'New board', users: [], status: 'work', color: '#45ad2d' }
+  { _id: '0', name: 'Startup Program', users: [], status: 'work', color: '#a1612a' },
+  { _id: '1', name: 'Integrations', users: [], status: 'closed', color: '#45ad2d' }
 ]);
 </script>
 
