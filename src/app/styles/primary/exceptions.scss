@@ -45,3 +45,10 @@ canvas {
   --success-border: hsl(147, 100%, 12%);
   --info-bg: var(--zinc-700);
 }
+
+html.dark {
+  .v-popper__inner {
+    background-color: var(--zinc-600) !important;
+    color: var(--zinc-200) !important;
+  }
+}

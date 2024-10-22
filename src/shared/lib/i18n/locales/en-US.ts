@@ -9,7 +9,12 @@ export default {
     analytics: 'Analytics',
     members: 'Members',
     settings: 'Settings',
-    plan: 'Upgrade your plan'
+    plan: {
+      btn: 'Buy a subscription',
+      title: 'Premium Plan',
+      description: 'all the functionality of the service will be available to you',
+      tooltip: '1/3 free workspaces'
+    }
   },
   header: {
     upgrade: 'Upgrade "Pro"',

@@ -13,6 +13,7 @@ const props = defineProps<{
 }>();
 
 const showList = ref(true);
+const showPlusIcon = ref(false);
 
 const route = useRoute();
 
@@ -33,7 +34,7 @@ function changeShowList() {
 </script>
 
 <template>
-  <div :class="$style.about">
+  <div :class="$style.about" @mouseover="showPlusIcon = true" @mouseleave="showPlusIcon = false">
     <div :class="$style.name">
       <ArrowIcon
         v-show="isExpanded"
@@ -43,7 +44,7 @@ function changeShowList() {
       />
       <p class="text-sm" :class="$style.section">{{ $t('sidebar.projects') }}</p>
     </div>
-    <PlusIcon v-show="isExpanded" :class="$style.icon" style="font-size: 16px" />
+    <PlusIcon v-show="isExpanded && showPlusIcon" :class="$style.icon" style="font-size: 16px" />
   </div>
   <div v-if="showList" :class="$style.sidebar_projects">
     <RouterLink
@@ -153,6 +154,16 @@ function changeShowList() {
 }
 
 :global(html.dark) {
+  .about{
+    .name{
+      .section{
+        color: var(--zinc-300);
+      }
+    }
+    .icon {
+      color: var(--zinc-300);
+    }
+  }
   .sidebar_projects {
     .project {
       .proj_btn {

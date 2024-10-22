@@ -14,7 +14,7 @@ const expanded = useExpanded();
 const { isExpanded } = expanded.getExpanded();
 
 const paddingExpanded = computed(() => {
-  return isExpanded.value ? '10px' : '0px 10px';
+  return isExpanded.value ? '10px' : '0px 10px 10px 10px';
 });
 
 // mock -> after data from backend

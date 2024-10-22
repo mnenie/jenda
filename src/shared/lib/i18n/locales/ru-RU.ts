@@ -9,7 +9,12 @@ export default {
     analytics: 'Аналитика',
     members: 'Участники',
     settings: 'Настройки',
-    plan: 'Обновите свой план'
+    plan: {
+      btn: 'Купить подписку',
+      title: 'Премиум план',
+      description: 'все функции сервиса будут вам доступны',
+      tooltip: '1/3 бесплатных workspaces'
+    }
   },
   header: {
     upgrade: 'Обновите до "Pro"',

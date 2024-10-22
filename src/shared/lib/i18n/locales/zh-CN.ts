@@ -9,7 +9,12 @@ export default {
     analytics: '分析',
     members: '成员',
     settings: '设置',
-    plan: '升级你的计划'
+    plan: {
+      btn: '购买订阅',
+      title: '高级计划',
+      description: '您将可以使用服务的所有功能',
+      tooltip: '1/3 的免费工作区'
+    }
   },
   header: {
     upgrade: '升级到“专业版”',
