@@ -40,9 +40,9 @@ canvas {
 
 [data-sonner-toaster][data-theme='dark'] {
   --normal-bg: var(--zinc-700) !important;
-  --normal-border: hsl(0, 0%, 20%);
+  --normal-border: hsl(0deg 0% 20%);
   --normal-text: var(--gray1);
-  --success-border: hsl(147, 100%, 12%);
+  --success-border: hsl(147deg 100% 12%);
   --info-bg: var(--zinc-700);
 }
 

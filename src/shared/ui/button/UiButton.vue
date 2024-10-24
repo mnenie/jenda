@@ -20,7 +20,7 @@ withDefaults(
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .button {
   display: inline-flex;

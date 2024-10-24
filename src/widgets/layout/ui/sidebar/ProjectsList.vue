@@ -71,7 +71,7 @@ function changeShowList() {
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .about {
   display: flex;

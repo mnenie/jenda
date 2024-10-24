@@ -58,7 +58,7 @@ const onRegistration = handleSubmit((values) => {
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .form_container {
   display: grid;

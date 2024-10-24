@@ -20,7 +20,7 @@ function onGoogleAuth () {
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .google_img {
   width: 16px;

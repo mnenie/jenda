@@ -23,6 +23,7 @@ export default function useFilter(
     if (document) {
       inputRef.value = document.getElementById('input')!;
       if ((e.metaKey && e.key === 'k') || (e.ctrlKey && e.key === 'k')) {
+        onToggleArea();
         inputRef.value.focus();
       }
     }

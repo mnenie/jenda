@@ -69,7 +69,7 @@ const iconColor = computed(() => {
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .name_block {
   color: var(--zinc-300);

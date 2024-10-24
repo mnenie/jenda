@@ -98,7 +98,7 @@ const { width } = useWindowSize();
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .header_welcome {
   position: fixed;

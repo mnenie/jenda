@@ -28,7 +28,7 @@ const emit = defineEmits(['update:modelValue']);
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .input_default {
   display: flex;

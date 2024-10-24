@@ -65,7 +65,7 @@ const selected = ref(props.modelValue);
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .custom_select {
   position: relative;
