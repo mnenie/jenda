@@ -18,7 +18,7 @@ function isCurrentPath(link: Link) {
   if (route.name?.toString().startsWith(RouteNames.members)) {
     return link.pathName === RouteNames.members;
   }
-  if (route.name === RouteNames.board) {
+  if (route.name === RouteNames.boards) {
     return link.pathName === RouteNames.boards;
   }
   return link.pathName === route.name;
@@ -49,7 +49,7 @@ const iconColor = computed(() => {
       v-for="link in pathName"
       :key="link.id"
       v-tooltip.right="{
-        content: $t(`sidebar.${link.title}`),
+        content: $t(`sidebar.${link.name}`),
         triggers: ['hover'],
         disabled: isExpanded
       }"
@@ -62,7 +62,7 @@ const iconColor = computed(() => {
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
         <component :is="link.icon" :class="$style.icon" :color="iconColor" />
-        <span v-show="isExpanded" class="text-sm">{{ $t(`sidebar.${link.title}`) }}</span>
+        <span v-show="isExpanded" class="text-sm">{{ $t(`sidebar.${link.name}`) }}</span>
       </UiButton>
     </RouterLink>
   </div>

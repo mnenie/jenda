@@ -179,6 +179,10 @@ const alertString = computed(() => {
   }
 }
 
+.warning{
+  max-width: 98%;
+}
+
 :global(html.dark) {
   .container {
     background-color: var(--zinc-800);

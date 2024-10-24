@@ -9,9 +9,9 @@ import Members from '@/shared/assets/icons/sidebar/members.svg?component';
 import Settings from '@/shared/assets/icons/sidebar/settings.svg?component';
 
 export const links = markRaw<Link[]>([
-  { id: 0, title: 'boards', pathName: RouteNames.boards, icon: h(Kanban) },
-  { id: 1, title: 'templates', pathName: RouteNames.templates, icon: h(Templates) },
-  { id: 2, title: 'analytics', pathName: RouteNames.templates, icon: h(Analytics) },
-  { id: 3, title: 'members', pathName: RouteNames.members, icon: h(Members) },
-  { id: 4, title: 'settings', pathName: RouteNames.settings, icon: h(Settings) }
+  { id: 0, name: 'boards', pathName: RouteNames.boards, icon: h(Kanban) },
+  { id: 1, name: 'templates', pathName: RouteNames.templates, icon: h(Templates) },
+  { id: 2, name: 'analytics', pathName: RouteNames.templates, icon: h(Analytics) },
+  { id: 3, name: 'members', pathName: RouteNames.members, icon: h(Members) },
+  { id: 4, name: 'settings', pathName: RouteNames.settings, icon: h(Settings) }
 ]);

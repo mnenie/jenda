@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { links } from '../../model';
 import { SearchFilter } from '@/features/filter';
 import { PlanCard } from '@/features/plan';
@@ -9,6 +9,10 @@ import type { Board } from '@/entities/board';
 import WorkspaceChooser from './WorkSpaceChooser.vue';
 import { useExpanded } from '@/shared/lib/composables';
 
+defineProps<{
+  boards: Board[]
+}>()
+
 const expanded = useExpanded();
 
 const { isExpanded } = expanded.getExpanded();
@@ -16,13 +20,6 @@ const { isExpanded } = expanded.getExpanded();
 const paddingExpanded = computed(() => {
   return isExpanded.value ? '10px' : '0px 10px 10px 10px';
 });
-
-// mock -> after data from backend
-//@ts-ignore
-const boards = ref<Board[]>([
-  { _id: '0', name: 'Startup Program', users: [], status: 'work', color: '#a1612a' },
-  { _id: '1', name: 'Integrations', users: [], status: 'closed', color: '#45ad2d' }
-]);
 </script>
 
 <template>

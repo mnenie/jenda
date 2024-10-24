@@ -10,7 +10,7 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded();
 </script>
 
 <template>
-  <div :class="$style.container" :style="{ padding: isExpanded ? '10px 14px' : '16px 0 17px 0' }">
+  <div :class="$style.container" :style="{ padding: isExpanded ? '12px 14px 10px 14px' : '14px 0 21px 0' }">
     <div :class="$style.chooser" :style="{ justifyContent: isExpanded ? 'space-between' : 'center' }">
       <div v-show="isExpanded" :class="$style.name_wrapper">
         <img :class="$style.logo" src="/icons/kanban.png" />

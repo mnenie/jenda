@@ -8,6 +8,7 @@ import { useLocalStorage } from '@vueuse/core';
 import { RouteNames } from '@/shared/config/consts';
 import { useWindowSize } from '@vueuse/core';
 import { useExpanded } from '@/shared/lib/composables';
+import type { Board } from '@/entities/board';
 
 const { width } = useWindowSize();
 
@@ -44,6 +45,13 @@ createExpandedContext({
   isExpanded,
   onToggleArea
 });
+
+// mock -> after data from backend
+//@ts-ignore
+const boards = ref<Board[]>([
+  { _id: '0', name: 'Startup Program', users: [], status: 'work', color: '#a1612a' },
+  { _id: '1', name: 'Integrations', users: [], status: 'closed', color: '#45ad2d' }
+]);
 </script>
 
 <template>
@@ -54,14 +62,14 @@ createExpandedContext({
       :size="widthSidebar"
       :style="{ transition: transitionFl && 'width .2s ease-out' }"
     >
-      <AppSidebar />
+      <AppSidebar :boards />
     </Pane>
     <Pane :size="widthMainContainer">
       <div :class="$style.main_part">
-        <HeaderMain />
+        <HeaderMain :projects="boards" />
         <div
           :class="$style.slot_wrapper"
-          :style="{ padding: $route.name !== RouteNames.board ? '30px 45px' : '0' }"
+          :style="{ padding: $route.name !== RouteNames.board ? '20px 20px 20px 30px' : '0' }"
         >
           <slot />
         </div>
@@ -86,7 +94,6 @@ createExpandedContext({
     .slot_wrapper {
       background-color: var(--main-slotted);
       position: relative;
-      padding: 30px 45px;
       height: 100%;
       width: 100%;
     }
