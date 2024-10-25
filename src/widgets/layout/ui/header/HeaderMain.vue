@@ -2,7 +2,7 @@
 import { computed, shallowReactive, toRef } from 'vue';
 import { useLayoutPaths } from '@/shared/lib/composables';
 import UserMenu from './UserMenu.vue';
-import { Eyes, Plus } from '@/shared/assets/icons';
+import { Project, Plus } from '@/shared/assets/icons';
 import { UserAvatar, type User } from '@/entities/user';
 import { links } from '../../model';
 import type { Board } from '@/entities/board';
@@ -39,7 +39,8 @@ const { active } = useLayoutPaths(links, _projects);
 <template>
   <header :class="$style.header">
     <div :class="$style.about">
-      <Eyes />
+      <component :is="active?.icon" :class="$style.icon_main" />
+      <Project v-if="active.color" :style="{ color: active.color, fontSize: '20px' }" />
       <p v-if="active" class="text-lg">{{ active.name }}</p>
     </div>
     <div />
@@ -78,10 +79,15 @@ const { active } = useLayoutPaths(links, _projects);
   width: 100%;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
+  .icon_main {
+    color: var(--zinc-800);
+    font-size: 20px;
+  }
+
   .about {
     display: inline-flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 
     & > p {
       margin-top: 1.5px;
@@ -130,7 +136,9 @@ const { active } = useLayoutPaths(links, _projects);
 :global(html.dark) {
   .header {
     border-color: var(--dark-border);
-
+    .icon_main{
+      color: var(--zinc-200);
+    }
     .about {
       & > p {
         color: var(--zinc-100);

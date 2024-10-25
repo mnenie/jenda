@@ -9,14 +9,13 @@ defineProps<{
 
 <template>
   <div :class="$style.item">
-    <div :class="$style.img_wrapper">
-      <img :src="template.img" :alt="template.title" />
-    </div>
     <div :class="$style.main_content">
-      <UiBadge :variant="'secondary'" style="margin-bottom: 12px">{{ template.tag }}</UiBadge>
+      <UiBadge variant="outline" style="margin-bottom: 12px">
+        {{ template.tag }}
+      </UiBadge>
       <div :class="$style.text">
-        <p class="text-base" style="font-weight: 500">{{ template.title }}</p>
-        <span>{{ template.description }}</span>
+        <p class="text-sm">{{ template.title }}</p>
+        <span class="text-xs">{{ template.description }}</span>
       </div>
       <div :class="$style.bottom">
         <span class="text-xs">{{ template.date }}</span>
@@ -42,31 +41,24 @@ defineProps<{
   align-items: flex-start;
   @include transition;
 
-  &:hover {
-    border: 1px solid var(--purple-main);
-  }
-
-  .img_wrapper {
-    width: 100%;
-    height: 130px;
-    border-radius: 10px 10px 0 0;
-    border-bottom: 1px solid var(--zinc-200);
-
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
   .main_content {
-    padding: 15px;
+    padding: 8px 12px;
     width: 100%;
 
     .text {
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      margin-bottom: 15px;
+      gap: 6px;
+      margin-bottom: 12px;
+
+      & > span {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+      }
     }
 
     & span {

@@ -18,7 +18,7 @@ const templates = computed(() => {
   }));
 });
 
-const gridVariant = computed(() => (isExpanded.value ? 'repeat(4, 1fr)' : 'repeat(5, 1fr)'));
+const gridVariant = computed(() => (isExpanded.value ? 'repeat(5, 1fr)' : 'repeat(6, 1fr)'));
 </script>
 
 <template>

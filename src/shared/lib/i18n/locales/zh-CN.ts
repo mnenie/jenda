@@ -50,6 +50,7 @@ export default {
   templates: {
     title: '模板',
     description: '选择一个可用模板来创建您的项目',
+    import: '点击或拖拽文件导入。支持文件',
     user: '创建者',
     items: [
       {

@@ -15,12 +15,14 @@ export function useLayoutPaths(
     return [
       ...toValue(links).map((link) => ({
         ...link,
-        name: t(`sidebar.${link.name}`)
+        name: t(`sidebar.${link.name}`),
+        icon: link.icon
       })),
       ...toValue(projects).map((project) => ({
         _id: project._id,
         name: project.name,
-        pathName: `/board/${project._id}`
+        pathName: `/board/${project._id}`,
+        color: project.color
       }))
     ];
   });
@@ -40,7 +42,13 @@ export function useLayoutPaths(
 
   const active = computed(() => {
     const activeItem = toValue(combinedArr).find((item) => isCurrentPath(item));
-    return { ...activeItem, name: activeItem!.name };
+    return {
+      ...activeItem,
+      name: activeItem!.name,
+      // Проверим на наличие color или icon
+      color: 'color' in activeItem! ? activeItem.color : undefined,
+      icon: 'icon' in activeItem! ? activeItem.icon : undefined
+    };
   });
 
   return {

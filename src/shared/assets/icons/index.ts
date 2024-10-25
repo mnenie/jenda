@@ -3,5 +3,6 @@ import ProjectGrid from './ProjectGrid.vue';
 
 export * from './header';
 export * from './_basic';
+export * from './sidebar';
 
 export { ProjectGrid, ArrowsDouble };

@@ -50,6 +50,7 @@ export default {
   templates: {
     title: 'Templates',
     description: 'Choose one of the available templates to create your project',
+    import: 'Click or drag files to import. Supports files',
     user: 'creator',
     items: [
       {
