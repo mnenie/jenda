@@ -39,8 +39,8 @@ const { active } = useLayoutPaths(links, _projects);
 <template>
   <header :class="$style.header">
     <div :class="$style.about">
-      <component :is="active?.icon" :class="$style.icon_main" />
-      <Project v-if="active.color" :style="{ color: active.color, fontSize: '20px' }" />
+      <component :is="active?.extendedAttrs.icon" :class="$style.icon_main" />
+      <Project v-if="active.extendedAttrs.color" :style="{ color: active.extendedAttrs.color, fontSize: '20px' }" />
       <p v-if="active" class="text-lg">{{ active.name }}</p>
     </div>
     <div />

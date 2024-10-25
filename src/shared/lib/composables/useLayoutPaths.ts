@@ -45,9 +45,10 @@ export function useLayoutPaths(
     return {
       ...activeItem,
       name: activeItem!.name,
-      // Проверим на наличие color или icon
-      color: 'color' in activeItem! ? activeItem.color : undefined,
-      icon: 'icon' in activeItem! ? activeItem.icon : undefined
+      extendedAttrs: {
+        color: 'color' in activeItem! ? activeItem.color : undefined,
+        icon: 'icon' in activeItem! ? activeItem.icon : undefined
+      }
     };
   });
 

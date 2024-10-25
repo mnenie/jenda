@@ -164,8 +164,8 @@ export default {
   kanban: {
     sorting: {
       all: 'Все задачи',
-      activity: 'По активности',
-      workload: 'По нагрузке'
+      activity: 'Aктивность',
+      workload: 'Нагрузка'
     },
     statuses: ['в работе', 'в архиве', 'закрыто'],
     new: 'Добавить новую колонку',

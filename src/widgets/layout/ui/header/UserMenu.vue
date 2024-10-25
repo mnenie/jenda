@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { UiDropdown, UiDropdownItem, UiDropdownShortcut } from '@/shared/ui';
 import { RouteNames } from '@/shared/config/consts';
-import MenuIcon from '@/shared/assets/icons/_basic/menu.svg?component';
+import { Menu } from '@/shared/assets/icons';
 </script>
 
 <template>
-  <UiDropdown >
+  <UiDropdown>
     <template #trigger>
-      <MenuIcon :class="$style.icon" />
+      <div :class="$style.wrapper">
+        <Menu :class="$style.icon" />
+      </div>
     </template>
     <template #header>
       <span class="text-sm" style="font-weight: 500">test@gmail.com</span>
@@ -26,6 +28,10 @@ import MenuIcon from '@/shared/assets/icons/_basic/menu.svg?component';
 </template>
 
 <style module lang="scss">
+.wrapper {
+  height: 17px;
+}
+
 .icon {
   width: 17px;
   height: 17px;
@@ -33,7 +39,7 @@ import MenuIcon from '@/shared/assets/icons/_basic/menu.svg?component';
   cursor: pointer;
 }
 
-:global(html.dark){
+:global(html.dark) {
   .icon {
     color: var(--zinc-300);
   }

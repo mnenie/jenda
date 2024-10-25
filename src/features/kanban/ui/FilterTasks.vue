@@ -25,7 +25,7 @@ const filter = computed({
     }
   }
 });
-const width = computed(() => (locale.value === 'ru-RU' ? '168px' : '152px'));
+const width = computed(() => (locale.value === 'ru-RU' ? '170px' : '166px'));
 </script>
 
 <template>
