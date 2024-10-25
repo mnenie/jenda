@@ -2,7 +2,7 @@
 import { computed, toRef } from 'vue';
 import { refDebounced, createReusableTemplate } from '@vueuse/core';
 import { UiBadge, UiButton } from '@/shared/ui';
-import PlanIcon from '@/shared/assets/icons/sidebar/plan.svg?component';
+import { Plan } from '@/shared/assets/icons';
 
 const props = defineProps<{
   isExpanded: boolean;
@@ -49,7 +49,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
     <UiBadge variant="outline" :class="$style.badge">
       <div>
-        <PlanIcon />
+        <Plan />
         1/3
       </div>
     </UiBadge>
@@ -112,12 +112,12 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
   }
 }
 
-:global(html.dark){
-  .card{
+:global(html.dark) {
+  .card {
     background-color: var(--zinc-700);
     border-color: var(--zinc-600);
 
-    .content{
+    .content {
       & > p {
         color: var(--zinc-100);
       }

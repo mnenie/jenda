@@ -3,9 +3,7 @@ import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { UiButton } from '@/shared/ui';
 import type { Board } from '@/entities/board';
-import PlusIcon from '@/shared/assets/icons/_basic/plus.svg?component';
-import ArrowIcon from '@/shared/assets/icons/_basic/arrow.svg?component';
-import ProjectIcon from '@/shared/assets/icons/sidebar/project.svg?component';
+import { Arrow, Plus, Project } from '@/shared/assets/icons';
 
 const props = defineProps<{
   boards: Board[];
@@ -36,7 +34,7 @@ function changeShowList() {
 <template>
   <div :class="$style.about" @mouseover="showPlusIcon = true" @mouseleave="showPlusIcon = false">
     <div :class="$style.name">
-      <ArrowIcon
+      <Arrow
         v-show="isExpanded"
         :class="$style.icon"
         :style="{ transform: !showList ? 'rotate(-90deg)' : '' }"
@@ -44,7 +42,7 @@ function changeShowList() {
       />
       <p class="text-sm" :class="$style.section">{{ $t('sidebar.projects') }}</p>
     </div>
-    <PlusIcon v-show="isExpanded && showPlusIcon" :class="$style.icon" style="font-size: 16px" />
+    <Plus v-show="isExpanded && showPlusIcon" :class="$style.icon" style="font-size: 16px" />
   </div>
   <div v-if="showList" :class="$style.sidebar_projects">
     <RouterLink
@@ -63,7 +61,7 @@ function changeShowList() {
         :class="$style.proj_btn"
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
-        <ProjectIcon :class="$style.project_indicator" :style="{ color: project.color }" />
+        <Project :class="$style.project_indicator" :style="{ color: project.color }" />
         <span v-show="isExpanded" class="text-sm">{{ project.name }}</span>
       </UiButton>
     </RouterLink>

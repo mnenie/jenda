@@ -2,11 +2,7 @@ import { h, markRaw } from 'vue';
 import type { Link } from './types';
 import { RouteNames } from '@/shared/config/consts';
 
-import Kanban from '@/shared/assets/icons/sidebar/kanban.svg?component';
-import Templates from '@/shared/assets/icons/sidebar/templates.svg?component';
-import Analytics from '@/shared/assets/icons/sidebar/analytics.svg?component';
-import Members from '@/shared/assets/icons/sidebar/members.svg?component';
-import Settings from '@/shared/assets/icons/sidebar/settings.svg?component';
+import { Kanban, Templates, Analytics, Members, Settings } from '@/shared/assets/icons';
 
 export const links = markRaw<Link[]>([
   { id: 0, name: 'boards', pathName: RouteNames.boards, icon: h(Kanban) },

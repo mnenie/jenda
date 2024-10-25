@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useExpanded } from '@/shared/lib/composables';
 import { ChevronDown } from 'lucide-vue-next';
-import PaneArrow from '@/shared/assets/icons/sidebar/pane-arrow.svg?component';
-import ArrowExpanded from '@/shared/assets/icons/sidebar/arrow-expanded.svg?component';
+import { PaneArrow, ArrowExpanded } from '@/shared/assets/icons';
 
 const expandedComposable = useExpanded();
 
