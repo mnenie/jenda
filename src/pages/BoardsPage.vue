@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
-import { ActivityСharts, TeamBoards } from '@/widgets/boards';
+import { TeamBoards } from '@/widgets/boards';
 
 useHead({
   title: 'Jenda - cloud program for project and task management'
@@ -10,7 +10,6 @@ useHead({
 <template>
   <div :class="$style.boards">
     <TeamBoards />
-    <ActivityСharts />
   </div>
 </template>
 

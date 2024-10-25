@@ -5,12 +5,12 @@ import MenuIcon from '@/shared/assets/icons/_basic/menu.svg?component';
 </script>
 
 <template>
-  <UiDropdown style="height: 17px;" >
+  <UiDropdown >
     <template #trigger>
       <MenuIcon :class="$style.icon" />
     </template>
     <template #header>
-      <span class="text-sm" style="font-weight: 500">1alexpeshkov@gmail.com</span>
+      <span class="text-sm" style="font-weight: 500">test@gmail.com</span>
     </template>
     <template #content>
       <UiDropdownItem @click="$router.push({ name: RouteNames.welcome })">
