@@ -24,7 +24,7 @@ import { FileImport } from '@/shared/assets/icons';
   background-color: var(--zinc-50);
   border: 1px dashed var(--zinc-200);
   border-radius: 6px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   cursor: pointer;
 
   .icon {

@@ -17,9 +17,10 @@ export default {
     }
   },
   header: {
-    upgrade: '升级到“专业版”',
-    collaboration: '邀请成员',
-    name: '测试工作区',
+    navigator: {
+      question: '快捷键',
+      messages: '消息'
+    },
     user: {
       welcome: '前往欢迎页面',
       logout: '登出'

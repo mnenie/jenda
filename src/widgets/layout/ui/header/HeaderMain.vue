@@ -2,10 +2,10 @@
 import { computed, shallowReactive, toRef } from 'vue';
 import { useLayoutPaths } from '@/shared/lib/composables';
 import UserMenu from './UserMenu.vue';
-import { Project, Plus } from '@/shared/assets/icons';
 import { UserAvatar, type User } from '@/entities/user';
 import { links } from '../../model';
 import type { Board } from '@/entities/board';
+import { Project, Plus, Massages, Question } from '@/shared/assets/icons';
 import type { ProjectLink } from '@/shared/config/types-shared';
 
 const props = defineProps<{
@@ -40,7 +40,10 @@ const { active } = useLayoutPaths(links, _projects);
   <header :class="$style.header">
     <div :class="$style.about">
       <component :is="active?.extendedAttrs.icon" :class="$style.icon_main" />
-      <Project v-if="active.extendedAttrs.color" :style="{ color: active.extendedAttrs.color, fontSize: '20px' }" />
+      <Project
+        v-if="active.extendedAttrs.color"
+        :style="{ color: active.extendedAttrs.color, fontSize: '20px' }"
+      />
       <p v-if="active" class="text-lg">{{ active.name }}</p>
     </div>
     <div />
@@ -62,6 +65,16 @@ const { active } = useLayoutPaths(links, _projects);
       <div :class="$style.add_user">
         <Plus :class="$style.icon" />
       </div>
+      <Massages
+        v-tooltip="{ content: $t('header.navigator.messages'), trigger: ['hover'], distance: 7 }"
+        :class="$style.ext_icon"
+        style="margin-right: 2px"
+      />
+      <Question
+        v-tooltip="{ content: $t('header.navigator.question'), trigger: ['hover'], distance: 7 }"
+        :class="$style.ext_icon"
+        style="margin-right: -1px;"
+      />
       <UserMenu />
     </div>
   </header>
@@ -122,13 +135,20 @@ const { active } = useLayoutPaths(links, _projects);
       border-radius: 50%;
       padding: 5.8px;
       box-shadow: 0 0 3.5px rgba(0, 0, 0, 0.12);
-      margin-right: 6px;
+      margin-right: 4px;
 
       .icon {
-        font-size: 17px;
+        font-size: 16px;
         color: var(--zinc-600);
         cursor: pointer;
       }
+    }
+
+    .ext_icon {
+      color: var(--zinc-600);
+      cursor: pointer;
+      font-size: 17.5px;
+      outline: none;
     }
   }
 }
@@ -136,7 +156,7 @@ const { active } = useLayoutPaths(links, _projects);
 :global(html.dark) {
   .header {
     border-color: var(--dark-border);
-    .icon_main{
+    .icon_main {
       color: var(--zinc-200);
     }
     .about {

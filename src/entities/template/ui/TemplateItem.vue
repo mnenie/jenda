@@ -29,6 +29,7 @@ defineProps<{
 @use '@/app/styles/mixins' as *;
 
 .item {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

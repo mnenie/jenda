@@ -17,9 +17,10 @@ export default {
     }
   },
   header: {
-    upgrade: 'Upgrade "Pro"',
-    collaboration: 'Invite members',
-    name: 'Test Workspace',
+    navigator: {
+      question: 'Hotkeys',
+      messages: 'Messages'
+    },
     user: {
       welcome: 'Go to Welcome',
       logout: 'Log out'

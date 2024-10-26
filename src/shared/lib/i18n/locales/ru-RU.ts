@@ -17,9 +17,10 @@ export default {
     }
   },
   header: {
-    upgrade: 'Обновите до "Pro"',
-    collaboration: 'Пригласить участников',
-    name: 'Тестовое рабочее пространство',
+    navigator: {
+      question: 'Хоткеи',
+      messages: 'Сообщения'
+    },
     user: {
       welcome: 'Перейти на главную',
       logout: 'Выйти'

@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { TemplateItem, templatesInfo } from '@/entities/template';
-import { useLocalStorage } from '@vueuse/core';
+import { useLocalStorage, useWindowSize } from '@vueuse/core';
 
 const { tm } = useI18n();
 const isExpanded = useLocalStorage('isExpanded', true);
@@ -18,7 +18,17 @@ const templates = computed(() => {
   }));
 });
 
-const gridVariant = computed(() => (isExpanded.value ? 'repeat(5, 1fr)' : 'repeat(6, 1fr)'));
+const { width } = useWindowSize();
+
+const gridVariant = computed(() =>
+  width.value >= 1730
+    ? isExpanded.value
+      ? 'repeat(5, 1fr)'
+      : 'repeat(6, 1fr)'
+    : isExpanded.value
+      ? 'repeat(4, 1fr)'
+      : 'repeat(4, 1fr)'
+);
 </script>
 
 <template>
@@ -31,7 +41,7 @@ const gridVariant = computed(() => (isExpanded.value ? 'repeat(5, 1fr)' : 'repea
 .container {
   display: grid;
   grid-template-columns: v-bind('gridVariant');
-  gap: 20px;
+  gap: 15px;
   width: 100%;
 }
 </style>
