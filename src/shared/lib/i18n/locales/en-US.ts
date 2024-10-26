@@ -63,7 +63,7 @@ export default {
       {
         title: 'Roadmap',
         tag: 'New',
-        description: 'Create a project based on our "Roadmap" template',
+        description: 'Create a project based on our "Roadmap" special template',
         date: 'June 18, 2024'
       },
       {
@@ -98,6 +98,16 @@ export default {
     btns: {
       leave: 'Leave',
       view: 'View the boards'
+    }
+  },
+  analytics: {
+    title: 'Workspace Analytics',
+    description: 'View and analyze your activity on Jenda',
+    charts: {
+      users: {
+        name: 'Total users',
+        description: 'Number of users in the workspace'
+      }
     }
   },
   settings: {

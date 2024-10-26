@@ -99,6 +99,16 @@ export default {
       view: '查看白板'
     }
   },
+  analytics: {
+    title: '工作区分析',
+    description: '查看并分析您在 Jenda 上的活动',
+    charts: {
+      users: {
+        name: '用户数量',
+        description: '工作区中的用户数量'
+      }
+    }
+  },
   settings: {
     title: '设置',
     description: '管理您的帐户设置和设定一些偏好。',
