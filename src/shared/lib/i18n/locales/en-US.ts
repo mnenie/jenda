@@ -109,8 +109,7 @@ export default {
         description: 'Number of users in the workspace'
       },
       online: {
-        name: 'Workspace activity',
-        description: 'Your workspace online by month'
+        name: 'Workspace activity'
       },
       tasks: {
         name: 'Total tasks'

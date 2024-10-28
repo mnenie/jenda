@@ -108,8 +108,7 @@ export default {
         description: '工作区中的用户数量'
       },
       online: {
-        name: '工作区活动',
-        description: '您的工作区每月在线活动'
+        name: '工作区活动'
       },
       tasks: {
         name: '任务数量'
