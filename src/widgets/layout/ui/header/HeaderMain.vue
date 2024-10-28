@@ -172,6 +172,9 @@ const { active } = useLayoutPaths(links, _projects);
           color: var(--zinc-300);
         }
       }
+      .ext_icon{
+        color: var(--zinc-300);
+      }
     }
   }
 }

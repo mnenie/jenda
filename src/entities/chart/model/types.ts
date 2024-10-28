@@ -1,8 +1,4 @@
-import type { MaybeRefOrGetter } from 'vue';
-
 export interface Chart {
-  key: 'users' | 'boards' | 'tasks';
-  config: any;
+  key: 'users' | 'boards' | 'tasks' | 'online';
   section: string;
-  dataset: MaybeRefOrGetter;
 }

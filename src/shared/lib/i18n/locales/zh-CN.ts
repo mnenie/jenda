@@ -106,6 +106,16 @@ export default {
       users: {
         name: '用户数量',
         description: '工作区中的用户数量'
+      },
+      online: {
+        name: '工作区活动',
+        description: '您的工作区每月在线活动'
+      },
+      tasks: {
+        name: '任务数量'
+      },
+      boards: {
+        name: '看板数量'
       }
     }
   },

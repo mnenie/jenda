@@ -1,5 +1,27 @@
 <script setup lang="ts">
-import { UsersChart } from '@/widgets/analytics';
+import { computed } from 'vue';
+import { useBreakpoints, breakpointsSematic } from '@vueuse/core';
+import { useHead } from '@unhead/vue';
+import { BoardsChart, OnlineChart, TasksChart, UsersChart } from '@/widgets/analytics';
+
+useHead({
+  title: 'Jenda | Analytics'
+});
+
+const breakpoints = useBreakpoints({
+  ...breakpointsSematic,
+  intermediateDesktop: 1820,
+  intermediateLaptop: 1600
+});
+
+const containerWith = computed(() => {
+  if (breakpoints.greaterOrEqual('intermediateDesktop').value) return '600px';
+  if (breakpoints.between('intermediateLaptop', 'intermediateDesktop').value) return '500px';
+  if (breakpoints.between('laptop', 'intermediateLaptop').value) return '400px';
+  return undefined;
+});
+
+console.log(breakpoints.active().value);
 </script>
 
 <template>
@@ -7,7 +29,14 @@ import { UsersChart } from '@/widgets/analytics';
     <p class="text-sm">{{ $t('analytics.description') }}</p>
   </div>
   <div :class="$style.charts">
-    <UsersChart />
+    <div :class="$style.charts_container" :style="{ maxWidth: containerWith }">
+      <UsersChart />
+      <TasksChart />
+    </div>
+    <div :class="$style.charts_container">
+      <OnlineChart />
+      <BoardsChart />
+    </div>
   </div>
 </template>
 
@@ -24,9 +53,16 @@ import { UsersChart } from '@/widgets/analytics';
 }
 
 .charts {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  display: flex;
+  padding: 0 10px 0 0;
+  gap: 20px;
+
+  .charts_container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 20px;
+  }
 }
 
 :global(html.dark) {

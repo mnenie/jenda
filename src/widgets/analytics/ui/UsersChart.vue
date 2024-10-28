@@ -1,31 +1,35 @@
 <script lang="ts" setup>
-import { ChartItemWrapper, type Chart } from '@/entities/chart';
-import { ref, shallowReactive } from 'vue';
+import { computed, markRaw, ref } from 'vue';
+import { useWindowSize } from '@vueuse/core';
 import { VueUiKpi } from 'vue-data-ui';
+import { ChartItemWrapper, type Chart } from '@/entities/chart';
 
-const config = ref({
+const { width } = useWindowSize();
+
+const chartHeight = computed(() => (width.value >= 1912 ? '80px' : undefined));
+const fontSizeChart = computed(() => (width.value >= 1500 ? 30 : 25));
+
+const config = computed(() => ({
   animationFrames: 40,
   animationValueStart: 0,
   prefix: '~',
   useAnimation: true,
   valueBold: true,
-  valueFontSize: 30,
+  valueFontSize: fontSizeChart.value,
   valueRounding: 0,
   formatter: null
-});
+}));
 
 const dataset = ref(20);
 
-const chart = shallowReactive<Chart>({
+const chart = markRaw<Chart>({
   key: 'users',
   section: 'workspace',
-  config: config.value,
-  dataset: dataset.value
 });
 </script>
 
 <template>
-  <ChartItemWrapper :chart>
-    <VueUiKpi :config="chart.config" :dataset="chart.dataset" />
+  <ChartItemWrapper :chart width="600px">
+    <VueUiKpi :config="config" :dataset="dataset" />
   </ChartItemWrapper>
 </template>
