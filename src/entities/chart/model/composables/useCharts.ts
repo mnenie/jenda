@@ -11,14 +11,14 @@ export function useCharts() {
 
   const chartOnlineInWorkspaceValue = computed(() => {
     if (isBetweenIntermediateDesktopAnd4K) {
-      return isExpanded.value ? 7 : 6;
+      return isExpanded.value ? 7.7 : 6.5;
     }
     return isExpanded.value ? 10 : 8;
   });
 
   const chartBoardsValue = computed(() => {
     if (isBetweenIntermediateDesktopAnd4K) {
-      return isExpanded.value ? 9 : 8;
+      return isExpanded.value ? 10 : 9;
     }
     return isExpanded.value ? 13 : 11;
   });
