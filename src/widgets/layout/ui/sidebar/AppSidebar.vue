@@ -46,7 +46,7 @@ const paddingExpanded = computed(() => {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   background-color: var(--sidebar-bg-color);
   user-select: none;
-  border-right: 1.5px solid var(--zinc-200);
+  border-right: 1px solid var(--zinc-200);
 
   .content {
     height: 100%;

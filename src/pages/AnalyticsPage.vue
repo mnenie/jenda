@@ -1,18 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useBreakpoints, breakpointsSematic } from '@vueuse/core';
 import { useHead } from '@unhead/vue';
-import { BoardsChart, OnlineChart, TasksChart, UsersChart } from '@/widgets/analytics';
+import { useBreakpoints } from '@/shared/lib/composables';
+import { BoardsChart, OnlineChart, TasksChart, UsersChart, SharedSection } from '@/widgets/analytics';
+import { UiBadge } from '@/shared/ui';
 
 useHead({
   title: 'Jenda | Analytics'
 });
 
-const breakpoints = useBreakpoints({
-  ...breakpointsSematic,
-  intermediateDesktop: 1820,
-  intermediateLaptop: 1600
-});
+const { breakpoints } = useBreakpoints();
 
 const containerWith = computed(() => {
   if (breakpoints.greaterOrEqual('intermediateDesktop').value) return '600px';
@@ -20,32 +17,51 @@ const containerWith = computed(() => {
   if (breakpoints.between('laptop', 'intermediateLaptop').value) return '400px';
   return undefined;
 });
-
-console.log(breakpoints.active().value);
 </script>
 
 <template>
-  <div :class="$style.section_about">
-    <p class="text-sm">{{ $t('analytics.description') }}</p>
-  </div>
-  <div :class="$style.charts">
-    <div :class="$style.charts_container" :style="{ maxWidth: containerWith }">
-      <UsersChart />
-      <TasksChart />
+  <div :class="$style.container">
+    <div :class="$style.section_about">
+      <p class="text-sm">{{ $t('analytics.description') }}</p>
     </div>
-    <div :class="$style.charts_container">
-      <OnlineChart />
-      <BoardsChart />
+    <div :class="$style.section_badges">
+      <UiBadge v-for="(badge, _) in $tm('analytics.badges')" :key="_" variant="outline">
+        {{ badge }}
+      </UiBadge>
     </div>
+    <div :class="$style.charts">
+      <div :class="$style.charts_container" :style="{ maxWidth: containerWith }">
+        <TasksChart />
+        <UsersChart />
+      </div>
+      <div :class="$style.charts_container">
+        <OnlineChart />
+        <BoardsChart />
+      </div>
+    </div>
+    <SharedSection />
   </div>
 </template>
 
 <style module lang="scss">
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+
+  .section_badges {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+}
+
 .section_about {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 
   & > p {
     color: var(--zinc-500);

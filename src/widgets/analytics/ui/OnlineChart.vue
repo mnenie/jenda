@@ -1,21 +1,33 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, markRaw, ref } from 'vue';
 import { useDark } from '@vueuse/core';
 import { VueUiSparkHistogram } from 'vue-data-ui';
 import { ChartItemWrapper, type Chart } from '@/entities/chart';
+import { useCharts } from '@/entities/chart/model/composables';
 
 const isDark = useDark();
 
-const valuesColor = computed(() => isDark.value ? '#a1a1aa' : '#52525b')
+const valuesColor = computed(() => (isDark.value ? '#a1a1aa' : '#52525b'));
+
+const { chartOnlineInWorkspaceValue } = useCharts();
+
+const timeLabels = computed(() => chartOnlineInWorkspaceValue.value - 1);
 
 const config = computed(() => ({
   style: {
-    fontFamily: '',
     backgroundColor: 'transparent',
     animation: { show: true, speedMs: 437 },
-    layout: { height: 60, width: 646, padding: { top: 15, right: 0, bottom: 12, left: 0 } },
+    layout: { height: 60, width: 646, padding: { top: 15, right: 0, bottom: 18, left: 0 } },
     bars: {
-      shape: 'square' as "square" | "circle" | "triangle" | "diamond" | "pentagon" | "hexagon" | "star" | undefined,
+      shape: 'square' as
+        | 'square'
+        | 'circle'
+        | 'triangle'
+        | 'diamond'
+        | 'pentagon'
+        | 'hexagon'
+        | 'star'
+        | undefined,
       strokeWidth: 0,
       colors: { positive: '#538BF3', gradient: { show: false } },
       borderRadius: 24,
@@ -23,7 +35,7 @@ const config = computed(() => ({
     },
     labels: {
       value: {
-        fontSize: 8,
+        fontSize: chartOnlineInWorkspaceValue.value,
         color: valuesColor.value,
         bold: false,
         rounding: 1,
@@ -32,9 +44,9 @@ const config = computed(() => ({
         offsetY: 0,
         formatter: null
       },
-      timeLabel: { fontSize: 6, color: valuesColor.value, bold: false }
+      timeLabel: { fontSize: timeLabels.value, color: valuesColor.value, bold: false }
     },
-    selector: { stroke: '#52525b', strokeWidth: 0, strokeDasharray: 3, borderRadius: 2 },
+    selector: { stroke: '#52525b', strokeWidth: 0, strokeDasharray: 3, borderRadius: 2 }
   }
 }));
 
@@ -55,7 +67,7 @@ const dataset = ref([
 
 const chart = markRaw<Chart>({
   key: 'online',
-  section: 'workspace',
+  section: 'workspace'
 });
 </script>
 

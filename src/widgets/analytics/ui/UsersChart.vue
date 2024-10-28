@@ -1,12 +1,20 @@
 <script lang="ts" setup>
 import { computed, markRaw, ref } from 'vue';
 import { useWindowSize } from '@vueuse/core';
+import { useBreakpoints } from '@/shared/lib/composables';
 import { VueUiKpi } from 'vue-data-ui';
 import { ChartItemWrapper, type Chart } from '@/entities/chart';
 
 const { width } = useWindowSize();
 
-const chartHeight = computed(() => (width.value >= 1912 ? '80px' : undefined));
+const { breakpoints } = useBreakpoints();
+
+const chartHeight = computed(() => {
+  if (breakpoints.between('intermediateLaptop', 'intermediateDesktop').value) {
+    return '120px';
+  }
+  return '80px';
+});
 const fontSizeChart = computed(() => (width.value >= 1500 ? 30 : 25));
 
 const config = computed(() => ({
@@ -24,12 +32,12 @@ const dataset = ref(20);
 
 const chart = markRaw<Chart>({
   key: 'users',
-  section: 'workspace',
+  section: 'workspace'
 });
 </script>
 
 <template>
-  <ChartItemWrapper :chart width="600px">
+  <ChartItemWrapper :chart width="600px" :height="chartHeight">
     <VueUiKpi :config="config" :dataset="dataset" />
   </ChartItemWrapper>
 </template>

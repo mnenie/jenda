@@ -15,7 +15,7 @@ defineProps<{
 </script>
 
 <template>
-  <div v-bind="$attrs" :class="$style.container" :style="{ maxWidth: width, height }">
+  <div :class="$style.container" :style="{ maxWidth: width, height }">
     <div :class="$style.top_part">
       <div :class="$style.title">
         <p class="text-sm">{{ $t(`analytics.charts.${chart.key}.name`) }}</p>
@@ -25,7 +25,9 @@ defineProps<{
       </div>
       <Menu :class="$style.icon" />
     </div>
-    <slot />
+    <div :class="$style.slot_content">
+      <slot />
+    </div>
     <span v-if="chart.key === 'users'" class="text-xs">
       {{ $t(`analytics.charts.${chart.key}.description`) }}
     </span>
@@ -82,6 +84,14 @@ defineProps<{
   & > span {
     color: var(--zinc-500);
   }
+}
+
+.slot_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 :global(html.dark) {

@@ -89,6 +89,7 @@ const boards = ref<Board[]>([
   .main_part {
     display: flex;
     flex-direction: column;
+    overflow: auto;
     height: 100%;
 
     .slot_wrapper {

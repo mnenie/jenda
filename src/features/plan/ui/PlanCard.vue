@@ -115,7 +115,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 :global(html.dark) {
   .card {
     background-color: var(--zinc-700);
-    border-color: var(--zinc-600);
+    border-color: var(--zinc-700);
 
     .content {
       & > p {

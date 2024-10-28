@@ -117,6 +117,11 @@ export default {
       boards: {
         name: '看板数量'
       }
+    },
+    badges: ['方便', '信息丰富', '随时'],
+    share: {
+      btn: '分享',
+      description: '您可以轻松地截图并将其发送给任何人。'
     }
   },
   settings: {

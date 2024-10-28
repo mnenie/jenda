@@ -82,6 +82,11 @@ const { active } = useLayoutPaths(links, _projects);
 
 <style module lang="scss">
 .header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -90,7 +95,7 @@ const { active } = useLayoutPaths(links, _projects);
   height: 48px;
   border-bottom: 1px solid var(--zinc-200);
   width: 100%;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  // box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
   .icon_main {
     color: var(--zinc-800);

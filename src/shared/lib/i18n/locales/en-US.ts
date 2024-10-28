@@ -118,6 +118,11 @@ export default {
       boards: {
         name: 'Total boards'
       }
+    },
+    badges: ['Convenient', 'Informative', 'Anytime'],
+    share: {
+      btn: 'Share',
+      description: 'you can easily take a screenshot and send it to anyone'
     }
   },
   settings: {

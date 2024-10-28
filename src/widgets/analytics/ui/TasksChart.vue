@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { computed, markRaw, ref } from 'vue';
 import { useDark } from '@vueuse/core';
+import { useCharts } from '@/entities/chart/model/composables';
 import { VueUiDonut } from 'vue-data-ui';
 import { ChartItemWrapper, type Chart } from '@/entities/chart';
 
 const isDark = useDark();
 
 const mainColor = computed(() => isDark.value ? '#d4d4d8' : '#18181b')
+
+const { chartTasksValue } = useCharts();
+
+const nameSize = computed(() => chartTasksValue.value - 4);
 
 const config = computed(() => ({
   responsive: false,
@@ -38,14 +43,14 @@ const config = computed(() => ({
           percentage: {
             color: mainColor.value,
             bold: true,
-            fontSize: 12,
+            fontSize: chartTasksValue.value,
             rounding: 0,
             formatter: null
           },
           name: {
             color: '#71717a',
             bold: false,
-            fontSize: 12
+            fontSize: nameSize.value
           },
           hollow: {
             show: false,
@@ -87,7 +92,7 @@ const dataset = ref([
     name: 'Невыполненные',
     values: [10],
     color: '#d4d4d8'
-  }
+  },
 ]);
 
 const chart = markRaw<Chart>({
