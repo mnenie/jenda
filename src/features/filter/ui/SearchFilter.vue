@@ -1,20 +1,15 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
-import { UiInput, UiBadge } from '@/shared/ui';
+import { UiBadge, UiButton } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
-import useFilter from '../model/composables/useFilter';
 import { useExpanded } from '@/shared/lib/composables';
-
-const search = ref('');
-const input = ref<HTMLElement | null>(null);
 
 const isDark = useDark();
 
-const { getExpanded } = useExpanded();
+const expanded = useExpanded();
 
-const { isExpanded, onToggleArea: toggleExpaneded } = getExpanded();
-const { onToggleArea } = useFilter(input, isExpanded, toggleExpaneded);
+const { isExpanded } = expanded.getExpanded();
 
 const iconColor = computed(() => {
   if (isDark.value) {
@@ -27,19 +22,12 @@ const iconColor = computed(() => {
 
 <template>
   <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '20px' : '19px' }">
-    <Search
-      :class="[isExpanded ? $style.icon : $style.icon_no_expanded]"
-      :color="iconColor"
-      @click="onToggleArea"
-    />
-    <UiInput
-      v-show="isExpanded"
-      id="input"
-      ref="search-input"
-      v-model.trim="search"
-      :placeholder="$t('sidebar.input')"
-      :class="$style.input_filter"
-    />
+    <UiButton variant="ghost" :class="$style.search_filter">
+      <Search :class="[isExpanded ? $style.icon : $style.icon_no_expanded]" :color="iconColor" />
+      <span v-show="isExpanded" class="text-sm">
+        {{ $t('sidebar.input') }}
+      </span>
+    </UiButton>
     <UiBadge
       variant="secondary"
       :class="$style.badge"
@@ -57,16 +45,12 @@ const iconColor = computed(() => {
   height: 32px;
 
   .icon {
-    position: absolute;
-    left: 7px;
-    top: 50%;
-    transform: translateY(-50%);
     height: 16px;
     width: 16px;
+    margin-right: 10px;
   }
 
   .icon_no_expanded {
-    cursor: pointer;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -75,14 +59,17 @@ const iconColor = computed(() => {
     width: 16px;
   }
 
-  .input_filter {
-    padding-left: 32px;
-    padding-right: 40px;
-    border: none;
+  .search_filter {
     width: 100%;
+    justify-content: flex-start;
     height: 32px;
-    box-shadow: none;
-    font-weight: 500;
+    padding: 0 8px;
+    border-radius: 8px;
+
+    & > span {
+      font-weight: 500;
+      color: var(--zinc-700);
+    }
   }
 
   .badge {
@@ -100,9 +87,11 @@ const iconColor = computed(() => {
 
 :global(html.dark) {
   .search_container {
-    .input_filter {
-      background-color: transparent;
-      &::placeholder {
+    .search_filter {
+      &:hover {
+        background-color: var(--zinc-700);
+      }
+      & > span {
         color: var(--zinc-200);
       }
     }
