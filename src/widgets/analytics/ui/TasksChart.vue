@@ -4,10 +4,11 @@ import { useDark } from '@vueuse/core';
 import { useCharts } from '@/entities/chart/model/composables';
 import { VueUiDonut } from 'vue-data-ui';
 import { ChartItemWrapper, type Chart } from '@/entities/chart';
+import { useI18n } from 'vue-i18n';
 
 const isDark = useDark();
 
-const mainColor = computed(() => isDark.value ? '#d4d4d8' : '#18181b')
+const mainColor = computed(() => (isDark.value ? '#d4d4d8' : '#18181b'));
 
 const { chartTasksValue } = useCharts();
 
@@ -55,7 +56,7 @@ const config = computed(() => ({
           hollow: {
             show: false,
             total: {
-              show: false,
+              show: false
             },
             average: {
               show: false
@@ -65,44 +66,48 @@ const config = computed(() => ({
         donut: {
           strokeWidth: 64,
           borderWidth: 1,
-          useShadow: false,
+          useShadow: false
         }
       },
       comments: {
         show: false,
-        showInTooltip: true,
+        showInTooltip: true
       },
       legend: {
-        show: false,
+        show: false
       },
       tooltip: {
-        show: false,
+        show: false
       }
     }
   }
 }));
 
+const { tm } = useI18n();
+
+const dataNames = computed(() => tm('analytics.charts.tasks.dataset.names') as string[]);
+
 const dataset = ref([
   {
-    name: 'Выполненные',
+    name: dataNames.value[0],
     values: [22],
     color: '#538BF3'
   },
   {
-    name: 'Невыполненные',
+    name: dataNames.value[1],
     values: [10],
     color: '#d4d4d8'
-  },
+  }
 ]);
 
 const chart = markRaw<Chart>({
   key: 'tasks',
-  section: 'boards',
+  section: 'boards'
 });
 </script>
 
 <template>
   <ChartItemWrapper :chart width="600px">
-    <VueUiDonut :config="config" :dataset="dataset" style="padding-top: 0;" />
+    <VueUiDonut :config="config" :dataset="dataset" style="padding-top: 0" />
   </ChartItemWrapper>
 </template>

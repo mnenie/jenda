@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, useTemplateRef } from 'vue';
+import { computed, ref, useTemplateRef } from 'vue';
 import { useRouter } from 'vue-router';
 import { HippieNav } from '@noction/hippie-nav';
 import { SearchFilter } from '@/features/filter';
 import type { Board } from '@/entities/board';
 import { File } from '@/shared/assets/icons';
+import { useSearch } from '../../model/composables';
 
 const props = defineProps<{
   boards: Board[];
@@ -42,10 +43,16 @@ const actions = [
   }))
 ];
 
+const openFl = ref(false);
+const placeholder = ref('Search...');
+
 function openModal() {
   if (!hippieNav.value) return;
   hippieNav.value.openModal();
+  openFl.value = true;
 }
+
+useSearch(hippieNav, openFl, placeholder);
 </script>
 
 <template>

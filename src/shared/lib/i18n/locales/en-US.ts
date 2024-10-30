@@ -112,7 +112,10 @@ export default {
         name: 'Workspace activity'
       },
       tasks: {
-        name: 'Total tasks'
+        name: 'Total tasks',
+        dataset: {
+          names: ['Uncompleted', 'Completed']
+        }
       },
       boards: {
         name: 'Total boards'

@@ -111,7 +111,10 @@ export default {
         name: '工作区活动'
       },
       tasks: {
-        name: '任务数量'
+        name: '任务数量',
+        dataset: {
+          names: ['未完成', '已完成']
+        }
       },
       boards: {
         name: '看板数量'
