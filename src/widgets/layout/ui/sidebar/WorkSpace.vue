@@ -102,6 +102,12 @@ const iconColor = computed(() => {
       box-shadow: none;
       padding: 0 8px;
       transition: all 0.2s ease;
+      &:hover {
+        background-color: rgba(var(--zinc-rgb-200), 0.3);
+      }
+      &:focus {
+        background-color: rgba(231, 231, 231, 0.6);
+      }
 
       .icon {
         font-size: 17px;
@@ -123,7 +129,10 @@ const iconColor = computed(() => {
           color: var(--zinc-100);
         }
         &:hover {
-          background-color: var(--zinc-700);
+          background-color: rgba(var(--zinc-rgb-600), 0.3);
+        }
+        &:focus {
+          background-color: rgba(var(--zinc-rgb-600), 0.5);
         }
       }
     }

@@ -122,6 +122,12 @@ function changeShowList() {
       box-shadow: none;
       padding: 0 10px;
       transition: all 0.1s ease;
+      &:hover {
+        background-color: rgba(var(--zinc-rgb-200), 0.3);
+      }
+      &:focus {
+        background-color: rgba(231, 231, 231, 0.6);
+      }
 
       .project_indicator {
         width: 18px;
@@ -152,9 +158,9 @@ function changeShowList() {
 }
 
 :global(html.dark) {
-  .about{
-    .name{
-      .section{
+  .about {
+    .name {
+      .section {
         color: var(--zinc-300);
       }
     }
@@ -169,7 +175,10 @@ function changeShowList() {
           color: var(--zinc-100);
         }
         &:hover {
-          background-color: var(--zinc-700);
+          background-color: rgba(var(--zinc-rgb-600), 0.3);
+        }
+        &:focus {
+          background-color: rgba(var(--zinc-rgb-600), 0.5);
         }
       }
     }

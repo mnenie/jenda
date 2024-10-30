@@ -22,11 +22,24 @@ const iconColor = computed(() => {
     return !isExpanded.value ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
   }
 });
+
+const expandedFilterStyles = computed<Record<string, string>>(() => ({
+  backgroundColor: isDark.value ? '#262626' : 'rgba(var(--zinc-rgb-200), 0.1)',
+  boxShadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+  border: isDark.value ? '1px solid rgba(var(--zinc-rgb-600), 0.3)' : ''
+}));
+
+const alpha = computed(() => (isExpanded.value ? 0.3 : 0.35));
 </script>
 
 <template>
   <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '20px' : '19px' }">
-    <UiButton variant="ghost" :class="$style.search_filter" @click="emit('openModal')">
+    <UiButton
+      :variant="isExpanded ? 'outline' : 'ghost'"
+      :class="$style.search_filter"
+      :style="isExpanded ? expandedFilterStyles : null"
+      @click="emit('openModal')"
+    >
       <Search :class="[isExpanded ? $style.icon : $style.icon_no_expanded]" :color="iconColor" />
       <span v-show="isExpanded" class="text-sm">
         {{ $t('sidebar.input') }}
@@ -68,6 +81,11 @@ const iconColor = computed(() => {
     justify-content: flex-start;
     height: 32px;
     padding: 0 8px;
+    border-radius: 8px;
+    transition: justify-content, width, padding 0.2s ease;
+    &:hover {
+      background-color: rgba(var(--zinc-rgb-200), v-bind('alpha')) !important;
+    }
 
     & > span {
       font-weight: 500;
@@ -84,6 +102,9 @@ const iconColor = computed(() => {
     & span {
       color: var(--zinc-500);
       font-size: 10px;
+      &:first-child {
+        margin-right: 2px;
+      }
     }
   }
 }
@@ -92,7 +113,7 @@ const iconColor = computed(() => {
   .search_container {
     .search_filter {
       &:hover {
-        background-color: var(--zinc-700);
+        background-color: rgba(var(--zinc-rgb-600), 0.3) !important;
       }
       & > span {
         color: var(--zinc-200);
