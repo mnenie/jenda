@@ -133,18 +133,19 @@
     cursor: pointer;
     transition: 0.07s ease-in;
     transition-property: background-color;
+    color: var(--zinc-700);
 
     .highlighted {
       text-decoration-thickness: 2px;
       text-underline-offset: 2px;
     }
 
-    .title,
-    .type-icon {
-      color: var(--zinc-500);
+    .title {
+      color: var(--zinc-600);
+      text-transform: lowercase;
     }
 
-    .title {
+    .title, .type-icon  {
       font-size: 14px;
     }
 
@@ -156,8 +157,7 @@
     &.selected {
       background-color: var(--zinc-100);
 
-      .title,
-      .sub-title {
+      & > span {
         color: var(--zinc-600);
       }
       .type-icon {

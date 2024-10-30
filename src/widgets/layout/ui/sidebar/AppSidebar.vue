@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { links } from '../../model';
-import { SearchFilter } from '@/features/filter';
 import { PlanCard } from '@/features/plan';
 import WorkSpace from './WorkSpace.vue';
 import ProjectsList from './ProjectsList.vue';
 import type { Board } from '@/entities/board';
 import WorkspaceChooser from './WorkSpaceChooser.vue';
 import { useExpanded } from '@/shared/lib/composables';
+import SearchBox from './SearchBox.vue';
 
 defineProps<{
   boards: Board[]
@@ -27,7 +27,7 @@ const paddingExpanded = computed(() => {
     <WorkspaceChooser />
     <div :class="$style.content" :style="{ padding: paddingExpanded }">
       <div>
-        <SearchFilter />
+        <SearchBox :boards />
         <WorkSpace :links :is-expanded />
         <ProjectsList :boards :is-expanded />
       </div>

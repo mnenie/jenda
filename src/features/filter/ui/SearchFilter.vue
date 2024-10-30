@@ -5,6 +5,10 @@ import { UiBadge, UiButton } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
 import { useExpanded } from '@/shared/lib/composables';
 
+const emit = defineEmits<{
+  (e: 'openModal'): void;
+}>();
+
 const isDark = useDark();
 
 const expanded = useExpanded();
@@ -22,7 +26,7 @@ const iconColor = computed(() => {
 
 <template>
   <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '20px' : '19px' }">
-    <UiButton variant="ghost" :class="$style.search_filter">
+    <UiButton variant="ghost" :class="$style.search_filter" @click="emit('openModal')">
       <Search :class="[isExpanded ? $style.icon : $style.icon_no_expanded]" :color="iconColor" />
       <span v-show="isExpanded" class="text-sm">
         {{ $t('sidebar.input') }}
@@ -64,7 +68,6 @@ const iconColor = computed(() => {
     justify-content: flex-start;
     height: 32px;
     padding: 0 8px;
-    border-radius: 8px;
 
     & > span {
       font-weight: 500;
