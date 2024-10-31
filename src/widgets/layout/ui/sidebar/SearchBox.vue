@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, useTemplateRef } from 'vue';
+import { computed, nextTick, ref, useTemplateRef, watch, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 import { HippieNav } from '@noction/hippie-nav';
 import { SearchFilter } from '@/features/filter';
@@ -11,7 +11,7 @@ const props = defineProps<{
   boards: Board[];
 }>();
 
-const hippieNav = useTemplateRef<InstanceType<typeof HippieNav>>('hippieNav');
+const hippieNav = useTemplateRef<InstanceType<typeof HippieNav> | null>('hippieNav');
 
 const formattedBoards = computed(() => {
   return props.boards.map((board) => ({
@@ -46,13 +46,17 @@ const actions = [
 const openFl = ref(false);
 const placeholder = ref('Search...');
 
-function openModal() {
-  if (!hippieNav.value) return;
-  hippieNav.value.openModal();
-  openFl.value = true;
+async function openModal() {
+  // problem: @noction/hippie-nav is not expose the close modal function
+  await nextTick(() => {
+    if (!hippieNav.value) return;
+    hippieNav.value.openModal();
+  });
 }
 
 useSearch(hippieNav, openFl, placeholder);
+
+watchEffect(() => console.log(hippieNav.value));
 </script>
 
 <template>
