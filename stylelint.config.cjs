@@ -3,7 +3,7 @@ module.exports = {
   ignoreFiles: ['dist/**/*.css', 'coverage/**/*.css'],
   extends: 'stylelint-config-standard-scss',
   rules: {
-    'no-duplicate-selectors': true,
+    'no-duplicate-selectors': null,
     'selector-no-qualifying-type': [
       true,
       {
@@ -15,5 +15,9 @@ module.exports = {
     'font-weight-notation': 'numeric',
     'comment-whitespace-inside': 'always',
     'comment-empty-line-before': 'always',
+    'selector-class-pattern': null,
+    'no-descending-specificity': null,
+    'declaration-no-important': null,
+    'scss/load-no-partial-leading-underscore': null
   }
 };

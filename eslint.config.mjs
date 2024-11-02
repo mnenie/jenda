@@ -2,6 +2,7 @@ import pluginVue from 'eslint-plugin-vue';
 import vueTsEslintConfig from '@vue/eslint-config-typescript';
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
 import vitest from '@vitest/eslint-plugin';
+import storybook from 'eslint-plugin-storybook';
 import antfu from 'eslint-plugin-antfu';
 
 export default [
@@ -19,6 +20,7 @@ export default [
     }
   },
   ...pluginVue.configs['flat/recommended'],
+  ...storybook.configs['flat/recommended'],
   ...vueTsEslintConfig(),
   {
     rules: {

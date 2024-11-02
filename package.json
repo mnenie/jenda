@@ -1,6 +1,16 @@
 {
   "name": "jenda",
   "version": "0.0.0",
+  "license": "MIT",
+  "description": "Cloud-based task management app",
+  "author": "Alex Peshkov",
+  "keywords": [
+    "jenda",
+    "tasks",
+    "kanban",
+    "agile",
+    "collaboration"
+  ],
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,6 +21,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --fix",
+    "stylelint": "npx stylelint **/*.scss --fix",
     "format": "prettier --write src/",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
@@ -32,7 +43,6 @@
     "@vueuse/core": "^10.11.0",
     "@vueuse/integrations": "^10.10.0",
     "axios": "^1.7.2",
-    "chart.js": "^4.4.3",
     "floating-vue": "^5.2.2",
     "lucide-vue-next": "^0.396.0",
     "pinia": "^2.1.7",
@@ -71,7 +81,7 @@
     "eslint": "^9.13.0",
     "eslint-define-config": "^2.1.0",
     "eslint-plugin-antfu": "^2.7.0",
-    "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-storybook": "^0.10.2",
     "eslint-plugin-vue": "^9.29.0",
     "husky": "^9.0.11",
     "jsdom": "^24.1.0",
