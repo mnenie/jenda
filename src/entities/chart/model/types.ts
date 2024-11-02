@@ -1,8 +1,4 @@
-import type { Component } from 'vue';
-
 export interface Chart {
-  id: string;
-  titleKeyI18n: string;
-  descriptionKeyI18n: string;
-  chart: Component;
+  key: 'users' | 'boards' | 'tasks' | 'online';
+  section: string;
 }

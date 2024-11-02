@@ -36,7 +36,7 @@ describe('tests for WorkSpace.vue', () => {
     },
     props: {
       isExpanded: true,
-      links: [{ id: 0, title: 'boards', pathName: RouteNames.boards, icon: h(SquareDashedKanban) }]
+      links: [{ id: 0, name: 'boards', pathName: RouteNames.boards, icon: h(SquareDashedKanban) }]
     }
   });
 

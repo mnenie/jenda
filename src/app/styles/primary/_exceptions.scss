@@ -40,8 +40,34 @@ canvas {
 
 [data-sonner-toaster][data-theme='dark'] {
   --normal-bg: var(--zinc-700) !important;
-  --normal-border: hsl(0, 0%, 20%);
+  --normal-border: hsl(0deg 0% 20%);
   --normal-text: var(--gray1);
-  --success-border: hsl(147, 100%, 12%);
+  --success-border: hsl(147deg 100% 12%);
   --info-bg: var(--zinc-700);
+}
+
+.vue-ui-kpi {
+  background: transparent !important;
+}
+
+.vue-ui-kpi-value {
+  color: var(--blue-secondary) !important;
+}
+
+.vue-data-ui-fulscreen--off {
+  circle {
+    fill: #fff !important;
+  }
+}
+
+html.dark {
+  .v-popper__inner {
+    background-color: var(--zinc-600) !important;
+    color: var(--zinc-200) !important;
+  }
+  .vue-data-ui-fulscreen--off {
+    circle {
+      fill: #313131 !important;
+    }
+  }
 }

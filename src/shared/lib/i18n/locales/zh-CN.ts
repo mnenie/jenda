@@ -6,14 +6,21 @@ export default {
     projects: '项目',
     boards: '看板',
     templates: '模板',
+    analytics: '分析',
     members: '成员',
     settings: '设置',
-    plan: '升级你的计划'
+    plan: {
+      btn: '购买订阅',
+      title: '高级计划',
+      description: '您将可以使用服务的所有功能',
+      tooltip: '1/3 的免费工作区'
+    }
   },
   header: {
-    upgrade: '升级到“专业版”',
-    collaboration: '邀请成员',
-    name: '测试工作区',
+    navigator: {
+      question: '快捷键',
+      messages: '消息'
+    },
     user: {
       welcome: '前往欢迎页面',
       logout: '登出'
@@ -44,6 +51,7 @@ export default {
   templates: {
     title: '模板',
     description: '选择一个可用模板来创建您的项目',
+    import: '点击或拖拽文件导入。支持文件',
     user: '创建者',
     items: [
       {
@@ -89,6 +97,33 @@ export default {
     btns: {
       leave: '离开',
       view: '查看白板'
+    }
+  },
+  analytics: {
+    title: '工作区分析',
+    description: '查看并分析您在 Jenda 上的活动',
+    charts: {
+      users: {
+        name: '用户数量',
+        description: '工作区中的用户数量'
+      },
+      online: {
+        name: '工作区活动'
+      },
+      tasks: {
+        name: '任务数量',
+        dataset: {
+          names: ['未完成', '已完成']
+        }
+      },
+      boards: {
+        name: '看板数量'
+      }
+    },
+    badges: ['方便', '信息丰富', '随时'],
+    share: {
+      btn: '分享',
+      description: '您可以轻松地截图并将其发送给任何人。'
     }
   },
   settings: {

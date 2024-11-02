@@ -54,5 +54,11 @@ withDefaults(
     background-color: rgba(var(--zinc-rgb-600), 0.5);
     color: var(--zinc-200);
   }
+
+  .outline {
+    background-color: var(--zinc-700);
+    border-color: var(--zinc-600);
+    color: var(--zinc-200);
+  }
 }
 </style>

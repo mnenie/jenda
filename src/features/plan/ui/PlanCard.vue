@@ -1,122 +1,129 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { UiProgressBar } from '@/shared/ui';
-import { WandSparkles, DollarSign } from 'lucide-vue-next';
+import { computed, toRef } from 'vue';
+import { refDebounced, createReusableTemplate } from '@vueuse/core';
+import { UiBadge, UiButton } from '@/shared/ui';
+import { Plan } from '@/shared/assets/icons';
 
 const props = defineProps<{
   isExpanded: boolean;
 }>();
 
-const planPosition = computed(() => {
-  return props.isExpanded ? 'flex-start' : 'center';
+const isExpandedRef = toRef(props, 'isExpanded');
+
+const debounced = refDebounced(isExpandedRef, 130);
+
+const isShowPlan = computed((): boolean => {
+  return isExpandedRef.value ? debounced.value : false;
 });
-const iconSize = computed(() => {
-  return props.isExpanded ? '18px' : '17px';
-});
+
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 </script>
+
 <template>
-  <div>
-    <div v-if="isExpanded" :class="$style.content">
-      <WandSparkles :class="$style.icon" />
-      <div :class="$style.plan_about">
-        <div :class="$style.text">
-          <span class="text-xs">{{ $t('sidebar.plan') }}</span>
-          <span class="text-xs">6/10</span>
-        </div>
-        <UiProgressBar :progress="6" />
-      </div>
+  <DefineTemplate v-slot="{ style, position }">
+    <span
+      v-tooltip="{
+        content: $t('sidebar.plan.tooltip'),
+        triggers: ['hover'],
+        placement: position
+      }"
+      :class="style"
+    >
+      *
+    </span>
+  </DefineTemplate>
+  <div v-if="isShowPlan" :class="$style.card">
+    <div :class="$style.content">
+      <p class="text-sm">
+        {{ $t('sidebar.plan.title') }}
+        <ReuseTemplate position="top" :style="$style.reusable_helping_sign" />
+      </p>
+      <span class="text-xs"> {{ $t('sidebar.plan.description') }}</span>
+      <UiButton size="sm" :class="$style.btn">
+        {{ $t('sidebar.plan.btn') }}
+      </UiButton>
     </div>
-    <div v-else :class="$style.no_expanded_plan">
-      <span class="text-sm">free</span>
-      <div :class="$style.absolute_plan">
-        <DollarSign :class="$style.icon" />
+  </div>
+  <div v-else :class="$style.none_expanded_card">
+    <ReuseTemplate position="right" />
+
+    <UiBadge variant="outline" :class="$style.badge">
+      <div>
+        <Plan />
+        1/3
       </div>
-    </div>
+    </UiBadge>
   </div>
 </template>
 
 <style module lang="scss">
-.content {
+.card {
   position: relative;
-  display: flex;
-  align-items: v-bind('planPosition');
-  justify-content: v-bind('planPosition');
-  gap: 8px;
-  width: 100%;
+  padding: 12px;
+  background-color: var(--zinc-100);
+  border: 1px solid var(--zinc-200);
+  border-radius: 4px;
 
-  .icon {
-    min-width: 16px;
-    width: v-bind('iconSize');
-    height: v-bind('iconSize');
-    color: var(--zinc-700);
-  }
-
-  .plan_about {
+  .content {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    width: 100%;
-    color: var(--zinc-900);
+    gap: 6px;
 
-    .text {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      margin-bottom: 2px;
+    & > p {
+      font-weight: 500 !important;
+    }
 
-      & p,
-      & span {
-        font-weight: 500 !important;
-      }
+    .btn {
+      font-size: 12px;
+      margin-top: 8px;
     }
   }
 }
-.no_expanded_plan {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  & > span {
-    color: var(--zinc-600);
-    font-weight: 500 !important;
+.reusable_helping_sign {
+  color: var(--blue-basic);
+  cursor: help;
+}
+
+.none_expanded_card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .badge {
+    font-size: 10px;
+    width: 40px;
+
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
   }
 
-  .absolute_plan {
-    cursor: pointer;
+  & > span {
     position: absolute;
-    left: -3px;
-    top: 0px;
-    width: 11px;
-    height: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--zinc-500);
+    color: var(--blue-basic);
+    cursor: help;
+    top: -6px;
+    right: -4px;
   }
 }
 
 :global(html.dark) {
-  .content {
-    .icon{
-      color: var(--zinc-300);
-    }
-    .plan_about {
-      .text {
-        & p,
-        span {
-          color: var(--zinc-100);
-        }
+  .card {
+    background-color: var(--zinc-700);
+    border-color: var(--zinc-700);
+
+    .content {
+      & > p {
+        color: var(--zinc-100);
       }
-    }
-  }
-  .no_expanded_plan {
-    & span {
-      color: var(--zinc-300);
-    }
-    .absolute_plan{
-      color: var(--zinc-300);
+      & > span {
+        color: var(--zinc-300);
+      }
     }
   }
 }

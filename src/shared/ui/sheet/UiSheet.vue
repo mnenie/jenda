@@ -62,14 +62,14 @@ const minWidthStyle = computed(() => {
   return `${props.minWidth}px`;
 });
 
-function open () {
+function open() {
   translateValue.value = 0;
   document.documentElement.style.overflowY = 'hidden';
   document.documentElement.style.overscrollBehavior = 'none';
   showSheet.value = true;
   emit('opened');
 }
-async function close () {
+async function close() {
   showSheet.value = false;
   translateValue.value = 100;
   setTimeout(() => {
@@ -79,7 +79,7 @@ async function close () {
   }, props.transitionDuration * 1000);
 }
 
-function clickOnOverlayHandler () {
+function clickOnOverlayHandler() {
   if (props.overlayClickClose) {
     close();
   }

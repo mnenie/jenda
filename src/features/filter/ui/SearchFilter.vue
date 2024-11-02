@@ -1,48 +1,50 @@
 <script setup lang="ts">
-import { computed, ref, useTemplateRef } from 'vue';
+import { computed } from 'vue';
 import { useDark } from '@vueuse/core';
-import { UiInput, UiBadge } from '@/shared/ui';
+import { UiBadge, UiButton } from '@/shared/ui';
 import { Search } from 'lucide-vue-next';
-import useFilter from '../model/composables/useFilter';
-
-const props = defineProps<{
-  isExpanded: boolean;
-}>();
+import { useExpanded } from '@/shared/lib/composables';
 
 const emit = defineEmits<{
-  (e: 'onToggle'): void;
+  (e: 'openModal'): void;
 }>();
 
-const search = ref('');
-const input = useTemplateRef<HTMLElement | null>('search-input');
-
 const isDark = useDark();
+
+const expanded = useExpanded();
+
+const { isExpanded } = expanded.getExpanded();
+
 const iconColor = computed(() => {
   if (isDark.value) {
-    return !props.isExpanded ? 'var(--zinc-200)' : 'var(--zinc-300)';
+    return !isExpanded.value ? 'var(--zinc-200)' : 'var(--zinc-300)';
   } else {
-    return !props.isExpanded ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
+    return !isExpanded.value ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
   }
 });
 
-const { onToggleArea } = useFilter(input, props, emit);
+const expandedFilterStyles = computed<Record<string, string>>(() => ({
+  backgroundColor: isDark.value ? '#262626' : 'rgba(var(--zinc-rgb-200), 0.1)',
+  boxShadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+  border: isDark.value ? '1px solid rgba(var(--zinc-rgb-600), 0.3)' : ''
+}));
+
+const alpha = computed(() => (isExpanded.value ? 0.3 : 0.35));
 </script>
 
 <template>
-  <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '15px' : '16px' }">
-    <Search
-      :class="[isExpanded ? $style.icon : $style.icon_no_expanded]"
-      :color="iconColor"
-      @click="onToggleArea"
-    />
-    <UiInput
-      v-show="isExpanded"
-      id="input"
-      ref="search-input"
-      v-model.trim="search"
-      :placeholder="$t('sidebar.input')"
-      :class="$style.input_filter"
-    />
+  <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '20px' : '19px' }">
+    <UiButton
+      :variant="isExpanded ? 'outline' : 'ghost'"
+      :class="$style.search_filter"
+      :style="isExpanded ? expandedFilterStyles : null"
+      @click="emit('openModal')"
+    >
+      <Search :class="[isExpanded ? $style.icon : $style.icon_no_expanded]" :color="iconColor" />
+      <span v-show="isExpanded" class="text-sm">
+        {{ $t('sidebar.input') }}
+      </span>
+    </UiButton>
     <UiBadge
       variant="secondary"
       :class="$style.badge"
@@ -60,16 +62,12 @@ const { onToggleArea } = useFilter(input, props, emit);
   height: 32px;
 
   .icon {
-    position: absolute;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-50%);
     height: 16px;
     width: 16px;
+    margin-right: 10px;
   }
 
   .icon_no_expanded {
-    cursor: pointer;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -78,14 +76,21 @@ const { onToggleArea } = useFilter(input, props, emit);
     width: 16px;
   }
 
-  .input_filter {
-    padding-left: 24px;
-    padding-right: 40px;
-    border: none;
+  .search_filter {
     width: 100%;
+    justify-content: flex-start;
     height: 32px;
-    box-shadow: none;
-    font-weight: 500;
+    padding: 0 8px;
+    border-radius: 8px;
+    transition: justify-content, width, padding 0.2s ease;
+    &:hover {
+      background-color: rgba(var(--zinc-rgb-200), v-bind('alpha')) !important;
+    }
+
+    & > span {
+      font-weight: 500;
+      color: var(--zinc-700);
+    }
   }
 
   .badge {
@@ -97,15 +102,20 @@ const { onToggleArea } = useFilter(input, props, emit);
     & span {
       color: var(--zinc-500);
       font-size: 10px;
+      &:first-child {
+        margin-right: 2px;
+      }
     }
   }
 }
 
 :global(html.dark) {
   .search_container {
-    .input_filter {
-      background-color: transparent;
-      &::placeholder {
+    .search_filter {
+      &:hover {
+        background-color: rgba(var(--zinc-rgb-600), 0.3) !important;
+      }
+      & > span {
         color: var(--zinc-200);
       }
     }

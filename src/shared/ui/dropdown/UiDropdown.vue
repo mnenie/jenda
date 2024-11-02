@@ -64,6 +64,7 @@ defineSlots<{
     background-color: white;
     color: var(--zinc-900);
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    text-wrap: nowrap;
 
     .header {
       width: 100%;

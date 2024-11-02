@@ -1,8 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`tests for WorkSpace.vue > should be render correctly 1`] = `
-"<p class="name_block text-sm">workspace</p>
-<div class="sidebar_main_links"><a class="link"><button class="text-sm button secondary md link_btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(82 82 91 / 0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-dashed-kanban-icon">
+"<div class="sidebar_main_links"><a class="link"><button class="text-sm button secondary md link_btn" style="justify-content: flex-start;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-dashed-kanban-icon icon">
         <path d="M8 7v7"></path>
         <path d="M12 7v4"></path>
         <path d="M16 7v9"></path>

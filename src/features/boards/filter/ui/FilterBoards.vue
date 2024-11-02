@@ -24,19 +24,11 @@ const iconColor = computed(() => {
         :class="$style.filter"
       />
     </div>
-    <UiButton
-      v-tooltip.bottom="$t('boards.filter.tooltips.first_sort')"
-      :variant="'dashed'"
-      style="padding: 0 12px"
-    >
+    <UiButton :variant="'dashed'" style="padding: 0 12px">
       <ArrowUpDown :size="17" :color="iconColor" />
       <span style="margin-left: 6px">{{ $t('boards.filter.popularity') }}</span>
     </UiButton>
-    <UiButton
-      v-tooltip.bottom="$t('boards.filter.tooltips.second_sort')"
-      :variant="'dashed'"
-      style="padding: 0 12px"
-    >
+    <UiButton :variant="'dashed'" style="padding: 0 12px">
       <History :size="17" :color="iconColor" />
     </UiButton>
   </div>

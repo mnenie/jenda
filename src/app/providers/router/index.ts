@@ -31,6 +31,14 @@ const routes = [
     }
   },
   {
+    name: RouteNames.analytics,
+    path: '/analytics',
+    component: () => import('@/pages/AnalyticsPage.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     name: RouteNames.settings,
     path: '/settings',
     component: () => import('@/pages/SettingsPage.vue'),

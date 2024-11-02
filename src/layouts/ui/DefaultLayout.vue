@@ -7,6 +7,8 @@ import { AppSidebar, HeaderMain } from '@/widgets/layout';
 import { useLocalStorage } from '@vueuse/core';
 import { RouteNames } from '@/shared/config/consts';
 import { useWindowSize } from '@vueuse/core';
+import { useExpanded } from '@/shared/lib/composables';
+import type { Board } from '@/entities/board';
 
 const { width } = useWindowSize();
 
@@ -16,7 +18,7 @@ const transitionFl = ref<boolean>(false);
 const widthSidebar = computed(() => {
   return isExpanded.value
     ? width.value >= 1820
-      ? '18%'
+      ? '16%'
       : width.value >= 1400
         ? '22%'
         : '26%'
@@ -32,10 +34,24 @@ const widthMainContainer = computed(() => {
   return `calc(100% - ${widthSidebar.value})`;
 });
 
-function onToggleArea () {
+function onToggleArea() {
   isExpanded.value = !isExpanded.value;
   transitionFl.value = true;
 }
+
+const { createExpandedContext } = useExpanded();
+
+createExpandedContext({
+  isExpanded,
+  onToggleArea
+});
+
+// mock -> after data from backend
+//@ts-ignore
+const boards = ref<Board[]>([
+  { _id: '0', name: 'Startup Program', users: [], status: 'work', color: '#a1612a' },
+  { _id: '1', name: 'Integrations', users: [], status: 'closed', color: '#45ad2d' }
+]);
 </script>
 
 <template>
@@ -46,12 +62,15 @@ function onToggleArea () {
       :size="widthSidebar"
       :style="{ transition: transitionFl && 'width .2s ease-out' }"
     >
-      <AppSidebar :is-expanded @on-toggle="onToggleArea" />
+      <AppSidebar :boards />
     </Pane>
     <Pane :size="widthMainContainer">
       <div :class="$style.main_part">
-        <HeaderMain />
-        <div :class="$style.slot" :style="{ padding: $route.name !== RouteNames.board ? '30px 45px' : '0' }">
+        <HeaderMain :projects="boards" />
+        <div
+          :class="$style.slot_wrapper"
+          :style="{ padding: $route.name !== RouteNames.board ? '20px 20px 20px 30px' : '0' }"
+        >
           <slot />
         </div>
       </div>
@@ -70,12 +89,12 @@ function onToggleArea () {
   .main_part {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     height: 100%;
 
-    .slot {
-      background-color: var(--zinc-50);
+    .slot_wrapper {
+      background-color: var(--main-slotted);
       position: relative;
-      padding: 30px 45px;
       height: 100%;
       width: 100%;
     }
@@ -89,15 +108,5 @@ function onToggleArea () {
   padding: 6px 15px;
   width: 100%;
   background-color: var(--zinc-50);
-}
-
-:global(.dark) {
-  .default_layout {
-    .main_part {
-      .slot {
-        background-color: var(--zinc-700);
-      }
-    }
-  }
 }
 </style>

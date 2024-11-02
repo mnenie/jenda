@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2px;
+  gap: 20px;
   font-weight: 500;
   font-size: 12px;
 

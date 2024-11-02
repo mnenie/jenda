@@ -6,14 +6,21 @@ export default {
     projects: 'projects',
     boards: 'Boards',
     templates: 'Templates',
+    analytics: 'Analytics',
     members: 'Members',
     settings: 'Settings',
-    plan: 'Upgrade your plan'
+    plan: {
+      btn: 'Buy a subscription',
+      title: 'Premium Plan',
+      description: 'all the functionality of the service will be available to you',
+      tooltip: '1/3 free workspaces'
+    }
   },
   header: {
-    upgrade: 'Upgrade "Pro"',
-    collaboration: 'Invite members',
-    name: 'Test Workspace',
+    navigator: {
+      question: 'Hotkeys',
+      messages: 'Messages'
+    },
     user: {
       welcome: 'Go to Welcome',
       logout: 'Log out'
@@ -44,6 +51,7 @@ export default {
   templates: {
     title: 'Templates',
     description: 'Choose one of the available templates to create your project',
+    import: 'Click or drag files to import. Supports files',
     user: 'creator',
     items: [
       {
@@ -55,7 +63,7 @@ export default {
       {
         title: 'Roadmap',
         tag: 'New',
-        description: 'Create a project based on our "Roadmap" template',
+        description: 'Create a project based on our "Roadmap" special template',
         date: 'June 18, 2024'
       },
       {
@@ -90,6 +98,33 @@ export default {
     btns: {
       leave: 'Leave',
       view: 'View the boards'
+    }
+  },
+  analytics: {
+    title: 'Workspace Analytics',
+    description: 'View and analyze your activity on Jenda',
+    charts: {
+      users: {
+        name: 'Total users',
+        description: 'Number of users in the workspace'
+      },
+      online: {
+        name: 'Workspace activity'
+      },
+      tasks: {
+        name: 'Total tasks',
+        dataset: {
+          names: ['Uncompleted', 'Completed']
+        }
+      },
+      boards: {
+        name: 'Total boards'
+      }
+    },
+    badges: ['Convenient', 'Informative', 'Anytime'],
+    share: {
+      btn: 'Share',
+      description: 'you can easily take a screenshot and send it to anyone'
     }
   },
   settings: {

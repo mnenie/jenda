@@ -10,7 +10,7 @@ import { Trash2 } from 'lucide-vue-next';
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .trash {
   height: 30px;

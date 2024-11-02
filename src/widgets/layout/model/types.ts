@@ -2,7 +2,7 @@ import type { Component } from 'vue';
 
 export type Link = {
   id: number;
-  title: string;
+  name: string;
   pathName: string;
   icon: Component;
 };

@@ -2,11 +2,22 @@
 
 exports[`tests for TemplateItem.vue  > should render correctly 1`] = `
 "<div class="item">
-  <div class="img_wrapper"><img src="https://storage.weeek.net/templates/tm/development-and-product/scrum.png" alt="Base Kanban"></div>
   <div class="main_content">
-    <ui-badge-stub variant="secondary" style="margin-bottom: 12px;"></ui-badge-stub>
+    <ui-badge-stub variant="outline" style="margin-bottom: 12px;"></ui-badge-stub>
     <div class="text">
-      <p class="text-base" style="font-weight: 500;">Base Kanban</p><span>Create a basic project with "Base Kanban" template</span>
+      <p class="text-sm">Base Kanban</p><span class="text-xs">Create a basic project with "Base Kanban" template</span>
+    </div>
+    <div class="bottom"><span class="text-xs">June 12, 2024</span><img src="https://avatars.githubusercontent.com/u/121057011?v=4"></div>
+  </div>
+</div>"
+`;
+
+exports[`tests for TemplateItem.vue > should render correctly 1`] = `
+"<div class="item">
+  <div class="main_content">
+    <ui-badge-stub variant="outline" style="margin-bottom: 12px;"></ui-badge-stub>
+    <div class="text">
+      <p class="text-sm">Base Kanban</p><span class="text-xs">Create a basic project with "Base Kanban" template</span>
     </div>
     <div class="bottom"><span class="text-xs">June 12, 2024</span><img src="https://avatars.githubusercontent.com/u/121057011?v=4"></div>
   </div>

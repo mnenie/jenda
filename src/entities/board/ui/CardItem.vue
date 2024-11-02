@@ -54,7 +54,7 @@ const priority = computed(() => {
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .card {
   cursor: pointer;

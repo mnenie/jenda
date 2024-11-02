@@ -52,7 +52,7 @@
   font-weight: 400;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (width <= 1440px) {
   .heading-1 {
     font-size: 32px;
     line-height: 40px;
@@ -108,7 +108,7 @@
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (width <= 1280px) {
   .heading-1 {
     font-size: 30px;
     line-height: 38px;
@@ -164,7 +164,7 @@
   }
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (width <= 1160px) {
   .heading-1 {
     font-size: 28px;
     line-height: 38px;
@@ -220,7 +220,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (width <= 1024px) {
   .heading-1 {
     font-size: 26px;
     line-height: 38px;
@@ -276,7 +276,7 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (width <= 420px) {
   .heading-1 {
     font-size: 24px;
     line-height: 38px;

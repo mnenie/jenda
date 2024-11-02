@@ -14,11 +14,11 @@ const props = defineProps<{
 const route = useRoute();
 const isDark = useDark();
 
-function isCurrentPath (link: Link) {
+function isCurrentPath(link: Link) {
   if (route.name?.toString().startsWith(RouteNames.members)) {
     return link.pathName === RouteNames.members;
   }
-  if (route.name === RouteNames.board) {
+  if (route.name === RouteNames.boards) {
     return link.pathName === RouteNames.boards;
   }
   return link.pathName === route.name;
@@ -38,19 +38,18 @@ const iconColor = computed(() => {
   if (isDark.value) {
     return !props.isExpanded ? 'var(--zinc-200)' : 'var(--zinc-300)';
   } else {
-    return !props.isExpanded ? 'var(--zinc-800)' : 'rgb(82 82 91 / 0.9)';
+    return !props.isExpanded ? 'var(--zinc-800)' : 'var(--zinc-600)';
   }
 });
 </script>
 
 <template>
-  <p :class="[$style.name_block, 'text-sm']">{{ $t('sidebar.section') }}</p>
   <div :class="$style.sidebar_main_links">
     <RouterLink
       v-for="link in pathName"
       :key="link.id"
       v-tooltip.right="{
-        content: $t(`sidebar.${link.title}`),
+        content: $t(`sidebar.${link.name}`),
         triggers: ['hover'],
         disabled: isExpanded
       }"
@@ -60,17 +59,17 @@ const iconColor = computed(() => {
       <UiButton
         :variant="link.isActive ? 'secondary' : 'ghost'"
         :class="$style.link_btn"
-        :style="{ padding: !isExpanded ? '0px' : '' }"
+        :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
-        <component :is="link.icon" :size="18" :color="iconColor" />
-        <span v-show="isExpanded" class="text-sm">{{ $t(`sidebar.${link.title}`) }}</span>
+        <component :is="link.icon" :class="$style.icon" :color="iconColor" />
+        <span v-show="isExpanded" class="text-sm">{{ $t(`sidebar.${link.name}`) }}</span>
       </UiButton>
     </RouterLink>
   </div>
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .name_block {
   color: var(--zinc-300);
@@ -99,9 +98,20 @@ const iconColor = computed(() => {
 
     .link_btn {
       width: 100%;
-      justify-content: v-bind('contentPosition');
-      gap: 6px;
+      gap: 8px;
       box-shadow: none;
+      padding: 0 8px;
+      transition: all 0.2s ease;
+      &:hover {
+        background-color: rgba(var(--zinc-rgb-200), 0.3);
+      }
+      &:focus {
+        background-color: rgba(231, 231, 231, 0.6);
+      }
+
+      .icon {
+        font-size: 17px;
+      }
     }
 
     & span {
@@ -118,8 +128,11 @@ const iconColor = computed(() => {
         & span {
           color: var(--zinc-100);
         }
-        &:hover{
-          background-color: var(--zinc-700);
+        &:hover {
+          background-color: rgba(var(--zinc-rgb-600), 0.3);
+        }
+        &:focus {
+          background-color: rgba(var(--zinc-rgb-600), 0.5);
         }
       }
     }

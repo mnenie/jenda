@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue';
 import { AllTemplates } from '@/widgets/templates';
+import { ImportTemplate } from '@/entities/template';
 
 useHead({
   title: 'Jenda | Templates'
@@ -9,9 +10,9 @@ useHead({
 
 <template>
   <div :class="$style.top">
-    <h4 class="heading-4">{{ $t('templates.title') }}</h4>
     <p class="text-sm">{{ $t('templates.description') }}</p>
   </div>
+  <ImportTemplate />
   <AllTemplates />
 </template>
 

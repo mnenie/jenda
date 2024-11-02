@@ -6,7 +6,7 @@ export enum RouteNames {
   boards = 'boards',
   members = 'members',
   templates = 'templates',
-  favorites = 'favorites',
+  analytics = 'analytics',
   welcome = 'welcome',
   error = 'error'
 }

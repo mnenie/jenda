@@ -6,12 +6,14 @@ import i18n from '@/shared/lib/i18n';
 
 import './styles/primary/index.scss';
 import 'floating-vue/dist/style.css';
+import 'vue-data-ui/style.css';
 
 import autoAnimatePlugin from './plugins/formkit';
 import Vue3Marquee from 'vue3-marquee';
 import { vTooltip } from 'floating-vue';
 // @ts-expect-error: unresolved type definitions for vue-writer
 import VueWriter from 'vue-writer';
+import { VueUiRadar } from 'vue-data-ui';
 
 const app = createApp(App);
 // head plugin
@@ -25,4 +27,5 @@ app.use(autoAnimatePlugin);
 app.use(Vue3Marquee);
 app.use(VueWriter);
 app.directive('tooltip', vTooltip);
+app.component('VueUiRadar', VueUiRadar);
 app.mount('#app');

@@ -12,7 +12,7 @@ export default function useCards() {
       cards.value.forEach((c) => (c.url = urlImg.value));
       triggerRef(cards);
     },
-    { immediate: true, flush: 'post' }
+    { immediate: true, flush: 'sync' }
   );
 
   return {

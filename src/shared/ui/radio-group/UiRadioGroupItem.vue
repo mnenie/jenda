@@ -35,7 +35,7 @@ const checked = computed(() => {
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .radio_item {
   appearance: none;

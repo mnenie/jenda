@@ -1,54 +1,50 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { useDark } from '@vueuse/core';
 import { UiButton } from '@/shared/ui';
-import { CircleFadingPlus } from 'lucide-vue-next';
 import type { Board } from '@/entities/board';
+import { Arrow, Plus, Project } from '@/shared/assets/icons';
 
 const props = defineProps<{
   boards: Board[];
   isExpanded: boolean;
 }>();
 
-const route = useRoute();
+const showList = ref(true);
+const showPlusIcon = ref(false);
 
-function isCurrentPath (project: Board) {
-  return computed(() => {
-    return project._id === route.params.id && route.params.id !== undefined;
-  })
-}
+const route = useRoute();
 
 const _projects = computed(() => {
   return props.boards.map((proj) => ({
     ...proj,
-    isActive: isCurrentPath(proj).value
+    isActive: proj._id === route.params.id && route.params.id !== undefined
   }));
 });
-
-const isDark = useDark();
 
 const contentPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center';
 });
-const projectName = computed(() => {
-  return (project: Board) => {
-    return project.name.slice(0, 1);
-  };
-});
+
+function changeShowList() {
+  showList.value = !showList.value;
+}
 </script>
 
 <template>
-  <div :class="$style.about">
-    <p class="text-sm" :class="$style.section">{{ $t('sidebar.projects') }}</p>
-    <CircleFadingPlus
-      v-if="isExpanded"
-      :size="14"
-      :color="!isDark ? 'var(--zinc-800)' : 'var(--zinc-300)'"
-      style="cursor: pointer;"
-    />
+  <div :class="$style.about" @mouseover="showPlusIcon = true" @mouseleave="showPlusIcon = false">
+    <div :class="$style.name">
+      <Arrow
+        v-show="isExpanded"
+        :class="$style.icon"
+        :style="{ transform: !showList ? 'rotate(-90deg)' : '' }"
+        @click="changeShowList"
+      />
+      <p class="text-sm" :class="$style.section">{{ $t('sidebar.projects') }}</p>
+    </div>
+    <Plus v-show="isExpanded && showPlusIcon" :class="$style.icon" style="font-size: 16px" />
   </div>
-  <div :class="$style.sidebar_projects">
+  <div v-if="showList" :class="$style.sidebar_projects">
     <RouterLink
       v-for="project in _projects"
       :key="project._id"
@@ -63,11 +59,9 @@ const projectName = computed(() => {
       <UiButton
         :variant="project.isActive ? 'secondary' : 'ghost'"
         :class="$style.proj_btn"
-        :style="{ padding: !isExpanded ? '0px' : '' }"
+        :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
-        <div :class="$style.project_indicator" :style="{ backgroundColor: project.color }">
-          {{ projectName(project) }}
-        </div>
+        <Project :class="$style.project_indicator" :style="{ color: project.color }" />
         <span v-show="isExpanded" class="text-sm">{{ project.name }}</span>
       </UiButton>
     </RouterLink>
@@ -75,21 +69,34 @@ const projectName = computed(() => {
 </template>
 
 <style module lang="scss">
-@import '@/app/styles/mixins';
+@use '@/app/styles/mixins' as *;
 
 .about {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 12px;
+  padding: 0 10px 12px 10px;
 
-  .section {
-    color: var(--zinc-300);
-    text-transform: uppercase;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  .name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+
+    .section {
+      color: var(--zinc-400);
+      text-transform: capitalize;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  .icon {
+    color: var(--zinc-400);
+    font-size: 18px;
+    cursor: pointer;
   }
 }
 
@@ -111,30 +118,56 @@ const projectName = computed(() => {
 
     .proj_btn {
       width: 100%;
-      justify-content: v-bind('contentPosition');
       gap: 6px;
       box-shadow: none;
+      padding: 0 10px;
+      transition: all 0.1s ease;
+      &:hover {
+        background-color: rgba(var(--zinc-rgb-200), 0.3);
+      }
+      &:focus {
+        background-color: rgba(231, 231, 231, 0.6);
+      }
 
       .project_indicator {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--zinc-50);
-        // text-transform: lowercase;
+        text-transform: lowercase;
+
+        & > span {
+          color: var(--zinc-50);
+          text-overflow: ellipsis;
+        }
       }
     }
 
     & span {
       font-weight: 500 !important;
       color: var(--zinc-900);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      max-width: 86%;
     }
   }
 }
 
 :global(html.dark) {
+  .about {
+    .name {
+      .section {
+        color: var(--zinc-300);
+      }
+    }
+    .icon {
+      color: var(--zinc-300);
+    }
+  }
   .sidebar_projects {
     .project {
       .proj_btn {
@@ -142,7 +175,10 @@ const projectName = computed(() => {
           color: var(--zinc-100);
         }
         &:hover {
-          background-color: var(--zinc-700);
+          background-color: rgba(var(--zinc-rgb-600), 0.3);
+        }
+        &:focus {
+          background-color: rgba(var(--zinc-rgb-600), 0.5);
         }
       }
     }

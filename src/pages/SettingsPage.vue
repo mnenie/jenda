@@ -9,8 +9,10 @@ useHead({
 
 <template>
   <div :class="$style.settings">
-    <h4 class="heading-4">{{ $t('settings.title') }}</h4>
-    <p class="text-sm">{{ $t('settings.description') }}</p>
+    <div>
+      <h4 class="heading-4">{{ $t('settings.title') }}</h4>
+      <p class="text-sm">{{ $t('settings.description') }}</p>
+    </div>
   </div>
   <SettingsElements />
 </template>
@@ -22,10 +24,12 @@ useHead({
   align-items: flex-start;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--zinc-200);
+  // border-bottom: 1px solid var(--zinc-200);
 
-  & > p {
-    color: var(--zinc-500);
+  & > div {
+    & > p {
+      color: var(--zinc-500);
+    }
   }
 }
 
