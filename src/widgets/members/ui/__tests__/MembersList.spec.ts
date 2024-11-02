@@ -16,7 +16,7 @@ describe('tests for MembersList.vue', () => {
     }
   });
 
-  it('it should be render correctly', () => {
+  it('should be render correctly', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 

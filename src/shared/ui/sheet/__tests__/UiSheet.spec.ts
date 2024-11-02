@@ -24,7 +24,7 @@ describe('UiSheet', () => {
   });
 
   it('should render correctly', async () => {
-    // @ts-expect-error
+    // @ts-expect-error instance (needs to be fixed)
     wrapper.vm.showSheet = true;
     await nextTick();
     expect(wrapper.html()).toMatchSnapshot();

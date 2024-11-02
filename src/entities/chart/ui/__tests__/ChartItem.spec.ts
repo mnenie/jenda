@@ -11,7 +11,7 @@ const TestChartComponent = defineComponent({
   }
 });
 
-describe('tests for ChartItem.vue ', () => {
+describe('tests for ChartItem.vue', () => {
   const wrapper = shallowMount(ChartItem, {
     global: {
       plugins: [i18n],

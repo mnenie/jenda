@@ -30,7 +30,6 @@ const statuses = shallowReactive<StatusBadge[]>([
 
 function updateStatus (status: StatusBadge['status']) {
   projStatus.value = status;
-  console.log(status);
 }
 </script>
 

@@ -37,7 +37,7 @@ describe('tests for BoardPreviewCard.vue', () => {
     expect(date.text()).toContain('Updated: May 2024');
   });
 
-  it('should redirect to "/board/1" ', async () => {
+  it('should redirect to "/board/1"', async () => {
     await wrapper.find('.active_board').trigger('click');
     expect(mockRouter.push).toHaveBeenCalledTimes(1);
     expect(mockRouter.push).toHaveBeenCalledWith('/board/1');

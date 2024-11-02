@@ -5,7 +5,7 @@ import i18n from '@/shared/lib/i18n';
 import TemplateItem from '../TemplateItem.vue';
 import { templatesInfo } from '../../model';
 
-describe('tests for TemplateItem.vue ', () => {
+describe('tests for TemplateItem.vue', () => {
   const wrapper = shallowMount(TemplateItem, {
     global: {
       plugins: [i18n],

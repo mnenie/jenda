@@ -9,7 +9,7 @@ const props = withDefaults(
   defineProps<{
     variant?: AlertVariant;
     closable?: boolean;
-    // eslint-disable-next-line vue/require-default-prop
+     
     content?: string;
   }>(),
   {

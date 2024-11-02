@@ -24,7 +24,7 @@ describe('tests for AboutSection.vue', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('should redirect correctly ', async () => {
+  it('should redirect correctly', async () => {
     const btn = wrapper.find('.btns').findAllComponents(UiButton).at(0);
     await btn.trigger('click');
     expect(mockRouter.push).toHaveBeenCalledWith({ name: 'registration' });

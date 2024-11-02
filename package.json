@@ -10,7 +10,7 @@
     "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint": "eslint . --fix",
     "format": "prettier --write src/",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
@@ -18,7 +18,7 @@
   },
   "lint-staged": {
     "*.js": "prettier --write",
-    "*.ts": [
+    "*.{ts,vue}": [
       "prettier --write",
       "eslint --no-error-on-unmatched-pattern --fix"
     ]
@@ -27,6 +27,7 @@
     "@formkit/auto-animate": "^0.8.2",
     "@unhead/vue": "^1.9.14",
     "@vee-validate/zod": "^4.13.1",
+    "@vitest/eslint-plugin": "^1.1.7",
     "@vueuse/core": "^10.11.0",
     "@vueuse/integrations": "^10.10.0",
     "axios": "^1.7.2",
@@ -60,15 +61,15 @@
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",
-    "@vue/eslint-config-prettier": "^9.0.0",
-    "@vue/eslint-config-typescript": "^13.0.0",
+    "@vue/eslint-config-prettier": "^10.0.0",
+    "@vue/eslint-config-typescript": "^14.1.1",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-antfu": "^2.7.0",
+    "eslint": "^9.13.0",
     "eslint-define-config": "^2.1.0",
+    "eslint-plugin-antfu": "^2.7.0",
     "eslint-plugin-storybook": "^0.8.0",
-    "eslint-plugin-vue": "^9.23.0",
+    "eslint-plugin-vue": "^9.29.0",
     "husky": "^9.0.11",
     "jsdom": "^24.1.0",
     "lint-staged": "^15.2.7",
