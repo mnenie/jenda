@@ -29,6 +29,8 @@ const alertBgColor = computed(() =>
   isDark.value ? _styles.value.dark.background : _styles.value.light.background
 );
 const alertBorder = computed(() => (isDark.value ? _styles.value.dark.border : _styles.value.light.border));
+
+const valueOfRightPadding = computed(() => props.closable ? '32px' : '10px');
 </script>
 
 <template>
@@ -47,7 +49,7 @@ const alertBorder = computed(() => (isDark.value ? _styles.value.dark.border : _
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 2px 32px 2px 10px;
+  padding: 2px v-bind('valueOfRightPadding') 2px 10px;
   border-radius: 8px;
   margin-bottom: 20px;
   min-height: 22px;

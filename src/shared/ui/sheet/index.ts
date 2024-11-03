@@ -1,4 +1,1 @@
-import type { SheetElement } from './types';
-import UiSheet from './UiSheet.vue';
-
-export { UiSheet, type SheetElement };
+export { default as UiSheet } from './UiSheet.vue';

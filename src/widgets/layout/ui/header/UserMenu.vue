@@ -5,7 +5,7 @@ import { Menu } from '@/shared/assets/icons';
 </script>
 
 <template>
-  <UiDropdown>
+  <UiDropdown direction="right">
     <template #trigger>
       <div :class="$style.wrapper">
         <Menu :class="$style.icon" />

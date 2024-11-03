@@ -1,0 +1,25 @@
+{/* Card.mdx */}
+
+import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
+import * as CardStories from '../card/UiCard.stories';
+
+<Meta of={CardStories} name="Docs" />
+
+# UiCard
+
+The **UiCard** component is a flexible and customizable container for displaying content, making it ideal for presenting information in a structured and visually appealing way.
+
+### Slots
+
+<Markdown>
+  {`
+| Slot       | Description                   |
+|------------|-------------------------------|
+| default    | Main content slot of the card |
+| user       | Slot for users in task card   |
+`}
+</Markdown>
+
+<Canvas of={CardStories.DefaultCard} />
+
+

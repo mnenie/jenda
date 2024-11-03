@@ -102,7 +102,7 @@ defineExpose({ open, close });
         <main ref="sideSheetMain" :class="$style.sheet_main">
           <slot />
         </main>
-        <footer ref="sideSheetFooter" :class="$style.sheet_footer">
+        <footer ref="sideSheetFooter" :class="[$style.sheet_footer, 'text-sm']">
           <slot name="footer" />
         </footer>
       </div>
@@ -169,12 +169,18 @@ defineExpose({ open, close });
   }
 
   .sheet_main {
+    flex: 1;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     touch-action: auto !important;
+  }
+
+  .sheet_footer {
+    display: flex;
+    margin-top: auto;
   }
 
   .sheet_footer:empty {

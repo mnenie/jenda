@@ -1,0 +1,26 @@
+{/* ProgressBar.mdx */}
+
+import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
+import * as RadioGroupStories from '../radio-group/UiRadioGroup.stories';
+
+<Meta of={RadioGroupStories} name="Docs" />
+
+# UiRadioGroup
+
+The **UiRadioGroup** component provides a set of radio button options with customizable attributes, allowing users to select a single option from a group.
+
+### Props
+
+<Markdown>
+  {`
+| Prop        |Description                                                |
+|-------------|---------------------------------------------------------- |
+| inputId     |Specifies the unique ID for the input element.             |
+| modelValue  |Sets or retrieves the value of the selected radio item.    |
+| value       |Defines the value associated with a radio item.            |
+| name        |Specifies the name attribute to group related radio items. |
+`}
+</Markdown>
+
+<Canvas of={RadioGroupStories.DefaultUiRadioGroup} />
+

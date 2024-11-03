@@ -6,16 +6,21 @@ export default {
   component: UiCard
 } as Meta<typeof UiCard>;
 
-export const TaskCard: StoryFn<typeof UiCard> = (args) => ({
+const Template: StoryFn<typeof UiCard> = (args) => ({
   components: { UiCard },
   setup() {
     return { args };
   },
   template: `<UiCard v-bind="args">
-    <div>MyCard</div>
-    <div>TaskCard</div>
-    <template #user>
-        user +3
-    </template>
+    <template v-if="${'user' in args}" v-slot:user>${args.user}</template> 
+    <template v-if="${'default' in args}" v-slot>${args.default}</template>
   </UiCard>`
 });
+
+export const DefaultCard: StoryFn<typeof UiCard> = Template.bind({});
+
+DefaultCard.args = {
+  default: `
+  <p class="text-xl">Card Example</p>
+  <p class="text-sm">use to display content in a flexible container component.</p>`
+};

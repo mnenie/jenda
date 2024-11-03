@@ -4,7 +4,10 @@ import UiRadioGroupContainer from './UiRadioGroupContainer.vue';
 
 export default {
   title: 'UiRadioGroup',
-  component: UiRadioGroupItem
+  component: UiRadioGroupItem,
+  args: {
+    modelValue: 'light'
+  }
 } as Meta<typeof UiRadioGroupItem>;
 
 export const DefaultUiRadioGroup: StoryFn<typeof UiRadioGroupItem> = (args) => ({
@@ -14,7 +17,7 @@ export const DefaultUiRadioGroup: StoryFn<typeof UiRadioGroupItem> = (args) => (
   },
   template: `
     <UiRadioGroupContainer>
-      <UiRadioGroupItem v-model="args.modelValue" value="light"/>
+      <UiRadioGroupItem v-model="args.modelValue" value="light" />
       <UiRadioGroupItem v-model="args.modelValue"  value="dark" />
     </UiRadioGroupContainer>
   `

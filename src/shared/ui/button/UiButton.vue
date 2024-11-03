@@ -55,6 +55,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
   &:disabled {
     cursor: not-allowed;
     opacity: 0.6;
+    pointer-events: none;
   }
 
   @include on-focus {

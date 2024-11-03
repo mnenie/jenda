@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import type { InputTypeHTMLAttribute } from 'vue';
 
-type InputProps = {
-  modelValue?: string | number;
+interface InputProps {
+  modelValue?: string | number | null;
   placeholder?: string;
   type?: InputTypeHTMLAttribute;
-};
+  disabled?: boolean;
+}
 
 withDefaults(defineProps<InputProps>(), {
-  modelValue: '',
-  placeholder: 'jenda',
   type: 'text'
 });
 
@@ -21,6 +20,7 @@ const emit = defineEmits(['update:modelValue']);
     :value="modelValue"
     :placeholder="placeholder"
     :type="type"
+    :disabled="disabled"
     :class="[$style.input_default, 'text-sm']"
     autocomplete="on"
     @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
@@ -39,7 +39,7 @@ const emit = defineEmits(['update:modelValue']);
   background-color: transparent;
   padding: 4px 12px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  
+
   @include on-focus {
     outline: none;
     border: 1px solid var(--zinc-800);
@@ -49,6 +49,12 @@ const emit = defineEmits(['update:modelValue']);
 
   &::placeholder {
     color: var(--zinc-500);
+    user-select: none;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
   }
 }
 
@@ -64,8 +70,8 @@ const emit = defineEmits(['update:modelValue']);
   }
 }
 
-:global(html.dark){
-  .input_default{
+:global(html.dark) {
+  .input_default {
     border-color: var(--zinc-600);
     background-color: rgba(var(--zinc-rgb-700), 0.8);
 

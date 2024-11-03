@@ -64,7 +64,7 @@ const alpha = computed(() => (isExpanded.value ? 0.3 : 0.35));
   .icon {
     height: 16px;
     width: 16px;
-    margin-right: 10px;
+    margin-right: 2px;
   }
 
   .icon_no_expanded {

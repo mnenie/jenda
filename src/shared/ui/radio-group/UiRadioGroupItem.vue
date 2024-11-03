@@ -10,7 +10,7 @@ interface RadioItem {
 
 const props = withDefaults(defineProps<RadioItem>(), {
   inputId: 'radio-input-id',
-  modelValue: "",
+  modelValue: '',
   value: undefined,
   name: 'radio-input-name'
 });
@@ -18,8 +18,8 @@ const props = withDefaults(defineProps<RadioItem>(), {
 const emits = defineEmits(['update:modelValue']);
 
 const checked = computed(() => {
-  return props.modelValue === props.value
-})
+  return props.modelValue === props.value;
+});
 </script>
 
 <template>
@@ -49,15 +49,25 @@ const checked = computed(() => {
   border: 1px solid var(--zinc-800);
   @include transition;
 
-  &:checked{
-    
-    &::after{
+  &:checked {
+    &::after {
       position: absolute;
       content: '';
       width: 8px;
       height: 8px;
       background-color: var(--zinc-800);
       border-radius: 50%;
+    }
+  }
+}
+
+:global(html.dark) {
+  .radio_item {
+    border-color: var(--zinc-200);
+    &:checked {
+      &::after {
+        background-color: var(--zinc-200);
+      }
     }
   }
 }

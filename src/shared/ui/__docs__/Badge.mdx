@@ -1,0 +1,24 @@
+{/* Badge.mdx */}
+
+import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
+import * as BadgeStories from '../badge/UiBadge.stories';
+
+<Meta of={BadgeStories} name="Docs" />
+
+# UiBadge
+
+The **UiBadge** component is a flexible badge that supports various styles, making it suitable for different UI contexts.
+
+<Canvas of={BadgeStories.DefaultBadge} />
+
+### Props
+
+<Markdown>
+  {`
+| Prop     | Description                                                                                              |
+|----------|----------------------------------------------------------------------------------------------------------|
+| variant  | Defines the badge style. Options are: __default__, __secondary__, __outline__.                          |
+`}
+</Markdown>
+
+<Canvas of={BadgeStories.BadgeExampleProps} />

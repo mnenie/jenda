@@ -3,7 +3,7 @@ button {
   border: none;
 }
 
-button:disabled {
+button:disabled, input:disabled {
   cursor: not-allowed;
 }
 

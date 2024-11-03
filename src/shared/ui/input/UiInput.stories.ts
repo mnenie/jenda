@@ -7,16 +7,38 @@ export default {
   argTypes: {
     type: {
       control: { type: 'select' },
-      options: ['text', 'password'],
+      options: ['text', 'password', 'number', 'email'],
       defaultValue: 'text'
+    },
+    placeholder: {
+      control: { type: 'text' }
+    },
+    modelValue: {
+      control: { type: 'text' }
     }
   }
 } as Meta<typeof UiInput>;
 
-export const DefaultInput: StoryFn<typeof UiInput> = (args) => ({
-  components: { UiInput },
-  setup() {
-    return { args };
-  },
-  template: '<UiInput v-bind="args" />'
-});
+const Template: StoryFn<typeof UiInput> = (args) => {
+  return {
+    components: { UiInput },
+    setup() {
+      return { args };
+    },
+    template: '<UiInput v-bind="args" />'
+  };
+};
+
+export const DefaultInput: StoryFn<typeof UiInput> = Template.bind({});
+
+DefaultInput.args = {
+  placeholder: 'Type here',
+  type: 'text'
+};
+
+export const PaswordInput: StoryFn<typeof UiInput> = Template.bind({});
+
+PaswordInput.args = {
+  placeholder: 'Enter your password',
+  type: 'password'
+};

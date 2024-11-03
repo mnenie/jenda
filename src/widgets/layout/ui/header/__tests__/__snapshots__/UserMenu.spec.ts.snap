@@ -8,8 +8,8 @@ exports[`tests for UserMenu.vue > should be render correctly 1`] = `
       </svg></div>
   </div>
   <transition-stub name="dropdown" appear="false" persisted="false" css="true">
-    <div class="inside">
-      <div class="header"><span class="text-sm" style="font-weight: 500;">test@gmail.com</span></div>
+    <div class="inside" style="top: 36px; right: 0px; transform: translateX(0%);">
+      <div class="header text-sm"><span class="text-sm" style="font-weight: 500;">test@gmail.com</span></div>
       <div class="content">
         <div class="item">Go to Welcome <div class="shortcut">⌘B</div>
         </div>

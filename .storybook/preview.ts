@@ -1,9 +1,10 @@
 import type { Preview } from '@storybook/vue3';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withThemeByClassName } from '@storybook/addon-themes';
+import { useColorMode } from '@vueuse/core';
+import { themes } from '@storybook/theming';
 
 import '@/app/styles/primary/index.scss';
-import { themes } from '@storybook/theming';
 
 const preview: Preview = {
   decorators: [
@@ -38,5 +39,9 @@ const preview: Preview = {
     }
   }
 };
+
+useColorMode({
+  initialValue: 'light'
+});
 
 export default preview;

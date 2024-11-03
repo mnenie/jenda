@@ -1,14 +1,24 @@
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core';
-import { ref, useTemplateRef } from 'vue';
+import { computed, ref, useTemplateRef } from 'vue';
+
+const { direction = 'center' } = defineProps<{
+  direction?: 'left' | 'center' | 'right';
+}>();
+
+defineSlots<{
+  header: () => any;
+  trigger: () => any;
+  content: () => any;
+}>();
 
 const isOpen = ref(false);
 const dropdown = useTemplateRef<HTMLElement | null>('dropdown');
 
-function handleDropdown () {
+function handleDropdown() {
   isOpen.value = !isOpen.value;
 }
-function onDropdownContent () {
+function onDropdownContent() {
   isOpen.value = false;
 }
 
@@ -16,11 +26,16 @@ onClickOutside(dropdown, () => {
   isOpen.value = false;
 });
 
-defineSlots<{
-  header: () => any;
-  trigger: () => any;
-  content: () => any;
-}>();
+const dropdownStyles = computed(() => {
+  if (direction === 'left') {
+    return { top: '36px', left: '0px', transform: 'translateX(0%)' };
+  } else if (direction === 'center') {
+    return { top: '36px', left: '50%', transform: 'translateX(-50%)' };
+  } else {
+    return { top: '36px', right: '0px', transform: 'translateX(0%)' };
+  }
+});
+
 </script>
 
 <template>
@@ -29,8 +44,8 @@ defineSlots<{
       <slot name="trigger" />
     </div>
     <Transition name="dropdown">
-      <div v-if="isOpen" :class="$style.inside">
-        <div v-if="$slots.header" :class="$style.header">
+      <div v-if="isOpen" :class="$style.inside" :style="dropdownStyles">
+        <div v-if="$slots.header" :class="[$style.header, 'text-sm']">
           <slot name="header" />
         </div>
         <div :class="$style.content" @click="onDropdownContent">
@@ -52,9 +67,6 @@ defineSlots<{
 
   .inside {
     position: absolute;
-    top: 36px;
-    right: -4px;
-    transform: translateX(0%);
     max-height: 24rem;
     height: fit-content;
     min-width: 8rem;
@@ -63,7 +75,7 @@ defineSlots<{
     border: 1px solid var(--zinc-200);
     background-color: white;
     color: var(--zinc-900);
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     text-wrap: nowrap;
 
     .header {

@@ -1,0 +1,28 @@
+{/* Input.mdx */}
+
+import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
+import * as InputStories from '../input/UiInput.stories';
+
+<Meta of={InputStories} name="Docs" />
+
+# UiInput
+
+The **UiInput** component is a versatile input field that supports various types (text, password, number, email) and can be easily integrated with `v-model` for value binding.
+
+<Canvas of={InputStories.DefaultInput} />
+
+### Props
+
+<Markdown>
+  {`
+| Prop        | Description                                                                                                     |
+|-------------|-----------------------------------------------------------------------------------------------------------------|
+| type        | Specifies the input type. Options are: __text__, __password__, __number__, __email__.                           |
+| placeholder | Sets a placeholder text that appears in the input field before the user enters a value.                         |
+| modelValue  | The input field value. **Use __v-model__ to bind this prop to a data property.**                                |
+| disabled    | Disables the input, making it inactive and adjusting its style for a lower-opacity appearance.                  |
+  `}
+</Markdown>
+
+<Canvas of={InputStories.PaswordInput} />
+

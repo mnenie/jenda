@@ -12,7 +12,7 @@ exports[`UiSheet > should render correctly 1`] = `
           <path d="m6 6 12 12"></path>
         </svg></header>
       <main class="sheet_main">test</main>
-      <footer class="sheet_footer">sheet footer</footer>
+      <footer class="sheet_footer text-sm">sheet footer</footer>
     </div>
   </div>
 </teleport-stub>"

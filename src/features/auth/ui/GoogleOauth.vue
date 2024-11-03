@@ -25,11 +25,9 @@ function onGoogleAuth () {
 .google_img {
   width: 16px;
   height: 16px;
-  margin-right: 8px;
 }
 
 .loader {
-  margin-right: 8px;
   height: 16px;
   width: 16px;
   @include on-spin;

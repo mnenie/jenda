@@ -1,0 +1,22 @@
+{/* ProgressBar.mdx */}
+
+import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
+import * as ProgressBarStories from '../progress-bar/UiProgressBar.stories';
+
+<Meta of={ProgressBarStories} name="Docs" />
+
+# UiProgressBar
+
+The **UiProgressBar** component is a flexible badge that supports various styles, making it suitable for different UI contexts.
+
+### Props
+
+<Markdown>
+  {`
+| Prop     | Description                   |
+|----------|-------------------------------|
+| progress  | Exposes the progress value   |
+`}
+</Markdown>
+
+<Canvas of={ProgressBarStories.DefaultProgressBar} />

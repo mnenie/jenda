@@ -1,0 +1,24 @@
+{/* Select.mdx */}
+
+import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
+import * as SelectStories from '../select/UiSelect.stories';
+
+<Meta of={SelectStories} name="Docs" />
+
+# UiSelect
+
+The **UiSelect** component is a flexible selection input that can be displayed as a dropdown or a button, making it adaptable to various UI contexts.
+
+### Props
+
+<Markdown>
+  {`
+| Prop       | Description                                                  |
+|------------|--------------------------------------------------------------|
+| modelValue | The selected option's value.                                 |
+| options    | An array of options to display. Each option has a name and value. |
+| as         | Determines if the component renders as a button or select.   |
+  `}
+</Markdown>
+
+<Canvas of={SelectStories.DefaultSelect} />

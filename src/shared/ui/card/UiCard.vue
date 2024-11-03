@@ -17,6 +17,8 @@ defineSlots<{
 <style module lang="scss">
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border: 1px solid var(--zinc-200);
   border-radius: 8px;
@@ -27,6 +29,7 @@ defineSlots<{
 
 .user_container {
   position: absolute;
+  width: fit-content;
   bottom: 6px;
   right: 6px;
 }

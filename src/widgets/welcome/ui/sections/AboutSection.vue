@@ -113,7 +113,6 @@ const arrowMargin = computed(() => {
       & > img {
         width: 16px;
         height: 16px;
-        margin-right: 6px;
       }
     }
   }

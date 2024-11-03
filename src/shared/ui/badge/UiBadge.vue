@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import type { BadgeType } from './types';
 
-withDefaults(
-  defineProps<{
-    variant?: BadgeType;
-  }>(),
-  {
-    variant: 'default'
-  }
-);
+const { variant = 'default' } = defineProps<{
+  variant?: BadgeType;
+}>();
 </script>
 
 <template>

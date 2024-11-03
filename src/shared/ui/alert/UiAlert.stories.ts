@@ -11,29 +11,43 @@ export default {
       defaultValue: 'default'
     },
     closable: {
-      defaultValue: true
+      control: 'boolean'
     }
   }
 } as Meta<typeof UiAlert>;
 
-export const TestAlert: StoryFn<typeof UiAlert> = (args) => ({
+const Template: StoryFn<typeof UiAlert> = (args) => ({
   components: { UiAlert },
   setup() {
     return { args };
   },
   template: `
-    <UiAlert v-bind="args" />
+    <UiAlert v-bind="args">
+      <template v-if="${'default' in args}" v-slot>${args.default}</template>
+    </UiAlert>
   `
 });
 
-export const TestAlertWithSlots: StoryFn<typeof UiAlert> = (args) => ({
-  components: { UiAlert },
-  setup() {
-    return { args };
-  },
-  template: `
-      <UiAlert v-bind="args">
-        hello from alert
-      </UiAlert>
-    `
-});
+export const DefaultAlert: StoryFn<typeof UiAlert> = Template.bind({});
+
+DefaultAlert.args = {
+  variant: 'default',
+  content: 'hello from alert'
+};
+
+export const AlertExampleProps: StoryFn<typeof UiAlert> = Template.bind({});
+
+AlertExampleProps.args = {
+  variant: 'warning',
+  content: 'hello from alert',
+  closable: true
+};
+
+export const SlottedAlert: StoryFn<typeof UiAlert> = Template.bind({});
+
+SlottedAlert.args = {
+  variant: 'success',
+  default: `
+    <span class="text-sm" style="color: var(--zinc-400)">alert with slot with success variant</span>
+  `
+};

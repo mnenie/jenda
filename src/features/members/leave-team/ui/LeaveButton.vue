@@ -17,7 +17,7 @@ function leaveTeam () {
 
 <template>
   <UiButton :variant="'destructive'" @click="leaveTeam">
-    <X :size="17" style="margin-right: 6px" />
+    <X :size="17"/>
     {{ $t('members.btns.leave') }}...
   </UiButton>
 </template>

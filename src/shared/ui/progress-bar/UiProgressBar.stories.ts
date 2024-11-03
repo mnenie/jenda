@@ -6,8 +6,7 @@ export default {
   component: UiProgressBar,
   argTypes: {
     progress: {
-      control: 'number',
-      defaultValue: 5
+      control: 'number'
     }
   }
 } as Meta<typeof UiProgressBar>;
@@ -17,5 +16,5 @@ export const DefaultProgressBar: StoryFn<typeof UiProgressBar> = (args) => ({
   setup() {
     return { args };
   },
-  template: '<UiProgressBar v-bind="args" />'
+  template: '<div style="width: 300px"><UiProgressBar v-bind="args" /></div>'
 });

@@ -26,7 +26,7 @@ const iconColor = computed(() => {
     </div>
     <UiButton :variant="'dashed'" style="padding: 0 12px">
       <ArrowUpDown :size="17" :color="iconColor" />
-      <span style="margin-left: 6px">{{ $t('boards.filter.popularity') }}</span>
+      <span>{{ $t('boards.filter.popularity') }}</span>
     </UiButton>
     <UiButton :variant="'dashed'" style="padding: 0 12px">
       <History :size="17" :color="iconColor" />

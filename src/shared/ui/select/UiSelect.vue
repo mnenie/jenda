@@ -47,17 +47,17 @@ const selected = ref(props.modelValue);
           v-for="(option, i) of options"
           :key="i"
           :class="[$style.item, { [$style.active]: option.name === selected }]"
-          :style="{ justifyContent: as === 'btn' ? 'center' : 'flex-start' }"
+          :style="{ justifyContent: as === 'btn' ? 'center' : 'space-between' }"
           @click="
             selected = option.name;
             open = false;
             emit('update:modelValue', option.name);
           "
         >
+          <span class="text-sm">{{ option.name }}</span>
           <div v-if="as === 'select'" :class="$style.icon">
             <Check v-if="option.name === selected" :size="14" />
           </div>
-          <span class="text-sm">{{ option.name }}</span>
         </div>
       </div>
     </Transition>
@@ -72,8 +72,8 @@ const selected = ref(props.modelValue);
   z-index: 50;
   max-height: 24rem;
   height: fit-content;
-  min-width: 8rem;
-  width: 200px;
+  min-width: 10rem;
+  width: fit-content;
   border-radius: 6px;
   border: 1px solid var(--zinc-200);
   background-color: white;
@@ -93,13 +93,15 @@ const selected = ref(props.modelValue);
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  gap: 20px;
   padding: 0 16px;
   cursor: pointer;
   user-select: none;
 }
 
 .btn {
-  width: 54px;
+  display: flex;
+  min-width: 100px;
   padding: 8px;
   gap: 4px;
   color: var(--zinc-300);
@@ -133,6 +135,8 @@ const selected = ref(props.modelValue);
     display: flex;
     align-items: center;
     gap: 6px;
+    text-wrap: nowrap;
+    width: 100%;
 
     &:hover {
       background-color: var(--zinc-100);
