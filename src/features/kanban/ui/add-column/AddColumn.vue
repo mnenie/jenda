@@ -3,13 +3,13 @@ import { useTemplateRef } from 'vue';
 import { useDark } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
 import { Plus } from 'lucide-vue-next';
-import { UiSheet, type SheetElement } from '@/shared/ui';
+import { UiSheet } from '@/shared/ui';
 import FormCreation from './FormCreation.vue';
 
 const isDark = useDark();
 const { t } = useI18n();
 
-const sheetColumn = useTemplateRef<SheetElement | null>('sheet');
+const sheetColumn = useTemplateRef<InstanceType<typeof UiSheet> | null>('sheet');
 
 function open () {
   if (sheetColumn.value) {
