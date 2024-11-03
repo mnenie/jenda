@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { ref, shallowRef } from 'vue';
 import '@/shared/lib/vitest-utils/cookiesI18n-mock';
 import useTheme from '../../model/composables/useTheme';
@@ -13,7 +13,7 @@ vi.mock('@vueuse/core', () => ({
 }));
 
 describe('tests for ThemeSwitcher.vue', () => {
-  const wrapper = mount(ThemeSwitcher, {
+  const wrapper = shallowMount(ThemeSwitcher, {
     global: {
       plugins: [i18n],
       mocks: {

@@ -1,7 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`tests for WorkSpace.vue > should be render correctly 1`] = `
-"<div class="sidebar_main_links"><a class="link"><button class="text-sm button secondary md link_btn" style="justify-content: flex-start;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-dashed-kanban-icon icon">
+"<div class="sidebar_main_links"><a class="link"><button class="text-sm button secondary md link_btn" style="justify-content: flex-start;">
+      <!--v-if--><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-dashed-kanban-icon icon">
         <path d="M8 7v7"></path>
         <path d="M12 7v4"></path>
         <path d="M16 7v9"></path>
@@ -17,5 +18,6 @@ exports[`tests for WorkSpace.vue > should be render correctly 1`] = `
         <path d="M5 21a2 2 0 0 1-2-2"></path>
         <path d="M3 14v1"></path>
         <path d="M3 9v1"></path>
-      </svg><span class="text-sm">Boards</span></button></a></div>"
+      </svg><span class="text-sm">Boards</span>
+    </button></a></div>"
 `;

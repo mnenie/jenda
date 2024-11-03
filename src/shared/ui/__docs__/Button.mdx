@@ -1,0 +1,44 @@
+{/* Button.mdx */}
+
+import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
+import * as ButtonStories from '../button/UiButton.stories';
+
+<Meta of={ButtonStories} name="Docs" />
+
+# UiButton
+
+The **UiButton** component is a versatile button that supports various sizes, themes, and icon placements, making it suitable for different UI use cases.
+
+<Canvas of={ButtonStories.DefaultButton} />
+
+### Props
+
+<Markdown>
+  {`
+| Prop             | Description                                                                                                                   |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| variant          | Defines the button's style. Options are: __default__, __secondary__, __ghost__, __destructive__, __outline__, and __dashed__. |
+| size             | Controls the button's size. Options are: __sm__ (small), __md__ (medium, default), and __lg__ (large).                        |
+| loading          | Shows a loading spinner when true, indicating a loading state.                                                                |
+| disabled         | Disables the button when true, setting it to an inactive state and reducing opacity to 0.6.                                   |
+| loadingPlacement | Defines where the loading spinner appears when __loading__ is true. Options are __leading__ (before content) and __trailing__.  |
+`}
+</Markdown>
+
+<Canvas of={ButtonStories.ButtonExampleProps} />
+
+### Slots
+
+<Markdown>
+  {`
+| Slot       | Description                                                                                                |
+|------------|----------------------------------------------------------------------------------------------------------- |
+| default    | Main content slot for the button's label or other components.                                              |
+| leading    | Slot for content to appear at the start of the button, such as an icon or loading spinner.                 |
+| trailing   | Slot for content to appear at the end of the button, like an icon or loading spinner.                      |
+| loading    | Slot for a custom loading spinner or icon to be displayed when the button is in a loading state.           |
+`}
+</Markdown>
+
+
+<Canvas of={ButtonStories.SlottedButton} />

@@ -2,61 +2,7 @@
 
 exports[`tests for ThemeSwitcher.vue > should render correctly 1`] = `
 "<form class="theme_form">
-  <div class="group">
-    <div class="block">
-      <div class="main_container">
-        <div class="main_content">
-          <div class="item">
-            <div class="item_line short"></div>
-            <div class="item_line long"></div>
-          </div>
-          <div class="item flex">
-            <div class="item_circle"></div>
-            <div class="item_line long"></div>
-          </div>
-          <div class="item flex">
-            <div class="item_circle"></div>
-            <div class="item_line long"></div>
-          </div>
-        </div>
-      </div><span class="text-xs">Light</span>
-    </div>
-    <div class="block">
-      <div class="main_container">
-        <div class="main_content">
-          <div class="item">
-            <div class="item_line short"></div>
-            <div class="item_line long"></div>
-          </div>
-          <div class="item flex">
-            <div class="item_circle"></div>
-            <div class="item_line long"></div>
-          </div>
-          <div class="item flex">
-            <div class="item_circle"></div>
-            <div class="item_line long"></div>
-          </div>
-        </div>
-      </div><span class="text-xs">Dark</span>
-    </div>
-    <div class="block">
-      <div class="main_container active">
-        <div class="main_content">
-          <div class="item">
-            <div class="item_line short"></div>
-            <div class="item_line long"></div>
-          </div>
-          <div class="item flex">
-            <div class="item_circle"></div>
-            <div class="item_line long"></div>
-          </div>
-          <div class="item flex">
-            <div class="item_circle"></div>
-            <div class="item_line long"></div>
-          </div>
-        </div>
-      </div><span class="text-xs">System</span>
-    </div>
-  </div><button class="text-sm button outline md" type="submit">Update preferences</button>
+  <ui-radio-group-container-stub></ui-radio-group-container-stub>
+  <ui-button-stub variant="outline" size="md" loading="false" disabled="false" loadingplacement="leading" type="submit"></ui-button-stub>
 </form>"
 `;

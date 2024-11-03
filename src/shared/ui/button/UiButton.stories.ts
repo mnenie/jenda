@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/vue3';
 import UiButton from './UiButton.vue';
-import { CircleHelp } from 'lucide-vue-next';
+import { File } from '@/shared/assets/icons';
 
 export default {
   title: 'UiButton',
@@ -19,25 +19,45 @@ export default {
   }
 } as Meta<typeof UiButton>;
 
-export const DefaultButton: StoryFn<typeof UiButton> = (args) => ({
-  components: { UiButton },
-  setup() {
-    return { args };
-  },
-  template: `
-    <UiButton v-bind="args">Get Started</UiButton>
-  `
-});
-
-export const ButtonWithIcon: StoryFn<typeof UiButton> = (args) => ({
-  components: { UiButton, CircleHelp },
-  setup() {
-    return { args };
-  },
-  template: `
+const Template: StoryFn<typeof UiButton> = (args) => {
+  return {
+    components: { UiButton, File },
+    setup() {
+      return { args };
+    },
+    template: `
     <UiButton v-bind="args">
-      <CircleHelp :size="18" />
-      Download
+        <template v-if="${'leading' in args}" v-slot:leading>${args.leading}</template> 
+        <template v-if="${'default' in args}" v-slot>${args.default}</template>
+        <template v-if="${'trailing' in args}" v-slot:trailing>${args.trailing}</template>
     </UiButton>
   `
-});
+  };
+};
+
+export const DefaultButton: StoryFn<typeof UiButton> = Template.bind({});
+
+DefaultButton.args = {
+  size: 'md',
+  variant: 'default',
+  default: `Get Started`
+};
+
+export const ButtonExampleProps: StoryFn<typeof UiButton> = Template.bind({});
+
+ButtonExampleProps.args = {
+  size: 'sm',
+  variant: 'destructive',
+  default: `Delete`
+};
+
+export const SlottedButton: StoryFn<typeof UiButton> = Template.bind({});
+
+SlottedButton.args = {
+  size: 'md',
+  variant: 'default',
+  leading: `<File style="width: 16px; height: 16px;" />`,
+  default: `
+      Download
+    `
+};

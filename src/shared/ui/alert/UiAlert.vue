@@ -9,7 +9,6 @@ const props = withDefaults(
   defineProps<{
     variant?: AlertVariant;
     closable?: boolean;
-     
     content?: string;
   }>(),
   {
@@ -67,7 +66,8 @@ const alertBorder = computed(() => (isDark.value ? _styles.value.dark.border : _
 
 :global(html.dark) {
   .alert {
-    .x_mark, & span {
+    .x_mark,
+    & span {
       color: var(--zinc-200);
     }
   }

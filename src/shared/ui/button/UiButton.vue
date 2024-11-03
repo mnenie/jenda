@@ -1,21 +1,42 @@
 <script setup lang="ts">
+import { createReusableTemplate } from '@vueuse/core';
 import type { ButtonType, ButtonSize } from './types';
+import { Spin } from '@/shared/assets/icons';
 
-withDefaults(
-  defineProps<{
-    variant?: ButtonType;
-    size?: ButtonSize;
-  }>(),
-  {
-    variant: 'default',
-    size: 'md'
-  }
-);
+interface ButtonProps {
+  variant?: ButtonType;
+  size?: ButtonSize;
+  loading?: boolean;
+  disabled?: boolean;
+  loadingPlacement?: 'leading' | 'trailing';
+}
+
+const { variant = 'default', size = 'md', loadingPlacement = 'leading' } = defineProps<ButtonProps>();
+
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 </script>
 
 <template>
-  <button class="text-sm" :class="[$style.button, $style[variant], $style[size]]">
+  <button
+    class="text-sm"
+    :class="[$style.button, $style[variant], $style[size]]"
+    :disabled="loading || disabled"
+  >
+    <DefineTemplate v-if="loading">
+      <slot name="loading">
+        <Spin :class="$style.loader" />
+      </slot>
+    </DefineTemplate>
+
+    <ReuseTemplate v-if="loading && loadingPlacement === 'leading'" />
+
+    <slot v-else name="leading" />
+
     <slot />
+
+    <ReuseTemplate v-if="loading && loadingPlacement === 'trailing'" />
+
+    <slot v-else name="trailing" />
   </button>
 </template>
 
@@ -30,6 +51,11 @@ withDefaults(
   border-radius: 6px;
   font-weight: 500 !important;
   opacity: 1;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 
   @include on-focus {
     outline: none;
@@ -118,16 +144,33 @@ withDefaults(
 .md {
   height: 34px;
   padding: 8px 16px;
+  gap: 8px;
 }
 
 .lg {
   height: 36px;
   padding: 8px 18px;
+  gap: 10px;
 }
 
 .sm {
   height: 28px;
   padding: 8px 12px;
+  gap: 6px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader{
+  animation: spin 1s linear infinite;
+  font-size: 16px;
 }
 
 :global(html.dark) {
