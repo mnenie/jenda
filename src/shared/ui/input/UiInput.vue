@@ -8,9 +8,7 @@ interface InputProps {
   disabled?: boolean;
 }
 
-withDefaults(defineProps<InputProps>(), {
-  type: 'text'
-});
+const { type = 'text', modelValue, placeholder, disabled } = defineProps<InputProps>();
 
 const emit = defineEmits(['update:modelValue']);
 </script>

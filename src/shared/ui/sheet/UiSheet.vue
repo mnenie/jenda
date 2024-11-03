@@ -2,7 +2,7 @@
 import { computed, ref, useCssModule, useTemplateRef } from 'vue';
 import { X } from 'lucide-vue-next';
 
-interface Props {
+interface SheetProps {
   overlay?: boolean;
   maxWidth?: number;
   transitionDuration?: number;
@@ -10,13 +10,13 @@ interface Props {
   overlayClickClose?: boolean;
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  overlay: true,
-  maxWidth: 450,
-  transitionDuration: 0.35,
-  minWidth: 450,
-  overlayClickClose: true
-});
+const {
+  overlay = true,
+  maxWidth = 450,
+  transitionDuration = 0.35,
+  minWidth = 450,
+  overlayClickClose = true
+} = defineProps<SheetProps>();
 
 const emit = defineEmits(['opened', 'closed']);
 
@@ -47,7 +47,7 @@ const sheetContentClasses = computed(() => {
 });
 
 const transitionDurationTime = computed(() => {
-  return `${props.transitionDuration}s`;
+  return `${transitionDuration}s`;
 });
 const sheetWidthString = computed(() => {
   return sheetWidth.value && sheetWidth.value > 0 ? `${sheetWidth.value + 1}px` : 'auto';
@@ -56,10 +56,10 @@ const translateValueString = computed(() => {
   return `${translateValue.value}%`;
 });
 const maxWidthStyle = computed(() => {
-  return `${props.maxWidth}px`;
+  return `${maxWidth}px`;
 });
 const minWidthStyle = computed(() => {
-  return `${props.minWidth}px`;
+  return `${minWidth}px`;
 });
 
 function open() {
@@ -76,11 +76,11 @@ async function close() {
     document.documentElement.style.overflowY = 'auto';
     document.documentElement.style.overscrollBehavior = '';
     emit('closed');
-  }, props.transitionDuration * 1000);
+  }, transitionDuration * 1000);
 }
 
 function clickOnOverlayHandler() {
-  if (props.overlayClickClose) {
+  if (overlayClickClose) {
     close();
   }
 }

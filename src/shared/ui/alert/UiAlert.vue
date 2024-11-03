@@ -5,24 +5,20 @@ import { variants } from '.';
 import { X } from 'lucide-vue-next';
 import { useDark } from '@vueuse/core';
 
-const props = withDefaults(
-  defineProps<{
-    variant?: AlertVariant;
-    closable?: boolean;
-    content?: string;
-  }>(),
-  {
-    variant: 'default',
-    closable: false
-  }
-);
+interface AlertProps {
+  variant?: AlertVariant;
+  closable?: boolean;
+  content?: string;
+}
+
+const { variant = 'default', closable, content } = defineProps<AlertProps>();
 
 const emits = defineEmits(['close']);
 
 const isDark = useDark();
 
 const _styles = computed(() => {
-  return variants[props.variant];
+  return variants[variant];
 });
 
 const alertBgColor = computed(() =>
@@ -30,7 +26,7 @@ const alertBgColor = computed(() =>
 );
 const alertBorder = computed(() => (isDark.value ? _styles.value.dark.border : _styles.value.light.border));
 
-const valueOfRightPadding = computed(() => props.closable ? '32px' : '10px');
+const valueOfRightPadding = computed(() => (closable ? '32px' : '10px'));
 </script>
 
 <template>

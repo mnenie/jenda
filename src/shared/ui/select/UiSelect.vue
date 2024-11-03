@@ -5,17 +5,13 @@ import type { Options } from './types';
 import { Check, ChevronsUpDown } from 'lucide-vue-next';
 import { UiButton } from '../button';
 
-const props = withDefaults(
-  defineProps<{
-    modelValue?: null | string;
-    options: Options[];
-    as?: 'btn' | 'select';
-  }>(),
-  {
-    modelValue: null,
-    as: 'select'
-  }
-);
+interface SelectProps {
+  modelValue?: null | string;
+  options: Options[];
+  as?: 'btn' | 'select';
+}
+
+const { as = 'select', modelValue } = defineProps<SelectProps>();
 
 const emit = defineEmits<{
   (e: 'update:modelValue', option: string): void;
@@ -28,7 +24,7 @@ onClickOutside(select, () => {
   open.value = false;
 });
 
-const selected = ref(props.modelValue);
+const selected = ref(modelValue);
 </script>
 
 <template>

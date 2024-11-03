@@ -8,17 +8,12 @@ interface RadioItem {
   name?: string;
 }
 
-const props = withDefaults(defineProps<RadioItem>(), {
-  inputId: 'radio-input-id',
-  modelValue: '',
-  value: undefined,
-  name: 'radio-input-name'
-});
+const { inputId = 'radio-input-id', modelValue, value, name = 'radio-input-name' } = defineProps<RadioItem>();
 
 const emits = defineEmits(['update:modelValue']);
 
 const checked = computed(() => {
-  return props.modelValue === props.value;
+  return modelValue === value;
 });
 </script>
 

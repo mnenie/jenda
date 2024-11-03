@@ -4,12 +4,13 @@ import { Ellipsis, Plus } from 'lucide-vue-next';
 import type { Column } from '../model';
 import { useI18n } from 'vue-i18n';
 
-defineProps<{
-  column: Column;
-}>();
 defineOptions({
   inheritAttrs: false
 });
+
+defineProps<{
+  column: Column;
+}>();
 
 const isDark = useDark();
 const { t } = useI18n();

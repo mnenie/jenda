@@ -48,7 +48,6 @@ export default [
           }
         }
       ],
-      'vue/require-default-prop': 'off',
       'no-console': 'error',
       'no-alert': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
