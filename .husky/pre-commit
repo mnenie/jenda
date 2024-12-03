@@ -1,2 +1,2 @@
 pnpm lint-staged
-pnpm test:unit
+pnpm test:unit run

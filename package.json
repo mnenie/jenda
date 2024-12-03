@@ -19,7 +19,7 @@
     "build:all": "pnpm -r build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test:unit": "pnpm --filter core/client test:unit",
+    "test:unit": "pnpm -r test:unit",
     "type-check": "pnpm -r typecheck",
     "pre-commit": "pnpm -r lint && pnpm -r typecheck",
     "prepare": "husky"
