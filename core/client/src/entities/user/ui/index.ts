@@ -1,3 +1,3 @@
-import UserAvatar from "./UserAvatar.vue";
+import UserAvatar from './UserAvatar.vue'
 
-export { UserAvatar };
+export { UserAvatar }

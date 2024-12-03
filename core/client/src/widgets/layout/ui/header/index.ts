@@ -1,4 +1,4 @@
-import HeaderMain from "./HeaderMain.vue";
-import HeaderWelcome from "./HeaderWelcome.vue";
+import HeaderMain from './HeaderMain.vue'
+import HeaderWelcome from './HeaderWelcome.vue'
 
-export { HeaderMain, HeaderWelcome };
+export { HeaderMain, HeaderWelcome }

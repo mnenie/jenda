@@ -1,4 +1,4 @@
-import UiRadioGroupContainer from "./UiRadioGroupContainer.vue";
-import UiRadioGroupItem from "./UiRadioGroupItem.vue";
+import UiRadioGroupContainer from './UiRadioGroupContainer.vue'
+import UiRadioGroupItem from './UiRadioGroupItem.vue'
 
-export { UiRadioGroupContainer, UiRadioGroupItem };
+export { UiRadioGroupContainer, UiRadioGroupItem }

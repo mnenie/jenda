@@ -1,4 +1,4 @@
-import type { HippieNav } from "@noction/hippie-nav";
+import type { HippieNav } from '@noction/hippie-nav'
 import {
   effectScope,
   nextTick,
@@ -6,14 +6,14 @@ import {
   type Ref,
   toValue,
   watch,
-} from "vue";
+} from 'vue'
 
 export function useSearch<T extends InstanceType<typeof HippieNav>>(
   hippieNav: Ref<T | null>,
   openFl: Ref<boolean>,
   placeholder: Ref<string>,
 ) {
-  const scope = effectScope();
+  const scope = effectScope()
 
   scope.run(() => {
     watch(
@@ -23,20 +23,20 @@ export function useSearch<T extends InstanceType<typeof HippieNav>>(
         if (hippieNav.value) {
           await nextTick(() => {
             const input = document.querySelector(
-              ".search-panel-input",
-            ) as HTMLInputElement;
+              '.search-panel-input',
+            ) as HTMLInputElement
             // console.log(input)
             if (input) {
-              input.placeholder = toValue(placeholder);
+              input.placeholder = toValue(placeholder)
             }
-          });
+          })
         }
       },
-      { flush: "post" },
-    );
-  });
+      { flush: 'post' },
+    )
+  })
 
   onScopeDispose(() => {
-    scope.stop();
-  });
+    scope.stop()
+  })
 }

@@ -1,3 +1,3 @@
-import ChartItemWrapper from "./ChartItemWrapper.vue";
+import ChartItemWrapper from './ChartItemWrapper.vue'
 
-export { ChartItemWrapper };
+export { ChartItemWrapper }

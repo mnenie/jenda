@@ -1,3 +1,3 @@
-import CreationBoard from "./CreationBoard.vue";
+import CreationBoard from './CreationBoard.vue'
 
-export { CreationBoard };
+export { CreationBoard }

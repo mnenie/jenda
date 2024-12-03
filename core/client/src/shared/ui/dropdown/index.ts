@@ -1,5 +1,5 @@
-import UiDropdown from "./UiDropdown.vue";
-import UiDropdownItem from "./UiDropdownItem.vue";
-import UiDropdownShortcut from "./UiDropdownShortcut.vue";
+import UiDropdown from './UiDropdown.vue'
+import UiDropdownItem from './UiDropdownItem.vue'
+import UiDropdownShortcut from './UiDropdownShortcut.vue'
 
-export { UiDropdown, UiDropdownItem, UiDropdownShortcut };
+export { UiDropdown, UiDropdownItem, UiDropdownShortcut }

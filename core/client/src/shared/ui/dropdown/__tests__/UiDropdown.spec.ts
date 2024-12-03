@@ -1,52 +1,52 @@
-import { mount } from "@vue/test-utils";
-import { describe, expect, it } from "vitest";
-import { nextTick } from "vue";
-import UiDropdown from "../UiDropdown.vue";
+import { mount } from '@vue/test-utils'
+import { describe, expect, it } from 'vitest'
+import { nextTick } from 'vue'
+import UiDropdown from '../UiDropdown.vue'
 
-describe("uiDropdown", () => {
+describe('uiDropdown', () => {
   const wrapper = mount(UiDropdown, {
     slots: {
-      trigger: "<div>trigger</div>",
-      header: "<div>header</div>",
-      content: "<div>content</div>",
+      trigger: '<div>trigger</div>',
+      header: '<div>header</div>',
+      content: '<div>content</div>',
     },
-  });
+  })
 
-  it("should render correctly", async () => {
+  it('should render correctly', async () => {
     // @ts-expect-error instance
-    wrapper.vm.isOpen = true;
-    await nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
-  });
+    wrapper.vm.isOpen = true
+    await nextTick()
+    expect(wrapper.html()).toMatchSnapshot()
+  })
 
-  it("toggles dropdown on trigger", async () => {
-    const trigger = wrapper.find(".wrapper");
-    expect(trigger.exists()).toBe(true);
+  it('toggles dropdown on trigger', async () => {
+    const trigger = wrapper.find('.wrapper')
+    expect(trigger.exists()).toBe(true)
     // @ts-expect-error instance
-    wrapper.vm.isOpen = false;
+    wrapper.vm.isOpen = false
 
-    trigger.trigger("click");
-    await nextTick();
-    expect(wrapper.find(".inside").exists()).toBe(true);
+    trigger.trigger('click')
+    await nextTick()
+    expect(wrapper.find('.inside').exists()).toBe(true)
 
-    trigger.trigger("click");
-    await nextTick();
-    expect(wrapper.find(".inside").exists()).toBe(false);
-  });
+    trigger.trigger('click')
+    await nextTick()
+    expect(wrapper.find('.inside').exists()).toBe(false)
+  })
 
-  it("should close dropdown when clicking outside", () => {
+  it('should close dropdown when clicking outside', () => {
     const _w = mount(UiDropdown, {
       attachTo: document.body,
       slots: {
-        trigger: "<div>trigger</div>",
-        header: "<div>header</div>",
-        content: "<div>content</div>",
+        trigger: '<div>trigger</div>',
+        header: '<div>header</div>',
+        content: '<div>content</div>',
       },
-    });
+    })
     // @ts-expect-error instance
-    _w.vm.isOpen = false;
+    _w.vm.isOpen = false
 
-    document.body.click();
-    expect(_w.find(".inside").exists()).toBe(false);
-  });
-});
+    document.body.click()
+    expect(_w.find('.inside').exists()).toBe(false)
+  })
+})

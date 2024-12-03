@@ -15,11 +15,11 @@ const toasterTheme = computed<ToasterTheme>(() => {
 
 <template>
   <AppLayout>
-    <router-view v-slot="{ Component }">
-      <keep-alive :include="['LoginPage', 'RegistrationPage']">
+    <RouterView v-slot="{ Component }">
+      <KeepAlive :include="['LoginPage', 'RegistrationPage']">
         <component :is="Component" />
-      </keep-alive>
-    </router-view>
+      </KeepAlive>
+    </RouterView>
   </AppLayout>
   <Toaster :theme="toasterTheme" position="bottom-right" />
 </template>

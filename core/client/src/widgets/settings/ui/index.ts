@@ -1,3 +1,3 @@
-import SettingsElements from "./SettingsElements.vue";
+import SettingsElements from './SettingsElements.vue'
 
-export { SettingsElements };
+export { SettingsElements }

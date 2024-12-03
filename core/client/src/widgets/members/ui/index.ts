@@ -1,4 +1,4 @@
-import MainWrapper from "./MainWrapper.vue";
-import MembersList from "./MembersList.vue";
+import MainWrapper from './MainWrapper.vue'
+import MembersList from './MembersList.vue'
 
-export { MainWrapper, MembersList };
+export { MainWrapper, MembersList }

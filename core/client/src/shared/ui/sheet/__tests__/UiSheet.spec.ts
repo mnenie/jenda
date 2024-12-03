@@ -1,9 +1,9 @@
-import { mount } from "@vue/test-utils";
-import { describe, expect, it } from "vitest";
-import { nextTick } from "vue";
-import UiSheet from "../UiSheet.vue";
+import { mount } from '@vue/test-utils'
+import { describe, expect, it } from 'vitest'
+import { nextTick } from 'vue'
+import UiSheet from '../UiSheet.vue'
 
-describe("uiSheet", () => {
+describe('uiSheet', () => {
   const wrapper = mount(UiSheet, {
     global: {
       stubs: {
@@ -17,32 +17,32 @@ describe("uiSheet", () => {
       overlayClickClose: true,
     },
     slots: {
-      header: "sheet header",
-      footer: "sheet footer",
-      default: "test",
+      header: 'sheet header',
+      footer: 'sheet footer',
+      default: 'test',
     },
-  });
+  })
 
-  it("should render correctly", async () => {
+  it('should render correctly', async () => {
     // @ts-expect-error instance (needs to be fixed)
-    wrapper.vm.showSheet = true;
-    await nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
-  });
+    wrapper.vm.showSheet = true
+    await nextTick()
+    expect(wrapper.html()).toMatchSnapshot()
+  })
 
-  it("should render slots correctly", () => {
-    expect(wrapper.find(".sheet_header").text()).toContain("sheet header");
-    expect(wrapper.find(".sheet_main").text()).toContain("test");
-    expect(wrapper.find(".sheet_footer").text()).toContain("sheet footer");
-  });
+  it('should render slots correctly', () => {
+    expect(wrapper.find('.sheet_header').text()).toContain('sheet header')
+    expect(wrapper.find('.sheet_main').text()).toContain('test')
+    expect(wrapper.find('.sheet_footer').text()).toContain('sheet footer')
+  })
 
-  it("should open/close the sheet", async () => {
-    wrapper.vm.open();
-    await nextTick();
-    expect(wrapper.find(".sheet").attributes("aria-hidden")).toBe("false");
+  it('should open/close the sheet', async () => {
+    wrapper.vm.open()
+    await nextTick()
+    expect(wrapper.find('.sheet').attributes('aria-hidden')).toBe('false')
 
-    wrapper.vm.close();
-    await nextTick();
-    expect(wrapper.find(".sheet").attributes("aria-hidden")).toBe("true");
-  });
-});
+    wrapper.vm.close()
+    await nextTick()
+    expect(wrapper.find('.sheet').attributes('aria-hidden')).toBe('true')
+  })
+})

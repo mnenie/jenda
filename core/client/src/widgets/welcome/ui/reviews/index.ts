@@ -1,3 +1,3 @@
-import ReviewWrapper from "./ReviewWrapper.vue";
+import ReviewWrapper from './ReviewWrapper.vue'
 
-export { ReviewWrapper };
+export { ReviewWrapper }

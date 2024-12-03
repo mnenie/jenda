@@ -1,3 +1,3 @@
-import AddColumn from "./AddColumn.vue";
+import AddColumn from './AddColumn.vue'
 
-export { AddColumn };
+export { AddColumn }

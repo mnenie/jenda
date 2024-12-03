@@ -1,14 +1,14 @@
-import type { Component } from "vue";
+import type { Component } from 'vue'
 
 export interface Link {
-  id: number;
-  name: string;
-  pathName: string;
-  icon: Component;
+  id: number
+  name: string
+  pathName: string
+  icon: Component
 }
 
 export interface HeaderNavLink {
-  id: number;
-  name: string;
-  pagePrefix: string;
+  id: number
+  name: string
+  pagePrefix: string
 }

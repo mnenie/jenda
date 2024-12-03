@@ -1,3 +1,3 @@
-import PlanCard from "./PlanCard.vue";
+import PlanCard from './PlanCard.vue'
 
-export { PlanCard };
+export { PlanCard }

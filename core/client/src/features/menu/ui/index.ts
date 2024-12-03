@@ -1,3 +1,3 @@
-import BurgerMenu from "./BurgerMenu.vue";
+import BurgerMenu from './BurgerMenu.vue'
 
-export { BurgerMenu };
+export { BurgerMenu }

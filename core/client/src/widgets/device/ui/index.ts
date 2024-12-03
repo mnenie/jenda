@@ -1,3 +1,3 @@
-import NotAvailable from "./NotAvailable.vue";
+import NotAvailable from './NotAvailable.vue'
 
-export { NotAvailable };
+export { NotAvailable }

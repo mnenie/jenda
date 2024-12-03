@@ -1,21 +1,19 @@
-import type { Meta, StoryFn } from "@storybook/vue3";
-import UiRadioGroupContainer from "./UiRadioGroupContainer.vue";
-import UiRadioGroupItem from "./UiRadioGroupItem.vue";
+import type { Meta, StoryFn } from '@storybook/vue3'
+import UiRadioGroupContainer from './UiRadioGroupContainer.vue'
+import UiRadioGroupItem from './UiRadioGroupItem.vue'
 
 export default {
-  title: "UiRadioGroup",
+  title: 'UiRadioGroup',
   component: UiRadioGroupItem,
   args: {
-    modelValue: "light",
+    modelValue: 'light',
   },
-} as Meta<typeof UiRadioGroupItem>;
+} as Meta<typeof UiRadioGroupItem>
 
-export const DefaultUiRadioGroup: StoryFn<typeof UiRadioGroupItem> = (
-  args,
-) => ({
+export const DefaultUiRadioGroup: StoryFn<typeof UiRadioGroupItem> = args => ({
   components: { UiRadioGroupItem, UiRadioGroupContainer },
   setup() {
-    return { args };
+    return { args }
   },
   template: `
     <UiRadioGroupContainer>
@@ -23,4 +21,4 @@ export const DefaultUiRadioGroup: StoryFn<typeof UiRadioGroupItem> = (
       <UiRadioGroupItem v-model="args.modelValue"  value="dark" />
     </UiRadioGroupContainer>
   `,
-});
+})

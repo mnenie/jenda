@@ -1,3 +1,3 @@
-import FilterBoards from "./FilterBoards.vue";
+import FilterBoards from './FilterBoards.vue'
 
-export { FilterBoards };
+export { FilterBoards }

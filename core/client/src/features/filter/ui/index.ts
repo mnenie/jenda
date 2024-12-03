@@ -1,3 +1,3 @@
-import SearchFilter from "./SearchFilter.vue";
+import SearchFilter from './SearchFilter.vue'
 
-export { SearchFilter };
+export { SearchFilter }

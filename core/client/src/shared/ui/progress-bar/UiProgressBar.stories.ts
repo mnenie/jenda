@@ -1,20 +1,20 @@
-import type { Meta, StoryFn } from "@storybook/vue3";
-import UiProgressBar from "./UiProgressBar.vue";
+import type { Meta, StoryFn } from '@storybook/vue3'
+import UiProgressBar from './UiProgressBar.vue'
 
 export default {
-  title: "UiProgressBar",
+  title: 'UiProgressBar',
   component: UiProgressBar,
   argTypes: {
     progress: {
-      control: "number",
+      control: 'number',
     },
   },
-} as Meta<typeof UiProgressBar>;
+} as Meta<typeof UiProgressBar>
 
-export const DefaultProgressBar: StoryFn<typeof UiProgressBar> = (args) => ({
+export const DefaultProgressBar: StoryFn<typeof UiProgressBar> = args => ({
   components: { UiProgressBar },
   setup() {
-    return { args };
+    return { args }
   },
   template: '<div style="width: 300px"><UiProgressBar v-bind="args" /></div>',
-});
+})

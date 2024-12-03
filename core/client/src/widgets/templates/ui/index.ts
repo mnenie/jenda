@@ -1,3 +1,3 @@
-import AllTemplates from "./AllTemplates.vue";
+import AllTemplates from './AllTemplates.vue'
 
-export { AllTemplates };
+export { AllTemplates }

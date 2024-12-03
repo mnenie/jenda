@@ -1,1 +1,1 @@
-export type BadgeType = "default" | "secondary" | "outline";
+export type BadgeType = 'default' | 'secondary' | 'outline'

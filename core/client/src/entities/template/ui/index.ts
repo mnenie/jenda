@@ -1,4 +1,4 @@
-import ImportTemplate from "./ImportTemplate.vue";
-import TemplateItem from "./TemplateItem.vue";
+import ImportTemplate from './ImportTemplate.vue'
+import TemplateItem from './TemplateItem.vue'
 
-export { ImportTemplate, TemplateItem };
+export { ImportTemplate, TemplateItem }

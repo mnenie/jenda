@@ -1,1 +1,1 @@
-export * from "./layoutResolver";
+export * from './layoutResolver'

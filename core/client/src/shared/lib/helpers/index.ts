@@ -1,1 +1,1 @@
-export * from "./redirectBlank";
+export * from './redirectBlank'

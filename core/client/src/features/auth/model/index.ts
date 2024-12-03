@@ -1,2 +1,2 @@
-export * from "./fixtures";
-export * from "./validation";
+export * from './fixtures'
+export * from './validation'

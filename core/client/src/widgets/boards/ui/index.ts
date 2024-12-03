@@ -1,3 +1,3 @@
-import TeamBoards from "./TeamBoards.vue";
+import TeamBoards from './TeamBoards.vue'
 
-export { TeamBoards };
+export { TeamBoards }

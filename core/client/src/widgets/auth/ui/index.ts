@@ -1,3 +1,3 @@
-import AuthContainer from "./AuthContainer.vue";
+import AuthContainer from './AuthContainer.vue'
 
-export { AuthContainer };
+export { AuthContainer }
