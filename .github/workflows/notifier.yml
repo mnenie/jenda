@@ -1,0 +1,19 @@
+name: Github to Telegram Notifier
+
+on:
+  push:
+  issues:
+    types: [opened, edited, closed]
+  pull_request:
+    types: [opened, edited, closed]
+
+jobs:
+  notifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: push notification
+        uses: EverythingSuckz/github-telegram-notify@main
+        with:
+          bot_token: '${{ secrets.TELEGRAM_NOTIFIER_TOKEN }}'
+          chat_id: '${{ secrets.CHAT_ID }}'
