@@ -1,9 +1,11 @@
-name: 'Create issues from TODOs'
+name: Create issues from TODOs
 
 on:
   push:
     branches:
       - 'dev'
+      - 'client'
+      - 'server'
 
 jobs:
   todo:
@@ -12,12 +14,12 @@ jobs:
       contents: read
       actions: read
       issues: write
-    runs-on: 'ubuntu-latest'
+    runs-on: ubuntu-latest
     steps:
-      - uses: 'actions/checkout@v3'
-      - name: 'TODO to Issue'
-        uses: 'alstr/todo-to-issue-action@v4'
+      - uses: actions/checkout@v3
+      - name: TODO to Issue
+        uses: alstr/todo-to-issue-action@v4
         with:
           AUTO_ASSIGN: true
           CLOSE_ISSUES: true
-          IGNORE: "./vscode/*, node_modules"
+          IGNORE: './vscode/*, node_modules'

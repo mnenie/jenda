@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiSheet > should render correctly 1`] = `
+"<teleport-stub to="body">
+  <div class="sheet" aria-hidden="false" role="dialog">
+    <transition-stub appear="false" persisted="true" css="true">
+      <div class="sheet_overlay"></div>
+    </transition-stub>
+    <div class="sheet_content">
+      <header class="sheet_header">sheet header<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-xicon header_icon">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg></header>
+      <main class="sheet_main">test</main>
+      <footer class="sheet_footer text-sm">sheet footer</footer>
+    </div>
+  </div>
+</teleport-stub>"
+`;
+
+exports[`uiSheet > should render correctly 1`] = `
+"<teleport-stub to="body">
+  <div class="sheet" aria-hidden="false" role="dialog">
+    <transition-stub appear="false" persisted="true" css="true">
+      <div class="sheet_overlay"></div>
+    </transition-stub>
+    <div class="sheet_content">
+      <header class="sheet_header">sheet header<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-xicon header_icon">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg></header>
+      <main class="sheet_main">test</main>
+      <footer class="text-sm sheet_footer">sheet footer</footer>
+    </div>
+  </div>
+</teleport-stub>"
+`;

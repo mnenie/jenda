@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for UserMenu.vue > should be render correctly 1`] = `
+"<div class="dropdown">
+  <div class="wrapper">
+    <div class="wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="icon">
+        <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3.75" d="M12 12h.01v.01H12zm0-7h.01v.01H12zm0 14h.01v.01H12z"></path>
+      </svg></div>
+  </div>
+  <transition-stub name="dropdown" appear="false" persisted="false" css="true">
+    <div class="inside" style="top: 36px; right: 0px; transform: translateX(0%);">
+      <div class="text-sm header"><span class="text-sm" style="font-weight: 500;">test@gmail.com</span></div>
+      <div class="content">
+        <div class="item">Go to Welcome <div class="shortcut">⌘B</div>
+        </div>
+        <div class="item">Log out <div class="shortcut">⇧⌘Q</div>
+        </div>
+      </div>
+    </div>
+  </transition-stub>
+</div>"
+`;
