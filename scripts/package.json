@@ -1,0 +1,15 @@
+{
+  "name": "scripts",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "shared scripts",
+  "author": "Alex Peshkov",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.5.2",
+    "execa": "^9.5.1",
+    "prompts": "^2.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}

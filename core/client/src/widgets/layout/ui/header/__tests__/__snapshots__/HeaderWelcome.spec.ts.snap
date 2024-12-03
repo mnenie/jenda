@@ -1,0 +1,52 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for HeaderWelcome.vue > should be render correctly 1`] = `
+"<header class="header_welcome">
+  <section class="containers">
+    <div class="left_container">
+      <div class="box">
+        <div class="inside">
+          <div class="name_container"><img src="/icons/kanban.png">
+            <h3 class="text-xl"> Jenda </h3>
+          </div><button class="text-sm button ghost sm item">
+            <!--v-if-->About
+          </button><button class="text-sm button ghost sm item">
+            <!--v-if-->Kanban
+          </button><button class="text-sm button ghost sm item">
+            <!--v-if-->Collaborative
+          </button><button class="text-sm button ghost sm item">
+            <!--v-if-->Activity
+          </button><button class="text-sm button ghost sm item">
+            <!--v-if-->Members
+          </button><button class="text-sm button ghost sm item">
+            <!--v-if-->Chats
+          </button>
+        </div>
+      </div>
+      <div class="additional">
+        <div class="btn_variant"><button class="text-sm button ghost sm btn">
+            <!--v-if--><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+              <path d="M2 12h20"></path>
+            </svg> EN
+          </button>
+          <transition-stub name="dropdown" appear="false" persisted="false" css="true">
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div class="separator"></div><button class="text-sm button ghost sm btn">
+          <!--v-if--><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon-icon">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="btns"><button class="text-sm button ghost md" style="font-weight: 500;">
+        <!--v-if-->Log In
+      </button><button class="text-sm button default md">
+        <!--v-if-->Registration
+      </button></div>
+  </section>
+</header>"
+`;

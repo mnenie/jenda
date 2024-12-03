@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`UiProgressBar > should render correctly 1`] = `
-"<div class="progress_bar_container">
-  <div class="progress_bar_active" style="width: 50%;"></div>
-</div>"
-`;

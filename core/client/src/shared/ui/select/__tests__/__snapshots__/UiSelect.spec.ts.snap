@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiSelect > should render correctly 1`] = `
+"<div class="custom_select">
+  <div class="selected"><span class="text-sm">test</span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon">
+      <path d="m7 15 5 5 5-5"></path>
+      <path d="m7 9 5-5 5 5"></path>
+    </svg></div>
+  <transition-stub name="dropdown" appear="false" persisted="false" css="true">
+    <div class="items"></div>
+  </transition-stub>
+</div>"
+`;
+
+exports[`uiSelect > should render correctly 1`] = `
+"<div class="custom_select">
+  <div class="selected"><span class="text-sm">test</span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-up-down-icon">
+      <path d="m7 15 5 5 5-5"></path>
+      <path d="m7 9 5-5 5 5"></path>
+    </svg></div>
+  <transition-stub name="dropdown" appear="false" persisted="false" css="true">
+    <div class="items"></div>
+  </transition-stub>
+</div>"
+`;
