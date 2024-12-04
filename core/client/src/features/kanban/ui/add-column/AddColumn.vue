@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { UiSheet } from '@/shared/ui'
 import { useDark } from '@vueuse/core'
-import { Plus } from 'lucide-vue-next'
 import { useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FormCreation from './FormCreation.vue'
@@ -20,7 +19,11 @@ function open() {
 
 <template>
   <div class="text-sm" :class="$style.block" @click="open">
-    <Plus :size="16" :color="isDark ? 'var(--zinc-300)' : 'var(--zinc-500)'" />
+    <div
+      i-lucide-plus
+      text-base
+      :style="{ color: isDark ? 'var(--zinc-300)' : 'var(--zinc-500)' }"
+    />
     {{ t('kanban.new') }}
   </div>
   <UiSheet ref="sheet">

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
-import { Arrow, Plus, Project } from '@/shared/assets/icons'
 import { UiButton } from '@/shared/ui'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -34,8 +33,9 @@ function changeShowList() {
 <template>
   <div :class="$style.about" @mouseover="showPlusIcon = true" @mouseleave="showPlusIcon = false">
     <div :class="$style.name">
-      <Arrow
+      <div
         v-show="isExpanded"
+        i-lucide-chevron-down
         :class="$style.icon"
         :style="{ transform: !showList ? 'rotate(-90deg)' : '' }"
         @click="changeShowList"
@@ -44,7 +44,12 @@ function changeShowList() {
         {{ $t('sidebar.projects') }}
       </p>
     </div>
-    <Plus v-show="isExpanded && showPlusIcon" :class="$style.icon" style="font-size: 16px" />
+    <div
+      v-show="isExpanded && showPlusIcon"
+      i-lucide-plus
+      :class="$style.icon"
+      text-base
+    />
   </div>
   <div v-if="showList" :class="$style.sidebar_projects">
     <RouterLink
@@ -63,7 +68,11 @@ function changeShowList() {
         :class="$style.proj_btn"
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
-        <Project :class="$style.project_indicator" :style="{ color: project.color }" />
+        <div
+          i-jenda-custom-project
+          :class="$style.project_indicator"
+          :style="{ color: project.color }"
+        />
         <span v-show="isExpanded" class="text-sm">{{ project.name }}</span>
       </UiButton>
     </RouterLink>
@@ -97,7 +106,6 @@ function changeShowList() {
 
   .icon {
     color: var(--zinc-400);
-    font-size: 18px;
     cursor: pointer;
   }
 }

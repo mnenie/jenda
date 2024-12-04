@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { UiButton } from '@/shared/ui'
-import { Loader2 } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { toast } from 'vue-sonner'
 
@@ -13,7 +12,7 @@ function onGoogleAuth() {
 
 <template>
   <UiButton variant="outline" :disabled="isLoading" @click="onGoogleAuth">
-    <Loader2 v-if="isLoading" :class="$style.loader" />
+    <div v-if="isLoading" i-lucide-loader-circle :class="$style.loader" />
     <img src="/icons/google.png" :class="$style.google_img" />
     Google
   </UiButton>

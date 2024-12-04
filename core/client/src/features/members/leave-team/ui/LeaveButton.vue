@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { RouteNames } from '@/shared/config/consts'
 import { UiButton } from '@/shared/ui'
-import { X } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import { toast } from 'vue-sonner'
 
@@ -17,7 +16,7 @@ function leaveTeam() {
 
 <template>
   <UiButton variant="destructive" @click="leaveTeam">
-    <X :size="17" />
+    <div i-lucide-x text-base />
     {{ $t('members.btns.leave') }}...
   </UiButton>
 </template>

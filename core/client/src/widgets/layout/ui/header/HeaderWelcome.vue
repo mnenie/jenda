@@ -7,7 +7,6 @@ import { useLanguage, useScroll } from '@/shared/lib/composables'
 import { redirect } from '@/shared/lib/helpers'
 import { UiButton, UiSelect } from '@/shared/ui'
 import { useDark, useToggle, useWindowSize } from '@vueuse/core'
-import { Globe, Moon, Sun } from 'lucide-vue-next'
 import { computed, ref, shallowReactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { headerLinks } from '../../model'
@@ -74,7 +73,7 @@ const { width } = useWindowSize()
         </div>
         <div :class="$style.additional">
           <UiSelect v-model="language" :options="languages" as="btn">
-            <Globe :size="16" />
+            <div i-hugeicons-globe-02 text-base />
           </UiSelect>
           <div :class="$style.separator" />
           <UiButton
@@ -83,8 +82,8 @@ const { width } = useWindowSize()
             :class="$style.btn"
             @click="toggleDark()"
           >
-            <Moon v-if="!isDark" :size="17" />
-            <Sun v-else :size="17" />
+            <div v-if="!isDark" i-hugeicons-moon-02 text-base />
+            <div v-else i-hugeicons-sun-03 text-base />
           </UiButton>
         </div>
       </div>

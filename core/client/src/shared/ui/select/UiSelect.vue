@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Options } from './types'
 import { onClickOutside } from '@vueuse/core'
-import { Check, ChevronsUpDown } from 'lucide-vue-next'
 import { ref } from 'vue'
 import { UiButton } from '../button'
 
@@ -31,7 +30,7 @@ const selected = ref(modelValue)
   <div :class="[as === 'select' ? $style.custom_select : $style.btn_variant]">
     <div v-if="as === 'select'" ref="select" :class="$style.selected" @click="open = !open">
       <span class="text-sm">{{ selected }}</span>
-      <ChevronsUpDown :size="15" color="var(--zinc-400)" />
+      <div i-lucide-chevrons-up-down text-sm style="color: var(--zinc-400);" />
     </div>
     <UiButton v-else ref="select" variant="ghost" size="sm" :class="$style.btn" @click="open = !open">
       <slot />
@@ -52,7 +51,7 @@ const selected = ref(modelValue)
         >
           <span class="text-sm">{{ option.name }}</span>
           <div v-if="as === 'select'" :class="$style.icon">
-            <Check v-if="option.name === selected" :size="14" />
+            <div v-if="option.name === selected" i-lucide-check text-sm />
           </div>
         </div>
       </div>
@@ -81,6 +80,7 @@ const selected = ref(modelValue)
 .btn_variant {
   position: relative;
   z-index: 50;
+  min-width: fit-content;
 }
 
 .selected {
@@ -97,7 +97,6 @@ const selected = ref(modelValue)
 
 .btn {
   display: flex;
-  min-width: 100px;
   padding: 8px;
   gap: 4px;
   color: var(--zinc-300);
@@ -139,8 +138,6 @@ const selected = ref(modelValue)
     }
 
     .icon {
-      width: 16px;
-      height: 16px;
       color: var(--zinc-800);
     }
   }

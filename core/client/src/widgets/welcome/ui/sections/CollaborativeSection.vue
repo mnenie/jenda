@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Earth } from 'lucide-vue-next'
 import { useSection } from '../../model/composables'
 import { ReviewWrapper } from '../reviews'
 import SectionWrapper from './SectionWrapper.vue'
@@ -14,7 +13,10 @@ const { section } = useSection(
 <template>
   <SectionWrapper id="collaborative" :section direction="reverse">
     <template #icon="{ size, color }">
-      <Earth :size :color />
+      <span
+        i-hugeicons-earth
+        :style="{ color, fontSize: `${size}px` }"
+      />
     </template>
   </SectionWrapper>
   <ReviewWrapper :review="section.review" />

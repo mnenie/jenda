@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ButtonSize, ButtonType } from './types'
-import { Spin } from '@/shared/assets/icons'
 import { createReusableTemplate } from '@vueuse/core'
 
 interface ButtonProps {
@@ -24,7 +23,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
   >
     <DefineTemplate v-if="loading">
       <slot name="loading">
-        <Spin :class="$style.loader" />
+        <div i-lucide-loader-circle :class="$style.loader" />
       </slot>
     </DefineTemplate>
 

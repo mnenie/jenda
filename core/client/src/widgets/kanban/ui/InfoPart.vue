@@ -3,7 +3,6 @@ import type { Board } from '@/entities/board'
 import { UserAvatar } from '@/entities/user'
 import { FilterTasks, RemoveBoard } from '@/features/kanban'
 import { UiBadge, UiButton } from '@/shared/ui'
-import { Users } from 'lucide-vue-next'
 import { computed } from 'vue'
 import { toast } from 'vue-sonner'
 import ProjectSettings from './ProjectSettings.vue'
@@ -39,7 +38,7 @@ function toggleVisible() {
       <div :class="$style.line" />
       <div :class="$style.visible" @click="toggleVisible">
         <UiButton variant="secondary" size="sm" :class="$style.btn">
-          <Users :size="16" />
+          <div i-lucide-users text-base />
           Team Visible
         </UiButton>
         <UiBadge variant="outline" :class="$style.visible_badge">

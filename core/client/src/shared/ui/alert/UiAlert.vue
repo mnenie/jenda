@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { AlertVariant } from './types'
 import { useDark } from '@vueuse/core'
-import { X } from 'lucide-vue-next'
 import { computed } from 'vue'
 import { variants } from '.'
 
@@ -34,7 +33,7 @@ const valueOfRightPadding = computed(() => (closable ? '32px' : '10px'))
     <slot v-if="$slots.default || content">
       <span class="text-sm">{{ content }}</span>
     </slot>
-    <X v-if="closable" :class="$style.x_mark" @click="emits('close')" />
+    <div v-if="closable" i-lucide-x text-sm :class="$style.x_mark" @click="emits('close')" />
   </div>
 </template>
 
@@ -55,8 +54,6 @@ const valueOfRightPadding = computed(() => (closable ? '32px' : '10px'))
     top: 50%;
     transform: translateY(-50%);
     right: 10px;
-    width: 13px;
-    min-width: 13px;
     color: var(--zinc-600);
     cursor: pointer;
   }

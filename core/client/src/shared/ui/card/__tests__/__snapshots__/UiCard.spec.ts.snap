@@ -1,12 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`UiCard > should render correctly 1`] = `
-"<div class="text-sm card">card<div class="user_container">
-    <div>users 👥</div>
-  </div>
-</div>"
-`;
-
 exports[`uiCard > should render correctly 1`] = `
 "<div class="text-sm card">card<div class="user_container">
     <div>users 👥</div>

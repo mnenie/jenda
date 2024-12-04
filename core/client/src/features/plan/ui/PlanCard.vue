@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Plan } from '@/shared/assets/icons'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { createReusableTemplate, refDebounced } from '@vueuse/core'
 import { computed, toRef } from 'vue'
@@ -39,7 +38,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         <ReuseTemplate position="top" :style="$style.reusable_helping_sign" />
       </p>
       <span class="text-xs"> {{ $t('sidebar.plan.description') }}</span>
-      <UiButton size="sm" :class="$style.btn">
+      <UiButton size="sm" variant="outline" :class="$style.btn">
         {{ $t('sidebar.plan.btn') }}
       </UiButton>
     </div>
@@ -49,7 +48,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 
     <UiBadge variant="outline" :class="$style.badge">
       <div>
-        <Plan />
+        <div i-lucide-stars />
         1/3
       </div>
     </UiBadge>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Column } from '../model'
 import { useDark } from '@vueuse/core'
-import { Ellipsis, Plus } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 
 defineOptions({
@@ -16,6 +15,7 @@ defineSlots<{
   content: () => any
   default: () => any
 }>()
+
 const isDark = useDark()
 const { t } = useI18n()
 </script>
@@ -27,14 +27,22 @@ const { t } = useI18n()
         <slot />
         <span>{{ column.cards?.length }}</span>
       </div>
-      <Ellipsis :size="16" :color="isDark ? 'var(--zinc-300)' : 'var(--zinc-400)'" />
+      <div
+        i-lucide-ellipsis
+        text-base
+        :style="{ color: isDark ? 'var(--zinc-300)' : 'var(--zinc-400)' }"
+      />
     </div>
     <div v-if="column.cards" :class="$style.content">
       <slot name="content" />
     </div>
     <div :class="$style.bottom">
       <div class="text-sm" :class="$style.add">
-        <Plus :size="16" :color="isDark ? 'var(--zinc-300)' : 'var(--zinc-500)'" />
+        <div
+          i-hugeicons-plus-sign
+          text-base
+          :style="{ color: isDark ? 'var(--zinc-300)' : 'var(--zinc-500)' }"
+        />
         {{ t('kanban.cards.add') }}
       </div>
     </div>

@@ -2,7 +2,6 @@
 import type { MarketingCard } from '../model'
 import { UiCard } from '@/shared/ui'
 import { useDark, useWindowSize } from '@vueuse/core'
-import { Package } from 'lucide-vue-next'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useCards } from '../model/composables'
@@ -77,7 +76,12 @@ const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
 <template>
   <div :class="$style.wrapper">
     <div :class="$style.heading">
-      <Package v-show="width > 520" :size="iconSize" :class="$style.icon" />
+      <span
+        v-show="width > 520"
+        i-hugeicons-atom-01
+        :style="{ fontSize: `${iconSize}px` }"
+        :class="$style.icon"
+      />
       <h2 class="heading-2">
         {{ t('welcome.marketing.heading') }}
       </h2>

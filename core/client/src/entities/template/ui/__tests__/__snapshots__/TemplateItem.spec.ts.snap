@@ -1,17 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`tests for TemplateItem.vue  > should render correctly 1`] = `
-"<div class="item">
-  <div class="main_content">
-    <ui-badge-stub variant="outline" style="margin-bottom: 12px;"></ui-badge-stub>
-    <div class="text">
-      <p class="text-sm">Base Kanban</p><span class="text-xs">Create a basic project with "Base Kanban" template</span>
-    </div>
-    <div class="bottom"><span class="text-xs">June 12, 2024</span><img src="https://avatars.githubusercontent.com/u/121057011?v=4"></div>
-  </div>
-</div>"
-`;
-
 exports[`tests for TemplateItem.vue > should render correctly 1`] = `
 "<div class="item">
   <div class="main_content">

@@ -1,10 +1,6 @@
-<script setup lang="ts">
-import { FileImport } from '@/shared/assets/icons'
-</script>
-
-<template>
+\<template>
   <div :class="$style.container">
-    <FileImport :class="$style.icon" />
+    <span i-jenda-custom-file-import :class="$style.icon" />
     <p class="text-sm">
       {{ $t('templates.import') }}
       <span>.json</span>

@@ -2,9 +2,7 @@
 
 exports[`tests for AboutSection.vue > should be render correctly 1`] = `
 "<section id="about" class="container">
-  <div class="badge"><span style="margin-right: 3px;">✨</span><span class="text-sm">Core: Task Boards, Real-Time Tracking</span>
-    <anonymous-stub size="14" class="arrow" style="margin-left: 0px;"></anonymous-stub>
-  </div>
+  <div class="badge"><span style="margin-right: 3px;">✨</span><span class="text-sm">Core: Task Boards, Real-Time Tracking</span><span i-hugeicons-arrow-right-01="" class="arrow" style="margin-left: 0px;"></span></div>
   <h1>Your path to perfection</h1>
   <p class="text-lg">Jenda is a cloud-based program for efficient collaborative and individual project and task management.</p>
   <div class="btns">

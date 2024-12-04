@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ArrowExpanded, PaneArrow } from '@/shared/assets/icons'
 import { useExpanded } from '@/shared/lib/composables'
-import { ChevronDown } from 'lucide-vue-next'
 
 const expandedComposable = useExpanded()
 
@@ -17,10 +15,16 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
         <p :class="$style.name">
           Example.io
         </p>
-        <ChevronDown :size="16" :class="$style.icon" />
+        <div i-lucide-chevron-down text-base :class="$style.icon" />
       </div>
-      <PaneArrow v-if="isExpanded" :class="$style.icon" @click="onToggleArea" />
-      <ArrowExpanded v-else :class="$style.icon_arrow" @click="onToggleArea" />
+      <div
+        v-if="isExpanded"
+        i-hugeicons-sidebar-left-01
+        text-xl
+        :class="$style.icon"
+        @click="onToggleArea"
+      />
+      <div v-else i-hugeicons-sidebar-right-01 :class="$style.icon_arrow" @click="onToggleArea" />
     </div>
   </div>
 </template>
@@ -57,7 +61,6 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
 
     .icon {
       cursor: pointer;
-      font-size: 20px;
       color: var(--zinc-400);
     }
     .icon_arrow {

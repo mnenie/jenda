@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useDark, useWindowSize } from '@vueuse/core'
-import { Activity } from 'lucide-vue-next'
 import { computed } from 'vue'
 
 const isDark = useDark()
@@ -14,7 +13,11 @@ const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
 <template>
   <div id="activity" :class="$style.activity">
     <div :class="$style.name">
-      <Activity v-show="width > 768" :size="iconSize" :color="iconColor" />
+      <span
+        v-show="width > 768"
+        i-hugeicons-chart-evaluation
+        :style="{ color: iconColor, fontSize: `${iconSize}px` }"
+      />
       <div>
         <h2 class="heading-2">
           {{ $t('welcome.activity.heading') }}

@@ -8,7 +8,19 @@ const board = ref<Board>({
   _id: '0',
   name: 'Startup',
   status: 'work',
-  columns: [],
+  columns: [
+    { _id: '0', title: 'Backlog', cards: [
+      {
+        _id: '0',
+        title: 'Create a new project',
+        priority: 'low',
+        users: [],
+        chat: true,
+        chatCount: 2,
+        tags: [{ _id: '0', name: 'test' }],
+      },
+    ] },
+  ],
   users: [
     {
       _id: '0',

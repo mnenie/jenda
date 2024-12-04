@@ -2,7 +2,6 @@
 import type { Card } from '../model'
 import { UserAvatar } from '@/entities/user'
 import { UiBadge, UiCard } from '@/shared/ui'
-import { MessagesSquare } from 'lucide-vue-next'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -33,7 +32,7 @@ const priority = computed(() => {
       <div :class="$style.left_container">
         <span> #{{ card._id }}</span>
         <div v-if="card.chat" :class="$style.messages">
-          <MessagesSquare :size="14" />
+          <div i-hugeicons-message-multiple-02 text-sm />
           <span>{{ card.chatCount }}</span>
         </div>
       </div>

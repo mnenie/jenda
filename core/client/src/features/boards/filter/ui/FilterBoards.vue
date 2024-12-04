@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { UiButton, UiInput } from '@/shared/ui'
 import { useDark } from '@vueuse/core'
-import { ArrowUpDown, History, Search } from 'lucide-vue-next'
 import { computed, ref } from 'vue'
 
 const filter = ref('')
@@ -15,7 +14,11 @@ const iconColor = computed(() => {
 <template>
   <div :class="$style.items">
     <div :class="$style.filter_container">
-      <Search :class="$style.icon" :color="iconColor" />
+      <div
+        i-lucide-search
+        :class="$style.icon"
+        :style="{ color: iconColor }"
+      />
       <UiInput
         id="filter"
         v-model.trim="filter"
@@ -24,11 +27,19 @@ const iconColor = computed(() => {
       />
     </div>
     <UiButton variant="dashed" style="padding: 0 12px">
-      <ArrowUpDown :size="17" :color="iconColor" />
+      <div
+        i-lucide-arrow-up-down
+        text-base
+        :style="{ color: iconColor }"
+      />
       <span>{{ $t('boards.filter.popularity') }}</span>
     </UiButton>
     <UiButton variant="dashed" style="padding: 0 12px">
-      <History :size="17" :color="iconColor" />
+      <div
+        i-lucide-history
+        text-base
+        :style="{ color: iconColor }"
+      />
     </UiButton>
   </div>
 </template>

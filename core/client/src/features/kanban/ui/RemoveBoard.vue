@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { UiButton } from '@/shared/ui'
-import { Trash2 } from 'lucide-vue-next'
 </script>
 
 <template>
   <UiButton variant="dashed" size="sm" :class="$style.trash">
-    <Trash2 :size="16" />
+    <span
+      i-hugeicons-delete-03
+      text-base
+    />
   </UiButton>
 </template>
 
@@ -16,13 +18,13 @@ import { Trash2 } from 'lucide-vue-next'
   height: 30px;
   gap: 8px;
 
-  & > svg {
+  & > span {
     color: var(--zinc-500);
   }
   @include transition;
 
   @include on-hover {
-    & > svg {
+    & > span {
       color: var(--destructive) !important;
     }
   }
@@ -31,13 +33,13 @@ import { Trash2 } from 'lucide-vue-next'
 :global(html.dark) {
   .trash {
     background-color: transparent;
-    & > svg {
+    & > span {
       color: var(--zinc-300);
     }
     @include on-hover {
       background-color: transparent;
       border-color: var(--zinc-500);
-      & > svg {
+      & > span {
         color: var(--dark-destructive) !important;
       }
     }

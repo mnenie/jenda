@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Menu } from '@/shared/assets/icons'
 import { RouteNames } from '@/shared/config/consts'
 import { UiDropdown, UiDropdownItem, UiDropdownShortcut } from '@/shared/ui'
 </script>
@@ -8,7 +7,7 @@ import { UiDropdown, UiDropdownItem, UiDropdownShortcut } from '@/shared/ui'
   <UiDropdown direction="right">
     <template #trigger>
       <div :class="$style.wrapper">
-        <Menu :class="$style.icon" />
+        <div i-lucide-ellipsis-vertical :class="$style.icon" text-base />
       </div>
     </template>
     <template #header>
@@ -30,18 +29,19 @@ import { UiDropdown, UiDropdownItem, UiDropdownShortcut } from '@/shared/ui'
 <style module lang="scss">
 .wrapper {
   height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon {
-  width: 17px;
-  height: 17px;
-  color: var(--zinc-500);
+  color: var(--zinc-500) !important;
   cursor: pointer;
 }
 
 :global(html.dark) {
   .icon {
-    color: var(--zinc-300);
+    color: var(--zinc-300) !important;
   }
 }
 </style>

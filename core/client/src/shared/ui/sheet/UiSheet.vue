@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { X } from 'lucide-vue-next'
 import { computed, ref, useCssModule, useTemplateRef } from 'vue'
 
 interface SheetProps {
@@ -97,7 +96,7 @@ defineExpose({ open, close })
       <div ref="sideSheetContent" :class="sheetContentClasses">
         <header ref="sideSheetHeader" :class="$style.sheet_header">
           <slot name="header" />
-          <X :size="17" :class="$style.header_icon" @click="close" />
+          <div i-lucide-x text-base :class="$style.header_icon" @click="close" />
         </header>
         <main ref="sideSheetMain" :class="$style.sheet_main">
           <slot />

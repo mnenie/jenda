@@ -1,58 +1,16 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`test ColumnItem > should render correctly 1`] = `
-"<div class="column">
-  <div class="text-sm top_part">
-    <div class="name">test name of column<span>0</span></div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-icon">
-      <circle cx="12" cy="12" r="1"></circle>
-      <circle cx="19" cy="12" r="1"></circle>
-      <circle cx="5" cy="12" r="1"></circle>
-    </svg>
-  </div>
-  <div class="content">test content</div>
-  <div class="bottom">
-    <div class="text-sm add"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon">
-        <path d="M5 12h14"></path>
-        <path d="M12 5v14"></path>
-      </svg> Add card (test)</div>
-  </div>
-</div>"
-`;
-
-exports[`tests for ColumnItem > should render correctly 1`] = `
-"<div class="column">
-  <div class="text-sm top_part">
-    <div class="name">test name of column<span>0</span></div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-icon">
-      <circle cx="12" cy="12" r="1"></circle>
-      <circle cx="19" cy="12" r="1"></circle>
-      <circle cx="5" cy="12" r="1"></circle>
-    </svg>
-  </div>
-  <div class="content">test content</div>
-  <div class="bottom">
-    <div class="text-sm add"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon">
-        <path d="M5 12h14"></path>
-        <path d="M12 5v14"></path>
-      </svg> Add card (test)</div>
-  </div>
-</div>"
-`;
-
 exports[`tests for ColumnItem.vue > should render correctly 1`] = `
 "<div class="column">
   <div class="text-sm top_part">
-    <div class="name">test name of column<span>0</span></div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-400)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-icon">
-      <circle cx="12" cy="12" r="1"></circle>
-      <circle cx="19" cy="12" r="1"></circle>
-      <circle cx="5" cy="12" r="1"></circle>
-    </svg>
+    <div class="name">test name of column<span>0</span></div>
+    <div i-lucide-ellipsis="" text-base=""></div>
   </div>
   <div class="content">test content</div>
   <div class="bottom">
-    <div class="text-sm add"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--zinc-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon">
-        <path d="M5 12h14"></path>
-        <path d="M12 5v14"></path>
-      </svg> Add card (test)</div>
+    <div class="text-sm add">
+      <div i-hugeicons-plus-sign="" text-base=""></div> Add card (test)
+    </div>
   </div>
 </div>"
 `;

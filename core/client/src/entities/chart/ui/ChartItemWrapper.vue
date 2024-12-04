@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Chart } from '../model'
-import { Menu } from '@/shared/assets/icons'
 import { UiBadge } from '@/shared/ui'
 
 defineOptions({
@@ -25,7 +24,7 @@ defineProps<{
           {{ chart.section }}
         </UiBadge>
       </div>
-      <Menu :class="$style.icon" />
+      <div i-lucide-ellipsis-vertical :class="$style.icon" />
     </div>
     <div :class="$style.slot_content">
       <slot />

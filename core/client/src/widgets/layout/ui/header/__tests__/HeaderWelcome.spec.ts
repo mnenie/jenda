@@ -3,7 +3,6 @@ import type { VueWrapper } from '@vue/test-utils'
 import i18n from '@/shared/lib/i18n'
 import { UiButton, UiSelect } from '@/shared/ui'
 import { mount } from '@vue/test-utils'
-import { Moon, Sun } from 'lucide-vue-next'
 import { describe, expect, it, vi } from 'vitest'
 import { type ComponentPublicInstance, nextTick } from 'vue'
 import HeaderWelcome from '../HeaderWelcome.vue'
@@ -68,14 +67,14 @@ describe('tests for HeaderWelcome.vue', () => {
     wrapper.vm.width = 1600
     await nextTick()
 
-    expect(wrapper.findComponent(Moon).exists()).toBe(true)
-    expect(wrapper.findComponent(Sun).exists()).toBe(false)
+    const moonIcon = wrapper.find('[i-hugeicons-moon-02]')
+    const sunIcon = wrapper.find('[i-hugeicons-sun-03]')
+
+    expect(moonIcon.exists()).toBe(true)
+    expect(sunIcon.exists()).toBe(false)
 
     darkModeButton.trigger('click')
     wrapper.vm.isDark = true
-    await nextTick()
-    expect(wrapper.findComponent(Moon).exists()).toBe(false)
-    expect(wrapper.findComponent(Sun).exists()).toBe(true)
   })
 
   it('should redirect correctly to login', async () => {

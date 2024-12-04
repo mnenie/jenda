@@ -2,7 +2,6 @@
 import type { Link, SectionItem } from '../model/types'
 import { useScroll } from '@/shared/lib/composables'
 import { redirect } from '@/shared/lib/helpers'
-import { ArrowUpRight, Bookmark, Menu, X } from 'lucide-vue-next'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { items as _items, links as _links } from '../model/fixtures'
@@ -44,7 +43,11 @@ const { scrollToEl } = useScroll(items.value.map(i => i.urlPrefix))
           <p class="text-lg">
             {{ link.title }}
           </p>
-          <ArrowUpRight :class="$style.icon_inside" :size="18" />
+          <div
+            i-lucide-arrow-up-right
+            text-lg
+            :class="$style.icon_inside"
+          />
         </div>
         <div :class="$style.sections">
           <div
@@ -55,7 +58,11 @@ const { scrollToEl } = useScroll(items.value.map(i => i.urlPrefix))
           >
             <div :class="$style.top_part">
               <span class="heading-3">{{ i.icon }}</span>
-              <Bookmark :class="$style.icon_inside" :size="18" />
+              <div
+                i-lucide-bookmark
+                text-lg
+                :class="$style.icon_inside"
+              />
             </div>
             <div :class="$style.about">
               <h4 class="heading-3">
@@ -70,8 +77,20 @@ const { scrollToEl } = useScroll(items.value.map(i => i.urlPrefix))
       </div>
     </div>
   </Teleport>
-  <Menu v-show="!isOpen" :class="$style.icon" @click="isOpen = true" />
-  <X v-show="isOpen" :class="$style.icon" @click="isOpen = false" />
+  <div
+    v-show="!isOpen"
+    i-lucide-menu
+    text-2xl
+    :class="$style.icon"
+    @click="isOpen = true"
+  />
+  <div
+    v-show="isOpen"
+    i-lucide-x
+    text-2xl
+    :class="$style.icon"
+    @click="isOpen = false"
+  />
 </template>
 
 <style module lang="scss">

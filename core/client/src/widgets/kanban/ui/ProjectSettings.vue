@@ -3,7 +3,6 @@ import type { StatusBadge } from '@/entities/board'
 import { UserAvatar } from '@/entities/user'
 import { ChangeName, ChooseStatus, UpdateBoard } from '@/features/kanban'
 import { UiButton, UiSheet } from '@/shared/ui'
-import { Settings2 } from 'lucide-vue-next'
 import { ref, shallowReactive, useTemplateRef } from 'vue'
 
 const sheet = useTemplateRef<InstanceType<typeof UiSheet> | null>('sheet')
@@ -34,7 +33,7 @@ function updateStatus(status: StatusBadge['status']) {
 
 <template>
   <UiButton variant="dashed" size="sm" :class="$style.settings" @click="open">
-    <Settings2 :size="16" />
+    <span i-lucide-settings-2 text-base />
   </UiButton>
   <UiSheet ref="sheet">
     <template #header>
@@ -66,7 +65,7 @@ function updateStatus(status: StatusBadge['status']) {
   height: 30px;
   gap: 8px;
 
-  & > svg {
+  & > span {
     color: var(--zinc-500);
   }
 }

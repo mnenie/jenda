@@ -3,7 +3,6 @@ import { GoogleOauth, PrivacyPolicy } from '@/features/auth'
 import { RouteNames } from '@/shared/config/consts'
 import { UiAlert } from '@/shared/ui'
 import { useDark, useWindowSize } from '@vueuse/core'
-import { ChevronLeft } from 'lucide-vue-next'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
@@ -48,7 +47,7 @@ const alertString = computed(() => {
       </div>
       <div v-else :class="$style.mobile_navigation">
         <div :class="$style.arrow_container" @click="$router.push({ name: RouteNames.welcome })">
-          <ChevronLeft :class="$style.icon" :size="20" />
+          <div i-lucide-chevron-left :class="$style.icon" text-lg />
           <span class="text-sm">{{ t('authentication.back') }}</span>
         </div>
       </div>

@@ -2,7 +2,6 @@
 import type { Board } from '@/entities/board'
 import type { ProjectLink } from '@/shared/config/types-shared'
 import { type User, UserAvatar } from '@/entities/user'
-import { Massages, Plus, Project, Question } from '@/shared/assets/icons'
 import { useLayoutPaths } from '@/shared/lib/composables'
 import { computed, shallowReactive, toRef } from 'vue'
 import { links } from '../../model'
@@ -40,8 +39,9 @@ const { active } = useLayoutPaths(links, _projects)
   <header :class="$style.header">
     <div :class="$style.about">
       <component :is="active?.extendedAttrs.icon" :class="$style.icon_main" />
-      <Project
+      <div
         v-if="active.extendedAttrs.color"
+        i-jenda-custom-project
         :style="{ color: active.extendedAttrs.color, fontSize: '20px' }"
       />
       <p v-if="active" class="text-lg">
@@ -65,15 +65,17 @@ const { active } = useLayoutPaths(links, _projects)
         </template>
       </div>
       <div :class="$style.add_user">
-        <Plus :class="$style.icon" />
+        <div i-lucide-plus :class="$style.icon" />
       </div>
-      <Massages
+      <div
         v-tooltip="{ content: $t('header.navigator.messages'), trigger: ['hover'], distance: 7 }"
+        i-hugeicons-message-multiple-01
         :class="$style.ext_icon"
         style="margin-right: 2px"
       />
-      <Question
+      <div
         v-tooltip="{ content: $t('header.navigator.question'), trigger: ['hover'], distance: 7 }"
+        i-hugeicons-book-open-01
         :class="$style.ext_icon"
         style="margin-right: -1px;"
       />

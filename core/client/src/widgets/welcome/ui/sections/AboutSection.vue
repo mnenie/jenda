@@ -3,7 +3,6 @@ import { RouteNames } from '@/shared/config/consts'
 import { redirect } from '@/shared/lib/helpers'
 import { UiButton } from '@/shared/ui'
 import { useDark, useWindowSize } from '@vueuse/core'
-import { ChevronRight } from 'lucide-vue-next'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -39,7 +38,7 @@ const arrowMargin = computed(() => {
     >
       <span style="margin-right: 3px">✨</span>
       <span class="text-sm">{{ badge }}</span>
-      <ChevronRight :size="14" :class="$style.arrow" :style="{ marginLeft: arrowMargin }" />
+      <span i-hugeicons-arrow-right-01 :class="$style.arrow" :style="{ marginLeft: arrowMargin }" />
     </div>
     <h1>{{ $t('welcome.about.tagline') }}</h1>
     <p class="text-lg">

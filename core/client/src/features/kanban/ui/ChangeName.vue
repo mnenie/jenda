@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { UiBadge, UiInput } from '@/shared/ui'
 import { useDark } from '@vueuse/core'
-import { Check } from 'lucide-vue-next'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -41,7 +40,12 @@ const isCurrentColor = computed(() => {
         :style="{ backgroundColor: color }"
         @click="emits('updateColor', color)"
       >
-        <Check v-if="isCurrentColor(color)" :size="14" color="white" />
+        <div
+          v-if="isCurrentColor(color)"
+          i-lucide-check
+          text-sm
+          color="white"
+        />
       </div>
     </div>
   </div>

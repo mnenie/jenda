@@ -2,7 +2,6 @@
 import { useExpanded } from '@/shared/lib/composables'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { useDark } from '@vueuse/core'
-import { Search } from 'lucide-vue-next'
 import { computed } from 'vue'
 
 const emit = defineEmits<{
@@ -41,7 +40,11 @@ const alpha = computed(() => (isExpanded.value ? 0.3 : 0.35))
       :style="isExpanded ? expandedFilterStyles : null"
       @click="emit('openModal')"
     >
-      <Search :class="[isExpanded ? $style.icon : $style.icon_no_expanded]" :color="iconColor" />
+      <div
+        i-lucide-search
+        :class="[isExpanded ? $style.icon : $style.icon_no_expanded]"
+        :style="{ color: iconColor }"
+      />
       <span v-show="isExpanded" class="text-sm">
         {{ $t('sidebar.input') }}
       </span>

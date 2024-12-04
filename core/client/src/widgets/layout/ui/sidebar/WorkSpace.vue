@@ -2,6 +2,7 @@
 import type { Link } from '../../model'
 import { RouteNames } from '@/shared/config/consts'
 import { UiButton } from '@/shared/ui'
+import { Icon } from '@iconify/vue'
 import { useDark } from '@vueuse/core'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
@@ -62,7 +63,7 @@ const iconColor = computed(() => {
         :class="$style.link_btn"
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
-        <component :is="link.icon" :class="$style.icon" :color="iconColor" />
+        <Icon :icon="link.icon" :class="$style.icon" :color="iconColor" />
         <span v-show="isExpanded" class="text-sm">{{ $t(`sidebar.${link.name}`) }}</span>
       </UiButton>
     </RouterLink>
