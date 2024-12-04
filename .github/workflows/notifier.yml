@@ -1,16 +1,7 @@
 name: Github to Telegram Notifier
 
 on:
-  fork:
   push:
-  release:
-    types: published
-  issue_comment:
-    types: created
-  watch:
-    types: started
-  pull_request_review_comment:
-    types: created
   pull_request:
     types: [opened, closed, reopened]
   issues:
@@ -21,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Notify on push
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip notifier]') }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
@@ -39,7 +30,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            🔄 ${{ github.actor }} create pull request
+            🔄 ${{ github.actor }} ${{ github.event.action }} pull request
             - Action: ${{ github.event.action }}
             - Title: ${{ github.event.pull_request.title }}
             - PR URL: ${{ github.event.pull_request.html_url }}
@@ -52,7 +43,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            📝 ${{ github.actor }} create issue
+            📝 ${{ github.actor }} ${{ github.event.action }} issue
             - Action: ${{ github.event.action }}
             - Title: ${{ github.event.issue.title }}
             - URL: ${{ github.event.issue.html_url }}
