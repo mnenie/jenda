@@ -5,6 +5,7 @@ import { themes } from '@storybook/theming'
 import { useColorMode } from '@vueuse/core'
 
 import '@/app/styles/primary/index.scss'
+import 'uno.css'
 
 const preview: Preview = {
   decorators: [

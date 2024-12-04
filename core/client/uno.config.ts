@@ -5,6 +5,7 @@ import {
   presetIcons,
   presetTypography,
   presetUno,
+  transformerDirectives,
 } from 'unocss'
 
 export default defineConfig({
@@ -29,5 +30,17 @@ export default defineConfig({
       },
     }),
     presetTypography(),
+  ],
+  content: {
+    pipeline: {
+      include: [
+        /\.(vue|mdx?|html)($|\?)/,
+        'src/**/*.stories.{js,ts}',
+        'stories/**/*',
+      ],
+    },
+  },
+  transformers: [
+    transformerDirectives(),
   ],
 })
