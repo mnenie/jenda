@@ -1,70 +1,19 @@
-<script setup lang="ts">
-import { redirect } from '@/shared/lib/helpers'
-</script>
-
 <template>
-  <footer :class="$style.footer">
-    <div :class="$style.container">
-      <p class="text-sm">
-        <span :class="$style.brand">Jenda</span> - {{ $t('welcome.footer') }}
-        <a :class="$style.link" @click.prevent="redirect('https://github.com/mnenie/jenda')"> Github </a>
+  <footer
+    class="border-t border-solid border-[rgba(228,228,231,0.4)] bg-transparent w-full px-10 py-4 dark:border-neutral-700/50 max-[992px]:px-5"
+  >
+    <div
+      class="max-w-1700px mx-auto flex items-start justify-between gap-4 max-[1152px]:max-w-1064px"
+    >
+      <p class="text-sm text-neutral-500 dark:text-neutral-300">
+        <span class="font-medium">Jenda</span> - {{ $t('welcome.footer') }}
+        <a
+          class="cursor-pointer font-medium underline underline-offset-4"
+          href="https://github.com/mnenie/jenda"
+        >
+          Github
+        </a>
       </p>
     </div>
   </footer>
 </template>
-
-<style module lang="scss">
-.footer {
-  border-top: 1px solid rgba(228, 228, 231, 0.4);
-  padding: 16px 40px;
-  background-color: transparent;
-  width: 100%;
-}
-
-.container {
-  max-width: 1700px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-
-  & > p {
-    color: var(--zinc-600);
-  }
-
-  .brand {
-    font-weight: 500;
-  }
-
-  .link {
-    cursor: pointer;
-    font-weight: 500;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-:global(html.dark) {
-  .footer {
-    border-color: rgba(var(--zinc-rgb-600), 0.5);
-  }
-  .container {
-    & > p {
-      color: var(--zinc-200);
-    }
-  }
-}
-
-@media screen and (max-width: 1152px) {
-  .container {
-    max-width: 1064px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .footer {
-    padding: 16px 20px;
-  }
-}
-</style>

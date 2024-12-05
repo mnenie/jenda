@@ -6,155 +6,51 @@ const isDark = useDark()
 
 const { width } = useWindowSize()
 
-const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc-600)'))
 const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
 </script>
 
 <template>
-  <div id="activity" :class="$style.activity">
-    <div :class="$style.name">
+  <div
+    id="activity"
+    class="flex flex-col gap-8 w-full mb-100px max-[1100px]:items-center max-[520px]:mb-80px"
+  >
+    <div class="flex items-start gap-5 w-full">
       <span
         v-show="width > 768"
         i-hugeicons-chart-evaluation
-        :style="{ color: iconColor, fontSize: `${iconSize}px` }"
+        class="mt-2 text-neutral-700 dark:text-neutral-500"
+        :style="{ fontSize: `${iconSize}px` }"
       />
-      <div>
-        <h2 class="heading-2">
+      <div class="flex flex-col w-full text-left max-[768px]:text-center">
+        <h2
+          class="text-38px mb-30px font-semibold
+          max-[1152px]:text-34px max-[1100px]:!text-32px max-[520px]:!text-28px dark:text-neutral-100"
+        >
           {{ $t('welcome.activity.heading') }}
         </h2>
-        <p class="text-base">
+        <p
+          class="text-base max-w-90% max-[768px]:max-w-full max-[768px]:text-center dark:text-neutral-200"
+        >
           {{ $t('welcome.activity.about') }}
         </p>
       </div>
     </div>
-    <section>
+    <section
+      class="grid grid-cols-2 gap-5 px-7 items-center justify-between
+      max-[1100px]:grid-cols-1 max-[1100px]:max-w-640px max-[768px]:max-w-500px max-[520px]:max-w-none max-[520px]:px-0"
+    >
       <img
         :src="isDark ? '/dev/dev-card-section-dark.png' : '/dev/dev-card-section.png'"
+        class="w-full h-full"
         loading="lazy"
         decoding="async"
       />
       <img
         :src="isDark ? '/dev/dev-card-section-dark.png' : '/dev/dev-card-section.png'"
+        class="w-full h-full"
         loading="lazy"
         decoding="async"
       />
     </section>
   </div>
 </template>
-
-<style module lang="scss">
-.activity {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-bottom: 100px;
-
-  .name {
-    display: flex;
-    align-items: start;
-    width: 100%;
-    gap: 20px;
-
-    & > div {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    & .icon {
-      color: var(--zinc-700);
-    }
-
-    & h2 {
-      font-size: 40px;
-      margin-bottom: 30px;
-    }
-
-    & p {
-      max-width: 90%;
-    }
-  }
-
-  & > section {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 0 30px;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-
-    & img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
-@media screen and (max-width: 1220px) {
-  .activity {
-    .name {
-      & h2 {
-        font-size: 38px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1152px) {
-  .activity {
-    .name {
-      & h2 {
-        font-size: 34px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .activity {
-    align-items: center;
-    .name {
-      & h2 {
-        font-size: 32px;
-      }
-    }
-    & > section {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-      max-width: 640px;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .activity {
-    .name {
-      & h2 {
-        margin-bottom: 25px;
-        text-align: center;
-      }
-      & p {
-        text-align: center;
-        max-width: 100%;
-      }
-    }
-    & > section {
-      max-width: 500px;
-    }
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .activity {
-    .name {
-      & h2 {
-        font-size: 28px;
-      }
-    }
-    & > section {
-      max-width: unset;
-      padding: 0;
-    }
-  }
-}
-</style>

@@ -1,207 +1,78 @@
 <script setup lang="ts">
 import type { SectionWrapperType } from '../../model'
-import { useDark, useWindowSize } from '@vueuse/core'
+import { useWindowSize } from '@vueuse/core'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const props = withDefaults(
-  defineProps<{
-    section: SectionWrapperType
-    direction?: 'default' | 'reverse'
-    id: string
-  }>(),
-  {
-    direction: 'default',
-  },
-)
+const { section, direction = 'default', id } = defineProps<{
+  section: SectionWrapperType
+  direction?: 'default' | 'reverse'
+  id: string
+}>()
 
 const { locale } = useI18n()
-const isDark = useDark()
 
 const { width } = useWindowSize()
 
 const writerKey = ref(0)
 
 const sectionDirection = computed(() =>
-  width.value >= 1100 ? (props.direction === 'default' ? 'row' : 'row-reverse') : 'column',
+  width.value >= 1100 ? (direction === 'default' ? 'row' : 'row-reverse') : 'column',
 )
-const iconColor = computed(() => (isDark.value ? 'var(--zinc-400)' : 'var(--zinc-600)'))
 const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
 
-watch([() => props.section.writer, locale], () => {
+watch([() => section.writer, locale], () => {
   writerKey.value++
 })
 </script>
 
 <template>
-  <div :id :class="$style.wrapper">
-    <div :class="$style.name">
-      <div v-show="width > 520">
-        <slot name="icon" :size="iconSize" :color="iconColor" />
+  <div :id class="w-full flex flex-col gap-10 mb-60px max-[768px]:gap-25px">
+    <div class="flex items-center gap-5 max-[768px]:justify-center">
+      <div v-show="width > 520" class="text-neutral-700 dark:text-neutral-500">
+        <slot
+          name="icon"
+          :size="iconSize"
+        />
       </div>
-      <h2 class="heading-2">
+      <h2
+        class="text-38px font-semibold dark:text-neutral-100
+        max-[1152px]:text-34px max-[1100px]:!text-32px max-[520px]:text-center max-[520px]:!text-28px"
+      >
         {{ section.name }}
       </h2>
     </div>
-    <section :style="{ flexDirection: sectionDirection }">
+    <section
+      :style="{ flexDirection: sectionDirection }"
+      class="flex justify-between items-center gap-11 py-0 px-30px max-[768px]:gap-30px max-[520px]:p-0"
+    >
       <slot name="content">
-        <div>
-          <h4 class="heading-4">
+        <div class="max-[1220px]:min-w-390px max-[520px]:min-w-unset">
+          <h4
+            class="text-2xl font-semibold mb-30px dark:text-neutral-100
+            max-[768px]:text-center max-[768px]:mb-20px max-[768px]:text-xl"
+          >
             {{ section.heading }}
           </h4>
-          <p class="text-base">
+          <p
+            class="text-base max-w-696px mb-50px dark:text-neutral-300
+            max-[768px]:text-center max-[768px]:mb-20px max-[768px]:max-w-full"
+          >
             {{ section.about }}
           </p>
-          <VueWriter :key="writerKey" :array="[section.writer]" class="text-sm" :class="[$style.writer]" />
+          <VueWriter
+            :key="writerKey"
+            :array="[section.writer]"
+            class="text-sm text-neutral-400 dark:text-neutral-300 max-[768px]:text-center"
+          />
         </div>
-        <img :src="section.img" loading="lazy" decoding="async" />
+        <img
+          :src="section.img"
+          loading="lazy"
+          decoding="async"
+          class="max-w-600px w-full rounded-lg max-[1220px]:max-w-500px"
+        />
       </slot>
     </section>
   </div>
 </template>
-
-<style module lang="scss">
-.wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin-bottom: 60px;
-
-  .name {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    & > h2 {
-      font-size: 40px;
-    }
-  }
-
-  & > section {
-    display: flex;
-    padding: 0 30px;
-    justify-content: space-between;
-    align-items: center;
-    gap: 46px;
-
-    & h4 {
-      margin-bottom: 30px;
-    }
-    & p {
-      max-width: 696px;
-      margin-bottom: 50px;
-    }
-
-    & img {
-      max-width: 600px;
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .writer {
-      color: var(--zinc-500);
-    }
-  }
-}
-
-:global(html.dark) {
-  .wrapper {
-    .name {
-      & > h2 {
-        color: var(--zinc-100);
-      }
-    }
-    & > section {
-      & h4 {
-        color: var(--zinc-200);
-      }
-      & p {
-        color: var(--zinc-300);
-      }
-      .writer {
-        color: var(--zinc-200);
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1220px) {
-  .wrapper {
-    .name {
-      & > h2 {
-        font-size: 38px;
-      }
-    }
-    & > section {
-      & div {
-        min-width: 390px;
-      }
-      & img {
-        max-width: 500px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1152px) {
-  .wrapper {
-    .name {
-      & > h2 {
-        font-size: 34px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .wrapper {
-    .name {
-      & > h2 {
-        font-size: 32px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .wrapper {
-    gap: 25px;
-    .name {
-      justify-content: center;
-    }
-    & > section {
-      gap: 30px;
-      & h4 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      & p {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      .writer {
-        text-align: center;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .wrapper {
-    .name {
-      & h2 {
-        text-align: center;
-        font-size: 28px;
-      }
-    }
-    & > section {
-      padding: 0;
-
-      & div {
-        min-width: unset;
-      }
-    }
-  }
-}
-</style>

@@ -14,6 +14,7 @@ import { pinia, router } from './providers'
 
 import 'uno.css'
 import './styles/primary/index.scss'
+import '@unocss/reset/tailwind.css'
 import 'floating-vue/dist/style.css'
 import 'vue-data-ui/style.css'
 

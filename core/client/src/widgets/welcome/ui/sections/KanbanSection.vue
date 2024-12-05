@@ -12,10 +12,10 @@ const { section } = useSection(
 
 <template>
   <SectionWrapper id="kanban" :section>
-    <template #icon="{ size, color }">
+    <template #icon="{ size }">
       <span
         i-hugeicons-trello
-        :style="{ color, fontSize: `${size}px` }"
+        :style="{ fontSize: `${size}px` }"
       />
     </template>
   </SectionWrapper>

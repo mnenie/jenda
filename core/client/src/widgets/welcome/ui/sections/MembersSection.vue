@@ -12,10 +12,10 @@ const { section } = useSection(
 
 <template>
   <SectionWrapper id="members" :section>
-    <template #icon="{ size, color }">
+    <template #icon="{ size }">
       <span
         i-hugeicons-agreement-01
-        :style="{ color, fontSize: `${size}px` }"
+        :style="{ fontSize: `${size}px` }"
       />
     </template>
   </SectionWrapper>

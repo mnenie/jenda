@@ -18,10 +18,10 @@ useHead({
 </script>
 
 <template>
-  <div class="container" :class="[$style.wrapper]">
+  <div class="container pt-[170px] max-[1152px]:pt-[130px] max-[890px]:pt-[130px] max-[520px]:!pt-[120px]">
     <AboutSection />
     <ProjectDemo />
-    <div :class="$style.inside_container">
+    <div class="flex flex-col items-center py-0 px-8 max-[890px]:px-0">
       <MarqueeList />
       <MarketingCards />
       <KanbanSection />
@@ -32,37 +32,3 @@ useHead({
     </div>
   </div>
 </template>
-
-<style module lang="scss">
-.wrapper {
-  padding: 170px 60px 0 60px;
-
-  .inside_container {
-    padding: 0 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 1152px) {
-  .wrapper{
-    padding-top: 130px;
-  }
-}
-
-@media screen and (max-width: 890px) {
-  .wrapper{
-    padding: 130px 0px 0 0px;
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .wrapper{
-    padding-top: 120px;
-    .inside_container{
-      padding: 0 20px;
-    }
-  }
-}
-</style>

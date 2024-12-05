@@ -68,7 +68,7 @@ describe('tests for HeaderWelcome.vue', () => {
     await nextTick()
 
     const moonIcon = wrapper.find('[i-hugeicons-moon-02]')
-    const sunIcon = wrapper.find('[i-hugeicons-sun-03]')
+    const sunIcon = wrapper.find('[i-lucide-sun]')
 
     expect(moonIcon.exists()).toBe(true)
     expect(sunIcon.exists()).toBe(false)

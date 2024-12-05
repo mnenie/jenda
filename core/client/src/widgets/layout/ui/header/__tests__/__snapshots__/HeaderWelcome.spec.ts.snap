@@ -1,46 +1,46 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`tests for HeaderWelcome.vue > should be render correctly 1`] = `
-"<header class="header_welcome">
-  <section class="containers">
-    <div class="left_container">
-      <div class="box">
-        <div class="inside">
-          <div class="name_container"><img src="/icons/kanban.png">
-            <h3 class="text-xl"> Jenda </h3>
-          </div><button class="text-sm button ghost sm item">
+"<header data-v-88b13e8b="" class="fixed top-0 left-0 right-0 z-50 flex flex-col self-center gap-10 max-w-1800px w-full px-4 py-3 max-[1152px]:max-w-1064px max-[992px]:max-w-900px">
+  <section data-v-88b13e8b="" class="flex items-center justify-between">
+    <div data-v-88b13e8b="" class="flex items-center gap-2 select-none">
+      <div data-v-88b13e8b="" class="relative z-10 box bg-white border border-solid border-#e3e4e8 flex items-center py-0 pl-2.5 pr-3.5 h-40px rounded-lg dark:shadow-sm dark:bg-#313131 dark:border-neutral-700">
+        <div data-v-88b13e8b="" class="flex items-center gap-0.5">
+          <div data-v-88b13e8b="" class="flex items-center gap-1 cursor-pointer mr-2"><img data-v-88b13e8b="" src="/icons/kanban.png" class="w-22px h-22px">
+            <h3 data-v-88b13e8b="" class="text-xl"> Jenda </h3>
+          </div><button data-v-88b13e8b="" class="text-sm button ghost sm text-neutral-500 font-medium hover:text-neutral-700 dark:text-neutral-400 dark:hover:!bg-neutral-700">
             <!--v-if-->About
-          </button><button class="text-sm button ghost sm item">
+          </button><button data-v-88b13e8b="" class="text-sm button ghost sm text-neutral-500 font-medium hover:text-neutral-700 dark:text-neutral-400 dark:hover:!bg-neutral-700">
             <!--v-if-->Kanban
-          </button><button class="text-sm button ghost sm item">
+          </button><button data-v-88b13e8b="" class="text-sm button ghost sm text-neutral-500 font-medium hover:text-neutral-700 dark:text-neutral-400 dark:hover:!bg-neutral-700">
             <!--v-if-->Collaborative
-          </button><button class="text-sm button ghost sm item">
+          </button><button data-v-88b13e8b="" class="text-sm button ghost sm text-neutral-500 font-medium hover:text-neutral-700 dark:text-neutral-400 dark:hover:!bg-neutral-700">
             <!--v-if-->Activity
-          </button><button class="text-sm button ghost sm item">
+          </button><button data-v-88b13e8b="" class="text-sm button ghost sm text-neutral-500 font-medium hover:text-neutral-700 dark:text-neutral-400 dark:hover:!bg-neutral-700">
             <!--v-if-->Members
-          </button><button class="text-sm button ghost sm item">
+          </button><button data-v-88b13e8b="" class="text-sm button ghost sm text-neutral-500 font-medium hover:text-neutral-700 dark:text-neutral-400 dark:hover:!bg-neutral-700">
             <!--v-if-->Chats
           </button>
         </div>
       </div>
-      <div class="additional">
-        <div class="btn_variant"><button class="text-sm button ghost sm btn">
+      <div data-v-88b13e8b="" class="flex items-center gap-1">
+        <div data-v-88b13e8b="" class="btn_variant"><button class="text-sm button ghost sm btn">
             <!--v-if-->
-            <div i-hugeicons-globe-02="" text-base=""></div> EN
+            <div data-v-88b13e8b="" i-hugeicons-globe-02="" text-base=""></div> EN
           </button>
           <transition-stub name="dropdown" appear="false" persisted="false" css="true">
             <!--v-if-->
           </transition-stub>
         </div>
-        <div class="separator"></div><button class="text-sm button ghost sm btn">
+        <div data-v-88b13e8b="" class="w-1px h-3.5 bg-neutral-200 dark:bg-neutral-700"></div><button data-v-88b13e8b="" class="text-sm button ghost sm p-2 gap-1 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300">
           <!--v-if-->
-          <div i-hugeicons-moon-02="" text-base=""></div>
+          <div data-v-88b13e8b="" i-hugeicons-moon-02="" text-base=""></div>
         </button>
       </div>
     </div>
-    <div class="btns"><button class="text-sm button ghost md" style="font-weight: 500;">
+    <div data-v-88b13e8b="" class="flex items-center gap-1.5 btns"><button data-v-88b13e8b="" class="text-sm button ghost md" style="font-weight: 500;">
         <!--v-if-->Log In
-      </button><button class="text-sm button default md">
+      </button><button data-v-88b13e8b="" class="text-sm button default md">
         <!--v-if-->Registration
       </button></div>
   </section>

@@ -69,29 +69,31 @@ const getMaxWidth = computed(() => {
     return width.value < 1220 ? card.maxWidth : ''
   }
 })
-
 const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
 </script>
 
 <template>
-  <div :class="$style.wrapper">
-    <div :class="$style.heading">
+  <div class="w-full flex flex-col gap-10 mb-110px max-[520px]:mb-80px max-[680px]:gap-6">
+    <div class="flex items-center gap-5 max-[768px]:justify-center">
       <span
         v-show="width > 520"
         i-hugeicons-atom-01
         :style="{ fontSize: `${iconSize}px` }"
-        :class="$style.icon"
+        class="text-neutral-700 dark:text-neutral-500"
       />
-      <h2 class="heading-2">
+      <h2
+        class="text-38px font-semibold dark:text-neutral-100
+        max-[1152px]:text-34px max-[1100px]:!text-32px max-[520px]:(text-center !text-28px)"
+      >
         {{ t('welcome.marketing.heading') }}
       </h2>
     </div>
-    <section>
-      <div :class="$style.combinedCard">
+    <section class="flex px-7 gap-5 max-[680px]:(flex-col) max-[520px]:p-0">
+      <div class="combined-card">
         <UiCard
           v-for="card in cards.slice(0, 2)"
           :key="card.id"
-          :class="$style.card"
+          class="card"
           :style="{
             paddingRight: card.id === 1 && '40px',
             backgroundColor: getCurrentColor(card.id),
@@ -100,21 +102,26 @@ const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
           }"
         >
           <div>
-            <h3 class="heading-3">
+            <h3 class="text-2xl font-semibold mb-2 dark:text-neutral-100 max-[680px]:text-xl">
               {{ card.title }}
             </h3>
-            <p class="text-base">
+            <p class="text-base text-neutral-400 dark:text-neutral-200 max-[1220px]:mr-5">
               {{ card.description }}
             </p>
           </div>
-          <img :src="card.url" :style="{ ...getImageAttributes(card), maxWidth: getMaxWidth(card) }" />
+          <img
+            :src="card.url"
+            :style="{ ...getImageAttributes(card), maxWidth: getMaxWidth(card) }"
+            class="absolute rounded-lg max-w-unset
+            max-[1220px]:(static h-unset !w-full mb--5px self-end justify-self-end) max-[680px]:!max-w-300px"
+          />
         </UiCard>
       </div>
-      <div :class="$style.combinedCard">
+      <div class="combined-card">
         <UiCard
           v-for="card in cards.slice(2, 4)"
           :key="card.id"
-          :class="$style.card"
+          class="card"
           :style="{
             backgroundColor: getCurrentColor(card.id),
             maxWidth: currentWidth(card.width),
@@ -122,214 +129,57 @@ const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
           }"
         >
           <div>
-            <h3 class="heading-3">
+            <h3 class="text-2xl font-semibold mb-2 dark:text-neutral-100 max-[680px]:text-xl">
               {{ card.title }}
             </h3>
-            <p class="text-base">
+            <p class="text-base text-neutral-400 dark:text-neutral-200 max-[1220px]:mr-5">
               {{ card.description }}
             </p>
           </div>
-          <img :src="card.url" :style="{ ...getImageAttributes(card), maxWidth: getMaxWidth(card) }" />
+          <img
+            :src="card.url"
+            :style="{ ...getImageAttributes(card), maxWidth: getMaxWidth(card) }"
+            class="absolute rounded-lg max-w-unset
+            max-[1220px]:(static h-unset !w-full mb--5px self-end justify-self-end) max-[680px]:!max-w-300px"
+          />
         </UiCard>
       </div>
-      <div v-if="width >= 1220 && cards.length >= 5" :class="$style.combinedCard">
+      <div v-if="width >= 1220 && cards.length >= 5" class="combined-card">
         <UiCard
           :key="cards[4].id"
-          :class="[$style.card, $style.flexGrowCard]"
+          class="card"
           :style="{
             backgroundColor: getCurrentColor(cards[4].id),
             maxWidth: currentWidth(cards[4].width),
           }"
         >
           <div>
-            <h3 class="heading-3">
+            <h3 class="text-2xl font-semibold mb-2 dark:text-neutral-100 max-[680px]:text-xl">
               {{ cards[4].title }}
             </h3>
-            <p class="text-base">
+            <p class="text-base text-neutral-400 dark:text-neutral-200 max-[1220px]:mr-5">
               {{ cards[4].description }}
             </p>
           </div>
-          <img :src="cards[4].url" :style="getImageAttributes(cards[4])" />
+          <img
+            :src="cards[4].url"
+            :style="getImageAttributes(cards[4])"
+            class="absolute rounded-lg max-w-unset
+            max-[1220px]:(static h-unset !w-full mb--5px self-end justify-self-end) max-[680px]:!max-w-300px"
+          />
         </UiCard>
       </div>
     </section>
   </div>
 </template>
 
-<style module lang="scss">
-.wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin-bottom: 110px;
-
-  .heading {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    & > h2 {
-      font-size: 40px;
-    }
-
-    .icon {
-      color: var(--zinc-600);
-    }
-  }
-
-  & > section {
-    display: flex;
-    padding: 0 30px;
-  }
-}
-
-.combinedCard {
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-
-  &:not(:last-child) {
-    margin-right: 20px;
-  }
+<style scoped>
+.combined-card {
+  @apply flex flex-col gap-5 grow max-[680px]:!mr-0
 }
 
 .card {
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  flex-grow: 1;
-
-  & h3 {
-    margin-bottom: 8px;
-  }
-
-  & p {
-    color: var(--zinc-500);
-  }
-
-  & > img {
-    position: absolute;
-    border-radius: 8px;
-  }
-}
-
-:global(html.dark) {
-  .wrapper {
-    .heading {
-      & > h2 {
-        color: var(--zinc-100);
-      }
-      .icon {
-        color: var(--zinc-400);
-      }
-    }
-  }
-  .card {
-    & h3 {
-      color: var(--zinc-100);
-    }
-    & p {
-      color: var(--zinc-200);
-    }
-  }
-}
-
-@media screen and (max-width: 1220px) {
-  .wrapper {
-    .heading {
-      & > h2 {
-        font-size: 38px;
-      }
-    }
-  }
-  .card {
-    padding: 20px 0 0 20px;
-    justify-content: space-between;
-    & p {
-      margin-right: 20px;
-    }
-    & > img {
-      position: static;
-      height: unset;
-      width: 100% !important;
-      margin-bottom: -5px;
-      align-self: flex-end;
-      justify-self: end;
-    }
-  }
-}
-
-@media screen and (max-width: 1152px) {
-  .wrapper {
-    .heading {
-      & > h2 {
-        font-size: 34px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .wrapper {
-    .heading {
-      & > h2 {
-        font-size: 32px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .wrapper {
-    .heading {
-      justify-content: center;
-    }
-  }
-}
-
-@media screen and (max-width: 680px) {
-  .wrapper {
-    & > section {
-      flex-direction: column;
-      gap: 20px;
-    }
-  }
-  .combinedCard {
-    margin-right: 0 !important;
-  }
-  .card {
-    & p {
-      margin-bottom: 20px;
-    }
-    max-width: 100% !important;
-    height: 100% !important;
-
-    & > img {
-      max-width: 300px !important;
-    }
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .wrapper {
-    margin-bottom: 80px;
-
-    .heading {
-      & h2 {
-        font-size: 28px;
-        text-align: center;
-      }
-    }
-
-    & > section {
-      padding: 0;
-    }
-  }
+  @apply p-5 shadow-sm relative overflow-hidden flex flex-col w-full grow
+  max-[1220px]:(pt-5 pl-5 pr-0 pb-0 justify-between) max-[680px]:(!max-w-full !h-full gap-6)
 }
 </style>

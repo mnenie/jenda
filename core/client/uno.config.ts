@@ -6,7 +6,9 @@ import {
   presetTypography,
   presetUno,
   transformerDirectives,
+  transformerVariantGroup,
 } from 'unocss'
+// import { presetDefaultToPx } from './src/shared/lib/unocss/presets'
 
 export default defineConfig({
   shortcuts: [
@@ -30,6 +32,7 @@ export default defineConfig({
       },
     }),
     presetTypography(),
+    // presetDefaultToPx(),
   ],
   content: {
     pipeline: {
@@ -42,5 +45,6 @@ export default defineConfig({
   },
   transformers: [
     transformerDirectives(),
+    transformerVariantGroup(),
   ],
 })
