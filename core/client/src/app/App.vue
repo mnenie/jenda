@@ -21,5 +21,5 @@ const toasterTheme = computed<ToasterTheme>(() => {
       </KeepAlive>
     </RouterView>
   </AppLayout>
-  <Toaster :theme="toasterTheme" position="bottom-right" />
+  <Toaster :theme="toasterTheme" :expand="true" position="bottom-right" />
 </template>

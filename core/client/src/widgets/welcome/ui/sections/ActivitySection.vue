@@ -18,7 +18,7 @@ const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
       <span
         v-show="width > 768"
         i-hugeicons-chart-evaluation
-        class="mt-2 text-neutral-700 dark:text-neutral-500"
+        class="mt-2 text-neutral-700 dark:text-neutral-400"
         :style="{ fontSize: `${iconSize}px` }"
       />
       <div class="flex flex-col w-full text-left max-[768px]:text-center">

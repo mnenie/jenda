@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { redirect } from '@/shared/lib/helpers'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -14,48 +13,29 @@ const maxWidth = computed(() => {
 </script>
 
 <template>
-  <p class="text-sm" :class="[$style.main_text]">
+  <p
+    class="pt-2.5 text-sm text-center text-neutral-500 my-0 mx-auto select-none dark:text-neutral-400"
+    :style="{ maxWidth }"
+  >
     {{ privacyItems[0] }}
-    <span :class="$style.inside" @click="redirect('https://github.com/mnenie/jenda')">
+    <a
+      href="https://github.com/mnenie/jenda"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="cursor-pointer underline underline-offset-4 duration-100 ease-in
+      hover:text-neutral-900 dark:hover:text-neutral-500"
+    >
       {{ privacyItems[1] }}
-    </span>
+    </a>
     {{ privacyItems[2] }}
-    <span :class="$style.inside" @click="redirect('https://github.com/mnenie/jenda')">
+    <a
+      href="https://github.com/mnenie/jenda"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="cursor-pointer underline underline-offset-4 duration-100 ease-in
+      hover:text-neutral-900 dark:hover:text-neutral-500"
+    >
       {{ privacyItems[3] }}
-    </span>
+    </a>
   </p>
 </template>
-
-<style module lang="scss">
-.main_text {
-  padding: 10px 0px 0px 0px;
-  text-align: center;
-  color: #72717a;
-  max-width: v-bind('maxWidth');
-  margin: 0 auto;
-  user-select: none;
-
-  .inside {
-    cursor: pointer;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: 0.1s ease-in;
-
-    &:hover {
-      color: var(--zinc-900);
-    }
-  }
-}
-
-:global(html.dark) {
-  .main_text {
-    color: var(--zinc-300);
-
-    .inside {
-      &:hover {
-        color: var(--zinc-400);
-      }
-    }
-  }
-}
-</style>

@@ -12,23 +12,12 @@ function onGoogleAuth() {
 
 <template>
   <UiButton variant="outline" :disabled="isLoading" @click="onGoogleAuth">
-    <div v-if="isLoading" i-lucide-loader-circle :class="$style.loader" />
-    <img src="/icons/google.png" :class="$style.google_img" />
+    <div
+      v-if="isLoading"
+      i-lucide-loader-circle
+      class="h-4 w-4 animate-spin"
+    />
+    <img src="/icons/google.png" class="w-4 h-4" />
     Google
   </UiButton>
 </template>
-
-<style module lang="scss">
-@use '@/app/styles/mixins' as *;
-
-.google_img {
-  width: 16px;
-  height: 16px;
-}
-
-.loader {
-  height: 16px;
-  width: 16px;
-  @include on-spin;
-}
-</style>

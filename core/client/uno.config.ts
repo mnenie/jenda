@@ -11,11 +11,13 @@ import {
 // import { presetDefaultToPx } from './src/shared/lib/unocss/presets'
 
 export default defineConfig({
-  shortcuts: [
-    // TODO
-  ],
   presets: [
-    presetAttributify(),
+    presetAttributify({
+      ignoreAttributes: [
+        'size',
+        'variant',
+      ],
+    }),
     presetUno(),
     presetIcons({
       extraProperties: {
@@ -33,6 +35,18 @@ export default defineConfig({
     }),
     presetTypography(),
     // presetDefaultToPx(),
+  ],
+  shortcuts: [
+    {
+      'form-field': 'grid gap-2 justify-items-start',
+      'form-label': 'text-sm text-neutral-900 !fw500 dark:text-neutral-200',
+    },
+  ],
+  rules: [
+    [
+      'bg-neutral-800',
+      { 'background-color': 'rgba(28, 28, 28, 1)' },
+    ],
   ],
   content: {
     pipeline: {

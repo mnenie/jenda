@@ -79,7 +79,7 @@ const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
         v-show="width > 520"
         i-hugeicons-atom-01
         :style="{ fontSize: `${iconSize}px` }"
-        class="text-neutral-700 dark:text-neutral-500"
+        class="text-neutral-700 dark:text-neutral-400"
       />
       <h2
         class="text-38px font-semibold dark:text-neutral-100

@@ -29,7 +29,7 @@ watch([() => section.writer, locale], () => {
 <template>
   <div :id class="w-full flex flex-col gap-10 mb-60px max-[768px]:gap-25px">
     <div class="flex items-center gap-5 max-[768px]:justify-center">
-      <div v-show="width > 520" class="text-neutral-700 dark:text-neutral-500">
+      <div v-show="width > 520" class="text-neutral-700 dark:text-neutral-400">
         <slot
           name="icon"
           :size="iconSize"

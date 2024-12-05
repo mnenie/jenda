@@ -196,7 +196,7 @@ export default {
     ],
     back: 'На главную',
     auth_alert:
-      'aвторизация через google будет заменена на gitlab после 10.11.2024',
+      'aвторизация через google будет заменена на gitlab после 28.12.2024',
   },
   kanban: {
     sorting: {

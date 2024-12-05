@@ -22,32 +22,50 @@ const onRegistration = handleSubmit((values) => {
 
 <template>
   <form @submit.prevent="onRegistration">
-    <div :class="$style.form_container">
-      <div :class="$style.form_fields">
-        <div v-auto-animate :class="$style.field">
-          <label class="text-sm" for="email">{{ $t('authentication.form.email') }}</label>
+    <div class="grid gap-6">
+      <div class="grid gap-4">
+        <div v-auto-animate class="form-field">
+          <label
+            class="form-label"
+            for="email"
+          >
+            {{ $t('authentication.form.email') }}
+          </label>
           <UiInput id="email" v-model="email" placeholder="user@example.com" type="email" />
-          <span v-if="errors.email" class="text-xs">{{ errors.email }}</span>
+          <span
+            v-if="errors.email"
+            class="text-xs text-red-500 !fw500"
+          >
+            {{ errors.email }}
+          </span>
         </div>
-        <div v-auto-animate :class="$style.field">
-          <label class="text-sm" for="password">{{ $t('authentication.form.password') }}</label>
-          <UiInput
-            id="password"
-            v-model="password"
-            placeholder="user_password_example"
-            type="password"
-          />
-          <span v-if="errors.password" class="text-xs">{{ errors.password }}</span>
+        <div v-auto-animate class="form-field">
+          <label
+            class="form-label"
+            for="password"
+          >
+            {{ $t('authentication.form.password') }}
+          </label>
+          <UiInput id="password" v-model="password" placeholder="user_password_example" type="password" />
+          <span
+            v-if="errors.password"
+            class="text-xs text-red-500 !fw500"
+          >
+            {{ errors.password }}
+          </span>
         </div>
       </div>
-      <div :class="$style.choose_block">
+      <div class="grid gap-2">
         <UiButton type="submit">
           <!-- <Loader2 :class="$style.loader" /> -->
           {{ $t('authentication.registration.btn') }}
         </UiButton>
-        <p class="text-sm" :class="[$style.reg]">
+        <p class="text-sm text-center select-none text-neutral-500 dark:text-neutral-300">
           {{ $t('authentication.registration.proposal') }}
-          <span :class="$style.reg_route" @click="$router.push({ name: RouteNames.login })">
+          <span
+            class="cursor-pointer underline underline-offset-4 duration-100 ease-in hover:text-neutral-900 dark:hover:text-neutral-400"
+            @click="$router.push({ name: RouteNames.login })"
+          >
             {{ $t('authentication.registration.route') }}
           </span>
         </p>
@@ -55,85 +73,3 @@ const onRegistration = handleSubmit((values) => {
     </div>
   </form>
 </template>
-
-<style module lang="scss">
-@use '@/app/styles/mixins' as *;
-
-.form_container {
-  display: grid;
-  gap: 24px;
-
-  .form_fields {
-    display: grid;
-    gap: 16px;
-
-    .field {
-      display: grid;
-      justify-items: flex-start;
-      gap: 8px;
-
-      & label {
-        color: var(--zinc-950);
-        font-weight: 500 !important;
-      }
-
-      & span {
-        color: var(--destructive);
-        font-weight: 500 !important;
-      }
-    }
-  }
-
-  .choose_block {
-    display: grid;
-    gap: 8px;
-
-    .loader {
-      margin-right: 8px;
-      height: 16px;
-      width: 16px;
-      @include on-spin;
-    }
-
-    .reg {
-      text-align: center;
-      color: var(--zinc-500);
-      user-select: none;
-
-      .reg_route {
-        cursor: pointer;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-        transition: 0.1s ease-in;
-
-        &:hover {
-          color: var(--zinc-900);
-        }
-      }
-    }
-  }
-}
-
-:global(html.dark) {
-  .form_container {
-    .form_fields {
-      .field {
-        & label {
-          color: var(--zinc-200);
-        }
-      }
-    }
-
-    .choose_block {
-      .reg {
-        color: var(--zinc-200);
-      }
-      .reg_route {
-        &:hover {
-          color: var(--zinc-300);
-        }
-      }
-    }
-  }
-}
-</style>

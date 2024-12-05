@@ -193,7 +193,7 @@ export default {
     ],
     back: 'To Home',
     auth_alert:
-      'authorization via google will be replaced with gitlab after 10.11.2024',
+      'authorization via google will be replaced with gitlab after 28.12.2024',
   },
   kanban: {
     sorting: {
