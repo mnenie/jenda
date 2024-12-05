@@ -12,10 +12,10 @@ const { section } = useSection(
 
 <template>
   <SectionWrapper id="collaborative" :section direction="reverse">
-    <template #icon="{ size, color }">
+    <template #icon="{ size }">
       <span
         i-hugeicons-earth
-        :style="{ color, fontSize: `${size}px` }"
+        :style="{ fontSize: `${size}px` }"
       />
     </template>
   </SectionWrapper>
