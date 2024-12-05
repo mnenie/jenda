@@ -1,28 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`tests for Home.vue > should be render correctly 1`] = `
-"<div class="login">
-  <auth-container-stub></auth-container-stub>
-  <bg-panel-stub></bg-panel-stub>
-</div>"
-`;
-
-exports[`tests for Login.vue > should be render correctly 1`] = `
-"<div class="login">
-  <auth-container-stub></auth-container-stub>
-  <bg-panel-stub></bg-panel-stub>
-</div>"
-`;
-
 exports[`tests for LoginPage.vue > should be render correctly 1`] = `
-"<div class="login">
-  <auth-container-stub></auth-container-stub>
-  <bg-panel-stub></bg-panel-stub>
-</div>"
-`;
-
-exports[`tests for Registration.vue > should be render correctly 1`] = `
-"<div class="login">
+"<div class="w-full h-full flex">
   <auth-container-stub></auth-container-stub>
   <bg-panel-stub></bg-panel-stub>
 </div>"

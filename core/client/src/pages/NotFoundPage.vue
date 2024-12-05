@@ -2,79 +2,42 @@
 import { RouteNames } from '@/shared/config/consts'
 import { UiButton } from '@/shared/ui'
 import { useHead } from '@unhead/vue'
+import { useWindowSize } from '@vueuse/core'
 
 useHead({
   title: '404 | Not Found :/',
 })
+
+const { width } = useWindowSize()
 </script>
 
 <template>
-  <div :class="$style.container">
-    <div :class="$style.items">
-      <h1>404</h1>
-      <h3>{{ $t('not_found.title') }}</h3>
-      <p>{{ $t('not_found.description') }}</p>
+  <div class="flex justify-center items-center h-dvh">
+    <div
+      class="flex flex-col justify-center mt--20 items-center h-full
+      max-[520px]:mt--10"
+    >
+      <h1
+        class="text-9rem text-neutral-800 dark:text-neutral-200
+        max-[768px]:text-8rem max-[520px]:!text-5rem"
+      >
+        404
+      </h1>
+      <h3
+        class="text-4xl text-neutral-800 mt--28px dark:text-neutral-200
+        max-[768px]:mt--20px max-[520px]:!text-3xl mb-20px"
+      >
+        {{ $t('not_found.title') }}
+      </h3>
+      <p
+        v-if="width > 520"
+        class="mb-20px mt-2px dark:text-neutral-300 max-[520px]:(mt-10px text-neutral-700)"
+      >
+        {{ $t('not_found.description') }}
+      </p>
       <UiButton @click="$router.push({ name: RouteNames.welcome })">
         {{ $t('not_found.btn') }}
       </UiButton>
     </div>
   </div>
 </template>
-
-<style module lang="scss">
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-
-  .items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    & > h1 {
-      font-size: 180px;
-      color: var(--zinc-800);
-    }
-
-    & > h3 {
-      font-size: 40px;
-      color: var(--zinc-800);
-      margin-top: -30px;
-    }
-
-    & > p {
-      margin-top: -2px;
-    }
-
-    & button {
-      margin-top: 20px;
-    }
-  }
-}
-
-@media screen and (max-width: 1560px) {
-  .container {
-    .items {
-      & > h1 {
-        font-size: 160px;
-      }
-    }
-  }
-}
-
-:global(html.dark) {
-  .container {
-    .items {
-      & h1,
-      & h3 {
-        color: var(--zinc-200);
-      }
-      & p {
-        color: var(--zinc-300);
-      }
-    }
-  }
-}
-</style>
