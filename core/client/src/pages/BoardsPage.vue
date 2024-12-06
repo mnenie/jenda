@@ -8,14 +8,7 @@ useHead({
 </script>
 
 <template>
-  <div :class="$style.boards">
+  <div class="w-full h-full">
     <TeamBoards />
   </div>
 </template>
-
-<style module lang="scss">
-.boards {
-  height: 100%;
-  width: 100%;
-}
-</style>

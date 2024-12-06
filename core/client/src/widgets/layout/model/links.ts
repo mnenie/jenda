@@ -15,7 +15,7 @@ export const links = markRaw<Link[]>([
     id: 2,
     name: 'analytics',
     pathName: RouteNames.analytics,
-    icon: 'hugeicons:chart-increase',
+    icon: 'hugeicons:analytics-01',
   },
   { id: 3, name: 'members', pathName: RouteNames.members, icon: 'hugeicons:user-multiple-02' },
   { id: 4, name: 'settings', pathName: RouteNames.settings, icon: 'hugeicons:setting-07' },

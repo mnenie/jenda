@@ -12,35 +12,37 @@ const iconColor = computed(() => {
 </script>
 
 <template>
-  <div :class="$style.items">
-    <div :class="$style.filter_container">
+  <div class="flex items-center justify-between gap-5 w-full">
+    <div class="relative h-8">
       <div
         i-lucide-search
-        :class="$style.icon"
+        class="absolute left-2.5 top-1/2 transform -translate-y-1/2 h-4 w-4"
         :style="{ color: iconColor }"
       />
       <UiInput
         id="filter"
         v-model.trim="filter"
         :placeholder="$t('boards.filter.input')"
-        :class="$style.filter"
+        class="pl-8 pr-10 w-full h-8 fw500 bg-white dark:!bg-neutral-600/40 dark:placeholder:!text-neutral-200"
       />
     </div>
-    <UiButton variant="dashed" style="padding: 0 12px">
-      <div
-        i-lucide-arrow-up-down
-        text-base
-        :style="{ color: iconColor }"
-      />
-      <span>{{ $t('boards.filter.popularity') }}</span>
-    </UiButton>
-    <UiButton variant="dashed" style="padding: 0 12px">
-      <div
-        i-lucide-history
-        text-base
-        :style="{ color: iconColor }"
-      />
-    </UiButton>
+    <div class="flex items-center gap-3">
+      <UiButton variant="dashed" style="padding: 0 12px">
+        <div
+          i-lucide-arrow-up-down
+          text-base
+          :style="{ color: iconColor }"
+        />
+        <span>{{ $t('boards.filter.popularity') }}</span>
+      </UiButton>
+      <UiButton variant="dashed" style="padding: 0 12px">
+        <div
+          i-lucide-history
+          text-base
+          :style="{ color: iconColor }"
+        />
+      </UiButton>
+    </div>
   </div>
 </template>
 
@@ -48,6 +50,8 @@ const iconColor = computed(() => {
 .items {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   gap: 6px;
 
   .filter_container {
