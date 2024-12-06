@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { TeamBoards } from '@/widgets/boards'
 import { useHead } from '@unhead/vue'
 
 useHead({
@@ -9,6 +8,6 @@ useHead({
 
 <template>
   <div class="w-full h-full">
-    <TeamBoards />
+    boards
   </div>
 </template>

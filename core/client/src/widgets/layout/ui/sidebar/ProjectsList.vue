@@ -31,27 +31,36 @@ function changeShowList() {
 </script>
 
 <template>
-  <div :class="$style.about" @mouseover="showPlusIcon = true" @mouseleave="showPlusIcon = false">
-    <div :class="$style.name">
+  <div
+    class="flex items-center justify-between w-full px-2 pt-0 pb-3"
+    @mouseover="showPlusIcon = true"
+    @mouseleave="showPlusIcon = false"
+  >
+    <div class="flex items-center gap-1.5 w-full">
       <div
         v-show="isExpanded"
         i-lucide-chevron-down
-        :class="$style.icon"
+        class="cursor-pointer text-base text-neutral-500 dark:text-neutral-400"
         :style="{ transform: !showList ? 'rotate(-90deg)' : '' }"
         @click="changeShowList"
       />
-      <p class="text-sm" :class="$style.section">
+      <p
+        class="text-neutral-500 dark:text-neutral-400 text-sm capitalize text-ellipsis
+        whitespace-nowrap overflow-hidden"
+      >
         {{ $t('sidebar.projects') }}
       </p>
     </div>
     <div
       v-show="isExpanded && showPlusIcon"
       i-lucide-plus
-      :class="$style.icon"
-      text-base
+      class="cursor-pointer text-base text-neutral-500 dark:text-neutral-400"
     />
   </div>
-  <div v-if="showList" :class="$style.sidebar_projects">
+  <div
+    v-if="showList"
+    class="flex flex-col gap-5px justify-start mb-30px"
+  >
     <RouterLink
       v-for="project in _projects"
       :key="project._id"
@@ -61,19 +70,26 @@ function changeShowList() {
         disabled: isExpanded,
       }"
       :to="`/board/${project._id}`"
-      :class="$style.project"
+      class="flex items-center gap-1.5 cursor-pointer text-neutral-900 justify-start w-full"
     >
       <UiButton
         :variant="project.isActive ? 'secondary' : 'ghost'"
-        :class="$style.proj_btn"
+        class="w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease
+        focus:bg-#e7e7e799 hover:bg-neutral-200/30 dark:focus:bg-neutral-700/50 dark:hover:bg-neutral-700/30"
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
         <div
           i-jenda-custom-project
-          :class="$style.project_indicator"
+          class="w-18px h-18px rounded flex justify-center items-center"
           :style="{ color: project.color }"
         />
-        <span v-show="isExpanded" class="text-sm">{{ project.name }}</span>
+        <span
+          v-show="isExpanded"
+          class="text-sm text-ellipsis overflow-hidden max-w-80%
+          whitespace-nowrap !fw500 text-neutral-900 dark:text-neutral-100"
+        >
+          {{ project.name }}
+        </span>
       </UiButton>
     </RouterLink>
   </div>

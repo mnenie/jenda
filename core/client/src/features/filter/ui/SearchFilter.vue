@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useExpanded } from '@/shared/lib/composables'
 import { UiBadge, UiButton } from '@/shared/ui'
-import { useDark } from '@vueuse/core'
+import { createReusableTemplate, useDark } from '@vueuse/core'
 import { computed } from 'vue'
 
 const emit = defineEmits<{
@@ -29,105 +29,48 @@ const expandedFilterStyles = computed<Record<string, string>>(() => ({
   border: isDark.value ? '1px solid rgba(var(--zinc-rgb-600), 0.3)' : '',
 }))
 
-const alpha = computed(() => (isExpanded.value ? 0.3 : 0.35))
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>
-  <div :class="$style.search_container" :style="{ marginBottom: isExpanded ? '20px' : '19px' }">
+  <div class="relative h-8" :style="{ marginBottom: isExpanded ? '20px' : '19px' }">
     <UiButton
       :variant="isExpanded ? 'outline' : 'ghost'"
-      :class="$style.search_filter"
+      class="w-full justify-start h-8 rounded-8px px-2 search-filter transition-[background-color,padding,width] duration-200 ease"
+      :class="[
+        isExpanded
+          ? 'hover:!bg-neutral-200/30 dark:hover:!bg-neutral-600/30'
+          : 'hover:!bg-neutral-200/35 dark:hover:!bg-neutral-600/35',
+      ]"
       :style="isExpanded ? expandedFilterStyles : null"
       @click="emit('openModal')"
     >
       <div
         i-lucide-search
-        :class="[isExpanded ? $style.icon : $style.icon_no_expanded]"
+        :class="[
+          isExpanded
+            ? 'h-4 w-4 mr-1'
+            : 'absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-4 w-4',
+        ]"
         :style="{ color: iconColor }"
       />
-      <span v-show="isExpanded" class="text-sm">
+      <span v-show="isExpanded" class="text-sm fw500 text-neutral-700 dark:text-neutral-200">
         {{ $t('sidebar.input') }}
       </span>
     </UiButton>
-    <UiBadge
-      variant="secondary"
-      :class="$style.badge"
-      :style="{ top: isExpanded ? '50%' : '20%', right: isExpanded ? '8px' : '-2px' }"
-    >
-      <span>⌘</span>
-      <span>K</span>
-    </UiBadge>
+
+    <DefineTemplate v-slot="{ content }">
+      <UiBadge variant="outline" class="px-1 py-0 text-xs gap-[1px] text-neutral-600 bg-neutral-50">
+        <span class="text-[10px]">
+          {{ content }}
+        </span>
+      </UiBadge>
+    </DefineTemplate>
+
+    <div v-if="isExpanded" class="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center gap-1">
+      <ReuseTemplate content="Ctrl / ⌘" />
+      <ReuseTemplate content="K" />
+    </div>
+    <ReuseTemplate v-else content="⌘K" class="absolute -right-1 top-1 transform -translate-y-1/2 bg-white" />
   </div>
 </template>
-
-<style module lang="scss">
-.search_container {
-  position: relative;
-  height: 32px;
-
-  .icon {
-    height: 16px;
-    width: 16px;
-    margin-right: 2px;
-  }
-
-  .icon_no_expanded {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 16px;
-    width: 16px;
-  }
-
-  .search_filter {
-    width: 100%;
-    justify-content: flex-start;
-    height: 32px;
-    padding: 0 8px;
-    border-radius: 8px;
-    transition: justify-content, width, padding 0.2s ease;
-    &:hover {
-      background-color: rgba(var(--zinc-rgb-200), v-bind('alpha')) !important;
-    }
-
-    & > span {
-      font-weight: 500;
-      color: var(--zinc-700);
-    }
-  }
-
-  .badge {
-    position: absolute;
-    height: 16px;
-    transform: translateY(-50%);
-    padding-left: 4px;
-    padding-right: 4px;
-    & span {
-      color: var(--zinc-500);
-      font-size: 10px;
-      &:first-child {
-        margin-right: 2px;
-      }
-    }
-  }
-}
-
-:global(html.dark) {
-  .search_container {
-    .search_filter {
-      &:hover {
-        background-color: rgba(var(--zinc-rgb-600), 0.3) !important;
-      }
-      & > span {
-        color: var(--zinc-200);
-      }
-    }
-    .badge {
-      & span {
-        color: var(--zinc-300);
-      }
-    }
-  }
-}
-</style>

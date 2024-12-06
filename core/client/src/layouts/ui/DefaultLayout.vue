@@ -3,36 +3,17 @@ import type { Board } from '@/entities/board'
 import { RouteNames } from '@/shared/config/consts'
 import { useExpanded } from '@/shared/lib/composables'
 import { AppSidebar, HeaderMain } from '@/widgets/layout'
-import { useLocalStorage, useWindowSize } from '@vueuse/core'
+import { useLocalStorage } from '@vueuse/core'
 
 // @ts-expect-error missing type
 import { Pane, Splitpanes } from 'splitpanes'
 import { computed, ref } from 'vue'
 import 'splitpanes/dist/splitpanes.css'
 
-const { width } = useWindowSize()
-
 const isExpanded = useLocalStorage('isExpanded', true)
 const transitionFl = ref<boolean>(false)
 
-const widthSidebar = computed(() => {
-  return isExpanded.value
-    ? width.value >= 1820
-      ? '16%'
-      : width.value >= 1400
-        ? '22%'
-        : '26%'
-    : width.value >= 1820
-      ? '3%'
-      : width.value >= 1500
-        ? '3.5%'
-        : width.value >= 1380
-          ? '4%'
-          : '5%'
-})
-const widthMainContainer = computed(() => {
-  return `calc(100% - ${widthSidebar.value})`
-})
+const sidebarSize = computed(() => isExpanded.value ? '286' : '58')
 
 function onToggleArea() {
   isExpanded.value = !isExpanded.value
@@ -55,20 +36,18 @@ const boards = ref<Board[]>([
 </script>
 
 <template>
-  <Splitpanes class="flex flex-row flex-1 w-full h-dvh">
+  <Splitpanes class="flex flex-row flex-1 overflow-hidden w-full h-dvh">
     <Pane
-      min-size="4"
-      max-size="18"
-      :size="widthSidebar"
-      :style="{ transition: transitionFl && 'width .2s ease-out' }"
+      style="flex: none"
+      :style="{ transition: transitionFl && 'all .2s ease-out', width: `${sidebarSize}px` }"
     >
       <AppSidebar :boards />
     </Pane>
-    <Pane :size="widthMainContainer">
-      <div class="flex flex-col h-full overflow-hidden">
+    <Pane style="width: 100%;">
+      <div class="flex flex-col h-full overflow-hidden w-full">
         <HeaderMain :projects="boards" />
         <div
-          class="relative h-full w-full bg-main"
+          class="relative h-full w-full !bg-main"
           :style="{ padding: $route.name !== RouteNames.board ? '12px 20px 20px 20px' : '0' }"
         >
           <slot />

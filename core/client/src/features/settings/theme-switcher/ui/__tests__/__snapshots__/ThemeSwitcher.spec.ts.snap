@@ -1,8 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`tests for ThemeSwitcher.vue > should render correctly 1`] = `
-"<form class="theme_form">
-  <ui-radio-group-container-stub></ui-radio-group-container-stub>
-  <ui-button-stub variant="outline" size="md" loading="false" disabled="false" loadingplacement="leading" type="submit"></ui-button-stub>
-</form>"
-`;

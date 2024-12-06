@@ -50,19 +50,6 @@ const routes = [
     name: RouteNames.members,
     path: '/members',
     component: () => import('@/pages/MembersPage.vue'),
-    redirect: { name: `${RouteNames.members}.all` },
-    children: [
-      {
-        name: `${RouteNames.members}.all`,
-        path: '',
-        component: () => import('@/pages/MainTeamPage.vue'),
-      },
-      {
-        name: `${RouteNames.members}.guests`,
-        path: 'guests',
-        component: () => import('@/pages/GuestsPage.vue'),
-      },
-    ],
     meta: {
       requiresAuth: true,
     },

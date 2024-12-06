@@ -39,11 +39,11 @@ canvas {
 }
 
 [data-sonner-toaster][data-theme='dark'] {
-  --normal-bg: var(--zinc-700) !important;
+  --normal-bg: var(--custom-jenda-dark) !important;
   --normal-border: hsl(0deg 0% 20%);
   --normal-text: var(--gray1);
   --success-border: hsl(147deg 100% 12%);
-  --info-bg: var(--zinc-700);
+  --info-bg: var(--custom-jenda-dark);
 }
 
 .vue-ui-kpi {
@@ -51,7 +51,7 @@ canvas {
 }
 
 .vue-ui-kpi-value {
-  color: var(--blue-secondary) !important;
+  @apply text-blue-500
 }
 
 .vue-data-ui-fulscreen--off {
@@ -62,8 +62,7 @@ canvas {
 
 html.dark {
   .v-popper__inner {
-    background-color: var(--zinc-600) !important;
-    color: var(--zinc-200) !important;
+    @apply bg-neutral-100 text-neutral-800
   }
 
   .vue-data-ui-fulscreen--off {

@@ -26,7 +26,7 @@ import { UiDropdown, UiDropdownItem, UiDropdownShortcut } from '@/shared/ui'
   </UiDropdown>
 </template>
 
-<style module lang="scss">
+<style module>
 .wrapper {
   height: 17px;
   display: flex;

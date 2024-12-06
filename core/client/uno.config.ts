@@ -44,6 +44,7 @@ export default defineConfig({
     {
       'bg-main': 'bg-white dark:bg-#262626',
       'border-layout': 'border-neutral-200 dark:border-#1c1c1c',
+      'bg-sidebar': 'bg-neutral-50 dark:bg-#1c1c1c66',
     },
   ],
   rules: [

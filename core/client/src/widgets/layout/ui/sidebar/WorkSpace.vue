@@ -46,7 +46,7 @@ const iconColor = computed(() => {
 </script>
 
 <template>
-  <div :class="$style.sidebar_main_links">
+  <div class="flex flex-col gap-5px justify-start mb-30px">
     <RouterLink
       v-for="link in pathName"
       :key="link.id"
@@ -56,88 +56,17 @@ const iconColor = computed(() => {
         disabled: isExpanded,
       }"
       :to="{ name: link.pathName }"
-      :class="$style.link"
+      class="flex items-center gap-1.5 cursor-pointer text-neutral-900 justify-start w-full"
     >
       <UiButton
         :variant="link.isActive ? 'secondary' : 'ghost'"
-        :class="$style.link_btn"
+        class="w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease
+        focus:bg-#e7e7e799 hover:bg-neutral-200/30 dark:focus:bg-neutral-700/50 dark:hover:bg-neutral-700/30"
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
-        <Icon :icon="link.icon" :class="$style.icon" :color="iconColor" />
-        <span v-show="isExpanded" class="text-sm">{{ $t(`sidebar.${link.name}`) }}</span>
+        <Icon :icon="link.icon" class="text-17px" :color="iconColor" />
+        <span v-show="isExpanded" class="text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ $t(`sidebar.${link.name}`) }}</span>
       </UiButton>
     </RouterLink>
   </div>
 </template>
-
-<style module lang="scss">
-@use '@/app/styles/mixins' as *;
-
-.name_block {
-  color: var(--zinc-300);
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.sidebar_main_links {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  justify-content: flex-start;
-  margin-bottom: 30px;
-
-  .link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    color: var(--zinc-900);
-    justify-content: flex-start;
-    width: 100%;
-
-    .link_btn {
-      width: 100%;
-      gap: 8px;
-      box-shadow: none;
-      padding: 0 8px;
-      transition: all 0.2s ease;
-      &:hover {
-        background-color: rgba(var(--zinc-rgb-200), 0.3);
-      }
-      &:focus {
-        background-color: rgba(231, 231, 231, 0.6);
-      }
-
-      .icon {
-        font-size: 17px;
-      }
-    }
-
-    & span {
-      font-weight: 500 !important;
-      color: var(--zinc-900);
-    }
-  }
-}
-
-:global(html.dark) {
-  .sidebar_main_links {
-    .link {
-      .link_btn {
-        & span {
-          color: var(--zinc-100);
-        }
-        &:hover {
-          background-color: rgba(var(--zinc-rgb-600), 0.3);
-        }
-        &:focus {
-          background-color: rgba(var(--zinc-rgb-600), 0.5);
-        }
-      }
-    }
-  }
-}
-</style>

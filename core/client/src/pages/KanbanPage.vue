@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
-import { InfoPart, KanbanWrapper } from '@/widgets/kanban'
 import { ref } from 'vue'
 
 // mocks -> after data from backend
@@ -32,10 +31,9 @@ const board = ref<Board>({
 </script>
 
 <template>
-  <div :class="$style.page_container">
-    <InfoPart :board />
-    <div :class="$style.kanban">
-      <KanbanWrapper :columns="board.columns" />
+  <div class="h-full w-full">
+    <div class="relative h-full w-full">
+      kanban
     </div>
   </div>
 </template>

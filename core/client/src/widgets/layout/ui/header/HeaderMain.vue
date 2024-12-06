@@ -66,7 +66,7 @@ const { active } = useLayoutPaths(links, _projects)
               zIndex: userPosition(users, user),
               border: `1px solid ${user._id === '0' ? 'var(--blue-secondary)' : 'var(--zinc-300)'}`,
             }"
-            class="h-28px w-28px absolute"
+            class="!h-28px !w-28px absolute"
           >
             <img :src="user.photoUrl" width="100%" />
           </UserAvatar>

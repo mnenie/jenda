@@ -5,20 +5,9 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--zinc-100);
+  @apply bg-neutral-100 dark:bg-neutral-700/20
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 0.6em;
-  background-color: rgba(var(--zinc-rgb-300), 0.5);
-}
-
-html.dark {
-  ::-webkit-scrollbar-track {
-    background-color:  rgba(var(--zinc-rgb-600), 0.2);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--zinc-600)
-  }
+  @apply bg-neutral-300 rounded-xl dark:bg-neutral-700
 }
