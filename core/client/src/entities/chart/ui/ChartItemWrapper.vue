@@ -14,97 +14,27 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="$style.container" :style="{ maxWidth: width, height }">
-    <div :class="$style.top_part">
-      <div :class="$style.title">
+  <div
+    class="flex flex-col items-center border border-solid border-neutral-200 p-3 rounded-md bg-white gap-2.5 h-fit w-full shadow-sm grow
+    dark:border-neutral-700 dark:bg-neutral-700/40"
+    :style="{ maxWidth: width, height }"
+  >
+    <div class="flex items-center justify-evenly w-full mb-2">
+      <div class="flex items-center gap-2.5 w-full">
         <p class="text-sm">
           {{ $t(`analytics.charts.${chart.key}.name`) }}
         </p>
-        <UiBadge variant="secondary" :class="$style.badge">
+        <UiBadge variant="secondary" class="text-neutral-600 bg-neutral-100">
           {{ chart.section }}
         </UiBadge>
       </div>
-      <div i-lucide-ellipsis-vertical :class="$style.icon" />
+      <div i-lucide-ellipsis-vertical class="cursor-pointer text-neutral-500 dark:text-neutral-300" />
     </div>
-    <div :class="$style.slot_content">
+    <div class="flex items-center justify-center w-full h-full">
       <slot />
     </div>
-    <span v-if="chart.key === 'users'" class="text-xs">
+    <span v-if="chart.key === 'users'" class="text-xs dark:text-neutral-200">
       {{ $t(`analytics.charts.${chart.key}.description`) }}
     </span>
   </div>
 </template>
-
-<style module lang="scss">
-.container {
-  display: flex;
-  border: 1px solid var(--zinc-200);
-  padding: 12px;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  flex-direction: column;
-  align-items: center;
-  height: fit-content;
-  gap: 10px;
-  width: 100%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -moz-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
-  .top_part {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-bottom: 8px;
-
-    .title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-
-      .badge {
-        color: var(--zinc-500);
-        background-color: var(--zinc-100);
-      }
-    }
-  }
-
-  .icon {
-    color: var(--zinc-400);
-    cursor: pointer;
-  }
-
-  & > span {
-    color: var(--zinc-500);
-  }
-}
-
-.slot_content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-:global(html.dark) {
-  .container {
-    border-color: var(--zinc-600);
-    background-color: rgba(var(--zinc-rgb-600), 0.4);
-    & > span {
-      color: var(--zinc-200);
-    }
-    .icon {
-      color: var(--zinc-300);
-    }
-  }
-}
-</style>
