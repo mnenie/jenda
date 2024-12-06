@@ -9,32 +9,11 @@ useHead({
 </script>
 
 <template>
-  <div :class="$style.top">
-    <p class="text-sm">
+  <div class="flex flex-col items-start mb-5">
+    <p class="text-sm text-neutral-600 dark:text-neutral-300">
       {{ $t('templates.description') }}
     </p>
   </div>
   <ImportTemplate />
   <AllTemplates />
 </template>
-
-<style module lang="scss">
-.top {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 20px;
-
-  & > p {
-    color: var(--zinc-500);
-  }
-}
-
-:global(html.dark) {
-  .top {
-    & > p {
-      color: var(--zinc-300);
-    }
-  }
-}
-</style>
