@@ -41,6 +41,9 @@ export default defineConfig({
       'form-field': 'grid gap-2 justify-items-start',
       'form-label': 'text-sm text-neutral-900 !fw500 dark:text-neutral-200',
     },
+    {
+      'bg-main': 'bg-white dark:bg-#262626',
+    },
   ],
   rules: [
     [

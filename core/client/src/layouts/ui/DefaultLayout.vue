@@ -55,7 +55,7 @@ const boards = ref<Board[]>([
 </script>
 
 <template>
-  <Splitpanes :class="$style.default_layout">
+  <Splitpanes class="flex flex-row flex-1 w-full h-dvh">
     <Pane
       min-size="4"
       max-size="18"
@@ -65,11 +65,11 @@ const boards = ref<Board[]>([
       <AppSidebar :boards />
     </Pane>
     <Pane :size="widthMainContainer">
-      <div :class="$style.main_part">
+      <div class="flex flex-col h-full overflow-hidden">
         <HeaderMain :projects="boards" />
         <div
-          :class="$style.slot_wrapper"
-          :style="{ padding: $route.name !== RouteNames.board ? '20px 20px 20px 30px' : '0' }"
+          class="relative h-full w-full bg-main"
+          :style="{ padding: $route.name !== RouteNames.board ? '20px' : '0' }"
         >
           <slot />
         </div>
@@ -77,36 +77,3 @@ const boards = ref<Board[]>([
     </Pane>
   </Splitpanes>
 </template>
-
-<style module lang="scss">
-.default_layout {
-  display: flex;
-  flex-direction: row;
-  flex: 1 1 0%;
-  width: 100%;
-  height: 100dvh;
-
-  .main_part {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    height: 100%;
-
-    .slot_wrapper {
-      background-color: var(--main-slotted);
-      position: relative;
-      height: 100%;
-      width: 100%;
-    }
-  }
-}
-
-.new_header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6px 15px;
-  width: 100%;
-  background-color: var(--zinc-50);
-}
-</style>

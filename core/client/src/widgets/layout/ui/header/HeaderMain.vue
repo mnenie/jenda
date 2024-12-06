@@ -3,6 +3,7 @@ import type { Board } from '@/entities/board'
 import type { ProjectLink } from '@/shared/config/types-shared'
 import { type User, UserAvatar } from '@/entities/user'
 import { useLayoutPaths } from '@/shared/lib/composables'
+import { Icon } from '@iconify/vue'
 import { computed, shallowReactive, toRef } from 'vue'
 import { links } from '../../model'
 import UserMenu from './UserMenu.vue'
@@ -38,7 +39,7 @@ const { active } = useLayoutPaths(links, _projects)
 <template>
   <header :class="$style.header">
     <div :class="$style.about">
-      <component :is="active?.extendedAttrs.icon" :class="$style.icon_main" />
+      <Icon v-if="active.extendedAttrs.icon" :icon="active?.extendedAttrs.icon" :class="$style.icon_main" />
       <div
         v-if="active.extendedAttrs.color"
         i-jenda-custom-project
