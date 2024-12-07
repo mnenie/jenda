@@ -18,7 +18,7 @@ useHead({
 </script>
 
 <template>
-  <div class="container pt-[170px] max-[1152px]:pt-[130px] max-[890px]:pt-[130px] max-[520px]:!pt-[120px]">
+  <div class="ui-container pt-[170px] max-[1152px]:pt-[130px] max-[890px]:pt-[130px] max-[520px]:!pt-[120px]">
     <AboutSection />
     <ProjectDemo />
     <div class="flex flex-col items-center py-0 px-8 max-[890px]:px-0">

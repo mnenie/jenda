@@ -1,0 +1,16 @@
+{
+  "style": "new-york",
+  "typescript": true,
+  "tsConfigPath": "./tsconfig.json",
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "@/app/styles/primary/index.scss",
+    "baseColor": "neutral",
+    "cssVariables": false
+  },
+  "framework": "vite",
+  "aliases": {
+    "components": "@/shared/ui-kit",
+    "utils": "@/shared/lib/shadcn/utils"
+  }
+}

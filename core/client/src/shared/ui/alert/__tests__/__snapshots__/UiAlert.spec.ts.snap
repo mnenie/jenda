@@ -1,6 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`uiAlert > should have content at slot and render x icon 1`] = `
-"<div class="alert" style="background: rgb(250, 250, 250); border: 1.5px solid #e4e4e7;">hello from alert<div i-lucide-x="" text-sm="" class="x_mark"></div>
-</div>"
-`;

@@ -4,8 +4,8 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { themes } from '@storybook/theming'
 import { useColorMode } from '@vueuse/core'
 
+import 'virtual:uno.css'
 import '@/app/styles/primary/index.scss'
-import 'uno.css'
 
 const preview: Preview = {
   decorators: [

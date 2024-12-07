@@ -12,8 +12,8 @@ import autoAnimatePlugin from './plugins/formkit'
 
 import { pinia, router } from './providers'
 
-import 'uno.css'
 import './styles/primary/index.scss'
+import 'virtual:uno.css'
 import 'floating-vue/dist/style.css'
 import 'vue-data-ui/style.css'
 

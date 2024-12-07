@@ -38,7 +38,7 @@ const alertString = computed(() => {
 
 <template>
   <div
-    class="relative h-full w-68% mx-auto px-2rem dark:bg-neutral-800
+    class="relative h-full w-68% mx-auto px-2rem dark:bg-#1c1c1c
     max-[1440px]:w-80% max-[1100px]:!w-full"
   >
     <div class="h-full w-full flex flex-col justify-center items-center mx-auto">

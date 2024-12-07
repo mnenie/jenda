@@ -1,7 +1,7 @@
 {/* Alert.mdx */}
 
 import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
-import * as AlertStories from '../alert/UiAlert.stories';
+import * as AlertStories from '../../ui-kit/ui/alert/UiAlert.stories';
 
 <Meta of={AlertStories} name="Docs" />
 
@@ -17,9 +17,10 @@ The **UiAlert** component is a flexible alert element that can adapt to various 
   {`
 | Prop             | Description                                                                                                                   |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| variant          | Defines the alert's style. Options are: __default__, __secondary__, __ghost__, __destructive__, __outline__, and __dashed__. |
-| closable         | Determines if the alert displays a close button.                                                                             |
-| content          | Sets the main text or content for the alert.                                                                                 |
+| variant          | Defines the alert's style. Options are: __default__, __secondary__, __ghost__, __destructive__, __outline__, and __dashed__.  |
+| closable         | Determines if the alert displays a close button.                                                                              |
+| content          | Sets the main text or content for the alert.                                                                                  |
+| class            | Use for customize alert with unocss by type of HTMLAttributes['class']                                                        |
 `}
 </Markdown>
 

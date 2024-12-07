@@ -33,7 +33,12 @@ const valueOfRightPadding = computed(() => (closable ? '32px' : '10px'))
     <slot v-if="$slots.default || content">
       <span class="text-sm">{{ content }}</span>
     </slot>
-    <div v-if="closable" i-lucide-x text-sm :class="$style.x_mark" @click="emits('close')" />
+    <div
+      v-if="closable"
+      i-lucide-x
+      :class="$style.x_mark"
+      @click="emits('close')"
+    />
   </div>
 </template>
 

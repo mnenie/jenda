@@ -8,17 +8,21 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
-// import { presetDefaultToPx } from './src/shared/lib/unocss/presets'
+import presetAnimations from 'unocss-preset-animations'
+import { presetShadcn } from 'unocss-preset-shadcn'
+import presetJendaUI from './src/shared/lib/unocss/presets/presetUiKit'
 
 export default defineConfig({
   presets: [
+    presetUno(),
     presetAttributify({
       ignoreAttributes: [
         'size',
         'variant',
       ],
     }),
-    presetUno(),
+    presetAnimations(),
+    presetShadcn({ color: 'neutral' }, false),
     presetIcons({
       extraProperties: {
         'display': 'inline-block',
@@ -33,8 +37,8 @@ export default defineConfig({
         },
       },
     }),
+    presetJendaUI(),
     presetTypography(),
-    // presetDefaultToPx(),
   ],
   shortcuts: [
     {
@@ -47,16 +51,21 @@ export default defineConfig({
       'bg-sidebar': 'bg-neutral-50 dark:bg-#1c1c1c66',
     },
   ],
-  rules: [
-    [
-      'bg-neutral-800',
-      { 'background-color': 'rgba(28, 28, 28, 1)' },
-    ],
+  configDeps: [
+    './src/shared/lib/unocss/presets/presetUiKit.ts',
+
+    './src/shared/ui-kit/ui/_shortcuts/button.ts',
+    './src/shared/ui-kit/ui/_shortcuts/badge.ts',
+    './src/shared/ui-kit/ui/_shortcuts/input.ts',
+    './src/shared/ui-kit/ui/_shortcuts/alert.ts',
+    './src/shared/ui-kit/ui/_shortcuts/dropdown-menu.ts',
+    './src/shared/ui-kit/ui/_shortcuts/index.ts',
   ],
   content: {
     pipeline: {
       include: [
         /\.(vue|mdx?|html)($|\?)/,
+        '(components|src)/**/*.{js,ts}',
         'src/**/*.stories.{js,ts}',
         'stories/**/*',
       ],
