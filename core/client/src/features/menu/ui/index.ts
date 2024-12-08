@@ -1,3 +1,3 @@
-import BurgerMenu from './BurgerMenu.vue'
+import BurgerMenu from '../../../widgets/layout/ui/header/BurgerMenu.vue'
 
 export { BurgerMenu }

@@ -246,7 +246,7 @@ export default {
       description:
         'Jenda is a cloud-based program for efficient collaborative and individual project and task management.',
       badge: 'Core: Task Boards, Real-Time Tracking',
-      badge_mobile: 'Core: Task Boards, Real-Time Tracking and etc.',
+      badge_mobile: 'Core: Boards, Real-Time and etc.',
       btn: 'Get started',
     },
     marketing: {

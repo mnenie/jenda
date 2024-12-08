@@ -1,5 +1,5 @@
 import type { Preset } from 'unocss'
-import { shortcuts } from '../../../ui-kit/ui/shortcuts'
+import { shortcuts } from '../../../ui/shortcuts'
 
 export default function presetJendaUI(): Preset {
   return {

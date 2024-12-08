@@ -1,7 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`uiButton > should have content at slot 1`] = `
-"<button class="text-sm button default md">
-  <!--v-if-->ui button
-</button>"
-`;
+exports[`tests for UiButton > should have content at slot 1`] = `"<primitive-stub aschild="false" as="button" class="btn btn-default h-34px px-4 py-2" disabled="false"></primitive-stub>"`;
+
+exports[`uiButton > should have content at slot 1`] = `"<primitive-stub aschild="false" as="button" class="btn btn-default h-34px px-4 py-2" disabled="false"></primitive-stub>"`;

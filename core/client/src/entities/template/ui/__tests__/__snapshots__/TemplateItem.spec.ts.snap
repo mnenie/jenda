@@ -3,7 +3,7 @@
 exports[`tests for TemplateItem.vue > should render correctly 1`] = `
 "<div class="relative flex flex-col justify-between items-start h-fit w-100% border border-solid border-neutral-200 rounded-lg cursor-pointer dark:bg-neutral-700/40 dark:border-neutral-600">
   <div class="py-2 px-3">
-    <ui-badge-stub variant="outline" class="mb-3 !bg-blue-100 text-blue-500 !dark:bg-blue-800 !dark:text-blue-100 !dark:border-blue-800"></ui-badge-stub>
+    <ui-badge-stub class="mb-3 !bg-blue-100 text-blue-500 !dark:bg-blue-800 !dark:text-blue-100 !dark:border-blue-800" variant="outline"></ui-badge-stub>
     <div class="flex flex-col gap-1.5 mb-3">
       <p class="text-sm">Base Kanban</p><span class="text-xs text-neutral-500 overflow-hidden text-ellipsis line-clamp-2 break-words dark:text-neutral-400">Create a basic project with "Base Kanban" template</span>
     </div>

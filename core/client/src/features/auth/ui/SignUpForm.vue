@@ -56,8 +56,7 @@ const onRegistration = handleSubmit((values) => {
         </div>
       </div>
       <div class="grid gap-2">
-        <UiButton type="submit">
-          <!-- <Loader2 :class="$style.loader" /> -->
+        <UiButton>
           {{ $t('authentication.registration.btn') }}
         </UiButton>
         <p class="text-sm text-center select-none text-neutral-500 dark:text-neutral-300">

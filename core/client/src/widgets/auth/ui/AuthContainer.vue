@@ -68,7 +68,7 @@ const alertString = computed(() => {
             i-lucide-chevron-left
             class="text-lg text-neutral-500"
           />
-          <span class="text-sm mt-1 !fw-500">
+          <span class="text-sm !fw-500">
             {{ t('authentication.back') }}
           </span>
         </div>

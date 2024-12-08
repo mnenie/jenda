@@ -1,7 +1,0 @@
-@mixin on-focus {
-  & {
-    &:focus-visible {
-      @content;
-    }
-  }
-}

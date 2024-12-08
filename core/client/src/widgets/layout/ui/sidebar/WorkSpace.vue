@@ -3,7 +3,6 @@ import type { Link } from '../../model'
 import { RouteNames } from '@/shared/config/consts'
 import { UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
-import { useDark } from '@vueuse/core'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -13,7 +12,6 @@ const props = defineProps<{
 }>()
 
 const route = useRoute()
-const isDark = useDark()
 
 function isCurrentPath(link: Link) {
   if (route.name?.toString().startsWith(RouteNames.members)) {
@@ -35,14 +33,6 @@ const pathName = computed(() => {
 const contentPosition = computed(() => {
   return props.isExpanded ? 'flex-start' : 'center'
 })
-const iconColor = computed(() => {
-  if (isDark.value) {
-    return !props.isExpanded ? 'var(--zinc-200)' : 'var(--zinc-300)'
-  }
-  else {
-    return !props.isExpanded ? 'var(--zinc-800)' : 'var(--zinc-600)'
-  }
-})
 </script>
 
 <template>
@@ -60,11 +50,11 @@ const iconColor = computed(() => {
     >
       <UiButton
         :variant="link.isActive ? 'secondary' : 'ghost'"
-        class="w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease
-        focus:bg-#e7e7e799 hover:bg-neutral-200/30 dark:focus:bg-neutral-700/50 dark:hover:bg-neutral-700/30"
+        class="w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease"
+        :class="link.isActive ? '!bg-neutral-200/40 dark:!bg-neutral-700/50' : ''"
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
-        <Icon :icon="link.icon" class="text-17px" :color="iconColor" />
+        <Icon :icon="link.icon" class="text-17px text-neutral-900 dark:text-neutral-200" />
         <span v-show="isExpanded" class="text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ $t(`sidebar.${link.name}`) }}</span>
       </UiButton>
     </RouterLink>

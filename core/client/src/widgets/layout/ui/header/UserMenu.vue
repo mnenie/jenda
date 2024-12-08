@@ -1,47 +1,42 @@
 <script setup lang="ts">
 import { RouteNames } from '@/shared/config/consts'
-import { UiDropdown, UiDropdownItem, UiDropdownShortcut } from '@/shared/ui'
+import {
+  UiDropdownMenu,
+  UiDropdownMenuContent,
+  UiDropdownMenuGroup,
+  UiDropdownMenuItem,
+  UiDropdownMenuLabel,
+  UiDropdownMenuSeparator,
+  UiDropdownMenuShortcut,
+  UiDropdownMenuTrigger,
+} from '@/shared/ui'
 </script>
 
 <template>
-  <UiDropdown direction="right">
-    <template #trigger>
-      <div :class="$style.wrapper">
-        <div i-lucide-ellipsis-vertical :class="$style.icon" text-base />
+  <UiDropdownMenu direction="right">
+    <UiDropdownMenuTrigger as-child>
+      <div class="flex items-center justify-center h-17px">
+        <div
+          i-lucide-ellipsis-vertical
+          class="text-base text-neutral-500 dark:text-neutral-400"
+        />
       </div>
-    </template>
-    <template #header>
-      <span class="text-sm" style="font-weight: 500">test@gmail.com</span>
-    </template>
-    <template #content>
-      <UiDropdownItem @click="$router.push({ name: RouteNames.welcome })">
-        {{ $t('header.user.welcome') }}
-        <UiDropdownShortcut>⌘B</UiDropdownShortcut>
-      </UiDropdownItem>
-      <UiDropdownItem>
-        {{ $t('header.user.logout') }}
-        <UiDropdownShortcut>⇧⌘Q</UiDropdownShortcut>
-      </UiDropdownItem>
-    </template>
-  </UiDropdown>
+    </UiDropdownMenuTrigger>
+    <UiDropdownMenuContent align="end" class="w-[200px] mt-4px">
+      <UiDropdownMenuLabel class="2xl:text-[13px] sm:text-sm">
+        test@gmail.com
+      </UiDropdownMenuLabel>
+      <UiDropdownMenuSeparator />
+      <UiDropdownMenuGroup>
+        <UiDropdownMenuItem @click="$router.push({ name: RouteNames.welcome })">
+          <span class="2xl:text-xs text-sm font-medium">{{ $t('header.user.welcome') }}</span>
+          <UiDropdownMenuShortcut>⇧P</UiDropdownMenuShortcut>
+        </UiDropdownMenuItem>
+        <UiDropdownMenuItem>
+          <span class="2xl:text-xs text-sm font-medium">{{ $t('header.user.logout') }}</span>
+          <UiDropdownMenuShortcut>⌘X</UiDropdownMenuShortcut>
+        </UiDropdownMenuItem>
+      </UiDropdownMenuGroup>
+    </UiDropdownMenuContent>
+  </UiDropdownMenu>
 </template>
-
-<style module>
-.wrapper {
-  height: 17px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon {
-  color: var(--zinc-500) !important;
-  cursor: pointer;
-}
-
-:global(html.dark) {
-  .icon {
-    color: var(--zinc-300) !important;
-  }
-}
-</style>

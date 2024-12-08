@@ -1,33 +1,23 @@
 <script setup lang="ts">
-import type { Options } from '@/shared/ui/select/types'
 import type { HeaderNavLink } from '../../model'
-import { BurgerMenu } from '@/features/menu'
+import { LanguageSelect, ThemeSwitcher } from '@/features/layout'
 import { RouteNames } from '@/shared/config/consts'
-import { useLanguage, useScroll } from '@/shared/lib/composables'
+import { useScroll } from '@/shared/lib/composables'
 import { redirect } from '@/shared/lib/helpers'
-import { UiButton, UiSelect } from '@/shared/ui'
-import { useDark, useToggle, useWindowSize } from '@vueuse/core'
-import { computed, ref, shallowReactive } from 'vue'
+import { UiButton } from '@/shared/ui'
+import { useDark, useWindowSize } from '@vueuse/core'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { headerLinks } from '../../model'
+import BurgerMenu from './BurgerMenu.vue'
 
 const isDark = useDark()
-const toggleDark = useToggle(isDark)
 
 const { tm, t } = useI18n()
 
 const iconUrl = computed(() => {
   return isDark.value ? '/icons/kanban-dark.png' : '/icons/kanban.png'
 })
-
-const languages = shallowReactive<Options[]>([
-  { name: 'EN', value: 'en-US' },
-  { name: 'RU', value: 'ru-RU' },
-  { name: 'ZH', value: 'zh-CN' },
-])
-const language = ref('')
-
-useLanguage(languages, language)
 
 const links = computed(() => {
   const localeArr = tm('welcome.header.links') as HeaderNavLink[]
@@ -42,8 +32,7 @@ const { width } = useWindowSize()
 
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 flex flex-col self-center gap-10 max-w-1800px w-full px-4 py-3
-    max-[1152px]:max-w-1064px max-[992px]:max-w-900px"
+    class="sticky top-0 z-50 flex flex-col self-center gap-10 max-w-1800px w-full px-4 py-3"
   >
     <slot name="offer" />
     <section class="flex items-center justify-between">
@@ -62,7 +51,7 @@ const { width } = useWindowSize()
                 :src="iconUrl"
                 class="w-22px h-22px"
               />
-              <h3 class="text-xl">
+              <h3 class="text-xl fw-500">
                 Jenda
               </h3>
             </div>
@@ -71,7 +60,7 @@ const { width } = useWindowSize()
               :key="link.id"
               variant="ghost"
               size="sm"
-              class="text-neutral-500 font-medium hover:text-neutral-700 dark:text-neutral-400 dark:hover:!bg-neutral-700"
+              class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400"
               @click="scrollToEl(link.pagePrefix)"
             >
               {{ link.name }}
@@ -87,29 +76,20 @@ const { width } = useWindowSize()
             :src="iconUrl"
             class="w-22px h-22px"
           />
-          <h3 class="text-xl">
+          <h3 class="text-xl fw500">
             Jenda
           </h3>
         </div>
         <div class="flex items-center gap-1">
-          <UiSelect v-model="language" :options="languages" as="btn">
-            <div i-hugeicons-globe-02 text-base />
-          </UiSelect>
+          <LanguageSelect />
           <div class="w-1px h-3.5 bg-neutral-200 dark:bg-neutral-700" />
-          <UiButton
-            variant="ghost"
-            size="sm"
-            class="p-2 gap-1 text-neutral-400 hover:text-neutral-700 dark:!text-neutral-400 dark:hover:!text-neutral-200"
-            @click="toggleDark()"
-          >
-            <div v-if="!isDark" i-hugeicons-moon-02 text-base />
-            <div v-else i-lucide-sun text-base />
-          </UiButton>
+          <ThemeSwitcher />
         </div>
       </div>
       <div v-if="width >= 1152" class="flex items-center gap-1.5 btns">
         <UiButton
           variant="ghost"
+          class="bg-main bg-transparent"
           style="font-weight: 500"
           @click="$router.push({ name: RouteNames.login })"
         >

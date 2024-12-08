@@ -6,37 +6,10 @@ defineSlots<{
 </script>
 
 <template>
-  <div class="text-sm" :class="$style.card">
+  <div class="relative flex flex-col p-1.5 rounded-8px shadow-sm border border-solid border-neutral-200 text-sm dark:border-neutral-700">
     <slot />
-    <div :class="$style.user_container">
+    <div class="absolute bottom-1.5 top-1.5 w-fit">
       <slot name="user" />
     </div>
   </div>
 </template>
-
-<style module lang="scss">
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border: 1px solid var(--zinc-200);
-  border-radius: 8px;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  padding: 6px;
-  width: 100%;
-}
-
-.user_container {
-  position: absolute;
-  width: fit-content;
-  bottom: 6px;
-  right: 6px;
-}
-
-:global(html.dark){
-  .card{
-    border: 1px solid var(--zinc-600);
-  }
-}
-</style>

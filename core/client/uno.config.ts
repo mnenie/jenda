@@ -54,12 +54,13 @@ export default defineConfig({
   configDeps: [
     './src/shared/lib/unocss/presets/presetUiKit.ts',
 
-    './src/shared/ui-kit/ui/_shortcuts/button.ts',
-    './src/shared/ui-kit/ui/_shortcuts/badge.ts',
-    './src/shared/ui-kit/ui/_shortcuts/input.ts',
-    './src/shared/ui-kit/ui/_shortcuts/alert.ts',
-    './src/shared/ui-kit/ui/_shortcuts/dropdown-menu.ts',
-    './src/shared/ui-kit/ui/_shortcuts/index.ts',
+    './src/shared/ui/_shortcuts/button.ts',
+    './src/shared/ui/_shortcuts/badge.ts',
+    './src/shared/ui/_shortcuts/input.ts',
+    './src/shared/ui/_shortcuts/alert.ts',
+    './src/shared/ui/_shortcuts/dropdown-menu.ts',
+    './src/shared/ui/_shortcuts/select.ts',
+    './src/shared/ui/_shortcuts/index.ts',
   ],
   content: {
     pipeline: {

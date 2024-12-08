@@ -10,7 +10,7 @@ const { t } = useI18n()
 const { width } = useWindowSize()
 
 const badge = computed(() =>
-  width.value > 420 ? t('welcome.about.badge') : t('welcome.about.badge_mobile'),
+  width.value > 668 ? t('welcome.about.badge') : t('welcome.about.badge_mobile'),
 )
 
 const isDark = useDark()
@@ -57,7 +57,7 @@ const arrowMargin = computed(() => {
     </h1>
     <p
       class="text-lg max-w-600px text-center text-neutral-500 dark:text-neutral-400
-      max-[680px]:max-w-480px"
+      max-[680px]:(max-w-480px text-base)"
     >
       {{ $t('welcome.about.description') }}
     </p>
