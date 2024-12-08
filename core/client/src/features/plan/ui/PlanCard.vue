@@ -50,7 +50,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
   <div v-else class="relative w-full flex flex-col items-center">
     <ReuseTemplate position="right" tw-class="absolute top--6px right--4px text-blue-500 cursor-help" />
 
-    <UiBadge variant="outline" class="w-10">
+    <UiBadge variant="outline" class="w-10 px-1">
       <div class="flex items-center gap-0.5">
         <div i-lucide-stars />
         <span class="!text-10px text-neutral-800 !fw500 dark:text-neutral-300">1/3</span>
