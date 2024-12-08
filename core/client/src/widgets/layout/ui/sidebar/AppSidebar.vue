@@ -23,9 +23,9 @@ const paddingExpanded = computed(() => {
 </script>
 
 <template>
-  <nav :class="$style.sidebar">
+  <div class="relative w-full flex flex-col h-full bg-sidebar select-none border-r border-r-solid border-layout">
     <WorkspaceChooser />
-    <div :class="$style.content" :style="{ padding: paddingExpanded }">
+    <div class="flex flex-col justify-between h-full mt-1.5" :style="{ padding: paddingExpanded }">
       <div>
         <SearchBox :boards />
         <WorkSpace :links :is-expanded />
@@ -33,45 +33,5 @@ const paddingExpanded = computed(() => {
       </div>
       <PlanCard :is-expanded />
     </div>
-  </nav>
+  </div>
 </template>
-
-<style module lang="scss">
-.sidebar {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  background-color: var(--sidebar-bg-color);
-  user-select: none;
-  border-right: 1px solid var(--zinc-200);
-
-  .content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 6px;
-
-    .menu {
-      width: 100%;
-      color: var(--zinc-500);
-      cursor: pointer;
-      padding: 0 auto;
-    }
-  }
-}
-
-:global(.dark) {
-  .sidebar {
-    border-color: var(--dark-border);
-    .name {
-      .icon_menu {
-        color: var(--zinc-200);
-      }
-    }
-  }
-}
-</style>

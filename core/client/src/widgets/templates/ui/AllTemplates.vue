@@ -32,16 +32,7 @@ const gridVariant = computed(() =>
 </script>
 
 <template>
-  <div :class="$style.container">
+  <div class="grid gap-15px w-full" :style="{ gridTemplateColumns: gridVariant }">
     <TemplateItem v-for="template in templates" :key="template.id" :template="template" />
   </div>
 </template>
-
-<style module lang="scss">
-.container {
-  display: grid;
-  grid-template-columns: v-bind('gridVariant');
-  gap: 15px;
-  width: 100%;
-}
-</style>

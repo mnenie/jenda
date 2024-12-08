@@ -1,5 +1,4 @@
 import type { Meta, StoryFn } from '@storybook/vue3'
-import { File } from '@/shared/assets/icons'
 import UiButton from './UiButton.vue'
 
 export default {
@@ -8,7 +7,7 @@ export default {
   argTypes: {
     size: {
       control: { type: 'radio' },
-      options: ['sm', 'md', 'lg'],
+      options: ['sm', 'default', 'lg'],
       defaultValue: 'md',
     },
     variant: {
@@ -34,7 +33,7 @@ const Template: StoryFn<typeof UiButton> = (args) => {
     },
     template: `
     <UiButton v-bind="args">
-        <template v-if="${'leading' in args}" v-slot:leading>${args.leading}</template> 
+        <template v-if="${'leading' in args}" v-slot:leading>${args.leading}</template>
         <template v-if="${'default' in args}" v-slot>${args.default}</template>
         <template v-if="${'trailing' in args}" v-slot:trailing>${args.trailing}</template>
     </UiButton>
@@ -45,7 +44,7 @@ const Template: StoryFn<typeof UiButton> = (args) => {
 export const DefaultButton: StoryFn<typeof UiButton> = Template.bind({})
 
 DefaultButton.args = {
-  size: 'md',
+  size: 'default',
   variant: 'default',
   default: `Get Started`,
 }
@@ -54,16 +53,16 @@ export const ButtonExampleProps: StoryFn<typeof UiButton> = Template.bind({})
 
 ButtonExampleProps.args = {
   size: 'sm',
-  variant: 'destructive',
-  default: `Delete`,
+  variant: 'solid',
+  default: `Create task`,
 }
 
 export const SlottedButton: StoryFn<typeof UiButton> = Template.bind({})
 
 SlottedButton.args = {
-  size: 'md',
+  size: 'default',
   variant: 'default',
-  leading: `<File style="width: 16px; height: 16px;" />`,
+  leading: `<div i-hugeicons-cloud-download />`,
   default: `
       Download
     `,

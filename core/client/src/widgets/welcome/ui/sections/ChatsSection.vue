@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { MessageCircle } from 'lucide-vue-next'
 import { useSection } from '../../model/composables'
 import { ReviewWrapper } from '../reviews'
 import SectionWrapper from './SectionWrapper.vue'
@@ -13,8 +12,11 @@ const { section } = useSection(
 
 <template>
   <SectionWrapper id="chats" :section direction="reverse">
-    <template #icon="{ size, color }">
-      <MessageCircle :size :color />
+    <template #icon="{ size }">
+      <span
+        i-hugeicons-message-multiple-02
+        :style="{ fontSize: `${size}px` }"
+      />
     </template>
   </SectionWrapper>
   <ReviewWrapper :review="section.review" />

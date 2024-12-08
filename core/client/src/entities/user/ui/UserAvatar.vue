@@ -1,21 +1,8 @@
 <template>
-  <div class="text-sm" :class="[$style.avatar]">
+  <div
+    class="flex items-center justify-center h-30px w-30px select-none overflow-hidden text-sm
+  bg-neutral-100 text-neutral-950 rounded-full"
+  >
     <slot />
   </div>
 </template>
-
-<style module lang="scss">
-.avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  width: 30px;
-  user-select: none;
-  overflow: hidden;
-  background-color: var(--zinc-100);
-  color: var(--zinc-950);
-  border-radius: 50%;
-  cursor: pointer;
-}
-</style>

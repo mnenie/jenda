@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import UiInput from '../UiInput.vue'
 
-describe('uiInput', () => {
+describe('tests for UiInput', () => {
   const wrapper = shallowMount(UiInput, {
     props: {
       modelValue: 'value',

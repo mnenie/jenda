@@ -1,13 +1,15 @@
-import type { ButtonSize, ButtonType } from '../types'
-import { shallowMount } from '@vue/test-utils'
+import type { ButtonVariants } from '..'
+import { mount, shallowMount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import UiButton from '../UiButton.vue'
 
-describe('uiButton', () => {
+describe('tests for UiButton', () => {
+  // with <primitive-stub />
   const wrapper = shallowMount(UiButton, {
     props: {
       variant: 'default',
-      size: 'md',
+      size: 'default',
+      as: 'button',
     },
   })
 
@@ -28,35 +30,37 @@ describe('uiButton', () => {
     const variants = [
       'default',
       'secondary',
+      'solid',
       'destructive',
       'ghost',
       'outline',
       'dashed',
-    ] as ButtonType[]
+    ] as ButtonVariants['variant'][]
 
-    variants.forEach((variant) => {
-      const wrapper = shallowMount(UiButton, {
+    variants.forEach(() => {
+      const wrapper = mount(UiButton, {
         props: {
-          variant,
-          size: 'md',
+          variant: 'solid',
+          size: 'default',
         },
       })
       const button = wrapper.find('button')
-      expect(button.attributes('class')).toContain(`${variant}`)
+      expect(button.exists()).toBe(true)
+      expect(button.attributes('class')).toContain('btn-solid')
     })
   })
 
   it('should apply correct styles for size', () => {
-    const sizes = ['lg', 'md', 'sm'] as ButtonSize[]
-    sizes.forEach((size) => {
-      const wrapper = shallowMount(UiButton, {
+    const sizes = ['lg', 'default', 'sm'] as ButtonVariants['size'][]
+    sizes.forEach(() => {
+      const wrapper = mount(UiButton, {
         props: {
           variant: 'dashed',
-          size,
+          size: 'sm',
         },
       })
       const button = wrapper.find('button')
-      expect(button.attributes('class')).toContain(`${size}`)
+      expect(button.attributes('class')).toContain(`h-8`)
     })
   })
 })

@@ -1,5 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`UiBadge > should have content at slot 1`] = `"<div class="text-xs badge default">badge</div>"`;
-
-exports[`uiBadge > should have content at slot 1`] = `"<div class="text-xs badge default">badge</div>"`;
+exports[`tests for UiBadge > should have content at slot 1`] = `"<div class="badge badge-default">badge</div>"`;

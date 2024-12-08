@@ -193,7 +193,7 @@ export default {
     ],
     back: 'To Home',
     auth_alert:
-      'authorization via google will be replaced with gitlab after 10.11.2024',
+      'authorization via google will be replaced with gitlab after 28.12.2024',
   },
   kanban: {
     sorting: {
@@ -246,7 +246,7 @@ export default {
       description:
         'Jenda is a cloud-based program for efficient collaborative and individual project and task management.',
       badge: 'Core: Task Boards, Real-Time Tracking',
-      badge_mobile: 'Core: Task Boards, Real-Time Tracking and etc.',
+      badge_mobile: 'Core: Boards, Real-Time and etc.',
       btn: 'Get started',
     },
     marketing: {

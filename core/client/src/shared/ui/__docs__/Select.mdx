@@ -7,18 +7,14 @@ import * as SelectStories from '../select/UiSelect.stories';
 
 # UiSelect
 
-The **UiSelect** component is a flexible selection input that can be displayed as a dropdown or a button, making it adaptable to various UI contexts.
+The **UiSelect** component displays a list of options for the user to pick from—triggered by a button.
+
+### Main Components:
+
+`UiSelect`, `UiSelectTrigger`, `UiSelectContent`, `UiSelectItem`,
+
+<Canvas of={SelectStories.DefaultSelect} />
 
 ### Props
 
-<Markdown>
-  {`
-| Prop       | Description                                                  |
-|------------|--------------------------------------------------------------|
-| modelValue | The selected option's value.                                 |
-| options    | An array of options to display. Each option has a name and value. |
-| as         | Determines if the component renders as a button or select.   |
-  `}
-</Markdown>
-
-<Canvas of={SelectStories.DefaultSelect} />
+refs: https://www.radix-vue.com/components/select

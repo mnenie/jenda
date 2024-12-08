@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
-import { InfoPart, KanbanWrapper } from '@/widgets/kanban'
 import { ref } from 'vue'
 
 // mocks -> after data from backend
@@ -8,7 +7,19 @@ const board = ref<Board>({
   _id: '0',
   name: 'Startup',
   status: 'work',
-  columns: [],
+  columns: [
+    { _id: '0', title: 'Backlog', cards: [
+      {
+        _id: '0',
+        title: 'Create a new project',
+        priority: 'low',
+        users: [],
+        chat: true,
+        chatCount: 2,
+        tags: [{ _id: '0', name: 'test' }],
+      },
+    ] },
+  ],
   users: [
     {
       _id: '0',
@@ -20,10 +31,9 @@ const board = ref<Board>({
 </script>
 
 <template>
-  <div :class="$style.page_container">
-    <InfoPart :board />
-    <div :class="$style.kanban">
-      <KanbanWrapper :columns="board.columns" />
+  <div class="h-full w-full">
+    <div class="relative h-full w-full">
+      kanban
     </div>
   </div>
 </template>

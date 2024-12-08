@@ -1,9 +1,7 @@
 import { RouteNames } from '@/shared/config/consts'
 import i18n from '@/shared/lib/i18n'
 import { mount, RouterLinkStub } from '@vue/test-utils'
-import { SquareDashedKanban } from 'lucide-vue-next'
 import { describe, expect, it, vi } from 'vitest'
-import { h } from 'vue'
 import { useRoute } from 'vue-router'
 import WorkSpace from '../WorkSpace.vue'
 import '@/shared/lib/vitest-utils/cookiesI18n-mock'
@@ -41,7 +39,7 @@ describe('tests for WorkSpace.vue', () => {
           id: 0,
           name: 'boards',
           pathName: RouteNames.boards,
-          icon: h(SquareDashedKanban),
+          icon: 'i-hugeicons-trello',
         },
       ],
     },

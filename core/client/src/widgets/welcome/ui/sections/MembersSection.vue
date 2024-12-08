@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { SmilePlus } from 'lucide-vue-next'
 import { useSection } from '../../model/composables'
 import { ReviewWrapper } from '../reviews'
 import SectionWrapper from './SectionWrapper.vue'
@@ -13,8 +12,11 @@ const { section } = useSection(
 
 <template>
   <SectionWrapper id="members" :section>
-    <template #icon="{ size, color }">
-      <SmilePlus :size :color />
+    <template #icon="{ size }">
+      <span
+        i-hugeicons-agreement-01
+        :style="{ fontSize: `${size}px` }"
+      />
     </template>
   </SectionWrapper>
   <ReviewWrapper :review="section.review" />

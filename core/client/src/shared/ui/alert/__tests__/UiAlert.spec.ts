@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { nextTick } from 'vue'
 import UiAlert from '../UiAlert.vue'
 
-describe('uiAlert', () => {
+describe('tests for UiAlert', () => {
   const wrapper = shallowMount(UiAlert, {
     props: {
       variant: 'default',

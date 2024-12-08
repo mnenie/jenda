@@ -1,0 +1,18 @@
+<script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
+import { cn } from '@/shared/lib/shadcn/utils'
+import { SelectLabel, type SelectLabelProps } from 'radix-vue'
+
+const props = defineProps<SelectLabelProps & { class?: HTMLAttributes['class'] }>()
+</script>
+
+<template>
+  <SelectLabel
+    :class="cn(
+      'select-label',
+      props.class,
+    )"
+  >
+    <slot />
+  </SelectLabel>
+</template>

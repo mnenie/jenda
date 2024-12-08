@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Plan } from '@/shared/assets/icons'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { createReusableTemplate, refDebounced } from '@vueuse/core'
 import { computed, toRef } from 'vue'
@@ -20,111 +19,42 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>
-  <DefineTemplate v-slot="{ style, position }">
+  <DefineTemplate v-slot="{ twClass, position }">
     <span
       v-tooltip="{
         content: $t('sidebar.plan.tooltip'),
         triggers: ['hover'],
         placement: position,
       }"
-      :class="style"
+      :class="twClass"
     >
       *
     </span>
   </DefineTemplate>
-  <div v-if="isShowPlan" :class="$style.card">
-    <div :class="$style.content">
-      <p class="text-sm">
+  <div
+    v-if="isShowPlan"
+    class="relative p-3 bg-neutral-100 border border-solid border-neutral-200 rounded-md
+    dark:bg-neutral-700/10 dark:border-neutral-700"
+  >
+    <div class="flex flex-col gap-1.5">
+      <p class="text-sm !fw500">
         {{ $t('sidebar.plan.title') }}
-        <ReuseTemplate position="top" :style="$style.reusable_helping_sign" />
+        <ReuseTemplate position="top" tw-class="text-blue-500 cursor-help" />
       </p>
-      <span class="text-xs"> {{ $t('sidebar.plan.description') }}</span>
-      <UiButton size="sm" :class="$style.btn">
+      <span class="text-xs text-neutral-700 dark:text-neutral-300"> {{ $t('sidebar.plan.description') }}</span>
+      <UiButton size="sm" variant="outline" class="text-xs mt-1">
         {{ $t('sidebar.plan.btn') }}
       </UiButton>
     </div>
   </div>
-  <div v-else :class="$style.none_expanded_card">
-    <ReuseTemplate position="right" />
+  <div v-else class="relative w-full flex flex-col items-center">
+    <ReuseTemplate position="right" tw-class="absolute top--6px right--4px text-blue-500 cursor-help" />
 
-    <UiBadge variant="outline" :class="$style.badge">
-      <div>
-        <Plan />
-        1/3
+    <UiBadge variant="outline" class="w-10 px-1">
+      <div class="flex items-center gap-0.5">
+        <div i-lucide-stars />
+        <span class="!text-10px text-neutral-800 !fw500 dark:text-neutral-300">1/3</span>
       </div>
     </UiBadge>
   </div>
 </template>
-
-<style module lang="scss">
-.card {
-  position: relative;
-  padding: 12px;
-  background-color: var(--zinc-100);
-  border: 1px solid var(--zinc-200);
-  border-radius: 4px;
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-
-    & > p {
-      font-weight: 500 !important;
-    }
-
-    .btn {
-      font-size: 12px;
-      margin-top: 8px;
-    }
-  }
-}
-
-.reusable_helping_sign {
-  color: var(--blue-basic);
-  cursor: help;
-}
-
-.none_expanded_card {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .badge {
-    font-size: 10px;
-    width: 40px;
-
-    & > div {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-  }
-
-  & > span {
-    position: absolute;
-    color: var(--blue-basic);
-    cursor: help;
-    top: -6px;
-    right: -4px;
-  }
-}
-
-:global(html.dark) {
-  .card {
-    background-color: var(--zinc-700);
-    border-color: var(--zinc-700);
-
-    .content {
-      & > p {
-        color: var(--zinc-100);
-      }
-      & > span {
-        color: var(--zinc-300);
-      }
-    }
-  }
-}
-</style>

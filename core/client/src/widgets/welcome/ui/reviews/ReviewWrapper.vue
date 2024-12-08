@@ -8,101 +8,22 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="$style.wrapper">
-    <div :class="$style.card">
-      <div :class="$style.about">
+  <div class="flex gap-5 justify-center items-stretch mb-100px max-[520px]:mb-80px">
+    <div class="relative flex flex-col gap-5 p-1.5 max-[768px]:items-center">
+      <div class="relative flex items-center gap-2">
         <UserAvatar style="width: 34px; height: 34px">
           <img style="width: 100%" :src="review?.img" />
         </UserAvatar>
-        <div :class="$style.name">
-          <p class="text-base">
+        <div>
+          <p class="text-base mb-0.5 text-neutral-800 dark:text-neutral-200">
             {{ review?.name }}
           </p>
-          <span class="text-sm">{{ review?.status }}</span>
+          <span class="text-sm mb-0.5 text-neutral-600 dark:text-neutral-400">{{ review?.status }}</span>
         </div>
       </div>
-      <blockquote class="text-base">
+      <blockquote class="text-base text-neutral-600 font-medium dark:text-neutral-200 max-[768px]:text-center">
         {{ `“${review?.comment}”` }}
       </blockquote>
     </div>
   </div>
 </template>
-
-<style module lang="scss">
-.wrapper {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: stretch;
-  margin-bottom: 100px;
-
-  .card {
-    padding: 6px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    .about {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      .name {
-        & > p {
-          margin-bottom: 2px;
-          color: var(--zinc-800);
-        }
-        & > span {
-          margin-bottom: 2px;
-          color: var(--zinc-500);
-        }
-      }
-    }
-
-    blockquote {
-      color: var(--zinc-600);
-      font-weight: 500;
-    }
-  }
-}
-
-:global(html.dark) {
-  .wrapper {
-    .card {
-      .about {
-        .name {
-          & > p {
-            color: var(--zinc-200);
-          }
-          & > span {
-            color: var(--zinc-400);
-          }
-        }
-      }
-      blockquote {
-        color: var(--zinc-200);
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .wrapper{
-    .card{
-      align-items: center;
-
-      blockquote{
-        text-align: center;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .wrapper {
-    margin-bottom: 80px;
-  }
-}
-</style>

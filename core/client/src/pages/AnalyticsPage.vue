@@ -23,23 +23,30 @@ const containerWith = computed(() => {
 </script>
 
 <template>
-  <div :class="$style.container">
-    <div :class="$style.section_about">
-      <p class="text-sm">
+  <div class="flex flex-col pb-5">
+    <div class="flex flex-col items-start mb-3">
+      <p class="text-sm text-neutral-600 dark:text-neutral-200">
         {{ $t('analytics.description') }}
       </p>
     </div>
-    <div :class="$style.section_badges">
-      <UiBadge v-for="(badge, _) in $tm('analytics.badges')" :key="_" variant="outline">
+    <div class="inline-flex items-center gap-2 mb-30px">
+      <UiBadge
+        v-for="(badge, _) in $tm('analytics.badges')"
+        :key="_"
+        variant="outline"
+      >
         {{ badge }}
       </UiBadge>
     </div>
-    <div :class="$style.charts">
-      <div :class="$style.charts_container" :style="{ maxWidth: containerWith }">
+    <div class="flex gap-5 pr-2.5">
+      <div
+        class="flex flex-col grow gap-5"
+        :style="{ maxWidth: containerWith }"
+      >
         <TasksChart />
         <UsersChart />
       </div>
-      <div :class="$style.charts_container">
+      <div class="flex flex-col grow gap-5">
         <OnlineChart />
         <BoardsChart />
       </div>
@@ -47,50 +54,3 @@ const containerWith = computed(() => {
     <SharedSection />
   </div>
 </template>
-
-<style module lang="scss">
-.container {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
-
-  .section_badges {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 30px;
-  }
-}
-
-.section_about {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 12px;
-
-  & > p {
-    color: var(--zinc-500);
-  }
-}
-
-.charts {
-  display: flex;
-  padding: 0 10px 0 0;
-  gap: 20px;
-
-  .charts_container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: 20px;
-  }
-}
-
-:global(html.dark) {
-  .section_about {
-    & > p {
-      color: var(--zinc-300);
-    }
-  }
-}
-</style>

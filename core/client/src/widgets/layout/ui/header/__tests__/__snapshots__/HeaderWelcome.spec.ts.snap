@@ -1,52 +1,32 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`tests for HeaderWelcome.vue > should be render correctly 1`] = `
-"<header class="header_welcome">
-  <section class="containers">
-    <div class="left_container">
-      <div class="box">
-        <div class="inside">
-          <div class="name_container"><img src="/icons/kanban.png">
-            <h3 class="text-xl"> Jenda </h3>
-          </div><button class="text-sm button ghost sm item">
-            <!--v-if-->About
-          </button><button class="text-sm button ghost sm item">
-            <!--v-if-->Kanban
-          </button><button class="text-sm button ghost sm item">
-            <!--v-if-->Collaborative
-          </button><button class="text-sm button ghost sm item">
-            <!--v-if-->Activity
-          </button><button class="text-sm button ghost sm item">
-            <!--v-if-->Members
-          </button><button class="text-sm button ghost sm item">
-            <!--v-if-->Chats
-          </button>
+"<header data-v-88b13e8b="" class="sticky top-0 z-50 flex flex-col self-center gap-10 max-w-1800px w-full px-4 py-3">
+  <section data-v-88b13e8b="" class="flex items-center justify-between">
+    <div data-v-88b13e8b="" class="flex items-center gap-2 select-none">
+      <div data-v-88b13e8b="" class="relative z-10 box bg-white border border-solid border-#e3e4e8 flex items-center py-0 pl-2.5 pr-3.5 h-40px rounded-lg dark:shadow-sm dark:bg-#313131 dark:border-neutral-700">
+        <div data-v-88b13e8b="" class="flex items-center gap-0.5">
+          <div data-v-88b13e8b="" class="flex items-center gap-1 cursor-pointer mr-2"><img data-v-88b13e8b="" src="/icons/kanban.png" class="w-22px h-22px">
+            <h3 data-v-88b13e8b="" class="text-xl fw-500"> Jenda </h3>
+          </div>
+          <ui-button-stub data-v-88b13e8b="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-88b13e8b="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-88b13e8b="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-88b13e8b="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-88b13e8b="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-88b13e8b="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
         </div>
       </div>
-      <div class="additional">
-        <div class="btn_variant"><button class="text-sm button ghost sm btn">
-            <!--v-if--><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-              <path d="M2 12h20"></path>
-            </svg> EN
-          </button>
-          <transition-stub name="dropdown" appear="false" persisted="false" css="true">
-            <!--v-if-->
-          </transition-stub>
-        </div>
-        <div class="separator"></div><button class="text-sm button ghost sm btn">
-          <!--v-if--><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon-icon">
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-          </svg>
-        </button>
+      <div data-v-88b13e8b="" class="flex items-center gap-1">
+        <language-select-stub data-v-88b13e8b=""></language-select-stub>
+        <div data-v-88b13e8b="" class="w-1px h-3.5 bg-neutral-200 dark:bg-neutral-700"></div>
+        <theme-switcher-stub data-v-88b13e8b=""></theme-switcher-stub>
       </div>
     </div>
-    <div class="btns"><button class="text-sm button ghost md" style="font-weight: 500;">
-        <!--v-if-->Log In
-      </button><button class="text-sm button default md">
-        <!--v-if-->Registration
-      </button></div>
+    <div data-v-88b13e8b="" class="flex items-center gap-1.5 btns">
+      <ui-button-stub data-v-88b13e8b="" class="bg-main bg-transparent" variant="ghost" size="default" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button" style="font-weight: 500;"></ui-button-stub>
+      <ui-button-stub data-v-88b13e8b="" variant="default" size="default" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+    </div>
   </section>
 </header>"
 `;

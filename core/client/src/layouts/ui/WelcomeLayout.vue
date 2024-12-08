@@ -8,32 +8,13 @@ useColorMode({
 </script>
 
 <template>
-  <div :class="$style.welcome_layout">
+  <div class="relative min-h-dvh w-full flex flex-col">
     <HeaderWelcome />
-    <div :class="$style.slot">
+    <div class="flex-1">
       <slot />
     </div>
-    <div :class="$style.footer_wrapper">
+    <div class="flex justify-center">
       <AppFooter />
     </div>
   </div>
 </template>
-
-<style module lang="scss">
-.welcome_layout {
-  position: relative;
-  min-height: 100dvh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-
-  .slot {
-    flex: 1 1 0%;
-  }
-
-  .footer_wrapper{
-    display: flex;
-    justify-content: center;
-  }
-}
-</style>

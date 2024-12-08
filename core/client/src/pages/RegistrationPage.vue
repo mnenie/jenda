@@ -9,18 +9,10 @@ useHead({
 </script>
 
 <template>
-  <div :class="$style.registration">
+  <div class="w-full h-full flex">
     <AuthContainer>
       <SignUpForm />
     </AuthContainer>
     <BgPanel />
   </div>
 </template>
-
-<style module lang="scss">
-.registration {
-  height: 100%;
-  width: 100%;
-  display: flex;
-}
-</style>

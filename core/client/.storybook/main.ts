@@ -14,6 +14,10 @@ const config: StorybookConfig = {
       docgen: 'vue-component-meta',
     },
   },
+  viteFinal: async config => ({
+    ...config,
+    ...(await import('unocss/vite')).default,
+  }),
   staticDirs: ['./-static'],
 }
 export default config

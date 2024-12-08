@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
 import { SearchFilter } from '@/features/filter'
-import { File } from '@/shared/assets/icons'
 import { HippieNav } from '@noction/hippie-nav'
 import { computed, nextTick, ref, useTemplateRef } from 'vue'
 import { useRouter } from 'vue-router'
@@ -63,11 +62,11 @@ useSearch(hippieNav, openFl, placeholder)
   <Teleport to="body">
     <HippieNav ref="hippieNav" :options="options" :actions="actions">
       <template #resultItem="{ data }">
-        <File class="type-icon" />
+        <div i-hugeicons-file-02 class="type-icon" />
         <div class="item-info">
           <span class="text-sm title">{{ data.name }}</span>
           <span v-if="data.path" class="sub-title">{{ data.path }}</span>
-          <span v-else class="sub-title">/{{ data.aliases[0] }}</span>
+          <span v-else-if="data.aliases" class="sub-title">/{{ data.aliases[0] }}</span>
         </div>
       </template>
     </HippieNav>

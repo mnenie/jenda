@@ -3,9 +3,7 @@ name: Create issues from TODOs
 on:
   push:
     branches:
-      - 'dev'
-      - 'client'
-      - 'server'
+      - dev
 
 jobs:
   todo:

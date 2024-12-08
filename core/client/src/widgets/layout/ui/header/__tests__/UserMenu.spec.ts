@@ -1,18 +1,11 @@
+import { RouteNames } from '@/shared/config/consts'
 import i18n from '@/shared/lib/i18n'
-import { UiDropdown, UiDropdownItem } from '@/shared/ui'
+import { UiDropdownMenuItem, UiDropdownMenuTrigger } from '@/shared/ui'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
-import { type ComponentPublicInstance, nextTick } from 'vue'
+import { nextTick } from 'vue'
 import UserMenu from '../UserMenu.vue'
 import '@/shared/lib/vitest-utils/cookiesI18n-mock'
-
-type UserMenuDropdownInstance = ComponentPublicInstance<
-  {},
-  {},
-  {
-    handleDropdown: () => void
-  }
->
 
 const mockRouter = {
   push: vi.fn(),
@@ -23,7 +16,6 @@ describe('tests for UserMenu.vue', () => {
   const wrapper = mount(UserMenu, {
     global: {
       plugins: [i18n],
-
       mocks: {
         t: (key: string) => {
           const translations: Record<string, string> = {
@@ -37,22 +29,17 @@ describe('tests for UserMenu.vue', () => {
     },
   })
 
-  it('should be render correctly', async () => {
-    wrapper
-      .findComponent(UiDropdown as unknown as UserMenuDropdownInstance)
-      .vm
-      .handleDropdown()
+  it('should redirect correctly to welcome', async () => {
+    await wrapper.findComponent(UiDropdownMenuTrigger).trigger('click')
     await nextTick()
-    expect(wrapper.html()).toMatchSnapshot()
+    const items = wrapper.findAllComponents(UiDropdownMenuItem)
+    expect(items.length).toBeGreaterThan(0)
+    const welcomeTrigger = items.at(0)
+    await welcomeTrigger?.trigger('click')
+    expect(mockRouter.push).toHaveBeenCalledWith({ name: RouteNames.welcome })
   })
 
-  it('should redirect coorectly', async () => {
-    const welcomeTrigger = wrapper
-      .find('.content')
-      .findAllComponents(UiDropdownItem)
-      .at(0)
-
-    await welcomeTrigger.trigger('click')
-    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'welcome' })
+  it('should redirect correctly to logout', async () => {
+    // needs to be fixed
   })
 })

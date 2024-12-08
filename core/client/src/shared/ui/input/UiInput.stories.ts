@@ -5,15 +5,15 @@ export default {
   title: 'UiInput',
   component: UiInput,
   argTypes: {
+    modelValue: {
+      control: { type: 'text' },
+    },
     type: {
       control: { type: 'select' },
       options: ['text', 'password', 'number', 'email'],
       defaultValue: 'text',
     },
     placeholder: {
-      control: { type: 'text' },
-    },
-    modelValue: {
       control: { type: 'text' },
     },
   },
@@ -30,15 +30,3 @@ const Template: StoryFn<typeof UiInput> = (args) => {
 }
 
 export const DefaultInput: StoryFn<typeof UiInput> = Template.bind({})
-
-DefaultInput.args = {
-  placeholder: 'Type here',
-  type: 'text',
-}
-
-export const PaswordInput: StoryFn<typeof UiInput> = Template.bind({})
-
-PaswordInput.args = {
-  placeholder: 'Enter your password',
-  type: 'password',
-}

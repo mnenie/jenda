@@ -3,7 +3,6 @@ import { GoogleOauth, PrivacyPolicy } from '@/features/auth'
 import { RouteNames } from '@/shared/config/consts'
 import { UiAlert } from '@/shared/ui'
 import { useDark, useWindowSize } from '@vueuse/core'
-import { ChevronLeft } from 'lucide-vue-next'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
@@ -38,43 +37,68 @@ const alertString = computed(() => {
 </script>
 
 <template>
-  <div :class="$style.container">
-    <div :class="$style.container_inside">
-      <div v-if="width > 1100" :class="$style.top_part" @click="$router.push({ name: RouteNames.welcome })">
-        <img :src="isDark ? '/icons/kanban-dark.png' : '/icons/kanban.png'" />
-        <h3 class="text-xl">
+  <div
+    class="relative h-full w-68% mx-auto px-2rem dark:bg-#1c1c1c
+    max-[1440px]:w-80% max-[1100px]:!w-full"
+  >
+    <div class="h-full w-full flex flex-col justify-center items-center mx-auto">
+      <div
+        v-if="width > 1100"
+        class="absolute top-24px left-32px flex items-center gap-1.5 cursor-pointer"
+        @click="$router.push({ name: RouteNames.welcome })"
+      >
+        <img
+          :src="isDark ? '/icons/kanban-dark.png' : '/icons/kanban.png'"
+          class="w-7 h-7"
+        />
+        <h3 class="text-xl !fw-500">
           Jenda
         </h3>
       </div>
-      <div v-else :class="$style.mobile_navigation">
-        <div :class="$style.arrow_container" @click="$router.push({ name: RouteNames.welcome })">
-          <ChevronLeft :class="$style.icon" :size="20" />
-          <span class="text-sm">{{ t('authentication.back') }}</span>
+      <div
+        v-else
+        class="absolute left-150px top-30px flex items-center gap-1.5 cursor-pointer max-w-700px
+        max-[890px]:left-80px max-[580px]:!left-20px max-[520px]:(!left-15px !top-15px)"
+      >
+        <div
+          class="flex items-center gap-1"
+          @click="$router.push({ name: RouteNames.welcome })"
+        >
+          <div
+            i-lucide-chevron-left
+            class="text-lg text-neutral-500"
+          />
+          <span class="text-sm !fw-500">
+            {{ t('authentication.back') }}
+          </span>
         </div>
       </div>
-      <div :class="$style.form_wrapper">
+      <div
+        class="relative flex w-460px flex-col gap-2
+          max-[520px]:!w-full max-[1100px]:!w-460px max-[1200px]:w-360px"
+      >
         <UiAlert
           v-if="isWarningOpen"
           variant="warning"
           closable
-          :class="$style.warning"
+          class="max-w-98% max-[520px]:mb-1.5"
           @close="isWarningOpen = false"
         >
           <span class="text-sm" v-html="alertString" />
         </UiAlert>
-        <h2 class="heading-2">
+        <h2 class="text-3xl fw-600 max-[580px]:text-2xl">
           {{ title }}
         </h2>
-        <p class="text-sm" :class="[$style.info_text]">
+        <p class="text-sm pb-5 text-neutral-400 mt--1.5">
           {{ info }}
         </p>
 
         <slot />
 
-        <div class="text-xs" :class="[$style.line_container]">
-          <div :class="$style.line" />
-          <span>{{ t('authentication.line') }}</span>
-          <div :class="$style.line" />
+        <div class="relative flex items-center justify-center uppercase py-18px text-xs">
+          <div class="w-full h-0.5 bg-neutral-100 dark:bg-neutral-700" />
+          <span class="px-2 text-neutral-600 whitespace-nowrap dark:text-neutral-400">{{ t('authentication.line') }}</span>
+          <div class="w-full h-0.5 bg-neutral-100 dark:bg-neutral-700" />
         </div>
         <GoogleOauth />
         <PrivacyPolicy />
@@ -82,218 +106,3 @@ const alertString = computed(() => {
     </div>
   </div>
 </template>
-
-<style module lang="scss">
-.container {
-  position: relative;
-  height: 100%;
-  width: 68%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 2rem;
-  padding-left: 2rem;
-
-  .container_inside {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    flex-direction: column;
-
-    .top_part {
-      position: absolute;
-      left: 32px;
-      top: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      cursor: pointer;
-
-      & img {
-        width: 28px;
-        height: 28px;
-      }
-
-      & h1 {
-        font-weight: 500 !important;
-      }
-    }
-
-    .mobile_navigation {
-      position: absolute;
-      left: 150px;
-      top: 30px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      max-width: 700px;
-
-      .arrow_container {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-
-        & span {
-          margin-top: 1px;
-          font-weight: 500 !important;
-        }
-        .icon {
-          color: var(--zinc-600);
-        }
-      }
-    }
-
-    .form_wrapper {
-      position: relative;
-      display: flex;
-      width: 460px;
-      flex-direction: column;
-      gap: 8px;
-
-      .info_text {
-        padding-bottom: 20px;
-        color: #72717a;
-        margin-top: -6px;
-      }
-
-      .line_container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        padding: 18px 0;
-
-        .line {
-          width: 100%;
-          height: 1px;
-          background-color: var(--zinc-200);
-        }
-
-        & span {
-          padding: 0 8px;
-          color: #72717a;
-          white-space: nowrap;
-        }
-      }
-    }
-  }
-}
-
-.warning{
-  max-width: 98%;
-}
-
-:global(html.dark) {
-  .container {
-    background-color: var(--zinc-800);
-    .container_inside {
-      .mobile_navigation {
-        & span,
-        .icon {
-          color: var(--zinc-200);
-        }
-      }
-      .form_wrapper {
-        .info_text {
-          color: var(--zinc-300);
-        }
-        .line_container {
-          .line {
-            background-color: var(--zinc-600);
-          }
-          & span {
-            color: var(--zinc-300);
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1440px) {
-  .container {
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .container {
-    .container_inside {
-      .form_wrapper {
-        width: 360px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .container {
-    width: 100%;
-    .container_inside {
-      .form_wrapper {
-        width: 460px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 890px) {
-  .container {
-    .container_inside {
-      .mobile_navigation {
-        left: 80px;
-      }
-      .form_wrapper {
-        width: 380px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 580px) {
-  .container {
-    .container_inside {
-      .mobile_navigation {
-        left: 20px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .container {
-    .container_inside {
-      .mobile_navigation {
-        left: 15px;
-        top: 15px;
-      }
-      .form_wrapper {
-        width: 100%;
-      }
-    }
-  }
-  .warning {
-    margin-bottom: 6px;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .container {
-    .container_inside {
-      .mobile_navigation {
-        left: 15px;
-        top: 15px;
-      }
-      .form_wrapper {
-        width: 100%;
-      }
-    }
-  }
-}
-</style>

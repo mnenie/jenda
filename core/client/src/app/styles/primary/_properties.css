@@ -1,0 +1,24 @@
+:root {
+  /* priorities */
+  --low-color: 34, 197, 94;
+  --medium-color: 245, 158, 11;
+  --high-color: 239, 68, 68;
+
+  --custom-jenda-dark: rgb(38 38 38);
+
+  /* hippie */
+  --hippie-primary-color: #42b983;
+  --hippie-bg-color: hsl(0deg 0% 100%);
+  --hippie-text-color: hsl(215deg 16% 50%);
+  --hippie-backdrop-color: hsla(215deg 16% 50% / 50%);
+  --hippie-hit-color: hsl(215deg 16% 50%);
+  --hippie-hit-active-color: #fff;
+  --hippie-hit-highlighted-text-color: #42b983;
+  --hippie-footer-color: hsla(215deg 16% 50% / 70%);
+  --hippie-spacing-xs: .25rem;
+  --hippie-spacing-s: .5rem;
+  --hippie-spacing-m: .75rem;
+  --hippie-spacing-l: 1rem;
+  --hippie-spacing-xl: 1.25rem;
+  --hippie-spacing-2xl: 2rem;
+}

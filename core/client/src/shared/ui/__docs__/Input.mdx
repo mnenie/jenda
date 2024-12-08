@@ -17,12 +17,8 @@ The **UiInput** component is a versatile input field that supports various types
   {`
 | Prop        | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
-| type        | Specifies the input type. Options are: __text__, __password__, __number__, __email__.                           |
-| placeholder | Sets a placeholder text that appears in the input field before the user enters a value.                         |
 | modelValue  | The input field value. **Use __v-model__ to bind this prop to a data property.**                                |
-| disabled    | Disables the input, making it inactive and adjusting its style for a lower-opacity appearance.                  |
+| defaultValue| The default value                                                                                               |
+| class       | Use for customize input with unocss by type of HTMLAttributes['class']                                          |
   `}
 </Markdown>
-
-<Canvas of={InputStories.PaswordInput} />
-

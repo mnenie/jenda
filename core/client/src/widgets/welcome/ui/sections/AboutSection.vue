@@ -3,7 +3,6 @@ import { RouteNames } from '@/shared/config/consts'
 import { redirect } from '@/shared/lib/helpers'
 import { UiButton } from '@/shared/ui'
 import { useDark, useWindowSize } from '@vueuse/core'
-import { ChevronRight } from 'lucide-vue-next'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -11,7 +10,7 @@ const { t } = useI18n()
 const { width } = useWindowSize()
 
 const badge = computed(() =>
-  width.value > 420 ? t('welcome.about.badge') : t('welcome.about.badge_mobile'),
+  width.value > 668 ? t('welcome.about.badge') : t('welcome.about.badge_mobile'),
 )
 
 const isDark = useDark()
@@ -30,160 +29,52 @@ const arrowMargin = computed(() => {
 </script>
 
 <template>
-  <section id="about" :class="$style.container">
+  <section
+    id="about"
+    class="flex flex-col items-center py-0 px-1 gap-1 my-0 mx-auto max-w-980px max-[520px]:gap-2"
+  >
     <div
-      :class="$style.badge"
+      class="bg-neutral-100 text-neutral-500 flex items-center gap-1 px-2.5 py-0.5 rounded-lg cursor-pointer dark:bg-neutral-700 dark:text-neutral-400
+      max-[520px]:mb-4 max-[520px]:justify-center"
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
       @click="redirect('https://github.com/mnenie/jenda')"
     >
       <span style="margin-right: 3px">✨</span>
       <span class="text-sm">{{ badge }}</span>
-      <ChevronRight :size="14" :class="$style.arrow" :style="{ marginLeft: arrowMargin }" />
+      <span
+        i-hugeicons-arrow-right-01
+        class="ease-in duration-100"
+        :style="{ marginLeft: arrowMargin }"
+      />
     </div>
-    <h1>{{ $t('welcome.about.tagline') }}</h1>
-    <p class="text-lg">
+    <h1
+      class="
+      text-76px leading-tight font-semibold mb-1 text-center tracking-tighter
+      max-[1220px]:text-68px max-[1152px]:text-64px max-[1100px]:text-62px max-[890px]:text-54px max-[680px]:!text-44px"
+    >
+      {{ $t('welcome.about.tagline') }}
+    </h1>
+    <p
+      class="text-lg max-w-600px text-center text-neutral-500 dark:text-neutral-400
+      max-[680px]:(max-w-480px text-base)"
+    >
       {{ $t('welcome.about.description') }}
     </p>
-    <div :class="$style.btns">
+    <div class="flex justify-center items-center gap-4 px-0 py-4 btns">
       <UiButton @click="$router.push({ name: RouteNames.registration })">
         {{ $t('welcome.about.btn') }}
       </UiButton>
       <UiButton
         variant="outline"
-        :class="$style.btn_git"
         @click="redirect('https://github.com/mnenie/jenda')"
       >
-        <img :src="!isDark ? '/icons/github.png' : '/icons/github-d.png'" />
+        <img
+          :src="!isDark ? '/icons/github.png' : '/icons/github-d.png'"
+          class="w-4 h-4"
+        />
         GitHub
       </UiButton>
     </div>
   </section>
 </template>
-
-<style module lang="scss">
-.container {
-  display: flex;
-  margin: 0 auto;
-  max-width: 980px;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 0 16px;
-
-  & > h1 {
-    margin-bottom: 2px;
-    text-align: center;
-    font-size: 76px;
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: -0.05em;
-  }
-
-  & > p {
-    max-width: 600px;
-    text-align: center;
-    color: var(--zinc-500);
-  }
-
-  .badge {
-    background-color: var(--zinc-100);
-    padding: 2px 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    border-radius: 8px;
-    color: var(--zinc-500);
-
-    .arrow {
-      transition: 0.2s ease-in;
-    }
-  }
-
-  .btns {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    padding: 12px 0;
-
-    .btn_git {
-      & > img {
-        width: 16px;
-        height: 16px;
-      }
-    }
-  }
-}
-
-:global(html.dark) {
-  .container {
-    .badge {
-      background-color: var(--zinc-600);
-      color: var(--zinc-300);
-    }
-    & > p {
-      color: var(--zinc-300);
-    }
-  }
-}
-
-@media screen and (max-width: 1220px) {
-  .container {
-    & > h1 {
-      font-size: 68px;
-    }
-  }
-}
-
-@media screen and (max-width: 1152px) {
-  .container {
-    & > h1 {
-      font-size: 64px;
-    }
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .container {
-    & > h1 {
-      font-size: 62px;
-    }
-  }
-}
-
-@media screen and (max-width: 890px) {
-  .container {
-    & > h1 {
-      font-size: 54px;
-    }
-  }
-}
-
-@media screen and (max-width: 680px) {
-  .container {
-    & > h1 {
-      font-size: 44px;
-    }
-    & > p {
-      max-width: 480px;
-    }
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .container {
-    gap: 8px;
-    .badge {
-      margin-bottom: 10px;
-      justify-content: center;
-
-      // & span {
-      //   text-align: center
-      // }
-    }
-  }
-}
-</style>

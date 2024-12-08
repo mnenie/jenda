@@ -1,0 +1,55 @@
+.v-popper__inner {
+  font-size: 12px;
+  padding: 4px 10px !important;
+}
+
+.v-popper__arrow-container {
+  display: none !important;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.splitpanes--vertical .splitpanes__pane {
+  transition: none;
+}
+
+.splitpanes--vertical > .splitpanes__splitter {
+  display: none;
+}
+
+[data-sonner-toaster][data-theme='dark'] {
+  --normal-bg: var(--custom-jenda-dark) !important;
+  --normal-border: hsl(0deg 0% 20%);
+  --normal-text: var(--gray1);
+  --success-border: hsl(147deg 100% 12%);
+  --info-bg: var(--custom-jenda-dark);
+}
+
+.vue-ui-kpi {
+  background: transparent !important;
+}
+
+.vue-ui-kpi-value {
+  @apply text-blue-500
+}
+
+.vue-data-ui-fulscreen--off {
+  circle {
+    fill: #fff !important;
+  }
+}
+
+html.dark {
+  .v-popper__inner {
+    @apply bg-neutral-100 text-neutral-800
+  }
+
+  .vue-data-ui-fulscreen--off {
+    circle {
+      fill: #313131 !important;
+    }
+  }
+}
