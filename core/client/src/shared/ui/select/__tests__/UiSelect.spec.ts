@@ -1,19 +1,19 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
-import UiDropdownMenu from '../UiDropdownMenu.vue'
+import UiSelect from '../UiSelect.vue'
 
-describe('tests for UiDropdownMenu', () => {
-  const wrapper = mount(UiDropdownMenu, {
-    slots: { default: '<div>test</div>' },
+describe('tests for UiSelect', () => {
+  const wrapper = mount(UiSelect, {
+    slots: { default: '<div>test select</div>' },
     props: { defaultOpen: true },
   })
 
   it('should render correctly', () => {
-    expect(wrapper.html()).toContain('<div>test</div>')
+    expect(wrapper.html()).toContain('<div>test select</div>')
   })
 
   it('should pass defaultOpen prop to DropdownMenuRoot', () => {
-    const root = wrapper.findComponent({ name: 'DropdownMenuRoot' })
+    const root = wrapper.findComponent({ name: 'SelectRoot' })
     expect(root.props('defaultOpen')).toBe(true)
   })
 
@@ -24,4 +24,4 @@ describe('tests for UiDropdownMenu', () => {
   })
 })
 
-// more tests: https://github.com/unovue/radix-vue/blob/main/packages/radix-vue/src/DropdownMenu/DropdownMenu.test.ts
+// more tests: https://github.com/unovue/radix-vue/blob/main/packages/radix-vue/src/Select/Select.test.ts
