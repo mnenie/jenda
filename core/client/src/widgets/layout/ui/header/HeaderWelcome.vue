@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { HeaderNavLink } from '../../model'
 import { LanguageSelect, ThemeSwitcher } from '@/features/layout'
-import { RouteNames } from '@/shared/config/consts'
 import { useScroll } from '@/shared/lib/composables'
 import { redirect } from '@/shared/lib/helpers'
 import { UiButton } from '@/shared/ui'
@@ -91,11 +90,11 @@ const { width } = useWindowSize()
           variant="ghost"
           class="bg-main bg-transparent"
           style="font-weight: 500"
-          @click="$router.push({ name: RouteNames.login })"
+          @click="$router.push('/auth/sign-in')"
         >
           {{ t('welcome.header.login') }}
         </UiButton>
-        <UiButton @click="$router.push({ name: RouteNames.registration })">
+        <UiButton @click="$router.push('/auth/sign-up')">
           {{ t('welcome.header.reg') }}
         </UiButton>
       </div>

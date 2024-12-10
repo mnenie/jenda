@@ -28,6 +28,12 @@ const board = ref<Board>({
     },
   ],
 })
+
+definePage({
+  meta: {
+    requiresAuth: true,
+  },
+})
 </script>
 
 <template>
@@ -37,16 +43,3 @@ const board = ref<Board>({
     </div>
   </div>
 </template>
-
-<style module lang="scss">
-.page_container {
-  height: 100%;
-  width: 100%;
-}
-
-.kanban {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-</style>

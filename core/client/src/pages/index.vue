@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { LayoutsEnum } from '@/layouts/model'
 import {
   AboutSection,
   ActivitySection,
@@ -11,6 +12,13 @@ import {
   ProjectDemo,
 } from '@/widgets/welcome'
 import { useHead } from '@unhead/vue'
+
+definePage({
+  meta: {
+    layout: LayoutsEnum.welcome,
+    requiresAuth: false,
+  },
+})
 
 useHead({
   title: 'Jenda - cloud program for project and task management',

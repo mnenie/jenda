@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RouteNames } from '@/shared/config/consts'
 import { redirect } from '@/shared/lib/helpers'
 import { UiButton } from '@/shared/ui'
 import { useDark, useWindowSize } from '@vueuse/core'
@@ -62,7 +61,7 @@ const arrowMargin = computed(() => {
       {{ $t('welcome.about.description') }}
     </p>
     <div class="flex justify-center items-center gap-4 px-0 py-4 btns">
-      <UiButton @click="$router.push({ name: RouteNames.registration })">
+      <UiButton @click="$router.push('/auth/sign-up')">
         {{ $t('welcome.about.btn') }}
       </UiButton>
       <UiButton

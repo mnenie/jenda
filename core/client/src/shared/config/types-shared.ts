@@ -5,6 +5,7 @@ interface Path {
 }
 
 export interface WorkspaceLink extends Path {
+  id: number
   name: string
   icon?: IconifyIcon | string
 }

@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import { RouteNames } from '@/shared/config/consts'
+import { LayoutsEnum } from '@/layouts/model'
 import { UiButton } from '@/shared/ui'
 import { useHead } from '@unhead/vue'
 import { useWindowSize } from '@vueuse/core'
 
+definePage({
+  meta: {
+    layout: LayoutsEnum.auth,
+    requiresAuth: false,
+  },
+})
 useHead({
   title: '404 | Not Found :/',
 })
@@ -35,7 +41,7 @@ const { width } = useWindowSize()
       >
         {{ $t('not_found.description') }}
       </p>
-      <UiButton @click="$router.push({ name: RouteNames.welcome })">
+      <UiButton @click="$router.push('/')">
         {{ $t('not_found.btn') }}
       </UiButton>
     </div>

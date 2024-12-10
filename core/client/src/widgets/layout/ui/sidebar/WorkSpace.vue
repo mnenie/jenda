@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Link } from '../../model'
-import { RouteNames } from '@/shared/config/consts'
 import { UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
@@ -14,13 +13,10 @@ const props = defineProps<{
 const route = useRoute()
 
 function isCurrentPath(link: Link) {
-  if (route.name?.toString().startsWith(RouteNames.members)) {
-    return link.pathName === RouteNames.members
+  if (route.path === '/boards') {
+    return link.pathName === 'boards'
   }
-  if (route.name === RouteNames.boards) {
-    return link.pathName === RouteNames.boards
-  }
-  return link.pathName === route.name
+  return route.path === `/${link.pathName}`
 }
 
 const pathName = computed(() => {
@@ -45,7 +41,7 @@ const contentPosition = computed(() => {
         triggers: ['hover'],
         disabled: isExpanded,
       }"
-      :to="{ name: link.pathName }"
+      :to="link.pathName"
       class="flex items-center gap-1.5 cursor-pointer text-neutral-900 justify-start w-full"
     >
       <UiButton

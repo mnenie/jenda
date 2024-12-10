@@ -5,10 +5,6 @@ import { BoardsChart, OnlineChart, SharedSection, TasksChart, UsersChart } from 
 import { useHead } from '@unhead/vue'
 import { computed } from 'vue'
 
-useHead({
-  title: 'Jenda | Analytics',
-})
-
 const { breakpoints } = useBreakpoints()
 
 const containerWith = computed(() => {
@@ -19,6 +15,15 @@ const containerWith = computed(() => {
   if (breakpoints.between('laptop', 'intermediateLaptop').value)
     return '400px'
   return undefined
+})
+
+definePage({
+  meta: {
+    requiresAuth: true,
+  },
+})
+useHead({
+  title: 'Jenda | Analytics',
 })
 </script>
 

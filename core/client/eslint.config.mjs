@@ -25,8 +25,28 @@ export default jendaEslintConfig(
     languageOptions: {
       globals: {
         ...vitest.environments.env.globals,
+        definePage: 'readonly',
       },
     },
   },
-  ...storybook.configs['flat/recommended'],
+  {
+    files: ['src/pages/**/*.vue'],
+    rules: {
+      'vue/multi-word-component-names': 'off',
+    },
+  },
+  {
+    files: ['**/*.stories.*'],
+    plugins: {
+      storybook,
+    },
+    rules: {
+      ...storybook.configs['flat/recommended'].rules,
+    },
+  },
+  {
+    settings: {
+      'import/core-modules': ['vue-router/auto-routes'],
+    },
+  },
 )

@@ -1,4 +1,5 @@
 import type { IconifyIcon } from '@iconify/vue'
+import type { RouterLinkProps } from 'vue-router'
 
 export interface SectionItem {
   title?: string
@@ -21,7 +22,7 @@ export interface MenuLink {
 export interface Link {
   id: number
   name: string
-  pathName: string
+  pathName: RouterLinkProps['to']
   // string with unocss update
   icon: IconifyIcon | string
 }

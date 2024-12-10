@@ -12,7 +12,7 @@ const props = defineProps<{
 const showList = ref(true)
 const showPlusIcon = ref(false)
 
-const route = useRoute()
+const route = useRoute('/boards/[id]')
 
 const _projects = computed(() => {
   return props.boards.map(proj => ({
@@ -69,7 +69,7 @@ function changeShowList() {
         triggers: ['hover'],
         disabled: isExpanded,
       }"
-      :to="`/board/${project._id}`"
+      :to="`/boards/${project._id}`"
       class="flex items-center gap-1.5 cursor-pointer text-neutral-900 justify-start w-full"
     >
       <UiButton

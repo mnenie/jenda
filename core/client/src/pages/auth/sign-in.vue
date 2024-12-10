@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { BgPanel, SignInForm } from '@/features/auth'
+import { LayoutsEnum } from '@/layouts/model'
 import { AuthContainer } from '@/widgets/auth'
 import { useHead } from '@unhead/vue'
 
+definePage({
+  meta: {
+    layout: LayoutsEnum.auth,
+    requiresAuth: false,
+  },
+})
 useHead({
-  title: 'Jenda | Login',
+  title: 'Jenda | Sign In',
 })
 </script>
 

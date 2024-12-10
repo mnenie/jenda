@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RouteNames } from '@/shared/config/consts'
 import {
   UiDropdownMenu,
   UiDropdownMenuContent,
@@ -28,7 +27,7 @@ import {
       </UiDropdownMenuLabel>
       <UiDropdownMenuSeparator />
       <UiDropdownMenuGroup>
-        <UiDropdownMenuItem @click="$router.push({ name: RouteNames.welcome })">
+        <UiDropdownMenuItem @click="$router.push('/')">
           <span class="2xl:text-xs text-sm font-medium">{{ $t('header.user.welcome') }}</span>
           <UiDropdownMenuShortcut>⇧P</UiDropdownMenuShortcut>
         </UiDropdownMenuItem>

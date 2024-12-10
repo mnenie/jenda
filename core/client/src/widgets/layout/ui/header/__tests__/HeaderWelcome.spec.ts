@@ -57,7 +57,7 @@ describe('tests for HeaderWelcome.vue', () => {
     const loginButton = wrapper.find('.btns').findAllComponents(UiButton).at(0)
 
     await loginButton.trigger('click')
-    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'login' })
+    expect(mockRouter.push).toHaveBeenCalledWith('/auth/sign-in')
   })
 
   it('should redirect correctly to registration', async () => {
@@ -67,6 +67,6 @@ describe('tests for HeaderWelcome.vue', () => {
       .at(1)
 
     await registrationButton.trigger('click')
-    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'registration' })
+    expect(mockRouter.push).toHaveBeenCalledWith('/auth/sign-up')
   })
 })
