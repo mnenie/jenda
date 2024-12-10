@@ -3,6 +3,11 @@ import { ImportTemplate } from '@/entities/template'
 import { AllTemplates } from '@/widgets/templates'
 import { useHead } from '@unhead/vue'
 
+definePage({
+  meta: {
+    requiresAuth: true,
+  },
+})
 useHead({
   title: 'Jenda | Templates',
 })

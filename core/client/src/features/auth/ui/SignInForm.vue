@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RouteNames } from '@/shared/config/consts'
 import { UiButton, UiInput } from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
@@ -63,7 +62,7 @@ const onLogin = handleSubmit((values) => {
           {{ $t('authentication.login.proposal') }}
           <span
             class="cursor-pointer underline underline-offset-4 duration-100 ease-in hover:text-neutral-900 dark:hover:text-neutral-400"
-            @click="$router.push({ name: RouteNames.registration })"
+            @click="$router.push('/auth/sign-up')"
           >
             {{ $t('authentication.login.route') }}
           </span>

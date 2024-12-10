@@ -5,8 +5,9 @@ interface Path {
 }
 
 export interface WorkspaceLink extends Path {
+  id: number
   name: string
-  icon?: IconifyIcon | string
+  icon: IconifyIcon | string
 }
 export interface ProjectLink extends Path {
   _id: string

@@ -1,4 +1,3 @@
-import { RouteNames } from '@/shared/config/consts'
 import i18n from '@/shared/lib/i18n'
 import { UiDropdownMenuItem, UiDropdownMenuTrigger } from '@/shared/ui'
 import { mount } from '@vue/test-utils'
@@ -36,7 +35,7 @@ describe('tests for UserMenu.vue', () => {
     expect(items.length).toBeGreaterThan(0)
     const welcomeTrigger = items.at(0)
     await welcomeTrigger?.trigger('click')
-    expect(mockRouter.push).toHaveBeenCalledWith({ name: RouteNames.welcome })
+    expect(mockRouter.push).toHaveBeenCalledWith('/')
   })
 
   it('should redirect correctly to logout', async () => {

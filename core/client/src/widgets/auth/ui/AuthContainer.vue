@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { GoogleOauth, PrivacyPolicy } from '@/features/auth'
-import { RouteNames } from '@/shared/config/consts'
 import { UiAlert } from '@/shared/ui'
 import { useDark, useWindowSize } from '@vueuse/core'
 import { computed, ref } from 'vue'
@@ -16,12 +15,12 @@ const isDark = useDark()
 const isWarningOpen = ref(true)
 
 const title = computed(() => {
-  return route.name === RouteNames.login
+  return route.path === '/auth/sign-in'
     ? t('authentication.login.title')
     : t('authentication.registration.title')
 })
 const info = computed(() => {
-  return route.name === RouteNames.login
+  return route.path === '/auth/sign-in'
     ? t('authentication.login.description')
     : t('authentication.registration.description')
 })
@@ -45,7 +44,7 @@ const alertString = computed(() => {
       <div
         v-if="width > 1100"
         class="absolute top-24px left-32px flex items-center gap-1.5 cursor-pointer"
-        @click="$router.push({ name: RouteNames.welcome })"
+        @click="$router.push('/')"
       >
         <img
           :src="isDark ? '/icons/kanban-dark.png' : '/icons/kanban.png'"
@@ -62,7 +61,7 @@ const alertString = computed(() => {
       >
         <div
           class="flex items-center gap-1"
-          @click="$router.push({ name: RouteNames.welcome })"
+          @click="$router.push('/')"
         >
           <div
             i-lucide-chevron-left

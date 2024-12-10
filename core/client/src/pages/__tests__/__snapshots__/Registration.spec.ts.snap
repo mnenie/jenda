@@ -1,8 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`tests for RegistrationPage.vue > should be render correctly 1`] = `
-"<div class="w-full h-full flex">
-  <auth-container-stub></auth-container-stub>
-  <bg-panel-stub></bg-panel-stub>
-</div>"
-`;

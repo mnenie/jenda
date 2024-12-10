@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
-import { RouteNames } from '@/shared/config/consts'
 import { useExpanded } from '@/shared/lib/composables'
 import { AppSidebar, HeaderMain } from '@/widgets/layout'
 import { useLocalStorage } from '@vueuse/core'
@@ -48,7 +47,7 @@ const boards = ref<Board[]>([
         <HeaderMain :projects="boards" />
         <div
           class="relative h-full w-full !bg-main"
-          :style="{ padding: $route.name !== RouteNames.board ? '12px 20px 20px 20px' : '0' }"
+          :style="{ padding: $route.path !== '/boards/[id]' ? '12px 20px 20px 20px' : '0' }"
         >
           <slot />
         </div>

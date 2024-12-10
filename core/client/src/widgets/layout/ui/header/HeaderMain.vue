@@ -44,7 +44,7 @@ const { active } = useLayoutPaths(links, _projects)
     <div class="inline-flex items-center gap-3">
       <Icon
         v-if="active.extendedAttrs.icon"
-        :icon="active?.extendedAttrs.icon"
+        :icon="active.extendedAttrs.icon"
         class="text-20px text-neutral-800 dark:text-neutral-200"
       />
       <div

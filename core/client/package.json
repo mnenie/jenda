@@ -88,6 +88,7 @@
     "typescript": "~5.4.0",
     "unocss-preset-animations": "1.1.0",
     "unocss-preset-shadcn": "0.3.1",
+    "unplugin-vue-router": "0.10.9",
     "vite": "^5.3.1",
     "vite-plugin-vue-devtools": "^7.3.1",
     "vitest": "^1.6.0",

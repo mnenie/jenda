@@ -3,10 +3,9 @@ import type {
   ProjectLink,
   WorkspaceLink,
 } from '@/shared/config/types-shared'
-import { RouteNames } from '@/shared/config/consts'
 import { computed, type MaybeRefOrGetter, toValue } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute } from 'vue-router'
+import { type RouterLinkProps, useRoute } from 'vue-router'
 
 export function useLayoutPaths(
   links: MaybeRefOrGetter<WorkspaceLink[]>,
@@ -25,25 +24,22 @@ export function useLayoutPaths(
       ...toValue(projects).map(project => ({
         _id: project._id,
         name: project.name,
-        pathName: `/board/${project._id}`,
+        pathName: `/boards/${project._id}`,
         color: project.color,
       })),
     ]
   })
   function isProject(
     item: CombinedLink,
-  ): item is ProjectLink & { pathName: string } {
+  ): item is ProjectLink & { pathName: RouterLinkProps['to'] } {
     return '_id' in item
   }
 
   function isCurrentPath(item: CombinedLink): boolean {
-    if (route.name?.toString().startsWith(RouteNames.members)) {
-      return item.pathName === RouteNames.members
-    }
     if (isProject(item)) {
-      return route.path === `/board/${item._id}`
+      return route.path === `/boards/${item._id}`
     }
-    return item.pathName === route.name
+    return route.path === `/${item.pathName}`
   }
 
   const active = computed(() => {

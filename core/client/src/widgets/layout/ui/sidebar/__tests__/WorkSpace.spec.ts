@@ -1,4 +1,3 @@
-import { RouteNames } from '@/shared/config/consts'
 import i18n from '@/shared/lib/i18n'
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
@@ -10,9 +9,7 @@ vi.mock('vue-router')
 
 describe('tests for WorkSpace.vue', () => {
   // @ts-expect-error mock types
-  useRoute.mockReturnValue({
-    name: RouteNames.boards,
-  })
+  useRoute.mockReturnValue('/boards')
   const wrapper = mount(WorkSpace, {
     global: {
       plugins: [i18n],
@@ -38,7 +35,7 @@ describe('tests for WorkSpace.vue', () => {
         {
           id: 0,
           name: 'boards',
-          pathName: RouteNames.boards,
+          pathName: 'boards',
           icon: 'i-hugeicons-trello',
         },
       ],
@@ -50,8 +47,6 @@ describe('tests for WorkSpace.vue', () => {
   })
 
   it('should be redirect with RouterLink correctly', () => {
-    expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual({
-      name: RouteNames.boards,
-    })
+    expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual('boards')
   })
 })
