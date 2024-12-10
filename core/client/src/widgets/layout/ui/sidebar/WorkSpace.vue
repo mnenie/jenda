@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import type { Link } from '../../model'
+import type { WorkspaceLink } from '@/shared/config/types-shared'
 import { UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const props = defineProps<{
-  links: Link[]
+  links: WorkspaceLink[]
   isExpanded: boolean
 }>()
 
 const route = useRoute()
 
-function isCurrentPath(link: Link) {
+function isCurrentPath(link: WorkspaceLink): boolean {
   if (route.path === '/boards') {
     return link.pathName === 'boards'
   }

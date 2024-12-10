@@ -1,8 +1,7 @@
 import type { WorkspaceLink } from '@/shared/config/types-shared'
-import type { MaybeRefOrGetter } from 'vue'
 import { RouteNames } from '@/shared/config/consts'
 
-export const links: MaybeRefOrGetter<WorkspaceLink[]> = [
+export const links: WorkspaceLink[] = [
   { id: 0, name: 'boards', pathName: RouteNames.boards, icon: 'hugeicons:trello' },
   {
     id: 1,
