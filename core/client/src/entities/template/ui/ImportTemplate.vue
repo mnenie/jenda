@@ -45,8 +45,9 @@
     background-color: rgba(var(--zinc-rgb-600), 0.6);
     border-color: var(--zinc-500);
 
-    .icon, p {
-        color: var(--zinc-200);
+    .icon,
+    p {
+      color: var(--zinc-200);
     }
   }
 }

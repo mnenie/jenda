@@ -53,6 +53,12 @@ export default function jendaEslintConfig({ ...options } = {}, ...configs) {
       },
     },
     {
+      files: ['core/client/src/pages/**/*.vue'],
+      rules: {
+        'vue/multi-word-component-names': 'off',
+      },
+    },
+    {
       rules: {
         'no-console': 'error',
         'no-alert': 'error',

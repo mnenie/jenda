@@ -19,6 +19,7 @@
     "build:all": "pnpm -r build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "lint:inspect": "npx @eslint/config-inspector",
     "test:unit": "pnpm -r test:unit",
     "type-check": "pnpm -r typecheck",
     "pre-commit": "pnpm -r lint && pnpm -r typecheck",
