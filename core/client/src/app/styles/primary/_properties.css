@@ -15,9 +15,9 @@
   --hippie-hit-active-color: #fff;
   --hippie-hit-highlighted-text-color: #42b983;
   --hippie-footer-color: hsla(215deg 16% 50% / 70%);
-  --hippie-spacing-xs: .25rem;
-  --hippie-spacing-s: .5rem;
-  --hippie-spacing-m: .75rem;
+  --hippie-spacing-xs: 0.25rem;
+  --hippie-spacing-s: 0.5rem;
+  --hippie-spacing-m: 0.75rem;
   --hippie-spacing-l: 1rem;
   --hippie-spacing-xl: 1.25rem;
   --hippie-spacing-2xl: 2rem;

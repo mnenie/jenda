@@ -33,7 +33,7 @@ canvas {
 }
 
 .vue-ui-kpi-value {
-  @apply text-blue-500
+  @apply text-blue-500;
 }
 
 .vue-data-ui-fulscreen--off {
@@ -44,7 +44,7 @@ canvas {
 
 html.dark {
   .v-popper__inner {
-    @apply bg-neutral-100 text-neutral-800
+    @apply bg-neutral-100 text-neutral-800;
   }
 
   .vue-data-ui-fulscreen--off {

@@ -6,6 +6,9 @@ export default jendaEslintConfig(
   {
     vue: true,
     typescript: true,
+    formatters: {
+      css: true,
+    },
   },
   {
     files: ['__tests__/*'],
@@ -27,12 +30,6 @@ export default jendaEslintConfig(
         ...vitest.environments.env.globals,
         definePage: 'readonly',
       },
-    },
-  },
-  {
-    files: ['src/pages/**/*.vue'],
-    rules: {
-      'vue/multi-word-component-names': 'off',
     },
   },
   {

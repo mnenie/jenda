@@ -175,11 +175,11 @@ const iconSize = computed(() => (width.value >= 1100 ? 36 : 30))
 
 <style scoped>
 .combined-card {
-  @apply flex flex-col gap-5 grow max-[680px]:!mr-0
+  @apply flex flex-col gap-5 grow max-[680px]:!mr-0;
 }
 
 .card {
   @apply p-5 shadow-sm relative overflow-hidden flex flex-col w-full grow
-  max-[1220px]:(pt-5 pl-5 pr-0 pb-0 justify-between) max-[680px]:(!max-w-full !h-full gap-6)
+  max-[1220px]:(pt-5 pl-5 pr-0 pb-0 justify-between) max-[680px]:(!max-w-full !h-full gap-6);
 }
 </style>

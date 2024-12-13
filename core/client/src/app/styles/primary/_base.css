@@ -35,7 +35,6 @@ body {
   padding-left: 20px;
 }
 
-
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -44,7 +43,9 @@ body {
 
 .dropdown-enter-active,
 .dropdown-leave-active {
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
 }
 
 .dropdown-enter-from,

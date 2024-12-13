@@ -5,9 +5,9 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-neutral-100 dark:bg-neutral-700/20
+  @apply bg-neutral-100 dark:bg-neutral-700/20;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-neutral-300 rounded-xl dark:bg-neutral-700
+  @apply bg-neutral-300 rounded-xl dark:bg-neutral-700;
 }
