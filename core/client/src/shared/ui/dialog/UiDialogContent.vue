@@ -28,15 +28,14 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <DialogOverlay
       :class="cn(
         'dialog-overlay',
-        'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+        'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       )"
     />
     <DialogContent
       v-bind="forwarded"
       :class="
         cn(
-          'dialog-content',
-          'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]',
+          'dialog-content duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-1/2 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-1/2',
           props.class,
         )"
     >
@@ -45,7 +44,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       <DialogClose
         :class="cn(
           'dialog-close',
-          'data-[state=open]:bg-neutral-100 data-[state=open]:text-neutral-500 dark:data-[state=open]:bg-neutral-800 dark:data-[state=open]:text-neutral-400',
+          'bg-transparent data-[state=open]:text-neutral-500 dark:data-[state=open]:text-neutral-400',
         )"
       >
         <div i-lucide-x class="w-4 h-4" />

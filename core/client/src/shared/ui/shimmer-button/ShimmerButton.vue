@@ -23,7 +23,6 @@ withDefaults(defineProps<ShimmerButtonProps>(), {
     :class="
       cn(
         'btn btn-secondary z-0 relative overflow-hidden h-8 rounded-md px-3 dark:hover:bg-#2e2e2e',
-        'transform-gpu transition-transform duration-300 ease-in-out active:translate-y-px',
         $props.class,
       )
     "

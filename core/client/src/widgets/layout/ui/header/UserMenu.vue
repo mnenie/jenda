@@ -17,7 +17,7 @@ import {
       <div class="flex items-center justify-center h-17px">
         <div
           i-lucide-ellipsis-vertical
-          class="text-base text-neutral-500 dark:text-neutral-400"
+          class="cursor-pointer text-base text-neutral-500 dark:text-neutral-400"
         />
       </div>
     </UiDropdownMenuTrigger>

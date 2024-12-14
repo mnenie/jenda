@@ -2,8 +2,8 @@
 import type { Board } from '@/entities/board'
 import type { ProjectLink } from '@/shared/config/types-shared'
 import { type User, UserAvatar } from '@/entities/user'
+import { ShareLink } from '@/features/share'
 import { useLayoutPaths } from '@/shared/lib/composables'
-import { ShimmerButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
 import { computed, shallowReactive, toRef } from 'vue'
 import { links } from '../../model'
@@ -73,14 +73,7 @@ const { active } = useLayoutPaths(links, _projects)
           </UserAvatar>
         </template>
       </div>
-      <ShimmerButton shimmer-size="2px">
-        <div i-hugeicons-user-multiple-02 class="text-neutral-900 dark:text-neutral-100 text-sm" />
-        <span
-          class="whitespace-pre-wrap text-center text-neutral-800 dark:text-neutral-100 text-sm fw500"
-        >
-          {{ $t('header.share') }}
-        </span>
-      </ShimmerButton>
+      <ShareLink />
       <div
         v-tooltip="{ content: $t('header.navigator.messages'), trigger: ['hover'], distance: 7 }"
         i-hugeicons-message-multiple-01
