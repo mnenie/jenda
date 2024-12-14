@@ -11,6 +11,7 @@ export const badgeVariants = cva('badge', {
       success: 'badge-colorized-green',
       solid: 'badge-solid',
       outline: 'badge-outline',
+      soft: 'badge-soft',
     },
   },
 })

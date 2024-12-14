@@ -4,6 +4,7 @@ import { PlanCard } from '@/features/plan'
 import { useExpanded } from '@/shared/lib/composables'
 import { computed } from 'vue'
 import { links } from '../../model'
+import IntegrationItems from './IntegrationItems.vue'
 import ProjectsList from './ProjectsList.vue'
 import SearchBox from './SearchBox.vue'
 import WorkSpace from './WorkSpace.vue'
@@ -29,6 +30,7 @@ const paddingExpanded = computed(() => {
       <div>
         <SearchBox :boards />
         <WorkSpace :links :is-expanded />
+        <IntegrationItems :is-expanded />
         <ProjectsList :boards :is-expanded />
       </div>
       <PlanCard :is-expanded />

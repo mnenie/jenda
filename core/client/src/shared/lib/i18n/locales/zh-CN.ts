@@ -5,16 +5,20 @@ export default {
     section: '工作区',
     projects: '项目',
     boards: '看板',
+    tasks: '任务',
     templates: '模板',
     analytics: '分析',
     members: '成员',
     settings: '设置',
+    integrations: '集成',
+    info: '工作区',
     plan: {
       btn: '购买订阅',
       title: '高级计划',
-      description: '您将可以使用服务的所有功能',
-      tooltip: '1/3 的免费工作区',
+      description: '剩余看板',
+      tooltip: '1/3 免费工作区',
     },
+    soon: '敬请期待',
   },
   header: {
     navigator: {
@@ -25,6 +29,7 @@ export default {
       welcome: '前往欢迎页面',
       logout: '登出',
     },
+    share: '分享',
   },
   boards: {
     title: '此团队的看板',

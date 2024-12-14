@@ -3,6 +3,7 @@ import type { Board } from '@/entities/board'
 import type { ProjectLink } from '@/shared/config/types-shared'
 import { type User, UserAvatar } from '@/entities/user'
 import { useLayoutPaths } from '@/shared/lib/composables'
+import { ShimmerButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
 import { computed, shallowReactive, toRef } from 'vue'
 import { links } from '../../model'
@@ -38,8 +39,8 @@ const { active } = useLayoutPaths(links, _projects)
 
 <template>
   <header
-    class="sticky top-0 left-0 right-0 z-999 w-full flex items-center justify-between px-15px py-10px
-    h-48px border-b border-b-solid border-layout"
+    class="sticky top-0 left-0 right-0 z-999 w-full flex items-center justify-between px-15px py-8px min-h-52px max-h-52px
+    border-b border-b-solid border-layout"
   >
     <div class="inline-flex items-center gap-3">
       <Icon
@@ -72,9 +73,14 @@ const { active } = useLayoutPaths(links, _projects)
           </UserAvatar>
         </template>
       </div>
-      <div class="flex items-center justify-center p-5.8px rounded-full shadow-sm mr-1 cursor-pointer">
-        <div i-lucide-plus class="text-base text-neutral-800 dark:text-neutral-200" />
-      </div>
+      <ShimmerButton shimmer-size="2px">
+        <div i-hugeicons-user-multiple-02 class="text-neutral-900 dark:text-neutral-100 text-sm" />
+        <span
+          class="whitespace-pre-wrap text-center text-neutral-800 dark:text-neutral-100 text-sm fw500"
+        >
+          {{ $t('header.share') }}
+        </span>
+      </ShimmerButton>
       <div
         v-tooltip="{ content: $t('header.navigator.messages'), trigger: ['hover'], distance: 7 }"
         i-hugeicons-message-multiple-01

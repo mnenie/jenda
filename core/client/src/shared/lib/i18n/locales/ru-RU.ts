@@ -4,17 +4,21 @@ export default {
     input: 'Поиск',
     section: 'рабочее пространство',
     projects: 'проекты',
-    boards: 'Доски',
+    boards: 'Канбаны',
     templates: 'Шаблоны',
+    tasks: 'Задачи',
     analytics: 'Аналитика',
     members: 'Участники',
     settings: 'Настройки',
+    integrations: 'Интеграции',
+    info: 'раб. пространство',
     plan: {
-      btn: 'Купить подписку',
+      btn: 'Приобрести',
       title: 'Премиум план',
-      description: 'все функции сервиса будут вам доступны',
+      description: 'проектов осталось',
       tooltip: '1/3 бесплатных workspaces',
     },
+    soon: 'скоро',
   },
   header: {
     navigator: {
@@ -25,6 +29,7 @@ export default {
       welcome: 'Перейти на главную',
       logout: 'Выйти',
     },
+    share: 'Поделиться',
   },
   boards: {
     title: 'Доски в этой команде',

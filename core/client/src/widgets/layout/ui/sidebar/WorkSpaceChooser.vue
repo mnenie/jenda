@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useExpanded } from '@/shared/lib/composables'
+import { UiBadge } from '@/shared/ui'
 
 const expandedComposable = useExpanded()
 
@@ -9,7 +10,7 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
 <template>
   <div
     class="w-full flex items-center"
-    :class="[isExpanded ? ' h-48px px-14px py-10px border-b border-b-solid border-layout' : 'pt-14px pb-21px']"
+    :class="[isExpanded ? ' pl-10px px-14px py-8px min-h-52px max-h-52px border-b border-b-solid border-layout' : 'pt-16px pb-25px']"
   >
     <div
       class="w-full flex items-center"
@@ -20,18 +21,24 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
         class="flex items-center gap-px"
       >
         <div
-          class="w-30px h-30px bg-neutral-100 border border-solid border-neutral-200 rounded-lg flex items-center
+          class="w-36px h-36px h-full bg-neutral-100 border border-solid border-neutral-200 rounded-lg flex items-center
           justify-center mr-1.5 cursor-pointer"
         >
           <img src="https://avatars.githubusercontent.com/u/185750893?s=100&v=4" class="object-cover w-full rounded-lg" />
         </div>
-        <p class="text-lg !fw600 dark:text-neutral-100">
-          Example.io
-        </p>
-        <div
-          i-lucide-chevron-down
-          class="cursor-pointer text-sm text-neutral-600 ml-1px dark:text-neutral-400"
-        />
+        <div class="flex flex-col mt-1">
+          <div class="flex items-center gap-1 whitespace-nowrap">
+            <UiBadge variant="outline" class="px-1 py-1 h-12px text-8px rounded">
+              FREE
+            </UiBadge>
+            <p class="text-xs -mt-px text-neutral-700 dark:text-neutral-300">
+              {{ $t('sidebar.info') }}
+            </p>
+          </div>
+          <p class="text-base !fw600 dark:text-neutral-100">
+            Example.io
+          </p>
+        </div>
       </div>
       <div
         v-if="isExpanded"

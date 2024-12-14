@@ -4,6 +4,7 @@ export enum RouteNames {
   board = 'board',
   settings = 'settings',
   boards = 'boards',
+  tasks = 'tasks',
   members = 'members',
   templates = 'templates',
   analytics = 'analytics',

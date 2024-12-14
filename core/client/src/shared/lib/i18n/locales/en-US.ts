@@ -5,17 +5,21 @@ export default {
     section: 'workspace',
     projects: 'projects',
     boards: 'Boards',
+    tasks: 'Tasks',
     templates: 'Templates',
     analytics: 'Analytics',
     members: 'Members',
     settings: 'Settings',
+    integrations: 'Integraions',
+    info: 'workspace',
     plan: {
       btn: 'Buy a subscription',
       title: 'Premium Plan',
       description:
-        'all the functionality of the service will be available to you',
+        'boards left',
       tooltip: '1/3 free workspaces',
     },
+    soon: 'soon',
   },
   header: {
     navigator: {
@@ -26,6 +30,7 @@ export default {
       welcome: 'Go to Welcome',
       logout: 'Log out',
     },
+    share: 'Share link',
   },
   boards: {
     title: 'Boards in this team',

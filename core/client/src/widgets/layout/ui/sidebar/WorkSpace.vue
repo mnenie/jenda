@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { WorkspaceLink } from '@/shared/config/types-shared'
-import { UiButton } from '@/shared/ui'
+import { UiBadge, UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
@@ -27,12 +27,12 @@ const pathName = computed(() => {
 })
 
 const contentPosition = computed(() => {
-  return props.isExpanded ? 'flex-start' : 'center'
+  return props.isExpanded ? 'space-between' : 'center'
 })
 </script>
 
 <template>
-  <div class="flex flex-col gap-5px justify-start mb-30px">
+  <div class="flex flex-col gap-5px justify-start mb-20px">
     <RouterLink
       v-for="link in pathName"
       :key="link.id"
@@ -41,7 +41,7 @@ const contentPosition = computed(() => {
         triggers: ['hover'],
         disabled: isExpanded,
       }"
-      :to="link.pathName"
+      :to="`/${link.pathName}`"
       class="flex items-center gap-1.5 cursor-pointer text-neutral-900 justify-start w-full"
     >
       <UiButton
@@ -50,8 +50,13 @@ const contentPosition = computed(() => {
         :class="link.isActive ? '!bg-neutral-200/40 dark:!bg-neutral-700/50' : ''"
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
-        <Icon :icon="link.icon" class="text-17px text-neutral-900 dark:text-neutral-200" />
-        <span v-show="isExpanded" class="text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ $t(`sidebar.${link.name}`) }}</span>
+        <div class="flex items-center gap-2">
+          <Icon :icon="link.icon" class="text-17px text-neutral-900 dark:text-neutral-200" />
+          <span v-show="isExpanded" class="text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ $t(`sidebar.${link.name}`) }}</span>
+        </div>
+        <UiBadge v-if="link.id === 1 && isExpanded" variant="solid" class="px-5px py-0 text-xs rounded-md">
+          <span class="text-[10px] text-white">3</span>
+        </UiBadge>
       </UiButton>
     </RouterLink>
   </div>

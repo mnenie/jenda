@@ -47,6 +47,6 @@ describe('tests for WorkSpace.vue', () => {
   })
 
   it('should be redirect with RouterLink correctly', () => {
-    expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual('boards')
+    expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual('/boards')
   })
 })
