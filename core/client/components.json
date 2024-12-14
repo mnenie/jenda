@@ -10,7 +10,7 @@
   },
   "framework": "vite",
   "aliases": {
-    "components": "@/shared/ui",
+    "components": "@/shared",
     "utils": "@/shared/lib/shadcn/utils"
   }
 }
