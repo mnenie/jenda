@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { WorkspaceLink } from '@/shared/config/types-shared'
+import { useExpanded } from '@/shared/lib/composables'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
@@ -7,7 +8,6 @@ import { useRoute } from 'vue-router'
 
 const props = defineProps<{
   links: WorkspaceLink[]
-  isExpanded: boolean
 }>()
 
 const route = useRoute()
@@ -26,8 +26,12 @@ const pathName = computed(() => {
   }))
 })
 
+const expanded = useExpanded()
+
+const { isExpanded } = expanded.getExpanded()
+
 const contentPosition = computed(() => {
-  return props.isExpanded ? 'space-between' : 'center'
+  return isExpanded.value ? 'space-between' : 'center'
 })
 </script>
 

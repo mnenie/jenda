@@ -1,3 +1,3 @@
-import PlanCard from './PlanCard.vue'
+import SubscribePlan from './SubscribePlan.vue'
 
-export { PlanCard }
+export { SubscribePlan }

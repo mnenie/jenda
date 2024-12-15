@@ -11,7 +11,10 @@ export default {
     members: 'Members',
     settings: 'Settings',
     integrations: 'Integraions',
-    info: 'workspace',
+    help: {
+      title: 'Help',
+      items: 'Support developers | Keyboard shortcuts | Join us',
+    },
     plan: {
       btn: 'Buy a subscription',
       title: 'Premium Plan',
@@ -390,5 +393,17 @@ export default {
     title: 'Not Found',
     description: 'The page you were looking for can\'t be found',
     btn: 'Go to Home',
+  },
+  dialogs: {
+    share: {
+      title: 'Share Link',
+      description: 'Anyone who has this link will be able to join',
+      close: 'Cancel',
+    },
+    hotkeys: {
+      title: 'Hotkeys',
+      badges: 'Open a search in the workspace | Go to the main page | Log out',
+      alert: 'You\'ll see { badge } used a lot below. This indicates command on Mac and control on Windows and Linux.',
+    },
   },
 }

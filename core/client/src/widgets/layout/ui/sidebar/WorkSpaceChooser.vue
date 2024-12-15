@@ -32,7 +32,7 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
               FREE
             </UiBadge>
             <p class="text-xs -mt-px text-neutral-700 dark:text-neutral-300">
-              {{ $t('sidebar.info') }}
+              {{ $t('sidebar.section') }}
             </p>
           </div>
           <p class="text-base !fw600 dark:text-neutral-100">

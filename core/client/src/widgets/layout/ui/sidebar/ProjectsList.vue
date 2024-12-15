@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
+import { useExpanded } from '@/shared/lib/composables'
 import { UiButton } from '@/shared/ui'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const props = defineProps<{
   boards: Board[]
-  isExpanded: boolean
 }>()
 
 const showList = ref(true)
@@ -21,8 +21,12 @@ const _projects = computed(() => {
   }))
 })
 
+const expanded = useExpanded()
+
+const { isExpanded } = expanded.getExpanded()
+
 const contentPosition = computed(() => {
-  return props.isExpanded ? 'flex-start' : 'center'
+  return isExpanded.value ? 'flex-start' : 'center'
 })
 
 function changeShowList() {

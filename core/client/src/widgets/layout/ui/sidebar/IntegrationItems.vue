@@ -1,20 +1,19 @@
 <script setup lang="ts">
+import type { IntegrationItem } from '../../model'
+import { useExpanded } from '@/shared/lib/composables'
+import { redirect } from '@/shared/lib/helpers'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue/dist/iconify.js'
 
-defineProps<{
-  isExpanded: boolean
-}>()
-
-interface Integration {
-  name: string
-  icon: string
-}
 const items = [
-  { name: 'GitLab', icon: 'devicon:gitlab' },
-  { name: 'Notion', icon: 'devicon:notion' },
-  { name: 'Yandex Kassa', icon: 'brandico:yandex' },
-] satisfies Integration[]
+  { name: 'GitLab', icon: 'devicon:gitlab', link: 'https://gitlab.com/' },
+  { name: 'Notion', icon: 'devicon:notion', link: 'https://notion.so/' },
+  { name: 'Yandex Kassa', icon: 'brandico:yandex', link: 'https://yookassa.ru/' },
+] satisfies IntegrationItem[]
+
+const expanded = useExpanded()
+
+const { isExpanded } = expanded.getExpanded()
 </script>
 
 <template>
@@ -31,13 +30,14 @@ const items = [
   </div>
   <div class="flex flex-col gap-5px justify-start mb-20px">
     <UiButton
-      v-for="{ name, icon }, idx in items"
+      v-for="{ name, icon, link }, idx in items"
       :key="idx"
       variant="ghost"
       :disabled="name === 'Notion'"
       class="w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease"
       :class="[isExpanded ? 'justify-between' : 'justify-center']"
       :style="{ padding: !isExpanded ? '0px' : '' }"
+      @click="redirect(link)"
     >
       <div class="flex items-center gap-2">
         <Icon

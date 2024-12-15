@@ -11,7 +11,10 @@ export default {
     members: '成员',
     settings: '设置',
     integrations: '集成',
-    info: '工作区',
+    help: {
+      title: '帮助',
+      items: '支持开发者 | 键盘快捷键 | 加入我们',
+    },
     plan: {
       btn: '购买订阅',
       title: '高级计划',
@@ -364,5 +367,17 @@ export default {
     title: '未找到',
     description: '找不到您要查找的页面',
     btn: '返回首页',
+  },
+  dialogs: {
+    share: {
+      title: '分享链接',
+      description: '任何拥有此链接的人都可以加入',
+      close: '取消',
+    },
+    hotkeys: {
+      title: '快捷键',
+      badges: '打开工作区搜索 | 转到主页 | 退出服务',
+      alert: '你会在下面频繁看到 { badge }。它表示 Mac 上的 Command 键，Windows 和 Linux 上的 Control 键。',
+    },
   },
 }
