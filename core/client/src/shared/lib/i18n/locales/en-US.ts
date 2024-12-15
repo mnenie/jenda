@@ -5,17 +5,24 @@ export default {
     section: 'workspace',
     projects: 'projects',
     boards: 'Boards',
+    tasks: 'Tasks',
     templates: 'Templates',
     analytics: 'Analytics',
     members: 'Members',
     settings: 'Settings',
+    integrations: 'Integraions',
+    help: {
+      title: 'Help',
+      items: 'Support developers | Keyboard shortcuts | Join us',
+    },
     plan: {
       btn: 'Buy a subscription',
       title: 'Premium Plan',
       description:
-        'all the functionality of the service will be available to you',
+        'boards left',
       tooltip: '1/3 free workspaces',
     },
+    soon: 'soon',
   },
   header: {
     navigator: {
@@ -26,6 +33,7 @@ export default {
       welcome: 'Go to Welcome',
       logout: 'Log out',
     },
+    share: 'Share link',
   },
   boards: {
     title: 'Boards in this team',
@@ -385,5 +393,17 @@ export default {
     title: 'Not Found',
     description: 'The page you were looking for can\'t be found',
     btn: 'Go to Home',
+  },
+  dialogs: {
+    share: {
+      title: 'Share Link',
+      description: 'Anyone who has this link will be able to join',
+      close: 'Cancel',
+    },
+    hotkeys: {
+      title: 'Hotkeys',
+      badges: 'Open a search in the workspace | Go to the main page | Log out',
+      alert: 'You\'ll see { badge } used a lot below. This indicates command on Mac and control on Windows and Linux.',
+    },
   },
 }

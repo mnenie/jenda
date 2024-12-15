@@ -27,6 +27,12 @@ export interface Link {
   icon: IconifyIcon | string
 }
 
+export interface IntegrationItem {
+  name: string
+  link: string
+  icon: string
+}
+
 export interface HeaderNavLink {
   id: number
   name: string

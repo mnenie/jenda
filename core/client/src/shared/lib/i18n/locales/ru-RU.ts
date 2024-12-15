@@ -2,19 +2,26 @@ export default {
   sidebar: {
     badge: 'free',
     input: 'Поиск',
-    section: 'рабочее пространство',
+    section: 'раб. пространство',
     projects: 'проекты',
-    boards: 'Доски',
+    boards: 'Канбаны',
     templates: 'Шаблоны',
+    tasks: 'Задачи',
     analytics: 'Аналитика',
     members: 'Участники',
     settings: 'Настройки',
+    integrations: 'Интеграции',
+    help: {
+      title: 'Помощь',
+      items: 'Поддержать разработчиков | Сочетания клавиш | Присоединяйтесь к нам',
+    },
     plan: {
-      btn: 'Купить подписку',
+      btn: 'Приобрести',
       title: 'Премиум план',
-      description: 'все функции сервиса будут вам доступны',
+      description: 'проектов осталось',
       tooltip: '1/3 бесплатных workspaces',
     },
+    soon: 'скоро',
   },
   header: {
     navigator: {
@@ -25,6 +32,7 @@ export default {
       welcome: 'Перейти на главную',
       logout: 'Выйти',
     },
+    share: 'Поделиться',
   },
   boards: {
     title: 'Доски в этой команде',
@@ -386,5 +394,17 @@ export default {
     title: 'Не найдено',
     description: 'Страница, которую вы искали, не найдена',
     btn: 'На главную',
+  },
+  dialogs: {
+    share: {
+      title: 'Поделиться ссылкой',
+      description: 'Каждый, у кого есть эта ссылка, сможет присоединиться',
+      close: 'Отмена',
+    },
+    hotkeys: {
+      title: 'Хоткеи',
+      badges: 'Открыть поиск в рабочей области | Перейти к главной странице | Выйти из сервиса',
+      alert: 'Вы часто будете видеть { badge } ниже. Это обозначает cmd на Mac и ctrl на Windows и Linux.',
+    },
   },
 }

@@ -108,7 +108,7 @@ useSearch(hippieNav, openFl, placeholder)
 }
 
 .modal {
-  @apply fixed inset-0 z-[9999] flex items-start px-36 py-30 bg-black/30;
+  @apply fixed inset-0 z-[9999] flex items-start px-36 py-30 bg-black/60;
 }
 
 .modal-content {

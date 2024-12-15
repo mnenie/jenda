@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
+import { useExpanded } from '@/shared/lib/composables'
 import { UiButton } from '@/shared/ui'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const props = defineProps<{
   boards: Board[]
-  isExpanded: boolean
 }>()
 
 const showList = ref(true)
@@ -21,8 +21,12 @@ const _projects = computed(() => {
   }))
 })
 
+const expanded = useExpanded()
+
+const { isExpanded } = expanded.getExpanded()
+
 const contentPosition = computed(() => {
-  return props.isExpanded ? 'flex-start' : 'center'
+  return isExpanded.value ? 'flex-start' : 'center'
 })
 
 function changeShowList() {
@@ -32,7 +36,8 @@ function changeShowList() {
 
 <template>
   <div
-    class="flex items-center justify-between w-full px-2 pt-0 pb-3"
+    class="flex items-center justify-between w-full pt-0 pb-3"
+    :class="[isExpanded ? 'px-2' : 'px-1']"
     @mouseover="showPlusIcon = true"
     @mouseleave="showPlusIcon = false"
   >
@@ -45,7 +50,7 @@ function changeShowList() {
         @click="changeShowList"
       />
       <p
-        class="text-neutral-500 dark:text-neutral-400 text-sm capitalize text-ellipsis
+        class="text-neutral-500 dark:text-neutral-400 text-xs capitalize text-ellipsis
         whitespace-nowrap overflow-hidden"
       >
         {{ $t('sidebar.projects') }}
@@ -80,7 +85,7 @@ function changeShowList() {
       >
         <div
           i-jenda-custom-project
-          class="w-18px h-18px rounded flex justify-center items-center"
+          class="w-17px h-17px rounded flex justify-center items-center"
           :style="{ color: project.color }"
         />
         <span

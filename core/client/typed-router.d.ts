@@ -27,6 +27,7 @@ declare module 'vue-router/auto-routes' {
     '/boards/[id]': RouteRecordInfo<'/boards/[id]', '/boards/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/members': RouteRecordInfo<'/members', '/members', Record<never, never>, Record<never, never>>,
     '/settings': RouteRecordInfo<'/settings', '/settings', Record<never, never>, Record<never, never>>,
+    '/tasks': RouteRecordInfo<'/tasks', '/tasks', Record<never, never>, Record<never, never>>,
     '/templates': RouteRecordInfo<'/templates', '/templates', Record<never, never>, Record<never, never>>,
   }
 }

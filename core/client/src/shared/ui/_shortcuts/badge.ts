@@ -6,7 +6,8 @@ export const staticBadge: Record<`${BadgePrefix}-${string}` | BadgePrefix, strin
   'badge-default': 'border-transparent bg-neutral-900 text-neutral-50 shadow dark:(bg-neutral-50 text-neutral-900)',
   'badge-secondary': 'border-transparent bg-neutral-100 text-neutral-900 dark:(bg-neutral-800 text-neutral-50)',
   'badge-outline': 'text-neutral-950 dark:text-neutral-50',
-  'badge-solid': 'border-transparent bg-#266df0 text-neutral-50 shadow',
+  'badge-solid': '!border-transparent bg-#266df0 text-neutral-50 shadow',
+  'badge-soft': '!border-transparent bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100',
 }
 
 export const dynamicBadge: [RegExp, (params: RegExpExecArray) => string][] = [

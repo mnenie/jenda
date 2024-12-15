@@ -3,6 +3,7 @@ import type { Board } from '@/entities/board'
 import type { ProjectLink } from '@/shared/config/types-shared'
 import { type User, UserAvatar } from '@/entities/user'
 import { useLayoutPaths } from '@/shared/lib/composables'
+import { HotkeysDialog, ShareDialog } from '@/widgets/dialogs'
 import { Icon } from '@iconify/vue'
 import { computed, shallowReactive, toRef } from 'vue'
 import { links } from '../../model'
@@ -11,12 +12,6 @@ import UserMenu from './UserMenu.vue'
 const props = defineProps<{
   projects: Board[]
 }>()
-
-const userPosition = computed(() => {
-  return (users: User[], u: User) => {
-    return (users.length - 1 - +u._id!) * 18
-  }
-})
 
 const users = shallowReactive<User[]>([
   {
@@ -29,17 +24,42 @@ const users = shallowReactive<User[]>([
     email: 'airat@gmail.com',
     photoUrl: 'https://avatars.githubusercontent.com/u/95149637?s=100&v=4',
   },
+  {
+    _id: '2',
+    email: 'slava@gmail.com',
+    photoUrl: 'https://avatars.githubusercontent.com/u/83920644?v=4',
+  },
+  {
+    _id: '3',
+    email: 'egor@gmail.com',
+    photoUrl: 'https://avatars.githubusercontent.com/u/84976745?v=4',
+  },
+  {
+    _id: '4',
+    email: 'egor@gmail.com',
+    photoUrl: 'https://avatars.githubusercontent.com/u/84976745?v=4',
+  },
+  {
+    _id: '5',
+    email: 'egor@gmail.com',
+    photoUrl: 'https://avatars.githubusercontent.com/u/84976745?v=4',
+  },
 ])
 
-const _projects = toRef(props, 'projects') as unknown as ProjectLink[]
+const visibleUsers = computed(() => users.slice(0, 3))
 
+const remaining = computed(() => Math.max(users.length - 3, 0))
+
+const userPosition = computed(() => (index: number) => (visibleUsers.value.length - index) * 20)
+
+const _projects = toRef(props, 'projects') as unknown as ProjectLink[]
 const { active } = useLayoutPaths(links, _projects)
 </script>
 
 <template>
   <header
-    class="sticky top-0 left-0 right-0 z-999 w-full flex items-center justify-between px-15px py-10px
-    h-48px border-b border-b-solid border-layout"
+    class="sticky top-0 left-0 right-0 z-999 w-full flex items-center justify-between px-15px py-8px min-h-52px max-h-52px
+    border-b border-b-solid border-layout"
   >
     <div class="inline-flex items-center gap-3">
       <Icon
@@ -58,13 +78,22 @@ const { active } = useLayoutPaths(links, _projects)
     </div>
     <div />
     <div class="flex items-center h-full gap-2.5">
-      <div class="relative flex items-center h-20px w-20px">
-        <template v-for="user in users" :key="user._id">
+      <div class="relative flex items-center">
+        <UserAvatar
+          v-if="remaining > 0"
+          :style="{
+            right: `0px`,
+            zIndex: `${visibleUsers.length + 1}`,
+          }"
+          class="!h-28px !w-28px absolute flex items-center justify-center text-sm"
+        >
+          +{{ remaining }}
+        </UserAvatar>
+        <template v-for="user, idx in visibleUsers" :key="user._id">
           <UserAvatar
             :style="{
-              right: `${userPosition(users, user)}px`,
-              zIndex: userPosition(users, user),
-              border: `1px solid ${user._id === '0' ? 'var(--blue-secondary)' : 'var(--zinc-300)'}`,
+              right: `${userPosition(idx)}px`,
+              zIndex: `${idx + 1}`,
             }"
             class="!h-28px !w-28px absolute"
           >
@@ -72,21 +101,21 @@ const { active } = useLayoutPaths(links, _projects)
           </UserAvatar>
         </template>
       </div>
-      <div class="flex items-center justify-center p-5.8px rounded-full shadow-sm mr-1 cursor-pointer">
-        <div i-lucide-plus class="text-base text-neutral-800 dark:text-neutral-200" />
-      </div>
+      <ShareDialog />
       <div
         v-tooltip="{ content: $t('header.navigator.messages'), trigger: ['hover'], distance: 7 }"
         i-hugeicons-message-multiple-01
         class="text-base text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
         style="margin-right: 2px"
       />
-      <div
-        v-tooltip="{ content: $t('header.navigator.question'), trigger: ['hover'], distance: 7 }"
-        i-hugeicons-book-open-01
-        class="text-base text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
-        style="margin-right: -1px;"
-      />
+      <HotkeysDialog>
+        <div
+          v-tooltip="{ content: $t('header.navigator.question'), trigger: ['hover'], distance: 7 }"
+          i-hugeicons-book-open-01
+          class="text-base text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
+          style="margin-right: -1px;"
+        />
+      </HotkeysDialog>
       <UserMenu />
     </div>
   </header>
