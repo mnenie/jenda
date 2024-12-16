@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { SignInForm } from '@/features/auth'
+import { ConfirmForm } from '@/features/auth'
 import { LayoutsEnum } from '@/layouts/model'
-import { AuthContainer } from '@/widgets/auth'
+import { ConfirmSection } from '@/widgets/auth'
 import { useHead } from '@unhead/vue'
 
 definePage({
@@ -11,14 +11,15 @@ definePage({
   },
 })
 useHead({
-  title: 'Jenda | Sign In',
+  title: 'Sign Up | Confirm your email',
 })
 </script>
 
 <template>
   <div class="auth-page">
-    <AuthContainer>
-      <SignInForm />
-    </AuthContainer>
+    <ConfirmSection>
+      <div i-hugeicons-alpha class="w-12 h-12 absolute right-0 top--14" />
+      <ConfirmForm />
+    </ConfirmSection>
   </div>
 </template>

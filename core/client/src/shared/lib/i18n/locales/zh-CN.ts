@@ -178,13 +178,22 @@ export default {
     registration: {
       title: '开始使用',
       description: '请输入下面的信息以创建您的帐户',
-      btn: '用电子邮件注册',
+      btn: '继续',
       proposal: '已有帐户？',
       route: '立即登录',
+    },
+    confirm: {
+      title: '确认您的邮箱',
+      description: '请输入发送到您邮箱的验证码',
+      btn: '确认',
+      alert: '我们重视您的安全，您可以放心信任我们！',
+      proposal: '没有收到验证码？',
+      route: '重新发送',
     },
     form: {
       email: '电子邮件',
       password: '密码',
+      otp: '您应输入一串单个数字的值。',
     },
     line: '或继续使用',
     privacy: ['点击继续即表示您同意我们的', '服务条款', '和', '隐私政策。'],

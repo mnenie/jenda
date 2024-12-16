@@ -44,6 +44,8 @@ export default defineConfig({
     {
       'form-field': 'grid gap-2 justify-items-start',
       'form-label': 'text-sm text-neutral-900 !fw500 dark:text-neutral-200',
+      'auth-page': 'h-full flex w-68% max-[1440px]:w-80% max-[1100px]:!w-full',
+      'auth-slot-container': 'relative h-full w-full mx-auto px-2rem dark:bg-#1c1c1c',
     },
     {
       'bg-main': 'bg-white dark:bg-#262626',

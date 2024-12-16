@@ -184,13 +184,23 @@ export default {
     registration: {
       title: 'Get started',
       description: 'Enter your info below to create your account',
-      btn: 'Sign Up with Email',
+      btn: 'Continue',
       proposal: 'Have an account?',
       route: 'Sign In Now',
     },
+    confirm: {
+      title: 'Confirm Your Email',
+      description: 'Enter the confirmation code sent to your email',
+      btn: 'Confirm',
+      alert: 'We care about your security. You can trust us to keep your information safe and secure!',
+      proposal: 'Didn\'t receive the code?',
+      route: 'Resend',
+    },
+
     form: {
       email: 'Email',
       password: 'Password',
+      otp: 'You need to enter a sequence of single-digit numerical values.',
     },
     line: 'Or continue with',
     privacy: [

@@ -2,7 +2,7 @@
 import { UiButton, UiInput } from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
-import { toast } from 'vue-sonner'
+import { useRouter } from 'vue-router'
 import { validationRules } from '../model'
 
 const validationSchema = toTypedSchema(validationRules)
@@ -13,9 +13,11 @@ const { handleSubmit, errors } = useForm({
 const { value: email } = useField<string>('email')
 const { value: password } = useField<string>('password')
 
+const router = useRouter()
+
 const onRegistration = handleSubmit((values) => {
   // on registration event
-  toast.warning('Jenda in dev mode and temporarily unavailable')
+  router.push('/auth/sign-up/confirm')
 })
 </script>
 

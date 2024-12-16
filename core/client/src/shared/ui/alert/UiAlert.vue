@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { cn } from '@/shared/lib/shadcn/utils'
-import { computed, type HTMLAttributes } from 'vue'
+import { computed, type HTMLAttributes, ref } from 'vue'
 import { alertVariants, type AlertVariants } from '.'
 
 interface AlertProps {
@@ -14,11 +14,14 @@ const { variant = 'default', closable, content, class: alertClass } = defineProp
 
 const emits = defineEmits(['close'])
 
+const isAlertVisible = ref(true)
+
 const valueOfRightPadding = computed(() => (closable ? '32px' : '10px'))
 </script>
 
 <template>
   <div
+    v-if="isAlertVisible"
     :class="cn(
       'alert',
       alertVariants({ variant }),
@@ -33,7 +36,7 @@ const valueOfRightPadding = computed(() => (closable ? '32px' : '10px'))
       v-if="closable"
       i-lucide-x
       class="alert-close"
-      @click="emits('close')"
+      @click="isAlertVisible = false, emits('close')"
     />
   </div>
 </template>

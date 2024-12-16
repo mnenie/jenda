@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SignInForm } from '@/features/auth'
+import { SignUpForm } from '@/features/auth'
 import { LayoutsEnum } from '@/layouts/model'
 import { AuthContainer } from '@/widgets/auth'
 import { useHead } from '@unhead/vue'
@@ -11,14 +11,14 @@ definePage({
   },
 })
 useHead({
-  title: 'Jenda | Sign In',
+  title: 'Jenda | Sign Up',
 })
 </script>
 
 <template>
   <div class="auth-page">
     <AuthContainer>
-      <SignInForm />
+      <SignUpForm />
     </AuthContainer>
   </div>
 </template>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { BgPanel, SignUpForm } from '@/features/auth'
 import { LayoutsEnum } from '@/layouts/model'
 import { AuthContainer } from '@/widgets/auth'
 import { useHead } from '@unhead/vue'
@@ -11,15 +10,14 @@ definePage({
   },
 })
 useHead({
-  title: 'Jenda | Sign Up',
+  title: 'Jenda | Create Workspace',
 })
 </script>
 
 <template>
-  <div class="w-full h-full flex">
+  <div class="auth-page">
     <AuthContainer>
-      <SignUpForm />
+      worspace
     </AuthContainer>
-    <BgPanel />
   </div>
 </template>
