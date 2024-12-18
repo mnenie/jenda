@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/lib/shadcn/utils'
+import { cn } from '@/shared/libs/shadcn/utils'
 import { Primitive, type PrimitiveProps, useForwardProps } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
 

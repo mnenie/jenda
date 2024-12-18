@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { type Chart, ChartItemWrapper } from '@/entities/chart'
-import { useBreakpoints } from '@/shared/lib/composables'
+import { useBreakpoints } from '@/shared/composables'
 import { useWindowSize } from '@vueuse/core'
 import { computed, markRaw, ref } from 'vue'
 import { VueUiKpi } from 'vue-data-ui'

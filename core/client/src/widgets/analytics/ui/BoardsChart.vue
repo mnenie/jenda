@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Chart, ChartItemWrapper } from '@/entities/chart'
 import { useCharts } from '@/entities/chart/model/composables'
-import { useExpanded } from '@/shared/lib/composables'
+import { useExpanded } from '@/shared/composables'
 import { useDark } from '@vueuse/core'
 import { computed, markRaw, ref, watch } from 'vue'
 import { VueUiStackbar } from 'vue-data-ui'

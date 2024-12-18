@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { IntegrationItem } from '../../model'
-import { useExpanded } from '@/shared/lib/composables'
-import { redirect } from '@/shared/lib/helpers'
+import { useExpanded } from '@/shared/composables'
+import { redirect } from '@/shared/helpers'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue/dist/iconify.js'
 

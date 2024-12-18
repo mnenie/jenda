@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { redirect } from '@/shared/lib/helpers'
+import { redirect } from '@/shared/helpers'
 import { UiButton } from '@/shared/ui'
 import { useDark, useWindowSize } from '@vueuse/core'
 import { computed, ref } from 'vue'

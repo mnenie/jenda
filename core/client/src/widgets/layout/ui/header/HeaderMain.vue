@@ -2,7 +2,7 @@
 import type { Board } from '@/entities/board'
 import type { ProjectLink } from '@/shared/config/types-shared'
 import { type User, UserAvatar } from '@/entities/user'
-import { useLayoutPaths } from '@/shared/lib/composables'
+import { useLayoutPaths } from '@/shared/composables'
 import { HotkeysDialog, ShareDialog } from '@/widgets/dialogs'
 import { Icon } from '@iconify/vue'
 import { computed, shallowReactive, toRef } from 'vue'

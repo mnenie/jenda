@@ -1,4 +1,4 @@
-import i18n from '@/shared/lib/i18n'
+import i18n from '@/shared/libs/i18n'
 import { createHead } from '@unhead/vue'
 import { vTooltip } from 'floating-vue'
 import { createApp } from 'vue'

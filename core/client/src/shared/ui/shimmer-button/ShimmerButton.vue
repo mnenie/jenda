@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { cn } from '@/shared/lib/shadcn/utils'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 interface ShimmerButtonProps {
   shimmerColor?: string

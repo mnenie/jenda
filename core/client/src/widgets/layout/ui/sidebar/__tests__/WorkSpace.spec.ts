@@ -1,4 +1,4 @@
-import i18n from '@/shared/lib/i18n'
+import i18n from '@/shared/libs/i18n'
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import { useRoute } from 'vue-router'
@@ -6,7 +6,7 @@ import WorkSpace from '../WorkSpace.vue'
 
 vi.mock('vue-router')
 
-vi.mock('@/shared/lib/composables', () => ({
+vi.mock('@/shared/composables', () => ({
   useExpanded: vi.fn(() => ({
     getExpanded: vi.fn(() => ({
       isExpanded: {

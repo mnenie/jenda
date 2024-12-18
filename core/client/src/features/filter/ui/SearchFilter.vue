@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useExpanded } from '@/shared/lib/composables'
+import { useExpanded } from '@/shared/composables'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { createReusableTemplate, refDebounced } from '@vueuse/core'
 import { computed } from 'vue'

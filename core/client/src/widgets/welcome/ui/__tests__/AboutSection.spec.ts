@@ -1,9 +1,8 @@
-import i18n from '@/shared/lib/i18n'
+import i18n from '@/shared/libs/i18n'
 import { UiButton } from '@/shared/ui'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import AboutSection from '../sections/AboutSection.vue'
-import '@/shared/lib/vitest-utils/cookiesI18n-mock'
 
 const mockRouter = {
   push: vi.fn(),

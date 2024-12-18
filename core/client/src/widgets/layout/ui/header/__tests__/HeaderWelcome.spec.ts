@@ -1,12 +1,11 @@
 import type { VueWrapper } from '@vue/test-utils'
 import type { headerLinks } from './../../../model/fixtures/header'
-import i18n from '@/shared/lib/i18n'
+import i18n from '@/shared/libs/i18n'
 import { UiButton } from '@/shared/ui'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import { type ComponentPublicInstance, nextTick } from 'vue'
 import HeaderWelcome from '../HeaderWelcome.vue'
-import '@/shared/lib/vitest-utils/cookiesI18n-mock'
 
 type HeaderWelcomeInstance = ComponentPublicInstance<
   {},

@@ -1,8 +1,7 @@
-import i18n from '@/shared/lib/i18n'
+import i18n from '@/shared/libs/i18n'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import FooterWelcome from '../AppFooter.vue'
-import '@/shared/lib/vitest-utils/cookiesI18n-mock'
 
 describe('tests for FooterWelcome.vue', () => {
   const wrapper = shallowMount(FooterWelcome, {

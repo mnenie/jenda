@@ -10,7 +10,7 @@ import {
 } from 'unocss'
 import presetAnimations from 'unocss-preset-animations'
 import { presetShadcn } from 'unocss-preset-shadcn'
-import presetJendaUI from './src/shared/lib/unocss/presets/presetUiKit'
+import presetJendaUI from './src/shared/libs/unocss/presets/presetUiKit'
 
 export default defineConfig({
   presets: [

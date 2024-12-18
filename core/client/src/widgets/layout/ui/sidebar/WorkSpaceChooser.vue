@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useExpanded } from '@/shared/lib/composables'
+import { useExpanded } from '@/shared/composables'
 import { UiBadge } from '@/shared/ui'
 
 const expandedComposable = useExpanded()

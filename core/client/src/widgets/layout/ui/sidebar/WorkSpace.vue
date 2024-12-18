@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { WorkspaceLink } from '@/shared/config/types-shared'
-import { useExpanded } from '@/shared/lib/composables'
+import { useExpanded } from '@/shared/composables'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
 import { computed } from 'vue'

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
-import { useExpanded } from '@/shared/lib/composables'
+import { useExpanded } from '@/shared/composables'
 import { AppSidebar, HeaderMain } from '@/widgets/layout'
 import { useLocalStorage } from '@vueuse/core'
 
