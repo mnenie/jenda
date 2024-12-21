@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 
 const { tm, locale } = useI18n()
+const route = useRoute()
 
 // @ts-expect-error tm types
 const privacyItems = tm('authentication.privacy')
@@ -10,6 +12,10 @@ const privacyItems = tm('authentication.privacy')
 const maxWidth = computed(() => {
   return locale.value === 'ru-RU' ? '400px' : '320px'
 })
+
+const privacyChangingItem = computed(() =>
+  route.path === '/auth/sign-in' ? privacyItems[1] : privacyItems[0],
+)
 </script>
 
 <template>
@@ -17,7 +23,7 @@ const maxWidth = computed(() => {
     class="pt-2.5 text-sm text-center text-neutral-500 my-0 mx-auto select-none dark:text-neutral-400"
     :style="{ maxWidth }"
   >
-    {{ privacyItems[0] }}
+    {{ privacyChangingItem }}
     <a
       href="https://github.com/mnenie/jenda"
       target="_blank"
@@ -25,9 +31,9 @@ const maxWidth = computed(() => {
       class="cursor-pointer underline underline-offset-4 duration-100 ease-in
       hover:text-neutral-900 dark:hover:text-neutral-500"
     >
-      {{ privacyItems[1] }}
+      {{ privacyItems[2] }}
     </a>
-    {{ privacyItems[2] }}
+    {{ privacyItems[3] }}
     <a
       href="https://github.com/mnenie/jenda"
       target="_blank"
@@ -35,7 +41,7 @@ const maxWidth = computed(() => {
       class="cursor-pointer underline underline-offset-4 duration-100 ease-in
       hover:text-neutral-900 dark:hover:text-neutral-500"
     >
-      {{ privacyItems[3] }}
+      {{ privacyItems[4] }}
     </a>
   </p>
 </template>

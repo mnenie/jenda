@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ConfirmForm } from '@/features/auth'
+import { ConfirmForm } from '@/features/auth/sign-up'
 import { LayoutsEnum } from '@/layouts/model'
 import { ConfirmSection } from '@/widgets/auth'
 import { useHead } from '@unhead/vue'
@@ -7,7 +7,7 @@ import { useHead } from '@unhead/vue'
 definePage({
   meta: {
     layout: LayoutsEnum.auth,
-    requiresAuth: false,
+    requiresAuth: true,
   },
 })
 useHead({

@@ -190,13 +190,32 @@ export default {
       proposal: '没有收到验证码？',
       route: '重新发送',
     },
+    workspace: {
+      title: '创建工作区',
+      logo: {
+        label: '为您的工作区选择一个标志',
+        btn: '选择图片 | 删除',
+        description: '文件 *.png, *.jpeg，最大 10MB，尺寸至少为 400x400 像素',
+      },
+      alert: '请记住，如果您未选择标志，Jenda 将自动为您生成一个',
+      form: {
+        name: {
+          label: '名称',
+          placeholder: '输入您的工作区名称',
+        },
+        link: {
+          label: '自定义链接',
+        },
+      },
+      route: '立即登录',
+    },
     form: {
       email: '电子邮件',
       password: '密码',
       otp: '您应输入一串单个数字的值。',
     },
     line: '或继续使用',
-    privacy: ['点击继续即表示您同意我们的', '服务条款', '和', '隐私政策。'],
+    privacy: ['点击继续即表示您同意我们的', '点击登录即表示您同意我们的', '服务条款', '和', '隐私政策。'],
     back: '回到首页',
     auth_alert: '通过 google 的授权将在 2024 年 12 月 28 日后被 gitlab 替代',
   },

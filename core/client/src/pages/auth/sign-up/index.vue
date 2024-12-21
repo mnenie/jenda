@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SignUpForm } from '@/features/auth'
+import { SignUpForm } from '@/features/auth/sign-up'
 import { LayoutsEnum } from '@/layouts/model'
 import { AuthContainer } from '@/widgets/auth'
 import { useHead } from '@unhead/vue'

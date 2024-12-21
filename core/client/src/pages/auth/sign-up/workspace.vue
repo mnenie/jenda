@@ -1,23 +1,29 @@
 <script setup lang="ts">
+import { WorkspaceForm } from '@/features/auth/sign-up'
 import { LayoutsEnum } from '@/layouts/model'
-import { AuthContainer } from '@/widgets/auth'
+import { WorkspaceLogoChooser, WorkspaceSection } from '@/widgets/auth'
 import { useHead } from '@unhead/vue'
 
 definePage({
   meta: {
     layout: LayoutsEnum.auth,
-    requiresAuth: false,
+    requiresAuth: true,
   },
 })
 useHead({
-  title: 'Jenda | Create Workspace',
+  title: 'Sign Up | Create Workspace',
 })
 </script>
 
 <template>
   <div class="auth-page">
-    <AuthContainer>
-      worspace
-    </AuthContainer>
+    <WorkspaceSection>
+      <template #logo>
+        <WorkspaceLogoChooser />
+      </template>
+      <template #form>
+        <WorkspaceForm />
+      </template>
+    </WorkspaceSection>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BgPanel } from '@/features/auth'
+import { BgPanel } from '@/features/auth/common'
 </script>
 
 <template>

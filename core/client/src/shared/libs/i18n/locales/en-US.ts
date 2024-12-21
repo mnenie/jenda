@@ -189,14 +189,32 @@ export default {
       route: 'Sign In Now',
     },
     confirm: {
-      title: 'Confirm Your Email',
+      title: 'Confirm your email',
       description: 'Enter the confirmation code sent to your email',
       btn: 'Confirm',
       alert: 'We care about your security. You can trust us to keep your information safe and secure!',
       proposal: 'Didn\'t receive the code?',
       route: 'Resend',
     },
-
+    workspace: {
+      title: 'Create your workspace',
+      logo: {
+        label: 'Choose a logo for your workspace',
+        btn: 'Choose image | Delete',
+        description: '*.png, *.jpeg files up to 10MB at least 400px by 400px',
+      },
+      alert: 'Remember, if you don’t choose a logo, jenda will automatically generate one for you',
+      form: {
+        name: {
+          label: 'Name',
+          placeholder: 'Enter your workspace name',
+        },
+        link: {
+          label: 'Custom link',
+        },
+      },
+      route: 'Continue',
+    },
     form: {
       email: 'Email',
       password: 'Password',
@@ -205,6 +223,7 @@ export default {
     line: 'Or continue with',
     privacy: [
       'By clicking continue, you agree to our',
+      'By clicking sign in, you agree to our',
       'Terms of Service',
       'and',
       'Privacy Policy.',

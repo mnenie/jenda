@@ -1,24 +1,21 @@
 <script setup lang="ts">
-import { GoogleOauth, LogoFile, PrivacyPolicy } from '@/features/auth'
+import { LogoFile, PrivacyPolicy } from '@/features/auth/common'
+import { GoogleOauth } from '@/features/auth/oauth'
 import { UiAlert } from '@/shared/ui'
-import { useDark, useWindowSize } from '@vueuse/core'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const { t } = useI18n()
-const { width } = useWindowSize()
-
-const isDark = useDark()
 
 const title = computed(() => {
-  return route.path === '/auth/sign-in'
+  return route.name === '/auth/sign-in'
     ? t('authentication.login.title')
     : t('authentication.registration.title')
 })
 const info = computed(() => {
-  return route.path === '/auth/sign-in'
+  return route.name === '/auth/sign-in'
     ? t('authentication.login.description')
     : t('authentication.registration.description')
 })
@@ -40,11 +37,10 @@ const alertString = computed(() => {
     <div class="h-full w-full flex flex-col justify-center items-center mx-auto">
       <LogoFile />
       <div
-        class="relative flex w-460px flex-col gap-2
-          max-[520px]:!w-full max-[1100px]:!w-460px max-[1200px]:w-360px"
+        class="form-container"
       >
         <UiAlert
-          v-if="route.path === '/auth/sign-in' || route.path === '/auth/sign-up'"
+          v-if="route.name === '/auth/sign-in' || route.name === '/auth/sign-up/'"
           variant="warning"
           closable
           class="max-w-98% max-[520px]:mb-1.5"

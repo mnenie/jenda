@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LogoFile } from '@/features/auth'
+import { LogoFile } from '@/features/auth/common'
 import { UiAlert } from '@/shared/ui'
 </script>
 
@@ -10,8 +10,7 @@ import { UiAlert } from '@/shared/ui'
     <div class="h-full w-full flex flex-col justify-center items-center mx-auto">
       <LogoFile />
       <div
-        class="relative flex w-460px flex-col gap-2
-          max-[520px]:!w-full max-[1100px]:!w-460px max-[1200px]:w-360px"
+        class="form-container"
       >
         <h2 class="text-3xl fw-600 max-[580px]:text-2xl">
           {{ $t('authentication.confirm.title') }}

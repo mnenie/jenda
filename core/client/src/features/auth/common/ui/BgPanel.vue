@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useDark, useWindowSize } from '@vueuse/core'
 import { computed } from 'vue'
-import { reviews } from '../model'
 import useTextChanging from '../model/composables/useTextChanging'
+import { reviews } from '../model/fixtures'
 
 const { currentIndex } = useTextChanging(reviews)
 

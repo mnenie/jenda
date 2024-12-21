@@ -1,10 +1,10 @@
-import { inject, type InjectionKey, provide, type Ref, toRef } from 'vue'
+import { inject, provide, type Ref, toRef } from 'vue'
+import { expandedKey } from '../constants'
 
 interface Expanded {
   isExpanded: Ref<boolean>
   onToggleArea: () => void
 }
-const expandedKey: InjectionKey<Expanded> = Symbol('expanded')
 
 export function useExpanded() {
   const createExpandedContext = (expanded: Expanded) => {
