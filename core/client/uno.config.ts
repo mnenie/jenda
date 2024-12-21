@@ -64,6 +64,7 @@ export default defineConfig({
     './src/shared/ui/_shortcuts/dropdown-menu.ts',
     './src/shared/ui/_shortcuts/select.ts',
     './src/shared/ui/_shortcuts/dialog.ts',
+    './src/shared/ui/_shortcuts/pin-input.ts',
     './src/shared/ui/_shortcuts/index.ts',
   ],
   content: {
