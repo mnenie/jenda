@@ -63,6 +63,8 @@ export default {
     title: 'Templates',
     description: 'Choose one of the available templates to create your project',
     import: 'Click or drag files to import. Supports files',
+    community: 'Comunity templates',
+    create: 'Create new template',
     user: 'creator',
     items: [
       {
