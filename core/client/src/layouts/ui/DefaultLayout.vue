@@ -2,8 +2,8 @@
 import type { Board } from '@/entities/board'
 import { useExpanded } from '@/shared/composables'
 import { AppSidebar, HeaderMain } from '@/widgets/layout'
-import { useLocalStorage } from '@vueuse/core'
 
+import { useLocalStorage } from '@vueuse/core'
 // @ts-expect-error missing type
 import { Pane, Splitpanes } from 'splitpanes'
 import { computed, ref } from 'vue'
@@ -47,7 +47,7 @@ const boards = ref<Board[]>([
         <HeaderMain :projects="boards" />
         <div
           class="relative h-full w-full !bg-main"
-          :style="{ padding: $route.path !== '/boards/[id]' ? '12px 20px 20px 20px' : '0' }"
+          :style="{ padding: $route.name !== 'board' ? '12px 20px 20px 20px' : '0' }"
         >
           <slot />
         </div>

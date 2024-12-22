@@ -11,18 +11,18 @@ import {
 } from '@/shared/ui'
 import { useMagicKeys } from '@vueuse/core'
 import { watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router/auto'
 
 const router = useRouter()
 
 const { shift_p, ctrl_x, meta_x } = useMagicKeys()
 
 watch(shift_p, () => {
-  router.push('/')
+  router.push({ name: 'welcome' })
 })
 
 watch([meta_x, ctrl_x], () => {
-  router.push('/auth/sign-in')
+  router.push({ name: 'sign-in' })
 })
 </script>
 
@@ -42,7 +42,7 @@ watch([meta_x, ctrl_x], () => {
       </UiDropdownMenuLabel>
       <UiDropdownMenuSeparator />
       <UiDropdownMenuGroup>
-        <UiDropdownMenuItem @click="$router.push('/')">
+        <UiDropdownMenuItem @click="router.push({ name: 'welcome' })">
           <span class="2xl:text-13px text-sm font-medium">{{ $t('header.user.welcome') }}</span>
           <UiDropdownMenuShortcut>⇧P</UiDropdownMenuShortcut>
         </UiDropdownMenuItem>

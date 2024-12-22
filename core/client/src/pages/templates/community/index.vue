@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { LayoutsEnum } from '@/layouts/model'
-
 definePage({
   meta: {
     requiresAuth: true,
-    layout: LayoutsEnum.empty,
   },
+  name: 'community',
 })
 </script>
 

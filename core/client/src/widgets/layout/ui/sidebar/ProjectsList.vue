@@ -3,7 +3,7 @@ import type { Board } from '@/entities/board'
 import { useExpanded } from '@/shared/composables'
 import { UiButton } from '@/shared/ui'
 import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router/auto'
 
 const props = defineProps<{
   boards: Board[]
@@ -12,7 +12,7 @@ const props = defineProps<{
 const showList = ref(true)
 const showPlusIcon = ref(false)
 
-const route = useRoute('/boards/[id]')
+const route = useRoute('board')
 
 const _projects = computed(() => {
   return props.boards.map(proj => ({

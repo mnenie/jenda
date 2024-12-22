@@ -61,7 +61,7 @@ const arrowMargin = computed(() => {
       {{ $t('welcome.about.description') }}
     </p>
     <div class="flex justify-center items-center gap-4 px-0 py-4 btns">
-      <UiButton @click="$router.push('/auth/sign-up')">
+      <UiButton @click="$router.push({ name: 'sign-up' })">
         {{ $t('welcome.about.btn') }}
       </UiButton>
       <UiButton

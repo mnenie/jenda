@@ -2,7 +2,7 @@
 import { UiButton, UiInput } from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router/auto'
 import { z } from 'zod'
 
 const validationSchema = toTypedSchema(
@@ -28,7 +28,7 @@ const router = useRouter()
 
 const onRegistration = handleSubmit((values) => {
   // on registration event
-  router.push('/auth/sign-up/confirm')
+  router.push({ name: 'confirm' })
 })
 </script>
 
@@ -75,7 +75,7 @@ const onRegistration = handleSubmit((values) => {
           {{ $t('authentication.registration.proposal') }}
           <span
             class="cursor-pointer underline underline-offset-4 duration-100 ease-in hover:text-neutral-900 dark:hover:text-neutral-400"
-            @click="$router.push('/auth/sign-in')"
+            @click="router.push({ name: 'sign-in' })"
           >
             {{ $t('authentication.registration.route') }}
           </span>

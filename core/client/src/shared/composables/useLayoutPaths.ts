@@ -5,7 +5,7 @@ import type {
 } from '@/shared/config/types-shared'
 import { computed, type MaybeRefOrGetter, toValue } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { type RouterLinkProps, useRoute } from 'vue-router'
+import { type RouterLinkProps, useRoute } from 'vue-router/auto'
 
 export function useLayoutPaths(
   links: MaybeRefOrGetter<WorkspaceLink[]>,

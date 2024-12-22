@@ -2,7 +2,7 @@
 import { UiButton, UiInput } from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router/auto'
 import { z } from 'zod'
 
 const validationSchema = toTypedSchema(
@@ -27,7 +27,7 @@ const router = useRouter()
 
 const onWorkspaceCreation = handleSubmit((values) => {
   // on registration event
-  router.push('/boards')
+  router.push({ name: 'boards' })
 })
 </script>
 

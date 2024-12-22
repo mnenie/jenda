@@ -9,7 +9,9 @@ definePage({
     layout: LayoutsEnum.auth,
     requiresAuth: false,
   },
+  name: 'sign-in',
 })
+
 useHead({
   title: 'Jenda | Sign In',
 })

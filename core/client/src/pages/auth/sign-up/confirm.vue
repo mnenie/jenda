@@ -9,7 +9,9 @@ definePage({
     layout: LayoutsEnum.auth,
     requiresAuth: true,
   },
+  name: 'confirm',
 })
+
 useHead({
   title: 'Sign Up | Confirm your email',
 })

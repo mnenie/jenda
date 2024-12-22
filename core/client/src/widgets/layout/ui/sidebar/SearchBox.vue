@@ -3,7 +3,7 @@ import type { Board } from '@/entities/board'
 import { SearchFilter } from '@/features/filter'
 import { HippieNav } from '@noction/hippie-nav'
 import { computed, nextTick, ref, useTemplateRef } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router/auto'
 import { useSearch } from '../../model/composables'
 
 const props = defineProps<{

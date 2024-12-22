@@ -26,6 +26,6 @@ describe('tests for AboutSection.vue', () => {
   it('should redirect correctly', async () => {
     const btn = wrapper.find('.btns').findAllComponents(UiButton).at(0)
     await btn.trigger('click')
-    expect(mockRouter.push).toHaveBeenCalledWith('/auth/sign-up')
+    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'sign-up' })
   })
 })

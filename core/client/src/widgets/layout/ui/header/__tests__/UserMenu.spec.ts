@@ -22,7 +22,7 @@ describe('tests for UserMenu.vue', () => {
           }
           return translations[key]
         },
-        $router: mockRouter,
+        router: mockRouter,
       },
     },
   })
@@ -34,7 +34,7 @@ describe('tests for UserMenu.vue', () => {
     expect(items.length).toBeGreaterThan(0)
     const welcomeTrigger = items.at(0)
     await welcomeTrigger?.trigger('click')
-    expect(mockRouter.push).toHaveBeenCalledWith('/')
+    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'welcome' })
   })
 
   it('should redirect correctly to logout', async () => {

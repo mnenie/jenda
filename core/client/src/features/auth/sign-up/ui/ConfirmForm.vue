@@ -2,7 +2,7 @@
 import { UiButton, UiPinInput, UiPinInputGroup, UiPinInputInput } from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router/auto'
 import { toast } from 'vue-sonner'
 import { z } from 'zod'
 
@@ -22,7 +22,7 @@ const { value: pin } = useField<string[]>('pin')
 const router = useRouter()
 
 const onConfirm = handleSubmit((values) => {
-  router.push('/auth/sign-up/workspace')
+  router.push({ name: 'workspace' })
 })
 
 function onResend() {

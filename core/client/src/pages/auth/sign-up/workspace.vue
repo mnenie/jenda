@@ -9,7 +9,9 @@ definePage({
     layout: LayoutsEnum.auth,
     requiresAuth: true,
   },
+  name: 'workspace',
 })
+
 useHead({
   title: 'Sign Up | Create Workspace',
 })

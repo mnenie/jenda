@@ -9,7 +9,9 @@ definePage({
     layout: LayoutsEnum.empty,
     requiresAuth: false,
   },
+  name: 'not-found',
 })
+
 useHead({
   title: '404 | Not Found :/',
 })

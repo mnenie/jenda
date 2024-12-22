@@ -73,7 +73,7 @@ const onLogin = handleSubmit((values) => {
           {{ $t('authentication.login.proposal') }}
           <span
             class="cursor-pointer underline underline-offset-4 duration-100 ease-in hover:text-neutral-900 dark:hover:text-neutral-400"
-            @click="$router.push('/auth/sign-up')"
+            @click="$router.push({ name: 'sign-up' })"
           >
             {{ $t('authentication.login.route') }}
           </span>

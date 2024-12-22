@@ -13,8 +13,8 @@ import autoAnimatePlugin from './plugins/formkit'
 import { pinia, router } from './providers'
 
 import './styles/primary/index.css'
-import 'virtual:uno.css'
 import '@unocss/reset/tailwind-compat.css'
+import 'virtual:uno.css'
 import 'floating-vue/dist/style.css'
 import 'vue-data-ui/style.css'
 

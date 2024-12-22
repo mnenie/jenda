@@ -21,7 +21,9 @@ definePage({
   meta: {
     requiresAuth: true,
   },
+  name: 'analytics',
 })
+
 useHead({
   title: 'Jenda | Analytics',
 })

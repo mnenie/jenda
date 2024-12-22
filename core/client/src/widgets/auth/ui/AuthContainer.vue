@@ -4,18 +4,18 @@ import { GoogleOauth } from '@/features/auth/oauth'
 import { UiAlert } from '@/shared/ui'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router/auto'
 
 const route = useRoute()
 const { t } = useI18n()
 
 const title = computed(() => {
-  return route.name === '/auth/sign-in'
+  return route.name === 'sign-in'
     ? t('authentication.login.title')
     : t('authentication.registration.title')
 })
 const info = computed(() => {
-  return route.name === '/auth/sign-in'
+  return route.name === 'sign-in'
     ? t('authentication.login.description')
     : t('authentication.registration.description')
 })
@@ -40,7 +40,7 @@ const alertString = computed(() => {
         class="form-container"
       >
         <UiAlert
-          v-if="route.name === '/auth/sign-in' || route.name === '/auth/sign-up/'"
+          v-if="route.name === 'sign-in' || route.name === 'sign-up'"
           variant="warning"
           closable
           class="max-w-98% max-[520px]:mb-1.5"

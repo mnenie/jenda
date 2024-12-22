@@ -33,6 +33,7 @@ definePage({
   meta: {
     requiresAuth: true,
   },
+  name: 'board',
 })
 </script>
 

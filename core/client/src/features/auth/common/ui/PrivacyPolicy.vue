@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router/auto'
 
 const { tm, locale } = useI18n()
 const route = useRoute()
@@ -14,7 +14,7 @@ const maxWidth = computed(() => {
 })
 
 const privacyChangingItem = computed(() =>
-  route.path === '/auth/sign-in' ? privacyItems[1] : privacyItems[0],
+  route.name === 'sign-in' ? privacyItems[1] : privacyItems[0],
 )
 </script>
 

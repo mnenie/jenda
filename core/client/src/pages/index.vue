@@ -18,6 +18,7 @@ definePage({
     layout: LayoutsEnum.welcome,
     requiresAuth: false,
   },
+  name: 'welcome',
 })
 
 useHead({

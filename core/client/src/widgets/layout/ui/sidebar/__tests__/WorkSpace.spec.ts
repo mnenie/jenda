@@ -1,10 +1,10 @@
 import i18n from '@/shared/libs/i18n'
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router/auto'
 import WorkSpace from '../WorkSpace.vue'
 
-vi.mock('vue-router')
+vi.mock('vue-router/auto')
 
 vi.mock('@/shared/composables', () => ({
   useExpanded: vi.fn(() => ({
@@ -18,7 +18,7 @@ vi.mock('@/shared/composables', () => ({
 
 describe('tests for WorkSpace.vue', () => {
   // @ts-expect-error mock types
-  useRoute.mockReturnValue('/boards')
+  useRoute.mockReturnValue({ name: 'boards' })
   const wrapper = mount(WorkSpace, {
     global: {
       plugins: [i18n],

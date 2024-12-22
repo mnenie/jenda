@@ -4,7 +4,7 @@ import { useExpanded } from '@/shared/composables'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router/auto'
 
 const props = defineProps<{
   links: WorkspaceLink[]
@@ -13,7 +13,7 @@ const props = defineProps<{
 const route = useRoute()
 
 function isCurrentPath(link: WorkspaceLink): boolean {
-  if (route.path === '/boards') {
+  if (route.name === 'boards') {
     return link.pathName === 'boards'
   }
   return route.path === `/${link.pathName}`

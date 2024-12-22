@@ -5,7 +5,9 @@ definePage({
   meta: {
     requiresAuth: true,
   },
+  name: 'boards',
 })
+
 useHead({
   title: 'Jenda - cloud program for project and task management',
 })

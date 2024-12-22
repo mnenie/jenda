@@ -13,7 +13,9 @@ definePage({
   meta: {
     requiresAuth: true,
   },
+  name: 'templates',
 })
+
 useHead({
   title: 'Jenda | Templates',
 })
@@ -23,7 +25,7 @@ const route = useRoute()
 const router = useRouter()
 
 function toggleModalRoute() {
-  if (sheet.value && !sheet.value.open && route.name === '/templates/community/') {
+  if (sheet.value && !sheet.value.open && route.name === 'community') {
     router.back()
   }
 }
@@ -39,7 +41,7 @@ const isModalOpen = ref<boolean>(false)
     <div>
       <UiDialog ref="sheet" v-model:open="isModalOpen" @update:open="toggleModalRoute">
         <UiDialogTrigger as-child>
-          <UiButton variant="outline" @click="isModalOpen = true">
+          <UiButton variant="outline" @click="isModalOpen = true, $router.push({ name: 'community' })">
             {{ $t('templates.community') }}
           </UiButton>
         </UiDialogTrigger>

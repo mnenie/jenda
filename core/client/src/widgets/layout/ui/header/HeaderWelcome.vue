@@ -91,11 +91,11 @@ const { width } = useWindowSize()
           variant="ghost"
           class="bg-main bg-transparent"
           style="font-weight: 500"
-          @click="$router.push('/auth/sign-in')"
+          @click="$router.push({ name: 'sign-in' })"
         >
           {{ t('welcome.header.login') }}
         </UiButton>
-        <UiButton @click="$router.push('/auth/sign-up')">
+        <UiButton @click="$router.push({ name: 'sign-up' })">
           {{ t('welcome.header.reg') }}
         </UiButton>
       </div>
