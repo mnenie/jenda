@@ -38,6 +38,12 @@ importers:
       '@unocss/reset':
         specifier: 0.65.1
         version: 0.65.1
+      '@vee-validate/i18n':
+        specifier: 4.14.7
+        version: 4.14.7
+      '@vee-validate/rules':
+        specifier: 4.14.7
+        version: 4.14.7(vue@3.5.13(typescript@5.4.5))
       '@vee-validate/zod':
         specifier: ^4.13.1
         version: 4.14.7(vue@3.5.13(typescript@5.4.5))
@@ -1786,6 +1792,12 @@ packages:
     resolution: {integrity: sha512-5242hAlgTVUA+tJ9mwo/cpLqD9f4dn5V/prTmtIci0Y7zMsVeBlnQwfsV4MhyTVaF3eFxDy5AUEFiOuXo12rbQ==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0 || ^5.0.0-0 || ^6.0.0-0
+
+  '@vee-validate/i18n@4.14.7':
+    resolution: {integrity: sha512-CTGNXC0d6tMSi6pEbf+jW1ZsLhvtNClgKDna8QmHD9G/8U8W9MlyQfgcQMqmpUz0kUHyGHNZ3B13jzILUeVcXw==}
+
+  '@vee-validate/rules@4.14.7':
+    resolution: {integrity: sha512-DK2Frj6s8eQZgjeSRYHOIX3heFX1aic8taKY6q4RPY/5JtEkLDCxyWP3EBt1bteoiSDGDADrmahwqkcfJShhoA==}
 
   '@vee-validate/zod@4.14.7':
     resolution: {integrity: sha512-UD0Tfyz1cKKd7BinnUztqKL+oeMjg/T4ZEguN/uZV4DsR9z7gdrD0lOuOU7aVl9UpVK6NM7MhDka35Lj7b/DTw==}
@@ -6526,6 +6538,14 @@ snapshots:
     transitivePeerDependencies:
       - rollup
       - supports-color
+      - vue
+
+  '@vee-validate/i18n@4.14.7': {}
+
+  '@vee-validate/rules@4.14.7(vue@3.5.13(typescript@5.4.5))':
+    dependencies:
+      vee-validate: 4.14.7(vue@3.5.13(typescript@5.4.5))
+    transitivePeerDependencies:
       - vue
 
   '@vee-validate/zod@4.14.7(vue@3.5.13(typescript@5.4.5))':

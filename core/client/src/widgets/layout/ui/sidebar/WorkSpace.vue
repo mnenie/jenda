@@ -16,6 +16,9 @@ function isCurrentPath(link: WorkspaceLink): boolean {
   if (route.name === 'boards') {
     return link.pathName === 'boards'
   }
+  if (route.name === 'community') {
+    return link.pathName === 'templates'
+  }
   return route.path === `/${link.pathName}`
 }
 

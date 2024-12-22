@@ -9,8 +9,10 @@ definePage({
 
 <template>
   <div>
-    <p>
-      test
-    </p>
+    dsads
   </div>
 </template>
+
+<style lang="scss" scoped>
+
+</style>

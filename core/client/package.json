@@ -22,6 +22,8 @@
     "@unhead/vue": "^1.9.14",
     "@unocss/core": "0.65.1",
     "@unocss/reset": "0.65.1",
+    "@vee-validate/i18n": "4.14.7",
+    "@vee-validate/rules": "4.14.7",
     "@vee-validate/zod": "^4.13.1",
     "@vitest/eslint-plugin": "^1.1.7",
     "@vueuse/core": "^10.11.1",
