@@ -60,6 +60,8 @@ export default {
     title: '模板',
     description: '选择一个可用模板来创建您的项目',
     import: '点击或拖拽文件导入。支持文件',
+    community: '社区模板',
+    create: '创建模板',
     user: '创建者',
     items: [
       {
