@@ -50,8 +50,7 @@ function changeShowList() {
         @click="changeShowList"
       />
       <p
-        class="text-neutral-500 dark:text-neutral-400 text-xs capitalize text-ellipsis
-        whitespace-nowrap overflow-hidden"
+        class="text-neutral-500 dark:text-neutral-400 text-xs capitalize text-ellipsis whitespace-nowrap overflow-hidden"
       >
         {{ $t('sidebar.projects') }}
       </p>
@@ -90,8 +89,7 @@ function changeShowList() {
         />
         <span
           v-show="isExpanded"
-          class="text-sm text-ellipsis overflow-hidden max-w-80%
-          whitespace-nowrap !fw500 text-neutral-900 dark:text-neutral-100"
+          class="text-13px 2xl:text-sm text-ellipsis overflow-hidden max-w-80% whitespace-nowrap !fw500 text-neutral-900 dark:text-neutral-100"
         >
           {{ project.name }}
         </span>

@@ -1,20 +1,21 @@
 <script setup lang="ts">
-import { UiButton, UiInput } from '@/shared/ui'
+import { z } from '@/shared/libs/vee-validate'
+import {
+  UiButton,
+  UiFormField,
+  UiFormLabel,
+  UiFormMessage,
+  UiInput,
+} from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
+import { createReusableTemplate } from '@vueuse/core'
 import { useField, useForm } from 'vee-validate'
 import { toast } from 'vue-sonner'
-import { z } from 'zod'
 
 const validationSchema = toTypedSchema(
   z.object({
-    email: z
-      .string({ required_error: 'Email is a required field' })
-      .nonempty('Email is a required field')
-      .email('Email must be a valid'),
-    password: z
-      .string({ required_error: 'Password is a required field' })
-      .nonempty('Password is a required field')
-      .min(8, 'Password must be at least 8 characters'),
+    email: z.string().min(1).email(),
+    password: z.string().min(8),
   }),
 )
 
@@ -28,42 +29,41 @@ const onLogin = handleSubmit((values) => {
   // on login event
   toast.warning('Jenda in dev mode and temporarily unavailable')
 })
+
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>
+  <DefineTemplate v-slot="{ $slots, field, error }">
+    <UiFormField v-auto-animate>
+      <UiFormLabel
+        :for="field"
+      >
+        {{ $t(`authentication.form.${field}`) }}
+      </UiFormLabel>
+      <component :is="$slots.default" />
+      <UiFormMessage v-if="error" :content="error" />
+    </UiFormField>
+  </DefineTemplate>
   <form @submit.prevent="onLogin">
     <div class="grid gap-6">
       <div class="grid gap-4">
-        <div v-auto-animate class="form-field">
-          <label
-            class="form-label"
-            for="email"
-          >
-            {{ $t('authentication.form.email') }}
-          </label>
-          <UiInput id="email" v-model="email" placeholder="user@example.com" type="email" />
-          <span
-            v-if="errors.email"
-            class="text-xs text-red-500 !fw500"
-          >
-            {{ errors.email }}
-          </span>
-        </div>
-        <div v-auto-animate class="form-field">
-          <label
-            class="form-label"
-            for="password"
-          >
-            {{ $t('authentication.form.password') }}
-          </label>
-          <UiInput id="password" v-model="password" placeholder="user_password_example" type="password" />
-          <span
-            v-if="errors.password"
-            class="text-xs text-red-500 !fw500"
-          >
-            {{ errors.password }}
-          </span>
-        </div>
+        <ReuseTemplate field="email" :error="errors.email">
+          <UiInput
+            id="email"
+            v-model="email"
+            placeholder="user@example.com"
+            type="email"
+          />
+        </ReuseTemplate>
+        <ReuseTemplate field="password" :error="errors.password">
+          <UiInput
+            id="password"
+            v-model="password"
+            placeholder="user_password_example"
+            type="password"
+          />
+        </ReuseTemplate>
       </div>
       <div class="grid gap-2">
         <UiButton type="submit">

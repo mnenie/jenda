@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UiButton, UiPinInput, UiPinInputGroup, UiPinInputInput } from '@/shared/ui'
+import { UiButton, UiFormField, UiFormMessage, UiPinInput, UiPinInputGroup, UiPinInputInput } from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
 import { useRouter } from 'vue-router/auto'
@@ -7,7 +7,7 @@ import { toast } from 'vue-sonner'
 import { z } from 'zod'
 
 const formSchema = toTypedSchema(z.object({
-  pin: z.array(z.coerce.string()).length(5, { message: 'Invalid pin' }),
+  pin: z.array(z.coerce.string()).length(5),
 }))
 
 const { handleSubmit, setFieldValue, errors } = useForm({
@@ -32,7 +32,7 @@ function onResend() {
 
 <template>
   <form @submit.prevent="onConfirm">
-    <div v-auto-animate class="form-field">
+    <UiFormField v-auto-animate>
       <UiPinInput
         id="pin-input"
         v-model:model-value="pin"
@@ -52,13 +52,8 @@ function onResend() {
           />
         </UiPinInputGroup>
       </UiPinInput>
-      <span
-        v-if="errors.pin"
-        class="text-xs text-red-500 !fw500"
-      >
-        {{ errors.pin }}
-      </span>
-    </div>
+      <UiFormMessage v-if="errors.pin" :content="errors.pin" />
+    </UiFormField>
     <p class="text-sm text-neutral-400 mt-2">
       {{ $t('authentication.form.otp') }}
     </p>
@@ -71,7 +66,7 @@ function onResend() {
     >
       {{ $t('authentication.confirm.proposal') }}
       <span
-        class="cursor-pointer underline underline-offset-4 duration-100 ease-in hover:text-neutral-900 dark:hover:text-neutral-400"
+        class="form-text-underline"
       >
         {{ $t('authentication.confirm.route') }}
       </span>

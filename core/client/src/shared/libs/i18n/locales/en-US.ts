@@ -211,7 +211,7 @@ export default {
           label: 'Name',
           placeholder: 'Enter your workspace name',
         },
-        link: {
+        url: {
           label: 'Custom link',
         },
       },
@@ -436,5 +436,12 @@ export default {
       badges: 'Open a search in the workspace | Go to the main page | Log out',
       alert: 'You\'ll see { badge } used a lot below. This indicates command on Mac and control on Windows and Linux.',
     },
+  },
+  validations: {
+    email: 'Email',
+    password: 'Password',
+    pin: 'Confirmation code',
+    name: 'Name',
+    url: 'URL handle',
   },
 }

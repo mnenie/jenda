@@ -1,19 +1,15 @@
 <script setup lang="ts">
-import { UiButton, UiInput } from '@/shared/ui'
+import { UiButton, UiFormField, UiFormLabel, UiFormMessage, UiInput } from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
+import { createReusableTemplate } from '@vueuse/core'
 import { useField, useForm } from 'vee-validate'
 import { useRouter } from 'vue-router/auto'
 import { z } from 'zod'
 
 const validationSchema = toTypedSchema(
   z.object({
-    name: z
-      .string({ required_error: 'Name is a required field' })
-      .nonempty('Name is a required field'),
-    link: z
-      .string({ required_error: 'Link is a required field' })
-      .nonempty('Link is a required field')
-      .min(3, 'Link must be at least 3 characters'),
+    name: z.string().min(1).max(15),
+    url: z.string().min(3),
   }),
 )
 
@@ -21,7 +17,7 @@ const { handleSubmit, errors } = useForm({
   validationSchema,
 })
 const { value: name } = useField<string>('name')
-const { value: link } = useField<string>('link')
+const { value: url } = useField<string>('url')
 
 const router = useRouter()
 
@@ -29,49 +25,38 @@ const onWorkspaceCreation = handleSubmit((values) => {
   // on registration event
   router.push({ name: 'boards' })
 })
+
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>
+  <DefineTemplate v-slot="{ $slots, field, error }">
+    <UiFormField v-auto-animate>
+      <UiFormLabel
+        :for="field"
+      >
+        {{ $t(`authentication.workspace.form.${field}.label`) }}
+      </UiFormLabel>
+      <component :is="$slots.default" />
+      <UiFormMessage v-if="error" :content="error" />
+    </UiFormField>
+  </DefineTemplate>
   <form @submit.prevent="onWorkspaceCreation">
     <div class="grid gap-6">
       <div class="grid gap-4">
-        <div v-auto-animate class="form-field">
-          <label
-            class="form-label"
-            for="name"
-          >
-            {{ $t('authentication.workspace.form.name.label') }}
-          </label>
+        <ReuseTemplate field="name" :error="errors.name">
           <UiInput
             id="name"
             v-model="name"
             :placeholder="$t('authentication.workspace.form.name.placeholder')"
           />
-          <span
-            v-if="errors.name"
-            class="text-xs text-red-500 !fw500"
-          >
-            {{ errors.name }}
-          </span>
-        </div>
-        <div v-auto-animate class="form-field">
-          <label
-            class="form-label"
-            for="link"
-          >
-            {{ $t('authentication.workspace.form.link.label') }}
-          </label>
+        </ReuseTemplate>
+        <ReuseTemplate field="url" :error="errors.url">
           <div class="relative w-full h-9 flex items-center">
             <span class="text-sm pb-0.5px text-neutral-500 absolute left-3">workpaces/</span>
-            <UiInput id="link" v-model="link" class="pl-89px" type="text" />
+            <UiInput id="url" v-model="url" class="pl-22" type="text" />
           </div>
-          <span
-            v-if="errors.link"
-            class="text-xs text-red-500 !fw500"
-          >
-            {{ errors.link }}
-          </span>
-        </div>
+        </ReuseTemplate>
       </div>
       <UiButton type="submit">
         {{ $t('authentication.workspace.route') }}

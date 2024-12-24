@@ -1,29 +1,40 @@
-import { useCookies } from '@vueuse/integrations/useCookies'
 import { computed } from 'vue'
 import { createI18n } from 'vue-i18n'
+
+import en from '../vee-validate/rules/en'
+import ru from '../vee-validate/rules/ru'
+import zh from '../vee-validate/rules/zh'
 import enLocale from './locales/en-US'
 import ruLocale from './locales/ru-RU'
 import zhLocale from './locales/zh-CN'
 
-type MessageSchema = typeof enLocale
+export type MessageSchema = typeof enLocale
 
 const messages = {
   'en-US': {
     ...enLocale,
+    errors: {
+      ...en,
+    },
   },
   'ru-RU': {
     ...ruLocale,
+    errors: {
+      ...ru,
+    },
   },
   'zh-CN': {
     ...zhLocale,
+    errors: {
+      ...zh,
+    },
   },
 }
-const cookies = useCookies()
 
 const getCurrentLocale = computed(() => {
-  const cookieLanguage = cookies.get('i18n')
-  if (cookieLanguage) {
-    return cookieLanguage
+  const storageLanguage = localStorage.getItem('i18n')
+  if (storageLanguage) {
+    return storageLanguage
   }
   if (navigator.language.split('-')[0] === 'ru') {
     return 'ru-RU'

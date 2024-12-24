@@ -40,8 +40,8 @@ const [DifineTemplate, ReuseTemplate] = createReusableTemplate()
         :class="[isExpanded ? 'justify-between' : 'justify-center p-0']"
       >
         <div class="flex items-center gap-2">
-          <div i-hugeicons-mortarboard-02 class="text-17px text-neutral-800 dark:text-neutral-300" />
-          <span v-show="isExpanded" class="text-sm !fw500 text-neutral-900 dark:text-neutral-100">
+          <div i-hugeicons-mortarboard-02 class="!w-16px !h-16px 2xl:(!w-4 !h-4) text-neutral-800 dark:text-neutral-300" />
+          <span v-show="isExpanded" class="text-13px 2xl:text-sm !fw500 text-neutral-900 dark:text-neutral-100">
             {{ $t('sidebar.help.title') }}
           </span>
         </div>

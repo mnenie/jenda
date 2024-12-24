@@ -1,4 +1,4 @@
-import { useCookies } from '@vueuse/integrations/useCookies'
+import { useLocalStorage } from '@vueuse/core'
 import { type Ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -9,11 +9,11 @@ interface Value {
 
 export function useLanguage(values: Value[], language: Ref<string>) {
   const { locale } = useI18n()
-  const cookies = useCookies()
+  const storage = useLocalStorage<string | null>('i18n', null)
 
   const setLanguage = (value: string) => {
     locale.value = value
-    cookies.set('i18n', value)
+    storage.value = value
   }
 
   watch(

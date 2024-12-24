@@ -21,8 +21,7 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
         class="flex items-center gap-px"
       >
         <div
-          class="w-36px h-36px h-full bg-neutral-100 border border-solid border-neutral-200 rounded-lg flex items-center
-          justify-center mr-1.5 cursor-pointer"
+          class="w-36px h-36px h-full bg-neutral-100 border border-solid border-neutral-200 rounded-lg flex items-center justify-center mr-1.5 cursor-pointer"
         >
           <img src="https://avatars.githubusercontent.com/u/185750893?s=100&v=4" class="object-cover w-full rounded-lg" />
         </div>
@@ -35,7 +34,7 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
               {{ $t('sidebar.section') }}
             </p>
           </div>
-          <p class="text-base !fw600 dark:text-neutral-100">
+          <p class="text-lg 2xl:text-base !fw600 dark:text-neutral-100">
             Example.io
           </p>
         </div>
@@ -43,13 +42,13 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
       <div
         v-if="isExpanded"
         i-hugeicons-sidebar-left-01
-        class="cursor-pointer text-xl text-neutral-700 dark:text-neutral-300"
+        class="cursor-pointer text-19px 2xl:text-xl text-neutral-700 dark:text-neutral-300"
         @click="onToggleArea"
       />
       <div
         v-else
         i-hugeicons-sidebar-right-01
-        class="cursor-pointer text-xl text-neutral-800 dark:text-neutral-200"
+        class="cursor-pointer text-19px 2xl:text-xl text-neutral-800 dark:text-neutral-200"
         @click="onToggleArea"
       />
     </div>

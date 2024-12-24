@@ -1,7 +1,7 @@
 type AlertPrefix = 'alert'
 
 export const staticAlert: Record<`${AlertPrefix}-${string}` | AlertPrefix, string> = {
-  'alert': 'relative flex items-center justify-center border border-solid gap-2.5 py-0.5 pl-2.5 rounded-8px mb-5 min-h-22px',
+  'alert': 'relative flex items-center justify-center border border-solid gap-2.5 py-1.25 pl-2.5 rounded-8px mb-5 min-h-22px',
   'alert-close': 'absolute top-1/2 transform -translate-y-1/2 right-2.5 text-sm text-neutral-700 cursor-pointer dark:text-neutral-200',
 
   'alert-default': 'bg-neutral-50 border-neutral-200 text-neutral-800 dark:(bg-neutral-800 text-neutral-200 border-neutral-700)',

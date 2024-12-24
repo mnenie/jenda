@@ -22,7 +22,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>
-  <div class="relative h-8 mb-20px">
+  <div class="relative h-9 2xl:h-8 mb-20px">
     <DefineTemplate v-slot="{ content }">
       <UiBadge
         variant="outline"
@@ -35,7 +35,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     </DefineTemplate>
     <UiButton
       :variant="isExpanded ? 'outline' : 'ghost'"
-      class="w-full justify-start h-8 rounded-8px px-2 !bg-white dark:(!bg-#262626 border-neutral-600/20)
+      class="w-full justify-start h-9 2xl:h-8 rounded-8px px-2 !bg-white dark:(!bg-#262626 border-neutral-600/20)
       transition-[background-color,padding,width] duration-700 ease"
       :class="[
         isExpanded
@@ -46,22 +46,22 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     >
       <div
         i-lucide-search
-        class="text-neutral-800 dark:text-neutral-200"
+        class="text-neutral-800 dark:text-neutral-200 !w-16px !h-16px 2xl:(!w-4 !h-4)"
         :class="[
           isExpanded
-            ? 'h-4 w-4 mr-1'
+            ? 'mr-1'
             : 'absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-4 w-4',
         ]"
       />
       <span
         v-if="isExpanded"
-        class="text-sm fw500 text-neutral-700 dark:text-neutral-200 whitespace-nowrap transition-transform duration-250 ease-in-out transform"
+        class="text-13px 2xl:text-sm fw500 text-neutral-700 dark:text-neutral-200 whitespace-nowrap transition-transform duration-250 ease-in-out transform"
         :class="isShowFilter ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'"
       >
         {{ $t('sidebar.input') }}
       </span>
     </UiButton>
-    <div v-if="isExpanded" class="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center gap-1">
+    <div v-if="isExpanded" class="absolute h-full right-2 top-1/2 translate-y--1/2 flex items-center gap-1">
       <ReuseTemplate content="Ctrl / ⌘" />
       <ReuseTemplate content="K" />
     </div>

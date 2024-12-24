@@ -6,8 +6,7 @@ import { useRoute } from 'vue-router/auto'
 const { tm, locale } = useI18n()
 const route = useRoute()
 
-// @ts-expect-error tm types
-const privacyItems = tm('authentication.privacy')
+const privacyItems = tm('authentication.privacy') as string[]
 
 const maxWidth = computed(() => {
   return locale.value === 'ru-RU' ? '400px' : '320px'
@@ -28,8 +27,7 @@ const privacyChangingItem = computed(() =>
       href="https://github.com/mnenie/jenda"
       target="_blank"
       rel="noopener noreferrer"
-      class="cursor-pointer underline underline-offset-4 duration-100 ease-in
-      hover:text-neutral-900 dark:hover:text-neutral-500"
+      class="form-text-underline dark:hover:text-neutral-500"
     >
       {{ privacyItems[2] }}
     </a>
@@ -38,8 +36,7 @@ const privacyChangingItem = computed(() =>
       href="https://github.com/mnenie/jenda"
       target="_blank"
       rel="noopener noreferrer"
-      class="cursor-pointer underline underline-offset-4 duration-100 ease-in
-      hover:text-neutral-900 dark:hover:text-neutral-500"
+      class="form-text-underline dark:hover:text-neutral-500"
     >
       {{ privacyItems[4] }}
     </a>

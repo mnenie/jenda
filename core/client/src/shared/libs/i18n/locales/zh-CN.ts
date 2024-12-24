@@ -205,7 +205,7 @@ export default {
           label: '名称',
           placeholder: '输入您的工作区名称',
         },
-        link: {
+        url: {
           label: '自定义链接',
         },
       },
@@ -409,5 +409,12 @@ export default {
       badges: '打开工作区搜索 | 转到主页 | 退出服务',
       alert: '你会在下面频繁看到 { badge }。它表示 Mac 上的 Command 键，Windows 和 Linux 上的 Control 键。',
     },
+  },
+  validations: {
+    email: '邮箱',
+    password: '密码',
+    pin: '确认码',
+    name: '名称',
+    url: '自定义链接',
   },
 }
