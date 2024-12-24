@@ -1,13 +1,12 @@
 import type { VueWrapper } from '@vue/test-utils'
-import i18n from '@/shared/lib/i18n'
+import i18n from '@/shared/libs/i18n'
 import { UiCard } from '@/shared/ui'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { type ComponentPublicInstance, nextTick } from 'vue'
 import MarketingCards from '../MarketingCards.vue'
-import '@/shared/lib/vitest-utils/cookiesI18n-mock'
 
-// TODO: `ComponentPublicInstance` will need to set in other tests too
+// TODO: `ComponentPublicInstance` needs to be fixed with certain types
 type MarketingCardsInstance = ComponentPublicInstance<
   {},
   {},

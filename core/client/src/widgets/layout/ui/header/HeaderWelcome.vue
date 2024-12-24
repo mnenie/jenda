@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { HeaderNavLink } from '../../model'
 import { LanguageSelect, ThemeSwitcher } from '@/features/layout'
-import { useScroll } from '@/shared/lib/composables'
-import { redirect } from '@/shared/lib/helpers'
+import { useScroll } from '@/shared/composables'
 import { UiButton } from '@/shared/ui'
 import { useDark, useWindowSize } from '@vueuse/core'
 import { computed } from 'vue'
@@ -42,9 +41,10 @@ const { width } = useWindowSize()
           dark:shadow-sm dark:bg-#313131 dark:border-neutral-700"
         >
           <div class="flex items-center gap-0.5">
-            <div
+            <a
+              href="https://github.com/mnenie/jenda"
+              target="_blank"
               class="flex items-center gap-1 cursor-pointer mr-2"
-              @click="redirect('https://github.com/mnenie/jenda')"
             >
               <img
                 :src="iconUrl"
@@ -53,7 +53,7 @@ const { width } = useWindowSize()
               <h3 class="text-xl fw-500">
                 Jenda
               </h3>
-            </div>
+            </a>
             <UiButton
               v-for="link in links"
               :key="link.id"
@@ -66,10 +66,11 @@ const { width } = useWindowSize()
             </UiButton>
           </div>
         </div>
-        <div
+        <a
           v-else
+          href="https://github.com/mnenie/jenda"
+          target="_blank"
           class="flex items-center gap-1 cursor-pointer mr-2"
-          @click="redirect('https://github.com/mnenie/jenda')"
         >
           <img
             :src="iconUrl"
@@ -78,7 +79,7 @@ const { width } = useWindowSize()
           <h3 class="text-xl fw500">
             Jenda
           </h3>
-        </div>
+        </a>
         <div class="flex items-center gap-1">
           <LanguageSelect />
           <div class="w-1px h-3.5 bg-neutral-200 dark:bg-neutral-700" />
@@ -90,11 +91,11 @@ const { width } = useWindowSize()
           variant="ghost"
           class="bg-main bg-transparent"
           style="font-weight: 500"
-          @click="$router.push('/auth/sign-in')"
+          @click="$router.push({ name: 'sign-in' })"
         >
           {{ t('welcome.header.login') }}
         </UiButton>
-        <UiButton @click="$router.push('/auth/sign-up')">
+        <UiButton @click="$router.push({ name: 'sign-up' })">
           {{ t('welcome.header.reg') }}
         </UiButton>
       </div>

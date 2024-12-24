@@ -8,7 +8,7 @@ export default mergeConfig(
     test: {
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'e2e/**'],
-      setupFiles: ['./src/shared/lib/vitest-utils/cookiesI18n-mock.ts'],
+      setupFiles: ['./src/shared/libs/vitest-utils/cookiesI18n-mock.ts'],
       root: fileURLToPath(new URL('./', import.meta.url)),
       css: {
         modules: {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { WorkspaceLink } from '@/shared/config/types-shared'
-import { useExpanded } from '@/shared/lib/composables'
+import { useExpanded } from '@/shared/composables'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router/auto'
 
 const props = defineProps<{
   links: WorkspaceLink[]
@@ -13,8 +13,11 @@ const props = defineProps<{
 const route = useRoute()
 
 function isCurrentPath(link: WorkspaceLink): boolean {
-  if (route.path === '/boards') {
+  if (route.name === 'boards') {
     return link.pathName === 'boards'
+  }
+  if (route.name === 'community') {
+    return link.pathName === 'templates'
   }
   return route.path === `/${link.pathName}`
 }
@@ -55,8 +58,8 @@ const contentPosition = computed(() => {
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
         <div class="flex items-center gap-2">
-          <Icon :icon="link.icon" class="text-17px text-neutral-900 dark:text-neutral-200" />
-          <span v-show="isExpanded" class="text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ $t(`sidebar.${link.name}`) }}</span>
+          <Icon :icon="link.icon" class="!w-16px !h-16px 2xl:(!w-4 !h-4) text-neutral-900 dark:text-neutral-200" />
+          <span v-show="isExpanded" class="text-13px 2xl:text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ $t(`sidebar.${link.name}`) }}</span>
         </div>
         <UiBadge v-if="link.id === 1 && isExpanded" variant="solid" class="px-5px py-0 text-xs rounded-md">
           <span class="text-[10px] text-white">3</span>

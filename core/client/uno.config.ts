@@ -10,7 +10,7 @@ import {
 } from 'unocss'
 import presetAnimations from 'unocss-preset-animations'
 import { presetShadcn } from 'unocss-preset-shadcn'
-import presetJendaUI from './src/shared/lib/unocss/presets/presetUiKit'
+import presetJendaUI from './src/shared/libs/unocss/presets/presetUiKit'
 
 export default defineConfig({
   presets: [
@@ -42,8 +42,9 @@ export default defineConfig({
   ],
   shortcuts: [
     {
-      'form-field': 'grid gap-2 justify-items-start',
-      'form-label': 'text-sm text-neutral-900 !fw500 dark:text-neutral-200',
+      'auth-page': 'h-full flex w-68% max-[1440px]:w-80% max-[1100px]:!w-full',
+      'auth-slot-container': 'relative h-full w-full mx-auto px-2rem dark:bg-#1c1c1c',
+      'form-container': 'relative flex w-460px flex-col gap-2 max-[520px]:!w-full max-[1100px]:!w-460px max-[1200px]:w-360px',
     },
     {
       'bg-main': 'bg-white dark:bg-#262626',
@@ -61,6 +62,8 @@ export default defineConfig({
     './src/shared/ui/_shortcuts/dropdown-menu.ts',
     './src/shared/ui/_shortcuts/select.ts',
     './src/shared/ui/_shortcuts/dialog.ts',
+    './src/shared/ui/_shortcuts/pin-input.ts',
+    './src/shared/ui/_shortcuts/form.ts',
     './src/shared/ui/_shortcuts/index.ts',
   ],
   content: {

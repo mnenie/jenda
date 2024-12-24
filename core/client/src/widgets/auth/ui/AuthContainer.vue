@@ -1,26 +1,21 @@
 <script setup lang="ts">
-import { GoogleOauth, PrivacyPolicy } from '@/features/auth'
+import { LogoFile, PrivacyPolicy } from '@/features/auth/common'
+import { GoogleOauth } from '@/features/auth/oauth'
 import { UiAlert } from '@/shared/ui'
-import { useDark, useWindowSize } from '@vueuse/core'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router/auto'
 
 const route = useRoute()
 const { t } = useI18n()
-const { width } = useWindowSize()
-
-const isDark = useDark()
-
-const isWarningOpen = ref(true)
 
 const title = computed(() => {
-  return route.path === '/auth/sign-in'
+  return route.name === 'sign-in'
     ? t('authentication.login.title')
     : t('authentication.registration.title')
 })
 const info = computed(() => {
-  return route.path === '/auth/sign-in'
+  return route.name === 'sign-in'
     ? t('authentication.login.description')
     : t('authentication.registration.description')
 })
@@ -37,51 +32,18 @@ const alertString = computed(() => {
 
 <template>
   <div
-    class="relative h-full w-68% mx-auto px-2rem dark:bg-#1c1c1c
-    max-[1440px]:w-80% max-[1100px]:!w-full"
+    class="auth-slot-container"
   >
     <div class="h-full w-full flex flex-col justify-center items-center mx-auto">
+      <LogoFile />
       <div
-        v-if="width > 1100"
-        class="absolute top-24px left-32px flex items-center gap-1.5 cursor-pointer"
-        @click="$router.push('/')"
-      >
-        <img
-          :src="isDark ? '/icons/kanban-dark.png' : '/icons/kanban.png'"
-          class="w-7 h-7"
-        />
-        <h3 class="text-xl !fw-500">
-          Jenda
-        </h3>
-      </div>
-      <div
-        v-else
-        class="absolute left-150px top-30px flex items-center gap-1.5 cursor-pointer max-w-700px
-        max-[890px]:left-80px max-[580px]:!left-20px max-[520px]:(!left-15px !top-15px)"
-      >
-        <div
-          class="flex items-center gap-1"
-          @click="$router.push('/')"
-        >
-          <div
-            i-lucide-chevron-left
-            class="text-lg text-neutral-500"
-          />
-          <span class="text-sm !fw-500">
-            {{ t('authentication.back') }}
-          </span>
-        </div>
-      </div>
-      <div
-        class="relative flex w-460px flex-col gap-2
-          max-[520px]:!w-full max-[1100px]:!w-460px max-[1200px]:w-360px"
+        class="form-container"
       >
         <UiAlert
-          v-if="isWarningOpen"
+          v-if="route.name === 'sign-in' || route.name === 'sign-up'"
           variant="warning"
           closable
           class="max-w-98% max-[520px]:mb-1.5"
-          @close="isWarningOpen = false"
         >
           <span class="text-sm" v-html="alertString" />
         </UiAlert>

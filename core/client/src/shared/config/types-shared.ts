@@ -1,4 +1,15 @@
 import type { IconifyIcon } from '@iconify/vue'
+import type { Ref } from 'vue'
+
+export interface Expanded {
+  isExpanded: Ref<boolean>
+  onToggleArea: () => void
+}
+
+export interface AuthWorkspace {
+  reset: () => void
+  openFileChooser: (event: any) => void
+}
 
 interface Path {
   pathName: string

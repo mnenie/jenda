@@ -5,10 +5,9 @@ exports[`tests for HeaderWelcome.vue > should be render correctly 1`] = `
   <section data-v-88b13e8b="" class="flex items-center justify-between">
     <div data-v-88b13e8b="" class="flex items-center gap-2 select-none">
       <div data-v-88b13e8b="" class="relative z-10 box bg-white border border-solid border-#e3e4e8 flex items-center py-0 pl-2.5 pr-3.5 h-40px rounded-lg dark:shadow-sm dark:bg-#313131 dark:border-neutral-700">
-        <div data-v-88b13e8b="" class="flex items-center gap-0.5">
-          <div data-v-88b13e8b="" class="flex items-center gap-1 cursor-pointer mr-2"><img data-v-88b13e8b="" src="/icons/kanban.png" class="w-22px h-22px">
+        <div data-v-88b13e8b="" class="flex items-center gap-0.5"><a data-v-88b13e8b="" href="https://github.com/mnenie/jenda" target="_blank" class="flex items-center gap-1 cursor-pointer mr-2"><img data-v-88b13e8b="" src="/icons/kanban.png" class="w-22px h-22px">
             <h3 data-v-88b13e8b="" class="text-xl fw-500"> Jenda </h3>
-          </div>
+          </a>
           <ui-button-stub data-v-88b13e8b="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
           <ui-button-stub data-v-88b13e8b="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
           <ui-button-stub data-v-88b13e8b="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>

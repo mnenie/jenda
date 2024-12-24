@@ -1,4 +1,4 @@
-import { useBreakpoints, useExpanded } from '@/shared/lib/composables'
+import { useBreakpoints, useExpanded } from '@/shared/composables'
 import { computed } from 'vue'
 
 export function useCharts() {

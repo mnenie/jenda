@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBreakpoints } from '@/shared/lib/composables'
+import { useBreakpoints } from '@/shared/composables'
 import { UiBadge } from '@/shared/ui'
 import { BoardsChart, OnlineChart, SharedSection, TasksChart, UsersChart } from '@/widgets/analytics'
 import { useHead } from '@unhead/vue'
@@ -21,7 +21,9 @@ definePage({
   meta: {
     requiresAuth: true,
   },
+  name: 'analytics',
 })
+
 useHead({
   title: 'Jenda | Analytics',
 })

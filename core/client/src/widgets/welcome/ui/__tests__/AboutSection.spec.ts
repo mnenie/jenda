@@ -1,9 +1,8 @@
-import i18n from '@/shared/lib/i18n'
+import i18n from '@/shared/libs/i18n'
 import { UiButton } from '@/shared/ui'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import AboutSection from '../sections/AboutSection.vue'
-import '@/shared/lib/vitest-utils/cookiesI18n-mock'
 
 const mockRouter = {
   push: vi.fn(),
@@ -27,6 +26,6 @@ describe('tests for AboutSection.vue', () => {
   it('should redirect correctly', async () => {
     const btn = wrapper.find('.btns').findAllComponents(UiButton).at(0)
     await btn.trigger('click')
-    expect(mockRouter.push).toHaveBeenCalledWith('/auth/sign-up')
+    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'sign-up' })
   })
 })

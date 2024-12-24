@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { IntegrationItem } from '../../model'
-import { useExpanded } from '@/shared/lib/composables'
-import { redirect } from '@/shared/lib/helpers'
+import { useExpanded } from '@/shared/composables'
+import { redirect } from '@/shared/helpers'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { Icon } from '@iconify/vue/dist/iconify.js'
 
@@ -43,10 +43,10 @@ const { isExpanded } = expanded.getExpanded()
         <Icon
           :inline="true"
           :icon="icon"
-          class="text-17px text-neutral-800 dark:text-neutral-200"
+          class="!w-16px !h-16px 2xl:(!w-4 !h-4) text-neutral-800 dark:text-neutral-200"
           :class="[idx === 2 && '!w-3.6 !h-3.6 !text-#fc4714']"
         />
-        <span v-show="isExpanded" class="text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ name }}</span>
+        <span v-show="isExpanded" class="text-13px 2xl:text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ name }}</span>
       </div>
       <UiBadge v-if="name === 'Notion' && isExpanded" variant="outline" class="px-1 py-0 text-11px shadow-none">
         {{ $t('sidebar.soon') }}

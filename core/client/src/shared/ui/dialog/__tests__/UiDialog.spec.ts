@@ -1,35 +1,28 @@
+import type { VueWrapper } from '@vue/test-utils'
+import type { ComponentPublicInstance } from 'vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
-import { defineComponent, ref } from 'vue'
-import { UiDialog, UiDialogClose, UiDialogContent, UiDialogTitle, UiDialogTrigger } from '..'
+import { UiDialog } from '..'
+import DialogTest from './MockComponent.vue'
 
 const OPEN_TEXT = 'open'
 const TITLE_TEXT = 'title'
 
-const DialogTest = defineComponent({
-  components: { UiDialog, UiDialogTrigger, UiDialogContent, UiDialogClose, UiDialogTitle },
-  setup() {
-    const isOpen = ref(false)
-    return { isOpen }
-  },
-  template: `
-    <UiDialog v-model:open="isOpen">
-      <UiDialogTrigger>
-        ${OPEN_TEXT}
-      </UiDialogTrigger>
-      <UiDialogContent>
-        <UiDialogTitle>${TITLE_TEXT}</UiDialogTitle>
-      </UiDialogContent>
-    </UiDialog>
-  `,
-})
+type DialogTestInstance = ComponentPublicInstance<
+  {},
+  {},
+  {
+    isOpen: boolean
+  }
+>
 
 describe('tests for UiDialog', () => {
   it('should render correctly with default slot', () => {
     const wrapper = mount(UiDialog, {
       slots: { default: '<div>dialog</div>' },
       props: { defaultOpen: true },
-    })
+    }) as VueWrapper<DialogTestInstance>
+
     expect(wrapper.html()).toContain('<div>dialog</div>')
   })
 
@@ -38,7 +31,7 @@ describe('tests for UiDialog', () => {
       global: {
         stubs: { teleport: true },
       },
-    })
+    }) as VueWrapper<DialogTestInstance>
 
     expect(wrapper.html()).toContain(OPEN_TEXT)
     expect(wrapper.html()).not.toContain(TITLE_TEXT)

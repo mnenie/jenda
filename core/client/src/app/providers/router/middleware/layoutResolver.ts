@@ -1,4 +1,4 @@
-import type { RouteLocationNormalized } from 'vue-router'
+import type { RouteLocationNormalized } from 'vue-router/auto'
 import { LayoutsEnum, LayoutToFileMap } from '@/layouts/model'
 
 export async function layoutResolverMiddleware(route: RouteLocationNormalized) {

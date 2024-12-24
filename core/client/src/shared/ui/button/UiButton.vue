@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/shared/lib/shadcn/utils'
+import { cn } from '@/shared/libs/shadcn/utils'
 import { createReusableTemplate } from '@vueuse/core'
 import { Primitive, type PrimitiveProps } from 'radix-vue'
 import { type ButtonVariants, buttonVariants } from '.'

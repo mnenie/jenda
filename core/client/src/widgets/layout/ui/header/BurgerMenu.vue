@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { MenuLink, SectionItem } from '../../model'
-import { useScroll } from '@/shared/lib/composables'
-import { redirect } from '@/shared/lib/helpers'
+import { useScroll } from '@/shared/composables'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { items as _items, menuLinks as _links } from '../../model'
@@ -43,11 +42,12 @@ const { scrollToEl } = useScroll(items.value.map(i => i.urlPrefix))
     />
     <div class="menu bg-main" :class="[isOpen ? 'menu-opened' : '']">
       <div class="flex flex-col gap-2.5">
-        <div
+        <a
           v-for="(link, index) in links"
           :key="index"
           class="flex items-center justify-between p-3 px-4 rounded-8px border-0.5px border-solid border-transparent cursor-pointer duration-100 ease dark:bg-neutral-700"
-          @click="redirect(link.url)"
+          :href="link.url"
+          target="_blank"
         >
           <p class="text-lg">
             {{ link.title }}
@@ -56,7 +56,7 @@ const { scrollToEl } = useScroll(items.value.map(i => i.urlPrefix))
             i-lucide-arrow-up-right
             class="text-neutral-400 text-lg"
           />
-        </div>
+        </a>
         <div class="sections">
           <div
             v-for="(i, index) in items"

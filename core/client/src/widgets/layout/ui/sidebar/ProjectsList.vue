@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
-import { useExpanded } from '@/shared/lib/composables'
+import { useExpanded } from '@/shared/composables'
 import { UiButton } from '@/shared/ui'
 import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router/auto'
 
 const props = defineProps<{
   boards: Board[]
@@ -12,7 +12,7 @@ const props = defineProps<{
 const showList = ref(true)
 const showPlusIcon = ref(false)
 
-const route = useRoute('/boards/[id]')
+const route = useRoute('board-id')
 
 const _projects = computed(() => {
   return props.boards.map(proj => ({
@@ -50,8 +50,7 @@ function changeShowList() {
         @click="changeShowList"
       />
       <p
-        class="text-neutral-500 dark:text-neutral-400 text-xs capitalize text-ellipsis
-        whitespace-nowrap overflow-hidden"
+        class="text-neutral-500 dark:text-neutral-400 text-xs capitalize text-ellipsis whitespace-nowrap overflow-hidden"
       >
         {{ $t('sidebar.projects') }}
       </p>
@@ -90,8 +89,7 @@ function changeShowList() {
         />
         <span
           v-show="isExpanded"
-          class="text-sm text-ellipsis overflow-hidden max-w-80%
-          whitespace-nowrap !fw500 text-neutral-900 dark:text-neutral-100"
+          class="text-13px 2xl:text-sm text-ellipsis overflow-hidden max-w-80% whitespace-nowrap !fw500 text-neutral-900 dark:text-neutral-100"
         >
           {{ project.name }}
         </span>

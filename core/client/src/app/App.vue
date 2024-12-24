@@ -16,7 +16,7 @@ const toasterTheme = computed<ToasterTheme>(() => {
 <template>
   <AppLayout>
     <RouterView v-slot="{ Component }">
-      <KeepAlive :include="['LoginPage', 'RegistrationPage']">
+      <KeepAlive :include="['sign-in', 'sign-up']">
         <component :is="Component" />
       </KeepAlive>
     </RouterView>

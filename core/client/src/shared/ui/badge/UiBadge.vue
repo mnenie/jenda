@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/shared/lib/shadcn/utils'
+import { cn } from '@/shared/libs/shadcn/utils'
 import { type BadgeVariants, badgeVariants } from '.'
 
 const { variant = 'default', class: badgeClass } = defineProps<{

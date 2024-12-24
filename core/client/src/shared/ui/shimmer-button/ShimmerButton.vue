@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { cn } from '@/shared/lib/shadcn/utils'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 interface ShimmerButtonProps {
   shimmerColor?: string
@@ -22,7 +22,7 @@ withDefaults(defineProps<ShimmerButtonProps>(), {
   <button
     :class="
       cn(
-        'btn btn-secondary z-0 relative overflow-hidden h-8 rounded-md px-3 dark:hover:bg-#2e2e2e',
+        'btn btn-secondary z-0 relative overflow-hidden h-9 2xl:h-8 rounded-md px-3 dark:hover:bg-#2e2e2e',
         $props.class,
       )
     "

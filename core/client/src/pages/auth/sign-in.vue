@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BgPanel, SignInForm } from '@/features/auth'
+import { SignInForm } from '@/features/auth/sign-in'
 import { LayoutsEnum } from '@/layouts/model'
 import { AuthContainer } from '@/widgets/auth'
 import { useHead } from '@unhead/vue'
@@ -9,17 +9,18 @@ definePage({
     layout: LayoutsEnum.auth,
     requiresAuth: false,
   },
+  name: 'sign-in',
 })
+
 useHead({
   title: 'Jenda | Sign In',
 })
 </script>
 
 <template>
-  <div class="w-full h-full flex">
+  <div class="auth-page">
     <AuthContainer>
       <SignInForm />
     </AuthContainer>
-    <BgPanel />
   </div>
 </template>

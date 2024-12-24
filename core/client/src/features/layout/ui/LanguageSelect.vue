@@ -1,8 +1,14 @@
 <script setup lang="ts">
-import { useLanguage } from '@/shared/lib/composables'
-import { cn } from '@/shared/lib/shadcn/utils'
-import { buttonVariants, UiButton } from '@/shared/ui/button'
-import { UiSelect, UiSelectContent, UiSelectItem, UiSelectTrigger } from '@/shared/ui/select'
+import { useLanguage } from '@/shared/composables'
+import { cn } from '@/shared/libs/shadcn/utils'
+import {
+  buttonVariants,
+  UiButton,
+  UiSelect,
+  UiSelectContent,
+  UiSelectItem,
+  UiSelectTrigger,
+} from '@/shared/ui'
 import { computed, reactive, ref } from 'vue'
 
 const locales = reactive([

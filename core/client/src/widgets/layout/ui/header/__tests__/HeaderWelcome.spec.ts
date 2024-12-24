@@ -1,12 +1,11 @@
 import type { VueWrapper } from '@vue/test-utils'
 import type { headerLinks } from './../../../model/fixtures/header'
-import i18n from '@/shared/lib/i18n'
+import i18n from '@/shared/libs/i18n'
 import { UiButton } from '@/shared/ui'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import { type ComponentPublicInstance, nextTick } from 'vue'
 import HeaderWelcome from '../HeaderWelcome.vue'
-import '@/shared/lib/vitest-utils/cookiesI18n-mock'
 
 type HeaderWelcomeInstance = ComponentPublicInstance<
   {},
@@ -57,7 +56,7 @@ describe('tests for HeaderWelcome.vue', () => {
     const loginButton = wrapper.find('.btns').findAllComponents(UiButton).at(0)
 
     await loginButton.trigger('click')
-    expect(mockRouter.push).toHaveBeenCalledWith('/auth/sign-in')
+    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'sign-in' })
   })
 
   it('should redirect correctly to registration', async () => {
@@ -67,6 +66,6 @@ describe('tests for HeaderWelcome.vue', () => {
       .at(1)
 
     await registrationButton.trigger('click')
-    expect(mockRouter.push).toHaveBeenCalledWith('/auth/sign-up')
+    expect(mockRouter.push).toHaveBeenCalledWith({ name: 'sign-up' })
   })
 })

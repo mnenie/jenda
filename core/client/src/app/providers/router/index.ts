@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router/auto'
 import { handleHotUpdate, routes } from 'vue-router/auto-routes'
 import { layoutResolverMiddleware } from './middleware'
 
@@ -11,7 +11,7 @@ export const router = createRouter({
 router.beforeEach((to, from) => {
   // Needs to add guard auth logic in router
   if (to.meta.requiresAuth === true) {
-    return router.push('/auth/sign-in')
+    return router.push({ name: 'sign-in' })
   }
 })
 

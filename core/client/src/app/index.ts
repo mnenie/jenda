@@ -1,4 +1,4 @@
-import i18n from '@/shared/lib/i18n'
+import i18n from '@/shared/libs/i18n'
 import { createHead } from '@unhead/vue'
 import { vTooltip } from 'floating-vue'
 import { createApp } from 'vue'
@@ -13,8 +13,8 @@ import autoAnimatePlugin from './plugins/formkit'
 import { pinia, router } from './providers'
 
 import './styles/primary/index.css'
-import 'virtual:uno.css'
 import '@unocss/reset/tailwind-compat.css'
+import 'virtual:uno.css'
 import 'floating-vue/dist/style.css'
 import 'vue-data-ui/style.css'
 

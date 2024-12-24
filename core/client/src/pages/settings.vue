@@ -5,7 +5,9 @@ definePage({
   meta: {
     requiresAuth: true,
   },
+  name: 'settings',
 })
+
 useHead({
   title: 'Jenda | Settings',
 })
