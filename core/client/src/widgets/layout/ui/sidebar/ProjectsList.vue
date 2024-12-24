@@ -12,7 +12,7 @@ const props = defineProps<{
 const showList = ref(true)
 const showPlusIcon = ref(false)
 
-const route = useRoute('board')
+const route = useRoute('board-id')
 
 const _projects = computed(() => {
   return props.boards.map(proj => ({

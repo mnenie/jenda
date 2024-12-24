@@ -26,7 +26,7 @@ declare module 'vue-router/auto-routes' {
     'confirm': RouteRecordInfo<'confirm', '/auth/sign-up/confirm', Record<never, never>, Record<never, never>>,
     'workspace': RouteRecordInfo<'workspace', '/auth/sign-up/workspace', Record<never, never>, Record<never, never>>,
     'boards': RouteRecordInfo<'boards', '/boards', Record<never, never>, Record<never, never>>,
-    'board': RouteRecordInfo<'board', '/boards/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'board-id': RouteRecordInfo<'board-id', '/boards/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'members': RouteRecordInfo<'members', '/members', Record<never, never>, Record<never, never>>,
     'settings': RouteRecordInfo<'settings', '/settings', Record<never, never>, Record<never, never>>,
     'tasks': RouteRecordInfo<'tasks', '/tasks', Record<never, never>, Record<never, never>>,
