@@ -47,7 +47,7 @@ const boards = ref<Board[]>([
         <HeaderMain :projects="boards" />
         <div
           class="relative h-full w-full !bg-main"
-          :style="{ padding: $route.name !== 'board' ? '12px 20px 20px 20px' : '0' }"
+          :style="{ padding: $route.name !== 'board-id' ? '12px 20px 20px 20px' : '0' }"
         >
           <slot />
         </div>
