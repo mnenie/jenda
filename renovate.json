@@ -36,14 +36,6 @@
       "enabled": true
     },
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "matchCurrentVersion": "!/^0/",
-      "automerge": true
-    },
-    {
       "matchFileNames": [
         "core/client/**"
       ],
@@ -67,8 +59,12 @@
   ],
   "dependencyDashboard": true,
   "semanticCommits": "enabled",
-  "commitMessagePrefix": "⬆️",
+  "commitMessagePrefix": "chore(dependencies)⬆️",
   "rebaseWhen": "auto",
   "minimumReleaseAge": "3 days",
-  "prCreation": "not-pending"
+  "prCreation": "immediate",
+  "prTitle": "⬆️ Update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
+  "commitBody": "Update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
+  "prBodyTemplate": "Updates {{{depName}}} from `{{{currentValue}}}` to `{{{newValue}}}`\n\n{{#if releaseNotes}}\n### Release Notes\n{{releaseNotes}}\n{{/if}}"
+
 }
