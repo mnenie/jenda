@@ -1,0 +1,70 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "baseBranches": [
+    "master"
+  ],
+  "schedule": [
+    "every weekend"
+  ],
+  "packageRules": [
+    {
+      "enabled": false,
+      "matchPackageNames": [
+        "/.*/"
+      ]
+    },
+    {
+      "matchPackageNames": [
+        "vue-i18n",
+        "radix-vue",
+        "unplugin-vue-router",
+        "@unocss/core",
+        "@unocss/reset",
+        "floating-vue",
+        "@vee-validate/zod",
+        "unocss",
+        "vee-validate",
+        "@vueuse/core",
+        "@vueuse/integrations",
+        "@unhead/vue",
+        "vite-plugin-vue-devtools",
+        "@vue/test-utils"
+      ],
+      "enabled": true
+    },
+    {
+      "matchFileNames": [
+        "core/client/**"
+      ],
+      "labels": [
+        "frontend",
+        "dependencies"
+      ]
+    }
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "prHourlyLimit": 4,
+  "prConcurrentLimit": 16,
+  "rangeStrategy": "pin",
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/public/**"
+  ],
+  "dependencyDashboard": true,
+  "semanticCommits": "enabled",
+  "commitMessagePrefix": "chore(dependencies)⬆️",
+  "rebaseWhen": "auto",
+  "minimumReleaseAge": "3 days",
+  "prCreation": "immediate",
+  "prTitle": "⬆️ Update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
+  "commitBody": "Update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
+  "prBodyTemplate": "Updates {{{depName}}} from `{{{currentValue}}}` to `{{{newValue}}}`\n\n{{#if releaseNotes}}\n### Release Notes\n{{releaseNotes}}\n{{/if}}"
+
+}
