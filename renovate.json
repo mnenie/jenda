@@ -1,15 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "baseBranches": [
     "master"
   ],
-  "schedule": ["every weekend"],
+  "schedule": [
+    "every weekend"
+  ],
   "packageRules": [
     {
-     "matchPackageNames": [
+      "matchPackageNames": [
         "vue-i18n",
         "radix-vue",
         "unplugin-vue-router",
@@ -24,24 +26,36 @@
         "@unhead/vue",
         "vite-plugin-vue-devtools",
         "@vue/test-utils"
-        ],
-        "enabled": true
+      ],
+      "enabled": true
     },
     {
-        "matchPackagePatterns": [".*"],
-        "enabled": false
+      "enabled": false,
+      "matchPackageNames": [
+        "/.*/"
+      ]
     },
     {
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
     },
     {
-      "matchPaths": ["core/client/**"],
-      "labels": ["frontend", "dependencies"]
+      "matchFileNames": [
+        "core/client/**"
+      ],
+      "labels": [
+        "frontend",
+        "dependencies"
+      ]
     }
   ],
-  "labels": ["dependencies"],
+  "labels": [
+    "dependencies"
+  ],
   "prHourlyLimit": 4,
   "prConcurrentLimit": 16,
   "rangeStrategy": "pin",
@@ -55,6 +69,6 @@
   "semanticCommits": "enabled",
   "commitMessagePrefix": "⬆️",
   "rebaseWhen": "auto",
-  "stabilityDays": 3,
+  "minimumReleaseAge": "3 days",
   "prCreation": "not-pending"
-} 
+}
