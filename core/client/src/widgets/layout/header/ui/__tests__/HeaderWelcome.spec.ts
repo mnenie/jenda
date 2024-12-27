@@ -1,5 +1,5 @@
 import type { VueWrapper } from '@vue/test-utils'
-import type { headerLinks } from './../../../model/fixtures/header'
+import type { headerLinks } from '../../model/fixtures'
 import i18n from '@/shared/libs/i18n'
 import { UiButton } from '@/shared/ui'
 import { shallowMount } from '@vue/test-utils'

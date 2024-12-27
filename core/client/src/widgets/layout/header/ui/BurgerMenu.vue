@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { MenuLink, SectionItem } from '../../model'
+import type { MenuLink, SectionItem } from '../model/types'
 import { useScroll } from '@/shared/composables'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { items as _items, menuLinks as _links } from '../../model'
+import { items as _items, menuLinks as _links } from '../model/fixtures'
 
 const isOpen = ref(false)
 

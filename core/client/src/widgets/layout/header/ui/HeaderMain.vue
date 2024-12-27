@@ -3,10 +3,10 @@ import type { Board } from '@/entities/board'
 import type { ProjectLink } from '@/shared/config/types-shared'
 import { type User, UserAvatar } from '@/entities/user'
 import { useLayoutPaths } from '@/shared/composables'
+import { links } from '@/shared/constants'
 import { HotkeysDialog, ShareDialog } from '@/widgets/dialogs'
 import { Icon } from '@iconify/vue'
 import { computed, shallowReactive, toRef } from 'vue'
-import { links } from '../../model'
 import UserMenu from './UserMenu.vue'
 
 const props = defineProps<{

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { Board } from '@/entities/board'
 import { useExpanded } from '@/shared/composables'
+import { links } from '@/shared/constants'
 import { PlanCard } from '@/widgets/plan'
 import { refDebounced } from '@vueuse/core'
 import { computed } from 'vue'
-import { links } from '../../model'
 import InfoMenu from './InfoMenu.vue'
 import IntegrationItems from './IntegrationItems.vue'
 import ProjectsList from './ProjectsList.vue'

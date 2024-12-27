@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IntegrationItem } from '../../model'
+import type { IntegrationItem } from '../model/types'
 import { useExpanded } from '@/shared/composables'
 import { redirect } from '@/shared/helpers'
 import { UiBadge, UiButton } from '@/shared/ui'
