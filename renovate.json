@@ -11,6 +11,12 @@
   ],
   "packageRules": [
     {
+      "enabled": false,
+      "matchPackageNames": [
+        "/.*/"
+      ]
+    },
+    {
       "matchPackageNames": [
         "vue-i18n",
         "radix-vue",
@@ -28,12 +34,6 @@
         "@vue/test-utils"
       ],
       "enabled": true
-    },
-    {
-      "enabled": false,
-      "matchPackageNames": [
-        "/.*/"
-      ]
     },
     {
       "matchUpdateTypes": [
