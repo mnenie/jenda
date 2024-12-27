@@ -1,0 +1,74 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "baseBranches": [
+    "master"
+  ],
+  "schedule": [
+    "every weekend"
+  ],
+  "packageRules": [
+    {
+      "enabled": false,
+      "matchPackageNames": [
+        "/.*/"
+      ]
+    },
+    {
+      "matchPackageNames": [
+        "vue-i18n",
+        "radix-vue",
+        "unplugin-vue-router",
+        "@unocss/core",
+        "@unocss/reset",
+        "floating-vue",
+        "@vee-validate/zod",
+        "unocss",
+        "vee-validate",
+        "@vueuse/core",
+        "@vueuse/integrations",
+        "@unhead/vue",
+        "vite-plugin-vue-devtools",
+        "@vue/test-utils"
+      ],
+      "enabled": true
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    },
+    {
+      "matchFileNames": [
+        "core/client/**"
+      ],
+      "labels": [
+        "frontend",
+        "dependencies"
+      ]
+    }
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "prHourlyLimit": 4,
+  "prConcurrentLimit": 16,
+  "rangeStrategy": "pin",
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/public/**"
+  ],
+  "dependencyDashboard": true,
+  "semanticCommits": "enabled",
+  "commitMessagePrefix": "⬆️",
+  "rebaseWhen": "auto",
+  "minimumReleaseAge": "3 days",
+  "prCreation": "not-pending"
+}
