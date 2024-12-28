@@ -1,8 +1,8 @@
-import i18n from '@/shared/libs/i18n'
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import { useRoute } from 'vue-router/auto'
 import WorkSpace from '../WorkSpace.vue'
+import i18n from '@/shared/libs/i18n'
 
 vi.mock('vue-router/auto')
 

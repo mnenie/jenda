@@ -1,9 +1,9 @@
-import type { VueWrapper } from '@vue/test-utils'
-import type { ComponentPublicInstance } from 'vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { UiDialog } from '..'
 import DialogTest from './MockComponent.vue'
+import type { ComponentPublicInstance } from 'vue'
+import type { VueWrapper } from '@vue/test-utils'
 
 const OPEN_TEXT = 'open'
 const TITLE_TEXT = 'title'

@@ -1,4 +1,3 @@
-import type { HippieNav } from '@noction/hippie-nav'
 import {
   effectScope,
   nextTick,
@@ -7,6 +6,7 @@ import {
   toValue,
   watch,
 } from 'vue'
+import type { HippieNav } from '@noction/hippie-nav'
 
 export function useSearch<T extends InstanceType<typeof HippieNav>>(
   hippieNav: Ref<T | null>,

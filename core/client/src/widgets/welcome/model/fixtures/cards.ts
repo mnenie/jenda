@@ -1,5 +1,5 @@
-import type { MarketingCard } from '../types'
 import { shallowRef } from 'vue'
+import type { MarketingCard } from '../types'
 
 export const cardsInfo = shallowRef<MarketingCard[]>([
   {

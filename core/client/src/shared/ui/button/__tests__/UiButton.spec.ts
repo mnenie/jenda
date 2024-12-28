@@ -1,7 +1,7 @@
-import type { ButtonVariants } from '..'
 import { mount, shallowMount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import UiButton from '../UiButton.vue'
+import type { ButtonVariants } from '..'
 
 describe('tests for UiButton', () => {
   // with <primitive-stub />

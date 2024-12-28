@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import { WorkspaceForm } from '@/features/auth/sign-up'
 import { LayoutsEnum } from '@/layouts/model'
 import { WorkspaceLogoChooser, WorkspaceSection } from '@/widgets/auth'
-import { useHead } from '@unhead/vue'
 
 definePage({
   meta: {

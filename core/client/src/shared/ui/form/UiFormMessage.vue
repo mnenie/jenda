@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { computed, useAttrs } from 'vue'
 import { Icon, type IconifyIcon } from '@iconify/vue'
 import { twMerge } from 'tailwind-merge'
-import { computed, useAttrs } from 'vue'
 
 interface MessageProps {
   icon?: IconifyIcon | string

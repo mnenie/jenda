@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import { ImportTemplate } from '@/entities/template'
 import UiButton from '@/shared/ui/button/UiButton.vue'
 import UiDialog from '@/shared/ui/dialog/UiDialog.vue'
 import UiDialogContent from '@/shared/ui/dialog/UiDialogContent.vue'
 import UiDialogTrigger from '@/shared/ui/dialog/UiDialogTrigger.vue'
 import { AllTemplates } from '@/widgets/templates'
-import { useHead } from '@unhead/vue'
 
 definePage({
   meta: {

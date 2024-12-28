@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
-import { DropdownMenuLabel, type DropdownMenuLabelProps, useForwardProps } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
+import { DropdownMenuLabel, type DropdownMenuLabelProps, useForwardProps } from 'radix-vue'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 const props = defineProps<DropdownMenuLabelProps & { class?: HTMLAttributes['class'], inset?: boolean }>()
 

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
+import { computed, markRaw, ref } from 'vue'
+import { useWindowSize } from '@vueuse/core'
+import { VueUiKpi } from 'vue-data-ui'
 import { type Chart, ChartItemWrapper } from '@/entities/chart'
 import { useBreakpoints } from '@/shared/composables'
-import { useWindowSize } from '@vueuse/core'
-import { computed, markRaw, ref } from 'vue'
-import { VueUiKpi } from 'vue-data-ui'
 
 const { width } = useWindowSize()
 

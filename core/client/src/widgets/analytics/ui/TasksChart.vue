@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { type Chart, ChartItemWrapper } from '@/entities/chart'
-import { useCharts } from '@/entities/chart/model/composables'
-import { useDark } from '@vueuse/core'
 import { computed, markRaw, ref } from 'vue'
+import { useDark } from '@vueuse/core'
 import { VueUiDonut } from 'vue-data-ui'
 import { useI18n } from 'vue-i18n'
+import { useCharts } from '@/entities/chart/model/composables'
+import { type Chart, ChartItemWrapper } from '@/entities/chart'
 
 const isDark = useDark()
 

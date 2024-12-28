@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { UiButton, UiFormField, UiFormLabel, UiFormMessage, UiInput } from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
 import { createReusableTemplate } from '@vueuse/core'
 import { useField, useForm } from 'vee-validate'
 import { useRouter } from 'vue-router/auto'
 import { z } from 'zod'
+import { UiButton, UiFormField, UiFormLabel, UiFormMessage, UiInput } from '@/shared/ui'
 
 const validationSchema = toTypedSchema(
   z.object({

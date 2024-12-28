@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
-import { SelectScrollUpButton, type SelectScrollUpButtonProps, useForwardProps } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
+import { SelectScrollUpButton, type SelectScrollUpButtonProps, useForwardProps } from 'radix-vue'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 const props = defineProps<SelectScrollUpButtonProps & { class?: HTMLAttributes['class'] }>()
 

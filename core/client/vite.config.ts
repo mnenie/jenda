@@ -1,4 +1,3 @@
-import type { TreeNode } from 'unplugin-vue-router'
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
@@ -7,6 +6,7 @@ import UnpluginVueRouterExtend from 'unplugin-vue-router-extend/vite'
 import UnpluginVueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import type { TreeNode } from 'unplugin-vue-router'
 
 const routeMap = new Map<string, TreeNode>()
 export default defineConfig({

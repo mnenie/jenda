@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
-import { Label, type LabelProps } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
+import { Label, type LabelProps } from 'radix-vue'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 const props = defineProps<LabelProps & { class?: HTMLAttributes['class'] }>()
 

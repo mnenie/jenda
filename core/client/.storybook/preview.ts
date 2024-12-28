@@ -1,8 +1,8 @@
-import type { Preview } from '@storybook/vue3'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { themes } from '@storybook/theming'
 import { useColorMode } from '@vueuse/core'
+import type { Preview } from '@storybook/vue3'
 
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind-compat.css'

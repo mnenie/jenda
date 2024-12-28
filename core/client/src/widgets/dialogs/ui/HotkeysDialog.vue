@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { createReusableTemplate } from '@vueuse/core'
 import {
   UiAlert,
   UiBadge,
@@ -8,7 +9,6 @@ import {
   UiDialogTitle,
   UiDialogTrigger,
 } from '@/shared/ui'
-import { createReusableTemplate } from '@vueuse/core'
 
 defineOptions({
   inheritAttrs: false,

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Board } from '@/entities/board'
 import { ref } from 'vue'
+import type { Board } from '@/entities/board'
 
 // mocks -> after data from backend
 const board = ref<Board>({

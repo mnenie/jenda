@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+import { useDark, useWindowSize } from '@vueuse/core'
+import { useI18n } from 'vue-i18n'
 import { redirect } from '@/shared/helpers'
 import { UiButton } from '@/shared/ui'
-import { useDark, useWindowSize } from '@vueuse/core'
-import { computed, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const { width } = useWindowSize()

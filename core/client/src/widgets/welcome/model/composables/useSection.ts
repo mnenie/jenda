@@ -1,7 +1,7 @@
-import type { SectionWrapperType } from '../types'
-import { useDark } from '@vueuse/core'
 import { computed, type MaybeRefOrGetter } from 'vue'
+import { useDark } from '@vueuse/core'
 import { useI18n } from 'vue-i18n'
+import type { SectionWrapperType } from '../types'
 
 export default function useSection(
   _section: MaybeRefOrGetter<string>,

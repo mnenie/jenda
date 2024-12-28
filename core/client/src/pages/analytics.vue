@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useHead } from '@unhead/vue'
 import { useBreakpoints } from '@/shared/composables'
 import { UiBadge } from '@/shared/ui'
 import { BoardsChart, OnlineChart, SharedSection, TasksChart, UsersChart } from '@/widgets/analytics'
-import { useHead } from '@unhead/vue'
-import { computed } from 'vue'
 
 const { breakpoints } = useBreakpoints()
 

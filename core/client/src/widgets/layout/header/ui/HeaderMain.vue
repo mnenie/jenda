@@ -1,13 +1,13 @@
 <script setup lang="ts" generic="T extends Board">
+import { computed, shallowReactive, toRef } from 'vue'
+import { Icon } from '@iconify/vue'
+import UserMenu from './UserMenu.vue'
 import type { Board } from '@/entities/board'
 import type { ProjectLink } from '@/shared/config/types-shared'
 import { type User, UserAvatar } from '@/entities/user'
 import { useLayoutPaths } from '@/shared/composables'
 import { links } from '@/shared/constants'
 import { HotkeysDialog, ShareDialog } from '@/widgets/dialogs'
-import { Icon } from '@iconify/vue'
-import { computed, shallowReactive, toRef } from 'vue'
-import UserMenu from './UserMenu.vue'
 
 const props = defineProps<{
   projects: Board[]

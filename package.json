@@ -17,8 +17,7 @@
   "scripts": {
     "dev:picker": "tsx scripts/picker.ts dev --open",
     "build:all": "pnpm -r build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "pnpm -r lint",
     "lint:inspect": "npx @eslint/config-inspector",
     "test:unit": "pnpm -r test:unit",
     "type-check": "pnpm -r typecheck",
@@ -32,6 +31,9 @@
     "lint-staged": "^15.2.10"
   },
   "lint-staged": {
-    "*.{js,ts,vue,tsx}": "eslint --fix"
+    "*.{js,ts,vue,tsx}": [
+      "pnpm lint",
+      "pnpm type-check"
+    ]
   }
 }

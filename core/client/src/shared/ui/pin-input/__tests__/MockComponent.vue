@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { PinInputRootEmits, PinInputRootProps } from 'radix-vue'
-import { useEmitAsProps } from 'radix-vue'
 import { ref } from 'vue'
+import { useEmitAsProps } from 'radix-vue'
 import { UiPinInput, UiPinInputInput } from '../index'
+import type { PinInputRootEmits, PinInputRootProps } from 'radix-vue'
 
 const props = defineProps<PinInputRootProps>()
 const emits = defineEmits<PinInputRootEmits>()

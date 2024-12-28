@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import { LayoutsEnum } from '@/layouts/model'
 import {
   AboutSection,
@@ -11,7 +12,6 @@ import {
   MembersSection,
   ProjectDemo,
 } from '@/widgets/welcome'
-import { useHead } from '@unhead/vue'
 
 definePage({
   meta: {

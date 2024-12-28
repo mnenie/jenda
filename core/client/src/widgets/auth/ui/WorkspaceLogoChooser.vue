@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { provide, shallowRef, toValue } from 'vue'
+import { useFileSystemAccess, useObjectUrl } from '@vueuse/core'
 import { HandleLogo } from '@/features/auth/sign-up'
 import { authWorkspaceKey } from '@/shared/constants'
-import { useFileSystemAccess, useObjectUrl } from '@vueuse/core'
-import { provide, shallowRef, toValue } from 'vue'
 
 const url = shallowRef()
 

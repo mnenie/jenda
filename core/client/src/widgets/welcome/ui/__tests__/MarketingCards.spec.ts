@@ -1,10 +1,10 @@
+import { type ComponentPublicInstance, nextTick } from 'vue'
+import { mount } from '@vue/test-utils'
+import { describe, expect, it } from 'vitest'
+import MarketingCards from '../MarketingCards.vue'
 import type { VueWrapper } from '@vue/test-utils'
 import i18n from '@/shared/libs/i18n'
 import { UiCard } from '@/shared/ui'
-import { mount } from '@vue/test-utils'
-import { describe, expect, it } from 'vitest'
-import { type ComponentPublicInstance, nextTick } from 'vue'
-import MarketingCards from '../MarketingCards.vue'
 
 // TODO: `ComponentPublicInstance` needs to be fixed with certain types
 type MarketingCardsInstance = ComponentPublicInstance<

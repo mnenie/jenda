@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '@/shared/libs/shadcn/utils'
 import { createReusableTemplate } from '@vueuse/core'
 import { Primitive, type PrimitiveProps } from 'radix-vue'
 import { type ButtonVariants, buttonVariants } from '.'
+import type { HTMLAttributes } from 'vue'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 interface Props extends PrimitiveProps {
   variant?: ButtonVariants['variant']

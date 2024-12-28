@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { MarketingCard } from '../model'
-import { UiCard } from '@/shared/ui'
-import { useDark, useWindowSize } from '@vueuse/core'
 import { computed } from 'vue'
+import { useDark, useWindowSize } from '@vueuse/core'
 import { useI18n } from 'vue-i18n'
 import { useCards } from '../model/composables'
+import type { MarketingCard } from '../model'
+import { UiCard } from '@/shared/ui'
 
 const { tm, t } = useI18n()
 

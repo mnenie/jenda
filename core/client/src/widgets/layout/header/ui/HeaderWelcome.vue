@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useDark, useWindowSize } from '@vueuse/core'
+import { useI18n } from 'vue-i18n'
+import { headerLinks } from '../model/fixtures'
+import BurgerMenu from './BurgerMenu.vue'
 import type { HeaderNavLink } from '../model/types'
 import { LanguageSelect, ThemeSwitcher } from '@/features/layout'
 import { useScroll } from '@/shared/composables'
 import { UiButton } from '@/shared/ui'
-import { useDark, useWindowSize } from '@vueuse/core'
-import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { headerLinks } from '../model/fixtures'
-import BurgerMenu from './BurgerMenu.vue'
 
 const isDark = useDark()
 

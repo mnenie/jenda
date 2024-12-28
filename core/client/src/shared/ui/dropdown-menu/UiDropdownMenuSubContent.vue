@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
+import { computed, type HTMLAttributes } from 'vue'
 import {
   DropdownMenuSubContent,
   type DropdownMenuSubContentEmits,
   type DropdownMenuSubContentProps,
   useForwardPropsEmits,
 } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 const props = defineProps<DropdownMenuSubContentProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<DropdownMenuSubContentEmits>()

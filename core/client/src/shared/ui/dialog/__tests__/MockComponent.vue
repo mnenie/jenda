@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { reactiveOmit } from '@vueuse/core'
 import { type DialogRootEmits, type DialogRootProps, useEmitAsProps } from 'radix-vue'
-import { ref } from 'vue'
 import {
   UiDialog,
   UiDialogContent,

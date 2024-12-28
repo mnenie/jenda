@@ -1,6 +1,6 @@
+import { nextTick } from 'vue'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
-import { nextTick } from 'vue'
 import UiAlert from '../UiAlert.vue'
 
 describe('tests for UiAlert', () => {

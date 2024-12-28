@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { LogoFile, PrivacyPolicy } from '@/features/auth/common'
-import { GoogleOauth } from '@/features/auth/oauth'
-import { UiAlert } from '@/shared/ui'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router/auto'
+import { LogoFile, PrivacyPolicy } from '@/features/auth/common'
+import { GoogleOauth } from '@/features/auth/oauth'
+import { UiAlert } from '@/shared/ui'
 
 const route = useRoute()
 const { t } = useI18n()

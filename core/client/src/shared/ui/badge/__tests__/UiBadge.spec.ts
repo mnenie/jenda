@@ -1,7 +1,7 @@
-import type { BadgeVariants } from '..'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import UiBadge from '../UiBadge.vue'
+import type { BadgeVariants } from '..'
 
 describe('tests for UiBadge', () => {
   const wrapper = shallowMount(UiBadge, {
