@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
+// @ts-expect-error missing type
 import { Pane, Splitpanes } from 'splitpanes'
 import type { Board } from '@/entities/board'
 import { useExpanded } from '@/shared/composables'
 import { AppSidebar, HeaderMain } from '@/widgets/layout'
 
-// @ts-expect-error missing type
 import 'splitpanes/dist/splitpanes.css'
 
 const isExpanded = useLocalStorage('isExpanded', true)
