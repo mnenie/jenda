@@ -1,6 +1,3 @@
-import { combineConfigs } from '@jenda/eslint-config'
-import clientEslintConfig from './core/client/eslint.config.js'
+import jendaEslintConfig from '@jenda/eslint-config'
 
-export default combineConfigs(
-  clientEslintConfig,
-)
+export default jendaEslintConfig()

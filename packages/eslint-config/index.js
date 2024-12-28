@@ -1,21 +1,14 @@
-import antfu, { combine, renamePluginInConfigs } from '@antfu/eslint-config'
+import antfu from '@antfu/eslint-config'
 
 /** @type {import('@jenda/eslint-config').Eslint} */
 export default function jendaEslintConfig({ ...options } = {}, ...configs) {
   return antfu(
     {
-      ignores: [
-        '**/types',
-        '**/cache',
-        '**/dist',
-        '**/.temp',
-        '**/*.svg',
-        '**/node_modules',
-        '**/coverage/**',
-      ],
+      typescript: true,
       ...options,
     },
     {
+      name: '@jenda/eslint-config/base',
       rules: {
         'no-console': 'error',
         'no-alert': 'error',
@@ -26,11 +19,17 @@ export default function jendaEslintConfig({ ...options } = {}, ...configs) {
         'unused-imports/no-unused-vars': 'off',
       },
     },
+    {
+      ignores: [
+        '**/types',
+        '**/cache',
+        '**/dist',
+        '**/.temp',
+        '**/*.svg',
+        '**/node_modules',
+        '**/coverage/**',
+      ],
+    },
     ...configs,
   )
-}
-
-export {
-  combine as combineConfigs,
-  renamePluginInConfigs,
 }
