@@ -1,5 +1,5 @@
-import { useBreakpoints, useExpanded } from '@/shared/composables'
 import { computed } from 'vue'
+import { useBreakpoints, useExpanded } from '@/shared/composables'
 
 export function useCharts() {
   const { breakpoints } = useBreakpoints()

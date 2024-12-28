@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { inject } from 'vue'
 import { authWorkspaceKey } from '@/shared/constants'
 import { UiButton } from '@/shared/ui'
-import { inject } from 'vue'
 
 const { openFileChooser, reset } = inject(authWorkspaceKey)!
 </script>

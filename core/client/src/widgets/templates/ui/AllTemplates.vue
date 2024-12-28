@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { TemplateItem, templatesInfo } from '@/entities/template'
-import { useLocalStorage, useWindowSize } from '@vueuse/core'
 import { computed } from 'vue'
+import { useLocalStorage, useWindowSize } from '@vueuse/core'
 import { useI18n } from 'vue-i18n'
+import { TemplateItem, templatesInfo } from '@/entities/template'
 
 const { tm } = useI18n()
 const isExpanded = useLocalStorage('isExpanded', true)

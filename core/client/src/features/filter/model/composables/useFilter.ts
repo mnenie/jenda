@@ -1,6 +1,6 @@
-import type { Ref } from 'vue'
-import { useEventListener } from '@vueuse/core'
 import { nextTick } from 'vue'
+import { useEventListener } from '@vueuse/core'
+import type { Ref } from 'vue'
 
 export default function useFilter(
   inputRef: Ref<HTMLElement | null>,

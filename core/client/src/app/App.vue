@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { AppLayout } from '@/layouts'
-import { useDark } from '@vueuse/core'
 import { computed } from 'vue'
+import { useDark } from '@vueuse/core'
 import { Toaster } from 'vue-sonner'
+import { AppLayout } from '@/layouts'
 
 type ToasterTheme = 'dark' | 'light'
 

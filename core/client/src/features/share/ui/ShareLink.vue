@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { UiButton, UiInput } from '@/shared/ui'
 import { useClipboard } from '@vueuse/core'
 import { toast } from 'vue-sonner'
+import { UiButton, UiInput } from '@/shared/ui'
 
 const source = 'https://jenda/link/12103032'
 

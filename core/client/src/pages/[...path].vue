@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { LayoutsEnum } from '@/layouts/model'
-import { UiButton } from '@/shared/ui'
 import { useHead } from '@unhead/vue'
 import { useWindowSize } from '@vueuse/core'
+import { LayoutsEnum } from '@/layouts/model'
+import { UiButton } from '@/shared/ui'
 
 definePage({
   meta: {

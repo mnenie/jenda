@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
+import { computed, type HTMLAttributes } from 'vue'
 import {
   DropdownMenuCheckboxItem,
   type DropdownMenuCheckboxItemEmits,
@@ -7,7 +7,7 @@ import {
   DropdownMenuItemIndicator,
   useForwardPropsEmits,
 } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 const props = defineProps<DropdownMenuCheckboxItemProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<DropdownMenuCheckboxItemEmits>()

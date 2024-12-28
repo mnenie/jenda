@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, reactive, ref } from 'vue'
 import { useLanguage } from '@/shared/composables'
 import { cn } from '@/shared/libs/shadcn/utils'
 import {
@@ -9,7 +10,6 @@ import {
   UiSelectItem,
   UiSelectTrigger,
 } from '@/shared/ui'
-import { computed, reactive, ref } from 'vue'
 
 const locales = reactive([
   { value: 'en-US', name: 'EN' },

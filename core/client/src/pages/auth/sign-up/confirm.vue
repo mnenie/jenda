@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import { ConfirmForm } from '@/features/auth/sign-up'
 import { LayoutsEnum } from '@/layouts/model'
 import { ConfirmSection } from '@/widgets/auth'
-import { useHead } from '@unhead/vue'
 
 definePage({
   meta: {

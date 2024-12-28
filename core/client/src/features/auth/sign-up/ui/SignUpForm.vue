@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { z } from '@/shared/libs/vee-validate'
+import { toTypedSchema } from '@vee-validate/zod'
+import { createReusableTemplate } from '@vueuse/core'
+import { useField, useForm } from 'vee-validate'
+import { useRouter } from 'vue-router/auto'
+import { toast } from 'vue-sonner'
 import {
   UiButton,
   UiFormField,
@@ -7,11 +11,7 @@ import {
   UiFormMessage,
   UiInput,
 } from '@/shared/ui'
-import { toTypedSchema } from '@vee-validate/zod'
-import { createReusableTemplate } from '@vueuse/core'
-import { useField, useForm } from 'vee-validate'
-import { useRouter } from 'vue-router/auto'
-import { toast } from 'vue-sonner'
+import { z } from '@/shared/libs/vee-validate'
 
 const validationSchema = toTypedSchema(
   z.object({

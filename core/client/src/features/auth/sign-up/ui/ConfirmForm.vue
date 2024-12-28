@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { UiButton, UiFormField, UiFormMessage, UiPinInput, UiPinInputGroup, UiPinInputInput } from '@/shared/ui'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
 import { useRouter } from 'vue-router/auto'
 import { toast } from 'vue-sonner'
 import { z } from 'zod'
+import { UiButton, UiFormField, UiFormMessage, UiPinInput, UiPinInputGroup, UiPinInputInput } from '@/shared/ui'
 
 const formSchema = toTypedSchema(z.object({
   pin: z.array(z.coerce.string()).length(5),

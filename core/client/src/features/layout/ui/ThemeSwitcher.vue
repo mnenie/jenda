@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { UiButton } from '@/shared/ui'
 import { useDark, useToggle } from '@vueuse/core'
+import { UiButton } from '@/shared/ui'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)

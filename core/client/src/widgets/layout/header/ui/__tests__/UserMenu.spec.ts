@@ -1,9 +1,9 @@
-import i18n from '@/shared/libs/i18n'
-import { UiDropdownMenuItem, UiDropdownMenuTrigger } from '@/shared/ui'
+import { nextTick } from 'vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
-import { nextTick } from 'vue'
 import UserMenu from '../UserMenu.vue'
+import i18n from '@/shared/libs/i18n'
+import { UiDropdownMenuItem, UiDropdownMenuTrigger } from '@/shared/ui'
 
 const mockRouter = {
   push: vi.fn(),

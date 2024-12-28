@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
-import { PinInputInput, type PinInputInputProps, useForwardProps } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
+import { PinInputInput, type PinInputInputProps, useForwardProps } from 'radix-vue'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 const props = defineProps<PinInputInputProps & { class?: HTMLAttributes['class'] }>()
 

@@ -1,6 +1,6 @@
+import autoAnimate from '@formkit/auto-animate'
 import type { AutoAnimateOptions } from '@formkit/auto-animate'
 import type { App } from 'vue'
-import autoAnimate from '@formkit/auto-animate'
 
 export default {
   install: (app: App, options?: Partial<AutoAnimateOptions>) => {

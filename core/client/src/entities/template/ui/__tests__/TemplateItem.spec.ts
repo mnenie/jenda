@@ -1,8 +1,8 @@
-import i18n from '@/shared/libs/i18n'
 import { shallowMount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { templatesInfo } from '../../model'
 import TemplateItem from '../TemplateItem.vue'
+import i18n from '@/shared/libs/i18n'
 
 describe('tests for TemplateItem.vue', () => {
   const wrapper = shallowMount(TemplateItem, {

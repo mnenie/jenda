@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { SectionWrapperType } from '../../model'
-import { useWindowSize } from '@vueuse/core'
 import { computed, ref, watch } from 'vue'
+import { useWindowSize } from '@vueuse/core'
 import { useI18n } from 'vue-i18n'
+import type { SectionWrapperType } from '../../model'
 
 const { section, direction = 'default', id } = defineProps<{
   section: SectionWrapperType

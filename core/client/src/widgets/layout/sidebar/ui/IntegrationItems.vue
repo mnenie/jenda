@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue/dist/iconify.js'
 import type { IntegrationItem } from '../model/types'
 import { useExpanded } from '@/shared/composables'
 import { redirect } from '@/shared/helpers'
 import { UiBadge, UiButton } from '@/shared/ui'
-import { Icon } from '@iconify/vue/dist/iconify.js'
 
 const items = [
   { name: 'GitLab', icon: 'devicon:gitlab', link: 'https://gitlab.com/' },

@@ -1,7 +1,6 @@
-import i18n from '@/shared/libs/i18n'
+import { createApp } from 'vue'
 import { createHead } from '@unhead/vue'
 import { vTooltip } from 'floating-vue'
-import { createApp } from 'vue'
 import Vue3Marquee from 'vue3-marquee'
 import { VueUiRadar } from 'vue-data-ui'
 
@@ -11,6 +10,7 @@ import App from './App.vue'
 import autoAnimatePlugin from './plugins/formkit'
 
 import { pinia, router } from './providers'
+import i18n from '@/shared/libs/i18n'
 
 import './styles/primary/index.css'
 import '@unocss/reset/tailwind-compat.css'

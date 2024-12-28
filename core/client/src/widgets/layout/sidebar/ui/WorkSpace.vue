@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { Icon } from '@iconify/vue'
+import { useRoute } from 'vue-router/auto'
 import type { WorkspaceLink } from '@/shared/config/types-shared'
 import { useExpanded } from '@/shared/composables'
 import { UiBadge, UiButton } from '@/shared/ui'
-import { Icon } from '@iconify/vue'
-import { computed } from 'vue'
-import { useRoute } from 'vue-router/auto'
 
 const props = defineProps<{
   links: WorkspaceLink[]

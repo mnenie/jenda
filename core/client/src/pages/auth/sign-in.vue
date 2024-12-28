@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import { SignInForm } from '@/features/auth/sign-in'
 import { LayoutsEnum } from '@/layouts/model'
 import { AuthContainer } from '@/widgets/auth'
-import { useHead } from '@unhead/vue'
 
 definePage({
   meta: {

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { watch } from 'vue'
+import { useMagicKeys } from '@vueuse/core'
+import { useRouter } from 'vue-router/auto'
 import {
   UiDropdownMenu,
   UiDropdownMenuContent,
@@ -9,9 +12,6 @@ import {
   UiDropdownMenuShortcut,
   UiDropdownMenuTrigger,
 } from '@/shared/ui'
-import { useMagicKeys } from '@vueuse/core'
-import { watch } from 'vue'
-import { useRouter } from 'vue-router/auto'
 
 const router = useRouter()
 

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
+import { computed, type HTMLAttributes } from 'vue'
 import {
   DropdownMenuSubTrigger,
   type DropdownMenuSubTriggerProps,
   useForwardProps,
 } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 const props = defineProps<DropdownMenuSubTriggerProps & { class?: HTMLAttributes['class'] }>()
 

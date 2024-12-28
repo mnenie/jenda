@@ -1,5 +1,5 @@
-import type { Meta, StoryFn } from '@storybook/vue3'
 import UiButton from './UiButton.vue'
+import type { Meta, StoryFn } from '@storybook/vue3'
 
 export default {
   title: 'UiButton',

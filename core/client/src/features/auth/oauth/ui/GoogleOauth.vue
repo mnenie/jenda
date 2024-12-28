@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { UiButton } from '@/shared/ui'
 import { ref } from 'vue'
 import { toast } from 'vue-sonner'
+import { UiButton } from '@/shared/ui'
 
 const isLoading = ref(false)
 

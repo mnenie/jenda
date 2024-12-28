@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { computed, markRaw, ref } from 'vue'
+import { useDark } from '@vueuse/core'
+import { VueUiSparkHistogram } from 'vue-data-ui'
 import { type Chart, ChartItemWrapper } from '@/entities/chart'
 import { useCharts } from '@/entities/chart/model/composables'
-import { useDark } from '@vueuse/core'
-import { computed, markRaw, ref } from 'vue'
-import { VueUiSparkHistogram } from 'vue-data-ui'
 
 const isDark = useDark()
 

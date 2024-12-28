@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
 import { computed, type HTMLAttributes, ref } from 'vue'
 import { alertVariants, type AlertVariants } from '.'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 interface AlertProps {
   variant?: AlertVariants['variant']

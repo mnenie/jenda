@@ -1,4 +1,3 @@
-import type { Preset, StaticShortcutMap } from '@unocss/core'
 import { alert } from './alert'
 import { badge } from './badge'
 import { btn } from './button'
@@ -8,6 +7,7 @@ import { form } from './form'
 import { input } from './input'
 import { pinInput } from './pin-input'
 import { select } from './select'
+import type { Preset, StaticShortcutMap } from '@unocss/core'
 
 export const shortcuts = [
   ...btn,

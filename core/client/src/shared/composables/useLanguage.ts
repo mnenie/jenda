@@ -1,5 +1,5 @@
-import { useLocalStorage } from '@vueuse/core'
 import { type Ref, watch } from 'vue'
+import { useLocalStorage } from '@vueuse/core'
 import { useI18n } from 'vue-i18n'
 
 interface Value {

@@ -18,7 +18,7 @@
     "dev:picker": "tsx scripts/picker.ts dev --open",
     "build:all": "pnpm -r build",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint:fix": "pnpm -r lint:fix",
     "lint:inspect": "npx @eslint/config-inspector",
     "test:unit": "pnpm -r test:unit",
     "type-check": "pnpm -r typecheck",

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useDark, useWindowSize } from '@vueuse/core'
 import { computed } from 'vue'
+import { useDark, useWindowSize } from '@vueuse/core'
 
 const isDark = useDark()
 

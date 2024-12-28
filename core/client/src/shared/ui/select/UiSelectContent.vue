@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
+import { computed, type HTMLAttributes } from 'vue'
 import {
   SelectContent,
   type SelectContentEmits,
@@ -8,8 +8,8 @@ import {
   SelectViewport,
   useForwardPropsEmits,
 } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
 import { UiSelectScrollDownButton, UiSelectScrollUpButton } from '.'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 defineOptions({
   inheritAttrs: false,

@@ -1,4 +1,3 @@
-import type { Meta, StoryFn } from '@storybook/vue3'
 import { UiButton } from '../button'
 import {
   UiSelect,
@@ -9,6 +8,7 @@ import {
   UiSelectTrigger,
   UiSelectValue,
 } from './index'
+import type { Meta, StoryFn } from '@storybook/vue3'
 
 export default {
   title: 'UiSelect',

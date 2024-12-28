@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { createReusableTemplate } from '@vueuse/core'
 import { useExpanded } from '@/shared/composables'
 import {
   UiBadge,
@@ -10,8 +12,6 @@ import {
   UiDropdownMenuTrigger,
 } from '@/shared/ui'
 import { HotkeysDialog } from '@/widgets/dialogs'
-import { createReusableTemplate } from '@vueuse/core'
-import { ref } from 'vue'
 
 defineProps<{
   isShowPlan?: boolean

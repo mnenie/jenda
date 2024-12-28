@@ -1,4 +1,3 @@
-import type { Meta, StoryFn } from '@storybook/vue3'
 import { UiButton } from '../button'
 import {
   UiDropdownMenu,
@@ -6,6 +5,7 @@ import {
   UiDropdownMenuItem,
   UiDropdownMenuTrigger,
 } from './index'
+import type { Meta, StoryFn } from '@storybook/vue3'
 
 export default {
   title: 'UiDropdownMenu',

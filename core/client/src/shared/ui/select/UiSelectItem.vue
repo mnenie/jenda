@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/libs/shadcn/utils'
+import { computed, type HTMLAttributes } from 'vue'
 import {
   SelectItem,
   SelectItemIndicator,
@@ -7,7 +7,7 @@ import {
   SelectItemText,
   useForwardProps,
 } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 interface Props extends SelectItemProps {
   withIndicator?: boolean

@@ -1,8 +1,3 @@
-import type {
-  ComposerDateTimeFormatting,
-  ComposerTranslation,
-  I18n,
-} from 'vue-i18n'
 import {
   defaultErrorMap,
   type ErrorMapCtx,
@@ -13,6 +8,11 @@ import {
   ZodParsedType,
 } from 'zod'
 import { joinValues, jsonStringifyReplacer } from './utils'
+import type {
+  ComposerDateTimeFormatting,
+  ComposerTranslation,
+  I18n,
+} from 'vue-i18n'
 
 const zDate = z.string().regex(/(\d{4})-\d{2}-(\d{2})/)
 
