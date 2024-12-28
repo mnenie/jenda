@@ -31,6 +31,9 @@
     "lint-staged": "^15.2.10"
   },
   "lint-staged": {
-    "*.{js,ts,vue,tsx}": "eslint --fix"
+    "*.{js,ts,vue,tsx}": [
+      "pnpm lint",
+      "pnpm type-check"
+    ]
   }
 }
