@@ -50,7 +50,7 @@
   ],
   "prHourlyLimit": 4,
   "prConcurrentLimit": 16,
-  "rangeStrategy": "widen",
+  "rangeStrategy": "bump",
   "ignorePaths": [
     "**/node_modules/**",
     "**/dist/**",
