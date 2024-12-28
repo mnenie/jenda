@@ -50,7 +50,7 @@
   ],
   "prHourlyLimit": 4,
   "prConcurrentLimit": 16,
-  "rangeStrategy": "pin",
+  "rangeStrategy": "widen",
   "ignorePaths": [
     "**/node_modules/**",
     "**/dist/**",
