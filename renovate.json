@@ -17,23 +17,41 @@
       ]
     },
     {
+      "groupName": "unocss",
+      "matchPackageNames": [
+        "unocss",
+        "@unocss/*"
+      ]
+    },
+    {
+      "groupName": "vee-validate",
+      "matchPackageNames": [
+        "vee-validate",
+        "@vee-validate/*"
+      ]
+    },
+    {
+      "groupName": "ui",
+      "matchPackageNames": [
+        "floating-vue",
+        "radix-vue"
+      ]
+    },
+    {
+      "groupName": "vue-related",
       "matchPackageNames": [
         "vue-i18n",
-        "radix-vue",
-        "unplugin-vue-router",
-        "@unocss/core",
-        "@unocss/reset",
-        "floating-vue",
-        "@vee-validate/zod",
-        "unocss",
-        "vee-validate",
-        "@vueuse/core",
-        "@vueuse/integrations",
-        "@unhead/vue",
         "vite-plugin-vue-devtools",
-        "@vue/test-utils"
-      ],
-      "enabled": true
+        "unplugin-vue-router",
+        "@vue/test-utils",
+        "@unhead/vue"
+      ]
+    },
+    {
+      "groupName": "vueuse",
+      "matchPackageNames": [
+        "@vueuse/*"
+      ]
     },
     {
       "matchFileNames": [
@@ -46,7 +64,8 @@
     }
   ],
   "labels": [
-    "dependencies"
+    "dependencies",
+    "renovate"
   ],
   "prHourlyLimit": 4,
   "prConcurrentLimit": 16,
@@ -59,12 +78,11 @@
   ],
   "dependencyDashboard": true,
   "semanticCommits": "enabled",
-  "commitMessagePrefix": "chore(dependencies)⬆️",
+  "commitMessagePrefix": "chore(dependencies): ",
   "rebaseWhen": "auto",
   "minimumReleaseAge": "3 days",
   "prCreation": "immediate",
-  "prTitle": "⬆️ Update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
-  "commitBody": "Update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
+  "prTitle": "Update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
+  "commitBody": "update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
   "prBodyTemplate": "Updates {{{depName}}} from `{{{currentValue}}}` to `{{{newValue}}}`\n\n{{#if releaseNotes}}\n### Release Notes\n{{releaseNotes}}\n{{/if}}"
-
 }
