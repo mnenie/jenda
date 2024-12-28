@@ -219,6 +219,9 @@ importers:
       prettier:
         specifier: ^3.2.5
         version: 3.4.1
+      sonda:
+        specifier: 0.7.0
+        version: 0.7.0
       storybook:
         specifier: ^8.1.10
         version: 8.4.6(prettier@3.4.1)
@@ -4254,6 +4257,9 @@ packages:
   slice-ansi@7.1.0:
     resolution: {integrity: sha512-bSiSngZ/jWeX93BqeIAbImyTbEihizcwNjFoRUIY/T1wWQsfsm2Vw1agPKylXvQTU7iASGdHhyqRlqQzfz+Htg==}
     engines: {node: '>=18'}
+
+  sonda@0.7.0:
+    resolution: {integrity: sha512-JKdTOWEbQGB4EbBfl77uOpG2/PHviIj8/Mum8DXVKEHZZQaO+pg/eX4TOSY3RCKSD3vmalt777Xf3JcmjG16Bg==}
 
   sortablejs@1.14.0:
     resolution: {integrity: sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==}
@@ -9382,6 +9388,12 @@ snapshots:
     dependencies:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 5.0.0
+
+  sonda@0.7.0:
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@jridgewell/sourcemap-codec': 1.5.0
+      open: 10.1.0
 
   sortablejs@1.14.0: {}
 
