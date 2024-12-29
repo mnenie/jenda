@@ -417,4 +417,14 @@ export default {
     name: '名称',
     url: '自定义链接',
   },
+  workspace: {
+    popover: {
+      members: '{n} 成员',
+      section: '管理',
+      pay: '套餐与付款',
+      invite: '邀请加入项目',
+      team: '团队',
+      settings: '更改信息',
+    },
+  },
 }

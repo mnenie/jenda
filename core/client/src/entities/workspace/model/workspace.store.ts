@@ -9,6 +9,7 @@ interface BaseTestWorkspace {
   link: string
   status: 'active' | 'archive'
   members: User[]
+  plan: 'FREE' | 'PREMIUM'
 }
 
 export const useWorkspaceStore = defineStore('workspace', () => {
@@ -19,6 +20,7 @@ export const useWorkspaceStore = defineStore('workspace', () => {
     link: 'https://jenda-app-mnenie.com/example.io',
     status: 'active',
     members: [],
+    plan: 'FREE',
   } as BaseTestWorkspace)
 
   return {

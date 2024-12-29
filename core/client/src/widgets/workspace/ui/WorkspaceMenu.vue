@@ -43,7 +43,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         <img :src="workspace.img as string" class="object-cover w-full rounded-lg" />
       </div>
       <p class="text-neutral-700 dark:text-neutral-300">
-        {{ data }}
+        {{ $t(`workspace.popover.${data}`) }}
       </p>
     </UiButton>
   </DefineTemplate>
@@ -60,31 +60,33 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
             </p>
             <div class="flex items-center gap-0.5">
               <UiBadge variant="secondary" class="shadow-none px-1 py-0 text-8px">
-                FREE
+                {{ workspace.plan }}
               </UiBadge>
               <UiBadge variant="secondary" class="shadow-none px-1 py-0 text-8px">
-                <span class="text-blue-500 dark:text-blue-400">{{ workspace.status }}</span>
+                <span class="text-blue-500">
+                  {{ $t(`workspace.popover.${workspace.status}`) }}
+                </span>
               </UiBadge>
               <span class="text-11px mx-1 2xl:text-xs text-neutral-500 dark:text-neutral-400">
                 •
               </span>
               <p class="text-11px 2xl:text-xs text-neutral-500 dark:text-neutral-400">
-                {{ workspace.members.length }} участников
+                {{ $t('workspace.popover.members', workspace.members.length) }}
               </p>
             </div>
           </div>
           <div class="flex items-center gap-1.5">
-            <span i-lucide-check class="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <span i-lucide-check class="w-5 h-5 text-blue-500" />
           </div>
         </div>
         <div class="flex flex-col gap-1">
           <p class="px-2 text-xs text-neutral-700 dark:text-neutral-300 mb-1">
-            Управление
+            {{ $t('workspace.popover.section') }}
           </p>
-          <ReuseTemplate data="Тарифы и оплата" icon="i-lucide-credit-card" @click="$router.push({ name: 'welcome' })" />
-          <ReuseTemplate data="Пригласить в проект" icon="i-hugeicons-link-04" @click="isDialogOpen = true" />
-          <ReuseTemplate data="Команда" icon="i-hugeicons-user-group" @click="$router.push({ name: 'members' })" />
-          <ReuseTemplate :is-settings="true" data="Поменять информацию" @click="$router.push({ name: 'settings' })" />
+          <ReuseTemplate data="pay" icon="i-lucide-credit-card" @click="$router.push({ name: 'welcome' })" />
+          <ReuseTemplate data="invite" icon="i-hugeicons-link-04" @click="isDialogOpen = true" />
+          <ReuseTemplate data="team" icon="i-hugeicons-user-group" @click="$router.push({ name: 'members' })" />
+          <ReuseTemplate :is-settings="true" data="settings" @click="$router.push({ name: 'settings' })" />
         </div>
       </div>
     </UiPopoverContent>

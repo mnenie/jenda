@@ -444,4 +444,14 @@ export default {
     name: 'Name',
     url: 'URL handle',
   },
+  workspace: {
+    popover: {
+      members: '{n} members',
+      section: 'Management',
+      pay: 'Plans and Billing',
+      invite: 'Invite to Project',
+      team: 'Team',
+      settings: 'Change Information',
+    },
+  },
 }
