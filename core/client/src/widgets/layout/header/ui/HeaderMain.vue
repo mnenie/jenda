@@ -8,6 +8,7 @@ import { type User, UserAvatar } from '@/entities/user'
 import { useLayoutPaths } from '@/shared/composables'
 import { links } from '@/shared/constants'
 import { HotkeysDialog, ShareDialog } from '@/widgets/dialogs'
+import { ShimmerButton } from '@/shared/ui'
 
 const props = defineProps<{
   projects: Board[]
@@ -101,7 +102,16 @@ const { active } = useLayoutPaths(links, _projects)
           </UserAvatar>
         </template>
       </div>
-      <ShareDialog />
+      <ShareDialog>
+        <ShimmerButton shimmer-size="2px">
+          <div i-hugeicons-link-04 class="text-neutral-900 dark:text-neutral-100 w-16px h-16px 2xl:(w-4 h-4)" />
+          <span
+            class="whitespace-pre-wrap text-center text-neutral-800 dark:text-neutral-100 text-sm fw500"
+          >
+            {{ $t('header.share') }}
+          </span>
+        </ShimmerButton>
+      </ShareDialog>
       <div
         v-tooltip="{ content: $t('header.navigator.messages'), trigger: ['hover'], distance: 7 }"
         i-hugeicons-message-multiple-01

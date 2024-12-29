@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useExpanded } from '@/shared/composables'
 import { UiBadge } from '@/shared/ui'
+import { WorkspaceMenu } from '@/widgets/workspace'
 
 const expandedComposable = useExpanded()
 
@@ -20,11 +21,13 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
         v-show="isExpanded"
         class="flex items-center gap-px"
       >
-        <div
-          class="w-36px h-36px h-full bg-neutral-100 border border-solid border-neutral-200 rounded-lg flex items-center justify-center mr-1.5 cursor-pointer"
-        >
-          <img src="https://avatars.githubusercontent.com/u/185750893?s=100&v=4" class="object-cover w-full rounded-lg" />
-        </div>
+        <WorkspaceMenu>
+          <div
+            class="w-36px h-36px h-full bg-neutral-100 border border-solid border-neutral-200 rounded-lg flex items-center justify-center mr-1.5 cursor-pointer"
+          >
+            <img src="https://avatars.githubusercontent.com/u/185750893?s=100&v=4" class="object-cover w-full rounded-lg" />
+          </div>
+        </WorkspaceMenu>
         <div class="flex flex-col mt-1">
           <div class="flex items-center gap-1 whitespace-nowrap">
             <UiBadge variant="outline" class="px-1 py-1 h-12px text-8px rounded">

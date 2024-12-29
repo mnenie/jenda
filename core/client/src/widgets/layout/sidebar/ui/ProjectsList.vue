@@ -50,7 +50,7 @@ function changeShowList() {
         @click="changeShowList"
       />
       <p
-        class="text-neutral-500 dark:text-neutral-400 text-xs capitalize text-ellipsis whitespace-nowrap overflow-hidden"
+        class="text-neutral-500 dark:text-neutral-400 text-sm 2xl:text-xs capitalize text-ellipsis whitespace-nowrap overflow-hidden"
       >
         {{ $t('sidebar.projects') }}
       </p>
@@ -84,7 +84,7 @@ function changeShowList() {
       >
         <div
           i-jenda-custom-project
-          class="w-17px h-17px rounded flex justify-center items-center"
+          class="w-16px h-16px rounded flex justify-center items-center"
           :style="{ color: project.color }"
         />
         <span

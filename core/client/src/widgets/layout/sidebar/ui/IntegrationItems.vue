@@ -22,7 +22,7 @@ const { isExpanded } = expanded.getExpanded()
     :class="[isExpanded ? 'px-2' : 'px-1']"
   >
     <p
-      class="text-neutral-500 dark:text-neutral-400 text-xs capitalize text-ellipsis
+      class="text-neutral-500 dark:text-neutral-400 text-sm 2xl:text-xs capitalize text-ellipsis
         whitespace-nowrap overflow-hidden"
     >
       {{ $t('sidebar.integrations') }}
@@ -43,7 +43,7 @@ const { isExpanded } = expanded.getExpanded()
         <Icon
           :inline="true"
           :icon="icon"
-          class="!w-16px !h-16px 2xl:(!w-4 !h-4) text-neutral-800 dark:text-neutral-200"
+          class="!w-15px !h-15px 2xl:(!w-4 !h-4) text-neutral-800 dark:text-neutral-200"
           :class="[idx === 2 && '!w-3.6 !h-3.6 !text-#fc4714']"
         />
         <span v-show="isExpanded" class="text-13px 2xl:text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ name }}</span>

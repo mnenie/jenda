@@ -3,7 +3,7 @@
 exports[`tests for WorkSpace.vue > should be render correctly 1`] = `
 "<div class="flex flex-col gap-5px justify-start mb-20px"><a class="flex items-center gap-1.5 cursor-pointer text-neutral-900 justify-start w-full"><button class="btn btn-secondary h-34px w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease !bg-neutral-200/40 dark:!bg-neutral-700/50" style="justify-content: space-between;">
       <!--v-if-->
-      <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="!w-16px !h-16px !2xl:w-4 !2xl:h-4 text-neutral-900 dark:text-neutral-200" width="1em" height="1em" viewBox="0 0 16 16"></svg><span class="text-13px 2xl:text-sm !fw500 text-neutral-900 dark:text-neutral-100">Boards</span></div>
+      <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="!w-15px !h-15px !2xl:w-4 !2xl:h-4 text-neutral-900 dark:text-neutral-200" width="1em" height="1em" viewBox="0 0 16 16"></svg><span class="text-13px 2xl:text-sm !fw500 text-neutral-900 dark:text-neutral-100">Boards</span></div>
       <!--v-if-->
     </button></a></div>"
 `;
