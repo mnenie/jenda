@@ -54,7 +54,7 @@ function onResend() {
       </UiPinInput>
       <UiFormMessage v-if="errors.pin" :content="errors.pin" />
     </UiFormField>
-    <p class="text-sm text-neutral-400 mt-2">
+    <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">
       {{ $t('authentication.form.otp') }}
     </p>
     <UiButton type="submit" class="w-full mt-4 mb-2">

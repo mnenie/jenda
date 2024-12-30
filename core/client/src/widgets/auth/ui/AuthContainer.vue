@@ -49,7 +49,7 @@ const alertString = computed(() => {
         <h2 class="text-3xl fw-600 max-[580px]:text-2xl">
           {{ title }}
         </h2>
-        <p class="text-sm pb-5 text-neutral-400 mt--1.5">
+        <p class="text-sm pb-5 text-neutral-500 dark:text-neutral-400 mt--1.5">
           {{ info }}
         </p>
 
