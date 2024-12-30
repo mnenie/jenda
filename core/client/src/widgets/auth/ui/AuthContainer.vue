@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router/auto'
-import { LogoFile, PrivacyPolicy } from '@/features/auth/common'
+import { PrivacyPolicy } from '@/features/auth/common'
 import { GoogleOauth } from '@/features/auth/oauth'
 import { UiAlert } from '@/shared/ui'
 
@@ -35,7 +35,6 @@ const alertString = computed(() => {
     class="auth-slot-container"
   >
     <div class="h-full w-full flex flex-col justify-center items-center mx-auto">
-      <LogoFile />
       <div
         class="form-container"
       >
@@ -50,7 +49,7 @@ const alertString = computed(() => {
         <h2 class="text-3xl fw-600 max-[580px]:text-2xl">
           {{ title }}
         </h2>
-        <p class="text-sm pb-5 text-neutral-400 mt--1.5">
+        <p class="text-sm pb-5 text-neutral-500 dark:text-neutral-400 mt--1.5">
           {{ info }}
         </p>
 

@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useWorkspaceStore } from '@/entities/workspace'
 import { useExpanded } from '@/shared/composables'
 import { UiBadge } from '@/shared/ui'
+import { WorkspaceMenu } from '@/widgets/workspace'
 
 const expandedComposable = useExpanded()
 
 const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
+
+const workspaceStore = useWorkspaceStore()
+const { workspace } = storeToRefs(workspaceStore)
 </script>
 
 <template>
@@ -20,22 +26,24 @@ const { isExpanded, onToggleArea } = expandedComposable.getExpanded()
         v-show="isExpanded"
         class="flex items-center gap-px"
       >
-        <div
-          class="w-36px h-36px h-full bg-neutral-100 border border-solid border-neutral-200 rounded-lg flex items-center justify-center mr-1.5 cursor-pointer"
-        >
-          <img src="https://avatars.githubusercontent.com/u/185750893?s=100&v=4" class="object-cover w-full rounded-lg" />
-        </div>
+        <WorkspaceMenu>
+          <div
+            class="w-36px h-36px h-full bg-neutral-100 border border-solid border-neutral-200 rounded-lg flex items-center justify-center mr-1.5 cursor-pointer"
+          >
+            <img src="https://avatars.githubusercontent.com/u/185750893?s=100&v=4" class="object-cover w-full rounded-lg" />
+          </div>
+        </WorkspaceMenu>
         <div class="flex flex-col mt-1">
           <div class="flex items-center gap-1 whitespace-nowrap">
             <UiBadge variant="outline" class="px-1 py-1 h-12px text-8px rounded">
-              FREE
+              {{ workspace.plan }}
             </UiBadge>
             <p class="text-xs -mt-px text-neutral-700 dark:text-neutral-300">
               {{ $t('sidebar.section') }}
             </p>
           </div>
           <p class="text-lg 2xl:text-base !fw600 dark:text-neutral-100">
-            Example.io
+            {{ workspace.name }}
           </p>
         </div>
       </div>

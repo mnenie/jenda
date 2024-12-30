@@ -46,11 +46,11 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     >
       <div
         i-lucide-search
-        class="text-neutral-800 dark:text-neutral-200 !w-16px !h-16px 2xl:(!w-4 !h-4)"
+        class="text-neutral-800 dark:text-neutral-200 2xl:(!w-4 !h-4)"
         :class="[
           isExpanded
-            ? 'mr-1'
-            : 'absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-4 w-4',
+            ? 'mr-1 !w-15px !h-15px'
+            : 'absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 !h-16px !w-16px',
         ]"
       />
       <span

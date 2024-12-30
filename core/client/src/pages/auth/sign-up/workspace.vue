@@ -2,14 +2,14 @@
 import { useHead } from '@unhead/vue'
 import { WorkspaceForm } from '@/features/auth/sign-up'
 import { LayoutsEnum } from '@/layouts/model'
-import { WorkspaceLogoChooser, WorkspaceSection } from '@/widgets/auth'
+import { WorkspaceCreating, WorkspaceLogoChooser } from '@/widgets/auth'
 
 definePage({
   meta: {
     layout: LayoutsEnum.auth,
     requiresAuth: true,
   },
-  name: 'workspace',
+  name: 'sign-up-workspace',
 })
 
 useHead({
@@ -19,13 +19,13 @@ useHead({
 
 <template>
   <div class="auth-page">
-    <WorkspaceSection>
+    <WorkspaceCreating>
       <template #logo>
         <WorkspaceLogoChooser />
       </template>
       <template #form>
         <WorkspaceForm />
       </template>
-    </WorkspaceSection>
+    </WorkspaceCreating>
   </div>
 </template>

@@ -44,11 +44,11 @@ provide(authWorkspaceKey, {
     />
     <div class="flex flex-col gap-2">
       <span class="text-sm text-neutral-500 dark:text-neutral-400">
-        {{ $t('authentication.workspace.logo.label') }}
+        {{ $t('authentication.workspace.creating.logo.label') }}
       </span>
       <HandleLogo />
       <span class="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-        {{ $t('authentication.workspace.logo.description') }}
+        {{ $t('authentication.workspace.creating.logo.description') }}
       </span>
     </div>
   </div>

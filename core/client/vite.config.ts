@@ -6,6 +6,7 @@ import UnpluginVueRouterExtend from 'unplugin-vue-router-extend/vite'
 import UnpluginVueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
+// import Sonda from 'sonda/vite'
 import type { TreeNode } from 'unplugin-vue-router'
 
 const routeMap = new Map<string, TreeNode>()
@@ -27,12 +28,17 @@ export default defineConfig({
     }),
     vueDevTools(),
     UnoCSS(),
+    // Sonda(),
     vue(),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  build: {
+    // only with sonda active
+    // sourcemap: true,
   },
   css: {
     preprocessorOptions: {

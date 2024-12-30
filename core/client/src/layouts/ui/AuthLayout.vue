@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { BgPanel } from '@/features/auth/common'
+import { BgPanel, LogoFile } from '@/features/auth/common'
 </script>
 
 <template>
-  <div class="h-dvh w-full flex">
+  <div class="h-dvh w-full flex relative">
+    <LogoFile />
     <slot />
     <BgPanel />
   </div>

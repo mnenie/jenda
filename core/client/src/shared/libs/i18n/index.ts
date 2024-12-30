@@ -1,12 +1,8 @@
 import { computed } from 'vue'
 import { createI18n } from 'vue-i18n'
-
-import en from '../vee-validate/rules/en'
-import ru from '../vee-validate/rules/ru'
-import zh from '../vee-validate/rules/zh'
-import enLocale from './locales/en-US'
-import ruLocale from './locales/ru-RU'
-import zhLocale from './locales/zh-CN'
+import { enZod, ruZod, zhZod } from '../vee-validate/rules'
+import { enLocale, ruLocale, zhLocale } from './locales'
+import { customPluralRule } from './plurals'
 
 export type MessageSchema = typeof enLocale
 
@@ -14,19 +10,19 @@ const messages = {
   'en-US': {
     ...enLocale,
     errors: {
-      ...en,
+      ...enZod,
     },
   },
   'ru-RU': {
     ...ruLocale,
     errors: {
-      ...ru,
+      ...ruZod,
     },
   },
   'zh-CN': {
     ...zhLocale,
     errors: {
-      ...zh,
+      ...zhZod,
     },
   },
 }
@@ -46,6 +42,12 @@ const i18n = createI18n<[MessageSchema], 'en-US' | 'ru-RU' | 'zh-CN'>({
   legacy: false,
   locale: getCurrentLocale.value,
   globalInjection: true,
+  pluralRules: {
+    'ru-RU': {
+      // @ts-expect-error i18n shema
+      customPluralRule,
+    },
+  },
   messages,
 })
 

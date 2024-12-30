@@ -3,7 +3,7 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
 import { useRouter } from 'vue-router/auto'
 import { toast } from 'vue-sonner'
-import { z } from 'zod'
+import { z } from '@/shared/libs/vee-validate'
 import { UiButton, UiFormField, UiFormMessage, UiPinInput, UiPinInputGroup, UiPinInputInput } from '@/shared/ui'
 
 const formSchema = toTypedSchema(z.object({
@@ -22,7 +22,7 @@ const { value: pin } = useField<string[]>('pin')
 const router = useRouter()
 
 const onConfirm = handleSubmit((values) => {
-  router.push({ name: 'workspace' })
+  router.push({ name: 'sign-up-workspace' })
 })
 
 function onResend() {
@@ -54,7 +54,7 @@ function onResend() {
       </UiPinInput>
       <UiFormMessage v-if="errors.pin" :content="errors.pin" />
     </UiFormField>
-    <p class="text-sm text-neutral-400 mt-2">
+    <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">
       {{ $t('authentication.form.otp') }}
     </p>
     <UiButton type="submit" class="w-full mt-4 mb-2">

@@ -7,6 +7,7 @@ import { form } from './form'
 import { input } from './input'
 import { pinInput } from './pin-input'
 import { select } from './select'
+import { popover } from './popover'
 import type { Preset, StaticShortcutMap } from '@unocss/core'
 
 export const shortcuts = [
@@ -19,4 +20,5 @@ export const shortcuts = [
   ...dialog,
   ...pinInput,
   ...form,
+  ...popover,
 ] as Exclude<Preset['shortcuts'], undefined | StaticShortcutMap>

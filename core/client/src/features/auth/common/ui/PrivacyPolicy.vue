@@ -11,10 +11,6 @@ const privacyItems = tm('authentication.privacy') as string[]
 const maxWidth = computed(() => {
   return locale.value === 'ru-RU' ? '400px' : '320px'
 })
-
-const privacyChangingItem = computed(() =>
-  route.name === 'sign-in' ? privacyItems[1] : privacyItems[0],
-)
 </script>
 
 <template>
@@ -22,7 +18,7 @@ const privacyChangingItem = computed(() =>
     class="pt-2.5 text-sm text-center text-neutral-500 my-0 mx-auto select-none dark:text-neutral-400"
     :style="{ maxWidth }"
   >
-    {{ privacyChangingItem }}
+    {{ privacyItems[0] }}
     <a
       href="https://github.com/mnenie/jenda"
       target="_blank"

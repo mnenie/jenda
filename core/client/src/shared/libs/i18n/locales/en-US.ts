@@ -179,7 +179,7 @@ export default {
     login: {
       title: 'Welcome back',
       description: 'Enter your info below to sign in your account',
-      btn: 'Sign In with Email',
+      btn: 'Continue',
       proposal: 'Don\'t have an account?',
       route: 'Sign Up Now',
     },
@@ -199,21 +199,28 @@ export default {
       route: 'Resend',
     },
     workspace: {
-      title: 'Create your workspace',
-      logo: {
-        label: 'Choose a logo for your workspace',
-        btn: 'Choose image | Delete',
-        description: '*.png, *.jpeg files up to 10MB at least 400px by 400px',
+      creating: {
+        title: 'Create your workspace',
+        logo: {
+          label: 'Choose a logo for your workspace',
+          btn: 'Choose image | Delete',
+          description: '*.png, *.jpeg files up to 10MB at least 400px by 400px',
+        },
+        alert: 'Remember, if you don’t choose a logo, jenda will automatically generate one for you',
+        form: {
+          name: {
+            label: 'Name',
+            placeholder: 'Enter your workspace name',
+          },
+          url: {
+            label: 'Custom link',
+          },
+        },
       },
-      alert: 'Remember, if you don’t choose a logo, jenda will automatically generate one for you',
-      form: {
-        name: {
-          label: 'Name',
-          placeholder: 'Enter your workspace name',
-        },
-        url: {
-          label: 'Custom link',
-        },
+      choosing: {
+        title: 'Choose a workspace',
+        description: 'The more your team engages with Jenda, the more dynamic your workspaces become. | Jenda transforms collaboration in shared workspaces—from organizing projects and managing tasks to centralizing discussions and building efficient workflows.',
+        label: 'Available workspaces',
       },
       route: 'Continue',
     },
@@ -232,7 +239,7 @@ export default {
     ],
     back: 'To Home',
     auth_alert:
-      'authorization via google will be replaced with gitlab after 28.12.2024',
+      'authorization via google will be replaced with gitlab after 28.02.2025',
   },
   kanban: {
     sorting: {
@@ -443,5 +450,15 @@ export default {
     pin: 'Confirmation code',
     name: 'Name',
     url: 'URL handle',
+  },
+  workspace: {
+    popover: {
+      members: '{n} members',
+      section: 'Management',
+      pay: 'Plans and Billing',
+      invite: 'Invite to Project',
+      team: 'Team',
+      settings: 'Change Information',
+    },
   },
 }

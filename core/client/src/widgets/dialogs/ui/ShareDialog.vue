@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ShareLink } from '@/features/share'
 import {
-  ShimmerButton,
   UiButton,
   UiDialog,
   UiDialogClose,
@@ -12,19 +11,14 @@ import {
   UiDialogTitle,
   UiDialogTrigger,
 } from '@/shared/ui'
+
+const model = defineModel<boolean>('open')
 </script>
 
 <template>
-  <UiDialog>
+  <UiDialog v-model:open="model">
     <UiDialogTrigger as-child>
-      <ShimmerButton shimmer-size="2px">
-        <div i-hugeicons-link-04 class="text-neutral-900 dark:text-neutral-100 w-16px h-16px 2xl:(w-4 h-4)" />
-        <span
-          class="whitespace-pre-wrap text-center text-neutral-800 dark:text-neutral-100 text-sm fw500"
-        >
-          {{ $t('header.share') }}
-        </span>
-      </ShimmerButton>
+      <slot />
     </UiDialogTrigger>
     <UiDialogContent class="sm:max-w-md">
       <UiDialogHeader>
