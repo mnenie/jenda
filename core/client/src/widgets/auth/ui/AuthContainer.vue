@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router/auto'
-import { LogoFile, PrivacyPolicy } from '@/features/auth/common'
+import { PrivacyPolicy } from '@/features/auth/common'
 import { GoogleOauth } from '@/features/auth/oauth'
 import { UiAlert } from '@/shared/ui'
 
@@ -35,7 +35,6 @@ const alertString = computed(() => {
     class="auth-slot-container"
   >
     <div class="h-full w-full flex flex-col justify-center items-center mx-auto">
-      <LogoFile />
       <div
         class="form-container"
       >

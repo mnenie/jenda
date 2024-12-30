@@ -3,6 +3,7 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { createReusableTemplate } from '@vueuse/core'
 import { useField, useForm } from 'vee-validate'
 import { toast } from 'vue-sonner'
+import { useRouter } from 'vue-router/auto'
 import {
   UiButton,
   UiFormField,
@@ -25,9 +26,12 @@ const { handleSubmit, errors } = useForm({
 const { value: email } = useField<string>('email')
 const { value: password } = useField<string | number>('password')
 
+const router = useRouter()
+
 const onLogin = handleSubmit((values) => {
   // on login event
   toast.warning('Jenda in dev mode and temporarily unavailable')
+  router.push({ name: 'sign-in-workspace' })
 })
 
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate()

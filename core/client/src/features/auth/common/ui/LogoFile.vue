@@ -11,7 +11,7 @@ const isDark = useDark()
 <template>
   <div
     v-if="width > 1100"
-    class="absolute top-24px left-32px flex items-center gap-1.5 cursor-pointer"
+    class="absolute z-99 top-24px left-32px flex items-center gap-1.5 cursor-pointer"
     @click="$router.push('/')"
   >
     <img
@@ -24,7 +24,7 @@ const isDark = useDark()
   </div>
   <div
     v-else
-    class="absolute left-150px top-30px flex items-center gap-1.5 cursor-pointer max-w-700px
+    class="absolute z-99 left-150px top-30px flex items-center gap-1.5 cursor-pointer max-w-700px
         max-[890px]:left-80px max-[580px]:!left-20px max-[520px]:(!left-15px !top-15px)"
   >
     <div

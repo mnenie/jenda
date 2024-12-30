@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { LogoFile } from '@/features/auth/common'
 import { UiAlert } from '@/shared/ui'
 </script>
 
@@ -8,7 +7,6 @@ import { UiAlert } from '@/shared/ui'
     class="auth-slot-container"
   >
     <div class="h-full w-full flex flex-col justify-center items-center mx-auto">
-      <LogoFile />
       <div
         class="form-container"
       >

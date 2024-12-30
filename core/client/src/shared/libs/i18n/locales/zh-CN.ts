@@ -175,7 +175,7 @@ export default {
       description: '请输入下面的信息以登录您的帐户',
       btn: '用电子邮件登录',
       proposal: '还没有帐户？',
-      route: '立即注册',
+      route: '立即登录',
     },
     registration: {
       title: '开始使用',
@@ -193,21 +193,28 @@ export default {
       route: '重新发送',
     },
     workspace: {
-      title: '创建工作区',
-      logo: {
-        label: '为您的工作区选择一个标志',
-        btn: '选择图片 | 删除',
-        description: '文件 *.png, *.jpeg，最大 10MB，尺寸至少为 400x400 像素',
+      creating: {
+        title: '创建工作区',
+        logo: {
+          label: '为您的工作区选择一个标志',
+          btn: '选择图片 | 删除',
+          description: '文件 *.png, *.jpeg，最大 10MB，尺寸至少为 400x400 像素',
+        },
+        alert: '请记住，如果您未选择标志，Jenda 将自动为您生成一个',
+        form: {
+          name: {
+            label: '名称',
+            placeholder: '输入您的工作区名称',
+          },
+          url: {
+            label: '自定义链接',
+          },
+        },
       },
-      alert: '请记住，如果您未选择标志，Jenda 将自动为您生成一个',
-      form: {
-        name: {
-          label: '名称',
-          placeholder: '输入您的工作区名称',
-        },
-        url: {
-          label: '自定义链接',
-        },
+      choosing: {
+        title: '选择工作空间',
+        description: '您的团队使用 Jenda 越积极，您的工作空间就会越高效。| Jenda 改变了在共享工作空间中的协作方式——从项目组织和任务管理到集中讨论和创建高效工作流程。',
+        label: '可用的工作空间',
       },
       route: '立即登录',
     },
@@ -219,7 +226,7 @@ export default {
     line: '或继续使用',
     privacy: ['点击继续即表示您同意我们的', '点击登录即表示您同意我们的', '服务条款', '和', '隐私政策。'],
     back: '回到首页',
-    auth_alert: '通过 google 的授权将在 2024 年 12 月 28 日后被 gitlab 替代',
+    auth_alert: '通过 google 的授权将在 2025 年 02 月 28 日后被 gitlab 替代',
   },
   kanban: {
     sorting: {

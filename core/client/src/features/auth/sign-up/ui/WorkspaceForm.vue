@@ -3,7 +3,7 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { createReusableTemplate } from '@vueuse/core'
 import { useField, useForm } from 'vee-validate'
 import { useRouter } from 'vue-router/auto'
-import { z } from 'zod'
+import { z } from '@/shared/libs/vee-validate'
 import { UiButton, UiFormField, UiFormLabel, UiFormMessage, UiInput } from '@/shared/ui'
 
 const validationSchema = toTypedSchema(
@@ -35,7 +35,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
       <UiFormLabel
         :for="field"
       >
-        {{ $t(`authentication.workspace.form.${field}.label`) }}
+        {{ $t(`authentication.workspace.creating.form.${field}.label`) }}
       </UiFormLabel>
       <component :is="$slots.default" />
       <UiFormMessage v-if="error" :content="error" />
@@ -48,7 +48,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
           <UiInput
             id="name"
             v-model="name"
-            :placeholder="$t('authentication.workspace.form.name.placeholder')"
+            :placeholder="$t('authentication.workspace.creating.form.name.placeholder')"
           />
         </ReuseTemplate>
         <ReuseTemplate field="url" :error="errors.url">
