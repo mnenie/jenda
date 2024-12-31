@@ -35,8 +35,9 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     </DefineTemplate>
     <UiButton
       :variant="isExpanded ? 'outline' : 'ghost'"
+      size="sm"
       class="w-full justify-start h-9 2xl:h-8 rounded-8px px-2 !bg-white dark:(!bg-#262626 border-neutral-600/20)
-      transition-[background-color,padding,width] duration-700 ease"
+      transition-[padding,width] duration-700 ease"
       :class="[
         isExpanded
           ? 'hover:!bg-neutral-100/10 dark:hover:!bg-neutral-600/30'

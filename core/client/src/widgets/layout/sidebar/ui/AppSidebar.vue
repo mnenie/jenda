@@ -35,7 +35,7 @@ const paddingExpanded = computed(() => {
   <div class="relative w-full flex flex-col h-full bg-sidebar select-none border-r border-r-solid border-layout">
     <WorkspaceChooser />
     <div
-      class="flex flex-col justify-between h-full mt-1.5"
+      class="flex flex-col justify-between h-full mt-0.5"
       :style="{ padding: paddingExpanded }"
     >
       <div>

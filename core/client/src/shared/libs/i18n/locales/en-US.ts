@@ -36,16 +36,35 @@ export default {
     share: 'Share link',
   },
   boards: {
-    title: 'Boards in this team',
-    description:
-      'All your active boards are located here, which you can switch to and work on',
-    create: 'Create new board',
-    filter: {
-      input: 'Filter boards...',
-      popularity: 'By popularity',
-      tooltips: {
-        first_sort: 'Sort boards by popularity',
-        second_sort: 'Show recent boards',
+    create: 'Add board',
+    filters: {
+      sort: {
+        title: 'Sort by',
+        arr: ['Name', 'Tasks', 'Recent updates'],
+      },
+      advanced: {
+        title: 'Advanced filter',
+        empty: 'No such filters available :/',
+        statuses: {
+          title: 'Statuses',
+          arr: [
+            {
+              value: 'active',
+              label: 'Active',
+            },
+            {
+              value: 'non-active',
+              label: 'Inactive',
+            },
+            {
+              value: 'archived',
+              label: 'Archived',
+            },
+          ],
+        },
+        labels: {
+          title: 'Labels',
+        },
       },
     },
     card: {

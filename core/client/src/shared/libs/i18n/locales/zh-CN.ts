@@ -37,13 +37,35 @@ export default {
   boards: {
     title: '此团队的看板',
     description: '所有活动中的看板都在这里，你可以切换并进行操作',
-    create: '创建新看板',
-    filter: {
-      input: '筛选看板...',
-      popularity: '按热门排序',
-      tooltips: {
-        first_sort: '按热门排序看板',
-        second_sort: '显示最近的看板',
+    create: '添加看板',
+    filters: {
+      sort: {
+        title: '排序依据',
+        arr: ['按名称', '按任务', '按最后更新'],
+      },
+      advanced: {
+        title: '高级筛选',
+        empty: '没有这样的筛选器 :/',
+        statuses: {
+          title: '状态',
+          arr: [
+            {
+              value: 'active',
+              label: '活跃',
+            },
+            {
+              value: 'non-active',
+              label: '不活跃',
+            },
+            {
+              value: 'archived',
+              label: '已归档',
+            },
+          ],
+        },
+        labels: {
+          title: '标签',
+        },
       },
     },
     card: {

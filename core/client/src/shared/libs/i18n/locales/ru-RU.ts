@@ -35,16 +35,35 @@ export default {
     share: 'Поделиться',
   },
   boards: {
-    title: 'Доски в этой команде',
-    description:
-      'Все ваши активные доски находятся здесь, вы можете переключаться и работать с ними',
-    create: 'Создать новую доску',
-    filter: {
-      input: 'Найти доску...',
-      popularity: 'По популярности',
-      tooltips: {
-        first_sort: 'Сортировать доски по популярности',
-        second_sort: 'Последние доски',
+    create: 'Добавить доску',
+    filters: {
+      sort: {
+        title: 'Отсортированно по',
+        arr: ['Названию', 'Задачам', 'Последним обновлениям'],
+      },
+      advanced: {
+        title: 'Расширенный фильтр',
+        empty: 'Таких фильтров нет :/',
+        statuses: {
+          title: 'Статусы',
+          arr: [
+            {
+              value: 'active',
+              label: 'Активно',
+            },
+            {
+              value: 'non-active',
+              label: 'Не активно',
+            },
+            {
+              value: 'archived',
+              label: 'В архиве',
+            },
+          ],
+        },
+        labels: {
+          title: 'Лэйблы',
+        },
       },
     },
     card: {

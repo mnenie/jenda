@@ -53,6 +53,7 @@ const contentPosition = computed(() => {
     >
       <UiButton
         :variant="link.isActive ? 'secondary' : 'ghost'"
+        size="sm"
         class="w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease"
         :class="link.isActive ? '!bg-neutral-200/40 dark:!bg-neutral-700/50' : ''"
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
+import { BoardsAdvancedFilter, BoardsSort } from '@/features/filters'
+import { AddBoard } from '@/features/boards'
 
 definePage({
   meta: {
@@ -15,6 +17,12 @@ useHead({
 
 <template>
   <div class="w-full h-full">
-    boards
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <BoardsSort />
+        <BoardsAdvancedFilter />
+      </div>
+      <AddBoard />
+    </div>
   </div>
 </template>
