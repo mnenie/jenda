@@ -18,12 +18,12 @@ const statuses = tm('boards.filters.advanced.statuses.arr') as Readonly<Option[]
 // Data from backend
 const labels = [
   {
-    color: 'bg-purple-500',
+    color: 'bg-purple-500 dark:bg-purple-400',
     value: 'company',
     label: 'feat: company',
   },
   {
-    color: 'bg-green-500',
+    color: 'bg-green-500 dark:bg-green-400',
     value: 'renovate',
     label: 'cd: renovate',
   },
