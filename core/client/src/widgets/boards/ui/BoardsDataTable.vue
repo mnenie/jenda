@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, useTemplateRef } from 'vue'
+import { useI18n } from 'vue-i18n'
 import type { Table } from '@tanstack/vue-table'
 import { DataTable, UiBadge } from '@/shared/ui'
 import { UserAvatar } from '@/entities/user'
@@ -8,9 +9,8 @@ defineProps<{
   data: any
 }>()
 
-const columns = [
+const _columns = [
   {
-    header: 'Название канбана',
     accessorKey: 'name',
     meta: {
       icon: 'hugeicons:alpha',
@@ -18,7 +18,6 @@ const columns = [
     },
   },
   {
-    header: 'Статус',
     accessorKey: 'status',
     meta: {
       icon: 'hugeicons:energy',
@@ -26,7 +25,6 @@ const columns = [
     },
   },
   {
-    header: 'Лэйблы',
     accessorKey: 'labels',
     meta: {
       icon: 'hugeicons:creative-market',
@@ -35,7 +33,6 @@ const columns = [
     },
   },
   {
-    header: 'Участники',
     accessorKey: 'users',
     meta: {
       icon: 'hugeicons:user-group',
@@ -43,7 +40,6 @@ const columns = [
     },
   },
   {
-    header: 'Задачи',
     accessorKey: 'tasks',
     meta: {
       icon: 'hugeicons:workflow-circle-06',
@@ -51,7 +47,6 @@ const columns = [
     },
   },
   {
-    header: 'Оценка',
     accessorKey: 'estimate',
     meta: {
       icon: 'hugeicons:bulb-charging',
@@ -60,7 +55,6 @@ const columns = [
     },
   },
   {
-    header: 'Дата создания',
     accessorKey: 'date',
     meta: {
       icon: 'hugeicons:calendar-02',
@@ -69,6 +63,18 @@ const columns = [
     },
   },
 ]
+
+const { tm, t } = useI18n()
+
+const localizedArr = tm('boards.columns') as any
+
+const columns = computed(() => {
+  return _columns.map((column, idx) => ({
+    ...column,
+    header: localizedArr[idx],
+  }))
+})
+
 const select = ref()
 
 const table = useTemplateRef<Table<any>>('table')
@@ -111,9 +117,10 @@ defineExpose({
     </template>
     <template #status-cell="{ cell }">
       <span
-        class="text-sm"
         :class="cell.row.original.status === 'archived' ? 'text-neutral-600' : 'text-green-600'"
-      > {{ cell.row.original.status }}</span>
+      >
+        {{ t(`kanban.${cell.row.original.status}`) }}
+      </span>
     </template>
     <template #users-cell="{ cell }">
       <div v-if="visibleUsers(cell).length > 0" class="flex items-center relative h-full w-full justify-between">
@@ -135,7 +142,7 @@ defineExpose({
           :style="{
             zIndex: `${visibleUsers(cell).length + 1}`,
           }"
-          class="flex items-center justify-center text-sm text-neutral-600 dark:text-neutral-400"
+          class="flex items-center justify-center text-neutral-600 dark:text-neutral-400"
         >
           +{{ remainingUsers(cell) }}
         </div>

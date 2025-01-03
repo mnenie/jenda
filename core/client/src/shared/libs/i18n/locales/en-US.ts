@@ -40,7 +40,7 @@ export default {
     filters: {
       sort: {
         title: 'Sort by',
-        arr: ['Name', 'Tasks', 'Recent updates'],
+        arr: ['Name', 'Tasks', 'Creation date'],
       },
       advanced: {
         title: 'Advanced filter',
@@ -53,10 +53,6 @@ export default {
               label: 'Active',
             },
             {
-              value: 'non-active',
-              label: 'Inactive',
-            },
-            {
               value: 'archived',
               label: 'Archived',
             },
@@ -66,6 +62,7 @@ export default {
           title: 'Labels',
         },
       },
+      search: 'Find a kanban...',
     },
     card: {
       date_updated: 'Updated',
@@ -77,6 +74,7 @@ export default {
       title_tasks: 'Your tasks',
       description_tasks: 'Solve and complete the tasks you started',
     },
+    columns: ['Kanban name', 'Status', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
   },
   templates: {
     title: 'Templates',
@@ -266,7 +264,8 @@ export default {
       activity: 'By activity',
       workload: 'By workload',
     },
-    statuses: ['work', 'archive', 'closed'],
+    active: 'active',
+    archived: 'archived',
     new: 'Add new column',
     cards: {
       add: 'Add card',
@@ -479,5 +478,11 @@ export default {
       team: 'Team',
       settings: 'Change Information',
     },
+  },
+  table: {
+    row_from_all: 'from',
+    row_selected: 'rows selected',
+    rows_on_page: 'Rows per page',
+    page: 'Page',
   },
 }

@@ -39,7 +39,7 @@ export default {
     filters: {
       sort: {
         title: 'Отсортированно по',
-        arr: ['Названию', 'Задачам', 'Последним обновлениям'],
+        arr: ['Названию', 'Задачам', 'Дате создания'],
       },
       advanced: {
         title: 'Расширенный фильтр',
@@ -52,10 +52,6 @@ export default {
               label: 'Активно',
             },
             {
-              value: 'non-active',
-              label: 'Не активно',
-            },
-            {
               value: 'archived',
               label: 'В архиве',
             },
@@ -65,6 +61,7 @@ export default {
           title: 'Лэйблы',
         },
       },
+      search: 'Найти канбан...',
     },
     card: {
       date_updated: 'Обновлено',
@@ -76,6 +73,7 @@ export default {
       title_tasks: 'Ваши задачи',
       description_tasks: 'Решайте и завершайте начатые задачи',
     },
+    columns: ['Название канбана', 'Статус', 'Лэйблы', 'Участники', 'Задачи', 'Оценка', 'Дата создания'],
   },
   templates: {
     title: 'Шаблоны',
@@ -269,7 +267,8 @@ export default {
       activity: 'Aктивность',
       workload: 'Нагрузка',
     },
-    statuses: ['в работе', 'в архиве', 'закрыто'],
+    active: 'aктивно',
+    archived: 'в архиве',
     new: 'Добавить новую колонку',
     cards: {
       add: 'Добавить карточку',
@@ -482,5 +481,11 @@ export default {
       active: 'Активно',
       archive: 'В архиве',
     },
+  },
+  table: {
+    row_from_all: 'из',
+    row_selected: 'строк выбрано(а)',
+    rows_on_page: 'Строк на странице',
+    page: 'Страница',
   },
 }

@@ -41,7 +41,7 @@ export default {
     filters: {
       sort: {
         title: '排序依据',
-        arr: ['按名称', '按任务', '按最后更新'],
+        arr: ['按名称', '按任务', '创建日期'],
       },
       advanced: {
         title: '高级筛选',
@@ -54,10 +54,6 @@ export default {
               label: '活跃',
             },
             {
-              value: 'non-active',
-              label: '不活跃',
-            },
-            {
               value: 'archived',
               label: '已归档',
             },
@@ -67,6 +63,7 @@ export default {
           title: '标签',
         },
       },
+      search: '搜索看板...',
     },
     card: {
       date_updated: '更新时间',
@@ -77,6 +74,7 @@ export default {
       title_tasks: '你的任务',
       description_tasks: '解决并完成你开始的任务',
     },
+    columns: ['看板名称', '状态', '标签', '参与者', '任务', '估算', '创建日期'],
   },
   templates: {
     title: '模板',
@@ -256,7 +254,8 @@ export default {
       activity: '按活动排序',
       workload: '按工作量排序',
     },
-    statuses: ['工作', '归档', '关闭'],
+    active: '活跃',
+    archived: '已归档',
     new: '添加新列',
     cards: {
       add: '添加卡片',
@@ -455,5 +454,11 @@ export default {
       team: '团队',
       settings: '更改信息',
     },
+  },
+  table: {
+    row_from_all: '从',
+    row_selected: '行已选择',
+    rows_on_page: '每页行数',
+    page: '页面',
   },
 }
