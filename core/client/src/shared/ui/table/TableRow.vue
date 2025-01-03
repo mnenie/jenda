@@ -9,7 +9,7 @@ const props = defineProps<{
 
 <template>
   <tr
-    :class="cn('border-b border-neutral-100 transition-colors data-[state=selected]:bg-blue-100 dark:data-[state=selected]:bg-neutral-800 cursor-pointer', props.class)"
+    :class="cn('border-b border-neutral-100 dark:border-neutral-700/50 transition-colors data-[state=selected]:bg-blue-100 dark:data-[state=selected]:bg-blue-900 cursor-pointer', props.class)"
     v-bind="$attrs"
   >
     <slot />

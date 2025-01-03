@@ -11,7 +11,7 @@ const props = defineProps<{
   <td
     :class="
       cn(
-        'no-scrollbar p-2 border-r first:border-none last:border-none border-neutral-100 dark:border-neutral-700 overflow-hidden text-ellipsis whitespace-nowrap px-8px h-12 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:flex [&>[role=checkbox]]:items-center',
+        'no-scrollbar p-2 border-r first:border-none last:border-none border-neutral-100  dark:border-neutral-700/50 overflow-hidden text-ellipsis whitespace-nowrap px-8px h-12 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:flex [&>[role=checkbox]]:items-center dark:text-neutral-100',
         props.class,
       )
     "

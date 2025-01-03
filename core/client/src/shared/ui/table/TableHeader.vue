@@ -9,7 +9,7 @@ const props = defineProps<{
 
 <template>
   <thead
-    :class="cn('sticky top-0 z-33 border-b bg-neutral-50', props.class)"
+    :class="cn('sticky top-0 z-33 border-b bg-neutral-50 dark:bg-#2e2e2e', props.class)"
     v-bind="$attrs"
   >
     <slot />

@@ -51,7 +51,7 @@ const _columns = [
     meta: {
       icon: 'hugeicons:bulb-charging',
       badge: 'AI',
-      _tableCell: 'text-left bg-purple-50/50',
+      _tableCell: 'text-left bg-purple-50/50 dark:bg-purple-900/20',
     },
   },
   {
@@ -117,7 +117,7 @@ defineExpose({
     </template>
     <template #status-cell="{ cell }">
       <span
-        :class="cell.row.original.status === 'archived' ? 'text-neutral-600' : 'text-green-600'"
+        :class="cell.row.original.status === 'archived' ? 'text-neutral-600 dark:text-neutral-400' : 'text-green-600'"
       >
         {{ t(`kanban.${cell.row.original.status}`) }}
       </span>
