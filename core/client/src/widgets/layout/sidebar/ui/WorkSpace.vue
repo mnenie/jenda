@@ -39,7 +39,7 @@ const contentPosition = computed(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-5px justify-start mb-20px">
+  <div class="flex flex-col space-y-1.5 justify-start mb-20px">
     <RouterLink
       v-for="link in pathName"
       :key="link.id"
@@ -54,7 +54,7 @@ const contentPosition = computed(() => {
       <UiButton
         :variant="link.isActive ? 'secondary' : 'ghost'"
         size="sm"
-        class="w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease"
+        class="w-full gap-2 shadow-none px-2 transition-all duration-200 ease"
         :class="link.isActive ? '!bg-neutral-200/40 dark:!bg-neutral-700/50' : ''"
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >

@@ -5,6 +5,6 @@ import { UiButton } from '@/shared/ui'
 <template>
   <UiButton size="sm" variant="solid" class="px-2">
     <span i-hugeicons-add-01 class="w-4 h-4" />
-    {{ $t('boards.create') }}
+    <span class="text-sm">{{ $t('boards.create') }}</span>
   </UiButton>
 </template>

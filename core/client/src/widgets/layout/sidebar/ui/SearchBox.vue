@@ -4,7 +4,7 @@ import { HippieNav } from '@noction/hippie-nav'
 import { useRouter } from 'vue-router/auto'
 import { useSearch } from '../model/composables'
 import type { Board } from '@/entities/board'
-import { SearchFilter } from '@/features/filters'
+import { SearchFilter } from '@/features/filters/sidebar'
 
 const props = defineProps<{
   boards: Board[]

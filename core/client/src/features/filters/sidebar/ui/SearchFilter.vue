@@ -36,7 +36,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     <UiButton
       :variant="isExpanded ? 'outline' : 'ghost'"
       size="sm"
-      class="w-full justify-start h-9 2xl:h-8 rounded-8px px-2 !bg-white dark:(!bg-#262626 border-neutral-600/20)
+      class="w-full justify-start rounded-8px px-2 !bg-white dark:(!bg-#262626 border-neutral-600/20)
       transition-[padding,width] duration-700 ease"
       :class="[
         isExpanded
