@@ -17,7 +17,7 @@ const emit = defineEmits<{
     :model-value="props.modelValue"
     @update:model-value="emit('update:modelValue', $event as U)"
   >
-    <UiSelectTrigger class="h-8 w-60px" as-child>
+    <UiSelectTrigger class="h-8 w-60px dark:border-neutral-700/60" as-child>
       <UiButton variant="ghost" class="h-8 px-2 justify-between focus:ring-0 mr-10">
         {{ table?.getState().pagination.pageSize }}
         <span i-lucide-chevrons-up-down class="w-4 h-4 opacity-50" />

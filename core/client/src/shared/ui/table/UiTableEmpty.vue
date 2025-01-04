@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, type HTMLAttributes } from 'vue'
-import TableCell from './TableCell.vue'
-import TableRow from './TableRow.vue'
+import TableCell from './UiTableCell.vue'
+import TableRow from './UiTableRow.vue'
 import { cn } from '@/shared/libs/shadcn/utils'
 
 const props = withDefaults(defineProps<{
@@ -23,13 +23,13 @@ const delegatedProps = computed(() => {
     <TableCell
       :class="
         cn(
-          'whitespace-nowrap align-middle text-sm text-neutral-950 dark:text-neutral-50',
+          'table-empty-cell',
           props.class,
         )
       "
       v-bind="delegatedProps"
     >
-      <div class="flex items-center justify-center text-sm text-neutral-500">
+      <div class="table-empty">
         <slot />
       </div>
     </TableCell>

@@ -19,7 +19,14 @@ const delegatedProps = computed(() => {
 
 <template>
   <PaginationLast v-bind="delegatedProps">
-    <UiButton :class="cn('w-9 h-9 p-0', props.class)" size="sm" variant="outline">
+    <UiButton
+      :class="cn(
+        'pagination-item',
+        props.class,
+      )"
+      size="sm"
+      variant="outline"
+    >
       <slot>
         <span i-lucide-chevrons-right />
       </slot>

@@ -8,7 +8,13 @@ const props = defineProps<{
 </script>
 
 <template>
-  <tbody :class="cn('[&_tr:last-child]:border-0', props.class)">
+  <thead
+    :class="cn(
+      'table-header',
+      props.class,
+    )"
+    v-bind="$attrs"
+  >
     <slot />
-  </tbody>
+  </thead>
 </template>

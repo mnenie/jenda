@@ -487,5 +487,6 @@ export default {
     row_selected: 'строк выбрано(а)',
     rows_on_page: 'Строк на странице',
     page: 'Страница',
+    empty: 'Таблица пуста',
   },
 }

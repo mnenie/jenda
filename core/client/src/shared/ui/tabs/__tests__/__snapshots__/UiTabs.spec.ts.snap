@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tabsComponent > should render correctly 1`] = `
+"<div dir="ltr" data-orientation="horizontal" class="w-[600px]">
+  <div role="tablist" aria-orientation="horizontal" tabindex="0" data-orientation="horizontal" dir="ltr" style="outline: none;" class="tabs-list"><button id="radix-vue-tabs-v-0-trigger-test1" role="tab" type="button" aria-selected="true" aria-controls="radix-vue-tabs-v-0-content-test1" data-state="active" data-orientation="horizontal" tabindex="-1" data-active="true" class="tabs-trigger" data-radix-vue-collection-item=""><span class="truncate"> Test 1 </span></button><button id="radix-vue-tabs-v-0-trigger-test2" role="tab" type="button" aria-selected="false" aria-controls="radix-vue-tabs-v-0-content-test2" data-state="inactive" data-orientation="horizontal" tabindex="-1" data-active="false" class="tabs-trigger" data-radix-vue-collection-item=""><span class="truncate"> Test 2 </span></button></div>
+  <div id="radix-vue-tabs-v-0-content-test1" role="tabpanel" data-state="active" data-orientation="horizontal" aria-labelledby="radix-vue-tabs-v-0-trigger-test1" tabindex="0" style="animation-duration: 0s;" class="tabs-content"> test 1 content </div>
+  <div id="radix-vue-tabs-v-0-content-test2" role="tabpanel" data-state="inactive" data-orientation="horizontal" aria-labelledby="radix-vue-tabs-v-0-trigger-test2" hidden="" tabindex="0" class="tabs-content">
+    <!---->
+  </div>
+</div>"
+`;
+
+exports[`tests for UiTabs > should render correctly 1`] = `
+"<div dir="ltr" data-orientation="horizontal" class="w-[600px]">
+  <div role="tablist" aria-orientation="horizontal" tabindex="0" data-orientation="horizontal" dir="ltr" style="outline: none;" class="tabs-list"><button id="radix-vue-tabs-v-0-trigger-test1" role="tab" type="button" aria-selected="true" aria-controls="radix-vue-tabs-v-0-content-test1" data-state="active" data-orientation="horizontal" tabindex="-1" data-active="true" class="tabs-trigger" data-radix-vue-collection-item=""><span class="truncate"> Test 1 </span></button><button id="radix-vue-tabs-v-0-trigger-test2" role="tab" type="button" aria-selected="false" aria-controls="radix-vue-tabs-v-0-content-test2" data-state="inactive" data-orientation="horizontal" tabindex="-1" data-active="false" class="tabs-trigger" data-radix-vue-collection-item=""><span class="truncate"> Test 2 </span></button></div>
+  <div id="radix-vue-tabs-v-0-content-test1" role="tabpanel" data-state="active" data-orientation="horizontal" aria-labelledby="radix-vue-tabs-v-0-trigger-test1" tabindex="0" style="" class="tabs-content"> test 1 content </div>
+  <div id="radix-vue-tabs-v-0-content-test2" role="tabpanel" data-state="inactive" data-orientation="horizontal" aria-labelledby="radix-vue-tabs-v-0-trigger-test2" hidden="" tabindex="0" class="tabs-content">
+    <!---->
+  </div>
+</div>"
+`;

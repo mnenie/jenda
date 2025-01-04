@@ -8,7 +8,13 @@ const props = defineProps<{
 </script>
 
 <template>
-  <caption :class="cn('mt-4 text-sm text-neutral-500 dark:text-neutral-400', props.class)">
+  <th
+    :class="cn(
+      'table-head',
+      props.class,
+    )"
+    v-bind="$attrs"
+  >
     <slot />
-  </caption>
+  </th>
 </template>

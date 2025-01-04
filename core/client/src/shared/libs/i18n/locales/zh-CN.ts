@@ -460,5 +460,6 @@ export default {
     row_selected: '行已选择',
     rows_on_page: '每页行数',
     page: '页面',
+    empty: '表格为空',
   },
 }

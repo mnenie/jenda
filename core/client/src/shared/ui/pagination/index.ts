@@ -1,8 +1,8 @@
-export { default as UiPaginationEllipsis } from './PaginationEllipsis.vue'
-export { default as UiPaginationFirst } from './PaginationFirst.vue'
-export { default as UiPaginationLast } from './PaginationLast.vue'
-export { default as UiPaginationNext } from './PaginationNext.vue'
-export { default as UiPaginationPrev } from './PaginationPrev.vue'
+export { default as UiPaginationEllipsis } from './UiPaginationEllipsis.vue'
+export { default as UiPaginationFirst } from './UiPaginationFirst.vue'
+export { default as UiPaginationLast } from './UiPaginationLast.vue'
+export { default as UiPaginationNext } from './UiPaginationNext.vue'
+export { default as UiPaginationPrev } from './UiPaginationPrev.vue'
 export {
   PaginationRoot as UiPagination,
   PaginationList as UiPaginationList,

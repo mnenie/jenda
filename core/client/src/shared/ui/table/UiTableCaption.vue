@@ -8,10 +8,12 @@ const props = defineProps<{
 </script>
 
 <template>
-  <tr
-    :class="cn('border-b border-neutral-100 dark:border-neutral-700/50 transition-colors data-[state=selected]:bg-blue-100 dark:data-[state=selected]:bg-blue-900 cursor-pointer', props.class)"
-    v-bind="$attrs"
+  <caption
+    :class="cn(
+      'table-caption',
+      props.class,
+    )"
   >
     <slot />
-  </tr>
+  </caption>
 </template>

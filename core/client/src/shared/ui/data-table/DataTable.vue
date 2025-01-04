@@ -12,7 +12,7 @@ import {
 import { Icon } from '@iconify/vue'
 import { UiCheckbox } from '../checkbox'
 import { UiBadge } from '../badge'
-import { UiTableBody, UiTableCell, UiTableEmpty, UiTableHead, UiTableHeader, UiTableRoot, UiTableRow } from '.'
+import { UiTableBody, UiTableCell, UiTableEmpty, UiTableHead, UiTableHeader, UiTableRoot, UiTableRow } from '../table'
 import type {
   ColumnFiltersState,
   ColumnOrderState,
@@ -60,6 +60,7 @@ const columnsWithMisc = computed(() => {
           header: enableMultiRowSelection
             ? ({ table }: any) => h(UiCheckbox, {
                 'checked': table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate'),
+                'variant': 'solid',
                 'onUpdate:checked': (value: boolean) => {
                   table.toggleAllPageRowsSelected(!!value)
                   emit('selectAll', table.getRowModel().rows)
@@ -69,6 +70,7 @@ const columnsWithMisc = computed(() => {
             : '',
           cell: ({ row }: any) => h(UiCheckbox, {
             'checked': row.getIsSelected() ?? false,
+            'variant': 'solid',
             'onUpdate:checked': (value: boolean) => {
               row.toggleSelected(!!value)
               emit('select', row)
@@ -246,7 +248,7 @@ defineExpose({
           v-bind="props._tableEmpty"
         >
           <slot name="empty">
-            Таблица пуста
+            {{ $t('table.empty') }}
           </slot>
         </UiTableEmpty>
       </slot>

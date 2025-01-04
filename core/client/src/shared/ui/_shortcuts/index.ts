@@ -9,6 +9,10 @@ import { pinInput } from './pin-input'
 import { select } from './select'
 import { popover } from './popover'
 import { command } from './command'
+import { tabs } from './tabs'
+import { pagination } from './pagination'
+import { table } from './table'
+import { checkbox } from './checkbox'
 import type { Preset, StaticShortcutMap } from '@unocss/core'
 
 export const shortcuts = [
@@ -23,4 +27,8 @@ export const shortcuts = [
   ...form,
   ...popover,
   ...command,
+  ...tabs,
+  ...pagination,
+  ...checkbox,
+  ...table,
 ] as Exclude<Preset['shortcuts'], undefined | StaticShortcutMap>

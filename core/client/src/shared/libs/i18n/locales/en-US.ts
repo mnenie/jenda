@@ -484,5 +484,6 @@ export default {
     row_selected: 'rows selected',
     rows_on_page: 'Rows per page',
     page: 'Page',
+    empty: 'The table is empty',
   },
 }

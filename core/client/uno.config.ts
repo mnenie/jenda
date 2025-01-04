@@ -66,6 +66,10 @@ export default defineConfig({
     './src/shared/ui/_shortcuts/form.ts',
     './src/shared/ui/_shortcuts/popover.ts',
     './src/shared/ui/_shortcuts/command.ts',
+    './src/shared/ui/_shortcuts/tabs.ts',
+    './src/shared/ui/_shortcuts/pagination.ts',
+    './src/shared/ui/_shortcuts/checkbox.ts',
+    './src/shared/ui/_shortcuts/table.ts',
     './src/shared/ui/_shortcuts/index.ts',
   ],
   content: {

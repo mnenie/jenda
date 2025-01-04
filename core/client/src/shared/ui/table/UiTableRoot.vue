@@ -12,8 +12,14 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="relative w-full overflow-x-hidden overflow-y-auto border border-neutral-100 dark:border-neutral-700/50 max-h-[calc(100dvh-160px)] rounded-md">
-    <table v-bind="$attrs" :class="cn('w-full caption-bottom text-13px 2xl:text-sm overflow-y-auto', props.class)">
+  <div class="table-wrapper">
+    <table
+      v-bind="$attrs"
+      :class="cn(
+        'table',
+        props.class,
+      )"
+    >
       <slot />
     </table>
   </div>
