@@ -2,7 +2,7 @@ import type { ColumnDef, GroupColumnDef } from '@tanstack/vue-table'
 import type { HTMLAttributes } from 'vue'
 
 export interface TableProps<TData, TValue> extends TableRootProps {
-  data: TData[]
+  data: TData[] | Set<TData>
   columns: ColumnDef<TData, TValue>[] | GroupColumnDef<TData, TValue>[]
   rowId?: string
   autoResetAll?: boolean

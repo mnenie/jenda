@@ -89,7 +89,7 @@ const columnsWithMisc = computed(() => {
 
 const table = useVueTable({
   get data() {
-    return props.data ?? []
+    return Array.from(props.data) ?? []
   },
   get columns() {
     return columnsWithMisc.value ?? []
@@ -129,7 +129,7 @@ const table = useVueTable({
   getSortedRowModel: getSortedRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
-  getRowId: (row: any) => props.rowId ? row[props.rowId] : row.id,
+  getRowId: (row: any) => props.rowId ? row[props.rowId] : row._id,
   getExpandedRowModel: getExpandedRowModel(),
 
   onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sorting),

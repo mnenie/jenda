@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { computed, ref, useTemplateRef } from 'vue'
+import { computed, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { Table } from '@tanstack/vue-table'
+import type { BoardRow } from '@/entities/board/model'
 import { DataTable, UiBadge } from '@/shared/ui'
 import { UserAvatar } from '@/entities/user'
 
 defineProps<{
-  data: any
+  data: Set<BoardRow> | BoardRow[]
 }>()
 
 const _columns = [
@@ -75,7 +76,7 @@ const columns = computed(() => {
   }))
 })
 
-const select = ref()
+const select = defineModel <Record<string, boolean>>('select')
 
 const table = useTemplateRef<Table<any>>('table')
 

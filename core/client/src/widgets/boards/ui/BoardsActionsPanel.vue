@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import { AddBoard } from '@/features/boards/handlers'
+import { AddBoard, RemoveBoard } from '@/features/boards/handlers'
 import { BoardsAdvancedFilter, BoardsSort, SearchBoards } from '@/features/filters/boards'
 import { UiTabsList, UiTabsTrigger } from '@/shared/ui'
+import { useBoardsStore } from '@/entities/board'
+
+defineProps<{
+  isSelected: boolean
+  idxs: string[]
+}>()
+
+const boardsStore = useBoardsStore()
 </script>
 
 <template>
@@ -17,6 +25,10 @@ import { UiTabsList, UiTabsTrigger } from '@/shared/ui'
       </UiTabsList>
       <BoardsSort />
       <BoardsAdvancedFilter />
+      <RemoveBoard
+        v-if="isSelected"
+        @remove="boardsStore.removeBoards(idxs)"
+      />
     </div>
     <div class="flex items-center gap-2">
       <SearchBoards />
