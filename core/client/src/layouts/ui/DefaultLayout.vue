@@ -29,8 +29,8 @@ createExpandedContext({
 // mock -> after data from backend
 // @ts-ignore
 const boards = ref<Board[]>([
-  { _id: '0', name: 'Startup Program', users: [], status: 'work', color: '#a1612a' },
-  { _id: '1', name: 'Integrations', users: [], status: 'closed', color: '#45ad2d' },
+  { _id: '0', name: 'Startup Program', users: [], status: 'active', color: '#a1612a', labels: [] },
+  { _id: '1', name: 'Integrations', users: [], status: 'active', color: '#45ad2d', labels: [] },
 ])
 </script>
 
