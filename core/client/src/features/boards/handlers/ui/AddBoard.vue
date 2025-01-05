@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import { UiButton } from '@/shared/ui'
+import { type ButtonVariants, UiButton } from '@/shared/ui'
+
+defineProps<{
+  variant: ButtonVariants['variant']
+  plural: number
+}>()
 </script>
 
 <template>
-  <UiButton size="sm" variant="solid" class="px-2">
+  <UiButton :variant="variant" size="sm" class="px-2">
     <span i-hugeicons-add-01 class="w-4 h-4" />
-    <span class="text-sm">{{ $t('boards.create') }}</span>
+    <span class="text-sm">{{ $t('boards.create', plural) }}</span>
   </UiButton>
 </template>

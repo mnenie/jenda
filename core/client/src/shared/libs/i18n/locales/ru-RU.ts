@@ -35,7 +35,7 @@ export default {
     share: 'Поделиться',
   },
   boards: {
-    create: 'Добавить доску',
+    create: 'Добавить канбан | Добавить новый канбан',
     filters: {
       sort: {
         title: 'Отсортированно по',
@@ -62,6 +62,10 @@ export default {
         },
       },
       search: 'Найти канбан...',
+    },
+    empty: {
+      title: 'Нет канбанов',
+      description: 'Создайте свой первый канбан и начните работать',
     },
     card: {
       date_updated: 'Обновлено',

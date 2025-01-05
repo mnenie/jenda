@@ -35,9 +35,7 @@ export default {
     share: '分享',
   },
   boards: {
-    title: '此团队的看板',
-    description: '所有活动中的看板都在这里，你可以切换并进行操作',
-    create: '添加看板',
+    create: '添加看板 | 添加新看板',
     filters: {
       sort: {
         title: '排序依据',
@@ -64,6 +62,10 @@ export default {
         },
       },
       search: '搜索看板...',
+    },
+    empty: {
+      title: '没有看板',
+      description: '创建您的第一个看板并开始工作',
     },
     card: {
       date_updated: '更新时间',

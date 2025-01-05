@@ -20,7 +20,7 @@ import { UiTabsList, UiTabsTrigger } from '@/shared/ui'
     </div>
     <div class="flex items-center gap-2">
       <SearchBoards />
-      <AddBoard />
+      <AddBoard :plural="1" variant="solid" />
     </div>
   </div>
 </template>
