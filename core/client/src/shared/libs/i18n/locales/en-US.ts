@@ -36,7 +36,7 @@ export default {
     share: 'Share link',
   },
   boards: {
-    create: 'Add kanban | Add new kanban',
+    create: 'Add board | Add new board',
     filters: {
       sort: {
         title: 'Sort by',
@@ -62,11 +62,11 @@ export default {
           title: 'Labels',
         },
       },
-      search: 'Find a kanban...',
+      search: 'Find a board...',
     },
     empty: {
-      title: 'No kanbans',
-      description: 'Create your first kanban and start working',
+      title: 'No board',
+      description: 'Create your first board and start working',
     },
     card: {
       date_updated: 'Updated',
