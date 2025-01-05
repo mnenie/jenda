@@ -28,7 +28,7 @@ const delegatedProps = computed(() => {
       variant="outline"
     >
       <slot>
-        <span i-lucide-chevrons-right />
+        <span i-lucide-chevrons-right class="min-w-3.5" />
       </slot>
     </UiButton>
   </PaginationLast>
