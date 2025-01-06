@@ -39,7 +39,10 @@ export default {
     filters: {
       sort: {
         title: '排序依据',
-        arr: ['按名称', '按任务', '创建日期'],
+        name: '名称',
+        tasks: '任务',
+        date: '创建日期',
+        default: '默认',
       },
       advanced: {
         title: '高级筛选',

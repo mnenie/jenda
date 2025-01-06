@@ -40,7 +40,10 @@ export default {
     filters: {
       sort: {
         title: 'Sort by',
-        arr: ['Name', 'Tasks', 'Creation date'],
+        name: 'Name',
+        tasks: 'Tasks',
+        date: 'Creation date',
+        default: 'Default',
       },
       advanced: {
         title: 'Advanced filter',
