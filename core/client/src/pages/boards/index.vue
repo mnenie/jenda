@@ -1,11 +1,12 @@
 <script setup lang="ts" generic="TData">
-import { computed, ref, useTemplateRef } from 'vue'
+import { computed, provide, ref, useTemplateRef } from 'vue'
 import { useHead } from '@unhead/vue'
 import { storeToRefs } from 'pinia'
 import type { Table } from '@tanstack/vue-table'
 import { BoardsActionsPanel, BoardsDataTable, EmptyBoards } from '@/widgets/boards'
 import { TableControls, ViewControl } from '@/widgets/controls'
-import { useBoardsStore } from '@/entities/board'
+import { useBoardsStore, useFilteredBoards } from '@/entities/board'
+import { filteredKey } from '@/shared/constants'
 
 definePage({
   meta: {
@@ -21,7 +22,12 @@ useHead({
 const boardsStore = useBoardsStore()
 const { boards } = storeToRefs(boardsStore)
 
+const sortModel = ref('default')
+const advancedModel = ref([])
+
 const selectedBoards = ref<Record<string, boolean>>({})
+
+const { filteredBoards } = useFilteredBoards(boards, sortModel, advancedModel)
 
 const isSelected = computed(() => {
   return Object.values(selectedBoards.value).some(value => value)
@@ -30,6 +36,11 @@ const isSelected = computed(() => {
 const idxs = computed(() => Object.keys(selectedBoards.value))
 
 const dataTable = useTemplateRef<InstanceType<typeof BoardsDataTable>>('table')
+
+provide(filteredKey, {
+  sortModel,
+  advancedModel,
+})
 </script>
 
 <template>
@@ -39,7 +50,7 @@ const dataTable = useTemplateRef<InstanceType<typeof BoardsDataTable>>('table')
         <div class="flex flex-col gap-12px">
           <BoardsActionsPanel :is-selected :idxs />
           <div class="flex flex-col overflow-auto">
-            <BoardsDataTable ref="table" v-model:select="selectedBoards" :data="boards" />
+            <BoardsDataTable ref="table" v-model:select="selectedBoards" :data="filteredBoards" />
           </div>
         </div>
         <TableControls v-if="boards.length > 0" :table="dataTable?.getTable() as Table<TData>" />

@@ -1,10 +1,10 @@
 import { ref } from 'vue'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { BoardRow } from './types'
+import type { Board, BoardRow } from './types'
 
 export const useBoardsStore = defineStore('boards', () => {
-  // TODO: type's naming
   const boards = ref<BoardRow[]>([])
+  const board = ref<Board>()
 
   function removeBoards(idxs: string[]) {
     idxs.forEach((id) => {
@@ -15,8 +15,14 @@ export const useBoardsStore = defineStore('boards', () => {
     })
   }
 
+  function addBoard(board: Board) {
+    boards.value.push(board)
+  }
+
   return {
     boards,
+    board,
+    addBoard,
     removeBoards,
   }
 })

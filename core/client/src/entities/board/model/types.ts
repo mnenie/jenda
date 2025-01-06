@@ -11,27 +11,25 @@ interface Label {
   color: string
 }
 
-export type Status = 'active' | 'archive'
+export type Status = 'active' | 'archived'
 
 type Priority = 'none' | 'low' | 'medium' | 'high'
 
-export interface BoardRow extends DateParams {
-  _id: string
-  name: string
-  status: Status
-  labels: Label[]
-  tasks: number
-  estimate: number
-  users: User[]
-  color?: string
-  // fix
-  date?: string
+export interface BoardRow extends Omit<Board, 'columns'> {
+  tasks?: number
 }
 
-export interface Board extends
-  Omit<BoardRow, 'tasks' | 'estimate'>,
-  DateParams {
+export interface Board extends DateParams {
+  _id: string
+  name: string
   columns?: Column[]
+  status: Status
+  labels: Label[]
+  users: User[]
+  color?: string
+  estimate?: number
+  // fix
+  date?: string
 }
 
 interface Tag {

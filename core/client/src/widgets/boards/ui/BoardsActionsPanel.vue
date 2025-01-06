@@ -23,7 +23,7 @@ const boardsStore = useBoardsStore()
           <span i-hugeicons-dashboard-square-01 />
         </UiTabsTrigger>
       </UiTabsList>
-      <BoardsSort />
+      <BoardsSort class="mr-2" />
       <BoardsAdvancedFilter />
       <RemoveBoard
         v-if="isSelected"
