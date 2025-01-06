@@ -36,11 +36,12 @@ const [DifineTemplate, ReuseTemplate] = createReusableTemplate()
     <UiDropdownMenuTrigger as-child>
       <UiButton
         v-tooltip.right="{
-          content: $t(`sidebar.help.title'`),
+          content: $t(`sidebar.help.title`),
           triggers: ['hover'],
           disabled: isExpanded,
         }"
         variant="ghost"
+        size="sm"
         class="w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease justify-between mb-1"
         :class="[isExpanded ? 'justify-between' : 'justify-center p-0']"
       >

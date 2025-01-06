@@ -16,7 +16,7 @@ const { workspace } = storeToRefs(workspaceStore)
 <template>
   <div
     class="w-full flex items-center"
-    :class="[isExpanded ? ' pl-10px px-14px py-8px min-h-52px max-h-52px border-b border-b-solid border-layout' : 'pt-16px pb-25px']"
+    :class="[isExpanded ? ' pl-10px px-14px py-8px min-h-52px max-h-52px border-b border-b-solid border-layout' : 'pt-16px pb-26px']"
   >
     <div
       class="w-full flex items-center"

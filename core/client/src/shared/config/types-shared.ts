@@ -11,6 +11,11 @@ export interface AuthWorkspace {
   openFileChooser: (event: any) => void
 }
 
+export interface Filtered {
+  sortModel: Ref<string>
+  advancedModel: Ref<string[]>
+}
+
 interface Path {
   pathName: string
 }

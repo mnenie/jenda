@@ -35,16 +35,40 @@ export default {
     share: '分享',
   },
   boards: {
-    title: '此团队的看板',
-    description: '所有活动中的看板都在这里，你可以切换并进行操作',
-    create: '创建新看板',
-    filter: {
-      input: '筛选看板...',
-      popularity: '按热门排序',
-      tooltips: {
-        first_sort: '按热门排序看板',
-        second_sort: '显示最近的看板',
+    create: '添加看板 | 添加新看板',
+    filters: {
+      sort: {
+        title: '排序依据',
+        name: '名称',
+        tasks: '任务',
+        date: '创建日期',
+        default: '默认',
       },
+      advanced: {
+        title: '高级筛选',
+        empty: '没有这样的筛选器 :/',
+        statuses: {
+          title: '状态',
+          arr: [
+            {
+              value: 'active',
+              label: '活跃',
+            },
+            {
+              value: 'archived',
+              label: '已归档',
+            },
+          ],
+        },
+        labels: {
+          title: '标签',
+        },
+      },
+      search: '搜索看板...',
+    },
+    empty: {
+      title: '没有看板',
+      description: '创建您的第一个看板并开始工作',
     },
     card: {
       date_updated: '更新时间',
@@ -55,6 +79,7 @@ export default {
       title_tasks: '你的任务',
       description_tasks: '解决并完成你开始的任务',
     },
+    columns: ['看板名称', '状态', '标签', '参与者', '任务', '估算', '创建日期'],
   },
   templates: {
     title: '模板',
@@ -234,7 +259,8 @@ export default {
       activity: '按活动排序',
       workload: '按工作量排序',
     },
-    statuses: ['工作', '归档', '关闭'],
+    active: '活跃',
+    archived: '已归档',
     new: '添加新列',
     cards: {
       add: '添加卡片',
@@ -433,5 +459,12 @@ export default {
       team: '团队',
       settings: '更改信息',
     },
+  },
+  table: {
+    row_from_all: '从',
+    row_selected: '行已选择',
+    rows_on_page: '每页行数',
+    page: '页面',
+    empty: '表格为空',
   },
 }

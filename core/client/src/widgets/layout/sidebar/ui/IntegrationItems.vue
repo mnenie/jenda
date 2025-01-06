@@ -33,6 +33,7 @@ const { isExpanded } = expanded.getExpanded()
       v-for="{ name, icon, link }, idx in items"
       :key="idx"
       variant="ghost"
+      size="sm"
       :disabled="name === 'Notion'"
       class="w-full gap-2 shadow-none py-0 px-2 transition-all duration-200 ease"
       :class="[isExpanded ? 'justify-between' : 'justify-center']"

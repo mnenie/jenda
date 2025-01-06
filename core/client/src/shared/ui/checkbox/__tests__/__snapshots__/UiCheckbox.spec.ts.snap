@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`test for UiCheckbox > should render correctly 1`] = `"<checkbox-root-stub defaultchecked="false" checked="true" disabled="false" required="false" aschild="false" as="button" class="checkbox checkbox-default" value="on"></checkbox-root-stub>"`;

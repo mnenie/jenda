@@ -29,7 +29,7 @@ const { isExpanded } = expanded.getExpanded()
   </div>
   <div
     v-else
-    class="relative p-5px px-1 rounded-lg"
+    class="relative p-4.5px px-1 rounded-lg"
     :class="!isExpanded && 'cursor-pointer'"
   >
     <span

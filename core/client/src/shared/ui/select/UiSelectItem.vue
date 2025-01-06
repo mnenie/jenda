@@ -16,6 +16,10 @@ interface Props extends SelectItemProps {
 
 const props = defineProps<Props>()
 
+defineEmits<{
+  (e: 'click'): void
+}>()
+
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props
 
@@ -27,7 +31,7 @@ const forwardedProps = useForwardProps(delegatedProps)
 
 <template>
   <SelectItem
-    v-bind="forwardedProps"
+    v-bind="{ ...$attrs, ...forwardedProps }"
     :class="
       cn(
         'select-item',

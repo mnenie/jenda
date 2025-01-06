@@ -6,19 +6,30 @@ interface DateParams {
   deletedAt?: Date
 }
 
-export type Status = 'work' | 'archive' | 'closed' | 'not active'
-
-export interface BoardPreview extends DateParams {
-  _id: string
+interface Label {
   name: string
-  description?: string
-  users: User[]
+  color: string
 }
 
-export interface Board extends BoardPreview, DateParams {
+export type Status = 'active' | 'archived'
+
+type Priority = 'none' | 'low' | 'medium' | 'high'
+
+export interface BoardRow extends Omit<Board, 'columns'> {
+  tasks?: number
+}
+
+export interface Board extends DateParams {
+  _id: string
+  name: string
   columns?: Column[]
-  color?: string
   status: Status
+  labels: Label[]
+  users: User[]
+  color?: string
+  estimate?: number
+  // fix
+  date?: string
 }
 
 interface Tag {
@@ -29,7 +40,7 @@ interface Tag {
 export interface Card extends DateParams {
   _id: string
   title: string
-  priority: 'none' | 'low' | 'medium' | 'high'
+  priority: Priority
   tags?: Tag[]
   chat?: boolean
   chatCount?: number

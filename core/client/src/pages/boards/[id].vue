@@ -6,7 +6,7 @@ import type { Board } from '@/entities/board'
 const board = ref<Board>({
   _id: '0',
   name: 'Startup',
-  status: 'work',
+  status: 'active',
   columns: [
     { _id: '0', title: 'Backlog', cards: [
       {
@@ -27,6 +27,7 @@ const board = ref<Board>({
       email: 'alexpeshkov@gmail.com',
     },
   ],
+  labels: [],
 })
 
 definePage({

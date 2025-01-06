@@ -29,8 +29,8 @@ createExpandedContext({
 // mock -> after data from backend
 // @ts-ignore
 const boards = ref<Board[]>([
-  { _id: '0', name: 'Startup Program', users: [], status: 'work', color: '#a1612a' },
-  { _id: '1', name: 'Integrations', users: [], status: 'closed', color: '#45ad2d' },
+  { _id: '0', name: 'Startup Program', users: [], status: 'active', color: '#a1612a', labels: [] },
+  { _id: '1', name: 'Integrations', users: [], status: 'active', color: '#45ad2d', labels: [] },
 ])
 </script>
 
@@ -47,7 +47,7 @@ const boards = ref<Board[]>([
         <HeaderMain :projects="boards" />
         <div
           class="relative h-full w-full !bg-main"
-          :style="{ padding: $route.name !== 'board-id' ? '12px 20px 20px 20px' : '0' }"
+          :style="{ padding: $route.name !== 'board-id' ? '12px 20px 12px 20px' : '0' }"
         >
           <slot />
         </div>

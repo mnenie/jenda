@@ -36,17 +36,40 @@ export default {
     share: 'Share link',
   },
   boards: {
-    title: 'Boards in this team',
-    description:
-      'All your active boards are located here, which you can switch to and work on',
-    create: 'Create new board',
-    filter: {
-      input: 'Filter boards...',
-      popularity: 'By popularity',
-      tooltips: {
-        first_sort: 'Sort boards by popularity',
-        second_sort: 'Show recent boards',
+    create: 'Add board | Add new board',
+    filters: {
+      sort: {
+        title: 'Sort by',
+        name: 'Name',
+        tasks: 'Tasks',
+        date: 'Creation date',
+        default: 'Default',
       },
+      advanced: {
+        title: 'Advanced filter',
+        empty: 'No such filters available :/',
+        statuses: {
+          title: 'Statuses',
+          arr: [
+            {
+              value: 'active',
+              label: 'Active',
+            },
+            {
+              value: 'archived',
+              label: 'Archived',
+            },
+          ],
+        },
+        labels: {
+          title: 'Labels',
+        },
+      },
+      search: 'Find a board...',
+    },
+    empty: {
+      title: 'No board',
+      description: 'Create your first board and start working',
     },
     card: {
       date_updated: 'Updated',
@@ -58,6 +81,7 @@ export default {
       title_tasks: 'Your tasks',
       description_tasks: 'Solve and complete the tasks you started',
     },
+    columns: ['Kanban name', 'Status', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
   },
   templates: {
     title: 'Templates',
@@ -247,7 +271,8 @@ export default {
       activity: 'By activity',
       workload: 'By workload',
     },
-    statuses: ['work', 'archive', 'closed'],
+    active: 'active',
+    archived: 'archived',
     new: 'Add new column',
     cards: {
       add: 'Add card',
@@ -460,5 +485,12 @@ export default {
       team: 'Team',
       settings: 'Change Information',
     },
+  },
+  table: {
+    row_from_all: 'from',
+    row_selected: 'rows selected',
+    rows_on_page: 'Rows per page',
+    page: 'Page',
+    empty: 'The table is empty',
   },
 }

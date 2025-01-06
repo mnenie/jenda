@@ -12,6 +12,11 @@ canvas {
   height: 100% !important;
 }
 
+/* tr,
+thead {
+  clip-path: xywh(0 0 100% 100% round 0.5em);
+} */
+
 .splitpanes--vertical .splitpanes__pane {
   transition: none;
 }

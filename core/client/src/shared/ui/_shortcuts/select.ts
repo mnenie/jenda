@@ -9,7 +9,7 @@ export const staticSelect: Record<`${SelectPrefix}-${string}` | SelectPrefix, st
   'select-label': 'px-2 py-1.5 text-sm font-semibold',
   'select-scroll-button': 'flex cursor-default items-center justify-center py-1',
   'select-separator': '-mx-1 my-1 h-px bg-neutral-100 dark:bg-neutral-800',
-  'select-trigger': 'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-solid border-neutral-200 bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-white data-[placeholder]:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-950 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:truncate text-start dark:(border-neutral-700 ring-offset-neutral-800 data-[placeholder]:text-neutral-400 focus:ring-neutral-300)',
+  'select-trigger': 'flex h-8 w-full items-center justify-between whitespace-nowrap rounded-md border border-solid border-neutral-200 bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-white data-[placeholder]:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-950 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:truncate text-start dark:(border-neutral-700 ring-offset-neutral-800 data-[placeholder]:text-neutral-400 focus:ring-neutral-300)',
 }
 
 export const select = [

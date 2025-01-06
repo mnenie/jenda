@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for UiCommand > should render correctly 1`] = `
+"<div style="pointer-events: auto;" dir="ltr" class="command rounded-lg border shadow-md max-w-[450px]">
+  <div class="flex items-center border-b dark:border-neutral-700/40 px-3" cmdk-input-wrapper="">
+    <div i-lucide-search="" class="mr-2 h-4 w-4 shrink-0 opacity-50"></div><input type="text" aria-expanded="true" aria-controls="radix-vue-combobox-content-v-0" aria-disabled="false" aria-autocomplete="list" role="combobox" autocomplete="false" placeholder="Search..." class="command-input" value="" aria-activedescendant="radix-vue-combobox-option-v-2">
+  </div>
+  <div id="radix-vue-combobox-content-v-0" role="listbox" data-state="open" style="display: flex; flex-direction: column; outline: none;" class="command-list">
+    <div role="presentation">
+      <div id="radix-vue-combobox-option-v-2" role="option" tabindex="-1" aria-labelledby="radix-vue-combobox-item-v-1" aria-selected="false" data-state="unchecked" class="command-item" data-radix-vue-combobox-item="" data-highlighted=""><span>test item</span></div>
+    </div>
+  </div>
+  <!---->
+</div>"
+`;
