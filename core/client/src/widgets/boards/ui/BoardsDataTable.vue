@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { computed, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useDark } from '@vueuse/core'
 import type { Table } from '@tanstack/vue-table'
 import type { BoardRow } from '@/entities/board/model'
 import { DataTable, UiBadge } from '@/shared/ui'
 import { UserAvatar } from '@/entities/user'
+import { formatLabelColor } from '@/shared/helpers'
 
 defineProps<{
   data: Set<BoardRow> | BoardRow[]
@@ -88,6 +90,8 @@ function userPosition(idx: number) {
   return idx * 20
 }
 
+const isDark = useDark()
+
 defineExpose({
   getTable: () => table.value,
 })
@@ -104,16 +108,24 @@ defineExpose({
     enable-sorting
   >
     <template #labels-cell="{ cell }">
-      <div class="w-full overflow-hidden text-ellipsis whitespace-nowrap text-neutral-500">
-        <UiBadge
-          v-for="{ name, color } in cell.row.original.labels"
-          :key="name"
-          variant="soft"
-          class="shadow-none rounded-lg px-1.5 mr-1.5"
-          :class="color"
-        >
-          {{ name }}
-        </UiBadge>
+      <div class="w-full whitespace-nowrap text-neutral-500">
+        <template v-if="cell.row.original.labels.length > 0">
+          <UiBadge
+            v-for="{ name, color } in cell.row.original.labels"
+            :key="name"
+            variant="soft"
+            class="shadow-none rounded-lg px-1.5 mr-1.5 bg-neutral-100 text-neutral-800 dark:(bg-neutral-700/80 text-neutral-100)"
+            :style="{
+              background: color ? color.startsWith('#') ? `${color}33` : color : '',
+              color: formatLabelColor(color, isDark ? 10 : 100) || '',
+            }"
+          >
+            {{ name }}
+          </UiBadge>
+        </template>
+        <template v-else>
+          <span class="text-neutral-500">-</span>
+        </template>
       </div>
     </template>
     <template #status-cell="{ cell }">

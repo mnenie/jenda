@@ -2,27 +2,18 @@
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@/shared/libs/shadcn/utils'
 
-const props = defineProps<{
-  class?: HTMLAttributes['class']
-}>()
+const props = defineProps<{ class?: HTMLAttributes['class'] }>()
 </script>
 
 <template>
-  <td
+  <div
     :class="
       cn(
-        'table-cell no-scroll',
+        'flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-x-2',
         props.class,
       )
     "
-    v-bind="$attrs"
   >
     <slot />
-  </td>
+  </div>
 </template>
-
-<style scoped>
-.no-scroll::-webkit-scrollbar {
-  display: none;
-}
-</style>

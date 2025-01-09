@@ -6,7 +6,7 @@ interface DateParams {
   deletedAt?: Date
 }
 
-interface Label {
+export interface Label {
   name: string
   color: string
 }

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { AddBoard, RemoveBoard } from '@/features/boards/handlers'
+import { storeToRefs } from 'pinia'
+import CreateNewBoard from './CreateNewBoard.vue'
+import { RemoveBoard } from '@/features/boards/handlers'
 import { BoardsAdvancedFilter, BoardsSort, SearchBoards } from '@/features/filters/boards'
 import { UiTabsList, UiTabsTrigger } from '@/shared/ui'
 import { useBoardsStore } from '@/entities/board'
@@ -10,6 +12,7 @@ defineProps<{
 }>()
 
 const boardsStore = useBoardsStore()
+const { boards } = storeToRefs(boardsStore)
 </script>
 
 <template>
@@ -26,13 +29,16 @@ const boardsStore = useBoardsStore()
       <BoardsSort class="mr-2" />
       <BoardsAdvancedFilter />
       <RemoveBoard
-        v-if="isSelected"
+        v-if="isSelected && boards.length > 0"
         @remove="boardsStore.removeBoards(idxs)"
       />
     </div>
     <div class="flex items-center gap-2">
       <SearchBoards />
-      <AddBoard :plural="1" variant="solid" />
+      <CreateNewBoard
+        :plural="1"
+        variant="solid"
+      />
     </div>
   </div>
 </template>

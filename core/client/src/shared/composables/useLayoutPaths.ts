@@ -39,6 +39,9 @@ export function useLayoutPaths(
     if (isProject(item)) {
       return route.path === `/boards/${item._id}`
     }
+    if (route.name === 'boards-new') {
+      return item.pathName === 'boards'
+    }
     if (route.name === 'community') {
       return item.pathName === 'templates'
     }
