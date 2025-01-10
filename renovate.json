@@ -1,21 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "group:allNonMajor",
+    ":semanticCommitTypeAll(chore)"
   ],
   "baseBranches": [
     "master"
   ],
-  "schedule": [
-    "every weekend"
-  ],
   "packageRules": [
-    {
-      "enabled": false,
-      "matchPackageNames": [
-        "/.*/"
-      ]
-    },
     {
       "groupName": "unocss",
       "matchPackageNames": [
@@ -67,8 +60,6 @@
     "dependencies",
     "renovate"
   ],
-  "prHourlyLimit": 4,
-  "prConcurrentLimit": 16,
   "rangeStrategy": "bump",
   "ignorePaths": [
     "**/node_modules/**",
@@ -79,10 +70,8 @@
   "dependencyDashboard": true,
   "semanticCommits": "enabled",
   "commitMessagePrefix": "chore(dependencies): ",
-  "rebaseWhen": "auto",
   "minimumReleaseAge": "3 days",
-  "prCreation": "immediate",
-  "prTitle": "Update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
-  "commitBody": "update {{{depName}}} to {{#if isPatch}}v{{{newVersion}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}v{{{newVersion}}}{{/if}}{{/if}}",
-  "prBodyTemplate": "Updates {{{depName}}} from `{{{currentValue}}}` to `{{{newValue}}}`\n\n{{#if releaseNotes}}\n### Release Notes\n{{releaseNotes}}\n{{/if}}"
+  "npm": {
+    "commitMessageTopic": "{{prettyDepType}} {{depName}}"
+  }
 }
