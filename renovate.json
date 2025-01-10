@@ -2,7 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "group:allNonMajor",
     ":semanticCommitTypeAll(chore)"
   ],
   "baseBranches": [
@@ -10,41 +9,27 @@
   ],
   "packageRules": [
     {
-      "groupName": "unocss",
+      "enabled": false,
       "matchPackageNames": [
-        "unocss",
-        "@unocss/*"
+        "/.*/"
       ]
     },
     {
-      "groupName": "vee-validate",
       "matchPackageNames": [
-        "vee-validate",
-        "@vee-validate/*"
-      ]
-    },
-    {
-      "groupName": "ui",
-      "matchPackageNames": [
-        "floating-vue",
-        "radix-vue"
-      ]
-    },
-    {
-      "groupName": "vue-related",
-      "matchPackageNames": [
+        "@vueuse/*",
         "vue-i18n",
         "vite-plugin-vue-devtools",
         "unplugin-vue-router",
         "@vue/test-utils",
-        "@unhead/vue"
-      ]
-    },
-    {
-      "groupName": "vueuse",
-      "matchPackageNames": [
-        "@vueuse/*"
-      ]
+        "@unhead/vue",
+        "unocss",
+        "@unocss/*",
+        "vee-validate",
+        "@vee-validate/*",
+        "floating-vue",
+        "radix-vue"
+      ],
+      "enabled": true
     },
     {
       "matchFileNames": [
