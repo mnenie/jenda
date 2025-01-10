@@ -21,7 +21,7 @@
     "@formkit/auto-animate": "^0.8.2",
     "@noction/hippie-nav": "^0.7.7",
     "@tanstack/vue-table": "8.20.5",
-    "@unhead/vue": "^1.11.14",
+    "@unhead/vue": "^1.11.15",
     "@unocss/core": "^0.65.3",
     "@unocss/reset": "^0.65.3",
     "@vee-validate/zod": "^4.15.0",
@@ -96,7 +96,7 @@
     "unocss-preset-shadcn": "0.3.1",
     "unplugin-vue-router": "0.10.9",
     "vite": "^5.3.1",
-    "vite-plugin-vue-devtools": "^7.6.8",
+    "vite-plugin-vue-devtools": "^7.7.0",
     "vitest": "^1.6.0",
     "vue-tsc": "^2.0.21"
   }
