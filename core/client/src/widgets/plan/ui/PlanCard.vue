@@ -22,7 +22,7 @@ const { isExpanded } = expanded.getExpanded()
         <UiBadge variant="soft" class="rounded px-1.5 py-px text-xs">
           5
         </UiBadge>
-        <span class="text-13px text-neutral-800 dark:text-neutral-300 whitespace-nowrap"> {{ $t('sidebar.plan.description') }}</span>
+        <span class="text-13px 2xl:text-sm text-neutral-800 dark:text-neutral-300 whitespace-nowrap"> {{ $t('sidebar.plan.description') }}</span>
       </div>
       <SubscribePlan />
     </div>

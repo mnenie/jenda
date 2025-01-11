@@ -1,4 +1,3 @@
-import fs from 'node:fs/promises'
 import {
   defineConfig,
   presetAttributify,
@@ -10,6 +9,7 @@ import {
 } from 'unocss'
 import presetAnimations from 'unocss-preset-animations'
 import { presetShadcn } from 'unocss-preset-shadcn'
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 import presetJendaUI from './src/shared/libs/unocss/presets/presetUiKit'
 
 export default defineConfig({
@@ -29,12 +29,9 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
       collections: {
-        'lucid': () => import('@iconify-json/lucide/icons.json').then(i => i.default),
-        'huge': () => import('@iconify-json/hugeicons/icons.json').then(i => i.default),
-        'jenda-custom': {
-          'file-import': () => fs.readFile('./src/shared/assets/icons/custom-jenda/import.svg', 'utf-8'),
-          'project': () => fs.readFile('./src/shared/assets/icons/custom-jenda/project.svg', 'utf-8'),
-        },
+        lucid: () => import('@iconify-json/lucide/icons.json').then(i => i.default),
+        huge: () => import('@iconify-json/hugeicons/icons.json').then(i => i.default),
+        jenda: FileSystemIconLoader('./src/shared/assets/icons/custom-jenda'),
       },
     }),
     presetJendaUI(),
@@ -65,11 +62,13 @@ export default defineConfig({
     './src/shared/ui/_shortcuts/pin-input.ts',
     './src/shared/ui/_shortcuts/form.ts',
     './src/shared/ui/_shortcuts/popover.ts',
+    './src/shared/ui/_shortcuts/picker.ts',
     './src/shared/ui/_shortcuts/command.ts',
     './src/shared/ui/_shortcuts/tabs.ts',
     './src/shared/ui/_shortcuts/pagination.ts',
     './src/shared/ui/_shortcuts/checkbox.ts',
     './src/shared/ui/_shortcuts/table.ts',
+    './src/shared/ui/_shortcuts/tags-input.ts',
     './src/shared/ui/_shortcuts/index.ts',
   ],
   content: {

@@ -62,7 +62,6 @@ const _columns = [
     meta: {
       icon: 'hugeicons:calendar-02',
       _tableCell: 'text-left',
-      _tableHead: 'w-144px',
     },
   },
 ]
@@ -114,7 +113,7 @@ defineExpose({
             v-for="{ name, color } in cell.row.original.labels"
             :key="name"
             variant="soft"
-            class="shadow-none rounded-lg px-1.5 mr-1.5 bg-neutral-100 text-neutral-800 dark:(bg-neutral-700/80 text-neutral-100)"
+            class="shadow-none rounded-lg px-1.5 mr-1.5 2xl:text-13px bg-neutral-100 text-neutral-800 dark:(bg-neutral-700/80 text-neutral-100)"
             :style="{
               background: color ? color.startsWith('#') ? `${color}33` : color : '',
               color: formatLabelColor(color, isDark ? 10 : 100) || '',

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
+import { createReusableTemplate } from '@vueuse/core'
 import { UiInput, UiPopover, UiPopoverContent, UiPopoverTrigger, UiTabs, UiTabsContent, UiTabsList, UiTabsTrigger } from '@/shared/ui'
 import { formatLabelColor } from '@/shared/helpers'
 
@@ -16,19 +17,32 @@ const gradients = [
   'linear-gradient(to right, #09203f, #ff75c3)',
   'linear-gradient(to right, #f54242, #42f54b)',
 ]
+
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>
-  <UiPopover>
+  <DefineTemplate v-slot="{ data }">
+    <UiTabsContent value="solid" class="picker">
+      <div
+        v-for="item, idx in data"
+        :key="idx"
+        :style="{ background: item }"
+        class="picker-item"
+        @click="background = item"
+      />
+    </UiTabsContent>
+  </DefineTemplate>
+  <UiPopover v-bind="$attrs">
     <UiPopoverTrigger as-child>
       <Icon
         icon="solar:menu-dots-bold-duotone"
-        class="h-3.5 w-3.5 rounded object-cover transition-all mr-px cursor-pointer text-neutral-800 dark:text-neutral-100"
+        class="picker-icon"
         :style="{ color: formatLabelColor(background || '', 80) }"
       />
     </UiPopoverTrigger>
     <UiPopoverContent class="w-64">
-      <UiTabs default-value="solid" class="w-full">
+      <UiTabs default-value="solid" class="picker-tabs">
         <UiTabsList class="w-full mb-4">
           <UiTabsTrigger class="flex-1" value="solid">
             {{ $t('picker.tabs', 1) }}
@@ -37,32 +51,13 @@ const gradients = [
             {{ $t('picker.tabs', 2) }}
           </UiTabsTrigger>
         </UiTabsList>
-
-        <UiTabsContent value="solid" class="flex flex-wrap gap-1 mt-0">
-          <div
-            v-for="solid in solids"
-            :key="solid"
-            :style="{ background: solid }"
-            class="rounded-md h-6 w-6 cursor-pointer active:scale-105"
-            @click="background = solid"
-          />
-        </UiTabsContent>
-
-        <UiTabsContent value="gradient" class="mt-0 flex flex-wrap gap-1 mt-0">
-          <div
-            v-for="gradient in gradients"
-            :key="gradient"
-            :style="{ background: gradient }"
-            class="rounded-md h-6 w-6 cursor-pointer active:scale-105"
-            @click="background = gradient"
-          />
-        </UiTabsContent>
+        <ReuseTemplate :data="solids" />
+        <ReuseTemplate :data="gradients" />
       </UiTabs>
-
       <UiInput
         v-model="background"
         :placeholder="$t('picker.placeholder')"
-        class="col-span-2 h-8 mt-4 focus:ring-0"
+        class="picker-input"
       />
     </UiPopoverContent>
   </UiPopover>

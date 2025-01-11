@@ -67,6 +67,23 @@ export default {
       },
       search: 'Find a board...',
     },
+    forms: {
+      creating: {
+        title: 'Creating a board',
+        description: 'You can create a new board to manage tasks',
+        name: {
+          label: 'Name',
+          placeholder: 'Enter the name of the board',
+        },
+        labels: {
+          label: 'Labels',
+          placeholder: 'Enter a label',
+          description: 'Start typing a label and press \'Enter\' to save it to your existing labels',
+          alert: '📝 How to change the label color? Specify the label name followed by [#desired color]. For example: jenda [#000000].',
+        },
+        btns: 'Cancel | Create',
+      },
+    },
     empty: {
       title: 'No board',
       description: 'Create your first board and start working',
@@ -82,6 +99,10 @@ export default {
       description_tasks: 'Solve and complete the tasks you started',
     },
     columns: ['Kanban name', 'Status', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
+  },
+  picker: {
+    placeholder: 'Custom color',
+    tabs: 'Solid | Gradients',
   },
   templates: {
     title: 'Templates',

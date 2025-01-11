@@ -1,0 +1,24 @@
+{/* TagsInput.mdx */}
+
+import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
+import * as TagsInputStories from '../tags-input/UiTagsInput.stories';
+
+<Meta of={TagsInputStories} name="Docs" />
+
+# UiTagsInput
+
+Render tags inside an input, followed by an actual text input.
+
+### Main Components:
+
+`UiTagsInput`, `UiTagsInputInput`, `UiTagsInputItem`
+
+<Canvas of={TagsInputStories.DefaultTagsInput} />
+
+### Disabled
+
+<Canvas of={TagsInputStories.DisabledTagsInput} />
+
+### Props
+
+refs: https://www.radix-vue.com/components/tags-input
