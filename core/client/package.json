@@ -70,6 +70,7 @@
     "@storybook/vue3-vite": "^8.1.10",
     "@tsconfig/node20": "^20.1.4",
     "@types/jsdom": "^21.1.7",
+    "@types/node": "^22.5.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/eslint-config-prettier": "^10.0.0",
     "@vue/eslint-config-typescript": "^14.1.1",
