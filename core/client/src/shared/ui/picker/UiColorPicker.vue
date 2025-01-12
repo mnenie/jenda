@@ -22,8 +22,8 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>
-  <DefineTemplate v-slot="{ data }">
-    <UiTabsContent value="solid" class="picker">
+  <DefineTemplate v-slot="{ data, value }">
+    <UiTabsContent :value="value" class="picker">
       <div
         v-for="item, idx in data"
         :key="idx"
@@ -51,8 +51,8 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
             {{ $t('picker.tabs', 2) }}
           </UiTabsTrigger>
         </UiTabsList>
-        <ReuseTemplate :data="solids" />
-        <ReuseTemplate :data="gradients" />
+        <ReuseTemplate :data="solids" value="solid" />
+        <ReuseTemplate :data="gradients" value="gradient" />
       </UiTabs>
       <UiInput
         v-model="background"

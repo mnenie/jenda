@@ -498,6 +498,15 @@ export default {
     name: 'Название',
     url: 'Удобная ссылка',
   },
+  search: {
+    placeholder: 'Введите что-нибудь для поиска...',
+    empty: 'Ничего не найдено',
+    recently: 'Недавние',
+    links: 'Ссылки',
+    select: 'Выбрать',
+    open: 'Открыть',
+    close: 'Закрыть',
+  },
   workspace: {
     popover: {
       members: '{n} участников | {n} участник | {n} участника',

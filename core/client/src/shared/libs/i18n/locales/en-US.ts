@@ -497,6 +497,15 @@ export default {
     name: 'Name',
     url: 'URL handle',
   },
+  search: {
+    placeholder: 'Type smth for search...',
+    empty: 'No results found',
+    recently: 'Recently',
+    links: 'Links',
+    select: 'Select',
+    open: 'Open',
+    close: 'Close',
+  },
   workspace: {
     popover: {
       members: '{n} members',
@@ -505,6 +514,8 @@ export default {
       invite: 'Invite to Project',
       team: 'Team',
       settings: 'Change Information',
+      active: 'Active',
+      archive: 'Archived',
     },
   },
   table: {

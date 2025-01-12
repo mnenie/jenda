@@ -51,7 +51,7 @@ const onChanger = handleSubmit((values) => {
         </div>
         <UiFormMessage v-if="errors.workspace" :content="errors.workspace" />
       </UiFormField>
-      <UiButton type="submit">
+      <UiButton size="md" type="submit">
         {{ $t('authentication.workspace.route') }}
       </UiButton>
     </div>

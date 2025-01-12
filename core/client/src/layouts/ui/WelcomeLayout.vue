@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useColorMode } from '@vueuse/core'
-import { AppFooter, HeaderWelcome } from '@/widgets/layout'
+import { AppFooter } from '@/widgets/layout/footer'
+import { HeaderWelcome } from '@/widgets/layout/header'
 
 useColorMode({
   initialValue: 'light',

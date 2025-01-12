@@ -471,6 +471,15 @@ export default {
     name: '名称',
     url: '自定义链接',
   },
+  search: {
+    placeholder: '输入内容进行搜索...',
+    empty: '未找到结果',
+    recently: '最近',
+    links: '链接',
+    select: '选择',
+    open: '打开',
+    close: '关闭',
+  },
   workspace: {
     popover: {
       members: '{n} 成员',
@@ -479,6 +488,8 @@ export default {
       invite: '邀请加入项目',
       team: '团队',
       settings: '更改信息',
+      active: '活跃',
+      archive: '已归档',
     },
   },
   table: {

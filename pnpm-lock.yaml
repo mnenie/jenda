@@ -26,9 +26,6 @@ importers:
       '@formkit/auto-animate':
         specifier: ^0.8.2
         version: 0.8.2
-      '@noction/hippie-nav':
-        specifier: ^0.7.7
-        version: 0.7.7(flexsearch@0.7.21)(vue-router@4.5.0(vue@3.5.13(typescript@5.4.5)))(vue@3.5.13(typescript@5.4.5))
       '@tanstack/vue-table':
         specifier: 8.20.5
         version: 8.20.5(vue@3.5.13(typescript@5.4.5))
@@ -1138,27 +1135,6 @@ packages:
     peerDependencies:
       prettier: ^3.2.5
 
-  '@noction/hippie-nav@0.7.7':
-    resolution: {integrity: sha512-NOomdzK3LnNQp/gOnq3/eSMzoE1yWVlSMmWxemGt+PxViqdXLUP3StLJ0axsjkOI636CbNwDcQhUpl654ClieA==}
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      flexsearch: 0.7.21
-      vue: ^2.0.0 || >=3.0.0
-      vue-router: ^4.2.2
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-
-  '@noction/vue-use-flexsearch@1.0.5':
-    resolution: {integrity: sha512-Vgj86CSFRfH+qVz/IKivkJLbhYmPV3J6cAnJ/hLN5dteAdPGd+WlsWNA70HBRAlUoRyAp9ltCdiA7i8Uom0YXw==}
-    peerDependencies:
-      '@vue/composition-api': ^1.7.2
-      flexsearch: 0.7.21
-      vue: ^3.3.4
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -2173,13 +2149,6 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  autoprefixer@10.4.20:
-    resolution: {integrity: sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==}
-    engines: {node: ^10 || ^12 || >=14}
-    hasBin: true
-    peerDependencies:
-      postcss: ^8.1.0
-
   available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
@@ -2968,9 +2937,6 @@ packages:
   flatted@3.3.2:
     resolution: {integrity: sha512-AiwGJM8YcNOaobumgtng+6NHuOqC3A7MixFeDafM3X9cIUM+xUXoS5Vfgf+OihAYe20fxqNM9yPBXJzRtZ/4eA==}
 
-  flexsearch@0.7.21:
-    resolution: {integrity: sha512-W7cHV7Hrwjid6lWmy0IhsWDFQboWSng25U3VVywpHOTJnnAZNPScog67G+cVpeX9f7yDD21ih0WDrMMT+JoaYg==}
-
   floating-vue@5.2.2:
     resolution: {integrity: sha512-afW+h2CFafo+7Y9Lvw/xsqjaQlKLdJV7h1fCHfcYQ1C4SVMlu7OAekqWgu5d4SgvkBVU0pVpLlVsrSTBURFRkg==}
     peerDependencies:
@@ -2999,9 +2965,6 @@ packages:
   form-data@4.0.1:
     resolution: {integrity: sha512-tzN8e4TX8+kkxGPK8D5u0FNmjPUjw3lwC9lSLxxoB/+GtsJG91CO8bSWy73APlgAZzZbXEYZJuxjkHH2w+Ezhw==}
     engines: {node: '>= 6'}
-
-  fraction.js@4.3.7:
-    resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
   fs-extra@11.2.0:
     resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
@@ -3753,10 +3716,6 @@ packages:
 
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
-    engines: {node: '>=0.10.0'}
-
-  normalize-range@0.1.2:
-    resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
 
   npm-normalize-package-bin@3.0.1:
@@ -5763,24 +5722,6 @@ snapshots:
     dependencies:
       prettier: 3.4.1
 
-  '@noction/hippie-nav@0.7.7(flexsearch@0.7.21)(vue-router@4.5.0(vue@3.5.13(typescript@5.4.5)))(vue@3.5.13(typescript@5.4.5))':
-    dependencies:
-      '@noction/vue-use-flexsearch': 1.0.5(flexsearch@0.7.21)(vue@3.5.13(typescript@5.4.5))
-      '@vueuse/core': 10.11.1(vue@3.5.13(typescript@5.4.5))
-      autoprefixer: 10.4.20(postcss@8.4.49)
-      flexsearch: 0.7.21
-      postcss: 8.4.49
-      sass: 1.81.0
-      vue: 3.5.13(typescript@5.4.5)
-      vue-demi: 0.14.10(vue@3.5.13(typescript@5.4.5))
-      vue-router: 4.5.0(vue@3.5.13(typescript@5.4.5))
-
-  '@noction/vue-use-flexsearch@1.0.5(flexsearch@0.7.21)(vue@3.5.13(typescript@5.4.5))':
-    dependencies:
-      flexsearch: 0.7.21
-      vue: 3.5.13(typescript@5.4.5)
-      vue-demi: 0.14.10(vue@3.5.13(typescript@5.4.5))
-
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -7045,16 +6986,6 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  autoprefixer@10.4.20(postcss@8.4.49):
-    dependencies:
-      browserslist: 4.24.2
-      caniuse-lite: 1.0.30001685
-      fraction.js: 4.3.7
-      normalize-range: 0.1.2
-      picocolors: 1.1.1
-      postcss: 8.4.49
-      postcss-value-parser: 4.2.0
-
   available-typed-arrays@1.0.7:
     dependencies:
       possible-typed-array-names: 1.0.0
@@ -7191,6 +7122,7 @@ snapshots:
   chokidar@4.0.1:
     dependencies:
       readdirp: 4.0.2
+    optional: true
 
   ci-info@4.1.0: {}
 
@@ -7965,8 +7897,6 @@ snapshots:
 
   flatted@3.3.2: {}
 
-  flexsearch@0.7.21: {}
-
   floating-vue@5.2.2(vue@3.5.13(typescript@5.4.5)):
     dependencies:
       '@floating-ui/dom': 1.1.1
@@ -7989,8 +7919,6 @@ snapshots:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
-
-  fraction.js@4.3.7: {}
 
   fs-extra@11.2.0:
     dependencies:
@@ -8152,7 +8080,8 @@ snapshots:
 
   ignore@6.0.2: {}
 
-  immutable@5.0.3: {}
+  immutable@5.0.3:
+    optional: true
 
   import-fresh@3.3.0:
     dependencies:
@@ -8862,8 +8791,6 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  normalize-range@0.1.2: {}
-
   npm-normalize-package-bin@3.0.1: {}
 
   npm-run-all2@6.2.6:
@@ -9236,7 +9163,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  readdirp@4.0.2: {}
+  readdirp@4.0.2:
+    optional: true
 
   recast@0.23.9:
     dependencies:
@@ -9336,6 +9264,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.0
+    optional: true
 
   saxes@6.0.0:
     dependencies:

@@ -29,7 +29,7 @@ const { isExpanded } = expanded.getExpanded()
   </div>
   <div
     v-else
-    class="relative p-4.5px px-1 rounded-lg"
+    class="relative p-4.5px 2xl:pt-10px 2xl:pb-4px px-1 rounded-lg"
     :class="!isExpanded && 'cursor-pointer'"
   >
     <span
@@ -38,7 +38,7 @@ const { isExpanded } = expanded.getExpanded()
         triggers: ['hover'],
         placement: 'right',
       }"
-      class="absolute top--2px right--1px text-blue-500 cursor-help"
+      class="absolute top--2px 2xl:top-1px right--1px text-blue-500 cursor-help"
     >
       *
     </span>

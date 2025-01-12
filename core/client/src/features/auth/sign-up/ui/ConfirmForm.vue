@@ -57,7 +57,7 @@ function onResend() {
     <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2">
       {{ $t('authentication.form.otp') }}
     </p>
-    <UiButton type="submit" class="w-full mt-4 mb-2">
+    <UiButton size="md" type="submit" class="w-full mt-4 mb-2">
       {{ $t('authentication.confirm.btn') }}
     </UiButton>
     <p
