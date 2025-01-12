@@ -36,8 +36,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     <UiButton
       :variant="isExpanded ? 'outline' : 'ghost'"
       size="sm"
-      class="w-full justify-start rounded-8px px-2 !bg-white dark:(!bg-#262626 border-neutral-600/20)
-      transition-[padding,width] duration-700 ease"
+      class="w-full justify-start rounded-8px px-2 !bg-white dark:(!bg-#262626 border-neutral-600/20) focus:ring-0 custom-btn-transition bg-transition"
       :class="[
         isExpanded
           ? 'hover:!bg-neutral-100/10 dark:hover:!bg-neutral-600/30'
@@ -69,3 +68,15 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     <ReuseTemplate v-else content="⌘K" class="absolute -right-1 top-1 transform -translate-y-1/2 bg-white dark:bg-neutral-800" />
   </div>
 </template>
+
+<style scoped>
+.custom-btn-transition {
+  transition:
+    padding 700ms ease,
+    width 700ms ease;
+}
+
+.bg-transition {
+  transition: background 150ms ease;
+}
+</style>

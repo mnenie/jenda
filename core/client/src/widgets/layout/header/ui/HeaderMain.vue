@@ -70,7 +70,7 @@ const { active } = useLayoutPaths(links, _projects)
       />
       <div
         v-if="active.extendedAttrs.color"
-        i-jenda-custom-project
+        i-jenda-project
         :style="{ color: active.extendedAttrs.color, fontSize: '20px' }"
       />
       <p v-if="active" class="text-lg mt-1.5px !fw-600 dark:text-neutral-100">

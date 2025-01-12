@@ -84,7 +84,7 @@ function changeShowList() {
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
         <div
-          i-jenda-custom-project
+          i-jenda-project
           class="w-16px h-16px rounded flex justify-center items-center"
           :style="{ color: project.color }"
         />

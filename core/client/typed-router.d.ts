@@ -28,6 +28,7 @@ declare module 'vue-router/auto-routes' {
     'sign-up-workspace': RouteRecordInfo<'sign-up-workspace', '/auth/sign-up/workspace', Record<never, never>, Record<never, never>>,
     'boards': RouteRecordInfo<'boards', '/boards', Record<never, never>, Record<never, never>>,
     'board-id': RouteRecordInfo<'board-id', '/boards/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'boards-new': RouteRecordInfo<'boards-new', '/boards/new', Record<never, never>, Record<never, never>>,
     'members': RouteRecordInfo<'members', '/members', Record<never, never>, Record<never, never>>,
     'settings': RouteRecordInfo<'settings', '/settings', Record<never, never>, Record<never, never>>,
     'tasks': RouteRecordInfo<'tasks', '/tasks', Record<never, never>, Record<never, never>>,

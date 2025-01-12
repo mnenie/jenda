@@ -13,6 +13,8 @@ import { tabs } from './tabs'
 import { pagination } from './pagination'
 import { table } from './table'
 import { checkbox } from './checkbox'
+import { picker } from './picker'
+import { tagsInput } from './tags-input'
 import type { Preset, StaticShortcutMap } from '@unocss/core'
 
 export const shortcuts = [
@@ -31,4 +33,6 @@ export const shortcuts = [
   ...pagination,
   ...checkbox,
   ...table,
+  ...picker,
+  ...tagsInput,
 ] as Exclude<Preset['shortcuts'], undefined | StaticShortcutMap>

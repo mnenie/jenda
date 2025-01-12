@@ -11,7 +11,7 @@ export const staticBtn: Record<`${ButtonPrefix}-${string}` | ButtonPrefix, strin
 }
 
 export const dynamicBtn: [RegExp, (params: RegExpExecArray) => string][] = [
-  [/^btn-solid(?:-(.+))?$/, ([, c = '#266df0']) => `bg-${c} text-neutral-50 shadow hover:bg-${c}/90`],
+  [/^btn-solid(?:-(.+))?$/, ([, c = '#266df0']) => `bg-${c} text-neutral-50 shadow focus:ring-0 hover:bg-${c}/90`],
   [/^btn-colorized-(.*)$/, ([, c]) => `bg-${c}-500 text-neutral-50 shadow-sm hover:bg-${c}-500/90 dark:(bg-${c}-900 text-neutral-50 hover:bg-${c}-900/90)`],
 ]
 

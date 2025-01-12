@@ -5,7 +5,8 @@ import { useLocalStorage } from '@vueuse/core'
 import { Pane, Splitpanes } from 'splitpanes'
 import type { Board } from '@/entities/board'
 import { useExpanded } from '@/shared/composables'
-import { AppSidebar, HeaderMain } from '@/widgets/layout'
+import { AppSidebar } from '@/widgets/layout/sidebar'
+import { HeaderMain } from '@/widgets/layout/header'
 
 import 'splitpanes/dist/splitpanes.css'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AddBoard } from '@/features/boards/handlers'
+import CreateNewBoard from './CreateNewBoard.vue'
 </script>
 
 <template>
@@ -13,6 +13,10 @@ import { AddBoard } from '@/features/boards/handlers'
     <span class="text-sm text-neutral-600 dark:text-neutral-200">
       {{ $t('boards.empty.description') }}
     </span>
-    <AddBoard :plural="2" variant="secondary" class="mt-1" />
+    <CreateNewBoard
+      :plural="2"
+      variant="secondary"
+      class="mt-1"
+    />
   </div>
 </template>

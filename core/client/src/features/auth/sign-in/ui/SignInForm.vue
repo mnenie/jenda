@@ -70,7 +70,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         </ReuseTemplate>
       </div>
       <div class="grid gap-2">
-        <UiButton type="submit">
+        <UiButton size="md" type="submit">
           {{ $t('authentication.login.btn') }}
         </UiButton>
         <p class="text-sm text-center select-none text-neutral-500 dark:text-neutral-300">

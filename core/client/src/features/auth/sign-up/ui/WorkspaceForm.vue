@@ -58,7 +58,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
           </div>
         </ReuseTemplate>
       </div>
-      <UiButton type="submit">
+      <UiButton size="md" type="submit">
         {{ $t('authentication.workspace.route') }}
       </UiButton>
     </div>

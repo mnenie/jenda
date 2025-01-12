@@ -11,7 +11,7 @@ const props = defineProps<{
   <td
     :class="
       cn(
-        'table-cell',
+        'table-cell no-scroll',
         props.class,
       )
     "
@@ -20,3 +20,9 @@ const props = defineProps<{
     <slot />
   </td>
 </template>
+
+<style scoped>
+.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+</style>

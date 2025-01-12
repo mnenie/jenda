@@ -1,12 +1,18 @@
-{/* misc.mdx */}
+misc.mdx
+
+import { Markdown } from '@storybook/blocks';
 
 # Miscellaneous Components
 
 This document describes components that are not included in the main documentation but may still be useful in specific contexts. These components are context-dependent and have been thoroughly tested in their respective `.spec.ts` files.
 
+<Markdown>
+  {`
 | Component   | Description                                                                                       | Notes                                      |
 |-------------|---------------------------------------------------------------------------------------------------|--------------------------------------------|
-| `UiPagination` | A pagination component designed to manage and display paginated data dynamically.                  | Context-dependent, tested in `.spec.ts`.   |
-| `DataTable` and  `UiTable`     | A table component for displaying structured data with customizable columns and rows.                | Context-dependent, tested in `.spec.ts`.   |
+| UiPagination | A pagination component designed to manage and display paginated data dynamically.                  | Context-dependent, tested in .spec.ts.   |
+| DataTable and  UiTable     | A table component for displaying structured data with customizable columns and rows.                | Context-dependent, tested in .spec.ts. |
+  `}
+</Markdown>
 
 > **Note:** These components are excluded from the primary documentation because their usage scenarios are tightly coupled with specific contexts. Ensure to evaluate their fit for your use case before implementation.

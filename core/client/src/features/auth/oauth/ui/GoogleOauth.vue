@@ -11,7 +11,7 @@ function onGoogleAuth() {
 </script>
 
 <template>
-  <UiButton variant="outline" @click="onGoogleAuth">
+  <UiButton size="md" variant="outline" @click="onGoogleAuth">
     <img src="/icons/google.png" class="w-4 h-4" />
     Google
   </UiButton>
