@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for HeaderWelcome.vue > should be render correctly 1`] = `
+"<header data-v-8da6c939="" class="sticky top-0 z-50 flex flex-col self-center gap-10 max-w-1800px w-full px-4 py-3">
+  <section data-v-8da6c939="" class="flex items-center justify-between">
+    <div data-v-8da6c939="" class="flex items-center gap-2 select-none">
+      <div data-v-8da6c939="" class="relative z-10 box bg-white border border-solid border-#e3e4e8 flex items-center py-0 pl-2.5 pr-3.5 h-40px rounded-lg dark:shadow-sm dark:bg-#313131 dark:border-neutral-700">
+        <div data-v-8da6c939="" class="flex items-center gap-0.5"><a data-v-8da6c939="" href="https://github.com/mnenie/jenda" target="_blank" class="flex items-center gap-1 cursor-pointer mr-2"><img data-v-8da6c939="" src="/icons/kanban.png" class="w-22px h-22px">
+            <h3 data-v-8da6c939="" class="text-xl fw-500"> Jenda </h3>
+          </a>
+          <ui-button-stub data-v-8da6c939="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-8da6c939="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-8da6c939="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-8da6c939="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-8da6c939="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+          <ui-button-stub data-v-8da6c939="" class="text-neutral-500 fw500 hover:text-neutral-700 dark:text-neutral-400" variant="ghost" size="sm" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+        </div>
+      </div>
+      <div data-v-8da6c939="" class="flex items-center gap-1">
+        <language-select-stub data-v-8da6c939=""></language-select-stub>
+        <div data-v-8da6c939="" class="w-1px h-3.5 bg-neutral-200 dark:bg-neutral-700"></div>
+        <theme-switcher-stub data-v-8da6c939=""></theme-switcher-stub>
+      </div>
+    </div>
+    <div data-v-8da6c939="" class="flex items-center gap-1.5 btns">
+      <ui-button-stub data-v-8da6c939="" class="bg-main bg-transparent" variant="ghost" size="default" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button" style="font-weight: 500;"></ui-button-stub>
+      <ui-button-stub data-v-8da6c939="" variant="default" size="default" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+    </div>
+  </section>
+</header>"
+`;

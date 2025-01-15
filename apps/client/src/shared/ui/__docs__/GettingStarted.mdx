@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Getting Started" />
+
+# Get started 🖖
+
+**Jenda UI Kit** is a custom, reusable component library designed to help developers create user interfaces faster with a cohesive design language. Created as part of the Jenda project, this UI kit provides pre-built, customizable Vue components tailored for seamless integration and intuitive use.
+
+### **Usage**
+
+Import components you want into your UI
+
+`import { UiButton, UiBadge, UiInput } from '@shared/ui';`
+
+and use them like so
+
+```
+<script setup lang="ts">
+import { UiButton } from '@/shared/ui';
+</script>
+
+<template>
+   <UiButton variant="outline" size="lg">hello from ui</UiButton>
+</template>
+```
+
+### **Run and develop UI Kit locally**
+
+Clone the [Jenda repository](https://github.com/mnenie/jenda) then start Storybook.
+
+`pnpm i && pnpm run storybook`
+
+__if you have an errors in console with `iframe` just reload page__
+
+
+### **Theme Support**
+
+Jenda UI Kit components support multiple themes: light, dark, and system (auto-switches based on user’s OS preferences). This allows for a more personalized and accessible UI experience across devices and environments.
+

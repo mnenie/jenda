@@ -1,0 +1,27 @@
+import { cva, type VariantProps } from 'class-variance-authority'
+
+export { default as UiButton } from './UiButton.vue'
+
+export const buttonVariants = cva('btn', {
+  variants: {
+    variant: {
+      default: 'btn-default',
+      solid: 'btn-solid',
+      destructive: 'btn-colorized-red',
+      success: 'btn-colorized-green',
+      outline: 'btn-outline',
+      secondary: 'btn-secondary',
+      ghost: 'btn-ghost',
+      dashed: 'btn-dashed',
+    },
+    size: {
+      default: 'h-9 px-4 py-2',
+      xs: 'h-8 rounded px-2 text-xs rounded-lg',
+      md: 'h-34px rounded-md px-3',
+      sm: 'h-34px 2xl:h-8 rounded-md px-3',
+      lg: 'h-38px rounded-md px-8',
+    },
+  },
+})
+
+export type ButtonVariants = VariantProps<typeof buttonVariants>
