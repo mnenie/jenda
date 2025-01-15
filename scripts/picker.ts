@@ -6,7 +6,7 @@ import prompts from 'prompts'
 
 async function startPicker(args: string[]) {
   const folders = (
-    await fs.readdir(new URL('../core', import.meta.url), { withFileTypes: true })
+    await fs.readdir(new URL('../apps', import.meta.url), { withFileTypes: true })
   )
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name)
@@ -36,7 +36,7 @@ async function startPicker(args: string[]) {
       process.exit(1)
     }
     await execa('pnpm', ['run', selectedCommand], {
-      cwd: new URL(`../core/${result.folder}`, import.meta.url),
+      cwd: new URL(`../apps/${result.folder}`, import.meta.url),
       stdio: 'inherit',
     })
   }
