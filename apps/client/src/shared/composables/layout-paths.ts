@@ -5,7 +5,7 @@ import type {
   CombinedLink,
   ProjectLink,
   WorkspaceLink,
-} from '@/shared/config/types-shared'
+} from '../config/shared-types'
 
 export function useLayoutPaths(
   links: MaybeRefOrGetter<WorkspaceLink[]>,
