@@ -1,5 +1,0 @@
-export { default as UiTagsInput } from './UiTagsInput.vue'
-export { default as UiTagsInputInput } from './UiTagsInputInput.vue'
-export { default as UiTagsInputItem } from './UiTagsInputItem.vue'
-export { default as UiTagsInputItemDelete } from './UiTagsInputItemDelete.vue'
-export { default as UiTagsInputItemText } from './UiTagsInputItemText.vue'

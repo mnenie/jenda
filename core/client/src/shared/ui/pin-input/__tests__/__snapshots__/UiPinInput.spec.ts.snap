@@ -1,6 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`tests for UiPinInput > should render correctly 1`] = `
-"<div class="pin-input flex gap-2 items-center" dir="ltr"><input autocapitalize="none" autocomplete="false" type="text" inputmode="text" placeholder="○" aria-label="pin input 1 of 5" class="pin-input-input w-10 h-10 rounded text-yellow-800"><input autocapitalize="none" autocomplete="false" type="text" inputmode="text" placeholder="○" aria-label="pin input 2 of 5" class="pin-input-input w-10 h-10 rounded text-yellow-800"><input autocapitalize="none" autocomplete="false" type="text" inputmode="text" placeholder="○" aria-label="pin input 3 of 5" class="pin-input-input w-10 h-10 rounded text-yellow-800"><input autocapitalize="none" autocomplete="false" type="text" inputmode="text" placeholder="○" aria-label="pin input 4 of 5" class="pin-input-input w-10 h-10 rounded text-yellow-800"><input autocapitalize="none" autocomplete="false" type="text" inputmode="text" placeholder="○" aria-label="pin input 5 of 5" class="pin-input-input w-10 h-10 rounded text-yellow-800"></div>
-<input type="text" tabindex="-1" aria-hidden="true" style="transform: translateX(-100%); position: absolute; pointer-events: none; opacity: 0; margin: 0px;" value="">"
-`;
