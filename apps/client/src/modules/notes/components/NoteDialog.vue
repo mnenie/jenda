@@ -7,7 +7,7 @@ import {
 
 <template>
   <UiDialog>
-    <UiDialogContent>
+    <UiDialogContent class="max-w-4xl min-h-xl max-h-xl overflow-y-auto">
       <RouterView />
     </UiDialogContent>
   </UiDialog>

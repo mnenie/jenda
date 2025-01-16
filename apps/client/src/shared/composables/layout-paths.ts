@@ -42,6 +42,9 @@ export function useLayoutPaths(
     if (route.name === 'boards-new') {
       return item.pathName === 'boards'
     }
+    if (route.name === 'notes-slug') {
+      return item.pathName === 'notes'
+    }
     if (route.name === 'community') {
       return item.pathName === 'templates'
     }

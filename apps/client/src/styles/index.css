@@ -4,3 +4,5 @@
 @import './_exceptions';
 @import './_families';
 @import './_scrollbar';
+
+@import '@/modules/editor/_editor-styles.css';

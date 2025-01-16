@@ -31,6 +31,7 @@ declare module 'vue-router/auto-routes' {
     'boards-new': RouteRecordInfo<'boards-new', '/boards/new', Record<never, never>, Record<never, never>>,
     'members': RouteRecordInfo<'members', '/members', Record<never, never>, Record<never, never>>,
     'notes': RouteRecordInfo<'notes', '/notes', Record<never, never>, Record<never, never>>,
+    'notes-slug': RouteRecordInfo<'notes-slug', '/notes/:slug(.*)', { slug: ParamValue<true> }, { slug: ParamValue<false> }>,
     'settings': RouteRecordInfo<'settings', '/settings', Record<never, never>, Record<never, never>>,
     'templates': RouteRecordInfo<'templates', '/templates', Record<never, never>, Record<never, never>>,
     'community': RouteRecordInfo<'community', '/templates/community', Record<never, never>, Record<never, never>>,

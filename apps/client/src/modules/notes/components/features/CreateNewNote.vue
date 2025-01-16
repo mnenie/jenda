@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, useTemplateRef } from 'vue'
 import { useRoute, useRouter } from 'vue-router/auto'
+import NoteDialog from '../NoteDialog.vue'
 import AddNote from './handlers/AddNote.vue'
 import type { ButtonVariants, UiDialog } from '@/shared/ui'
 
@@ -21,7 +22,7 @@ const dialog = useTemplateRef<InstanceType<typeof UiDialog> | null>('dialog')
 const isDialogOpen = ref(false)
 
 function toggleModalRoute() {
-  if (dialog.value && !dialog.value.open) {
+  if (dialog.value && !dialog.value.open && route.name === 'notes-slug') {
     router.back()
   }
 }
@@ -31,12 +32,18 @@ function toggleModalRoute() {
   <AddNote
     :variant
     :plural
-    @add="isDialogOpen = true"
+    @add="isDialogOpen = true,
+          router.push(
+            {
+              name: 'notes-slug',
+              params: { slug: 'undefined' },
+            },
+          )"
   />
-  <!-- <NoteDialog
+  <NoteDialog
     v-if="route.name === 'notes-slug'"
     ref="dialog"
     :open="isDialogOpen"
     @update:open="toggleModalRoute"
-  /> -->
+  />
 </template>

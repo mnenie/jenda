@@ -6,10 +6,16 @@ interface DateParams {
   deletedAt?: Date
 }
 
-export interface Note extends DateParams {
+// tiptap editor data
+export interface NoteData{
+  content?: string;
+  type: 'doc';
+};
+
+
+export interface Note extends DateParams, NoteData {
   _id: string
   title: string
-  content?: string
   creator: User
   updatedBy?: User
   users: User[]
