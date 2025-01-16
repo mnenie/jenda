@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useBoardsStore } from '../stores/board'
-import CreateNewBoard from './features/CreateNewBoard.vue'
-import RemoveBoard from './features/handlers/RemoveBoard.vue'
-import BoardsAdvancedFilter from './filters/BoardsAdvancedFilter.vue'
-import BoardsSort from './filters/BoardsSort.vue'
-import SearchBoards from './filters/SearchBoards.vue'
+import { useNotesStore } from '../stores/notes'
+import SearchNotes from './filters/SearchNotes.vue'
+import NotesSort from './filters/NotesSort.vue'
+import CreateNewNote from './features/CreateNewNote.vue'
+import RemoveNote from './features/handlers/RemoveNote.vue'
 import { UiTabsList, UiTabsTrigger } from '@/shared/ui'
 
 defineProps<{
@@ -13,8 +12,8 @@ defineProps<{
   idxs: string[]
 }>()
 
-const boardsStore = useBoardsStore()
-const { boards } = storeToRefs(boardsStore)
+const notesStore = useNotesStore()
+const { notes } = storeToRefs(notesStore)
 </script>
 
 <template>
@@ -28,16 +27,15 @@ const { boards } = storeToRefs(boardsStore)
           <span i-hugeicons-dashboard-square-01 />
         </UiTabsTrigger>
       </UiTabsList>
-      <BoardsSort class="mr-2" />
-      <BoardsAdvancedFilter />
-      <RemoveBoard
-        v-if="isSelected && boards.length > 0"
-        @remove="boardsStore.removeBoards(idxs)"
+      <NotesSort />
+      <RemoveNote
+        v-if="isSelected && notes.length > 0"
+        @remove="notesStore.removeNotes(idxs!)"
       />
     </div>
     <div class="flex items-center gap-2">
-      <SearchBoards />
-      <CreateNewBoard
+      <SearchNotes />
+      <CreateNewNote
         :plural="1"
         variant="solid"
       />

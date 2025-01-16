@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="TData">
-import PaginationItems from './PaginationItems.vue'
-import ChooseRowsCount from './features/ChooseRowsCount.vue'
+import PaginationItems from '../PaginationItems.vue'
+import ChooseRowsCount from '../ChooseRowsCount.vue'
 import type { Table } from '@tanstack/vue-table'
 
 defineProps<{
@@ -22,7 +22,7 @@ defineProps<{
     </div>
     <div class="flex items-center gap-4">
       <span
-        class="flex items-center justify-center text-sm font-medium"
+        class="flex items-center justify-center text-sm"
       >
         {{ $t('table.rows_on_page') }}
       </span>
@@ -32,7 +32,7 @@ defineProps<{
         @update:model-value="table?.setPageSize($event as unknown as number)"
       />
       <div
-        class="flex items-center justify-center text-sm font-medium"
+        class="flex items-center justify-center text-sm"
       >
         {{ $t('table.page') }}
         {{ (table?.getState().pagination.pageIndex ?? 0) + 1 }}

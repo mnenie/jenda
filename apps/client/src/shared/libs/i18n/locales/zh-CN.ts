@@ -98,6 +98,23 @@ export default {
     },
     columns: ['看板名称', '状态', '标签', '参与者', '任务', '估算', '创建日期'],
   },
+  notes: {
+    create: '添加笔记 | 添加新笔记',
+    remove: '删除',
+    filters: {
+      sort: {
+        title: '排序方式',
+        date: '更新日期',
+        default: '默认',
+      },
+      search: '搜索笔记...',
+    },
+    empty: {
+      title: '没有笔记',
+      description: '创建您的第一条笔记并分享您的想法',
+    },
+    columns: ['笔记标题', '内容', '创建者', '参与者', '更新日期'],
+  },
   picker: {
     placeholder: '自定义颜色',
     tabs: '纯色 | 渐变',

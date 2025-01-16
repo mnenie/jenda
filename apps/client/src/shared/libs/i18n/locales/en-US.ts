@@ -100,6 +100,23 @@ export default {
     },
     columns: ['Kanban name', 'Status', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
   },
+  notes: {
+    create: 'Add note | Add new note',
+    remove: 'Delete',
+    filters: {
+      sort: {
+        title: 'Sorted by',
+        date: 'Date updated',
+        default: 'Default',
+      },
+      search: 'Search note...',
+    },
+    empty: {
+      title: 'No notes',
+      description: 'Create your first note and share your thoughts',
+    },
+    columns: ['Note title', 'Content', 'Creator', 'Participants', 'Date updated'],
+  },
   picker: {
     placeholder: 'Custom color',
     tabs: 'Solid | Gradients',
