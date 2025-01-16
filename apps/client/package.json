@@ -20,6 +20,9 @@
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
     "@tanstack/vue-table": "8.20.5",
+    "@tiptap/pm": "2.11.2",
+    "@tiptap/starter-kit": "2.11.2",
+    "@tiptap/vue-3": "2.11.2",
     "@unhead/vue": "^1.11.15",
     "@unocss/core": "^65.4.0",
     "@unocss/reset": "^65.4.0",
