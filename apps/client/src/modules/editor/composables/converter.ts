@@ -1,4 +1,4 @@
-import { Extension } from '@tiptap/core'
+import { Extension } from '@tiptap/vue-3'
 
 export default function useConverter() {
   const smilieReplacer = Extension.create({

@@ -7,8 +7,11 @@ import { Color } from '@tiptap/extension-color'
 import TextStyle from '@tiptap/extension-text-style'
 import Focus from '@tiptap/extension-focus'
 import Typography from '@tiptap/extension-typography'
+import TextAlign from '@tiptap/extension-text-align'
+import Highlight from '@tiptap/extension-highlight'
 import useHighlighter from '../composables/highlighter'
 import useConverter from '../composables/converter'
+import BubbleMenu from './BubbleMenu.vue'
 import type { Content } from '@tiptap/vue-3'
 
 const props = defineProps<{
@@ -45,6 +48,12 @@ const editor = useEditor({
     Color,
     TextStyle,
     Typography,
+    Highlight.configure({
+      multicolor: true,
+    }),
+    TextAlign.configure({
+      types: ['heading', 'paragraph'],
+    }),
     ColorHighlighter,
     SmilieReplacer,
   ],
@@ -84,6 +93,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="overflow-auto">
-    <EditorContent :editor="editor" />
+    <EditorContent :editor />
+    <BubbleMenu v-if="editor" :editor />
   </div>
 </template>

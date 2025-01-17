@@ -1,4 +1,4 @@
-import { Extension } from '@tiptap/core'
+import { Extension } from '@tiptap/vue-3'
 import { Plugin } from '@tiptap/pm/state'
 import findColors from '../utils/colors'
 
