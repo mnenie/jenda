@@ -6,6 +6,7 @@ import Placeholder from '@tiptap/extension-placeholder'
 import { Color } from '@tiptap/extension-color'
 import TextStyle from '@tiptap/extension-text-style'
 import Focus from '@tiptap/extension-focus'
+import Link from '@tiptap/extension-link'
 import Typography from '@tiptap/extension-typography'
 import TextAlign from '@tiptap/extension-text-align'
 import Highlight from '@tiptap/extension-highlight'
@@ -50,6 +51,10 @@ const editor = useEditor({
     Typography,
     Highlight.configure({
       multicolor: true,
+    }),
+    Link.configure({
+      openOnClick: true,
+      defaultProtocol: 'https',
     }),
     TextAlign.configure({
       types: ['heading', 'paragraph'],

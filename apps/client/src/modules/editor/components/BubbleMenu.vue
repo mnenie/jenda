@@ -17,7 +17,7 @@ defineProps<{
     <AiOffer />
     <AdditionalItems />
     <TextStyleItems :editor />
-    <TextLink />
+    <TextLink :editor />
     <TextHighlighter :editor />
   </BubbleMenu>
 </template>

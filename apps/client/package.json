@@ -26,6 +26,7 @@
     "@tiptap/extension-color": "2.11.2",
     "@tiptap/extension-focus": "2.11.2",
     "@tiptap/extension-highlight": "2.11.2",
+    "@tiptap/extension-link": "2.11.2",
     "@tiptap/extension-placeholder": "2.11.2",
     "@tiptap/extension-text-align": "2.11.2",
     "@tiptap/extension-text-style": "2.11.2",
