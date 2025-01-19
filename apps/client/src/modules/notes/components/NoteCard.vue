@@ -11,9 +11,9 @@ defineProps<{
   <div class="relative cursor-pointer w-full flex flex-col justify-between h-full border border-solid border-neutral-200 rounded-8px dark:border-neutral-700">
     <div class="p-3 flex flex-col space-y-1">
       <div class="flex items-center space-x-1.5 mb-2">
-        <UserAvatar class="!h-22px !w-22px" :img="note.creator.photoUrl" />
+        <UserAvatar class="!h-22px !w-22px" :img="note.creator!.photoUrl" />
         <span class="text-sm fw500 dark:text-neutral-100">
-          {{ note.creator.email }}
+          {{ note.creator!.email }}
         </span>
       </div>
       <p class="text-sm fw500 hyphens-auto dark:text-neutral-100">
@@ -32,9 +32,9 @@ defineProps<{
           </span>
         </div>
         <div v-else class="flex items-center space-x-1.5">
-          <UserAvatar class="!h-20px !w-20px" :img="note.creator.photoUrl" />
+          <UserAvatar class="!h-20px !w-20px" :img="note.creator!.photoUrl" />
           <span class="text-xs text-neutral-500 dark:text-neutral-400">
-            {{ note.creator.email }}
+            {{ note.creator!.email }}
           </span>
         </div>
         <span class="text-xs text-neutral-500 dark:text-neutral-400">
