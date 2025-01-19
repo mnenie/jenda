@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import CreateBoardForm from '../../components/forms/CreateBoardForm.vue'
+import NewBoardDialog from '../../components/NewBoardDialog.vue'
 
 definePage({
   meta: {
@@ -15,5 +16,7 @@ useHead({
 </script>
 
 <template>
-  <CreateBoardForm />
+  <NewBoardDialog>
+    <CreateBoardForm />
+  </NewBoardDialog>
 </template>

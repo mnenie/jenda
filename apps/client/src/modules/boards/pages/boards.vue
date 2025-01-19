@@ -1,8 +1,7 @@
 <script setup lang="ts" generic="TData">
-import { computed, onBeforeMount, ref, useTemplateRef } from 'vue'
+import { computed, ref, useTemplateRef } from 'vue'
 import { useHead } from '@unhead/vue'
 import { storeToRefs } from 'pinia'
-import { useRoute, useRouter } from 'vue-router/auto'
 import { useBoardsStore } from '../stores/board'
 import { provideFilteredContext, useFilteredBoards } from '../composables/filtered'
 import BoardsActionsPanel from '../components/BoardsActionsPanel.vue'
@@ -29,9 +28,6 @@ const { boards } = storeToRefs(boardsStore)
 const sortModel = ref('default')
 const advancedModel = ref([])
 
-const router = useRouter()
-const route = useRoute()
-
 const selectedBoards = ref<Record<string, boolean>>({})
 
 const { filteredBoards } = useFilteredBoards(boards, sortModel, advancedModel)
@@ -47,12 +43,6 @@ const dataTable = useTemplateRef<InstanceType<typeof BoardsDataTable>>('table')
 provideFilteredContext({
   sortModel,
   advancedModel,
-})
-
-onBeforeMount(() => {
-  if (route.name === 'boards-new') {
-    router.back()
-  }
 })
 </script>
 
@@ -74,5 +64,5 @@ onBeforeMount(() => {
     </ViewControl>
     <EmptyBoards v-if="boards.length === 0" />
   </div>
-  <RouterView v-else />
+  <RouterView />
 </template>

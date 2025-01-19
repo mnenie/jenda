@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useTemplateRef } from 'vue'
+import { useRouter } from 'vue-router/auto'
 import {
   UiDialog,
   UiDialogContent,
@@ -6,10 +8,25 @@ import {
   UiDialogHeader,
   UiDialogTitle,
 } from '@/shared/ui'
+
+const router = useRouter()
+
+const dialog = useTemplateRef<InstanceType<typeof UiDialog> | null>('dialog')
+
+function toggleModalRoute() {
+  if (dialog.value && !dialog.value.open) {
+    router.push({ name: 'boards' })
+  }
+}
 </script>
 
 <template>
-  <UiDialog>
+  <UiDialog
+    ref="dialog"
+    v-bind="$attrs"
+    :default-open="true"
+    @update:open="toggleModalRoute"
+  >
     <UiDialogContent>
       <div class="flex flex-col gap-8">
         <UiDialogHeader>
@@ -21,7 +38,7 @@ import {
           </UiDialogDescription>
         </UiDialogHeader>
       </div>
-      <RouterView />
+      <slot />
     </UiDialogContent>
   </UiDialog>
 </template>
