@@ -6,8 +6,15 @@ export const useNotesStore = defineStore('notes', () => {
   const notes = ref<Note[]>([])
   const note = ref<Note>()
 
-  function addNote(board: Note) {
-    notes.value.push(board)
+  function addNote(slug: string) {
+    const content = `<h1>Untitled</h1><p></p>`
+    // mock
+    const defaultNote = {
+      content,
+      title: 'Untitled',
+      type: 'doc' as const,
+    }
+    // notes.value.push(defaultNote)
   }
 
   // for table only

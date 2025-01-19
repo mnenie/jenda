@@ -117,6 +117,10 @@ export default {
     },
     columns: ['Note title', 'Content', 'Creator', 'Participants', 'Date updated'],
   },
+  note: {
+    lastModified: 'Modified',
+    actions: 'Linter | Delete note',
+  },
   picker: {
     placeholder: 'Custom color',
     tabs: 'Solid | Gradients',

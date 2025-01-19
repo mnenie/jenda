@@ -115,6 +115,10 @@ export default {
     },
     columns: ['笔记标题', '内容', '创建者', '参与者', '更新日期'],
   },
+  note: {
+    lastModified: '修改',
+    actions: '代码检查 | 删除笔记',
+  },
   picker: {
     placeholder: '自定义颜色',
     tabs: '纯色 | 渐变',

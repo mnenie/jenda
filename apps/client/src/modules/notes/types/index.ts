@@ -14,11 +14,11 @@ export interface NoteData{
 
 
 export interface Note extends DateParams, NoteData {
-  _id: string
+  _id?: string
   title: string
-  creator: User
+  creator?: User
   updatedBy?: User
-  users: User[]
+  users?: User[]
   // needs to be fixed
-  date: DateParams['updatedAt'] | string
+  date?: DateParams['updatedAt'] | string
 }

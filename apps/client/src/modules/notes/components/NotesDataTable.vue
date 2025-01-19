@@ -84,6 +84,11 @@ defineExpose({
     enable-row-selection
     enable-column-filters
     enable-sorting
+    @row-click="$router.push(
+      { name: 'notes-slug',
+        params: { slug: $event.original.title, id: $event.original._id },
+      },
+    )"
   >
     <template #users-cell="{ cell }">
       <div v-if="visibleUsers(cell).length > 0" class="flex items-center relative h-full w-full justify-between">

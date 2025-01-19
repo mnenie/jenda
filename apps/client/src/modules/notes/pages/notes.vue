@@ -65,4 +65,5 @@ provideFilteredNotesContext({
     </ViewControl>
     <EmptyNotes v-if="!filteredNotes.length" />
   </div>
+  <RouterView />
 </template>

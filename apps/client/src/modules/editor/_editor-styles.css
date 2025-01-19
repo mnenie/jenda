@@ -1,5 +1,5 @@
 .ProseMirror {
-  @apply relative focus:!outline-0 !w-full;
+  @apply relative focus:!outline-0 !w-full px-32 pb-10;
 }
 
 .jenda-editor {
@@ -7,7 +7,7 @@
 }
 
 .jenda-editor h1 {
-  @apply text-xl font-extrabold dark:text-neutral-100;
+  @apply text-3xl font-extrabold dark:text-neutral-100;
 }
 
 .jenda-editor h2 {
@@ -142,6 +142,16 @@
     border-radius: 2px;
     background-color: var(--color);
   }
+}
+
+.tiptap img {
+  display: block;
+  height: auto;
+  margin: 1.5rem 0;
+  max-width: 100%;
+}
+.tiptap .ProseMirror-selectednode {
+  @apply !outline-blue-500 !outline-3 !transition-none;
 }
 
 .tiptap code {
