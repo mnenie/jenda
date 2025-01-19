@@ -14,7 +14,7 @@ defineProps<{
     @click="editor.chain().focus().toggleHighlight({ color: '#b197fc55' }).run()"
   >
     <template #badge>
-      <div class="absolute top-1 right-1 bg-purple-200 rounded-md w-1.5 h-1.5" />
+      <div class="absolute top-1 right-1 bg-#b197fc77 rounded-md w-1.5 h-1.5" />
     </template>
   </MenuButton>
 </template>

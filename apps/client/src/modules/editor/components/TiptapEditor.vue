@@ -13,6 +13,7 @@ import Highlight from '@tiptap/extension-highlight'
 import Image from '@tiptap/extension-image'
 import useHighlighter from '../composables/highlighter'
 import useConverter from '../composables/converter'
+import Linter, { Punctuation, SingleH1 } from '../plugins/linter'
 import BubbleMenu from './BubbleMenu.vue'
 import type { Content } from '@tiptap/vue-3'
 
@@ -37,6 +38,12 @@ const editor = useEditor({
       heading: {
         levels: [1, 2, 3, 4],
       },
+    }),
+    Linter.configure({
+      plugins: [
+        Punctuation,
+        SingleH1,
+      ],
     }),
     Placeholder.configure({
       placeholder: () => {

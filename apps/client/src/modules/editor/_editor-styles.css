@@ -116,7 +116,7 @@
 }
 
 .tippy-content {
-  @apply inline-flex flex-nowrap items-center rounded-md pointer-events-auto text-sm h-9 p-1 bg-white border border-neutral-100 dark:bg-neutral-800;
+  @apply inline-flex flex-nowrap items-center rounded-md pointer-events-auto text-sm h-9 p-1 bg-white border border-neutral-100 dark:bg-neutral-800 dark:border-neutral-700/40;
   box-shadow:
     rgba(0, 0, 0, 0.07) 0px 16px 24px 0px,
     rgba(0, 0, 0, 0.1) 0px 2px 6px 0px,
@@ -150,12 +150,17 @@
   margin: 1.5rem 0;
   max-width: 100%;
 }
+
+.tiptap .editor-linter-problem {
+  @apply border-b border-red-500 bg-red-50 mb--px dark:bg-red-800/50 dark:border-red-700;
+}
+
 .tiptap .ProseMirror-selectednode {
   @apply !outline-blue-500 !outline-3 !transition-none;
 }
 
 .tiptap code {
-  @apply text-sm text-neutral-700 dark:text-neutral-400 px-1 rounded-sm font-mono bg-blue-50 dark:bg-neutral-800 dark:text-neutral-400;
+  @apply text-sm text-neutral-700 dark:text-neutral-400 px-1 rounded-sm font-mono bg-blue-50 dark:bg-neutral-600 dark:text-neutral-400;
 }
 
 @keyframes ProseMirror-cursor-blink {
