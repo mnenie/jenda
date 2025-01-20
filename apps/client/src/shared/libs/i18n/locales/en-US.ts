@@ -120,6 +120,62 @@ export default {
   note: {
     lastModified: 'Modified',
     actions: 'Linter | Delete note',
+    editor: {
+      placeholder: 'Write something, \'/\' for commands…',
+      menu: {
+        bold: 'Bold',
+        italic: 'Italic',
+        underline: 'Underline',
+        strike: 'Strike',
+        code: 'Code',
+      },
+      nodes: {
+        heading1: {
+          title: 'Heading 1',
+          description: 'Big section heading.',
+        },
+        heading2: {
+          title: 'Heading 2',
+          description: 'Medium section heading.',
+        },
+        heading3: {
+          title: 'Heading 3',
+          description: 'Small section heading.',
+        },
+        paragraph: {
+          title: 'Paragraph',
+          description: 'Just start typing with plain text.',
+        },
+        bulletList: {
+          title: 'Bullet List',
+          description: 'Create a bullet list.',
+        },
+        orderedList: {
+          title: 'Ordered List',
+          description: 'Create an ordered list.',
+        },
+        taskList: {
+          title: 'Task List',
+          description: 'Create a task list.',
+        },
+        blockquote: {
+          title: 'Blockquote',
+          description: 'Add a blockquote.',
+        },
+        alignLeft: {
+          title: 'Align left',
+          description: 'Align text to the left.',
+        },
+        alignCenter: {
+          title: 'Align center',
+          description: 'Align text to the center.',
+        },
+        alignRight: {
+          title: 'Align right',
+          description: 'Align text to the right.',
+        },
+      },
+    },
   },
   picker: {
     placeholder: 'Custom color',

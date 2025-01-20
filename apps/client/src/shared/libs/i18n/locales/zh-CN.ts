@@ -118,6 +118,62 @@ export default {
   note: {
     lastModified: '修改',
     actions: '代码检查 | 删除笔记',
+    editor: {
+      placeholder: '输入一些内容，输入 \'/\' 查看命令…',
+      menu: {
+        bold: '加粗',
+        italic: '倾斜',
+        underline: '下划线',
+        strike: '删除线',
+        code: '代码块',
+      },
+      nodes: {
+        heading1: {
+          title: '标题 1',
+          description: '大节标题。',
+        },
+        heading2: {
+          title: '标题 2',
+          description: '中节标题。',
+        },
+        heading3: {
+          title: '标题 3',
+          description: '小节标题。',
+        },
+        paragraph: {
+          title: '段落',
+          description: '直接输入普通文本。',
+        },
+        bulletList: {
+          title: '项目符号列表',
+          description: '创建项目符号列表。',
+        },
+        orderedList: {
+          title: '有序列表',
+          description: '创建有序列表。',
+        },
+        taskList: {
+          title: '任务列表',
+          description: '创建任务列表。',
+        },
+        blockquote: {
+          title: '引用',
+          description: '添加引用。',
+        },
+        alignLeft: {
+          title: '左对齐',
+          description: '将文本左对齐。',
+        },
+        alignCenter: {
+          title: '居中对齐',
+          description: '将文本居中对齐。',
+        },
+        alignRight: {
+          title: '右对齐',
+          description: '将文本右对齐。',
+        },
+      },
+    },
   },
   picker: {
     placeholder: '自定义颜色',

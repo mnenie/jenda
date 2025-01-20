@@ -18,7 +18,7 @@ defineProps<{
     :class="cn(
       'relative !h-7 py-0 px-1.5',
       isActive
-        ? ' !text-blue-600 dark:!text-neutral-200'
+        ? ' !text-blue-600 dark:!text-blue-500'
         : 'text-neutral-950 dark:text-neutral-400',
     )"
   >

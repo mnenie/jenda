@@ -34,7 +34,7 @@ const textStyles: TextStyle[] = [
       <template #popper>
         <div class="flex flex-col gap-0.5">
           <span class="text-xs">
-            {{ textStyle.type }}
+            {{ $t(`note.editor.menu.${textStyle.type}`) }}
           </span>
           <span class="text-xs text-neutral-300 dark:text-neutral-400">
             {{ textStyle.shortcut }}

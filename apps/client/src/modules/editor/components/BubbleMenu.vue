@@ -15,7 +15,7 @@ defineProps<{
 <template>
   <BubbleMenu class="flex items-center" :editor>
     <AiOffer />
-    <AdditionalItems />
+    <AdditionalItems :editor />
     <TextStyleItems :editor />
     <TextLink :editor />
     <TextHighlighter :editor />

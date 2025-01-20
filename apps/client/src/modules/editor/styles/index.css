@@ -123,8 +123,69 @@
     rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
+.tippy-box[data-theme~='slash-menu'] .tippy-content {
+  @apply !shadow-none !border-none !bg-transparent !dark:bg-transparent;
+}
+
 .tippy-content .is-active {
   @apply bg-zinc-200;
+}
+.tiptap ul[data-type='taskList'] {
+  list-style: none;
+  margin-left: 0;
+  margin-right: 20px;
+  padding: 0;
+}
+
+.tiptap ul[data-type='taskList'] li {
+  display: flex;
+  align-items: center;
+}
+
+.ProseMirror ul[data-type='taskList'] li > label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  user-select: none;
+}
+
+.ProseMirror ul[data-type='taskList'] li > div {
+  flex: 1 1 auto;
+}
+
+.ProseMirror input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  vertical-align: middle;
+  z-index: 1;
+  @apply w-4 h-4 bg-transparent border rounded-md disabled:cursor-not-allowed disabled:opacity-50 border-neutral-200 dark:border-neutral-600;
+}
+
+.ProseMirror input[type='checkbox']:checked {
+  @apply bg-blue-500;
+}
+
+.ProseMirror input[type='checkbox']::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 1.8px 1.8px 0;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%) rotate(45deg) scale(0);
+}
+
+.ProseMirror input[type='checkbox']:checked::after {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
 }
 
 .jenda-editor .color {
@@ -152,7 +213,11 @@
 }
 
 .tiptap .editor-linter-problem {
-  @apply border-b border-red-500 bg-red-50 mb--px dark:bg-red-800/50 dark:border-red-700;
+  @apply border-b border-red-500 bg-red-100 mb--px dark:bg-red-800/50 dark:border-red-700;
+}
+
+.tiptap blockquote {
+  @apply border-l-3 border-neutral-200 pl-4 mx-0 my-6 dark:border-neutral-700/40;
 }
 
 .tiptap .ProseMirror-selectednode {

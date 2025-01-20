@@ -21,7 +21,7 @@ function toggleModalRoute() {
 }
 dayjs.extend(relativeTime)
 // mocks -> after from store
-const lastModified = ref('2025-01-13T12:00:00Z')
+const lastModified = ref('2025-01-21T00:00:00Z')
 
 const daysAgo = computed(() => dayjs().to(dayjs(lastModified.value)))
 </script>
@@ -35,7 +35,7 @@ const daysAgo = computed(() => dayjs().to(dayjs(lastModified.value)))
   >
     <UiDialogContent
       :closed="false"
-      class="flex flex-col max-w-4xl min-h-xl max-h-xl overflow-y-auto"
+      class="flex flex-col max-w-5xl min-h-2xl max-h-xl overflow-y-auto"
     >
       <UiDialogHeader :custom="true">
         <div class="flex items-center gap-2.5">

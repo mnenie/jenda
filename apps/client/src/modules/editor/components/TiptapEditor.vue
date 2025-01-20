@@ -11,8 +11,14 @@ import Typography from '@tiptap/extension-typography'
 import TextAlign from '@tiptap/extension-text-align'
 import Highlight from '@tiptap/extension-highlight'
 import Image from '@tiptap/extension-image'
+import { useI18n } from 'vue-i18n'
+import Blockquote from '@tiptap/extension-blockquote'
+import Underline from '@tiptap/extension-underline'
+import TaskItem from '@tiptap/extension-task-item'
+import TaskList from '@tiptap/extension-task-list'
 import useHighlighter from '../composables/highlighter'
 import useConverter from '../composables/converter'
+import { SlashMenu } from '../plugins/suggetions'
 import Linter, { Punctuation, SingleH1 } from '../plugins/linter'
 import BubbleMenu from './BubbleMenu.vue'
 import type { Content } from '@tiptap/vue-3'
@@ -29,6 +35,8 @@ const emits = defineEmits<{
 const { colorHighlighter: ColorHighlighter } = useHighlighter()
 const { smilieReplacer: SmilieReplacer } = useConverter()
 
+const { t } = useI18n()
+
 const editor = useEditor({
   content: props.modelValue,
   onUpdate: ({ editor }) => {
@@ -37,7 +45,7 @@ const editor = useEditor({
   extensions: [
     StarterKit.configure({
       heading: {
-        levels: [1, 2, 3, 4],
+        levels: [1, 2, 3],
       },
     }),
     Linter.configure({
@@ -45,13 +53,20 @@ const editor = useEditor({
     }),
     Placeholder.configure({
       placeholder: () => {
-        return `Write something, '/' for commands…`
+        return t('note.editor.placeholder')
       },
     }),
+    SlashMenu,
     Focus.configure({
       className: 'focus-editor',
       mode: 'deepest',
     }),
+    TaskItem.configure({
+      nested: true,
+    }),
+    TaskList,
+    Blockquote,
+    Underline,
     Color,
     TextStyle,
     Typography,
