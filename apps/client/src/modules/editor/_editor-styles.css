@@ -48,7 +48,7 @@
 }
 
 .jenda-editor a {
-  @apply cursor-pointer text-blue-800 hover:underline dark:text-neutral-200;
+  @apply cursor-pointer text-blue-800 hover:underline dark:text-blue-500;
 }
 
 .jenda-editor hr {

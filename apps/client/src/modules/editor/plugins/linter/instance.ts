@@ -1,8 +1,11 @@
 import { Extension } from '@tiptap/core'
 import { Plugin, PluginKey } from '@tiptap/pm/state'
 import { Decoration, DecorationSet } from '@tiptap/pm/view'
-import type { Node as ProsemirrorNode } from '@tiptap/pm/model'
+import { useLocalStorage } from '@vueuse/core'
 import type LinterPlugin from './plugin'
+import type { Node as ProsemirrorNode } from '@tiptap/pm/model'
+
+const active = useLocalStorage('isLinterEnabled', true)
 
 function runAllLinterPlugins(doc: ProsemirrorNode, plugins: Array<typeof LinterPlugin>) {
   const decorations: [any?] = []
@@ -21,7 +24,7 @@ function runAllLinterPlugins(doc: ProsemirrorNode, plugins: Array<typeof LinterP
     )
   })
 
-  return DecorationSet.create(doc, decorations)
+  return active.value ? DecorationSet.create(doc, decorations) : DecorationSet.empty
 }
 
 export interface LinterOptions {

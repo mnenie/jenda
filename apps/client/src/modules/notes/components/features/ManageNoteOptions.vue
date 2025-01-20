@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router/auto'
+import { useLinterContext } from '../../composables/linter'
 import {
   UiBadge,
   UiDropdownMenu,
@@ -10,6 +11,8 @@ import {
 import { UiSwitch } from '@/shared/ui/switch'
 
 const route = useRoute('notes-slug')
+
+const { isLinterEnabled, toggleLinter } = useLinterContext()
 </script>
 
 <template>
@@ -20,7 +23,7 @@ const route = useRoute('notes-slug')
     </UiDropdownMenuTrigger>
     <UiDropdownMenuContent align="start" class="w-fit p-1">
       <UiDropdownMenuItem class="justify-start relative 2xl:text-13px text-sm fw400 cursor-pointer gap-1.5" @select.prevent>
-        <UiSwitch :default-checked="true" class="h-4.6" />
+        <UiSwitch :default-checked="isLinterEnabled" class="h-4.6" @update:checked="toggleLinter" />
         <span>{{ $t('note.actions', 1) }}</span>
         <UiBadge variant="secondary" class="ml-2 px-1 py-0 text-8px opacity-90">
           EXPERIMENTAL

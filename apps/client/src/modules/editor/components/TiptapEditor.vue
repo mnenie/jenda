@@ -19,6 +19,7 @@ import type { Content } from '@tiptap/vue-3'
 
 const props = defineProps<{
   modelValue: Content
+  isLinterEnabled?: boolean
 }>()
 
 const emits = defineEmits<{
@@ -40,10 +41,7 @@ const editor = useEditor({
       },
     }),
     Linter.configure({
-      plugins: [
-        Punctuation,
-        SingleH1,
-      ],
+      plugins: [Punctuation, SingleH1],
     }),
     Placeholder.configure({
       placeholder: () => {
@@ -91,6 +89,12 @@ watch(
     }
   },
 )
+// BAD: with tiptap rules :/
+watch(() => props.isLinterEnabled, () => {
+  if (editor.value) {
+    editor.value.commands.setContent(props.modelValue, false)
+  }
+}, { flush: 'post' })
 
 onMounted(() => {
   if (editor.value) {
@@ -100,6 +104,7 @@ onMounted(() => {
     }
   }
 })
+
 onBeforeUnmount(() => {
   editor.value?.destroy()
 })

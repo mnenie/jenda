@@ -12,7 +12,7 @@ const { custom = false, ...props } = defineProps<{
 <template>
   <div
     :class="cn(
-      custom ? 'sticky top-0 left-0 right-0 z-999 w-full flex items-center justify-between px-14px py-8px border-b border-[#e4e4e766]/60 bg-[#fff9]/80 backdrop-blur supports-[backdrop-filter]:bg-[#fff9]/20 dark:bg-transparent dark:border-zinc-800' : 'dialog-header',
+      custom ? 'sticky top-0 left-0 right-0 z-999 w-full flex items-center justify-between px-14px py-8px border-b border-[#e4e4e766]/60 bg-[#fff9]/80 backdrop-blur supports-[backdrop-filter]:bg-[#fff9]/20 dark:bg-transparent dark:border-neutral-700/40' : 'dialog-header',
       props.class,
     )"
   >
