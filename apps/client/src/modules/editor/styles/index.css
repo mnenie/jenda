@@ -1,0 +1,238 @@
+.ProseMirror {
+  @apply relative focus:!outline-0 !w-full px-32 pb-10;
+}
+
+.jenda-editor {
+  @apply flex flex-col space-y-4;
+}
+
+.jenda-editor h1 {
+  @apply text-3xl font-extrabold dark:text-neutral-100;
+}
+
+.jenda-editor h2 {
+  @apply text-lg font-extrabold dark:text-neutral-100;
+}
+
+.jenda-editor h3 {
+  @apply text-17px font-extrabold dark:text-neutral-200;
+}
+
+.jenda-editor p {
+  @apply text-sm dark:text-neutral-200;
+}
+
+.jenda-editor span {
+  @apply text-sm dark:text-neutral-200;
+}
+
+.jenda-editor ol,
+.jenda-editor ul {
+  @apply !mt-2 ml-8 list-outside dark:text-neutral-200;
+}
+
+.jenda-editor ol {
+  @apply list-decimal dark:text-neutral-200;
+}
+.jenda-editor ul {
+  @apply list-disc dark:text-neutral-200;
+}
+
+.jenda-editor ol li,
+.jenda-editor ul li {
+  @apply mt-2 first:mt-0 dark:text-neutral-200;
+}
+
+.jenda-editor blockquote {
+  @apply !mb-2 !mt-6 ml-6 border-l-4 border-neutral-300 p-4 py-2 italic dark:text-neutral-200;
+}
+
+.jenda-editor a {
+  @apply cursor-pointer text-blue-800 hover:underline dark:text-blue-500;
+}
+
+.jenda-editor hr {
+  @apply border-neutral-400;
+}
+
+.jenda-editor table {
+  @apply w-full table-fixed border-collapse border border-neutral-400;
+}
+
+.jenda-editor table th,
+.jenda-editor table td {
+  @apply relative border border-neutral-400 px-2 py-1;
+}
+
+.jenda-editor table th {
+  @apply bg-blue-100;
+}
+
+.jenda-editor .tableWrapper {
+  @apply overflow-x-hidden;
+}
+
+.ProseMirror iframe {
+  @apply mr-6 !aspect-video !h-auto !w-full max-w-28;
+}
+
+.ProseMirror img.ProseMirror-selectednode,
+.ProseMirror .ProseMirror-selectednode iframe {
+  @apply block outline outline-8 outline-yellow-500 transition-all ease-in duration-150;
+}
+
+.ProseMirror img {
+  @apply mr-6 w-full max-w-28 object-scale-down object-center;
+}
+
+.ProseMirror img.ProseMirror-selectednode,
+.ProseMirror div[data-youtube-video] {
+  @apply cursor-move;
+}
+
+.ProseMirror .selectedCell:after {
+  @apply pointer-events-none absolute inset-0 z-[2] bg-neutral-400/30 content-[''];
+}
+
+.ProseMirror .column-resize-handle {
+  @apply pointer-events-none absolute bottom--2px right--2px top-0 w-1 bg-sky-200;
+}
+
+.ProseMirror-gapcursor {
+  @apply pointer-events-none !relative hidden;
+  @apply after:!relative after:mt-1 after:block after:h-5 after:!border-t-0 after:border-l after:border-black after:content-[''];
+}
+.ProseMirror-gapcursor:after {
+  animation: ProseMirror-cursor-blink 1.1s steps(2, start) infinite;
+}
+
+.tiptap .is-empty::before {
+  content: attr(data-placeholder);
+  @apply text-sm dark:text-neutral-400 pointer-events-none h-0 float-left text-neutral-500;
+}
+
+.tippy-box {
+  @apply pointer-events-none rounded-md;
+}
+
+.tippy-content {
+  @apply inline-flex flex-nowrap items-center rounded-md pointer-events-auto text-sm h-9 p-1 bg-white border border-neutral-100 dark:bg-neutral-800 dark:border-neutral-700/40;
+  box-shadow:
+    rgba(0, 0, 0, 0.07) 0px 16px 24px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 6px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.tippy-box[data-theme~='slash-menu'] .tippy-content {
+  @apply !shadow-none !border-none !bg-transparent !dark:bg-transparent;
+}
+
+.tippy-content .is-active {
+  @apply bg-zinc-200;
+}
+.tiptap ul[data-type='taskList'] {
+  list-style: none;
+  margin-left: 0;
+  margin-right: 20px;
+  padding: 0;
+}
+
+.tiptap ul[data-type='taskList'] li {
+  display: flex;
+  align-items: center;
+}
+
+.ProseMirror ul[data-type='taskList'] li > label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  user-select: none;
+}
+
+.ProseMirror ul[data-type='taskList'] li > div {
+  flex: 1 1 auto;
+}
+
+.ProseMirror input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  vertical-align: middle;
+  z-index: 1;
+  @apply w-4 h-4 bg-transparent border rounded-md disabled:cursor-not-allowed disabled:opacity-50 border-neutral-200 dark:border-neutral-600;
+}
+
+.ProseMirror input[type='checkbox']:checked {
+  @apply bg-blue-500;
+}
+
+.ProseMirror input[type='checkbox']::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 1.8px 1.8px 0;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%) rotate(45deg) scale(0);
+}
+
+.ProseMirror input[type='checkbox']:checked::after {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
+
+.jenda-editor .color {
+  white-space: nowrap;
+
+  &::before {
+    content: ' ';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    vertical-align: middle;
+    margin-right: 0.1em;
+    margin-bottom: 0.15em;
+    border-radius: 2px;
+    background-color: var(--color);
+  }
+}
+
+.tiptap img {
+  display: block;
+  height: auto;
+  margin: 1.5rem 0;
+  max-width: 100%;
+}
+
+.tiptap .editor-linter-problem {
+  @apply border-b border-red-500 bg-red-100 mb--px dark:bg-red-800/50 dark:border-red-700;
+}
+
+.tiptap blockquote {
+  @apply border-l-3 border-neutral-200 pl-4 mx-0 my-6 dark:border-neutral-700/40;
+}
+
+.tiptap .ProseMirror-selectednode {
+  @apply !outline-blue-500 !outline-3 !transition-none;
+}
+
+.tiptap code {
+  @apply text-sm text-neutral-700 dark:text-neutral-400 px-1 rounded-sm font-mono bg-blue-50 dark:bg-neutral-600 dark:text-neutral-400;
+}
+
+@keyframes ProseMirror-cursor-blink {
+  to {
+    visibility: hidden;
+  }
+}
+.ProseMirror-focused .ProseMirror-gapcursor {
+  @apply block;
+}

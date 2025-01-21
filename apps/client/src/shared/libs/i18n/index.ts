@@ -1,8 +1,9 @@
-import { computed } from 'vue'
-import { createI18n } from 'vue-i18n'
+import { createI18n, type I18n } from 'vue-i18n'
 import { enZod, ruZod, zhZod } from '../vee-validate/rules'
 import { enLocale, ruLocale, zhLocale } from './locales'
 import { customPluralRule } from './plurals'
+import useDayJsLocalize from './dayjs'
+import { getCurrentLocale } from './utils/getLocale'
 
 export type MessageSchema = typeof enLocale
 
@@ -27,17 +28,6 @@ const messages = {
   },
 }
 
-const getCurrentLocale = computed(() => {
-  const storageLanguage = localStorage.getItem('i18n')
-  if (storageLanguage) {
-    return storageLanguage
-  }
-  if (navigator.language.split('-')[0] === 'ru') {
-    return 'ru-RU'
-  }
-  return 'en-US'
-})
-
 const i18n = createI18n<[MessageSchema], 'en-US' | 'ru-RU' | 'zh-CN'>({
   legacy: false,
   locale: getCurrentLocale.value,
@@ -50,5 +40,7 @@ const i18n = createI18n<[MessageSchema], 'en-US' | 'ru-RU' | 'zh-CN'>({
   },
   messages,
 })
+
+useDayJsLocalize(i18n as I18n)
 
 export default i18n

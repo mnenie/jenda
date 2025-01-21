@@ -3,7 +3,10 @@ import { UiTabs, UiTabsContent } from '@/shared/ui'
 </script>
 
 <template>
-  <UiTabs class="w-full h-full" default-value="table">
+  <UiTabs
+    :default-value="$route.name === 'notes' ? 'cards' : 'table'"
+    class="w-full h-full flex flex-col gap-12px"
+  >
     <slot />
     <UiTabsContent class="h-full" value="table">
       <slot name="table" />

@@ -16,7 +16,7 @@ const { sortModel } = useFilteredContext()
 <template>
   <UiSelect v-model:model-value="sortModel">
     <UiSelectTrigger as-child>
-      <UiButton size="sm" variant="dashed" class="gap-0 px-2 focus:ring-0 shadow-sm border">
+      <UiButton size="sm" variant="dashed" class="gap-0 px-2 focus:ring-0 shadow-sm border fw400">
         <span i-hugeicons-sort-by-down-01 class="w-4 h-4 mr-2 text-neutral-500 dark:text-neutral-400" />
         <span class="text-neutral-600 dark:text-neutral-400 mr-1">
           {{ $t('boards.filters.sort.title') }}

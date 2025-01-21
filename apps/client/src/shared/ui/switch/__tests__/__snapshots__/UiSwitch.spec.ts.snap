@@ -1,0 +1,6 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for UiSwitch > should render correctly 1`] = `
+"<button class="switch-solid switch peer" role="switch" type="button" aria-checked="false" aria-required="false" data-state="unchecked" value="on"><span data-state="unchecked" class="switch-thumb-default switch-thumb"></span></button>
+<!---->"
+`;

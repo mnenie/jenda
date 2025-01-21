@@ -31,7 +31,7 @@ const {
   ...props
 } = defineProps <TableProps<TData, TValue>>()
 
-const emit = defineEmits(['select', 'selectAll', 'expand'])
+const emit = defineEmits(['select', 'selectAll', 'expand', 'rowClick'])
 
 const slots = defineSlots()
 
@@ -76,6 +76,9 @@ const columnsWithMisc = computed(() => {
               emit('select', row)
             },
             'areaLabel': 'Select row',
+            'onClick': (event: Event) => {
+              event.stopPropagation()
+            },
           }),
           enableSorting: false,
           enableHiding: false,
@@ -215,6 +218,7 @@ defineExpose({
             <UiTableRow
               :data-state="row.getIsSelected() && 'selected'"
               v-bind="props._tableRow"
+              @click="emit('rowClick', row)"
             >
               <slot
                 name="row"

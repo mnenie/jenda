@@ -1,16 +1,16 @@
 <script setup lang="ts" generic="T extends Board">
-import { computed, shallowReactive, toRef } from 'vue'
+import { shallowReactive, toRef } from 'vue'
 import { Icon } from '@iconify/vue'
 import UserMenu from './UserMenu.vue'
 import type { Board } from '@/modules/boards/types'
 import type { User } from '@/modules/auth/types'
 import type { ProjectLink } from '@/shared/config/shared-types'
 import { links } from '@/shared/constants/links'
-import UserAvatar from '@/modules/auth/components/UserAvatar.vue'
 import { useLayoutPaths } from '@/shared/composables/layout-paths'
 import ShareDialog from '@/modules/common/components/dialogs/ShareDialog.vue'
 import HotkeysDialog from '@/modules/common/components/dialogs/HotkeysDialog.vue'
 import { ShimmerButton } from '@/shared/ui'
+import UserAvatars from '@/modules/common/components/UserAvatars.vue'
 
 const props = defineProps<{
   projects: Board[]
@@ -39,12 +39,6 @@ const users = shallowReactive<User[]>([
   },
 ])
 
-const visibleUsers = computed(() => users.slice(0, 3))
-
-const remaining = computed(() => Math.max(users.length - 3, 0))
-
-const userPosition = computed(() => (index: number) => (visibleUsers.value.length - index) * 20)
-
 const _projects = toRef(props, 'projects') as unknown as ProjectLink[]
 const { active } = useLayoutPaths(links, _projects)
 </script>
@@ -71,29 +65,7 @@ const { active } = useLayoutPaths(links, _projects)
     </div>
     <div />
     <div class="flex items-center h-full gap-2.5">
-      <div class="relative flex items-center">
-        <UserAvatar
-          v-if="remaining > 0"
-          :style="{
-            right: `0px`,
-            zIndex: `${visibleUsers.length + 1}`,
-          }"
-          class="!h-28px !w-28px absolute flex items-center justify-center text-sm"
-        >
-          +{{ remaining }}
-        </UserAvatar>
-        <template v-for="user, idx in visibleUsers" :key="user._id">
-          <UserAvatar
-            :style="{
-              right: `${userPosition(idx)}px`,
-              zIndex: `${idx + 1}`,
-            }"
-            class="!h-28px !w-28px absolute"
-          >
-            <img :src="user.photoUrl" width="100%" />
-          </UserAvatar>
-        </template>
-      </div>
+      <UserAvatars :users="users" :max="3" avatar="!w-28px !h-28px" />
       <ShareDialog>
         <ShimmerButton shimmer-size="2px">
           <div i-hugeicons-link-04 class="text-neutral-900 dark:text-neutral-100 w-16px h-16px 2xl:(w-4 h-4)" />

@@ -24,7 +24,7 @@ const { boards } = storeToRefs(boardsStore)
         <UiTabsTrigger value="table">
           <span i-hugeicons-layout-table-02 />
         </UiTabsTrigger>
-        <UiTabsTrigger disabled value="cards">
+        <UiTabsTrigger value="cards">
           <span i-hugeicons-dashboard-square-01 />
         </UiTabsTrigger>
       </UiTabsList>

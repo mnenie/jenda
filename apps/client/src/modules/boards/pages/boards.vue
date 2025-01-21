@@ -1,15 +1,14 @@
 <script setup lang="ts" generic="TData">
-import { computed, onBeforeMount, ref, useTemplateRef } from 'vue'
+import { computed, ref, useTemplateRef } from 'vue'
 import { useHead } from '@unhead/vue'
 import { storeToRefs } from 'pinia'
-import { useRoute, useRouter } from 'vue-router/auto'
 import { useBoardsStore } from '../stores/board'
 import { provideFilteredContext, useFilteredBoards } from '../composables/filtered'
 import BoardsActionsPanel from '../components/BoardsActionsPanel.vue'
 import EmptyBoards from '../components/EmptyBoards.vue'
 import BoardsDataTable from '../components/BoardsDataTable.vue'
-import TableControls from '../components/TableControls.vue'
 import type { Table } from '@tanstack/vue-table'
+import TableControls from '@/modules/common/components/controls/TableControls.vue'
 import ViewControl from '@/modules/common/components/controls/ViewControl.vue'
 
 definePage({
@@ -29,9 +28,6 @@ const { boards } = storeToRefs(boardsStore)
 const sortModel = ref('default')
 const advancedModel = ref([])
 
-const router = useRouter()
-const route = useRoute()
-
 const selectedBoards = ref<Record<string, boolean>>({})
 
 const { filteredBoards } = useFilteredBoards(boards, sortModel, advancedModel)
@@ -48,28 +44,25 @@ provideFilteredContext({
   sortModel,
   advancedModel,
 })
-
-onBeforeMount(() => {
-  if (route.name === 'boards-new') {
-    router.back()
-  }
-})
 </script>
 
 <template>
-  <ViewControl v-if="$route.name !== 'board-id'">
-    <template #table>
-      <div class="relative w-full h-full flex flex-col" :class="boards.length > 0 && 'justify-between'">
-        <div class="flex flex-col gap-12px">
-          <BoardsActionsPanel :is-selected :idxs />
+  <div v-if="$route.name !== 'board-id'" class="w-full h-full flex flex-col">
+    <ViewControl>
+      <BoardsActionsPanel :is-selected :idxs />
+      <template #table>
+        <div
+          class="relative w-full h-full flex flex-col"
+          :class="boards.length > 0 && 'justify-between'"
+        >
           <div class="flex flex-col overflow-auto">
             <BoardsDataTable ref="table" v-model:select="selectedBoards" :data="filteredBoards" />
           </div>
+          <TableControls v-if="boards.length > 0" :table="(dataTable?.getTable()! as Table<TData>)" />
         </div>
-        <TableControls v-if="boards.length > 0" :table="(dataTable?.getTable()! as Table<TData>)" />
-        <EmptyBoards v-else />
-      </div>
-    </template>
-  </ViewControl>
-  <RouterView v-else />
+      </template>
+    </ViewControl>
+    <EmptyBoards v-if="boards.length === 0" />
+  </div>
+  <RouterView />
 </template>
