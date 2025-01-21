@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { UiDialog, UiDialogContent } from '@/shared/ui'
+
 definePage({
   meta: {
     requiresAuth: true,
@@ -8,7 +10,13 @@ definePage({
 </script>
 
 <template>
-  <div>
-    community
-  </div>
+  <UiDialog
+    :default-open="true"
+  >
+    <UiDialogContent
+      @close-auto-focus="$router.back()"
+    >
+      <h1>community</h1>
+    </UiDialogContent>
+  </UiDialog>
 </template>

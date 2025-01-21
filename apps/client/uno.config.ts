@@ -67,6 +67,7 @@ export default defineConfig({
     './src/shared/ui/_shortcuts/tabs.ts',
     './src/shared/ui/_shortcuts/pagination.ts',
     './src/shared/ui/_shortcuts/checkbox.ts',
+    './src/shared/ui/_shortcuts/switch.ts',
     './src/shared/ui/_shortcuts/table.ts',
     './src/shared/ui/_shortcuts/tags-input.ts',
     './src/shared/ui/_shortcuts/index.ts',

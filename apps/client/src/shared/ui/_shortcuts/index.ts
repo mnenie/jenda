@@ -15,6 +15,7 @@ import { table } from './table'
 import { checkbox } from './checkbox'
 import { picker } from './picker'
 import { tagsInput } from './tags-input'
+import { _switch } from './switch'
 import type { Preset, StaticShortcutMap } from '@unocss/core'
 
 export const shortcuts = [
@@ -28,6 +29,7 @@ export const shortcuts = [
   ...pinInput,
   ...form,
   ...popover,
+  ..._switch,
   ...command,
   ...tabs,
   ...pagination,

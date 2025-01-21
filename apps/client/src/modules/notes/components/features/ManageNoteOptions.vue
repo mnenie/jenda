@@ -23,7 +23,13 @@ const { isLinterEnabled, toggleLinter } = useLinterContext()
     </UiDropdownMenuTrigger>
     <UiDropdownMenuContent align="start" class="w-fit p-1">
       <UiDropdownMenuItem class="justify-start relative 2xl:text-13px text-sm fw400 cursor-pointer gap-1.5" @select.prevent>
-        <UiSwitch :default-checked="isLinterEnabled" class="h-4.6" @update:checked="toggleLinter" />
+        <UiSwitch
+          :default-checked="isLinterEnabled"
+          variant="solid"
+          thumb="solid"
+          class="h-4.6"
+          @update:checked="toggleLinter"
+        />
         <span>{{ $t('note.actions', 1) }}</span>
         <UiBadge variant="secondary" class="ml-2 px-1 py-0 text-8px opacity-90">
           EXPERIMENTAL
