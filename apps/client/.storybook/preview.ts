@@ -6,7 +6,7 @@ import type { Preview } from '@storybook/vue3'
 
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind-compat.css'
-import '@/app/styles/primary/index.css'
+import '@/styles/index.css'
 
 const preview: Preview = {
   decorators: [
