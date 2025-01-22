@@ -1,27 +1,41 @@
 import { createI18n, type I18n } from 'vue-i18n'
 import { enZod, ruZod, zhZod } from '../vee-validate/rules'
-import { enLocale, ruLocale, zhLocale } from './locales'
 import { customPluralRule } from './plurals'
 import useDayJsLocalize from './dayjs'
 import { getCurrentLocale } from './utils/getLocale'
 
-export type MessageSchema = typeof enLocale
+const ru_ru = import.meta.glob('./locales/**/ru-RU.ts', { eager: true })
+const en_us = import.meta.glob('./locales/**/en-US.ts', { eager: true })
+const zh_cn = import.meta.glob('./locales/**/zh-CN.ts', { eager: true })
+
+function loadLang(modules: Record<string, any>) {
+  const messages: { [key: string]: string } = {}
+
+  Object.keys(modules).forEach((module) => {
+    Object.assign(messages, { ...modules[module].default })
+  })
+  return messages
+}
+
+export interface MessageSchema {
+  [key: string]: any
+}
 
 const messages = {
   'en-US': {
-    ...enLocale,
+    ...loadLang(en_us),
     errors: {
       ...enZod,
     },
   },
   'ru-RU': {
-    ...ruLocale,
+    ...loadLang(ru_ru),
     errors: {
       ...ruZod,
     },
   },
   'zh-CN': {
-    ...zhLocale,
+    ...loadLang(zh_cn),
     errors: {
       ...zhZod,
     },
