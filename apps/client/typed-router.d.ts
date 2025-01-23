@@ -20,7 +20,6 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     'welcome': RouteRecordInfo<'welcome', '/', Record<never, never>, Record<never, never>>,
     'not-found': RouteRecordInfo<'not-found', '/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
-    'analytics': RouteRecordInfo<'analytics', '/analytics', Record<never, never>, Record<never, never>>,
     'sign-in': RouteRecordInfo<'sign-in', '/auth/sign-in', Record<never, never>, Record<never, never>>,
     'sign-in-workspace': RouteRecordInfo<'sign-in-workspace', '/auth/sign-in/workspace', Record<never, never>, Record<never, never>>,
     'sign-up': RouteRecordInfo<'sign-up', '/auth/sign-up', Record<never, never>, Record<never, never>>,
@@ -29,6 +28,7 @@ declare module 'vue-router/auto-routes' {
     'boards': RouteRecordInfo<'boards', '/boards', Record<never, never>, Record<never, never>>,
     'board-id': RouteRecordInfo<'board-id', '/boards/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'boards-new': RouteRecordInfo<'boards-new', '/boards/new', Record<never, never>, Record<never, never>>,
+    'calendar': RouteRecordInfo<'calendar', '/calendar', Record<never, never>, Record<never, never>>,
     'members': RouteRecordInfo<'members', '/members', Record<never, never>, Record<never, never>>,
     'notes': RouteRecordInfo<'notes', '/notes', Record<never, never>, Record<never, never>>,
     'notes-slug': RouteRecordInfo<'notes-slug', '/notes/:id/:slug(.*)', { id: ParamValue<true>, slug: ParamValue<true> }, { id: ParamValue<false>, slug: ParamValue<false> }>,

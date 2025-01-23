@@ -7,7 +7,7 @@ export default {
     boards: 'Boards',
     notes: 'Notes',
     templates: 'Templates',
-    analytics: 'Analytics',
+    calendar: 'Calendar',
     members: 'Members',
     settings: 'Settings',
     integrations: 'Integraions',
@@ -98,7 +98,7 @@ export default {
       title_tasks: 'Your tasks',
       description_tasks: 'Solve and complete the tasks you started',
     },
-    columns: ['Kanban name', 'Status', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
+    columns: ['Board name', 'Status', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
   },
   notes: {
     create: 'Add note | Add new note',

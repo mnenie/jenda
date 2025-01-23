@@ -7,7 +7,7 @@ export default {
     boards: '看板',
     notes: '笔记',
     templates: '模板',
-    analytics: '分析',
+    calendar: '日历',
     members: '成员',
     settings: '设置',
     integrations: '集成',

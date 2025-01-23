@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import { refDebounced } from '@vueuse/core'
 import InfoMenu from './InfoMenu.vue'
 import IntegrationItems from './IntegrationItems.vue'
-import ProjectsList from './ProjectsList.vue'
 import WorkSpace from './WorkSpace.vue'
 import WorkspaceChooser from './WorkSpaceChooser.vue'
 import PlanCard from './plan/PlanCard.vue'
@@ -40,7 +39,6 @@ const paddingExpanded = computed(() => {
         <SearchBox :boards />
         <WorkSpace :links />
         <IntegrationItems />
-        <ProjectsList :boards />
       </div>
       <div>
         <InfoMenu :is-show-plan />
