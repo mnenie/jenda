@@ -40,7 +40,7 @@ function selectItem(index: number) {
             <Icon :icon="item.icon" class="w-4 h-4" />
           </div>
           <div class="flex flex-col">
-            <span class="2xl:text-13px text-sm">
+            <span class="text-13px">
               {{ $t(`note.editor.nodes.${item.key}.title`) }}
             </span>
             <span class="text-xs text-neutral-600 dark:text-neutral-400">

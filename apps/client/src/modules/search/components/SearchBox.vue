@@ -50,7 +50,7 @@ watch([meta_k, ctrl_k], (v) => {
   <UiCommandDialog
     v-model:search="modelSearch"
     v-model:open="open"
-    class="top-1/4 max-w-1/3"
+    class="top-1/4 max-w-1/2"
   >
     <UiCommandInput :placeholder="t('search.placeholder')" />
     <SearchList

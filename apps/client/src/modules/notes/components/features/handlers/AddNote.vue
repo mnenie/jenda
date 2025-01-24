@@ -14,11 +14,10 @@ const emit = defineEmits<{
 <template>
   <UiButton
     :variant="variant"
-    size="sm"
-    class="px-2"
+    size="default"
     @click="emit('add')"
   >
     <span i-hugeicons-add-01 class="w-4 h-4" />
-    <span class="text-sm">{{ $t('notes.create', plural) }}</span>
+    <span class="text-default">{{ $t('notes.create', plural) }}</span>
   </UiButton>
 </template>

@@ -13,7 +13,7 @@ defineProps<{
     class="flex items-center justify-between px-2"
   >
     <div
-      class="flex-1 text-sm text-neutral-600 dark:text-neutral-400"
+      class="flex-1 text-default text-neutral-600 dark:text-neutral-400"
     >
       {{ table?.getFilteredSelectedRowModel().rows.length }}
       {{ $t('table.row_from_all') }}
@@ -22,7 +22,7 @@ defineProps<{
     </div>
     <div class="flex items-center gap-4">
       <span
-        class="flex items-center justify-center text-sm"
+        class="flex items-center justify-center text-default"
       >
         {{ $t('table.rows_on_page') }}
       </span>
@@ -32,7 +32,7 @@ defineProps<{
         @update:model-value="table?.setPageSize($event as unknown as number)"
       />
       <div
-        class="flex items-center justify-center text-sm"
+        class="flex items-center justify-center text-default"
       >
         {{ $t('table.page') }}
         {{ (table?.getState().pagination.pageIndex ?? 0) + 1 }}

@@ -20,8 +20,8 @@ function selectItem(index: number) {
   <UiDropdownMenu>
     <UiDropdownMenuTrigger as-child>
       <UiButton variant="ghost" size="sm" class="!h-7 py-0 px-1.5 fw400 gap-1">
-        <span class="text-13px mt-0.5">Text</span>
-        <span i-lucide-chevron-down class="w-3.5 h-3.5 text-neutral-600" />
+        <span class="text-default">Text</span>
+        <span i-lucide-chevron-down class="w-3.5 h-3.5 text-neutral-500" />
       </UiButton>
     </UiDropdownMenuTrigger>
     <UiDropdownMenuContent
@@ -35,7 +35,7 @@ function selectItem(index: number) {
             <Icon :icon="item.icon" class="w-3.5 h-3.5" />
           </div>
           <div :class="item.isActive(editor) ? '!text-blue-600 dark:!text-blue-500' : ''" class="flex flex-col">
-            <span class="2xl:text-13px text-sm">
+            <span class="text-13px">
               {{ $t(`note.editor.nodes.${item.key}.title`) }}
             </span>
             <span class="text-xs text-neutral-600 dark:text-neutral-400">

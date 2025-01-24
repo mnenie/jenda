@@ -57,11 +57,11 @@ const contentPosition = computed(() => {
         :style="{ padding: !isExpanded ? '0px' : '', justifyContent: contentPosition }"
       >
         <div class="flex items-center gap-2">
-          <Icon :icon="link.icon" class="!w-15px !h-15px 2xl:(!w-4 !h-4) text-neutral-900 dark:text-neutral-200" />
-          <span v-show="isExpanded" class="text-13px 2xl:text-sm !fw500 text-neutral-900 dark:text-neutral-100">{{ $t(`sidebar.${link.name}`) }}</span>
+          <Icon :icon="link.icon" class="!w-16px !h-16px 2xl:(!w-4 !h-4) text-neutral-900 dark:text-neutral-200" />
+          <span v-show="isExpanded" class="text-default !fw500 text-neutral-900 dark:text-neutral-100">{{ $t(`sidebar.${link.name}`) }}</span>
         </div>
         <UiBadge v-if="link.id === 1 && isExpanded" variant="solid" class="px-5px py-0 text-xs rounded-md">
-          <span class="text-[10px] text-white">3</span>
+          <span class="text-xs text-white">3</span>
         </UiBadge>
       </UiButton>
     </RouterLink>

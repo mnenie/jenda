@@ -48,7 +48,7 @@ const { active } = useLayoutPaths(links, _projects)
     class="sticky top-0 left-0 right-0 z-999 w-full flex items-center justify-between px-15px py-8px min-h-52px max-h-52px
     border-b border-b-solid border-layout"
   >
-    <div class="inline-flex items-center gap-3">
+    <div class="inline-flex items-center gap-2">
       <Icon
         v-if="active.extendedAttrs.icon"
         :icon="active.extendedAttrs.icon"
@@ -70,7 +70,7 @@ const { active } = useLayoutPaths(links, _projects)
         <ShimmerButton shimmer-size="2px">
           <div i-hugeicons-link-04 class="text-neutral-900 dark:text-neutral-100 w-16px h-16px 2xl:(w-4 h-4)" />
           <span
-            class="whitespace-pre-wrap text-center text-neutral-800 dark:text-neutral-100 text-sm fw500"
+            class="whitespace-pre-wrap text-center text-neutral-800 dark:text-neutral-100 text-base 2xl:text-sm fw500"
           >
             {{ $t('header.share') }}
           </span>
@@ -79,14 +79,14 @@ const { active } = useLayoutPaths(links, _projects)
       <div
         v-tooltip="{ content: $t('header.navigator.messages'), trigger: ['hover'], distance: 7 }"
         i-hugeicons-message-multiple-01
-        class="text-base text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
+        class="text-large text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
         style="margin-right: 2px"
       />
       <HotkeysDialog>
         <div
           v-tooltip="{ content: $t('header.navigator.question'), trigger: ['hover'], distance: 7 }"
           i-hugeicons-book-open-01
-          class="text-base text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
+          class="text-large text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
           style="margin-right: -1px;"
         />
       </HotkeysDialog>

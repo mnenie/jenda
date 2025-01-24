@@ -27,7 +27,7 @@ function toggleModalRoute() {
     :default-open="true"
     @update:open="toggleModalRoute"
   >
-    <UiDialogContent>
+    <UiDialogContent class="sm:max-w-xl">
       <div class="flex flex-col gap-8">
         <UiDialogHeader>
           <UiDialogTitle>

@@ -46,15 +46,15 @@ watch(() => props.editor.state.selection, () => {
   <UiPopover>
     <UiPopoverTrigger as-child>
       <UiButton variant="ghost" size="sm" class="!h-7 py-0 px-1.5 fw400 gap-1">
-        <span i-hugeicons-link-04 class="w-4 h-4" />
-        <span i-lucide-chevron-down class="w-3.5 h-3.5 text-neutral-600" />
+        <span i-hugeicons-link-04 class="w-4.8 h-4.8 2xl:(w-4 h-4)" />
+        <span i-lucide-chevron-down class="w-3.5 h-3.5 text-neutral-500" />
       </UiButton>
     </UiPopoverTrigger>
-    <UiPopoverContent class="w-[200px] mt-6px p-0 relative">
+    <UiPopoverContent class="w-200px mt-6px p-0 relative">
       <UiInput
         v-model="url"
         placeholder="Paste link"
-        class="focus:ring-0 border-none text-13px h-8"
+        class="focus:ring-0 border-none text-default h-8"
         :class="editor.isActive('link') && 'pr-8'"
         @keydown.enter.prevent="addLink"
       />
@@ -64,12 +64,12 @@ watch(() => props.editor.state.selection, () => {
       >
         <div
           i-hugeicons-clipboard
-          class="w-3.5 h-3.5 cursor-pointer"
+          class="w-4.2 h-4.2 2xl(w-3.5 h-3.5) cursor-pointer"
           @click="copyLink"
         />
         <div
           i-hugeicons-delete-02
-          class="w-3.5 h-3.5 cursor-pointer text-red-500"
+          class="w-4.2 h-4.2 2xl(w-3.5 h-3.5) cursor-pointer text-red-500"
           @click="editor.chain().focus().unsetLink().run()"
         />
       </div>

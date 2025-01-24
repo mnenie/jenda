@@ -11,6 +11,7 @@ defineProps<{
   <MenuButton
     icon="hugeicons:text-color"
     :is-active="editor.isActive('highlight')"
+    icon-class="!w-4.6 !h-4.6 2xl:(!w-4 !h-4)"
     @click="editor.chain().focus().toggleHighlight({ color: '#b197fc55' }).run()"
   >
     <template #badge>

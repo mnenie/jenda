@@ -18,7 +18,7 @@ const panelItems = [
       class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400"
     >
       <Icon :icon="item.icon" class="w-3.5 h-3.5" />
-      <span class="text-xs">{{ $t(`search.${item.tPrefix}`) }}</span>
+      <span class="text-small">{{ $t(`search.${item.tPrefix}`) }}</span>
     </div>
   </div>
 </template>

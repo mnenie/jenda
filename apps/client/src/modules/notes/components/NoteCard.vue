@@ -12,14 +12,14 @@ defineProps<{
     <div class="p-3 flex flex-col space-y-1">
       <div class="flex items-center space-x-1.5 mb-2">
         <UserAvatar class="!h-22px !w-22px" :img="note.creator!.photoUrl" />
-        <span class="text-sm fw500 dark:text-neutral-100">
+        <span class="text-default dark:text-neutral-100">
           {{ note.creator!.email }}
         </span>
       </div>
-      <p class="text-sm fw500 hyphens-auto dark:text-neutral-100">
+      <p class="text-default fw500 hyphens-auto dark:text-neutral-100">
         {{ note.title }}
       </p>
-      <span class="text-xs text-neutral-600 dark:text-neutral-400 hyphens-auto line-clamp-2">
+      <span class="text-small text-neutral-600 dark:text-neutral-400 hyphens-auto line-clamp-2">
         {{ note.content }}
       </span>
     </div>

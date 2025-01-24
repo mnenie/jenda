@@ -28,15 +28,15 @@ const textStyles: TextStyle[] = [
       <MenuButton
         :is-active="editor.isActive(textStyle.type)"
         :icon="textStyle.icon"
-        icon-class="!w-3.4 !h-3.4"
+        icon-class="!w-4 !h-4 2xl:(!w-3.4 !h-3.4)"
         @click="editor.chain().focus().toggleMark(textStyle.type).run()"
       />
       <template #popper>
         <div class="flex flex-col gap-0.5">
-          <span class="text-xs">
+          <span class="text-small">
             {{ $t(`note.editor.menu.${textStyle.type}`) }}
           </span>
-          <span class="text-xs text-neutral-300 dark:text-neutral-400">
+          <span class="text-small text-neutral-300 dark:text-neutral-400">
             {{ textStyle.shortcut }}
           </span>
         </div>

@@ -26,7 +26,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         variant="outline"
         class="px-1 py-0 text-xs gap-[1px] text-neutral-600 bg-neutral-50 dark:(bg-neutral-800 text-neutral-200)"
       >
-        <span class="text-[10px]">
+        <span class="text-10px">
           {{ content }}
         </span>
       </UiBadge>
@@ -34,11 +34,11 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     <UiButton
       :variant="isExpanded ? 'outline' : 'ghost'"
       size="sm"
-      class="w-full justify-start rounded-8px px-2 !bg-white dark:(!bg-#262626 border-neutral-600/20) focus:ring-0 custom-btn-transition bg-transition"
+      class="w-full justify-start rounded-lg px-2 !bg-white dark:(!bg-#262626 border-neutral-600/20) focus:ring-0 custom-btn-transition bg-transition"
       :class="[
         isExpanded
           ? 'hover:!bg-neutral-100/10 dark:hover:!bg-neutral-600/30'
-          : 'shadow-none !bg-transparent hover:!bg-neutral-200/35 dark:(hover:!bg-neutral-600/35 !bg-transparent)',
+          : '!bg-transparent hover:!bg-neutral-200/35 dark:(hover:!bg-neutral-600/35 !bg-transparent)',
       ]"
       @click="emit('openModal')"
     >
@@ -47,13 +47,13 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         class="text-neutral-800 dark:text-neutral-200 2xl:(!w-4 !h-4)"
         :class="[
           isExpanded
-            ? 'mr-1 !w-15px !h-15px'
+            ? '!w-15px !h-15px'
             : 'absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 !h-16px !w-16px',
         ]"
       />
       <span
         v-if="isExpanded"
-        class="text-13px 2xl:text-sm fw500 text-neutral-700 dark:text-neutral-200 whitespace-nowrap transition-transform duration-250 ease-in-out transform"
+        class="text-default fw500 text-neutral-700 dark:text-neutral-200 whitespace-nowrap transition-transform duration-250 ease-in-out transform"
         :class="isShowFilter ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'"
       >
         {{ $t('sidebar.input') }}

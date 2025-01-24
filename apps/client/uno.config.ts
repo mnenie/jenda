@@ -48,6 +48,13 @@ export default defineConfig({
       'border-layout': 'border-neutral-200 dark:border-#1c1c1c',
       'bg-sidebar': 'bg-neutral-50 dark:bg-#1c1c1c66',
     },
+    {
+      'font-medium': 'fw430',
+      'text-default': 'text-base 2xl:text-sm',
+      'text-large': 'text-lg 2xl:text-base',
+      'text-small': 'text-sm 2xl:text-xs',
+      'h-default': 'h-9 2xl:h-8',
+    },
   ],
   configDeps: [
     './src/shared/lib/unocss/presets/presetUiKit.ts',

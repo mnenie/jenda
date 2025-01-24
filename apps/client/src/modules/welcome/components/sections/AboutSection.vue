@@ -40,7 +40,7 @@ const arrowMargin = computed(() => {
       @click="redirect('https://github.com/mnenie/jenda')"
     >
       <span style="margin-right: 3px">✨</span>
-      <span class="text-sm">{{ badge }}</span>
+      <span class="text-default">{{ badge }}</span>
       <span
         i-hugeicons-arrow-right-01
         class="ease-in duration-100"
@@ -61,10 +61,11 @@ const arrowMargin = computed(() => {
       {{ $t('welcome.about.description') }}
     </p>
     <div class="flex justify-center items-center gap-4 px-0 py-4 btns">
-      <UiButton @click="$router.push({ name: 'sign-up' })">
+      <UiButton size="lg" @click="$router.push({ name: 'sign-up' })">
         {{ $t('welcome.about.btn') }}
       </UiButton>
       <UiButton
+        size="lg"
         variant="outline"
         @click="redirect('https://github.com/mnenie/jenda')"
       >
