@@ -28,12 +28,12 @@ declare module 'vue-router/auto-routes' {
     'boards': RouteRecordInfo<'boards', '/boards', Record<never, never>, Record<never, never>>,
     'board-id': RouteRecordInfo<'board-id', '/boards/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'boards-new': RouteRecordInfo<'boards-new', '/boards/new', Record<never, never>, Record<never, never>>,
-    'calendar': RouteRecordInfo<'calendar', '/calendar', Record<never, never>, Record<never, never>>,
     'members': RouteRecordInfo<'members', '/members', Record<never, never>, Record<never, never>>,
     'notes': RouteRecordInfo<'notes', '/notes', Record<never, never>, Record<never, never>>,
     'notes-slug': RouteRecordInfo<'notes-slug', '/notes/:id/:slug(.*)', { id: ParamValue<true>, slug: ParamValue<true> }, { id: ParamValue<false>, slug: ParamValue<false> }>,
     'settings': RouteRecordInfo<'settings', '/settings', Record<never, never>, Record<never, never>>,
     'templates': RouteRecordInfo<'templates', '/templates', Record<never, never>, Record<never, never>>,
     'community': RouteRecordInfo<'community', '/templates/community', Record<never, never>, Record<never, never>>,
+    'workflows': RouteRecordInfo<'workflows', '/workflows', Record<never, never>, Record<never, never>>,
   }
 }

@@ -7,7 +7,7 @@ export default {
     boards: '看板',
     notes: '笔记',
     templates: '模板',
-    calendar: '日历',
+    workflows: '工作流',
     members: '成员',
     settings: '设置',
     integrations: '集成',

@@ -5,16 +5,16 @@ definePage({
   meta: {
     requiresAuth: true,
   },
-  name: 'calendar',
+  name: 'workflows',
 })
 
 useHead({
-  title: 'Calendar - Jenda',
+  title: 'Workflows - Jenda',
 })
 </script>
 
 <template>
   <div>
-    Calendar
+    hello from workflows
   </div>
 </template>

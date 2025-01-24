@@ -7,7 +7,7 @@ export default {
     boards: 'Доски',
     templates: 'Шаблоны',
     notes: 'Заметки',
-    calendar: 'Календарь',
+    workflows: 'Рабочие процессы',
     members: 'Участники',
     settings: 'Настройки',
     integrations: 'Интеграции',

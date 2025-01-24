@@ -11,9 +11,9 @@ export const links: WorkspaceLink[] = [
   },
   {
     id: 3,
-    name: 'calendar',
-    pathName: 'calendar',
-    icon: 'hugeicons:calendar-02',
+    name: 'workflows',
+    pathName: 'workflows',
+    icon: 'carbon:workflow-automation',
   },
   { id: 4, name: 'members', pathName: 'members', icon: 'hugeicons:user-multiple-02' },
   { id: 5, name: 'settings', pathName: 'settings', icon: 'hugeicons:setting-07' },

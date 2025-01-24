@@ -23,7 +23,7 @@ export default defineConfig({
       routesFolder: [
         './src/modules/auth/pages',
         './src/modules/members/pages',
-        './src/modules/calendar/pages',
+        './src/modules/workflows/pages',
         './src/modules/boards/pages',
         './src/modules/workspace/pages',
         './src/modules/notes/pages',

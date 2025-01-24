@@ -7,7 +7,7 @@ export default {
     boards: 'Boards',
     notes: 'Notes',
     templates: 'Templates',
-    calendar: 'Calendar',
+    workflows: 'Workflows',
     members: 'Members',
     settings: 'Settings',
     integrations: 'Integraions',
