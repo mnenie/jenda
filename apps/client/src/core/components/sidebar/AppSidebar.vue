@@ -24,7 +24,7 @@ const isShowPlan = computed((): boolean => {
 })
 
 const paddingExpanded = computed(() => {
-  return isExpanded.value ? '10px' : '0px 10px 10px 10px'
+  return isExpanded.value ? '10px 10px 6px 10px' : '0px 10px 6px 10px'
 })
 </script>
 
@@ -41,7 +41,7 @@ const paddingExpanded = computed(() => {
         <IntegrationItems />
       </div>
       <div>
-        <InfoMenu :is-show-plan />
+        <InfoMenu />
         <PlanCard :is-show-plan />
       </div>
     </div>

@@ -4,10 +4,10 @@ export default {
     input: 'Поиск',
     section: 'воркспейс',
     projects: 'проекты',
-    boards: 'Доски',
+    boards: 'Все доски',
     templates: 'Шаблоны',
     notes: 'Заметки',
-    workflows: 'Рабочие процессы',
+    workflows: 'Процессы',
     members: 'Участники',
     settings: 'Настройки',
     integrations: 'Интеграции',
@@ -16,9 +16,9 @@ export default {
       items: 'Поддержать разработчиков | Сочетания клавиш | Присоединяйтесь к нам',
     },
     plan: {
-      btn: 'Приобрести',
+      btn: 'Подробнее',
       title: 'Премиум план',
-      description: 'проектов осталось',
+      description: 'досок осталось',
       tooltip: '1/3 бесплатных workspaces',
     },
     soon: 'скоро',
@@ -36,6 +36,7 @@ export default {
   },
   boards: {
     create: 'Добавить доску | Добавить новую доску',
+    routeCreate: 'Добавить доску',
     filters: {
       sort: {
         title: 'Отсортированно по',

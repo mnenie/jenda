@@ -1,4 +1,5 @@
 import type { IconifyIcon } from '@iconify/vue'
+import type { RouteRecordName } from 'vue-router/auto'
 
 interface Path {
   pathName: string
@@ -6,13 +7,7 @@ interface Path {
 
 export interface WorkspaceLink extends Path {
   id: number
-  name: string
+  name: RouteRecordName
   icon: IconifyIcon | string
+  badge?: boolean
 }
-export interface ProjectLink extends Path {
-  _id: string
-  name: string
-  color?: string
-}
-
-export type CombinedLink = WorkspaceLink | ProjectLink

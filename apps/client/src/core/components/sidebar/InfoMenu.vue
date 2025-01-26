@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { createReusableTemplate } from '@vueuse/core'
 import {
-  UiBadge,
   UiButton,
   UiDropdownMenu,
   UiDropdownMenuContent,
@@ -12,10 +11,6 @@ import {
 } from '@/shared/ui'
 import HotkeysDialog from '@/modules/common/components/dialogs/HotkeysDialog.vue'
 import { useExpandedContext } from '@/shared/composables/expanded'
-
-defineProps<{
-  isShowPlan?: boolean
-}>()
 
 const { isExpanded } = useExpandedContext()
 
@@ -50,12 +45,6 @@ const [DifineTemplate, ReuseTemplate] = createReusableTemplate()
             {{ $t('sidebar.help.title') }}
           </span>
         </div>
-        <UiBadge v-if="isShowPlan" variant="soft" class="w-10 px-1">
-          <div class="flex items-center gap-0.5">
-            <div i-lucide-stars />
-            <span class="text-xs !fw500">1/3</span>
-          </div>
-        </UiBadge>
       </UiButton>
     </UiDropdownMenuTrigger>
     <UiDropdownMenuContent align="center" side="right" class="w-102%">

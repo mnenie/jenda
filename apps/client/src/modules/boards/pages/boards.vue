@@ -11,17 +11,6 @@ import type { Table } from '@tanstack/vue-table'
 import TableControls from '@/modules/common/components/controls/TableControls.vue'
 import ViewControl from '@/modules/common/components/controls/ViewControl.vue'
 
-definePage({
-  meta: {
-    requiresAuth: true,
-  },
-  name: 'boards',
-})
-
-useHead({
-  title: 'Jenda - cloud program for project and task management',
-})
-
 const boardsStore = useBoardsStore()
 const { boards } = storeToRefs(boardsStore)
 
@@ -44,10 +33,30 @@ provideFilteredContext({
   sortModel,
   advancedModel,
 })
+
+// unplugin
+definePage({
+  meta: {
+    requiresAuth: true,
+    breadcrumb: [
+      {
+        tKey: 'boards',
+        icon: 'hugeicons:trello',
+        name: 'boards',
+        to: { name: 'boards' },
+      },
+    ],
+  },
+  name: 'boards',
+})
+
+useHead({
+  title: 'Jenda - cloud program for project and task management',
+})
 </script>
 
 <template>
-  <div v-if="$route.name !== 'board-id'" class="w-full h-full flex flex-col">
+  <div v-if="$route.name !== 'boards-id'" class="w-full h-full flex flex-col">
     <ViewControl>
       <BoardsActionsPanel :is-selected :idxs />
       <template #table>

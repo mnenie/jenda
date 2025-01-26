@@ -7,12 +7,6 @@ import { provideLinterContext } from '../../../composables/linter'
 import TiptapEditor from '@/modules/editor/components/TiptapEditor.vue'
 import UserAvatars from '@/modules/common/components/UserAvatars.vue'
 
-definePage({
-  meta: {
-    requiresAuth: true,
-  },
-  name: 'notes-slug',
-})
 const route = useRoute('notes-slug')
 
 // needs to be fixed
@@ -50,6 +44,28 @@ function toggleLinter() {
 provideLinterContext({
   isLinterEnabled,
   toggleLinter,
+})
+
+// unplugin
+definePage({
+  meta: {
+    requiresAuth: true,
+    breadcrumb: [
+      {
+        tKey: 'notes',
+        icon: 'hugeicons:checkmark-square-03',
+        name: 'notes',
+        to: { name: 'notes' },
+      },
+      {
+        name: 'notes-slug',
+        // mock
+        value: 'Note 1',
+        to: { name: 'notes-slug', params: { id: '1', slug: 'untitled' } },
+      },
+    ],
+  },
+  name: 'notes-slug',
 })
 </script>
 

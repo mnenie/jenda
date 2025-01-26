@@ -16,7 +16,7 @@ export default {
       items: '支持开发者 | 键盘快捷键 | 加入我们',
     },
     plan: {
-      btn: '购买订阅',
+      btn: '了解更多',
       title: '高级计划',
       description: '剩余看板',
       tooltip: '1/3 免费工作区',
@@ -36,6 +36,7 @@ export default {
   },
   boards: {
     create: '添加看板 | 添加新看板',
+    routeCreate: '添加看板',
     filters: {
       sort: {
         title: '排序依据',

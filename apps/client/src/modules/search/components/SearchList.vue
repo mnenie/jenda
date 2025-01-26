@@ -36,7 +36,7 @@ const formattedBoards = computed(() => {
 const formattedLinks = computed(() => {
   return _links.map(link => ({
     ...link,
-    name: t(`sidebar.${link.name}`),
+    name: link.name,
     color: undefined,
     path: `/${link.pathName}`,
   }))

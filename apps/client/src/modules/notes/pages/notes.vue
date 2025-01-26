@@ -12,17 +12,6 @@ import type { Table } from '@tanstack/vue-table'
 import ViewControl from '@/modules/common/components/controls/ViewControl.vue'
 import TableControls from '@/modules/common/components/controls/TableControls.vue'
 
-definePage({
-  meta: {
-    requiresAuth: true,
-  },
-  name: 'notes',
-})
-
-useHead({
-  title: 'Jenda | Notes',
-})
-
 const sortModel = ref('default')
 const selectedNotes = ref<Record<string, boolean>>({})
 
@@ -41,6 +30,26 @@ const dataTable = useTemplateRef<InstanceType<typeof NotesDataTable>>('table')
 
 provideFilteredNotesContext({
   sortModel,
+})
+
+// unplugin
+definePage({
+  meta: {
+    requiresAuth: true,
+    breadcrumb: [
+      {
+        tKey: 'notes',
+        icon: 'hugeicons:checkmark-square-03',
+        name: 'notes',
+        to: { name: 'notes' },
+      },
+    ],
+  },
+  name: 'notes',
+})
+
+useHead({
+  title: 'Jenda | Notes',
 })
 </script>
 

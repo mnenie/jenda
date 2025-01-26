@@ -16,7 +16,7 @@ export default {
       items: 'Support developers | Keyboard shortcuts | Join us',
     },
     plan: {
-      btn: 'Buy a subscription',
+      btn: 'Learn more',
       title: 'Premium Plan',
       description:
         'boards left',
@@ -37,6 +37,7 @@ export default {
   },
   boards: {
     create: 'Add board | Add new board',
+    routeCreate: 'Add board',
     filters: {
       sort: {
         title: 'Sort by',
