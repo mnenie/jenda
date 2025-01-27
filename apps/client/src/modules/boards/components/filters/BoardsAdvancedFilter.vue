@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { createReusableTemplate } from '@vueuse/core'
-import { useFilteredContext } from '../../composables/filtered'
+import { useFilteredBoardsContext } from '../../composables/filtered'
 import {
   UiBadge,
   UiButton,
@@ -41,7 +41,7 @@ const labels = [
   },
 ] satisfies Option[]
 
-const { advancedModel } = useFilteredContext()
+const { advancedModel } = useFilteredBoardsContext()
 
 function onSelected(option: Option) {
   const index = advancedModel.value.indexOf(option.value)

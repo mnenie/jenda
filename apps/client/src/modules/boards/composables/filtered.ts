@@ -2,6 +2,11 @@ import { computed, inject, provide, toValue } from 'vue'
 import type { InjectionKey, Ref } from 'vue'
 import type { BoardRow } from '../types'
 
+interface FilteredBoardsContext {
+  sortModel: Ref<string>
+  advancedModel: Ref<string[]>
+}
+
 export function useFilteredBoards<U extends BoardRow>(
   boards: Ref<U[]>,
   sortRefValue: Ref<string>,
@@ -48,31 +53,12 @@ export function useFilteredBoards<U extends BoardRow>(
   }
 }
 
-interface FilteredContext {
-  sortModel: Ref<string>
-  advancedModel: Ref<string[]>
-}
+const key: InjectionKey<FilteredBoardsContext> = Symbol('filtered-boards')
 
-type T = FilteredContext
-
-const key: InjectionKey<FilteredContext> = Symbol('filtered-boards')
-
-export function provideFilteredContext(value: T) {
+export function provideFilteredBoardsContext<T extends FilteredBoardsContext>(value: T) {
   provide(key, value)
-  return value
 }
 
-export function useFilteredContext<
-  U extends T | undefined = T,
->(
-  fallback?: U,
-): U extends null ? T | null : T {
-  const expanded = inject(key, fallback)
-  if (expanded)
-    return expanded as T
-
-  if (expanded === null)
-    return expanded as any
-
-  throw new Error('not provided')
+export function useFilteredBoardsContext() {
+  return inject(key)!
 }

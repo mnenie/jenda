@@ -3,7 +3,7 @@ import { computed, ref, useTemplateRef } from 'vue'
 import { useHead } from '@unhead/vue'
 import { storeToRefs } from 'pinia'
 import { useBoardsStore } from '../stores/board'
-import { provideFilteredContext, useFilteredBoards } from '../composables/filtered'
+import { provideFilteredBoardsContext, useFilteredBoards } from '../composables/filtered'
 import BoardsActionsPanel from '../components/BoardsActionsPanel.vue'
 import EmptyBoards from '../components/EmptyBoards.vue'
 import BoardsDataTable from '../components/BoardsDataTable.vue'
@@ -29,7 +29,7 @@ const idxs = computed(() => Object.keys(selectedBoards.value))
 
 const dataTable = useTemplateRef<InstanceType<typeof BoardsDataTable>>('table')
 
-provideFilteredContext({
+provideFilteredBoardsContext({
   sortModel,
   advancedModel,
 })

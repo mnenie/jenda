@@ -70,7 +70,7 @@ definePage({
 </script>
 
 <template>
-  <NoteDialog :is-linter-enabled @toggle-linter="toggleLinter">
+  <NoteDialog>
     <div class="flex flex-col pt-8 gap-2">
       <div class="pl-32 flex items-center gap-3 justify-start">
         <UserAvatars :users="users" :max="2" avatar="!h-24px !w-24px" class="mr-2" />
