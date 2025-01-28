@@ -8,11 +8,12 @@ interface DateParams {
 
 export type WorkflowCard = Pick<Workflow, '_id' | 'name' | 'description' | 'state' | 'updatedAt'>
 
+// fix with nodes and edges
 export interface Workflow extends DateParams {
-  _id: string;
+  _id?: string;
   name: string;
   description: string;
   state: 'draft' | 'production';
-  runsCount: number;
+  runsCount?: number;
   creator: User
 }

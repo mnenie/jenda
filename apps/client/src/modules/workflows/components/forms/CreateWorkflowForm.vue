@@ -4,10 +4,12 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { createReusableTemplate } from '@vueuse/core'
 import { useField, useForm } from 'vee-validate'
 import { useRouter } from 'vue-router/auto'
+import { storeToRefs } from 'pinia'
 import { useWorkflowsStore } from '../../stores/workflows'
 import { UiButton, UiFormField, UiFormLabel, UiFormMessage, UiInput } from '@/shared/ui'
 import { z } from '@/shared/libs/vee-validate'
 import { UiTextarea } from '@/shared/ui/textarea'
+import { useUserStore } from '@/modules/auth/stores/auth'
 
 const validationSchema = toTypedSchema(
   z.object({
@@ -23,8 +25,16 @@ const description = ref('')
 
 const router = useRouter()
 const workflowsStore = useWorkflowsStore()
+const authStore = useUserStore()
+const { user } = storeToRefs(authStore)
 
 const onWorkflowCreation = handleSubmit((values) => {
+  workflowsStore.addNewWorkflow({
+    name: values.name,
+    description: description.value,
+    state: 'draft',
+    creator: user.value,
+  })
   router.push({ name: 'workflows-id', params: { id: '1' } })
 })
 
@@ -36,6 +46,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     <UiFormField v-auto-animate>
       <UiFormLabel
         :for="field"
+        :required="field === 'name'"
       >
         {{ $t(`workflows.forms.creating.${field}.label`) }}
       </UiFormLabel>
@@ -67,19 +78,13 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         <div class="flex items-center justify-end gap-3">
           <UiButton
             variant="secondary"
-            size="default"
             type="button"
             class="px-4"
             @click="router.back()"
           >
             {{ $t('workflows.forms.creating.btns', 1) }}
           </UiButton>
-          <UiButton
-            variant="solid"
-            size="default"
-            type="submit"
-            class="px-4"
-          >
+          <UiButton variant="solid" type="submit" class="px-4">
             {{ $t('workflows.forms.creating.btns', 2) }}
           </UiButton>
         </div>

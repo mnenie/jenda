@@ -60,9 +60,12 @@ defineExpose({
     )"
   >
     <template #description-cell="{ cell }">
-      <span class="text-default text-neutral-500 dark:text-neutral-400 whitespace-nowrap overflow-hidden text-ellipsis">
-        {{ cell.row.original.description }}
-      </span>
+      <div v-if="cell.row.original.description">
+        <span class="text-default text-neutral-500 dark:text-neutral-400 whitespace-nowrap overflow-hidden text-ellipsis">
+          {{ cell.row.original.description }}
+        </span>
+      </div>
+      <span v-else class="text-neutral-500">-</span>
     </template>
     <template #creator-cell="{ cell }">
       <div class="flex items-center gap-2">
@@ -73,9 +76,12 @@ defineExpose({
       </div>
     </template>
     <template #runs-cell="{ cell }">
-      <span class="text-default text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
-        {{ $t('workflows.runs', { n: cell.row.original.runsCount }) }}
-      </span>
+      <div v-if="cell.row.original.runsCount">
+        <span class="text-default text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
+          {{ $t('workflows.runs', { n: cell.row.original.runsCount }) }}
+        </span>
+      </div>
+      <span v-else class="text-neutral-500">-</span>
     </template>
     <template #date-cell="{ cell }">
       <span class="text-default text-neutral-800 dark:text-neutral-200 whitespace-nowrap">
