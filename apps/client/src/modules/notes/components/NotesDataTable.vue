@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { columns as _columns } from '../utils/constants/table'
 import type { Table } from '@tanstack/vue-table'
 import type { Note } from '../types'
 import { DataTable } from '@/shared/ui'
@@ -10,42 +11,13 @@ defineProps<{
   data: Set<Note> | Note[]
 }>()
 
-const _columns = [
-  {
-    accessorKey: 'title',
-    meta: {
-      icon: 'hugeicons:alpha',
-      _tableCell: 'max-w-180px',
-    },
-  },
-  {
-    accessorKey: 'content',
-    meta: {
-      icon: 'hugeicons:align-box-bottom-left',
-      _tableCell: 'max-w-220px text-neutral-600 dark:text-neutral-300',
-    },
-  },
-  {
-    accessorKey: 'creator',
-    meta: {
-      icon: 'hugeicons:user',
-    },
-  },
-  {
-    accessorKey: 'users',
-    meta: {
-      icon: 'hugeicons:user-group',
-      _tableCell: 'min-w-120px',
-    },
-  },
-  {
-    accessorKey: 'date',
-    meta: {
-      icon: 'hugeicons:calendar-02',
-      _tableCell: 'text-left',
-    },
-  },
-]
+const select = defineModel <Record<string, boolean>>('select')
+
+const table = useTemplateRef<Table<any>>('table')
+
+const visibleUsers = computed(() => (cell: any) => cell.row.original.users.slice(0, 4))
+
+const remainingUsers = computed(() => (cell: any) => Math.max(cell.row.original.users.length - 4, 0))
 
 const { tm } = useI18n()
 
@@ -57,14 +29,6 @@ const columns = computed(() => {
     header: localizedArr[idx],
   }))
 })
-
-const select = defineModel <Record<string, boolean>>('select')
-
-const table = useTemplateRef<Table<any>>('table')
-
-const visibleUsers = computed(() => (cell: any) => cell.row.original.users.slice(0, 4))
-
-const remainingUsers = computed(() => (cell: any) => Math.max(cell.row.original.users.length - 4, 0))
 
 function userPosition(idx: number) {
   return idx * 20

@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useDark } from '@vueuse/core'
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
+import { columns as _columns } from '../utils/constants/table'
 import type { Table } from '@tanstack/vue-table'
 import type { BoardRow } from '../types'
 import { DataTable, UiBadge } from '@/shared/ui'
@@ -14,54 +15,15 @@ defineProps<{
   data: Set<BoardRow> | BoardRow[]
 }>()
 
-const _columns = [
-  {
-    accessorKey: 'name',
-    meta: {
-      icon: 'hugeicons:alpha',
-      _tableCell: 'max-w-220px',
-    },
-  },
-  {
-    accessorKey: 'labels',
-    meta: {
-      icon: 'hugeicons:creative-market',
-      badge: 'Optional',
-      _tableCell: 'max-w-220px',
-    },
-  },
-  {
-    accessorKey: 'users',
-    meta: {
-      icon: 'hugeicons:user-group',
-      _tableCell: 'min-w-120px',
-    },
-  },
-  {
-    accessorKey: 'tasks',
-    meta: {
-      icon: 'hugeicons:workflow-circle-06',
-      _tableCell: 'text-left',
-    },
-  },
-  {
-    accessorKey: 'estimate',
-    meta: {
-      icon: 'hugeicons:bulb-charging',
-      badge: 'AI',
-      _tableCell: 'text-left bg-purple-50/50 dark:bg-purple-900/20',
-    },
-  },
-  {
-    accessorKey: 'date',
-    meta: {
-      icon: 'hugeicons:calendar-02',
-      _tableCell: 'text-left',
-    },
-  },
-]
+const select = defineModel <Record<string, boolean>>('select')
 
-const { tm, t } = useI18n()
+const table = useTemplateRef<Table<any>>('table')
+
+const visibleUsers = computed(() => (cell: any) => cell.row.original.users.slice(0, 4))
+
+const remainingUsers = computed(() => (cell: any) => Math.max(cell.row.original.users.length - 4, 0))
+
+const { tm } = useI18n()
 
 const localizedArr = tm('boards.columns') as any
 
@@ -72,20 +34,11 @@ const columns = computed(() => {
   }))
 })
 
-const select = defineModel <Record<string, boolean>>('select')
-
-const table = useTemplateRef<Table<any>>('table')
-
-const visibleUsers = computed(() => (cell: any) => cell.row.original.users.slice(0, 4))
-
-const remainingUsers = computed(() => (cell: any) => Math.max(cell.row.original.users.length - 4, 0))
-
 function userPosition(idx: number) {
   return idx * 20
 }
 
 dayjs.extend(localizedFormat)
-// mocks -> after from store
 
 const timesAgo = computed(() =>
   (board: BoardRow) => {
