@@ -37,6 +37,7 @@ export default {
   },
   boards: {
     create: 'Add board | Add new board',
+    remove: 'Delete',
     routeCreate: 'Add board',
     filters: {
       sort: {
@@ -80,7 +81,7 @@ export default {
           label: 'Labels',
           placeholder: 'Enter a label',
           description: 'Start typing a label and press \'Enter\' to save it to your existing labels',
-          alert: '📝 How to change the label color? Specify the label name followed by [#desired color]. For example: jenda [#000000].',
+          alert: '📝 How to change the label color? | Specify the label name followed by [#desired color]. For example: jenda [#000000].',
         },
         btns: 'Cancel | Create',
       },
@@ -99,7 +100,7 @@ export default {
       title_tasks: 'Your tasks',
       description_tasks: 'Solve and complete the tasks you started',
     },
-    columns: ['Board name', 'Status', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
+    columns: ['Board name', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
   },
   notes: {
     create: 'Add note | Add new note',
@@ -181,6 +182,48 @@ export default {
   picker: {
     placeholder: 'Custom color',
     tabs: 'Solid | Gradients',
+  },
+  workflows: {
+    create: 'Add workflow | Add a new workflow',
+    remove: 'Delete',
+    filters: {
+      sort: {
+        title: 'Sorted by',
+        date: 'Update date',
+        default: 'Default',
+      },
+      search: 'Find a workflow...',
+    },
+    forms: {
+      creating: {
+        title: 'Creating a workflow',
+        description_main: 'Create a new workflow to optimize your work',
+        name: {
+          label: 'Name',
+          placeholder: 'Enter the workflow name',
+        },
+        description: {
+          label: 'Description',
+          placeholder: 'Describe your new workflow',
+        },
+        alert: 'The workflow will be in | To make it fully production ready, the workflow must be moved to',
+        btns: 'Cancel | Continue',
+      },
+    },
+    section: {
+      all: 'All workflows',
+      recent: 'Recent',
+    },
+    status: {
+      draft: 'Draft',
+      production: 'Production',
+    },
+    runs: '{n} runs | {n} run',
+    empty: {
+      title: 'No workflows',
+      description: 'Create your first workflow and automate tasks',
+    },
+    columns: ['Workflow name', 'Description', 'Creator', 'Runs', 'Status', 'Date updated'],
   },
   templates: {
     title: 'Templates',

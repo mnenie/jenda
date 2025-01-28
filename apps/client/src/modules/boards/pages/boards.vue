@@ -58,7 +58,7 @@ useHead({
 <template>
   <div v-if="$route.name !== 'boards-id'" class="w-full h-full flex flex-col">
     <ViewControl>
-      <BoardsActionsPanel :is-selected :idxs />
+      <BoardsActionsPanel :boards="filteredBoards" :is-selected :idxs />
       <template #table>
         <div
           class="relative w-full h-full flex flex-col"

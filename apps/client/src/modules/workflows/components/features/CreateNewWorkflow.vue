@@ -5,6 +5,6 @@ import AddWorkflow from './handlers/AddWorkflow.vue'
 <template>
   <AddWorkflow
     variant="solid"
-    @add-workflow="$router.push({ name: 'boards-new' })"
+    @add-workflow="$router.push({ name: 'workflows-new' })"
   />
 </template>

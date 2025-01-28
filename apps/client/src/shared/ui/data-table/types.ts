@@ -11,6 +11,7 @@ export interface TableProps<TData, TValue> extends TableRootProps {
   enableSubRowSelection?: boolean
   enableColumnFilters?: boolean
   enableSorting?: boolean
+  complex?: boolean
   enableMultiSort?: boolean
   enableMultiRemove?: boolean
   enableSortingRemoval?: boolean

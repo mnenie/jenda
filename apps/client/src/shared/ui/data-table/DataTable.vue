@@ -12,7 +12,15 @@ import {
 import { Icon } from '@iconify/vue'
 import { UiCheckbox } from '../checkbox'
 import { UiBadge } from '../badge'
-import { UiTableBody, UiTableCell, UiTableEmpty, UiTableHead, UiTableHeader, UiTableRoot, UiTableRow } from '../table'
+import {
+  UiTableBody,
+  UiTableCell,
+  UiTableEmpty,
+  UiTableHead,
+  UiTableHeader,
+  UiTableRoot,
+  UiTableRow,
+} from '../table'
 import type {
   ColumnFiltersState,
   ColumnOrderState,
@@ -24,10 +32,11 @@ import type {
   VisibilityState,
 } from '@tanstack/vue-table'
 import type { TableProps } from './types'
-import { valueUpdater } from '@/shared/libs/shadcn/utils'
+import { cn, valueUpdater } from '@/shared/libs/shadcn/utils'
 
 const {
   enableMultiRowSelection = true,
+  complex = true,
   ...props
 } = defineProps <TableProps<TData, TValue>>()
 
@@ -157,6 +166,7 @@ defineExpose({
     :class="props.class"
   >
     <UiTableHeader
+      v-if="complex"
       v-bind="props._tableHeader"
     >
       <slot name="header" :table="table">
@@ -179,6 +189,7 @@ defineExpose({
             >
               <div
                 class="flex items-center gap-1.5 whitespace-nowrap w-full"
+                :class="(header.column.columnDef.meta as any)?._tableHeadInside"
               >
                 <Icon
                   v-if="header.column.columnDef.meta"
@@ -230,7 +241,10 @@ defineExpose({
                   :data-pinned="cell.column.getIsPinned()"
                   v-bind="{ ...props._tableCell, ...cell.column.columnDef.meta }"
                   class="whitespace-nowrap"
-                  :class="(cell.column.columnDef.meta as any)?._tableCell"
+                  :class="cn(
+                    (cell.column.columnDef.meta as any)?._tableCell,
+                    !complex && 'border-r-none',
+                  )"
                 >
                   <slot
                     :name="`${cell.column.id}-cell`"

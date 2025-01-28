@@ -3,9 +3,9 @@ import { shallowRef } from 'vue'
 import { VueFlow } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { useHead } from '@unhead/vue'
-import SpecialNode from '../../components/SpecialNode.vue'
-import SpecialEdge from '../../components/SpecialEdge.vue'
-import ActionsPanel from '../../components/ActionsPanel.vue'
+import SpecialNode from '../../components/flow/SpecialNode.vue'
+import SpecialEdge from '../../components/flow/SpecialEdge.vue'
+import ActionsPanel from '../../components/flow/ActionsPanel.vue'
 import type { Edge, Node } from '@vue-flow/core'
 
 const nodes = shallowRef<Node[]>([

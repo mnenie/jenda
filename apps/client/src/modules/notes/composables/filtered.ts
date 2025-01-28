@@ -7,12 +7,13 @@ interface FilteredNotesContext {
 }
 
 export function useFilteredNotes<U extends Note[]>(notes: Ref<U>, sortModel: Ref<string>) {
-  const filteredNotes = computed(() => [...notes.value].sort((a, b): number => {
-    if (sortModel.value === 'date') {
-      return (b.date ? +new Date(b.date) : 0) - (a.date ? +new Date(a.date) : 0)
-    }
-    return 0
-  }))
+  const filteredNotes = computed(() =>
+    [...notes.value].sort((a, b): number => {
+      if (sortModel.value === 'date') {
+        return (b.date ? +new Date(b.date) : 0) - (a.date ? +new Date(a.date) : 0)
+      }
+      return 0
+    }))
 
   return {
     filteredNotes,

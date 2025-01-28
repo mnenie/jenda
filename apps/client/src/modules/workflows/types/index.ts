@@ -6,7 +6,7 @@ interface DateParams {
   deletedAt?: Date
 }
 
-export type WorkflowCard = Pick<Workflow, '_id' | 'name' | 'description' | 'state'>
+export type WorkflowCard = Pick<Workflow, '_id' | 'name' | 'description' | 'state' | 'updatedAt'>
 
 export interface Workflow extends DateParams {
   _id: string;

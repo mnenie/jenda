@@ -1,5 +1,5 @@
 import { ref, shallowRef } from 'vue'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Workflow } from '../types'
 
 export const useWorkflowsStore = defineStore('workflows', () => {
@@ -10,7 +10,7 @@ export const useWorkflowsStore = defineStore('workflows', () => {
         name: 'Workflow 1',
         description: 'Workflow 1 description',
         state: 'draft',
-        runsCount: 4,
+        runsCount: 1,
         creator: {
           _id: '1',
           email: 'airat@gmail.com',
@@ -34,7 +34,7 @@ export const useWorkflowsStore = defineStore('workflows', () => {
       {
         _id: '3',
         name: 'Workflow 3',
-        description: 'dsklajdjlkasjdklasj  dasjkdhjkashdkjas ds dhjkasghdjjasgdhsagdjhasdgh hj djhsgjdhasghjdjsad sa',
+        description: 'dsklajdjlkasjdklasj djhsgjdhasghjdjsad sa',
         state: 'production',
         runsCount: 23,
         creator: {
@@ -47,7 +47,7 @@ export const useWorkflowsStore = defineStore('workflows', () => {
       {
         _id: '4',
         name: 'Workflow 5',
-        description: 'dsklajdjlkasjdklasj  dasjkdhjkashdkjas ds dhjkasghdjjasgdhsagdjhasdgh hj djhsgjdhasghjdjsad sa',
+        description: 'dsklajdjlkasjdklasj',
         state: 'production',
         runsCount: 23,
         creator: {
@@ -60,7 +60,7 @@ export const useWorkflowsStore = defineStore('workflows', () => {
       {
         _id: '5',
         name: 'Workflow 5',
-        description: 'dsklajdjlkasjdklasj  dasjkdhjkashdkjas ds dhjkasghdjjasgdhsagdjhasdgh hj djhsgjdhasghjdjsad sa',
+        description: 'dsklajdjlkasjdklasj  ',
         state: 'draft',
         runsCount: 23,
         creator: {
@@ -79,3 +79,7 @@ export const useWorkflowsStore = defineStore('workflows', () => {
     workflow,
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useWorkflowsStore, import.meta.hot))
+}

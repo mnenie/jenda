@@ -43,13 +43,13 @@ const { breadcrumbs } = useBreadcrumbs()
     class="sticky top-0 left-0 right-0 z-999 w-full flex items-center justify-between px-15px py-8px min-h-52px max-h-52px
     border-b border-b-solid border-layout"
   >
-    <div class="inline-flex items-center gap-2">
-      <div v-for="(breadcrumb, idx) in breadcrumbs" :key="idx" class="inline-flex items-center gap-1.5">
+    <div class="inline-flex items-center gap-1">
+      <div v-for="(breadcrumb, idx) in breadcrumbs" :key="idx" class="inline-flex items-center gap-1">
         <BreadcrumbItem :breadcrumb="breadcrumb" />
         <Icon
           v-if="idx < breadcrumbs.length - 1"
-          icon="lucide:chevron-right"
-          class="text-16px text-neutral-600 dark:text-neutral-500"
+          icon="heroicons:slash-20-solid"
+          class="text-18px mt-0.5 text-neutral-400 dark:text-neutral-600"
         />
       </div>
     </div>

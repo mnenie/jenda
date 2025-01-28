@@ -9,6 +9,7 @@ export const alertVariants = cva('alert', {
       success: 'alert-success',
       warning: 'alert-warning',
       important: 'alert-important',
+      info: 'alert-info',
     },
   },
 })

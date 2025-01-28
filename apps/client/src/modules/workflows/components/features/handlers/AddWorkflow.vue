@@ -17,7 +17,7 @@ const emit = defineEmits<{
     size="default"
     @click="emit('addWorkflow')"
   >
-    <Icon icon="icon-park-solid:add-music" class="w-4 h-4" />
+    <Icon icon="icon-park-solid:add-music" class="min-w-4 min-h-4" />
     <span class="text-default">{{ $t('workflows.create') }}</span>
   </UiButton>
 </template>

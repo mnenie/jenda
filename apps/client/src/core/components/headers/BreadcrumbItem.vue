@@ -12,7 +12,7 @@ const route = useRoute()
 
 const linkClasses = computed(() =>
   route.name !== props.breadcrumb.name
-    ? 'text-neutral-800 dark:!text-neutral-500'
+    ? 'text-neutral-500 !fw400 dark:!text-neutral-500'
     : 'dark:text-neutral-100',
 )
 
@@ -38,14 +38,14 @@ const iconClasses = computed(() =>
       />
       <p
         v-if="breadcrumb.tKey"
-        class="text-lg mt-1.5px !fw-500"
+        class="text-lg fw500 mt-1.5px"
         :class="linkClasses"
       >
         {{ $t(`sidebar.${breadcrumb.tKey}`) }}
       </p>
       <p
         v-else
-        class="text-lg mt-1.5px !fw-500"
+        class="text-lg mt-1.5px"
         :class="linkClasses"
       >
         {{ breadcrumb.value }}

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
 import { type ButtonVariants, UiButton } from '@/shared/ui'
 
 defineProps<{
@@ -17,7 +18,7 @@ const emit = defineEmits<{
     size="default"
     @click="emit('add')"
   >
-    <span i-hugeicons-add-01 class="w-4 h-4" />
+    <Icon icon="qlementine-icons:add-file-16" class="min-w-4 min-h-4" />
     <span class="text-default">{{ $t('notes.create', plural) }}</span>
   </UiButton>
 </template>

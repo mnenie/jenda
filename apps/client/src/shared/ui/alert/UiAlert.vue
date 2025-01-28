@@ -30,7 +30,7 @@ const valueOfRightPadding = computed(() => (closable ? '32px' : '10px'))
     :style="{ 'padding-right': valueOfRightPadding }"
   >
     <slot v-if="$slots.default || content">
-      <span class="text-13px 2xl:text-sm">{{ content }}</span>
+      <span class="text-default">{{ content }}</span>
     </slot>
     <div
       v-if="closable"

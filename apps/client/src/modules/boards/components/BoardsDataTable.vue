@@ -2,6 +2,8 @@
 import { computed, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useDark } from '@vueuse/core'
+import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 import type { Table } from '@tanstack/vue-table'
 import type { BoardRow } from '../types'
 import { DataTable, UiBadge } from '@/shared/ui'
@@ -18,13 +20,6 @@ const _columns = [
     meta: {
       icon: 'hugeicons:alpha',
       _tableCell: 'max-w-220px',
-    },
-  },
-  {
-    accessorKey: 'status',
-    meta: {
-      icon: 'hugeicons:energy',
-      _tableCell: 'text-left',
     },
   },
   {
@@ -89,6 +84,14 @@ function userPosition(idx: number) {
   return idx * 20
 }
 
+dayjs.extend(localizedFormat)
+// mocks -> after from store
+
+const timesAgo = computed(() =>
+  (board: BoardRow) => {
+    return dayjs(board.createdAt).format('ll')
+  })
+
 const isDark = useDark()
 
 defineExpose({
@@ -128,13 +131,6 @@ defineExpose({
         </template>
       </div>
     </template>
-    <template #status-cell="{ cell }">
-      <span
-        :class="cell.row.original.status === 'archived' ? 'text-neutral-600 dark:text-neutral-400' : 'text-green-600'"
-      >
-        {{ t(`kanban.${cell.row.original.status}`) }}
-      </span>
-    </template>
     <template #users-cell="{ cell }">
       <div v-if="visibleUsers(cell).length > 0" class="flex items-center relative h-full w-full justify-between">
         <div class="relative flex items-center relative h-full">
@@ -161,6 +157,9 @@ defineExpose({
         </div>
       </div>
       <span v-else class="text-neutral-500">-</span>
+    </template>
+    <template #date-cell="{ cell }">
+      {{ timesAgo(cell.row.original) }}
     </template>
   </DataTable>
 </template>

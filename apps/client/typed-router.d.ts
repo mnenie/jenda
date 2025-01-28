@@ -34,8 +34,8 @@ declare module 'vue-router/auto-routes' {
     'settings': RouteRecordInfo<'settings', '/settings', Record<never, never>, Record<never, never>>,
     'templates': RouteRecordInfo<'templates', '/templates', Record<never, never>, Record<never, never>>,
     'community': RouteRecordInfo<'community', '/templates/community', Record<never, never>, Record<never, never>>,
-    'workflows/': RouteRecordInfo<'workflows/', '/workflows', Record<never, never>, Record<never, never>>,
     'workflows': RouteRecordInfo<'workflows', '/workflows', Record<never, never>, Record<never, never>>,
     'workflows-id': RouteRecordInfo<'workflows-id', '/workflows/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'workflows-new': RouteRecordInfo<'workflows-new', '/workflows/new', Record<never, never>, Record<never, never>>,
   }
 }
