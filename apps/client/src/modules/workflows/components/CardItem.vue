@@ -20,7 +20,7 @@ const timesAgo = computed(() =>
 <template>
   <div
     class="relative p-3 cursor-pointer w-full flex flex-col justify-between h-full border border-solid border-neutral-200 rounded-8px dark:border-neutral-700/60"
-    @click="$router.push({ name: 'workflows-id', params: { id: card._id } })"
+    @click="$router.push({ name: 'workflows-id', params: { id: card._id! } })"
   >
     <div class="absolute inset-0 bg-dotted-pattern opacity-30 pointer-events-none" />
 
