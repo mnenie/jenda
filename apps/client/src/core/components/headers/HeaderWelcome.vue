@@ -90,13 +90,14 @@ const { width } = useWindowSize()
       <div v-if="width >= 1152" class="flex items-center gap-1.5 btns">
         <UiButton
           variant="ghost"
+          size="lg"
           class="bg-main bg-transparent"
           style="font-weight: 500"
           @click="$router.push({ name: 'sign-in' })"
         >
           {{ t('welcome.header.login') }}
         </UiButton>
-        <UiButton @click="$router.push({ name: 'sign-up' })">
+        <UiButton size="lg" @click="$router.push({ name: 'sign-up' })">
           {{ t('welcome.header.reg') }}
         </UiButton>
       </div>

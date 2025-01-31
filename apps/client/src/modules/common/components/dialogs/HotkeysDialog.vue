@@ -35,7 +35,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     <UiDialogTrigger as-child>
       <slot />
     </UiDialogTrigger>
-    <UiDialogContent class="sm:max-w-md">
+    <UiDialogContent class="sm:max-w-lg">
       <UiDialogHeader class="mb-2">
         <UiDialogTitle>{{ $t('dialogs.hotkeys.title') }}</UiDialogTitle>
       </UiDialogHeader>

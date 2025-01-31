@@ -62,17 +62,23 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
               id="name"
               v-model="name"
               :placeholder="$t('authentication.workspace.creating.form.name.placeholder')"
-              class="shadow-none focus:ring-0"
+              class="shadow-none h-default focus:ring-0"
             />
           </ReuseTemplate>
           <UiAlert
             variant="warning"
-            :content="$t('boards.forms.creating.labels.alert')"
-            class="mt-3 mb-1"
-          />
+            class="mt-2 mb-1 border-none flex flex-col items-start gap-1"
+          >
+            <span class="text-default fw500">
+              {{ $t('boards.forms.creating.labels.alert', 1) }}
+            </span>
+            <span class="text-default text-neutral-500 dark:text-neutral-400">
+              {{ $t('boards.forms.creating.labels.alert', 2) }}
+            </span>
+          </UiAlert>
           <ReuseTemplate field="labels">
             <TagsChooser id="labels" v-model="labels" />
-            <span class="text-xs text-neutral-500">
+            <span class="text-small text-neutral-500">
               {{ $t('boards.forms.creating.labels.description') }}
             </span>
           </ReuseTemplate>
@@ -80,16 +86,18 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         <div class="flex items-center justify-end gap-3">
           <UiButton
             variant="secondary"
-            size="sm"
+            size="default"
             type="button"
+            class="px-4"
             @click="router.back()"
           >
             {{ $t('boards.forms.creating.btns', 1) }}
           </UiButton>
           <UiButton
             variant="solid"
-            size="sm"
+            size="default"
             type="submit"
+            class="px-4"
           >
             {{ $t('boards.forms.creating.btns', 2) }}
           </UiButton>

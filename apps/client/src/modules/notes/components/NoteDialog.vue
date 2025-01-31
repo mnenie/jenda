@@ -41,7 +41,7 @@ const daysAgo = computed(() => dayjs().to(dayjs(lastModified.value)))
         <div class="flex items-center gap-2.5">
           <ManageNoteOptions />
           <div class="w-px h-3 bg-neutral-200 dark:bg-neutral-700" />
-          <span class="text-xs text-neutral-600 dark:text-neutral-400">
+          <span class="text-small text-neutral-600 dark:text-neutral-400">
             {{ $t('note.lastModified') }} {{ daysAgo }}
           </span>
         </div>

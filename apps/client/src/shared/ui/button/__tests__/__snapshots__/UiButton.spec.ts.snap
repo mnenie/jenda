@@ -1,3 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`tests for UiButton > should have content at slot 1`] = `"<primitive-stub aschild="false" as="button" class="btn btn-default h-9 px-4 py-2" disabled="false"></primitive-stub>"`;
+exports[`tests for UiButton > should have content at slot 1`] = `"<primitive-stub aschild="false" as="button" class="btn btn-default h-9 2xl:h-8 rounded-md px-2" disabled="false"></primitive-stub>"`;

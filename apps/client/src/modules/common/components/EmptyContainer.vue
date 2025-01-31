@@ -8,16 +8,13 @@ defineProps<{
 </script>
 
 <template>
-  <div class="absolute top-1/2 left-1/2 translate-x--1/2 translate-y--1/2 flex flex-col items-center justify-center gap-2">
-    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white border border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700">
-      <Icon :icon="icon" class="w-6 h-6 text-blue-500" />
-    </div>
-    <p class="text-base fw500 text-neutral-800 dark:text-neutral-200">
+  <div class="absolute top-1/2 left-1/2 translate-x--1/2 translate-y--1/3 flex flex-col items-center justify-center gap-1">
+    <Icon :icon="icon" class="w-12 h-12 text-neutral-400 dark:text-neutral-600 mb-3" />
+    <p class="text-default mb-1 text-neutral-500 dark:text-neutral-400">
       {{ $t(`${tPrefix}.empty.title`) }}
     </p>
-    <span class="text-sm text-neutral-600 dark:text-neutral-200">
+    <p class="text-default text-neutral-400 dark:text-neutral-400">
       {{ $t(`${tPrefix}.empty.description`) }}
-    </span>
-    <slot />
+    </p>
   </div>
 </template>

@@ -7,11 +7,11 @@
 }
 
 .jenda-editor h1 {
-  @apply text-3xl font-extrabold dark:text-neutral-100;
+  @apply text-4xl 2xl:text-3xl font-extrabold dark:text-neutral-100;
 }
 
 .jenda-editor h2 {
-  @apply text-lg font-extrabold dark:text-neutral-100;
+  @apply text-2xl 2xl:text-xl font-extrabold dark:text-neutral-100;
 }
 
 .jenda-editor h3 {
@@ -19,11 +19,11 @@
 }
 
 .jenda-editor p {
-  @apply text-sm dark:text-neutral-200;
+  @apply !text-default dark:text-neutral-200;
 }
 
 .jenda-editor span {
-  @apply text-sm dark:text-neutral-200;
+  @apply !text-default dark:text-neutral-200;
 }
 
 .jenda-editor ol,
@@ -108,7 +108,7 @@
 
 .tiptap .is-empty::before {
   content: attr(data-placeholder);
-  @apply text-sm dark:text-neutral-400 pointer-events-none h-0 float-left text-neutral-500;
+  @apply text-default dark:text-neutral-400 pointer-events-none h-0 float-left text-neutral-500;
 }
 
 .tippy-box {
@@ -169,7 +169,7 @@
 }
 
 .ProseMirror input[type='checkbox']:checked {
-  @apply bg-blue-500;
+  @apply bg-blue-500 border-blue-500;
 }
 
 .ProseMirror input[type='checkbox']::after {

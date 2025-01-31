@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import { refDebounced } from '@vueuse/core'
 import InfoMenu from './InfoMenu.vue'
 import IntegrationItems from './IntegrationItems.vue'
-import ProjectsList from './ProjectsList.vue'
 import WorkSpace from './WorkSpace.vue'
 import WorkspaceChooser from './WorkSpaceChooser.vue'
 import PlanCard from './plan/PlanCard.vue'
@@ -25,7 +24,7 @@ const isShowPlan = computed((): boolean => {
 })
 
 const paddingExpanded = computed(() => {
-  return isExpanded.value ? '10px' : '0px 10px 10px 10px'
+  return isExpanded.value ? '10px 10px 6px 10px' : '0px 10px 6px 10px'
 })
 </script>
 
@@ -40,10 +39,9 @@ const paddingExpanded = computed(() => {
         <SearchBox :boards />
         <WorkSpace :links />
         <IntegrationItems />
-        <ProjectsList :boards />
       </div>
       <div>
-        <InfoMenu :is-show-plan />
+        <InfoMenu />
         <PlanCard :is-show-plan />
       </div>
     </div>

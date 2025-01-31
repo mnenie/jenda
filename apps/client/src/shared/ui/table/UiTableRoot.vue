@@ -12,12 +12,16 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="table-wrapper">
+  <div
+    :class="cn(
+      'table-wrapper',
+      props.class,
+    )"
+  >
     <table
       v-bind="$attrs"
       :class="cn(
         'table',
-        props.class,
       )"
     >
       <slot />

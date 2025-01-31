@@ -30,7 +30,7 @@ const model = defineModel<boolean>('open')
       <ShareLink />
       <UiDialogFooter class="sm:justify-start">
         <UiDialogClose as-child>
-          <UiButton type="button" variant="secondary">
+          <UiButton type="button" size="sm" variant="secondary">
             {{ $t('dialogs.share.close') }}
           </UiButton>
         </UiDialogClose>

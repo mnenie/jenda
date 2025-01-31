@@ -18,10 +18,12 @@ const { isExpanded } = useExpandedContext()
   >
     <div class="flex gap-1.5 w-full justify-between items-center">
       <div class="flex items-center gap-1">
-        <UiBadge variant="soft" class="rounded px-1.5 py-px text-xs">
+        <UiBadge variant="soft" class="rounded px-1.5 py-px text-small">
           5
         </UiBadge>
-        <span class="text-13px 2xl:text-sm text-neutral-800 dark:text-neutral-300 whitespace-nowrap"> {{ $t('sidebar.plan.description') }}</span>
+        <span class="text-default text-neutral-800 dark:text-neutral-300 whitespace-nowrap">
+          {{ $t('sidebar.plan.description') }}
+        </span>
       </div>
       <SubscribePlan />
     </div>
@@ -43,7 +45,7 @@ const { isExpanded } = useExpandedContext()
     </span>
     <div class="flex gap-1.5 w-full justify-center items-center">
       <div class="flex flex-col items-center h-7">
-        <UiBadge variant="outline" class="rounded px-1 py-1 text-10px bg-white dark:bg-neutral-700/10">
+        <UiBadge variant="outline" class="rounded px-1 py-1 text-xs 2xl:text-10px bg-white dark:bg-neutral-700/10">
           5/10
         </UiBadge>
       </div>

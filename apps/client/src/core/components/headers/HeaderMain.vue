@@ -1,21 +1,17 @@
 <script setup lang="ts" generic="T extends Board">
-import { shallowReactive, toRef } from 'vue'
+import { shallowReactive } from 'vue'
 import { Icon } from '@iconify/vue'
 import UserMenu from './UserMenu.vue'
+import BreadcrumbItem from './BreadcrumbItem.vue'
 import type { Board } from '@/modules/boards/types'
 import type { User } from '@/modules/auth/types'
-import type { ProjectLink } from '@/shared/config/shared-types'
-import { links } from '@/shared/constants/links'
-import { useLayoutPaths } from '@/shared/composables/layout-paths'
 import ShareDialog from '@/modules/common/components/dialogs/ShareDialog.vue'
 import HotkeysDialog from '@/modules/common/components/dialogs/HotkeysDialog.vue'
 import { ShimmerButton } from '@/shared/ui'
 import UserAvatars from '@/modules/common/components/UserAvatars.vue'
+import { useBreadcrumbs } from '@/shared/composables/breadcrumbs'
 
-const props = defineProps<{
-  projects: Board[]
-}>()
-
+// needs to be fixed with backend
 const users = shallowReactive<User[]>([
   {
     _id: '0',
@@ -39,8 +35,7 @@ const users = shallowReactive<User[]>([
   },
 ])
 
-const _projects = toRef(props, 'projects') as unknown as ProjectLink[]
-const { active } = useLayoutPaths(links, _projects)
+const { breadcrumbs } = useBreadcrumbs()
 </script>
 
 <template>
@@ -48,20 +43,15 @@ const { active } = useLayoutPaths(links, _projects)
     class="sticky top-0 left-0 right-0 z-999 w-full flex items-center justify-between px-15px py-8px min-h-52px max-h-52px
     border-b border-b-solid border-layout"
   >
-    <div class="inline-flex items-center gap-3">
-      <Icon
-        v-if="active.extendedAttrs.icon"
-        :icon="active.extendedAttrs.icon"
-        class="text-20px text-neutral-800 dark:text-neutral-200"
-      />
-      <div
-        v-if="active.extendedAttrs.color"
-        i-jenda-project
-        :style="{ color: active.extendedAttrs.color, fontSize: '20px' }"
-      />
-      <p v-if="active" class="text-lg mt-1.5px !fw-600 dark:text-neutral-100">
-        {{ active.name }}
-      </p>
+    <div class="inline-flex items-center gap-1">
+      <div v-for="(breadcrumb, idx) in breadcrumbs" :key="idx" class="inline-flex items-center gap-1">
+        <BreadcrumbItem :breadcrumb="breadcrumb" />
+        <Icon
+          v-if="idx < breadcrumbs.length - 1"
+          icon="heroicons:slash-20-solid"
+          class="text-18px mt-0.5 text-neutral-400 dark:text-neutral-600"
+        />
+      </div>
     </div>
     <div />
     <div class="flex items-center h-full gap-2.5">
@@ -70,7 +60,7 @@ const { active } = useLayoutPaths(links, _projects)
         <ShimmerButton shimmer-size="2px">
           <div i-hugeicons-link-04 class="text-neutral-900 dark:text-neutral-100 w-16px h-16px 2xl:(w-4 h-4)" />
           <span
-            class="whitespace-pre-wrap text-center text-neutral-800 dark:text-neutral-100 text-sm fw500"
+            class="whitespace-pre-wrap text-center text-neutral-800 dark:text-neutral-100 text-base 2xl:text-sm fw500"
           >
             {{ $t('header.share') }}
           </span>
@@ -79,14 +69,14 @@ const { active } = useLayoutPaths(links, _projects)
       <div
         v-tooltip="{ content: $t('header.navigator.messages'), trigger: ['hover'], distance: 7 }"
         i-hugeicons-message-multiple-01
-        class="text-base text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
+        class="text-large text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
         style="margin-right: 2px"
       />
       <HotkeysDialog>
         <div
           v-tooltip="{ content: $t('header.navigator.question'), trigger: ['hover'], distance: 7 }"
           i-hugeicons-book-open-01
-          class="text-base text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
+          class="text-large text-neutral-700 cursor-pointer outline-none dark:text-neutral-300"
           style="margin-right: -1px;"
         />
       </HotkeysDialog>

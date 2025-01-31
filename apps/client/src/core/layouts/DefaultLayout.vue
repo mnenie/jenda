@@ -1,19 +1,23 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useLocalStorage } from '@vueuse/core'
 // @ts-expect-error missing type
 import { Pane, Splitpanes } from 'splitpanes'
 import AppSidebar from '../components/sidebar/AppSidebar.vue'
 import HeaderMain from '../components/headers/HeaderMain.vue'
-import type { Board } from '@/modules/boards/types'
 import { provideExpandedContext } from '@/shared/composables/expanded'
+import { useBoardsStore } from '@/modules/boards/stores/board'
 
 import 'splitpanes/dist/splitpanes.css'
 
 const isExpanded = useLocalStorage('isExpanded', true)
 const transitionFl = ref<boolean>(false)
 
-const sidebarSize = computed(() => isExpanded.value ? '286' : '58')
+const sidebarSize = computed(() => isExpanded.value ? '275' : '58')
+
+const boardsStore = useBoardsStore()
+const { boards } = storeToRefs(boardsStore)
 
 function onToggleArea() {
   isExpanded.value = !isExpanded.value
@@ -24,13 +28,6 @@ provideExpandedContext({
   isExpanded,
   onToggleArea,
 })
-
-// mock -> after data from backend
-// @ts-ignore
-const boards = ref<Board[]>([
-  { _id: '0', name: 'Startup Program', users: [], status: 'active', color: '#a1612a', labels: [] },
-  { _id: '1', name: 'Integrations', users: [], status: 'active', color: '#45ad2d', labels: [] },
-])
 </script>
 
 <template>
@@ -43,10 +40,12 @@ const boards = ref<Board[]>([
     </Pane>
     <Pane style="width: 100%;">
       <div class="flex flex-col h-full overflow-hidden w-full">
-        <HeaderMain :projects="boards" />
+        <HeaderMain />
         <div
           class="relative h-full w-full !bg-main"
-          :style="{ padding: $route.name !== 'board-id' ? '12px 20px 12px 20px' : '0' }"
+          :style="{
+            padding: ($route.name !== 'boards-id' && $route.name !== 'workflows-id') ? '12px 20px 12px 20px' : '0',
+          }"
         >
           <slot />
         </div>

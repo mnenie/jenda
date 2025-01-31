@@ -20,14 +20,13 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     'welcome': RouteRecordInfo<'welcome', '/', Record<never, never>, Record<never, never>>,
     'not-found': RouteRecordInfo<'not-found', '/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
-    'analytics': RouteRecordInfo<'analytics', '/analytics', Record<never, never>, Record<never, never>>,
     'sign-in': RouteRecordInfo<'sign-in', '/auth/sign-in', Record<never, never>, Record<never, never>>,
     'sign-in-workspace': RouteRecordInfo<'sign-in-workspace', '/auth/sign-in/workspace', Record<never, never>, Record<never, never>>,
     'sign-up': RouteRecordInfo<'sign-up', '/auth/sign-up', Record<never, never>, Record<never, never>>,
     'confirm': RouteRecordInfo<'confirm', '/auth/sign-up/confirm', Record<never, never>, Record<never, never>>,
     'sign-up-workspace': RouteRecordInfo<'sign-up-workspace', '/auth/sign-up/workspace', Record<never, never>, Record<never, never>>,
     'boards': RouteRecordInfo<'boards', '/boards', Record<never, never>, Record<never, never>>,
-    'board-id': RouteRecordInfo<'board-id', '/boards/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'boards-id': RouteRecordInfo<'boards-id', '/boards/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'boards-new': RouteRecordInfo<'boards-new', '/boards/new', Record<never, never>, Record<never, never>>,
     'members': RouteRecordInfo<'members', '/members', Record<never, never>, Record<never, never>>,
     'notes': RouteRecordInfo<'notes', '/notes', Record<never, never>, Record<never, never>>,
@@ -35,5 +34,8 @@ declare module 'vue-router/auto-routes' {
     'settings': RouteRecordInfo<'settings', '/settings', Record<never, never>, Record<never, never>>,
     'templates': RouteRecordInfo<'templates', '/templates', Record<never, never>, Record<never, never>>,
     'community': RouteRecordInfo<'community', '/templates/community', Record<never, never>, Record<never, never>>,
+    'workflows': RouteRecordInfo<'workflows', '/workflows', Record<never, never>, Record<never, never>>,
+    'workflows-id': RouteRecordInfo<'workflows-id', '/workflows/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'workflows-new': RouteRecordInfo<'workflows-new', '/workflows/new', Record<never, never>, Record<never, never>>,
   }
 }

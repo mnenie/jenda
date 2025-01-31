@@ -16,11 +16,13 @@ import { checkbox } from './checkbox'
 import { picker } from './picker'
 import { tagsInput } from './tags-input'
 import { _switch } from './switch'
+import { textarea } from './textarea'
 import type { Preset, StaticShortcutMap } from '@unocss/core'
 
 export const shortcuts = [
   ...btn,
   ...input,
+  ...textarea,
   ...badge,
   ...alert,
   ...dropdownMenu,

@@ -26,7 +26,7 @@ const emits = defineEmits<{
   >
     <div class="flex items-center gap-2">
       <Icon v-if="route.icon" :icon="route.icon" class="w-4 h-4" :style="{ color: route.color }" />
-      <span class="text-sm text-neutral-800 dark:text-neutral-100">{{ route.name }}</span>
+      <span class="text-default text-neutral-800 dark:text-neutral-100">{{ $t(`sidebar.${route.name}`) }}</span>
     </div>
     <slot name="ext-icon" />
   </UiCommandItem>

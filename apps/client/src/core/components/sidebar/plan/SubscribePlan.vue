@@ -6,7 +6,7 @@ import { UiButton } from '@/shared/ui'
   <UiButton
     size="sm"
     variant="secondary"
-    class="shadow-none text-sm 2xl:text-xs px-2 py-px h-7 dark:(bg-neutral-700/30 hover:bg-neutral-700/20)"
+    class="shadow-none px-2 py-px h-7 dark:(bg-neutral-700/30 hover:bg-neutral-700/20)"
   >
     {{ $t('sidebar.plan.btn') }}
   </UiButton>

@@ -53,8 +53,8 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         </ReuseTemplate>
         <ReuseTemplate field="url" :error="errors.url">
           <div class="relative w-full h-9 flex items-center">
-            <span class="text-sm pb-0.5px text-neutral-500 absolute left-3">workpaces/</span>
-            <UiInput id="url" v-model="url" class="pl-22" type="text" />
+            <span class="text-default pb-0.5px text-neutral-500 absolute left-3">workpaces/</span>
+            <UiInput id="url" v-model="url" class="pl-25 2xl:pl-22" type="text" />
           </div>
         </ReuseTemplate>
       </div>

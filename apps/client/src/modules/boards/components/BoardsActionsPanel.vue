@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
 import { useBoardsStore } from '../stores/board'
 import CreateNewBoard from './features/CreateNewBoard.vue'
 import RemoveBoard from './features/handlers/RemoveBoard.vue'
 import BoardsAdvancedFilter from './filters/BoardsAdvancedFilter.vue'
 import BoardsSort from './filters/BoardsSort.vue'
 import SearchBoards from './filters/SearchBoards.vue'
+import type { Board } from '../types'
 import { UiTabsList, UiTabsTrigger } from '@/shared/ui'
 
 defineProps<{
   isSelected: boolean
   idxs: string[]
+  boards: Board[]
 }>()
 
 const boardsStore = useBoardsStore()
-const { boards } = storeToRefs(boardsStore)
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { createReusableTemplate } from '@vueuse/core'
-import { useFilteredContext } from '../../composables/filtered'
+import { useFilteredBoardsContext } from '../../composables/filtered'
 import {
   UiBadge,
   UiButton,
@@ -41,7 +41,7 @@ const labels = [
   },
 ] satisfies Option[]
 
-const { advancedModel } = useFilteredContext()
+const { advancedModel } = useFilteredBoardsContext()
 
 function onSelected(option: Option) {
   const index = advancedModel.value.indexOf(option.value)
@@ -83,7 +83,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
   </DefineTemplate>
   <UiPopover>
     <UiPopoverTrigger as-child>
-      <UiButton size="sm" variant="dashed" class="px-2 shadow-sm border w-max fw400">
+      <UiButton size="sm" variant="dashed" class="px-2 h-default shadow-sm border w-max 2xl:fw400">
         <span>{{ t('boards.filters.advanced.title') }}</span>
         <div class="w-4 h-4 flex items-center justify-center text-neutral-600 dark:text-neutral-300 text-xs bg-neutral-100 dark:bg-neutral-700 rounded-full">
           {{ advancedModel.length }}

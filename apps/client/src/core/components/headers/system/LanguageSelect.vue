@@ -36,7 +36,7 @@ const { setLanguage } = useLanguage(locales, language)
         class="p-1.5 px-2.5 h-fit gap-1 text-neutral-400 hover:text-neutral-700 dark:!text-neutral-400 dark:hover:!text-neutral-200"
       >
         <div i-hugeicons-globe-02 text-base />
-        <span text-sm fw400>{{ i18nLanguage }}</span>
+        <span class="text-default">{{ i18nLanguage }}</span>
       </UiButton>
     </UiSelectTrigger>
     <UiSelectContent class="w-fit min-w-2" align="center">

@@ -23,8 +23,8 @@ exports[`tests for HeaderWelcome.vue > should be render correctly 1`] = `
       </div>
     </div>
     <div data-v-8da6c939="" class="flex items-center gap-1.5 btns">
-      <ui-button-stub data-v-8da6c939="" class="bg-main bg-transparent" variant="ghost" size="default" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button" style="font-weight: 500;"></ui-button-stub>
-      <ui-button-stub data-v-8da6c939="" variant="default" size="default" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
+      <ui-button-stub data-v-8da6c939="" class="bg-main bg-transparent" variant="ghost" size="lg" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button" style="font-weight: 500;"></ui-button-stub>
+      <ui-button-stub data-v-8da6c939="" variant="default" size="lg" loading="false" disabled="false" loadingplacement="leading" aschild="false" as="button"></ui-button-stub>
     </div>
   </section>
 </header>"

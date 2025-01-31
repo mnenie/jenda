@@ -4,9 +4,18 @@ import AllTemplates from '../components/AllTemplates.vue'
 import ImportTemplate from '../components/ImportTemplate.vue'
 import { UiButton } from '@/shared/ui'
 
+// unplugin
 definePage({
   meta: {
     requiresAuth: true,
+    breadcrumb: [
+      {
+        tKey: 'templates',
+        icon: 'hugeicons:dashboard-square-add',
+        name: 'templates',
+        to: { name: 'templates' },
+      },
+    ],
   },
   name: 'templates',
 })

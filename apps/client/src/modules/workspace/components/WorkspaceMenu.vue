@@ -42,7 +42,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
       >
         <img :src="workspace.img as string" class="object-cover w-full rounded-lg" />
       </div>
-      <p class="text-neutral-700 dark:text-neutral-300">
+      <p class="text-neutral-700 dark:text-neutral-300 text-13px 2xl:text-sm">
         {{ $t(`workspace.popover.${data}`) }}
       </p>
     </UiButton>
@@ -58,7 +58,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
             <p class="text-base !fw600 dark:text-neutral-100">
               {{ workspace.name }}
             </p>
-            <div class="flex items-center gap-0.5">
+            <div class="flex items-center gap-1">
               <UiBadge variant="secondary" class="shadow-none px-1 py-0 text-8px">
                 {{ workspace.plan }}
               </UiBadge>
@@ -79,8 +79,8 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
             <span i-lucide-check class="w-5 h-5 text-blue-500" />
           </div>
         </div>
-        <div class="flex flex-col gap-1">
-          <p class="px-2 text-xs text-neutral-700 dark:text-neutral-300 mb-1">
+        <div class="flex flex-col gap-0">
+          <p class="px-2 text-small text-neutral-500 dark:text-neutral-400 mb-1">
             {{ $t('workspace.popover.section') }}
           </p>
           <ReuseTemplate data="pay" icon="i-lucide-credit-card" @click="$router.push({ name: 'welcome' })" />
