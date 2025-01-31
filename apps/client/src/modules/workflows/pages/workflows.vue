@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia'
 import { useHead } from '@unhead/vue'
 import { useWorkflowsStore } from '../stores/workflows'
 import EmptyWorkflows from '../components/EmptyWorkflows.vue'
-import WorkflowsManager from '../components/WorkflowsManager.vue'
+import WorkflowsViewManager from '../components/WorkflowsViewManager.vue'
 
 // to data loaders
 const workflowsStore = useWorkflowsStore()
@@ -32,11 +32,8 @@ useHead({
 </script>
 
 <template>
-  <div
-    v-if="$route.name !== 'workflows-id'"
-    class="w-full h-full flex flex-col"
-  >
-    <WorkflowsManager />
+  <div v-if="$route.name !== 'workflows-id'" class="w-full h-full flex flex-col">
+    <WorkflowsViewManager />
     <EmptyWorkflows v-if="!workflows.length" />
   </div>
   <RouterView />
