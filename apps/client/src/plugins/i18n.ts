@@ -1,12 +1,24 @@
-import { createI18n, type I18n } from 'vue-i18n'
-import { enZod, ruZod, zhZod } from '../vee-validate/rules'
-import { customPluralRule } from './plurals'
-import useDayJsLocalize from './dayjs'
-import { getCurrentLocale } from './utils/getLocale'
+import { createI18n } from 'vue-i18n'
+import { enZod, ruZod, zhZod } from '@/shared/libs/vee-validate/rules'
+import { customPluralRule } from '@/shared/libs/i18n/plurals'
+import { getCurrentLocale } from '@/shared/libs/i18n/utils/getLocale'
 
-const ru_ru = import.meta.glob('./locales/**/ru-RU.ts', { eager: true })
-const en_us = import.meta.glob('./locales/**/en-US.ts', { eager: true })
-const zh_cn = import.meta.glob('./locales/**/zh-CN.ts', { eager: true })
+interface MessageSchema {
+  [key: string]: any
+}
+
+const ru_ru = import.meta.glob(
+  '@/shared/libs/i18n/locales/**/ru-RU.ts',
+  { eager: true },
+)
+const en_us = import.meta.glob(
+  '@/shared/libs/i18n/locales/**/en-US.ts',
+  { eager: true },
+)
+const zh_cn = import.meta.glob(
+  '@/shared/libs/i18n/locales/**/zh-CN.ts',
+  { eager: true },
+)
 
 function loadLang(modules: Record<string, any>) {
   const messages: { [key: string]: string } = {}
@@ -15,10 +27,6 @@ function loadLang(modules: Record<string, any>) {
     Object.assign(messages, { ...modules[module].default })
   })
   return messages
-}
-
-export interface MessageSchema {
-  [key: string]: any
 }
 
 const messages = {
@@ -54,7 +62,5 @@ const i18n = createI18n<[MessageSchema], 'en-US' | 'ru-RU' | 'zh-CN'>({
   },
   messages,
 })
-
-useDayJsLocalize(i18n as I18n)
 
 export default i18n

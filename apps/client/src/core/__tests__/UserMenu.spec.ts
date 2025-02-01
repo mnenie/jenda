@@ -2,7 +2,6 @@ import { nextTick } from 'vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import UserMenu from '../components/headers/UserMenu.vue'
-import i18n from '@/shared/libs/i18n'
 import { UiDropdownMenuItem, UiDropdownMenuTrigger } from '@/shared/ui'
 
 const mockRouter = {
@@ -13,7 +12,6 @@ const mockRouter = {
 describe('tests for UserMenu.vue', () => {
   const wrapper = mount(UserMenu, {
     global: {
-      plugins: [i18n],
       mocks: {
         t: (key: string) => {
           const translations: Record<string, string> = {

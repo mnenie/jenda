@@ -1,15 +1,14 @@
 <script setup lang="ts" generic="T extends WorkflowCard">
-import { computed } from 'vue'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
+import { computed, inject } from 'vue'
 import type { WorkflowCard } from '../types'
 import { UiBadge } from '@/shared/ui'
+import { DayjsInjectionKey } from '@/plugins/dayjs'
 
 defineProps<{
   card: T
 }>()
 
-dayjs.extend(relativeTime)
+const dayjs = inject(DayjsInjectionKey)!
 
 const timesAgo = computed(() =>
   (workflow: T) => {

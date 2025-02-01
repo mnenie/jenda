@@ -3,7 +3,6 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import MarketingCards from '../components/MarketingCards.vue'
 import type { VueWrapper } from '@vue/test-utils'
-import i18n from '@/shared/libs/i18n'
 import { UiCard } from '@/shared/ui'
 
 // TODO: `ComponentPublicInstance` needs to be fixed with certain types
@@ -20,11 +19,7 @@ type MarketingCardsInstance = ComponentPublicInstance<
 >
 
 describe('tests for MarketingCards.vue', () => {
-  const wrapper = mount(MarketingCards, {
-    global: {
-      plugins: [i18n],
-    },
-  }) as VueWrapper<MarketingCardsInstance>
+  const wrapper = mount(MarketingCards) as VueWrapper<MarketingCardsInstance>
 
   it('should be render correctly', () => {
     expect(wrapper.html()).toMatchSnapshot()

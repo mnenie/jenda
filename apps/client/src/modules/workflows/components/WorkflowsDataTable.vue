@@ -1,13 +1,12 @@
 <script setup lang="ts" generic="T extends Workflow">
-import { computed, useTemplateRef } from 'vue'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
+import { computed, inject, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { columns as _columns } from '../utils/constants/table'
 import type { Table } from '@tanstack/vue-table'
 import type { Workflow } from '../types'
 import { DataTable, UiBadge } from '@/shared/ui'
 import UserAvatar from '@/modules/auth/components/UserAvatar.vue'
+import { DayjsInjectionKey } from '@/plugins/dayjs'
 
 defineProps<{
   data: Set<T> | T[]
@@ -21,7 +20,7 @@ const search = defineModel<string>('search', {
   required: true,
 })
 
-dayjs.extend(relativeTime)
+const dayjs = inject(DayjsInjectionKey)!
 
 const timesAgo = computed(() =>
   (workflow: T) => {

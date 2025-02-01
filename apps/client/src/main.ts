@@ -6,11 +6,12 @@ import Vue3Marquee from 'vue3-marquee'
 // @ts-expect-error: unresolved type definitions for vue-writer
 import VueWriter from 'vue-writer'
 import App from './App.vue'
+import i18nPlugin from './plugins/i18n'
 import autoAnimatePlugin from './plugins/formkit'
+import dayjsPlugin from './plugins/dayjs'
 
 import { pinia } from './store'
 import { router } from './router'
-import i18n from '@/shared/libs/i18n'
 
 import './styles/index.css'
 import '@unocss/reset/tailwind-compat.css'
@@ -23,9 +24,10 @@ const head = createHead()
 
 app.use(pinia)
 app.use(router)
-app.use(i18n)
+app.use(i18nPlugin)
 app.use(head)
 app.use(autoAnimatePlugin)
+app.use(dayjsPlugin)
 app.use(Vue3Marquee)
 app.use(VueWriter)
 app.directive('tooltip', vTooltip)
