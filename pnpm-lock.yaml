@@ -135,8 +135,8 @@ importers:
         specifier: ^2.1.7
         version: 2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5))
       radix-vue:
-        specifier: ^1.9.12
-        version: 1.9.12(vue@3.5.13(typescript@5.4.5))
+        specifier: ^1.9.13
+        version: 1.9.13(vue@3.5.13(typescript@5.4.5))
       splitpanes:
         specifier: ^3.1.5
         version: 3.1.8(vue@3.5.13(typescript@5.4.5))
@@ -4292,8 +4292,8 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  radix-vue@1.9.12:
-    resolution: {integrity: sha512-zkr66Jqxbej4+oR6O/pZRzyM/VZi66ndbyIBZQjJKAXa1lIoYReZJse6W1EEDZKXknD7rXhpS+jM9Sr23lIqfg==}
+  radix-vue@1.9.13:
+    resolution: {integrity: sha512-wk0G69vRDU5TDmhYHZv5Y4j905CLfnvcsFB+CXAbXRuQIl5fUCmOWSOukKhj0MT9YRsW5ujZUjtDF0Ou/hg+8Q==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -9657,7 +9657,7 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  radix-vue@1.9.12(vue@3.5.13(typescript@5.4.5)):
+  radix-vue@1.9.13(vue@3.5.13(typescript@5.4.5)):
     dependencies:
       '@floating-ui/dom': 1.6.13
       '@floating-ui/vue': 1.1.6(vue@3.5.13(typescript@5.4.5))
