@@ -7,13 +7,13 @@ import UnpluginVueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
 // import Sonda from 'sonda/vite'
-import type { TreeNode } from 'unplugin-vue-router'
 
-const routeMap = new Map<string, TreeNode>()
+// fix: uvr v0.11.2
+const routeMap = new Map<string, any>()
 export default defineConfig({
   plugins: [
     UnpluginVueRouter({
-      getRouteName: (node: TreeNode) => {
+      getRouteName: (node: any) => {
         if (!routeMap.size) {
           for (const [key, value] of (node.parent as any)?.map)
             routeMap.set(key, value)
