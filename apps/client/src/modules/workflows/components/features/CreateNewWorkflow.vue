@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import AddWorkflow from './handlers/AddWorkflow.vue'
+import { Icon } from '@iconify/vue'
+import { UiButton } from '@/shared/ui'
 </script>
 
 <template>
-  <AddWorkflow
+  <UiButton
     variant="solid"
-    @add-workflow="$router.push({ name: 'workflows-new' })"
-  />
+    size="default"
+    @click="$router.push({ name: 'workflows-new' })"
+  >
+    <Icon icon="icon-park-solid:add-music" class="min-w-4 min-h-4" />
+    <span class="text-default">{{ $t('workflows.create') }}</span>
+  </UiButton>
 </template>

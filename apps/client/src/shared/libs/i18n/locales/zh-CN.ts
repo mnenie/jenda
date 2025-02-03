@@ -181,6 +181,12 @@ export default {
     placeholder: '自定义颜色',
     tabs: '纯色 | 渐变',
   },
+  common: {
+    remove: {
+      warning: '此操作无法撤销。',
+      btns: '取消 | 删除',
+    },
+  },
   workflows: {
     create: '添加流程 | 添加新流程',
     remove: '删除',
@@ -222,6 +228,23 @@ export default {
       description: '创建您的第一个流程并自动化任务',
     },
     columns: ['流程名称', '描述', '创建者', '运行次数', '状态', '更新时间'],
+  },
+  workflow: {
+    alert: {
+      status: '此流程的状态为',
+      btn: '开始生产',
+    },
+    remove: {
+      title: '删除流程',
+      description: '您确定要删除此流程吗？所有相关数据都将被删除。',
+    },
+    handlers: {
+      hand: '手',
+      move: '移动',
+      lock: '锁定',
+      layout: 'AI 助力: 布局',
+    },
+    actions: '日志 | 运行',
   },
   templates: {
     title: '模板',

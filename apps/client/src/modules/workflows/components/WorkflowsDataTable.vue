@@ -14,7 +14,7 @@ defineProps<{
 
 const table = useTemplateRef<Table<any>>('table')
 
-const select = defineModel <Record<string, boolean>>('select')
+const select = defineModel<Record<string, boolean>>('select')
 
 const search = defineModel<string>('search', {
   required: true,

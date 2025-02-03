@@ -16,6 +16,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@dagrejs/dagre": "1.1.4",
     "@formkit/auto-animate": "^0.8.2",
     "@tanstack/vue-table": "8.20.5",
     "@tiptap/core": "2.11.2",

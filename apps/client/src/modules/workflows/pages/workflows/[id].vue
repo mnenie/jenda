@@ -3,9 +3,13 @@ import { shallowRef } from 'vue'
 import { VueFlow } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { useHead } from '@unhead/vue'
+import { toast } from 'vue-sonner'
 import SpecialNode from '../../components/flow/SpecialNode.vue'
 import SpecialEdge from '../../components/flow/SpecialEdge.vue'
-import ActionsPanel from '../../components/flow/ActionsPanel.vue'
+import HandlersPanel from '../../components/flow/HandlersPanel.vue'
+import WorkflowHead from '../../components/layout/WorkflowHead.vue'
+import { type Direction, useLayout } from '../../composables/layout'
+import ProductionAlert from '../../components/flow/ProductionAlert.vue'
 import type { Edge, Node } from '@vue-flow/core'
 
 const nodes = shallowRef<Node[]>([
@@ -61,6 +65,23 @@ const edges = shallowRef<Edge[]>([
     },
   },
 ])
+
+const { layout } = useLayout()
+
+async function layoutGraph(direction: Direction) {
+  const paintingLayoutPromise = new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
+    nodes.value = layout(nodes.value, edges.value, direction)
+  })
+  toast.promise(paintingLayoutPromise, {
+    loading: 'Layouting graph',
+    success: () => {
+      return 'Graph layouted'
+    },
+    error: () => {
+      console.error('Error layouting graph')
+    },
+  })
+}
 // unplugin
 definePage({
   meta: {
@@ -89,27 +110,36 @@ useHead({
 </script>
 
 <template>
-  <VueFlow
-    :nodes="nodes"
-    :edges="edges"
-    :default-edge-options="{ type: 'animation', animated: true }"
-    :pan-on-scroll="true"
-    :nodes-draggable="true"
-    :nodes-connectable="true"
-    :pan-on-drag="false"
-    :zoom-on-scroll="false"
-    :zoom-on-pinch="true"
-    :zoom-on-double-click="true"
-  >
-    <template #node-special="specialNodeProps">
-      <SpecialNode v-bind="specialNodeProps" />
-    </template>
-    <ActionsPanel />
-    <Background />
-    <template #edge-special="specialEdgeProps">
-      <SpecialEdge v-bind="specialEdgeProps" />
-    </template>
-  </VueFlow>
+  <div class="h-full w-full flex flex-col">
+    <WorkflowHead />
+    <div class="h-full w-full flex items-center">
+      <div class="relative bg-neutral-50 dark:bg-neutral-800 h-full w-full">
+        <VueFlow
+          :nodes="nodes"
+          :edges="edges"
+          :default-edge-options="{ type: 'animation', animated: true }"
+          :pan-on-scroll="true"
+          :nodes-draggable="true"
+          :nodes-connectable="true"
+          :pan-on-drag="false"
+          :zoom-on-scroll="false"
+          :zoom-on-pinch="true"
+          :zoom-on-double-click="true"
+        >
+          <template #node-special="specialNodeProps">
+            <SpecialNode v-bind="specialNodeProps" />
+          </template>
+          <HandlersPanel @change-layout="layoutGraph" />
+          <Background />
+          <template #edge-special="specialEdgeProps">
+            <SpecialEdge v-bind="specialEdgeProps" />
+          </template>
+        </VueFlow>
+        <ProductionAlert />
+      </div>
+      <!-- <ChoosePanel /> -->
+    </div>
+  </div>
 </template>
 
 <style>

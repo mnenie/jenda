@@ -4,7 +4,7 @@ import { useWorkflowsStore } from '../stores/workflows'
 import CreateNewWorkflow from './features/CreateNewWorkflow.vue'
 import SearchWorkflows from './filters/SearchWorkflows.vue'
 import WorkflowsSort from './filters/WorkflowsSort.vue'
-import RemoveWorkflow from './features/handlers/RemoveWorkflow.vue'
+import RemoveSelectedWorkflows from './features/RemoveSelectedWorkflows.vue'
 import ViewTabs from '@/modules/common/components/controls/ViewTabs.vue'
 
 defineProps<{
@@ -21,7 +21,7 @@ const { workflows } = storeToRefs(workflowsStore)
     <div class="flex items-center gap-2 w-full">
       <ViewTabs />
       <WorkflowsSort />
-      <RemoveWorkflow
+      <RemoveSelectedWorkflows
         v-if="isSelected && workflows.length > 0"
         @remove="workflowsStore.removeWorkflows(idxs)"
       />

@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="TData">
-import { type ComponentPublicInstance, computed, ref, useTemplateRef } from 'vue'
+import { type ComponentPublicInstance, computed, ref, shallowRef, useTemplateRef } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useWorkflowsStore } from '../stores/workflows'
 import { provideFilteredWorkflowsContext, useFilteredWorkflows } from '../composables/filtered'
@@ -21,7 +21,7 @@ const dataTable = useTemplateRef<
   ComponentPublicInstance<typeof WorkflowsDataTable, WorkflowsDataTableExpose>
 >('table')
 
-const selectedWorkflows = ref<Record<string, boolean>>({})
+const selectedWorkflows = shallowRef<Record<string, boolean>>({})
 
 const isSelected = computed(() => {
   return Object.values(selectedWorkflows.value).some(value => value)

@@ -38,14 +38,14 @@ const iconClasses = computed(() =>
       />
       <p
         v-if="breadcrumb.tKey"
-        class="text-lg fw500 mt-1.5px"
+        class="text-large fw500 mt-1.5px"
         :class="linkClasses"
       >
         {{ $t(`sidebar.${breadcrumb.tKey}`) }}
       </p>
       <p
         v-else
-        class="text-lg mt-1.5px"
+        class="text-large mt-1.5px"
         :class="linkClasses"
       >
         {{ breadcrumb.value }}

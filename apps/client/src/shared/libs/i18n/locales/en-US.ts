@@ -183,6 +183,12 @@ export default {
     placeholder: 'Custom color',
     tabs: 'Solid | Gradients',
   },
+  common: {
+    remove: {
+      warning: 'This action is irreversible.',
+      btns: 'Cancel | Delete',
+    },
+  },
   workflows: {
     create: 'Add workflow | Add a new workflow',
     remove: 'Delete',
@@ -224,6 +230,23 @@ export default {
       description: 'Create your first workflow and automate tasks',
     },
     columns: ['Workflow name', 'Description', 'Creator', 'Runs', 'Status', 'Date updated'],
+  },
+  workflow: {
+    alert: {
+      status: 'This process is in status',
+      btn: 'Make production',
+    },
+    remove: {
+      title: 'Process deletion',
+      description: 'Are you sure you want to delete this process? All associated data will be removed.',
+    },
+    handlers: {
+      hand: 'Hand',
+      move: 'Move',
+      lock: 'Lock',
+      layout: 'AI power: Layout',
+    },
+    actions: 'Logs | Run',
   },
   templates: {
     title: 'Templates',
