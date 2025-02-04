@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { storeToRefs } from 'pinia'
-import RemoveWorkflow from '../features/RemoveWorkflow.vue'
 import { useWorkflowsStore } from '../../stores/workflows'
+import { usePickerContext } from '../../composables/picker'
+import FlowView from './FlowView.vue'
 import { UiBadge, UiButton, UiSwitch } from '@/shared/ui'
 
 const workflowsStore = useWorkflowsStore()
@@ -12,6 +13,8 @@ const { workflow } = storeToRefs(workflowsStore)
 function updateCheckedStatus() {
   workflowsStore.updateStatus(workflow.value.state === 'production' ? 'draft' : 'production')
 }
+
+const { togglePicker } = usePickerContext()
 </script>
 
 <template>
@@ -29,21 +32,20 @@ function updateCheckedStatus() {
         class="px-1 py-px"
         :class="workflow.state === 'production' ? 'badge-soft-green' : 'badge-soft'"
       >
-        <span class="text-default text-neutral-800 dark:text-neutral-300 whitespace-nowrap">
+        <span class="text-default fw400 whitespace-nowrap">
           {{ $t(`workflows.status.${workflow.state}`) }}
         </span>
       </UiBadge>
     </div>
     <div class="flex items-center gap-2">
-      <UiButton variant="dashed">
-        <Icon icon="ri:history-fill" class="text-neutral-800 dark:text-neutral-300" />
-        {{ $t('workflow.actions', 1) }}
-      </UiButton>
-      <UiButton variant="dashed">
-        <Icon icon="solar:play-circle-outline" class="text-neutral-800 dark:text-neutral-300" />
+      <FlowView />
+      <UiButton variant="secondary" class="border border-dashed border-neutral-200 dark:border-neutral-700">
+        <Icon icon="mingcute:play-fill" class="text-neutral-800 dark:text-neutral-300" />
         {{ $t('workflow.actions', 2) }}
       </UiButton>
-      <RemoveWorkflow />
+      <UiButton variant="secondary" class="shadow-none" @click="togglePicker">
+        <Icon icon="iconamoon:menu-burger-horizontal-duotone" class="text-neutral-800 dark:text-neutral-300" />
+      </UiButton>
     </div>
   </div>
 </template>

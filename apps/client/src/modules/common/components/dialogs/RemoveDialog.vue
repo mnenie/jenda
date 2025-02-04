@@ -16,10 +16,12 @@ defineProps<{
 const emits = defineEmits<{
   (e: 'remove'): void
 }>()
+
+const model = defineModel<boolean>('open')
 </script>
 
 <template>
-  <UiDialog>
+  <UiDialog v-model:open="model">
     <UiDialogTrigger as-child>
       <slot name="trigger" />
     </UiDialogTrigger>

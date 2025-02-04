@@ -11,9 +11,9 @@ const { workflow } = storeToRefs(workflowsStore)
   <UiAlert
     v-if="workflow.state === 'draft'"
     variant="info"
-    class="w-1/3 absolute top-4 left-1/2 translate-x--1/2 p-1.5 px-3 border-none flex items-center justify-between"
+    class="w-1/2 absolute top-4 left-1/2 translate-x--1/2 p-1.5 px-3 border-none flex items-center justify-between"
   >
-    <span class="text-default text-blue-300 whitespace-nowrap">
+    <span class="text-default text-blue-900 dark:text-blue-300 whitespace-nowrap">
       {{ $t('workflow.alert.status') }} {{ $t(`workflows.status.${workflow.state}`) }}
     </span>
     <UiButton variant="solid" @click="workflowsStore.updateStatus('production')">
