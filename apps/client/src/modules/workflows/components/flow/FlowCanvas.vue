@@ -58,7 +58,7 @@ onConnect(addEdges)
 </script>
 
 <template>
-  <div class="h-full w-full" @drop="onDrop">
+  <div class="h-full w-full" @drop="(event: DragEvent) => onDrop(event)">
     <VueFlow
       ref="wrapper"
       v-model:nodes="nodes"
@@ -71,7 +71,7 @@ onConnect(addEdges)
       :zoom-on-scroll="false"
       :zoom-on-pinch="true"
       :zoom-on-double-click="true"
-      @dragover="onDragOver"
+      @dragover="(event: DragEvent) => onDragOver(event)"
       @dragleave="onDragLeave"
     >
       <template #node-special="specialNodeProps">

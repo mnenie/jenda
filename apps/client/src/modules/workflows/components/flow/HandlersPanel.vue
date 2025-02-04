@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 import { Icon } from '@iconify/vue'
 import { Panel, useVueFlow } from '@vue-flow/core'
 import { Tooltip } from 'floating-vue'
-import type { Direction } from '../../composables/layout'
+import type { Direction } from '../../composables/graph'
 import { UiButton } from '@/shared/ui'
 
 const emit = defineEmits<{
