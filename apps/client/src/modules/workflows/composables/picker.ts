@@ -23,7 +23,8 @@ export function useDragAndDrop() {
 
   const { addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode } = useVueFlow()
 
-  function onDragStart(event: DragEvent, type: string) {
+  function onDragStart(e: unknown, type: string) {
+    const event = e as DragEvent
     if (event.dataTransfer) {
       event.dataTransfer.setData('application/vueflow', type)
       event.dataTransfer.effectAllowed = 'move'
@@ -33,7 +34,8 @@ export function useDragAndDrop() {
     document.addEventListener('drop', onDragEnd)
   }
 
-  function onDragOver(event: DragEvent) {
+  function onDragOver(e: unknown) {
+    const event = e as DragEvent
     event.preventDefault()
     if (draggedType.value) {
       isDragOver.value = true
@@ -54,7 +56,8 @@ export function useDragAndDrop() {
     document.removeEventListener('drop', onDragEnd)
   }
 
-  function onDrop(event: DragEvent) {
+  function onDrop(e: unknown) {
+    const event = e as DragEvent
     const position = screenToFlowCoordinate({
       x: event.clientX,
       y: event.clientY,
