@@ -1,27 +1,29 @@
 <script setup lang="ts">
-import { computed, nextTick, shallowRef, useTemplateRef } from 'vue'
+import { computed, nextTick, useTemplateRef } from 'vue'
 import { useVueFlow, VueFlow } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { useDark, useLocalStorage } from '@vueuse/core'
 import { toast } from 'vue-sonner'
-import { type Direction, useGraphLayout } from '../../composables/graph'
-import { useDragAndDrop } from '../../composables/picker'
-import SpecialNode from './SpecialNode.vue'
-import SpecialEdge from './SpecialEdge.vue'
-import HandlersPanel from './HandlersPanel.vue'
-import type { Edge, Node } from '@vue-flow/core'
-
-const nodes = shallowRef<Node[]>([])
-
-const edges = shallowRef<Edge[]>([])
+import { storeToRefs } from 'pinia'
+import { Icon } from '@iconify/vue'
+import { useFlowStore } from '../stores/flow'
+import { usePickerStore } from '../stores/picker'
+import { useDragAndDrop } from '../composables/picker'
+import { type Direction, useElementsPosition, useGraphLayout } from '../composables/graph'
+import HandlersPanel from './flow-sub/HandlersPanel.vue'
+import TriggerNode from './flow-sub/TriggerNode.vue'
+import SpecialNode from './flow-sub/SpecialNode.vue'
 
 const wrapper = useTemplateRef<InstanceType<typeof VueFlow>>('wrapper')
+
+const flowStore = useFlowStore()
+const { nodes, edges } = storeToRefs(flowStore)
 
 const backgroundVariant = useLocalStorage<'dots' | 'lines'>('tabs', 'dots')
 
 const { layout } = useGraphLayout()
 
-const { onConnect, addEdges, fitView } = useVueFlow()
+const { onConnect, addEdges, fitView, onNodesChange } = useVueFlow()
 
 const { onDragOver, onDrop, onDragLeave } = useDragAndDrop()
 
@@ -29,7 +31,7 @@ async function layoutGraph(direction: Direction) {
   const paintingLayoutPromise = new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
     nodes.value = layout(nodes, edges, direction, wrapper)
     nextTick(() => {
-      fitView({ duration: 4000, maxZoom: 1.2 })
+      fitView({ duration: 4000, maxZoom: 1 })
     })
   })
   toast.promise(paintingLayoutPromise, {
@@ -43,6 +45,16 @@ async function layoutGraph(direction: Direction) {
   })
 }
 
+const pickerStore = usePickerStore()
+
+onNodesChange(async (changes) => {
+  for (const change of changes) {
+    if (change.type === 'remove' && change.id === pickerStore.selectedNode?.id) {
+      pickerStore.clearSelection()
+    }
+  }
+})
+
 const isDark = useDark()
 
 const patternColor = computed(() => {
@@ -53,6 +65,8 @@ const patternColor = computed(() => {
     return isDark.value ? '#73737388' : '#a3a3a3'
   }
 })
+
+useElementsPosition()
 
 onConnect(addEdges)
 </script>
@@ -77,14 +91,20 @@ onConnect(addEdges)
       @dragover="onDragOver"
       @dragleave="onDragLeave"
     >
+      <template #node-trigger="triggerNodeProps">
+        <TriggerNode v-bind="triggerNodeProps" />
+      </template>
       <template #node-special="specialNodeProps">
         <SpecialNode v-bind="specialNodeProps" />
       </template>
       <HandlersPanel @change-layout="layoutGraph" />
       <Background :gap="15" :color="patternColor" :variant="backgroundVariant" />
-      <template #edge-special="specialEdgeProps">
-        <SpecialEdge v-bind="specialEdgeProps" />
-      </template>
+      <div v-if="!nodes.length" class="flex items-center gap-2 absolute top-1/2 left-1/2 translate-x--1/2 translate-y--1/2 text-neutral-400 dark:text-neutral-400">
+        <Icon icon="hugeicons:drag-02" />
+        <p class="text-default">
+          Перетащите первую сюда ноду
+        </p>
+      </div>
     </VueFlow>
   </div>
 </template>

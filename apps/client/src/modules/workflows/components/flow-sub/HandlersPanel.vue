@@ -3,6 +3,8 @@ import { reactive } from 'vue'
 import { Icon } from '@iconify/vue'
 import { Panel, useVueFlow } from '@vue-flow/core'
 import { Tooltip } from 'floating-vue'
+import { storeToRefs } from 'pinia'
+import { useFlowStore } from '../../stores/flow'
 import type { Direction } from '../../composables/graph'
 import { UiButton } from '@/shared/ui'
 
@@ -10,10 +12,14 @@ const emit = defineEmits<{
   (e: 'changeLayout', direction: Direction): void
 }>()
 
+const flowStore = useFlowStore()
+const { calculateTriggers } = storeToRefs(flowStore)
+
 const {
   nodesDraggable,
   nodesConnectable,
   panOnDrag,
+  nodes,
 } = useVueFlow()
 
 function toggleFlowSettings<T extends boolean>(draggable: T, connectable: T, pannable: T) {
@@ -58,7 +64,7 @@ function onAction(action: () => void, item: typeof mainHandlers[number]) {
       <div class="w-1px h-4 bg-neutral-200 dark:bg-neutral-700 mx-2" />
       <div class="flex items-center gap-1.5">
         <Tooltip>
-          <UiButton variant="ghost" class="p-1.5 !h-unset rounded-lg" @click="emit('changeLayout', 'TB')">
+          <UiButton :disabled="!nodes.length || calculateTriggers > 1" variant="ghost" class="p-1.5 !h-unset rounded-lg" @click="emit('changeLayout', 'TB')">
             <Icon icon="mingcute:quill-pen-ai-line" class="min-w-4.8 min-h-4.8 text-purple-400" />
           </UiButton>
           <template #popper>

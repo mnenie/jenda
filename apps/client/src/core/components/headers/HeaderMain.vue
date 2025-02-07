@@ -49,7 +49,7 @@ const { breadcrumbs } = useBreadcrumbs()
         <Icon
           v-if="idx < breadcrumbs.length - 1"
           icon="heroicons:slash-20-solid"
-          class="text-18px mt-0.5 text-neutral-400 dark:text-neutral-600"
+          class="text-18px text-neutral-400 dark:text-neutral-600"
         />
       </div>
     </div>

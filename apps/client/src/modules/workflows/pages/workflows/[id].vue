@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import WorkflowHead from '../../components/layout/WorkflowHead.vue'
-import ProductionAlert from '../../components/flow/ProductionAlert.vue'
-import FlowCanvas from '../../components/flow/FlowCanvas.vue'
-import PickerPanel from '../../components/PickerPanel.vue'
-import WorkflowLayout from '../../components/WorkflowLayout.vue'
+import ProductionAlert from '../../components/flow-sub/ProductionAlert.vue'
+import FlowCanvas from '../../components/FlowCanvas.vue'
+import PickerPanel from '../../components/picker/PickerPanel.vue'
+import SettingsPanel from '../../components/picker/SettingsPanel.vue'
 
 // unplugin
 definePage({
@@ -35,15 +35,12 @@ useHead({
 
 <template>
   <div class="h-full w-full flex flex-col">
-    <WorkflowLayout>
-      <WorkflowHead />
-      <div class="h-full w-full flex items-center">
-        <div class="relative bg-neutral-50 dark:bg-neutral-800 h-full w-full">
-          <FlowCanvas />
-          <ProductionAlert />
-        </div>
-        <PickerPanel />
-      </div>
-    </WorkflowLayout>
+    <WorkflowHead />
+    <div class="relative bg-neutral-50 dark:bg-neutral-800 h-full w-full">
+      <PickerPanel />
+      <FlowCanvas />
+      <ProductionAlert />
+      <SettingsPanel />
+    </div>
   </div>
 </template>

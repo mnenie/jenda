@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="T extends WorkflowCard">
 import { computed, inject } from 'vue'
-import type { WorkflowCard } from '../types'
+import type { WorkflowCard } from '../../types'
 import { UiBadge } from '@/shared/ui'
 import { DayjsInjectionKey } from '@/plugins/dayjs'
 

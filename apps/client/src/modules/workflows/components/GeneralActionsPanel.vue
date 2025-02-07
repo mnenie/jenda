@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useWorkflowsStore } from '../stores/workflows'
-import CreateNewWorkflow from './features/CreateNewWorkflow.vue'
-import SearchWorkflows from './filters/SearchWorkflows.vue'
-import WorkflowsSort from './filters/WorkflowsSort.vue'
-import RemoveSelectedWorkflows from './features/RemoveSelectedWorkflows.vue'
+import CreateNewWorkflow from './table-actions/CreateNewWorkflow.vue'
+import SearchWorkflows from './table-actions/SearchWorkflows.vue'
+import WorkflowsSort from './table-actions/WorkflowsSort.vue'
+import RemoveSelectedWorkflows from './table-actions/RemoveSelectedWorkflows.vue'
 import ViewTabs from '@/modules/common/components/controls/ViewTabs.vue'
 
 defineProps<{

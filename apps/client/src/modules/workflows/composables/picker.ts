@@ -1,34 +1,29 @@
-import { inject, provide, ref, watch } from 'vue'
-import { useVueFlow } from '@vue-flow/core'
-import type { InjectionKey, Ref } from 'vue'
-
-export interface PickerContext {
-  togglePicker: () => void
-  isPickerOpen: Ref<boolean>
-}
+import { ref, shallowRef, watch } from 'vue'
+import { type Node, useVueFlow } from '@vue-flow/core'
 
 function getId() {
   return Math.random().toString(36).slice(2)
 }
 
-// возможно сделаю через shared composable
 const state = {
   draggedType: ref<string | null | undefined>(null),
   isDragOver: ref(false),
   isDragging: ref(false),
+  draggedData: shallowRef<Node['data']>({}),
 }
 
 export function useDragAndDrop() {
-  const { draggedType, isDragOver, isDragging } = state
+  const { draggedType, isDragOver, isDragging, draggedData } = state
 
   const { addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode } = useVueFlow()
 
-  function onDragStart(e: unknown, type: string) {
+  function onDragStart(e: unknown, type: string, data: Node['data']) {
     const event = e as DragEvent
     if (event.dataTransfer) {
       event.dataTransfer.setData('application/vueflow', type)
       event.dataTransfer.effectAllowed = 'move'
     }
+    draggedData.value = data
     draggedType.value = type
     isDragging.value = true
     document.addEventListener('drop', onDragEnd)
@@ -52,7 +47,7 @@ export function useDragAndDrop() {
   function onDragEnd() {
     isDragging.value = false
     isDragOver.value = false
-    draggedType.value = '232'
+    draggedType.value = null
     document.removeEventListener('drop', onDragEnd)
   }
 
@@ -69,7 +64,7 @@ export function useDragAndDrop() {
       id: nodeId,
       type: draggedType.value!,
       position,
-      data: { label: `New ${draggedType.value}` },
+      data: draggedData.value,
     }
     const { off } = onNodesInitialized(() => {
       updateNode(nodeId, node => ({
@@ -94,14 +89,4 @@ export function useDragAndDrop() {
     onDragOver,
     onDrop,
   }
-}
-
-const key: InjectionKey<PickerContext> = Symbol('workflow-picker')
-
-export function providePickerContext<T extends PickerContext>(value: T) {
-  return provide(key, value)
-}
-
-export function usePickerContext() {
-  return inject(key)!
 }

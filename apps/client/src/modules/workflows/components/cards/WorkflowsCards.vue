@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CardItem from './CardItem.vue'
-import type { WorkflowCard } from '../types'
+import type { WorkflowCard } from '../../types'
 
 defineProps<{
   cards: WorkflowCard[]

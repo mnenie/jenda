@@ -1,6 +1,10 @@
-import { type MaybeRefOrGetter, shallowRef, toValue } from 'vue'
+import { effectScope, onScopeDispose, shallowRef, toValue, watch } from 'vue'
 import dagre from '@dagrejs/dagre'
-import { type Edge, type Node, Position, useVueFlow } from '@vue-flow/core'
+import { Position, useVueFlow } from '@vue-flow/core'
+import { storeToRefs } from 'pinia'
+import { usePickerStore } from '../stores/picker'
+import type { MaybeRefOrGetter } from 'vue'
+import type { Edge, Node } from '@vue-flow/core'
 
 export type Direction = 'LR' | 'TB'
 
@@ -56,4 +60,23 @@ export function useGraphLayout<T extends Node, U extends Edge>() {
     graph,
     layout,
   }
+}
+
+export function useElementsPosition() {
+  const scope = effectScope()
+  const pickerStore = usePickerStore()
+  const { isSettingsOpen } = storeToRefs(pickerStore)
+
+  const { fitView } = useVueFlow()
+
+  scope.run(() => {
+    // пофиксить со skeleton
+    watch(isSettingsOpen, async () => {
+      await fitView({ duration: 1000, maxZoom: 1, includeHiddenNodes: true, offset: { y: -50 } })
+    }, { immediate: true, flush: 'post' })
+  })
+
+  onScopeDispose(() => {
+    scope.stop()
+  })
 }
