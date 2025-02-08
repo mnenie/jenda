@@ -10,7 +10,7 @@ export { default as UiSheetTitle } from './UiSheetTitle.vue'
 export { default as UiSheetTrigger } from './UiSheetTrigger.vue'
 
 export const sheetVariants = cva(
-  'fixed z-99 gap-4 bg-white p-6 focus:(outline-none ring-0 border-none) shadow-none transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 dark:bg-neutral-800',
+  'fixed z-99 gap-4 bg-white p-6 focus:(outline-none ring-0) shadow-none transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 dark:bg-neutral-800',
   {
     variants: {
       side: {

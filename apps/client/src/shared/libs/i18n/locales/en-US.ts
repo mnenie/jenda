@@ -281,7 +281,7 @@ export default {
         },
         {
           title: 'Delay',
-          description: 'Pauses execution for a specified time',
+          description: 'Pauses an execution',
         },
         {
           title: 'Formula',
@@ -289,9 +289,10 @@ export default {
         },
         {
           title: 'Confetti',
-          description: 'Creates a festive confetti effect',
+          description: 'Creates a confetti effect',
         },
       ],
+      alert: 'Set actions',
     },
   },
   templates: {

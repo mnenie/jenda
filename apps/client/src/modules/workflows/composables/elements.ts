@@ -1,5 +1,5 @@
-import { effectScope, onScopeDispose, watch } from 'vue'
-import { useVueFlow } from '@vue-flow/core'
+import { computed, effectScope, type MaybeRefOrGetter, onScopeDispose, toValue, watch } from 'vue'
+import { type Node, useVueFlow } from '@vue-flow/core'
 import { storeToRefs } from 'pinia'
 import { usePickerStore } from '../stores/picker'
 
@@ -20,4 +20,35 @@ export function useElementsPosition() {
   onScopeDispose(() => {
     scope.stop()
   })
+}
+
+export function useNodeChanges(data: MaybeRefOrGetter<Node['data']>, id: MaybeRefOrGetter<string>) {
+  const pickerStore = usePickerStore()
+  const { selectedNode } = storeToRefs(pickerStore)
+
+  const name = computed(() => {
+    const nodeData = toValue(data)
+    return nodeData.label ? nodeData.label : nodeData.title
+  })
+
+  const isThisNode = computed(() => toValue(id) === toValue(selectedNode)?.id)
+
+  const { nodesDraggable } = useVueFlow()
+
+  function onNodeSelect() {
+    if (nodesDraggable.value) {
+      pickerStore.selectNode(toValue(id), {
+        type: 'common',
+        data: toValue(data),
+      })
+    }
+  }
+
+  return {
+    selectedNode,
+    nodesDraggable,
+    name,
+    isThisNode,
+    onNodeSelect,
+  }
 }

@@ -290,6 +290,7 @@ export default {
           description: '创建节日彩带效果',
         },
       ],
+      alert: '设置操作',
     },
   },
   templates: {

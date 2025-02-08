@@ -9,31 +9,31 @@ export const nodes: Record<string, PickerNode[]> = {
       },
     },
     {
-      type: 'default',
+      type: 'common',
       data: {
         icon: 'fluent:play-24-filled',
       },
     },
     {
-      type: 'default',
+      type: 'common',
       data: {
         icon: 'fa-brands:telegram-plane',
       },
     },
     {
-      type: 'default',
+      type: 'common',
       data: {
         icon: 'tabler:git-branch',
       },
     },
     {
-      type: 'default',
+      type: 'common',
       data: {
         icon: 'mingcute:time-duration-line',
       },
     },
     {
-      type: 'default',
+      type: 'common',
       data: {
         icon: 'tabler:math',
       },
@@ -41,7 +41,7 @@ export const nodes: Record<string, PickerNode[]> = {
   ],
   effects: [
     {
-      type: 'default',
+      type: 'common',
       data: {
         icon: 'tabler:confetti',
       },

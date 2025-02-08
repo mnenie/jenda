@@ -13,7 +13,7 @@ import { type Direction, useGraphLayout } from '../composables/graph'
 import { useElementsPosition } from '../composables/elements'
 import HandlersPanel from './flow-sub/HandlersPanel.vue'
 import TriggerNode from './flow-sub/TriggerNode.vue'
-import SpecialNode from './flow-sub/SpecialNode.vue'
+import CommonNode from './flow-sub/CommonNode.vue'
 
 const wrapper = useTemplateRef<InstanceType<typeof VueFlow>>('wrapper')
 
@@ -22,10 +22,9 @@ const { nodes, edges } = storeToRefs(flowStore)
 
 const backgroundVariant = useLocalStorage<'dots' | 'lines'>('tabs', 'dots')
 
-const { layout } = useGraphLayout()
-
 const { onConnect, addEdges, fitView, onNodesChange } = useVueFlow()
 
+const { layout } = useGraphLayout()
 const { onDragOver, onDrop, onDragLeave } = useDragAndDrop()
 
 async function layoutGraph(direction: Direction) {
@@ -81,7 +80,11 @@ onConnect(addEdges)
       ref="wrapper"
       v-model:nodes="nodes"
       v-model:edges="edges"
-      :default-edge-options="{ type: 'animation', animated: true }"
+      :default-edge-options="{
+        type: 'animation',
+        animated: true,
+        markerEnd: 'arrowclosed',
+      }"
       :pan-on-scroll="true"
       :nodes-draggable="true"
       :nodes-connectable="true"
@@ -92,11 +95,11 @@ onConnect(addEdges)
       @dragover="onDragOver"
       @dragleave="onDragLeave"
     >
-      <template #node-trigger="triggerNodeProps">
-        <TriggerNode v-bind="triggerNodeProps" />
+      <template #node-trigger="props">
+        <TriggerNode v-bind="props" />
       </template>
-      <template #node-default="specialNodeProps">
-        <SpecialNode v-bind="specialNodeProps" />
+      <template #node-common="props">
+        <CommonNode v-bind="props" />
       </template>
       <HandlersPanel @change-layout="layoutGraph" />
       <Background :gap="15" :color="patternColor" :variant="backgroundVariant" />
