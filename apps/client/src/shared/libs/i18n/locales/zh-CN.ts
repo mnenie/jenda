@@ -245,6 +245,52 @@ export default {
       layout: 'AI 助力: 布局',
     },
     actions: '日志 | 运行',
+    panel: {
+      open: '打开面板',
+      close: '关闭面板',
+    },
+    empty: '将元素拖到此区域',
+    nodes: {
+      title: '所有节点',
+      description: '在这里您可以选择任何节点。',
+      main: '主要',
+      effects: '效果',
+      links: '有用的链接',
+      docs: {
+        title: '文档',
+        description: '了解如何管理系统中的节点。',
+      },
+      items: [
+        {
+          title: '触发器',
+          description: '流程的开始',
+        },
+        {
+          title: '操作',
+          description: '在流程中执行操作',
+        },
+        {
+          title: '通知',
+          description: '发送消息',
+        },
+        {
+          title: '条件',
+          description: '检查条件是否满足',
+        },
+        {
+          title: '延迟',
+          description: '暂停执行指定时间',
+        },
+        {
+          title: '公式',
+          description: '执行计算',
+        },
+        {
+          title: '彩带',
+          description: '创建节日彩带效果',
+        },
+      ],
+    },
   },
   templates: {
     title: '模板',

@@ -12,7 +12,7 @@ const { workflow } = storeToRefs(workflowsStore)
 const pickerStore = usePickerStore()
 const { isPickerOpen } = storeToRefs(pickerStore)
 
-const panelTitle = computed(() => isPickerOpen.value ? 'Закрыть панель' : 'Открыть панель')
+const panelTitle = computed(() => isPickerOpen.value ? 'close' : 'open')
 const panelIcon = computed(() => isPickerOpen.value ? 'lucide:x' : 'lucide:menu')
 
 function updateCheckedStatus() {
@@ -26,9 +26,9 @@ function updateCheckedStatus() {
     <div class="flex items-center gap-2">
       <UiButton variant="secondary" class="shadow-none" @click="isPickerOpen = !isPickerOpen">
         <Icon :icon="panelIcon" class="text-neutral-800 dark:text-neutral-300" />
-        {{ panelTitle }}
+        {{ $t(`workflow.panel.${panelTitle}`) }}
       </UiButton>
-      <UiButton variant="dashed" class="shadow-none !text-#266df0 border border-dashed border-neutral-200 dark:border-neutral-700">
+      <UiButton variant="dashed" class="shadow-none border border-dashed border-neutral-200 dark:border-neutral-700">
         <Icon icon="mingcute:play-fill" />
         {{ $t('workflow.actions', 2) }}
       </UiButton>

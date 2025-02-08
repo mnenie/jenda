@@ -1,6 +1,6 @@
-import { ref, shallowRef, watchEffect } from 'vue'
+import { ref, shallowRef } from 'vue'
 import { defineStore } from 'pinia'
-import { onClickOutside } from '@vueuse/core'
+import { onClickOutside, watchDebounced } from '@vueuse/core'
 import type { PickerNode, SelectedPickerNode } from '../types/picker'
 
 export const usePickerStore = defineStore('picker', () => {
@@ -21,14 +21,14 @@ export const usePickerStore = defineStore('picker', () => {
   }
 
   onClickOutside(target, () => {
-    clearSelection()
+    selectedNode.value = null
   }, { ignore: [panel] })
 
-  watchEffect(() => {
+  watchDebounced(selectedNode, () => {
     if (!selectedNode.value) {
       isSettingsOpen.value = false
     }
-  })
+  }, { debounce: 10 })
 
   return {
     isPickerOpen,

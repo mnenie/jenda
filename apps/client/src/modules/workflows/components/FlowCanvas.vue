@@ -95,7 +95,7 @@ onConnect(addEdges)
       <template #node-trigger="triggerNodeProps">
         <TriggerNode v-bind="triggerNodeProps" />
       </template>
-      <template #node-special="specialNodeProps">
+      <template #node-default="specialNodeProps">
         <SpecialNode v-bind="specialNodeProps" />
       </template>
       <HandlersPanel @change-layout="layoutGraph" />
@@ -103,7 +103,7 @@ onConnect(addEdges)
       <div v-if="!nodes.length" class="flex items-center gap-2 absolute top-1/2 left-1/2 translate-x--1/2 translate-y--1/2 text-neutral-400 dark:text-neutral-400">
         <Icon icon="hugeicons:drag-02" />
         <p class="text-default">
-          Перетащите первую сюда ноду
+          {{ $t('workflow.empty') }}
         </p>
       </div>
     </VueFlow>

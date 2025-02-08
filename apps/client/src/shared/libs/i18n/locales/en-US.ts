@@ -247,6 +247,52 @@ export default {
       layout: 'AI power: Layout',
     },
     actions: 'Logs | Run',
+    panel: {
+      open: 'Open panel',
+      close: 'Close panel',
+    },
+    empty: 'Drag elements to this area',
+    nodes: {
+      title: 'All Nodes',
+      description: 'Here you can select any of the nodes.',
+      main: 'Main',
+      effects: 'Effects',
+      links: 'Useful Links',
+      docs: {
+        title: 'Documentation',
+        description: 'Learn how to manage nodes in the system.',
+      },
+      items: [
+        {
+          title: 'Trigger',
+          description: 'Start of the process',
+        },
+        {
+          title: 'Action',
+          description: 'Performs an operation in the process',
+        },
+        {
+          title: 'Notification',
+          description: 'Sends a message',
+        },
+        {
+          title: 'Condition',
+          description: 'Checks if conditions are met',
+        },
+        {
+          title: 'Delay',
+          description: 'Pauses execution for a specified time',
+        },
+        {
+          title: 'Formula',
+          description: 'Performs calculations',
+        },
+        {
+          title: 'Confetti',
+          description: 'Creates a festive confetti effect',
+        },
+      ],
+    },
   },
   templates: {
     title: 'Templates',
