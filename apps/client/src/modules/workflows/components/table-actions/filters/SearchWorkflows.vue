@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useFilteredWorkflowsContext } from '../../composables/filtered'
+import { useFilteredWorkflowsContext } from '../../../composables/filtered'
 import { UiInput } from '@/shared/ui'
 
 const { search } = useFilteredWorkflowsContext()
