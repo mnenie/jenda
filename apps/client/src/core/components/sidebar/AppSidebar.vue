@@ -6,6 +6,7 @@ import IntegrationItems from './IntegrationItems.vue'
 import WorkSpace from './WorkSpace.vue'
 import WorkspaceChooser from './WorkSpaceChooser.vue'
 import PlanCard from './plan/PlanCard.vue'
+import BoardsRows from './BoardsRows.vue'
 import type { Board } from '@/modules/boards/types'
 import { links } from '@/shared/constants/links'
 import SearchBox from '@/modules/search/components/SearchBox.vue'
@@ -38,6 +39,7 @@ const paddingExpanded = computed(() => {
       <div>
         <SearchBox :boards />
         <WorkSpace :links />
+        <BoardsRows />
         <IntegrationItems />
       </div>
       <div>

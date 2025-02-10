@@ -11,20 +11,20 @@ export const links: WorkspaceLink[] = [
     id: 1,
     name: 'notes',
     pathName: 'notes',
-    icon: 'hugeicons:checkmark-square-03',
+    icon: 'hugeicons:sticky-note-02',
     badge: true,
   },
   {
     id: 2,
     name: 'templates',
     pathName: 'templates',
-    icon: 'hugeicons:dashboard-square-add',
+    icon: 'hugeicons:block-game',
   },
   {
     id: 3,
     name: 'workflows',
     pathName: 'workflows',
-    icon: 'carbon:workflow-automation',
+    icon: 'hugeicons:route-block',
     badge: true,
   },
   {

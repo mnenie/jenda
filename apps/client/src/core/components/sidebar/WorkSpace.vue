@@ -58,11 +58,11 @@ const contentPosition = computed(() => isExpanded.value ? 'space-between' : 'cen
         <div class="flex items-center gap-2">
           <Icon
             :icon="link.icon"
-            class="!w-16px !h-16px 2xl:(!w-4 !h-4) text-neutral-900 dark:text-neutral-200"
+            class="!w-16px !h-16px 2xl:(!min-w-4 !min-h-4) text-neutral-800 dark:text-neutral-200"
           />
           <span
             v-show="isExpanded"
-            class="text-default !fw500 text-neutral-900 dark:text-neutral-100"
+            class="text-default !fw500 text-neutral-950 dark:text-neutral-100"
           >
             {{ $t(`sidebar.${link.name}`) }}
           </span>
