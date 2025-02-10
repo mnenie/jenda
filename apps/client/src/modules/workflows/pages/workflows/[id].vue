@@ -4,7 +4,7 @@ import WorkflowHead from '../../components/layout/WorkflowHead.vue'
 import ProductionAlert from '../../components/flow-sub/ProductionAlert.vue'
 import FlowCanvas from '../../components/FlowCanvas.vue'
 import PickerPanel from '../../components/picker/PickerPanel.vue'
-import SettingsPanel from '../../components/picker/SettingsPanel.vue'
+import SettingsPanel from '../../components/settings/SettingsPanel.vue'
 
 // unplugin
 definePage({

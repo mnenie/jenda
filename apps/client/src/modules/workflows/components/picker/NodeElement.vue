@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { useDragAndDrop } from '../../composables/picker'
-import type { PickerNode } from '../../types/picker'
+import type { PickerNode } from '../../types'
 import { UiButton } from '@/shared/ui'
 
 defineProps<{

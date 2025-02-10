@@ -14,7 +14,7 @@ defineOptions({
 })
 
 const props = withDefaults(
-  defineProps<DropdownMenuContentProps & { class?: HTMLAttributes['class'] }>(),
+  defineProps<DropdownMenuContentProps & { class?: HTMLAttributes['class'], portal?: boolean }>(),
   {
     sideOffset: 4,
   },
@@ -31,7 +31,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
 
 <template>
-  <DropdownMenuPortal>
+  <DropdownMenuPortal :disabled="!portal">
     <DropdownMenuContent
       v-bind="{ ...forwarded, ...$attrs }"
       :class="cn(

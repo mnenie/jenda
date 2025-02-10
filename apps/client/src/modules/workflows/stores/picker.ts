@@ -1,7 +1,7 @@
 import { ref, shallowRef } from 'vue'
 import { defineStore } from 'pinia'
 import { onClickOutside, watchDebounced } from '@vueuse/core'
-import type { PickerNode, SelectedPickerNode } from '../types/picker'
+import type { PickerNode, SelectedPickerNode } from '../types'
 
 export const usePickerStore = defineStore('picker', () => {
   const selectedNode = shallowRef<Partial<SelectedPickerNode> | null>(null)

@@ -1,2 +1,2 @@
 export * from './workflow'
-export * from './picker'
+export * from './node.extended'

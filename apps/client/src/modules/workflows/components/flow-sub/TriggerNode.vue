@@ -13,7 +13,12 @@ const props = defineProps<NodeProps>()
 const pickerStore = usePickerStore()
 const { target } = storeToRefs(pickerStore)
 
-const { isThisNode, onNodeSelect, nodesDraggable, name } = useNodeChanges(toRef(props, 'data'), toRef(props, 'id'))
+const {
+  isThisNode,
+  onNodeSelect,
+  nodesDraggable,
+  name,
+} = useNodeChanges(toRef(props, 'data'), toRef(props, 'id'), 'trigger')
 </script>
 
 <template>

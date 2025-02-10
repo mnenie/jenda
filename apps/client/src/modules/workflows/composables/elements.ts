@@ -22,7 +22,7 @@ export function useElementsPosition() {
   })
 }
 
-export function useNodeChanges(data: MaybeRefOrGetter<Node['data']>, id: MaybeRefOrGetter<string>) {
+export function useNodeChanges(data: MaybeRefOrGetter<Node['data']>, id: MaybeRefOrGetter<string>, type: string) {
   const pickerStore = usePickerStore()
   const { selectedNode } = storeToRefs(pickerStore)
 
@@ -38,7 +38,7 @@ export function useNodeChanges(data: MaybeRefOrGetter<Node['data']>, id: MaybeRe
   function onNodeSelect() {
     if (nodesDraggable.value) {
       pickerStore.selectNode(toValue(id), {
-        type: 'common',
+        type,
         data: toValue(data),
       })
     }
