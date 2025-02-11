@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LinkItem from './links/LinkItem.vue'
-import type { WorkspaceLink } from '@/shared/config/shared-types'
+import type { WorkspaceLink } from '../../types'
 import { UiBadge } from '@/shared/ui'
 
 defineProps<{

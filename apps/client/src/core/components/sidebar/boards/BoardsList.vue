@@ -23,7 +23,7 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
     <div class="w-full flex flex-col gap-1.5 mb-20px">
       <div
         class="flex items-center gap-1 w-full px-1"
-        :class="[!isExpanded ? 'pt-1.5' : 'pt-0']"
+        :class="[!isExpanded ? 'pt-0.5' : 'pt-0']"
       >
         <UiCollapsibleTrigger as-child>
           <div v-show="isExpanded" class="flex items-center justify-center p-1 transition-colors hover:bg-neutral-200/60 dark:hover:bg-neutral-800 rounded-md cursor-pointer">
@@ -37,8 +37,8 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
           </div>
         </UiCollapsibleTrigger>
         <p
-          class="text-neutral-500 dark:text-neutral-400 text-small fw500 capitalize text-ellipsis
-        whitespace-nowrap overflow-hidden"
+          class="text-neutral-500 dark:text-neutral-400 text-small fw500 capitalize text-ellipsis whitespace-nowrap overflow-hidden"
+          :class="[isExpanded ? 'mb-0' : 'mb-1']"
         >
           {{ $t('sidebar.boards_section.title') }}
         </p>

@@ -6,7 +6,7 @@ import { Icon } from '@iconify/vue'
 import SearchItem from './SearchItem.vue'
 import type { Board } from '@/modules/boards/types'
 import type { SearchRoute } from '../types'
-import { links as _links } from '@/shared/constants/links'
+import { links as _links } from '@/core/constants/sidebar'
 import { UiCommandEmpty, UiCommandGroup, UiCommandList } from '@/shared/ui'
 
 const props = defineProps<{

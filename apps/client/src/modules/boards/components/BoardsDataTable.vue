@@ -2,7 +2,7 @@
 import { computed, inject, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useDark } from '@vueuse/core'
-import { columns as _columns } from '../utils/constants/table'
+import { columns as _columns } from '../constants/table'
 import type { Table } from '@tanstack/vue-table'
 import type { BoardRow } from '../types'
 import { DataTable, UiBadge } from '@/shared/ui'

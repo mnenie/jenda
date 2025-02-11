@@ -1,4 +1,4 @@
-import type { PickerNode } from '../../types'
+import type { PickerNode } from '../types'
 
 export const nodes: Record<string, PickerNode[]> = {
   main: [

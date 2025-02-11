@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { columns as _columns } from '../utils/constants/table'
+import { columns as _columns } from '../constants/table'
 import type { Table } from '@tanstack/vue-table'
 import type { Note } from '../types'
 import { DataTable } from '@/shared/ui'

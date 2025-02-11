@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router/auto'
 import { Icon } from '@iconify/vue'
-import type { WorkspaceLink } from '@/shared/config/shared-types'
+import type { WorkspaceLink } from '../../../types'
 import { useExpandedContext } from '@/shared/composables/expanded'
 import { type ButtonVariants, UiButton } from '@/shared/ui'
 

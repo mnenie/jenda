@@ -1,4 +1,4 @@
-import type { WorkspaceLink } from '../config/shared-types'
+import type { WorkspaceLink } from '../types'
 
 export const links: WorkspaceLink[] = [
   {
@@ -24,7 +24,7 @@ export const links: WorkspaceLink[] = [
     id: 3,
     name: 'workflows',
     pathName: 'workflows',
-    icon: 'hugeicons:route-block',
+    icon: 'proicons:play',
     badge: true,
   },
   {

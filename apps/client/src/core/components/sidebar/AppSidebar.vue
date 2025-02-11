@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { refDebounced } from '@vueuse/core'
+import { links } from '../../constants/sidebar'
 import InfoMenu from './dropdowns/InfoMenu.vue'
 import IntegrationItems from './links/IntegrationItems.vue'
 import WorkSpace from './WorkSpace.vue'
@@ -9,7 +10,6 @@ import PlanCard from './plan/PlanCard.vue'
 import BoardsRows from './boards/BoardsList.vue'
 import NotificationsMenu from './dropdowns/NotificationsMenu.vue'
 import SettingsLink from './links/SettingsLink.vue'
-import { links } from '@/shared/constants/links'
 import SearchBox from '@/modules/search/components/SearchBox.vue'
 import { useExpandedContext } from '@/shared/composables/expanded'
 
