@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="TData">
 import { useHead } from '@unhead/vue'
 import { storeToRefs } from 'pinia'
-import { useBoardsStore } from '../stores/board'
+import { useBoardsStore } from '../stores/boards'
 import EmptyBoards from '../components/EmptyBoards.vue'
 import BoardsViewManager from '../components/BoardsViewManager.vue'
 

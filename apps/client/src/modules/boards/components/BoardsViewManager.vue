@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="TData">
 import { computed, ref, useTemplateRef } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useBoardsStore } from '../stores/board'
+import { useBoardsStore } from '../stores/boards'
 import { provideFilteredBoardsContext, useFilteredBoards } from '../composables/filtered'
 import BoardsActionsPanel from '../components/BoardsActionsPanel.vue'
 import BoardsDataTable from '../components/BoardsDataTable.vue'

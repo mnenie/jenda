@@ -3,28 +3,7 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Board, BoardRow } from '../types'
 
 export const useBoardsStore = defineStore('boards', () => {
-  const boards = ref<BoardRow[]>([
-    {
-      _id: '1',
-      name: 'My first board',
-      tasks: 10,
-      createdAt: new Date(),
-      users: [],
-      status: 'active',
-      labels: [],
-      color: '#df50f2',
-    },
-    {
-      _id: '2',
-      name: 'Hello',
-      tasks: 10,
-      createdAt: new Date(),
-      users: [],
-      status: 'active',
-      labels: [],
-      color: '#32a852',
-    },
-  ])
+  const boards = ref<BoardRow[]>([])
   const board = ref<Board>()
 
   function removeBoards(idxs: string[]) {

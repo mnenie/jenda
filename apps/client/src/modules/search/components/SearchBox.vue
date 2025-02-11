@@ -9,7 +9,7 @@ import SearchFilter from './SearchFilter.vue'
 import PanelItems from './PanelItems.vue'
 import type { SearchRoute } from '../types'
 import { UiCommandDialog, UiCommandInput } from '@/shared/ui'
-import { useBoardsStore } from '@/modules/boards/stores/board'
+import { useBoardsStore } from '@/modules/boards/stores/boards'
 
 const modelSearch = ref('')
 const open = ref(false)

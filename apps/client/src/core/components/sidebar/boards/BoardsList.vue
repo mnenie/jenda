@@ -4,7 +4,7 @@ import { useLocalStorage } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import BoardRow from './BoardRow.vue'
 import { useExpandedContext } from '@/shared/composables/expanded'
-import { useBoardsStore } from '@/modules/boards/stores/board'
+import { useBoardsStore } from '@/modules/boards/stores/boards'
 import { UiCollapsible, UiCollapsibleContent, UiCollapsibleTrigger } from '@/shared/ui'
 
 const { isExpanded } = useExpandedContext()
@@ -50,7 +50,11 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
           <template v-if="boards.length">
             <BoardRow v-for="board in boards" :key="board._id" :board="board" />
           </template>
-          <span v-else class="text-default text-neutral-500 dark:text-neutral-100 mx-4 mt-1">
+          <span
+            v-else
+            class="text-default truncate text-neutral-500 dark:text-neutral-100 mt-1"
+            :class="[isExpanded ? 'mx-4' : 'mx-1']"
+          >
             {{ $t('sidebar.boards_section.empty') }}
           </span>
         </UiCollapsibleContent>
