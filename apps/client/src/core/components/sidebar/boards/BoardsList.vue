@@ -5,7 +5,7 @@ import { storeToRefs } from 'pinia'
 import BoardRow from './BoardRow.vue'
 import { useExpandedContext } from '@/shared/composables/expanded'
 import { useBoardsStore } from '@/modules/boards/stores/board'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/shared/ui/collapsible'
+import { UiCollapsible, UiCollapsibleContent, UiCollapsibleTrigger } from '@/shared/ui'
 
 const { isExpanded } = useExpandedContext()
 
@@ -16,7 +16,7 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
 </script>
 
 <template>
-  <Collapsible
+  <UiCollapsible
     v-model:open="isBoardsOpen"
     class="w-full"
   >
@@ -25,7 +25,7 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
         class="flex items-center gap-1 w-full px-1"
         :class="[!isExpanded ? 'pt-1.5' : 'pt-0']"
       >
-        <CollapsibleTrigger as-child>
+        <UiCollapsibleTrigger as-child>
           <div v-show="isExpanded" class="flex items-center justify-center p-1 transition-colors hover:bg-neutral-200/60 dark:hover:bg-neutral-800 rounded-md cursor-pointer">
             <Icon
               icon="lucide:chevron-down"
@@ -35,7 +35,7 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
               }"
             />
           </div>
-        </CollapsibleTrigger>
+        </UiCollapsibleTrigger>
         <p
           class="text-neutral-500 dark:text-neutral-400 text-small fw500 capitalize text-ellipsis
         whitespace-nowrap overflow-hidden"
@@ -44,7 +44,7 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
         </p>
       </div>
       <div class="overflow-y-auto overflow-x-hidden max-h-52 h-full">
-        <CollapsibleContent
+        <UiCollapsibleContent
           class="flex flex-col gap-1.5 justify-start w-full"
         >
           <template v-if="boards.length">
@@ -53,8 +53,8 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
           <span v-else class="text-default text-neutral-500 dark:text-neutral-100 mx-4 mt-1">
             {{ $t('sidebar.boards_section.empty') }}
           </span>
-        </CollapsibleContent>
+        </UiCollapsibleContent>
       </div>
     </div>
-  </Collapsible>
+  </UiCollapsible>
 </template>
