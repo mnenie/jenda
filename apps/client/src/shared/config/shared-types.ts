@@ -6,7 +6,7 @@ interface Path {
 }
 
 export interface WorkspaceLink extends Path {
-  id: number
+  id?: number
   name: RouteRecordName
   icon: IconifyIcon | string
   badge?: boolean

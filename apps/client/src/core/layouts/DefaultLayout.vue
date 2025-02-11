@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { storeToRefs } from 'pinia'
 import { useLocalStorage } from '@vueuse/core'
 // @ts-expect-error missing type
 import { Pane, Splitpanes } from 'splitpanes'
 import AppSidebar from '../components/sidebar/AppSidebar.vue'
 import HeaderMain from '../components/headers/HeaderMain.vue'
 import { provideExpandedContext } from '@/shared/composables/expanded'
-import { useBoardsStore } from '@/modules/boards/stores/board'
 
 import 'splitpanes/dist/splitpanes.css'
 
@@ -15,9 +13,6 @@ const isExpanded = useLocalStorage('isExpanded', true)
 const transitionFl = ref<boolean>(false)
 
 const sidebarSize = computed(() => isExpanded.value ? '275' : '58')
-
-const boardsStore = useBoardsStore()
-const { boards } = storeToRefs(boardsStore)
 
 function onToggleArea() {
   isExpanded.value = !isExpanded.value
@@ -36,7 +31,7 @@ provideExpandedContext({
       style="flex: none"
       :style="{ transition: transitionFl && 'all .2s ease-out', width: `${sidebarSize}px` }"
     >
-      <AppSidebar :boards />
+      <AppSidebar />
     </Pane>
     <Pane style="width: 100%;">
       <div class="flex flex-col h-full overflow-hidden w-full">

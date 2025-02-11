@@ -33,10 +33,4 @@ export const links: WorkspaceLink[] = [
     pathName: 'members',
     icon: 'hugeicons:user-multiple-02',
   },
-  {
-    id: 5,
-    name: 'settings',
-    pathName: 'settings',
-    icon: 'hugeicons:setting-07',
-  },
 ]

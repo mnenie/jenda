@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue/dist/iconify.js'
-import type { IntegrationItem } from '../../types'
+import type { IntegrationItem } from '../../../types'
 import { redirect } from '@/shared/helpers/redirectBlank'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { useExpandedContext } from '@/shared/composables/expanded'
@@ -16,11 +16,11 @@ const { isExpanded } = useExpandedContext()
 
 <template>
   <div
-    class="flex items-center justify-between w-full pt-0 pb-3"
+    class="flex items-center justify-between w-full pb-3 pt-0"
     :class="[isExpanded ? 'px-2' : 'px-1']"
   >
     <p
-      class="text-neutral-500 dark:text-neutral-400 text-small capitalize text-ellipsis
+      class="text-neutral-500 dark:text-neutral-400 text-small fw500 capitalize text-ellipsis
         whitespace-nowrap overflow-hidden"
     >
       {{ $t('sidebar.integrations') }}

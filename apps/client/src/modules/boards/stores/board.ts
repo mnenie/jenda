@@ -14,6 +14,16 @@ export const useBoardsStore = defineStore('boards', () => {
       labels: [],
       color: '#df50f2',
     },
+    {
+      _id: '2',
+      name: 'Hello',
+      tasks: 10,
+      createdAt: new Date(),
+      users: [],
+      status: 'active',
+      labels: [],
+      color: '#32a852',
+    },
   ])
   const board = ref<Board>()
 

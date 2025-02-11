@@ -28,8 +28,8 @@ const formattedBoards = computed(() => {
   return props.boards.map(board => ({
     name: board.name,
     path: `/boards/${board._id}`,
-    icon: 'fluent-emoji-high-contrast:brown-square',
     color: board.color,
+    isBoard: true,
   }))
 })
 

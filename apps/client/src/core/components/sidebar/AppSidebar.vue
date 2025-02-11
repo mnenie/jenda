@@ -1,20 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { refDebounced } from '@vueuse/core'
-import InfoMenu from './InfoMenu.vue'
-import IntegrationItems from './IntegrationItems.vue'
+import InfoMenu from './dropdowns/InfoMenu.vue'
+import IntegrationItems from './links/IntegrationItems.vue'
 import WorkSpace from './WorkSpace.vue'
 import WorkspaceChooser from './WorkSpaceChooser.vue'
 import PlanCard from './plan/PlanCard.vue'
-import BoardsRows from './BoardsRows.vue'
-import type { Board } from '@/modules/boards/types'
+import BoardsRows from './boards/BoardsList.vue'
+import NotificationsMenu from './dropdowns/NotificationsMenu.vue'
+import SettingsLink from './links/SettingsLink.vue'
 import { links } from '@/shared/constants/links'
 import SearchBox from '@/modules/search/components/SearchBox.vue'
 import { useExpandedContext } from '@/shared/composables/expanded'
-
-defineProps<{
-  boards: Board[]
-}>()
 
 const { isExpanded } = useExpandedContext()
 
@@ -37,13 +34,15 @@ const paddingExpanded = computed(() => {
       :style="{ padding: paddingExpanded }"
     >
       <div>
-        <SearchBox :boards />
+        <SearchBox />
+        <NotificationsMenu />
         <WorkSpace :links />
         <BoardsRows />
         <IntegrationItems />
       </div>
       <div>
         <InfoMenu />
+        <SettingsLink />
         <PlanCard :is-show-plan />
       </div>
     </div>

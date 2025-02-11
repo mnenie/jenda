@@ -32,7 +32,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
       size="sm"
       variant="ghost"
       :class="
-        cn('w-full justify-start px-2 focus:ring-0', isSettings && 'mt-2')"
+        cn('w-full justify-start px-2 focus:ring-0')"
       @click="isPopoverOpen = false"
     >
       <span v-if="!isSettings" :class="cn(icon, 'w-4 h-4 text-neutral-700 dark:text-neutral-300')" />
@@ -51,18 +51,18 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     <UiPopoverTrigger as-child>
       <slot />
     </UiPopoverTrigger>
-    <UiPopoverContent side="bottom" align="start" class="px-1">
+    <UiPopoverContent side="bottom" align="start" class="px-1 max-w-270px">
       <div class="relative w-full h-full">
-        <div class="flex items-center justify-between gap-1 mb-6 px-2">
+        <div class="flex items-center justify-between gap-1 mb-4 px-2">
           <div class="flex flex-col gap-0.5 mt-1">
             <p class="text-base !fw600 dark:text-neutral-100">
               {{ workspace.name }}
             </p>
             <div class="flex items-center gap-1">
-              <UiBadge variant="secondary" class="shadow-none px-1 py-0 text-8px">
+              <UiBadge variant="secondary" class="shadow-none px-1 py-0 text-10px">
                 {{ workspace.plan }}
               </UiBadge>
-              <UiBadge variant="secondary" class="shadow-none px-1 py-0 text-8px">
+              <UiBadge variant="secondary" class="shadow-none px-1 py-0 text-10px">
                 <span class="text-blue-500">
                   {{ $t(`workspace.popover.${workspace.status}`) }}
                 </span>
@@ -75,17 +75,12 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
               </p>
             </div>
           </div>
-          <div class="flex items-center gap-1.5">
-            <span i-lucide-check class="w-5 h-5 text-blue-500" />
-          </div>
         </div>
         <div class="flex flex-col gap-0">
           <p class="px-2 text-small text-neutral-500 dark:text-neutral-400 mb-1">
             {{ $t('workspace.popover.section') }}
           </p>
-          <ReuseTemplate data="pay" icon="i-lucide-credit-card" @click="$router.push({ name: 'welcome' })" />
           <ReuseTemplate data="invite" icon="i-hugeicons-link-04" @click="isDialogOpen = true" />
-          <ReuseTemplate data="team" icon="i-hugeicons-user-group" @click="$router.push({ name: 'members' })" />
           <ReuseTemplate :is-settings="true" data="settings" @click="$router.push({ name: 'settings' })" />
         </div>
       </div>

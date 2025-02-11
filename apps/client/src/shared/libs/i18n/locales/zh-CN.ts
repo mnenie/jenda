@@ -15,6 +15,13 @@ export default {
       title: '帮助',
       items: '支持开发者 | 键盘快捷键 | 加入我们',
     },
+    notifications: {
+      btn: '通知',
+    },
+    boards_section: {
+      title: '看板',
+      empty: '没有看板',
+    },
     plan: {
       btn: '了解更多',
       title: '高级计划',
@@ -280,10 +287,6 @@ export default {
         {
           title: '延迟',
           description: '暂停执行指定时间',
-        },
-        {
-          title: '公式',
-          description: '执行计算',
         },
         {
           title: '彩带',

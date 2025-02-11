@@ -4,7 +4,7 @@ export default {
     input: 'Search',
     section: 'workspace',
     projects: 'projects',
-    boards: 'Boards',
+    boards: 'All boards',
     notes: 'Notes',
     templates: 'Templates',
     workflows: 'Workflows',
@@ -14,6 +14,13 @@ export default {
     help: {
       title: 'Help',
       items: 'Support developers | Keyboard shortcuts | Join us',
+    },
+    notifications: {
+      btn: 'Notifications',
+    },
+    boards_section: {
+      title: 'Boards',
+      empty: 'No boards',
     },
     plan: {
       btn: 'Learn more',
@@ -282,10 +289,6 @@ export default {
         {
           title: 'Delay',
           description: 'Pauses an execution',
-        },
-        {
-          title: 'Formula',
-          description: 'Performs calculations',
         },
         {
           title: 'Confetti',
