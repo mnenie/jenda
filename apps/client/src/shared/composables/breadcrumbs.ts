@@ -1,4 +1,4 @@
-import { effectScope, onScopeDispose, shallowRef, watch } from 'vue'
+import { shallowRef, watch } from 'vue'
 import { type RouteLocationRaw, useRoute } from 'vue-router/auto'
 
 export interface Breadcrumb {
@@ -13,9 +13,6 @@ export function useBreadcrumbs<T extends Breadcrumb>() {
   const breadcrumbs = shallowRef<T[]>([])
   const route = useRoute()
 
-  const scope = effectScope()
-
-  // scope.run(() => {
   watch(
     () => route.name,
     () => {
@@ -23,10 +20,6 @@ export function useBreadcrumbs<T extends Breadcrumb>() {
     },
     { immediate: true },
   )
-  // })
-  onScopeDispose(() => {
-    scope.stop()
-  })
 
   return {
     breadcrumbs,

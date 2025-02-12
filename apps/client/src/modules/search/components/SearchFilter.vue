@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { createReusableTemplate, refDebounced } from '@vueuse/core'
+import { Icon } from '@iconify/vue'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { useExpandedContext } from '@/shared/composables/expanded'
 
@@ -20,7 +21,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>
-  <div class="relative h-9 2xl:h-8 mb-20px">
+  <div class="relative h-9 2xl:h-8 mb-12px">
     <DefineTemplate v-slot="{ content }">
       <UiBadge
         variant="outline"
@@ -42,13 +43,13 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
       ]"
       @click="emit('openModal')"
     >
-      <div
-        i-lucide-search
-        class="text-neutral-800 dark:text-neutral-200 2xl:(!w-4 !h-4)"
+      <Icon
+        icon="lucide:search"
+        class="text-neutral-800 2xl:(!w-4 !h-4)"
         :class="[
           isExpanded
-            ? '!w-15px !h-15px'
-            : 'absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 !h-16px !w-16px',
+            ? 'w-15px h-15px dark:text-neutral-300'
+            : 'absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-16px w-16px dark:text-neutral-200',
         ]"
       />
       <span

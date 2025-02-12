@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tests for UiCollapsible > should render correctly 1`] = `
+"<div data-state="closed"><button type="button" aria-controls="" aria-expanded="false" data-state="closed"> trigger </button>
+  <div class="collapsible-content" id="radix-vue-collapsible-content-v-0" data-state="closed" hidden="" style="--radix-collapsible-content-height: 0px; --radix-collapsible-content-width: 0px;">
+    <!---->
+  </div>
+</div>"
+`;

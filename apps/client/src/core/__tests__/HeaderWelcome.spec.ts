@@ -4,7 +4,6 @@ import { describe, expect, it, vi } from 'vitest'
 import HeaderWelcome from '../components/headers/HeaderWelcome.vue'
 import type { headerLinks } from '../constants/header'
 import type { VueWrapper } from '@vue/test-utils'
-import i18n from '@/shared/libs/i18n'
 import { UiButton } from '@/shared/ui'
 
 type HeaderWelcomeInstance = ComponentPublicInstance<
@@ -25,8 +24,6 @@ const mockRouter = {
 describe('tests for HeaderWelcome.vue', () => {
   const wrapper = shallowMount(HeaderWelcome, {
     global: {
-      plugins: [i18n],
-
       mocks: {
         t: (key: string) => {
           const translations: Record<string, string> = {

@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { computed, ref, useTemplateRef } from 'vue'
+import { computed, inject, ref, useTemplateRef } from 'vue'
 import { useRouter } from 'vue-router/auto'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
 import ManageNoteOptions from './features/ManageNoteOptions.vue'
 import {
   UiDialog,
   UiDialogContent,
   UiDialogHeader,
 } from '@/shared/ui'
+import { DayjsInjectionKey } from '@/plugins/dayjs'
 
 const router = useRouter()
 
@@ -19,7 +18,9 @@ function toggleModalRoute() {
     router.back()
   }
 }
-dayjs.extend(relativeTime)
+
+const dayjs = inject(DayjsInjectionKey)!
+
 // mocks -> after from store
 const lastModified = ref('2025-01-21T00:00:00Z')
 

@@ -4,7 +4,7 @@ export default {
     input: 'Search',
     section: 'workspace',
     projects: 'projects',
-    boards: 'Boards',
+    boards: 'All boards',
     notes: 'Notes',
     templates: 'Templates',
     workflows: 'Workflows',
@@ -14,6 +14,13 @@ export default {
     help: {
       title: 'Help',
       items: 'Support developers | Keyboard shortcuts | Join us',
+    },
+    notifications: {
+      btn: 'Notifications',
+    },
+    boards_section: {
+      title: 'Boards',
+      empty: 'No boards',
     },
     plan: {
       btn: 'Learn more',
@@ -183,6 +190,12 @@ export default {
     placeholder: 'Custom color',
     tabs: 'Solid | Gradients',
   },
+  common: {
+    remove: {
+      warning: 'This action is irreversible.',
+      btns: 'Cancel | Delete',
+    },
+  },
   workflows: {
     create: 'Add workflow | Add a new workflow',
     remove: 'Delete',
@@ -224,6 +237,66 @@ export default {
       description: 'Create your first workflow and automate tasks',
     },
     columns: ['Workflow name', 'Description', 'Creator', 'Runs', 'Status', 'Date updated'],
+  },
+  workflow: {
+    alert: {
+      status: 'This process is in status',
+      btn: 'Make production',
+    },
+    remove: {
+      title: 'Process deletion',
+      description: 'Are you sure you want to delete this process? All associated data will be removed.',
+    },
+    handlers: {
+      hand: 'Hand',
+      move: 'Move',
+      lock: 'Lock',
+      layout: 'AI power: Layout',
+    },
+    actions: 'Logs | Run',
+    panel: {
+      open: 'Open panel',
+      close: 'Close panel',
+    },
+    empty: 'Drag elements to this area',
+    nodes: {
+      title: 'All Nodes',
+      description: 'Here you can select any of the nodes.',
+      main: 'Main',
+      effects: 'Effects',
+      links: 'Useful Links',
+      docs: {
+        title: 'Documentation',
+        description: 'Learn how to manage nodes in the system.',
+      },
+      items: [
+        {
+          title: 'Trigger',
+          description: 'Start of the process',
+        },
+        {
+          title: 'Action',
+          description: 'Performs an operation in the process',
+        },
+        {
+          title: 'Notification',
+          description: 'Sends a message',
+        },
+        {
+          title: 'Condition',
+          description: 'Checks if conditions are met',
+        },
+        {
+          title: 'Delay',
+          description: 'Pauses an execution',
+        },
+        {
+          title: 'Confetti',
+          description: 'Creates a confetti effect',
+        },
+      ],
+      alert: 'Set actions',
+    },
   },
   templates: {
     title: 'Templates',

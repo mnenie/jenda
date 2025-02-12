@@ -6,7 +6,7 @@ import { Icon } from '@iconify/vue'
 import SearchItem from './SearchItem.vue'
 import type { Board } from '@/modules/boards/types'
 import type { SearchRoute } from '../types'
-import { links as _links } from '@/shared/constants/links'
+import { links as _links } from '@/core/constants/sidebar'
 import { UiCommandEmpty, UiCommandGroup, UiCommandList } from '@/shared/ui'
 
 const props = defineProps<{
@@ -28,8 +28,8 @@ const formattedBoards = computed(() => {
   return props.boards.map(board => ({
     name: board.name,
     path: `/boards/${board._id}`,
-    icon: 'fluent-emoji-high-contrast:brown-square',
     color: board.color,
+    isBoard: true,
   }))
 })
 

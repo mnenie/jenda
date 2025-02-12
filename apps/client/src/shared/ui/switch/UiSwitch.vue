@@ -14,12 +14,14 @@ type SwitchProps = SwitchRootProps & {
   class?: HTMLAttributes['class']
   variant?: SwitchVariants['variant']
   thumb?: SwitchVariants['thumb']
+  thumbClass?: HTMLAttributes['class']
 }
 
 const {
   variant = 'default',
   thumb = 'default',
   class: switchClass,
+  thumbClass,
   ...props
 } = defineProps<SwitchProps>()
 
@@ -42,6 +44,7 @@ const forwarded = useForwardPropsEmits(props, emits)
       :class="cn(
         switchVariants({ thumb }),
         'switch-thumb',
+        thumbClass,
       )"
     >
       <slot name="thumb" />

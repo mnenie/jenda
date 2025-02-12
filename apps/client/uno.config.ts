@@ -39,9 +39,11 @@ export default defineConfig({
   ],
   shortcuts: [
     {
-      'auth-page': 'h-full flex w-68% max-[1440px]:w-80% max-[1100px]:!w-full',
-      'auth-slot-container': 'relative h-full w-full mx-auto px-2rem dark:bg-#1c1c1c',
-      'form-container': 'relative flex w-460px flex-col gap-2 max-[520px]:!w-full max-[1100px]:!w-460px max-[1200px]:w-360px',
+      'font-medium': 'fw430',
+      'text-default': 'text-base 2xl:text-sm',
+      'text-large': 'text-lg 2xl:text-base',
+      'text-small': 'text-sm 2xl:text-xs',
+      'h-default': 'h-9 2xl:h-8',
     },
     {
       'bg-main': 'bg-white dark:bg-#262626',
@@ -49,11 +51,9 @@ export default defineConfig({
       'bg-sidebar': 'bg-neutral-50 dark:bg-#1c1c1c66',
     },
     {
-      'font-medium': 'fw430',
-      'text-default': 'text-base 2xl:text-sm',
-      'text-large': 'text-lg 2xl:text-base',
-      'text-small': 'text-sm 2xl:text-xs',
-      'h-default': 'h-9 2xl:h-8',
+      'auth-page': 'h-full flex w-68% max-[1440px]:w-80% max-[1100px]:!w-full',
+      'auth-slot-container': 'relative h-full w-full mx-auto px-2rem dark:bg-#1c1c1c',
+      'form-container': 'relative flex w-460px flex-col gap-2 max-[520px]:!w-full max-[1100px]:!w-460px max-[1200px]:w-360px',
     },
   ],
   configDeps: [
@@ -78,6 +78,8 @@ export default defineConfig({
     './src/shared/ui/_shortcuts/switch.ts',
     './src/shared/ui/_shortcuts/table.ts',
     './src/shared/ui/_shortcuts/tags-input.ts',
+    './src/shared/ui/_shortcuts/sheet.ts',
+    './src/shared/ui/_shortcuts/collapsible.ts',
     './src/shared/ui/_shortcuts/index.ts',
   ],
   content: {

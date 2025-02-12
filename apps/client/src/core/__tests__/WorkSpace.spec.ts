@@ -2,7 +2,6 @@ import { mount, RouterLinkStub } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import { useRoute } from 'vue-router/auto'
 import WorkSpace from '../components/sidebar/WorkSpace.vue'
-import i18n from '@/shared/libs/i18n'
 
 vi.mock('vue-router/auto')
 
@@ -19,7 +18,6 @@ describe('tests for WorkSpace.vue', () => {
   useRoute.mockReturnValue({ name: 'boards' })
   const wrapper = mount(WorkSpace, {
     global: {
-      plugins: [i18n],
       mocks: {
         t: (key: string) => {
           const translations: Record<string, string> = {

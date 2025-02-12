@@ -15,6 +15,13 @@ export default {
       title: '帮助',
       items: '支持开发者 | 键盘快捷键 | 加入我们',
     },
+    notifications: {
+      btn: '通知',
+    },
+    boards_section: {
+      title: '看板',
+      empty: '没有看板',
+    },
     plan: {
       btn: '了解更多',
       title: '高级计划',
@@ -181,6 +188,12 @@ export default {
     placeholder: '自定义颜色',
     tabs: '纯色 | 渐变',
   },
+  common: {
+    remove: {
+      warning: '此操作无法撤销。',
+      btns: '取消 | 删除',
+    },
+  },
   workflows: {
     create: '添加流程 | 添加新流程',
     remove: '删除',
@@ -222,6 +235,66 @@ export default {
       description: '创建您的第一个流程并自动化任务',
     },
     columns: ['流程名称', '描述', '创建者', '运行次数', '状态', '更新时间'],
+  },
+  workflow: {
+    alert: {
+      status: '此流程的状态为',
+      btn: '开始生产',
+    },
+    remove: {
+      title: '删除流程',
+      description: '您确定要删除此流程吗？所有相关数据都将被删除。',
+    },
+    handlers: {
+      hand: '手',
+      move: '移动',
+      lock: '锁定',
+      layout: 'AI 助力: 布局',
+    },
+    actions: '日志 | 运行',
+    panel: {
+      open: '打开面板',
+      close: '关闭面板',
+    },
+    empty: '将元素拖到此区域',
+    nodes: {
+      title: '所有节点',
+      description: '在这里您可以选择任何节点。',
+      main: '主要',
+      effects: '效果',
+      links: '有用的链接',
+      docs: {
+        title: '文档',
+        description: '了解如何管理系统中的节点。',
+      },
+      items: [
+        {
+          title: '触发器',
+          description: '流程的开始',
+        },
+        {
+          title: '操作',
+          description: '在流程中执行操作',
+        },
+        {
+          title: '通知',
+          description: '发送消息',
+        },
+        {
+          title: '条件',
+          description: '检查条件是否满足',
+        },
+        {
+          title: '延迟',
+          description: '暂停执行指定时间',
+        },
+        {
+          title: '彩带',
+          description: '创建节日彩带效果',
+        },
+      ],
+      alert: '设置操作',
+    },
   },
   templates: {
     title: '模板',

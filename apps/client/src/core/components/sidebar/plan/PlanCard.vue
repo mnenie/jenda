@@ -30,7 +30,7 @@ const { isExpanded } = useExpandedContext()
   </div>
   <div
     v-else
-    class="relative p-4.5px 2xl:pt-10px 2xl:pb-4px px-1 rounded-lg"
+    class="relative p-4.5px 2xl:pt-4px 2xl:pb-4px px-1 rounded-lg"
     :class="!isExpanded && 'cursor-pointer'"
   >
     <span

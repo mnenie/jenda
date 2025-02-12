@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBoardsStore } from '../stores/board'
+import { useBoardsStore } from '../stores/boards'
 import CreateNewBoard from './features/CreateNewBoard.vue'
 import RemoveBoard from './features/handlers/RemoveBoard.vue'
 import BoardsAdvancedFilter from './filters/BoardsAdvancedFilter.vue'

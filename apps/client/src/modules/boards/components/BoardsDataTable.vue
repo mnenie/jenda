@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { computed, useTemplateRef } from 'vue'
+import { computed, inject, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useDark } from '@vueuse/core'
-import dayjs from 'dayjs'
-import localizedFormat from 'dayjs/plugin/localizedFormat'
-import { columns as _columns } from '../utils/constants/table'
+import { columns as _columns } from '../constants/table'
 import type { Table } from '@tanstack/vue-table'
 import type { BoardRow } from '../types'
 import { DataTable, UiBadge } from '@/shared/ui'
 import { formatLabelColor } from '@/shared/helpers/helperColor'
 import UserAvatar from '@/modules/auth/components/UserAvatar.vue'
+import { DayjsInjectionKey } from '@/plugins/dayjs'
 
 defineProps<{
   data: Set<BoardRow> | BoardRow[]
@@ -38,7 +37,7 @@ function userPosition(idx: number) {
   return idx * 20
 }
 
-dayjs.extend(localizedFormat)
+const dayjs = inject(DayjsInjectionKey)!
 
 const timesAgo = computed(() =>
   (board: BoardRow) => {

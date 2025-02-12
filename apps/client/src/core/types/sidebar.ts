@@ -1,5 +1,5 @@
 import type { IconifyIcon } from '@iconify/vue'
-import type { RouterLinkProps } from 'vue-router/auto'
+import type { RouterLinkProps, RouteRecordName } from 'vue-router/auto'
 
 export interface Link {
   id: number
@@ -13,4 +13,15 @@ export interface IntegrationItem {
   name: string
   link: string
   icon: string
+}
+
+interface Path {
+  pathName: string
+}
+
+export interface WorkspaceLink extends Path {
+  id?: number
+  name: RouteRecordName
+  icon: IconifyIcon | string
+  badge?: boolean
 }
