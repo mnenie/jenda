@@ -47,11 +47,6 @@ thead {
   }
 }
 
-.echarts > div:first-child {
-  height: 100% !important;
-  width: 100% !important;
-}
-
 canvas {
   width: 100% !important;
   height: 100% !important;
