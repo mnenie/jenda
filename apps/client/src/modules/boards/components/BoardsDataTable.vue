@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { computed, inject, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useDark } from '@vueuse/core'
 import { columns as _columns } from '../constants/table'
+import LabelItem from './additions/LabelItem.vue'
 import type { Table } from '@tanstack/vue-table'
 import type { BoardRow } from '../types'
-import { DataTable, UiBadge } from '@/shared/ui'
-import { formatLabelColor } from '@/shared/helpers/helperColor'
-import UserAvatar from '@/modules/auth/components/UserAvatar.vue'
+import { DataTable } from '@/shared/ui'
 import { DayjsInjectionKey } from '@/plugins/dayjs'
+import UserAvatars from '@/modules/common/components/UserAvatars.vue'
 
 defineProps<{
   data: Set<BoardRow> | BoardRow[]
@@ -17,10 +16,6 @@ defineProps<{
 const select = defineModel <Record<string, boolean>>('select')
 
 const table = useTemplateRef<Table<any>>('table')
-
-const visibleUsers = computed(() => (cell: any) => cell.row.original.users.slice(0, 4))
-
-const remainingUsers = computed(() => (cell: any) => Math.max(cell.row.original.users.length - 4, 0))
 
 const { tm } = useI18n()
 
@@ -33,18 +28,12 @@ const columns = computed(() => {
   }))
 })
 
-function userPosition(idx: number) {
-  return idx * 20
-}
-
 const dayjs = inject(DayjsInjectionKey)!
 
-const timesAgo = computed(() =>
+const createdAt = computed(() =>
   (board: BoardRow) => {
     return dayjs(board.createdAt).format('ll')
   })
-
-const isDark = useDark()
 
 defineExpose({
   getTable: () => table.value,
@@ -64,19 +53,7 @@ defineExpose({
     <template #labels-cell="{ cell }">
       <div class="w-full whitespace-nowrap text-neutral-500">
         <template v-if="cell.row.original.labels.length > 0">
-          <UiBadge
-            v-for="{ name, color } in cell.row.original.labels"
-            :key="name"
-            variant="soft"
-            class="shadow-none rounded-lg !text-12px 2xl:!text-xs fw450 px-1.5 mr-1.5 bg-neutral-100 text-neutral-800 dark:(bg-neutral-700/80 text-neutral-100)"
-            :style="{
-              background: color ? color.startsWith('#') ? `${color}33` : color : '',
-              color: formatLabelColor(color, isDark ? 10 : 100) || '',
-              border: color ? `1px solid ${color}44 !important` : '1px solid rgba(128, 128, 128, 0.3) !important',
-            }"
-          >
-            {{ name }}
-          </UiBadge>
+          <LabelItem v-for="label in cell.row.original.labels" :key="label.name" :label="label" class="mr-1.5 py-px px-1.5" />
         </template>
         <template v-else>
           <span class="text-neutral-500">-</span>
@@ -84,34 +61,11 @@ defineExpose({
       </div>
     </template>
     <template #users-cell="{ cell }">
-      <div v-if="visibleUsers(cell).length > 0" class="flex items-center relative h-full w-full justify-between">
-        <div class="relative flex items-center relative h-full">
-          <template v-for="(user, idx) in visibleUsers(cell)" :key="user">
-            <UserAvatar
-              :style="{
-                left: `${userPosition(idx)}px`,
-                zIndex: `${idx + 1}`,
-              }"
-              class="!h-24px !w-24px absolute"
-            >
-              <img :src="user.photoUrl" class="object-cover" />
-            </UserAvatar>
-          </template>
-        </div>
-        <div
-          v-if="remainingUsers(cell) > 0"
-          :style="{
-            zIndex: `${visibleUsers(cell).length + 1}`,
-          }"
-          class="flex items-center justify-center text-neutral-600 dark:text-neutral-400"
-        >
-          +{{ remainingUsers(cell) }}
-        </div>
-      </div>
+      <UserAvatars v-if="cell.row.original.users.length > 0" avatar="!w-24px !h-24px" :users="cell.row.original.users" :max="5" />
       <span v-else class="text-neutral-500">-</span>
     </template>
     <template #date-cell="{ cell }">
-      {{ timesAgo(cell.row.original) }}
+      {{ createdAt(cell.row.original) }}
     </template>
   </DataTable>
 </template>
