@@ -210,7 +210,7 @@ defineExpose({
               <UiBadge
                 v-if="header.column.columnDef.meta && (header.column.columnDef.meta as any).badge"
                 variant="soft"
-                class="px-1 py-px text-xs badge-soft-purple"
+                class="px-1 py-px text-xs fw450 badge-soft-purple"
               >
                 {{ (header.column.columnDef.meta as any).badge }}
               </UiBadge>

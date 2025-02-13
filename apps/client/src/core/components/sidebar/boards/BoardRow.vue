@@ -14,6 +14,11 @@ const route = useRoute('boards-id')
 
 const isBoardActive = computed(() => route.params.id === props.board._id && route.name === 'boards-id')
 
+const boardStyle = computed(() => ({
+  backgroundColor: props.board.color ? `${props.board.color}33` : '#266df033',
+  color: props.board.color ? props.board.color : '#266df0',
+}))
+
 const { isExpanded } = useExpandedContext()
 </script>
 
@@ -40,9 +45,10 @@ const { isExpanded } = useExpandedContext()
       )"
     >
       <div class="flex items-center gap-2">
+        <!-- пофиксить с бэком -->
         <div
           class="flex items-center justify-center w-5 h-5 rounded-sm"
-          :style="{ backgroundColor: `${board.color}33`, color: board.color }"
+          :style="boardStyle"
         >
           {{ board.name.charAt(0).toUpperCase() }}
         </div>

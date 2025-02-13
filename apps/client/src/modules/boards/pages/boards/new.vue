@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import CreateBoardForm from '../../components/forms/CreateBoardForm.vue'
-import NewBoardDialog from '../../components/NewBoardDialog.vue'
+import NewBoardDialog from '../../components/forms/NewBoardDialog.vue'
 
 // unplugin
 definePage({

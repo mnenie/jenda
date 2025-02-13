@@ -1,10 +1,19 @@
-<script setup lang="ts">
-import type { Note } from '../types'
+<script setup lang="ts" generic="T extends Note">
+import { computed, inject } from 'vue'
+import type { Note } from '../../types'
 import UserAvatar from '@/modules/auth/components/UserAvatar.vue'
+import { DayjsInjectionKey } from '@/plugins/dayjs'
 
 defineProps<{
-  note: Note
+  note: T
 }>()
+
+const dayjs = inject(DayjsInjectionKey)!
+
+const timesAgoNote = computed(() =>
+  (note: T) => {
+    return dayjs().to(dayjs(note.updatedAt))
+  })
 </script>
 
 <template>
@@ -33,12 +42,12 @@ defineProps<{
         </div>
         <div v-else class="flex items-center space-x-1.5">
           <UserAvatar class="!h-20px !w-20px" :img="note.creator!.photoUrl" />
-          <span class="text-xs text-neutral-500 dark:text-neutral-400">
+          <span class="text-xs text-neutral-500 fw500 dark:text-neutral-400">
             {{ note.creator!.email }}
           </span>
         </div>
         <span class="text-xs text-neutral-500 dark:text-neutral-400">
-          {{ note.date }}
+          {{ timesAgoNote(note) }}
         </span>
       </div>
     </div>

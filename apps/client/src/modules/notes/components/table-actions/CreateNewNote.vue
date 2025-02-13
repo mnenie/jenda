@@ -1,21 +1,12 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router/auto'
+import { Icon } from '@iconify/vue'
 import { useNotesStore } from '../../stores/notes'
-import AddNote from './handlers/AddNote.vue'
-import type { ButtonVariants } from '@/shared/ui'
-
-defineOptions({
-  inheritAttrs: false,
-})
-
-defineProps<{
-  variant: ButtonVariants['variant']
-  plural: number
-}>()
-
-const router = useRouter()
+import { UiButton } from '@/shared/ui'
 
 const notesStore = useNotesStore()
+
+const router = useRouter()
 
 function addNewNote() {
   // mock
@@ -25,9 +16,11 @@ function addNewNote() {
 </script>
 
 <template>
-  <AddNote
-    :variant
-    :plural
-    @add="addNewNote"
-  />
+  <UiButton
+    variant="solid"
+    @click="addNewNote"
+  >
+    <Icon icon="hugeicons:file-add" class="w-4 h-4 scale-x--100" />
+    <span class="text-default">{{ $t('notes.create') }}</span>
+  </UiButton>
 </template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { createReusableTemplate } from '@vueuse/core'
-import { useFilteredBoardsContext } from '../../composables/filtered'
+import { useFilteredBoardsContext } from '../../../composables/filtered'
 import {
   UiBadge,
   UiButton,

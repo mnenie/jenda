@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, inject, ref, useTemplateRef } from 'vue'
 import { useRouter } from 'vue-router/auto'
-import ManageNoteOptions from './features/ManageNoteOptions.vue'
+import ManageNoteOptions from './options/ManageNoteOptions.vue'
 import {
   UiDialog,
   UiDialogContent,

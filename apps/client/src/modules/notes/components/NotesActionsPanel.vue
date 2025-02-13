@@ -3,8 +3,8 @@ import { storeToRefs } from 'pinia'
 import { useNotesStore } from '../stores/notes'
 import SearchNotes from './filters/SearchNotes.vue'
 import NotesSort from './filters/NotesSort.vue'
-import CreateNewNote from './features/CreateNewNote.vue'
-import RemoveNote from './features/handlers/RemoveNote.vue'
+import CreateNewNote from './table-actions/CreateNewNote.vue'
+import RemoveSelectedNote from './table-actions/RemoveSelectedNote.vue'
 import { UiTabsList, UiTabsTrigger } from '@/shared/ui'
 
 defineProps<{
@@ -28,7 +28,7 @@ const { notes } = storeToRefs(notesStore)
         </UiTabsTrigger>
       </UiTabsList>
       <NotesSort />
-      <RemoveNote
+      <RemoveSelectedNote
         v-if="isSelected && notes.length > 0"
         @remove="notesStore.removeNotes(idxs!)"
       />

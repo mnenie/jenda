@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useBoardsStore } from '../stores/boards'
-import CreateNewBoard from './features/CreateNewBoard.vue'
-import RemoveBoard from './features/handlers/RemoveBoard.vue'
-import BoardsAdvancedFilter from './filters/BoardsAdvancedFilter.vue'
-import BoardsSort from './filters/BoardsSort.vue'
-import SearchBoards from './filters/SearchBoards.vue'
+import CreateNewBoard from './table-actions/CreateNewBoard.vue'
+import RemoveSelectedBoard from './table-actions/RemoveSelectedBoard.vue'
+import BoardsAdvancedFilter from './table-actions/filters/BoardsAdvancedFilter.vue'
+import BoardsSort from './table-actions/filters/BoardsSort.vue'
+import SearchBoards from './table-actions/filters/SearchBoards.vue'
 import type { Board } from '../types'
 import { UiTabsList, UiTabsTrigger } from '@/shared/ui'
 
@@ -30,7 +30,7 @@ const boardsStore = useBoardsStore()
       </UiTabsList>
       <BoardsSort class="mr-2" />
       <BoardsAdvancedFilter />
-      <RemoveBoard
+      <RemoveSelectedBoard
         v-if="isSelected && boards.length > 0"
         @remove="boardsStore.removeBoards(idxs)"
       />

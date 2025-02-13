@@ -68,7 +68,7 @@ defineExpose({
             v-for="{ name, color } in cell.row.original.labels"
             :key="name"
             variant="soft"
-            class="shadow-none rounded-lg !text-12px 2xl:!text-xs font-medium px-1.5 mr-1.5 bg-neutral-100 text-neutral-800 dark:(bg-neutral-700/80 text-neutral-100)"
+            class="shadow-none rounded-lg !text-12px 2xl:!text-xs fw450 px-1.5 mr-1.5 bg-neutral-100 text-neutral-800 dark:(bg-neutral-700/80 text-neutral-100)"
             :style="{
               background: color ? color.startsWith('#') ? `${color}33` : color : '',
               color: formatLabelColor(color, isDark ? 10 : 100) || '',

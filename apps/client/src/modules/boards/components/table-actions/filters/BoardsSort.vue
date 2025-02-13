@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useFilteredBoardsContext } from '../../composables/filtered'
+import { useFilteredBoardsContext } from '../../../composables/filtered'
 import {
   UiButton,
   UiSelect,
