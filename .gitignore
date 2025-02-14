@@ -20,9 +20,7 @@ coverage
 .env.production
 
 .idea
+.zed
 .DS_Store
 .eslintcache
 *.tsbuildinfo
-
-
-
