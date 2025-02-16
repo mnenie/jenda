@@ -39,7 +39,7 @@
     "@tiptap/starter-kit": "2.11.2",
     "@tiptap/suggestion": "2.11.2",
     "@tiptap/vue-3": "2.11.2",
-    "@unhead/vue": "^1.11.18",
+    "@unhead/vue": "^1.11.19",
     "@unocss/core": "^65.5.0",
     "@unocss/reset": "^65.5.0",
     "@vee-validate/zod": "^4.15.0",
