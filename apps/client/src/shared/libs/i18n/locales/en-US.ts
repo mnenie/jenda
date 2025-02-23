@@ -88,7 +88,7 @@ export default {
           label: 'Labels',
           placeholder: 'Enter a label',
           description: 'Start typing a label and press \'Enter\' to save it to your existing labels',
-          alert: '📝 How to change the label color? | Specify the label name followed by [#desired color]. For example: jenda [#000000].',
+          alert: '📝 How to change the label color? | See more details in our documentation.',
         },
         btns: 'Cancel | Create',
       },

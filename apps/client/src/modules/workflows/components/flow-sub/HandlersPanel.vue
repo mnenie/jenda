@@ -54,7 +54,7 @@ function onAction(action: () => void, item: typeof mainHandlers[number]) {
             :class="item.active ? '!bg-blue-100 dark:!bg-blue-900/30 !text-blue-500' : 'text-neutral-800 dark:text-neutral-200'"
             @click="onAction(item.action, item)"
           >
-            <Icon :icon="item.icon" class="min-w-4.2 min-h-4.2" />
+            <Icon :icon="item.icon" class="min-w-4.6 min-h-4.6 2xl:(min-w-4.2 min-h-4.2)" />
           </UiButton>
           <template #popper>
             {{ $t(`workflow.handlers.${item.name}`) }}
