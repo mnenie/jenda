@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, type HTMLAttributes } from 'vue'
 import {
-  DialogClose,
   DialogContent,
   type DialogContentEmits,
   type DialogContentProps,
@@ -44,17 +43,6 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
         )"
     >
       <slot />
-
-      <DialogClose
-        v-if="closed"
-        :class="cn(
-          'dialog-close',
-          'bg-transparent data-[state=open]:text-neutral-500 dark:data-[state=open]:text-neutral-400',
-        )"
-      >
-        <div i-lucide-x class="w-4 h-4" />
-        <span class="sr-only">Close</span>
-      </DialogClose>
     </DialogContent>
   </DialogPortal>
 </template>
