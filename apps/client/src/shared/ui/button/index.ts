@@ -15,10 +15,10 @@ export const buttonVariants = cva('btn', {
       dashed: 'btn-dashed',
     },
     size: {
-      default: 'h-9 2xl:h-8 rounded-md px-2',
+      default: 'h-default rounded-md px-2',
       xs: 'h-8 rounded px-2 text-xs rounded-lg',
       md: 'h-9.5 2xl:h-9 rounded-md px-2.5 py-1.5',
-      sm: 'h-9 2xl:h-8 rounded-md px-3',
+      sm: 'h-default rounded-md px-3',
       lg: 'h-9 sm:h-10 2xl:h-9 px-4 py-2',
     },
   },

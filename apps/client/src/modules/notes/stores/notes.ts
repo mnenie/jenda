@@ -13,6 +13,13 @@ export const useNotesStore = defineStore('notes', () => {
       content,
       title: 'Untitled',
       type: 'doc' as const,
+      creator: {
+        _id: '1',
+        email: 'a@b.com',
+        photoUrl: '',
+      },
+      users: [],
+      updatedAt: new Date(),
     }
     // notes.value.push(defaultNote)
   }

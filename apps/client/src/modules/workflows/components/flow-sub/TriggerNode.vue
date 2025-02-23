@@ -30,13 +30,13 @@ const {
   >
     <div
       class="w-fit flex items-center justify-between p-2 py-0.5 border border-neutral-200 dark:border-neutral-700 border-b-none rounded-lg rounded-b-none bg-neutral-50 dark:bg-#2e2e2e"
-      :class="isThisNode && '!bg-blue-100 !border-blue-200 dark:(!border-blue-800)'"
+      :class="isThisNode && '!bg-blue-100 !border-blue-200 dark:(!border-blue-900 !bg-blue-900/30)'"
     >
       <div
         class="flex items-center gap-1.5 text-neutral-600 dark:text-neutral-300"
-        :class="isThisNode && '!text-blue-900 dark:text-blue-100'"
+        :class="isThisNode && '!text-blue-900 dark:!text-blue-200'"
       >
-        <Icon icon="fluent-mdl2:processing-run" class="w-3 h-3" />
+        <Icon icon="fluent-mdl2:processing-run" class="2xl(w-3 h-3) w-4 h-4" />
         <span class="text-small whitespace-nowrap">
           {{ $t('workflow.nodes.items[0].title') }}
         </span>

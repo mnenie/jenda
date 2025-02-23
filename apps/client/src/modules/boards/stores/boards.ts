@@ -1,9 +1,9 @@
-import { ref } from 'vue'
+import { ref, shallowRef, triggerRef } from 'vue'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Board, BoardRow } from '../types'
 
 export const useBoardsStore = defineStore('boards', () => {
-  const boards = ref<BoardRow[]>([])
+  const boards = shallowRef<BoardRow[]>([])
   const board = ref<Board>()
 
   function removeBoards(idxs: string[]) {
@@ -11,12 +11,13 @@ export const useBoardsStore = defineStore('boards', () => {
       const index = boards.value.findIndex(board => board._id === id)
       if (index !== -1) {
         boards.value.splice(index, 1)
+        triggerRef(boards)
       }
     })
   }
 
   function addBoard(board: Board) {
-    boards.value.push(board)
+    boards.value = [...boards.value, board]
   }
 
   return {

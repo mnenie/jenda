@@ -6,8 +6,9 @@ import { useField, useForm } from 'vee-validate'
 import { useRouter } from 'vue-router/auto'
 import { useBoardsStore } from '../../stores/boards'
 import TagsChooser from './TagsChooser.vue'
+import FormAlert from './NewBoardFormAlert.vue'
 import type { Label } from '../../types'
-import { UiAlert, UiButton, UiFormField, UiFormLabel, UiFormMessage, UiInput } from '@/shared/ui'
+import { UiButton, UiFormField, UiFormLabel, UiFormMessage, UiInput } from '@/shared/ui'
 import { z } from '@/shared/libs/vee-validate'
 
 const validationSchema = toTypedSchema(
@@ -62,20 +63,10 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
               id="name"
               v-model="name"
               :placeholder="$t('authentication.workspace.creating.form.name.placeholder')"
-              class="shadow-none h-default focus:ring-0"
+              class="input-form"
             />
           </ReuseTemplate>
-          <UiAlert
-            variant="warning"
-            class="mt-2 mb-1 border-none flex flex-col items-start gap-1"
-          >
-            <span class="text-default fw500">
-              {{ $t('boards.forms.creating.labels.alert', 1) }}
-            </span>
-            <span class="text-default text-neutral-500 dark:text-neutral-400">
-              {{ $t('boards.forms.creating.labels.alert', 2) }}
-            </span>
-          </UiAlert>
+          <FormAlert />
           <ReuseTemplate field="labels">
             <TagsChooser id="labels" v-model="labels" />
             <span class="text-small text-neutral-500">
@@ -86,7 +77,6 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         <div class="flex items-center justify-end gap-3">
           <UiButton
             variant="secondary"
-            size="default"
             type="button"
             class="px-4"
             @click="router.back()"
@@ -95,7 +85,6 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
           </UiButton>
           <UiButton
             variant="solid"
-            size="default"
             type="submit"
             class="px-4"
           >

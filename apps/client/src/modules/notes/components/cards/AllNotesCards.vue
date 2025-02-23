@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import NoteCard from './NoteCard.vue'
-import type { Note } from '../types'
+import type { Note } from '../../types'
 
 defineProps<{
   notes: Note[]

@@ -63,7 +63,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
               id="name"
               v-model="name"
               :placeholder="$t('workflows.forms.creating.name.placeholder')"
-              class="shadow-none h-default focus:ring-0"
+              class="input-form"
             />
           </ReuseTemplate>
           <ReuseTemplate field="description">

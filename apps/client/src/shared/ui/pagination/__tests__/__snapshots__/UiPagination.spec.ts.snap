@@ -2,13 +2,13 @@
 
 exports[`tests for UiPagination > should render correctly 1`] = `
 "<nav>
-  <div class="flex items-center gap-1"><button class="btn btn-outline h-9 2xl:h-8 rounded-md px-3 pagination-item" disabled="" aria-label="First Page" type="button">
+  <div class="flex items-center gap-1"><button class="btn btn-outline h-default rounded-md px-3 pagination-item" disabled="" aria-label="First Page" type="button">
       <!--v-if--><span i-lucide-chevrons-left="" class="min-w-3.5"></span>
-    </button><button class="btn btn-outline h-9 2xl:h-8 rounded-md px-3 pagination-item" disabled="" aria-label="Previous Page" type="button">
+    </button><button class="btn btn-outline h-default rounded-md px-3 pagination-item" disabled="" aria-label="Previous Page" type="button">
       <!--v-if--><span i-lucide-chevron-left="" class="min-w-3.5"></span>
-    </button><button class="btn btn-outline h-9 2xl:h-8 rounded-md px-3 pagination-item" aria-label="Next Page" type="button">
+    </button><button class="btn btn-outline h-default rounded-md px-3 pagination-item" aria-label="Next Page" type="button">
       <!--v-if--><span i-lucide-chevron-right="" class="min-w-3.5"></span>
-    </button><button class="btn btn-outline h-9 2xl:h-8 rounded-md px-3 pagination-item" aria-label="Last Page" type="button">
+    </button><button class="btn btn-outline h-default rounded-md px-3 pagination-item" aria-label="Last Page" type="button">
       <!--v-if--><span i-lucide-chevrons-right="" class="min-w-3.5"></span>
     </button></div>
 </nav>"

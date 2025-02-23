@@ -1,14 +1,18 @@
 <script setup lang="ts" generic="TData">
-import { computed, ref, useTemplateRef } from 'vue'
+import { type ComponentPublicInstance, computed, ref, useTemplateRef } from 'vue'
 import { storeToRefs } from 'pinia'
 import NotesActionsPanel from '../components/NotesActionsPanel.vue'
 import { provideFilteredNotesContext, useFilteredNotes } from '../composables/filtered'
 import NotesDataTable from '../components/NotesDataTable.vue'
 import { useNotesStore } from '../stores/notes'
-import AllNotesCards from '../components/AllNotesCards.vue'
+import AllNotesCards from './cards/AllNotesCards.vue'
 import type { Table } from '@tanstack/vue-table'
 import ViewControl from '@/modules/common/components/controls/ViewControl.vue'
 import TableControls from '@/modules/common/components/controls/TableControls.vue'
+
+interface NotesDataTableExpose {
+  getTable: () => Table<TData>
+}
 
 const sortModel = ref('default')
 const selectedNotes = ref<Record<string, boolean>>({})
@@ -24,7 +28,9 @@ const isSelected = computed(() => {
 
 const idxs = computed(() => Object.keys(selectedNotes.value))
 
-const dataTable = useTemplateRef<InstanceType<typeof NotesDataTable>>('table')
+const dataTable = useTemplateRef<
+  ComponentPublicInstance<typeof NotesDataTable, NotesDataTableExpose>
+>('table')
 
 provideFilteredNotesContext({
   sortModel,

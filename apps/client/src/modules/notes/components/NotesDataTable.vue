@@ -1,14 +1,15 @@
-<script setup lang="ts">
-import { computed, useTemplateRef } from 'vue'
+<script setup lang="ts" generic="T extends Note">
+import { computed, inject, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { columns as _columns } from '../constants/table'
 import type { Table } from '@tanstack/vue-table'
 import type { Note } from '../types'
 import { DataTable } from '@/shared/ui'
 import UserAvatar from '@/modules/auth/components/UserAvatar.vue'
+import { DayjsInjectionKey } from '@/plugins/dayjs'
 
 defineProps<{
-  data: Set<Note> | Note[]
+  data: Set<T> | T[]
 }>()
 
 const select = defineModel <Record<string, boolean>>('select')
@@ -29,6 +30,13 @@ const columns = computed(() => {
     header: localizedArr[idx],
   }))
 })
+
+const dayjs = inject(DayjsInjectionKey)!
+
+const timesAgo = computed(() =>
+  (workflow: T) => {
+    return dayjs().to(dayjs(workflow.updatedAt))
+  })
 
 function userPosition(idx: number) {
   return idx * 20
@@ -88,6 +96,11 @@ defineExpose({
           {{ cell.row.original.creator.email }}
         </span>
       </div>
+    </template>
+    <template #date-cell="{ cell }">
+      <span class="text-default text-neutral-800 dark:text-neutral-200 whitespace-nowrap">
+        {{ timesAgo(cell.row.original) }}
+      </span>
     </template>
   </DataTable>
 </template>
