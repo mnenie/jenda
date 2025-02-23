@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`tests for WorkSpace.vue > should be render correctly 1`] = `
-"<div class="flex flex-col space-y-1.5 justify-start mb-20px"><a class="flex items-center gap-1.5 cursor-pointer text-neutral-900 justify-start w-full"><button class="btn btn-secondary h-9 2xl:h-8 rounded-md relative w-full gap-2 shadow-none px-2 transition-all duration-200 ease !bg-neutral-200/40 dark:!bg-neutral-700/50" style="justify-content: space-between;">
+"<div class="flex flex-col space-y-1.5 justify-start mb-20px"><a class="flex items-center gap-1.5 cursor-pointer text-neutral-900 justify-start w-full"><button class="btn btn-secondary h-default rounded-md relative w-full gap-2 shadow-none px-2 transition-all duration-200 ease !bg-neutral-200/40 dark:!bg-neutral-700/50" style="justify-content: space-between;">
       <!--v-if-->
       <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="!2xl:w-4 !2xl:h-4 !w-16px !h-16px text-neutral-800 dark:text-neutral-300" width="1em" height="1em" viewBox="0 0 16 16"></svg><span class="text-default !fw500 text-neutral-950 dark:text-neutral-100">All boards</span></div>
     </button></a></div>"

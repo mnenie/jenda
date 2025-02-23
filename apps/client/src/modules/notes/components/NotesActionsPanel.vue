@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useNotesStore } from '../stores/notes'
-import SearchNotes from './filters/SearchNotes.vue'
-import NotesSort from './filters/NotesSort.vue'
+import NotesSort from './table-actions/filters/NotesSort.vue'
+import SearchNotes from './table-actions/filters/SearchNotes.vue'
 import CreateNewNote from './table-actions/CreateNewNote.vue'
 import RemoveSelectedNote from './table-actions/RemoveSelectedNote.vue'
 import { UiTabsList, UiTabsTrigger } from '@/shared/ui'

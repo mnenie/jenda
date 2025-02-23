@@ -60,7 +60,7 @@ describe('tests for UiButton', () => {
         },
       })
       const button = wrapper.find('button')
-      expect(button.attributes('class')).toContain(`h-8`)
+      expect(button.attributes('class')).toContain(`h-default`)
     })
   })
 })

@@ -28,7 +28,7 @@ function convertValue(value: string): Label {
     v-model="model"
     :convert-value="convertValue"
     :display-value="(tag: any) => tag.name"
-    class="w-full"
+    class="w-full input-form"
   >
     <UiTagsInputItem
       v-for="label in model"
