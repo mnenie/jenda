@@ -349,33 +349,6 @@ export default {
       view: '查看白板',
     },
   },
-  analytics: {
-    title: '工作区分析',
-    description: '查看并分析您在 Jenda 上的活动',
-    charts: {
-      users: {
-        name: '用户数量',
-        description: '工作区中的用户数量',
-      },
-      online: {
-        name: '工作区活动',
-      },
-      tasks: {
-        name: '任务数量',
-        dataset: {
-          names: ['未完成', '已完成'],
-        },
-      },
-      boards: {
-        name: '看板数量',
-      },
-    },
-    badges: ['方便', '信息丰富', '随时'],
-    share: {
-      btn: '分享',
-      description: '您可以轻松地截图并将其发送给任何人。',
-    },
-  },
   settings: {
     title: '设置',
     description: '管理您的帐户设置和设定一些偏好。',

@@ -4,7 +4,19 @@ import type { Board, BoardRow } from '../types'
 
 export const useBoardsStore = defineStore('boards', () => {
   const boards = shallowRef<BoardRow[]>([])
-  const board = ref<Board>()
+  const board = ref<Board>({
+    _id: '1',
+    name: 'New board',
+    color: '#fcba03',
+    columns: [],
+    users: [{
+      _id: '1',
+      email: 'John Doe',
+      photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
+    }],
+    status: 'active',
+    labels: [],
+  })
 
   function removeBoards(idxs: string[]) {
     idxs.forEach((id) => {

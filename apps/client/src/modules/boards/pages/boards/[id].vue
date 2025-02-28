@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BoardName from '../../components/kanban/BoardName.vue'
+
 // unplugin
 definePage({
   alias: ['/n/:id'],
@@ -25,8 +27,8 @@ definePage({
 
 <template>
   <div class="h-full w-full">
-    <div class="relative h-full w-full">
-      kanban
+    <div class="relative h-full w-full p-4 px-15px">
+      <BoardName />
     </div>
   </div>
 </template>
