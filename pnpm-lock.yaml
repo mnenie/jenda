@@ -138,8 +138,8 @@ importers:
         specifier: ^2.1.7
         version: 2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5))
       radix-vue:
-        specifier: ^1.9.16
-        version: 1.9.16(vue@3.5.13(typescript@5.4.5))
+        specifier: ^1.9.17
+        version: 1.9.17(vue@3.5.13(typescript@5.4.5))
       splitpanes:
         specifier: ^3.1.5
         version: 3.1.8(vue@3.5.13(typescript@5.4.5))
@@ -4174,8 +4174,8 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  radix-vue@1.9.16:
-    resolution: {integrity: sha512-xwkTfQ7Ub/0XmT40JDc3g03xuYqKIJzVKGazcIkk8mUksj/tbw1pcCVRP0e3hKvPHKeQ0cktI1MvRnlUwCRvoQ==}
+  radix-vue@1.9.17:
+    resolution: {integrity: sha512-mVCu7I2vXt1L2IUYHTt0sZMz7s1K2ZtqKeTIxG3yC5mMFfLBG4FtE1FDeRMpDd+Hhg/ybi9+iXmAP1ISREndoQ==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -4882,8 +4882,8 @@ packages:
   vue-component-type-helpers@2.2.0:
     resolution: {integrity: sha512-cYrAnv2me7bPDcg9kIcGwjJiSB6Qyi08+jLDo9yuvoFQjzHiPTzML7RnkJB1+3P6KMsX/KbCD4QE3Tv/knEllw==}
 
-  vue-component-type-helpers@2.2.2:
-    resolution: {integrity: sha512-6lLY+n2xz2kCYshl59mL6gy8OUUTmkscmDFMO8i7Lj+QKwgnIFUZmM1i/iTYObtrczZVdw7UakPqDTGwVSGaRg==}
+  vue-component-type-helpers@2.2.4:
+    resolution: {integrity: sha512-F66p0XLbAu92BRz6kakHyAcaUSF7HWpWX/THCqL0TxySSj7z/nok5UUMohfNkkCm1pZtawsdzoJ4p1cjNqCx0Q==}
 
   vue-demi@0.13.11:
     resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
@@ -6193,7 +6193,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.13(typescript@5.4.5)
-      vue-component-type-helpers: 2.2.2
+      vue-component-type-helpers: 2.2.4
 
   '@stylistic/eslint-plugin@2.11.0(eslint@9.14.0(jiti@2.4.2))(typescript@5.7.2)':
     dependencies:
@@ -9494,7 +9494,7 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  radix-vue@1.9.16(vue@3.5.13(typescript@5.4.5)):
+  radix-vue@1.9.17(vue@3.5.13(typescript@5.4.5)):
     dependencies:
       '@floating-ui/dom': 1.6.13
       '@floating-ui/vue': 1.1.6(vue@3.5.13(typescript@5.4.5))
@@ -10283,7 +10283,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.0: {}
 
-  vue-component-type-helpers@2.2.2: {}
+  vue-component-type-helpers@2.2.4: {}
 
   vue-demi@0.13.11(vue@3.5.13(typescript@5.4.5)):
     dependencies:
