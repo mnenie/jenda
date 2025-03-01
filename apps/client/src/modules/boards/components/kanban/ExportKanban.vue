@@ -6,9 +6,9 @@ import { UiButton } from '@/shared/ui'
 <template>
   <UiButton variant="secondary" class="shadow-none">
     <Icon
-      icon="lucide:plus"
+      icon="ic:baseline-share"
       class="w-4 h-4 text-neutral-400"
     />
-    Импорт / Экспорт
+    {{ $t('kanban.export') }}
   </UiButton>
 </template>

@@ -447,6 +447,12 @@ export default {
       activity: '按活动排序',
       workload: '按工作量排序',
     },
+    view: {
+      kanban: '看板',
+      timeline: '时间轴',
+    },
+    menu: ['更改背景', '标签', '编辑', '删除'],
+    export: '导出看板',
     active: '活跃',
     archived: '已归档',
     new: '添加新列',

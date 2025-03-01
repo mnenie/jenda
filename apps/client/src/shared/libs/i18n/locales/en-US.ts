@@ -459,6 +459,12 @@ export default {
       activity: 'By activity',
       workload: 'By workload',
     },
+    view: {
+      kanban: 'Kanban',
+      timeline: 'Timeline',
+    },
+    menu: ['Change background', 'Manage labels', 'Edit board', 'Delete board'],
+    export: 'Export board',
     active: 'active',
     archived: 'archived',
     new: 'Add new column',
