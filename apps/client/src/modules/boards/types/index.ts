@@ -28,6 +28,7 @@ export interface Board extends DateParams {
   users: User[]
   color?: string
   estimate?: number
+  creator?: User
   // fix
   date?: string
 }

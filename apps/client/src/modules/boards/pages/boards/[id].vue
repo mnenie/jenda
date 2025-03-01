@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BoardName from '../../components/kanban/BoardName.vue'
+import ActionsPanel from '../../components/kanban/ActionsPanel.vue'
 
 // unplugin
 definePage({
@@ -27,8 +27,8 @@ definePage({
 
 <template>
   <div class="h-full w-full">
-    <div class="relative h-full w-full p-4 px-15px">
-      <BoardName />
+    <div class="relative h-full w-full p-3.5 px-15px">
+      <ActionsPanel />
     </div>
   </div>
 </template>

@@ -9,13 +9,31 @@ export const useBoardsStore = defineStore('boards', () => {
     name: 'New board',
     color: '#fcba03',
     columns: [],
-    users: [{
-      _id: '1',
-      email: 'John Doe',
-      photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
-    }],
+    users: [
+      {
+        _id: '1',
+        email: 'alex',
+        photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
+      },
+      {
+        _id: '2',
+        email: 'airat@gmail.com',
+        photoUrl: 'https://avatars.githubusercontent.com/u/95149637?s=100&v=4',
+      },
+      {
+        _id: '3',
+        email: 'slava@gmail.com',
+        photoUrl: 'https://avatars.githubusercontent.com/u/83920644?v=4',
+      },
+    ],
     status: 'active',
     labels: [],
+    updatedAt: new Date(),
+    creator: {
+      _id: '1',
+      email: 'alex',
+      photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
+    },
   })
 
   function removeBoards(idxs: string[]) {
