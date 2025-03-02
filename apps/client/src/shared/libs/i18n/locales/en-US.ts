@@ -467,6 +467,7 @@ export default {
     export: 'Export board',
     active: 'active',
     archived: 'archived',
+    alert: 'The board has been archived and is no longer editable.',
     new: 'Add new column',
     cards: {
       add: 'Add card',

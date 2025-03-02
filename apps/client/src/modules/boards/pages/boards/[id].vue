@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ActionsPanel from '../../components/kanban/ActionsPanel.vue'
+import ArchivedAlert from '../../components/kanban/ArchivedAlert.vue'
 
 // unplugin
 definePage({
@@ -29,6 +30,7 @@ definePage({
   <div class="h-full w-full">
     <div class="relative h-full w-full p-3.5 px-15px">
       <ActionsPanel />
+      <ArchivedAlert />
     </div>
   </div>
 </template>

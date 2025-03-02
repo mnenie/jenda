@@ -455,6 +455,7 @@ export default {
     export: '导出看板',
     active: '活跃',
     archived: '已归档',
+    alert: '该看板已被归档，无法再编辑。',
     new: '添加新列',
     cards: {
       add: '添加卡片',

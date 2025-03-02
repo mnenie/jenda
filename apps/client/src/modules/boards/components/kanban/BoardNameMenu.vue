@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { Icon } from '@iconify/vue'
 import { useI18n } from 'vue-i18n'
+import { useMagicKeys } from '@vueuse/core'
 import { useBoardsStore } from '../../stores/boards'
 import { menuValues } from '../../constants/board-menu'
 import {
@@ -43,6 +44,10 @@ const menuLocaleArr = computed(() => {
     shortcut: menuValues[id].shortcut,
   }))
 })
+
+const { alt_meta_p, ctrl_meta_0, alt_meta_x, alt_meta_e } = useMagicKeys()
+
+// _todo[skip_ci]
 </script>
 
 <template>

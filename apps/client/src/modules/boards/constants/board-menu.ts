@@ -6,15 +6,15 @@ interface MenuItem {
 export const menuValues = [
   {
     value: 'background',
-    shortcut: '⌥P',
+    shortcut: '⌥⌘P',
   },
   {
     value: 'labels',
-    shortcut: '⌃O',
+    shortcut: '⌃⌘O',
   },
   {
     value: 'edit',
-    shortcut: '⌥E',
+    shortcut: '⌥⌘E',
   },
   {
     value: 'delete',
