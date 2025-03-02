@@ -8,7 +8,22 @@ export const useBoardsStore = defineStore('boards', () => {
     _id: '1',
     name: 'New board',
     color: '#fcba03',
-    columns: [],
+    columns: [
+      {
+        _id: '1',
+        title: 'TODO',
+        cards: [],
+        estimate: 2,
+        description: 'Tasks waiting in the queue',
+      },
+      {
+        _id: '2',
+        title: 'Ready',
+        cards: [],
+        description: 'This is ready to be picked up',
+        estimate: 0,
+      },
+    ],
     users: [
       {
         _id: '1',

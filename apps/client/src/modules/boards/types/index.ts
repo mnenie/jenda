@@ -51,7 +51,9 @@ export interface Card extends DateParams {
 export interface Column extends DateParams {
   _id: string
   title: string
+  description?: string
   cards?: Card[]
+  estimate?: number
 }
 
 export interface StatusBadge {
