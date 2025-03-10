@@ -6,6 +6,7 @@ import (
 	"jenda-backend-go/models"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -13,50 +14,44 @@ import (
 )
 
 func RequireAuth(c *gin.Context) {
-	//куки с реквеста
-
-	tokenString, err := c.Cookie("Authorization")
-
-	if err != nil {
-		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
-			"error": "Unauthorized",
-		})
-
+	authHeader := c.GetHeader("Authorization")
+	if authHeader == "" {
+		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Authorization header required"})
 		return
 	}
-	//валидация куков
+
+	tokenString := strings.TrimPrefix(authHeader, "Bearer ")
+
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
-		}
-		return []byte(os.Getenv("HASH")), nil
+		return []byte(os.Getenv("ACCESS_SECRET")), nil
 	})
 
-	if claims, ok := token.Claims.(jwt.MapClaims); ok {
-		//проверка валидности
-		if float64(time.Now().Unix()) > claims["exp"].(float64) {
-			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
-				"error": "Unauthorized",
-			})
-		}
-		//нахождение пользователя в бд
-		var user models.User
-		initializers.DB.First(&user, claims["sub"])
-
-		if user.ID == 0 {
-			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
-				"error": "Unauthorized",
-			})
-		}
-		//проверка
-		c.Set("user", user)
-
-		//пропуск дальше
-
-		c.Next()
-	} else {
-		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
-			"error": "Unauthorized",
-		})
+	if err != nil || !token.Valid {
+		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
+		return
 	}
+
+	claims, ok := token.Claims.(jwt.MapClaims)
+	if !ok {
+		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Invalid token claims"})
+		return
+	}
+
+	exp, ok := claims["exp"].(float64)
+	if !ok || time.Now().Unix() > int64(exp) {
+		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Token expired"})
+		return
+	}
+
+	var user models.User
+	sub := fmt.Sprint(claims["sub"])
+	initializers.DB.First(&user, "id = ?", sub)
+
+	if user.ID == 0 {
+		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
+		return
+	}
+
+	c.Set("user", user)
+	c.Next()
 }

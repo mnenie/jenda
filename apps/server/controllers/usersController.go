@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"jenda-backend-go/initializers"
 	"jenda-backend-go/models"
 	"net/http"
@@ -20,6 +21,7 @@ func SignUp(c *gin.Context) {
 		PhotoUrl string
 		Role     string
 		Color    string
+		Nickname string
 	}
 
 	if c.Bind(&body) != nil {
@@ -41,7 +43,7 @@ func SignUp(c *gin.Context) {
 		return
 	}
 	// создрать юзера
-	user := models.User{Email: body.Email, Password: string(hash), PhotoUrl: &body.PhotoUrl, Role: &body.Role, Color: &body.Color}
+	user := models.User{Email: body.Email, Password: string(hash), PhotoUrl: &body.PhotoUrl, Role: &body.Role, Color: &body.Color, Nickname: &body.Nickname}
 	result := initializers.DB.Create(&user)
 
 	if result.Error != nil {
@@ -59,65 +61,63 @@ func SignUp(c *gin.Context) {
 }
 
 func Login(c *gin.Context) {
-	//спарсить почту и пароль
-
 	var body struct {
 		Email    string
 		Password string
 	}
 
 	if c.Bind(&body) != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Failed to read body",
-		})
-
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Failed to read body"})
 		return
 	}
 
-	//найти юзера
 	var user models.User
 	initializers.DB.First(&user, "email = ?", body.Email)
 
 	if user.ID == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Invalid email or password",
-		})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid email or password"})
 		return
 	}
-
-	//сравнить пароли
 
 	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(body.Password))
-
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Invalid email or password",
-		})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid email or password"})
 		return
 	}
-	//создать токен
 
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+	// создание аксесс токена
+	accessToken := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"sub": user.ID,
-		"exp": time.Now().Add(time.Hour * 24 * 30).Unix(),
+		"exp": time.Now().Add(time.Minute * 15).Unix(),
 	})
-
-	// Sign and get the complete encoded token as a string using the secret
-	tokenString, err := token.SignedString([]byte(os.Getenv("HASH")))
-
+	accessTokenString, err := accessToken.SignedString([]byte(os.Getenv("ACCESS_SECRET")))
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Failed to create token",
-		})
-
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Failed to sign access token"})
 		return
 	}
 
-	//вернуть токен
+	// создание рефреш токена
+	refreshToken := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"sub": user.ID,
+		"exp": time.Now().Add(time.Hour * 24 * 7).Unix(),
+	})
+	refreshTokenString, err := refreshToken.SignedString([]byte(os.Getenv("REFRESH_SECRET")))
+
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Failed to create refresh token"})
+		return
+	}
+
+	// закинуть рефреш в дб
+	user.RefreshToken = &refreshTokenString
+	initializers.DB.Save(&user)
+
+	// отправить рефреш в куки
 	c.SetSameSite(http.SameSiteLaxMode)
-	c.SetCookie("Authorization", tokenString, 3600*24*30, "", "", false, true)
+	c.SetCookie("RefreshToken", refreshTokenString, 3600*24*7, "", "", false, true)
+
 	c.JSON(http.StatusOK, gin.H{
-		"message": "success",
+		"accessToken": accessTokenString,
 	})
 }
 
@@ -127,4 +127,92 @@ func Validate(c *gin.Context) {
 		"message": user,
 	})
 
+}
+
+func Refresh(c *gin.Context) {
+	refreshTokenString, err := c.Cookie("RefreshToken")
+	if err != nil {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Refresh token required"})
+		return
+	}
+
+	token, err := jwt.Parse(refreshTokenString, func(token *jwt.Token) (interface{}, error) {
+		return []byte(os.Getenv("REFRESH_SECRET")), nil
+	})
+
+	if err != nil || !token.Valid {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid refresh token"})
+		return
+	}
+
+	claims, ok := token.Claims.(jwt.MapClaims)
+	if !ok {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token claims"})
+		return
+	}
+
+	exp, ok := claims["exp"].(float64)
+	if !ok || time.Now().Unix() > int64(exp) {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Refresh token expired"})
+		return
+	}
+
+	var user models.User
+	sub := fmt.Sprint(claims["sub"])
+	initializers.DB.First(&user, "id = ?", sub)
+
+	if user.ID == 0 || *user.RefreshToken != refreshTokenString {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid refresh token"})
+		return
+	}
+
+	// создать новый аксесс
+	newAccessToken := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"sub": user.ID,
+		"exp": time.Now().Add(time.Minute * 15).Unix(),
+	})
+	newAccessTokenString, err := newAccessToken.SignedString([]byte(os.Getenv("ACCESS_SECRET")))
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Failed to sign access token"})
+		return
+	}
+
+	// и рефреш
+	newRefreshToken := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"sub": user.ID,
+		"exp": time.Now().Add(time.Hour * 24 * 7).Unix(),
+	})
+
+	newRefreshTokenString, err := newRefreshToken.SignedString([]byte(os.Getenv("REFRESH_SECRET")))
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Failed to sign access token"})
+		return
+	}
+
+	// закинуть рефреш в дб
+	user.RefreshToken = &newRefreshTokenString
+	initializers.DB.Save(&user)
+
+	// закинуть в куки
+	c.SetCookie("RefreshToken", newRefreshTokenString, 3600*24*7, "", "", false, true)
+
+	c.JSON(http.StatusOK, gin.H{
+		"accessToken": newAccessTokenString,
+	})
+}
+
+func Logout(c *gin.Context) {
+	user, _ := c.Get("user")
+	currentUser := user.(models.User)
+
+	// убрать рефреш с дб
+	currentUser.RefreshToken = nil
+	initializers.DB.Save(&currentUser)
+
+	// зачистить куки
+	c.SetCookie("RefreshToken", "", -1, "", "", false, true)
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Successfully logged out",
+	})
 }

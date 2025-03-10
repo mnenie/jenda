@@ -1,3 +1,4 @@
 PORT=3000
 DATABASE_URL="host=localhost user=user password=password dbname=dbname port=5432 sslmode=disable"
-HASH=yourhash
+ACCESS_SECRET=ACCESS_SECRET token
+REFRESH_SECRET=REFRESH_SECRET token

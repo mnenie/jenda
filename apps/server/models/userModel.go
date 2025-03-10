@@ -4,9 +4,11 @@ import "gorm.io/gorm"
 
 type User struct {
 	gorm.Model
-	Email    string `gorm:"unique"`
-	Password string
-	PhotoUrl *string
-	Role     *string
-	Color    *string
+	Email        string `gorm:"unique"`
+	Password     string
+	PhotoUrl     *string
+	Role         *string
+	Color        *string
+	Nickname     *string
+	RefreshToken *string
 }

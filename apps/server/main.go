@@ -16,9 +16,10 @@ func init() {
 func main() {
 	r := gin.Default()
 
-	//user
 	r.POST("/signup", controllers.SignUp)
 	r.POST("/login", controllers.Login)
+	r.POST("/refresh", controllers.Refresh)
+	r.POST("/logout", middleware.RequireAuth, controllers.Logout)
 	r.GET("/validate", middleware.RequireAuth, controllers.Validate)
 
 	r.Run()
