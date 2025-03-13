@@ -17,6 +17,7 @@ import {
   UiDropdownMenuTrigger,
   UiSwitch,
 } from '@/shared/ui'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 const boardsStore = useBoardsStore()
 const { board } = storeToRefs(boardsStore)
@@ -87,9 +88,15 @@ const { alt_meta_p, ctrl_meta_0, alt_meta_x, alt_meta_e } = useMagicKeys()
         </UiBadge>
       </UiDropdownMenuItem>
       <UiDropdownMenuSeparator />
-      <UiDropdownMenuItem v-for="item in menuLocaleArr" :key="item.value">
+      <UiDropdownMenuItem
+        v-for="item, idx in menuLocaleArr"
+        :key="item.value"
+        :class="cn({ 'hover:!bg-#dc262611 !text-red-500': menuLocaleArr.length - 1 === idx }, 'cursor-pointer')"
+      >
         <span class="text-default fw370">{{ item.value }}</span>
-        <UiDropdownMenuShortcut>{{ item.shortcut }}</UiDropdownMenuShortcut>
+        <UiDropdownMenuShortcut class="text-neutral-500">
+          {{ item.shortcut }}
+        </UiDropdownMenuShortcut>
       </UiDropdownMenuItem>
     </UiDropdownMenuContent>
   </UiDropdownMenu>

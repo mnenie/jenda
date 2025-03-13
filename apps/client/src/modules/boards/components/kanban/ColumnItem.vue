@@ -1,8 +1,9 @@
 <script setup lang="ts" generic="T extends Column">
 import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
+import ColumnMenu from './menus/ColumnMenu.vue'
 import type { Column } from '../../types'
-import { UiBadge } from '@/shared/ui'
+import { UiBadge, UiButton } from '@/shared/ui'
 
 defineProps<{
   column: T
@@ -36,7 +37,7 @@ const getRandomColor = computed(() => {
             Estimate: {{ column.estimate }}
           </UiBadge>
         </div>
-        <Icon icon="lucide:ellipsis" class="min-w-4.4 min-h-4.4 text-neutral-500 dark:text-neutral-400 cursor-pointer" />
+        <ColumnMenu />
       </div>
       <span v-if="column.description" class="text-default ml-2 fw500 text-neutral-400 dark:text-neutral-500">
         {{ column.description }}
@@ -44,10 +45,12 @@ const getRandomColor = computed(() => {
     </div>
     <slot v-if="column.cards?.length" name="column-content" :column />
     <div>
-      <div class="flex items-center p-2 h-7 mt-auto gap-1.5 cursor-pointer">
+      <UiButton variant="ghost" size="sm" class="w-full justify-start h-8">
         <Icon icon="lucide:plus" class="min-w-4.4 min-h-4.4 text-neutral-500 dark:text-neutral-400" />
-        <span class="text-default fw500 text-neutral-600 dark:text-neutral-400">Добавить задачу</span>
-      </div>
+        <span class="text-default fw500 text-neutral-600 dark:text-neutral-400">
+          {{ $t('kanban.column.tasks.new') }}
+        </span>
+      </UiButton>
     </div>
   </div>
 </template>

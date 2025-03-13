@@ -469,6 +469,19 @@ export default {
     archived: 'archived',
     alert: 'The board has been archived and is no longer editable.',
     new: 'Add new column',
+    column: {
+      tooltips: {
+        actions: 'Actions for the column',
+      },
+      menu: {
+        edit: 'Edit',
+        delete: 'Delete',
+        limit: 'Set limit',
+      },
+      tasks: {
+        new: 'Add a task',
+      },
+    },
     cards: {
       add: 'Add card',
     },

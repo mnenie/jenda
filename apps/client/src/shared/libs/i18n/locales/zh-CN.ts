@@ -457,6 +457,19 @@ export default {
     archived: '已归档',
     alert: '该看板已被归档，无法再编辑。',
     new: '添加新列',
+    column: {
+      tooltips: {
+        actions: '列的操作',
+      },
+      menu: {
+        edit: '编辑',
+        delete: '删除',
+        limit: '设置限制',
+      },
+      tasks: {
+        new: '添加任务',
+      },
+    },
     cards: {
       add: '添加卡片',
     },
