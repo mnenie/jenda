@@ -13,7 +13,7 @@ const props = defineProps<{
 const dayjs = inject(DayjsInjectionKey)!
 
 const updatedAtCard = computed(() => {
-  return dayjs(props.card.updatedAt).format('dd, hh:mm')
+  return dayjs(props.card.updatedAt).format('ll')
 })
 </script>
 
