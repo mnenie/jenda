@@ -13,9 +13,9 @@ const props = defineProps<{
 
 const priorities = {
   none: '',
-  low: '!task-card-low',
-  medium: '!task-card-medium',
-  high: '!task-card-high',
+  low: '!task-card-green',
+  medium: '!task-card-yellow',
+  high: '!task-card-red',
 } as const satisfies Record<U | Priority, string>
 
 const priorityColor = computed(() => priorities[props.card.priority!])
