@@ -14,7 +14,7 @@ const { board } = storeToRefs(boardStore)
   <div class="flex items-center justify-between gap-5">
     <div class="flex items-center gap-2.5">
       <BoardNameMenu />
-      <UserAvatars :max="2" :users="board.users" avatar="!w-26px !h-26px" />
+      <UserAvatars :max="2" :users="board.users" avatar="!w-26px !h-26px cursor-pointer" tooltip />
     </div>
     <div class="flex items-center gap-2.5">
       <ViewDisplay />

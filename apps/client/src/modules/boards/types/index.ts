@@ -7,13 +7,14 @@ interface DateParams {
 }
 
 export interface Label {
+  id?: string
   name: string
   color: string
 }
 
 export type Status = 'active' | 'archived'
 
-type Priority = 'none' | 'low' | 'medium' | 'high'
+export type Priority = 'none' | 'low' | 'medium' | 'high'
 
 export interface BoardRow extends Omit<Board, 'columns'> {
   tasks?: number
@@ -33,19 +34,15 @@ export interface Board extends DateParams {
   date?: string
 }
 
-interface Tag {
-  _id: string
-  name: string
-}
-
 export interface Card extends DateParams {
   _id: string
   title: string
-  priority: Priority
-  tags?: Tag[]
-  chat?: boolean
-  chatCount?: number
-  users: User[]
+  priority?: Priority
+  labels?: Label[]
+  subtasks?: Pick<Card, 'title' | '_id'>[]
+  users: User[],
+  estimate?: number
+  comments?: string[]
 }
 
 export interface Column extends DateParams {

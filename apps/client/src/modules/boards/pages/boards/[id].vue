@@ -2,9 +2,12 @@
 import { storeToRefs } from 'pinia'
 import ActionsPanel from '../../components/kanban/ActionsPanel.vue'
 import ArchivedAlert from '../../components/kanban/ArchivedAlert.vue'
-import ColumnItem from '../../components/kanban/ColumnItem.vue'
-import EmptyColumns from '../../components/kanban/EmptyColumns.vue'
+import EmptyColumns from '../../components/kanban/columns/EmptyColumns.vue'
 import { useBoardsStore } from '../../stores/boards'
+import DndKanbanContainer from '../../components/kanban/DndKanbanContainer.vue'
+
+const boardsStore = useBoardsStore()
+const { board } = storeToRefs(boardsStore)
 
 // unplugin
 definePage({
@@ -28,9 +31,6 @@ definePage({
   },
   name: 'boards-id',
 })
-
-const boardsStore = useBoardsStore()
-const { board } = storeToRefs(boardsStore)
 </script>
 
 <template>
@@ -38,7 +38,7 @@ const { board } = storeToRefs(boardsStore)
     <div class="relative h-full w-full p-3.5 px-15px">
       <ActionsPanel />
       <div v-if="board.columns?.length" class="h-full w-full overflow-x-auto flex items-start gap-3 overflow-y-hidden py-4">
-        <ColumnItem v-for="column in board.columns" :key="column._id" :column="column" />
+        <DndKanbanContainer :columns="board.columns" />
       </div>
       <EmptyColumns v-else />
       <ArchivedAlert />

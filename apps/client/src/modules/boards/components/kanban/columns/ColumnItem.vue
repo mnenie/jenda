@@ -1,8 +1,8 @@
 <script setup lang="ts" generic="T extends Column">
 import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
-import ColumnMenu from './menus/ColumnMenu.vue'
-import type { Column } from '../../types'
+import ColumnMenu from './ColumnMenu.vue'
+import type { Column } from '../../../types'
 import { UiBadge, UiButton } from '@/shared/ui'
 
 defineProps<{
@@ -43,7 +43,7 @@ const getRandomColor = computed(() => {
         {{ column.description }}
       </span>
     </div>
-    <slot v-if="column.cards?.length" name="column-content" :column />
+    <slot v-if="column.cards?.length" name="column-content" :column :cards="column.cards" />
     <div>
       <UiButton variant="ghost" size="sm" class="w-full justify-start h-8">
         <Icon icon="lucide:plus" class="min-w-4.4 min-h-4.4 text-neutral-500 dark:text-neutral-400" />
