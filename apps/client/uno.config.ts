@@ -54,6 +54,9 @@ export default defineConfig({
       'auth-page': 'h-full flex w-68% max-[1440px]:w-80% max-[1100px]:!w-full',
       'auth-slot-container': 'relative h-full w-full mx-auto px-2rem dark:bg-#1c1c1c',
       'form-container': 'relative flex w-460px flex-col gap-2 max-[520px]:!w-full max-[1100px]:!w-460px max-[1200px]:w-360px',
+      'task-card-low': 'bg-green-200/20 border-green-300 dark:(bg-green-400/20 border-green-800)',
+      'task-card-medium': 'bg-yellow-200/20 border-yellow-300 dark:(bg-yellow-400/20 border-yellow-400/20)',
+      'task-card-high': 'bg-red-200/20 border-red-300 dark:(bg-red-400/20 border-red-400/30)',
     },
   ],
   configDeps: [

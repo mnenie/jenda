@@ -61,7 +61,7 @@ export const useBoardsStore = defineStore('boards', () => {
           _id: '2',
           title: 'feat(kanban): add drag and drop',
           estimate: 8,
-          priority: 'high',
+          priority: 'medium',
           subtasks: [],
           labels: [],
           comments: ['dsad'],
