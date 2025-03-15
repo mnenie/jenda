@@ -23,8 +23,9 @@ const priorityColor = computed(() => priorities[props.card.priority!])
 
 <template>
   <div
+    draggable="true"
     :class="cn(
-      'w-full p-2.5 rounded-md border border-neutral-200 bg-white flex flex-col items-start dark:(border-neutral-700 bg-neutral-700/30)',
+      'w-full cursor-grab active:cursor-grabbing p-2.5 rounded-md border border-neutral-200 bg-white flex flex-col items-start dark:(border-neutral-700 bg-#2e2e2e)',
       priorityColor,
     )"
   >

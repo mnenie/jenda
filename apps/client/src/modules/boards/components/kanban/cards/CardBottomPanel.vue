@@ -19,7 +19,7 @@ const updatedAtCard = computed(() => {
 
 <template>
   <div class="flex w-full gap-1 items-end justify-between">
-    <UserAvatars :max="3" avatar="!w-20px !h-20px cursor-default" :users="card.users" />
+    <UserAvatars :max="3" avatar="!w-20px !h-20px" :users="card.users" />
     <div class="flex items-center gap-3">
       <UiBadge v-if="card.estimate" variant="soft" class="!h-4 !w-4 rounded-full p-1 flex items-center justify-center">
         {{ card.estimate }}

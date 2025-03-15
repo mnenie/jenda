@@ -37,9 +37,7 @@ definePage({
   <div class="h-full w-full">
     <div class="relative h-full w-full p-3.5 px-15px">
       <ActionsPanel />
-      <div v-if="board.columns?.length" class="h-full w-full overflow-x-auto flex items-start gap-3 overflow-y-hidden py-4">
-        <DnDKanbanContainer :columns="board.columns" />
-      </div>
+      <DnDKanbanContainer v-if="board.columns?.length" :columns="board.columns" />
       <EmptyColumns v-else />
       <ArchivedAlert />
     </div>
