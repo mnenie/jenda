@@ -16,6 +16,17 @@ export type Status = 'active' | 'archived'
 
 export type Priority = 'none' | 'low' | 'medium' | 'high'
 
+type Comment = {
+  _id: string
+  message: string
+  user: Omit<User, 'email'>
+}
+
+type Asset = {
+  _id: string
+  file: Blob | File | string
+}
+
 export interface BoardRow extends Omit<Board, 'columns'> {
   tasks?: number
 }
@@ -39,18 +50,25 @@ export interface Card extends DateParams {
   title: string
   priority?: Priority
   labels?: Label[]
-  subtasks?: Pick<Card, 'title' | '_id'>[]
+  subtasks?: Pick<Partial<Card>, 'title' | '_id' | 'labels' | 'users'>[]
   users: User[],
+  creator: User
   estimate?: number
-  comments?: string[]
+  comments?: Comment[]
+  timeLimit?: Date
+  assets?: Asset[]
 }
+
+export interface BoardCard extends Omit<Card, 'assets' | 'creator' | 'timeLimit'> {}
 
 export interface Column extends DateParams {
   _id: string
   title: string
   description?: string
-  cards?: Card[]
+  cards?: BoardCard[]
   estimate?: number
+  limit?: number
+  color?: string
 }
 
 export interface StatusBadge {

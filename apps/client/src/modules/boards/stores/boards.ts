@@ -64,7 +64,6 @@ export const useBoardsStore = defineStore('boards', () => {
           priority: 'medium',
           subtasks: [],
           labels: [],
-          comments: ['dsad'],
           createdAt: new Date(),
           updatedAt: new Date(),
           users: [

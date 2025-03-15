@@ -1,8 +1,8 @@
-<script setup lang="ts" generic="U extends Extract<T['priority'], string>, T extends Card">
+<script setup lang="ts" generic="U extends Extract<T['priority'], string>, T extends BoardCard">
 import { computed } from 'vue'
 import VisibleLabels from '../../additions/VisibleLabels.vue'
 import CardBottomPanel from './CardBottomPanel.vue'
-import type { Card, Priority } from '@/modules/boards/types'
+import type { BoardCard, Priority } from '@/modules/boards/types'
 import { UiButton } from '@/shared/ui'
 import { cn } from '@/shared/libs/shadcn/utils'
 
