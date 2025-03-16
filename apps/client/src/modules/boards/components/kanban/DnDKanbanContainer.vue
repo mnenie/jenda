@@ -18,7 +18,7 @@ const [_columnsTR, columns] = useDragAndDrop(props.columns, {
 </script>
 
 <template>
-  <div ref="_columnsTR" class="h-full w-full overflow-x-auto flex items-start gap-3 overflow-y-hidden py-4">
+  <div ref="_columnsTR" class="h-full flex items-start gap-3">
     <ColumnItem v-for="column in columns" :key="column._id" :column="column">
       <template #column-content="{ cards }">
         <CardItem v-for="card in cards" :key="card._id" :card="card" />

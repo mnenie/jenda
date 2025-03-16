@@ -456,8 +456,8 @@ export default {
     active: '活跃',
     archived: '已归档',
     alert: '该看板已被归档，无法再编辑。',
-    new: '添加新列',
     column: {
+      new: '添加新列',
       tooltips: {
         actions: '列的操作',
       },

@@ -17,7 +17,7 @@ const acceptColor = computed(() => {
 
 <template>
   <div :class="cn('ml-0.5 flex items-center gap-1 text-neutral-500 dark:text-neutral-400', acceptColor)">
-    <div v-if="column.limit && cards.length === props.column.limit" class="flex items-center gap-px">
+    <div v-if="column.limit" class="flex items-center gap-px">
       <span>{{ cards.length }}</span>
       <span>/</span>
       <span>{{ column.limit }}</span>

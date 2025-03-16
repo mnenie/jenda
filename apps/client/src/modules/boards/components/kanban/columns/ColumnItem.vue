@@ -37,7 +37,7 @@ const [_cardsTR, cards] = useDragAndDrop(props.column.cards ?? [], {
 </script>
 
 <template>
-  <div class="rounded-md h-fit flex flex-col justify-between gap-0.5 max-w-280px w-full p-1.5 bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
+  <div class="rounded-lg h-fit flex flex-col justify-between gap-0.5 min-w-280px max-w-280px w-full p-1.5 bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
     <div class="flex items-start flex-col gap-1 w-full">
       <div draggable="true" class="column-handle cursor-grab active:cursor-grabbing flex items-center justify-between p-2 px-1 h-7 w-full" aria-selected="false">
         <div class="flex items-center gap-1">

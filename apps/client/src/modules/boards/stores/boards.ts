@@ -95,7 +95,7 @@ export const useBoardsStore = defineStore('boards', () => {
       {
         _id: '2',
         title: 'Ready',
-        limit: 1,
+        limit: 2,
         cards: [],
         description: 'This is ready to be picked up',
         estimate: 0,
