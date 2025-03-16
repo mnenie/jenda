@@ -1,11 +1,25 @@
-import { nextTick } from 'vue'
+import { type ComponentPublicInstance, nextTick } from 'vue'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { shallowMount, type VueWrapper } from '@vue/test-utils'
 import KanbanTask from '../components/kanban/cards/CardItem.vue'
 import { card } from './fixtures/kanban-card'
+import type { BoardCard, Priority } from '../types'
+
+type U = Extract<BoardCard['priority'], string>
+
+export type KanbanTaskTestInstance = ComponentPublicInstance<
+  {
+    card: BoardCard
+  },
+  {},
+  {
+    priorityColor?: Record<U | Priority, string>
+  }
+>
+
+let _wrapper: VueWrapper<KanbanTaskTestInstance>
 
 describe('task like a typeof card', () => {
-  let _wrapper: VueWrapper<InstanceType<typeof KanbanTask>>
   beforeEach(() => {
     _wrapper = shallowMount(KanbanTask, {
       props: {
@@ -17,8 +31,7 @@ describe('task like a typeof card', () => {
   })
   it('should render correctly an usual task', () => {
     expect(_wrapper.text()).toContain('_test title')
-    const priorityColor = _wrapper.vm.priorityColor
-    expect(priorityColor).toBe('')
+    expect(_wrapper.vm.priorityColor).toBe('')
   })
 
   it('should render correctly task with a priority', async () => {
@@ -51,7 +64,6 @@ describe('task like a typeof card', () => {
 })
 
 describe('subtasks', () => {
-  let _wrapper: VueWrapper<InstanceType<typeof KanbanTask>>
   beforeEach(() => {
     _wrapper = shallowMount(KanbanTask, {
       props: {
@@ -72,7 +84,7 @@ describe('subtasks', () => {
     })
   })
   it('should render subtasks correctly', () => {
-    expect(_wrapper.props().card.subtasks.length).toBe(2)
+    expect(_wrapper.props().card.subtasks!.length).toBe(2)
     const els = _wrapper.findAllComponents({ name: 'UiButton' })
     expect(els.length).toBe(2)
   })
