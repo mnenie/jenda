@@ -58,7 +58,7 @@ const [_cardsTR, cards] = useDragAndDrop(props.column.cards ?? [], {
     <div
       ref="_cardsTR"
       :class="cn(
-        'flex flex-col gap-1.5 w-full h-full min-h-1',
+        'flex flex-col gap-1.2 w-full h-full min-h-1',
         { 'my-1': cards.length },
       )"
     >

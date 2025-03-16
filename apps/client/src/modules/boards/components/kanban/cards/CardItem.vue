@@ -25,10 +25,17 @@ const priorityColor = computed(() => priorities[props.card.priority!])
   <div
     draggable="true"
     :class="cn(
-      'w-full cursor-grab active:cursor-grabbing p-2.5 rounded-md border border-neutral-200 bg-white flex flex-col items-start dark:(border-neutral-700 bg-#2e2e2e)',
-      priorityColor,
+      'relative z-99 w-full cursor-grab active:cursor-grabbing p-2.5 rounded-md border border-neutral-200 bg-white flex flex-col items-start dark:(border-neutral-700 bg-#2e2e2e)',
+      priorityColor && 'border-none',
     )"
   >
+    <div
+      v-if="priorityColor"
+      :class="cn(
+        'absolute z--1 inset-0 rounded-md pointer-events-none w-full h-full border after:absolute after:inset-0',
+        priorityColor,
+      )"
+    />
     <div v-if="card.labels?.length" class="flex items-center justify-between gap-2 w-full mb-1.5">
       <VisibleLabels :labels="card.labels" :max="2" class="gap-2" label-class="!max-w-40" />
     </div>
