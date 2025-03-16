@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import { Icon } from '@iconify/vue'
-import type { Card } from '@/modules/boards/types'
+import type { BoardCard } from '@/modules/boards/types'
 import UserAvatars from '@/modules/common/components/UserAvatars.vue'
 import { UiBadge } from '@/shared/ui'
 import { DayjsInjectionKey } from '@/plugins/dayjs'
 
 const props = defineProps<{
-  card: Card
+  card: BoardCard
 }>()
 
 const dayjs = inject(DayjsInjectionKey)!
