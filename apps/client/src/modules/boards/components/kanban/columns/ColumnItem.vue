@@ -4,6 +4,7 @@ import { Icon } from '@iconify/vue'
 import { useDragAndDrop } from '@formkit/drag-and-drop/vue'
 import { animations } from '@formkit/drag-and-drop'
 import ColumnMenu from './ColumnMenu.vue'
+import LimitAccept from './LimitAccept.vue'
 import type { Column } from '../../../types'
 import { UiBadge, UiButton } from '@/shared/ui'
 import { cn } from '@/shared/libs/shadcn/utils'
@@ -12,7 +13,7 @@ const props = defineProps<{
   column: T
 }>()
 
-const colors = ['#32a852', '#c2c734', '#a934c9', '#c93434', '#309dc2']
+const colors = ['#32a852', '#c2c734', '#a934c9', '#c93434', '#309dc2'] as const
 
 // пофиксить с бэком
 const getRandomColor = computed(() => {
@@ -26,6 +27,12 @@ const [_cardsTR, cards] = useDragAndDrop(props.column.cards ?? [], {
     }),
   ],
   group: 'kanban-cards',
+  accepts: (_parent, lastParent): boolean => {
+    if (lastParent.el === _cardsTR.value) {
+      return false
+    }
+    return props.column.limit ? cards.value.length < props.column.limit : true
+  },
 })
 </script>
 
@@ -41,7 +48,7 @@ const [_cardsTR, cards] = useDragAndDrop(props.column.cards ?? [], {
           <span class="text-default ml-0.5 fw500 text-neutral-800 dark:text-neutral-200">
             {{ column.title }}
           </span>
-          <span class="text-neutral-500 dark:text-neutral-400">{{ cards.length }}</span>
+          <LimitAccept :column :cards />
           <UiBadge
             variant="outline"
             class="ml-1.5 text-neutral-500 dark:text-neutral-400 rounded-xl"
