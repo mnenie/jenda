@@ -6,6 +6,7 @@ import (
 	"jenda-backend-go/models"
 	"net/http"
 	"os"
+	"regexp"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -13,8 +14,17 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+var (
+	emailRegex    = regexp.MustCompile(`^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`)
+	hexColorRegex = regexp.MustCompile(`^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$`)
+	nicknameRegex = regexp.MustCompile(`^[a-zA-Z0-9_]{3,20}$`)
+)
+
+func isValidEmail(email string) bool {
+	return emailRegex.MatchString(email)
+}
+
 func SignUp(c *gin.Context) {
-	// спарсить почту и пароль
 	var body struct {
 		Email    string
 		Password string
@@ -24,40 +34,65 @@ func SignUp(c *gin.Context) {
 		Nickname string
 	}
 
-	if c.Bind(&body) != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Failed to read body",
-		})
-
+	if err := c.Bind(&body); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Failed to read body"})
 		return
 	}
-	// захешировать
 
+	// Обязательные поля
+	if body.Email == "" || body.Password == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Email and password are required"})
+		return
+	}
+
+	// Валидация email
+	if !isValidEmail(body.Email) {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Please write a valid email"})
+		return
+	}
+
+	// Валидация пароля
+	if len(body.Password) < 8 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Password must be at least 8 characters"})
+		return
+	}
+
+	// Валидация цвета
+	if body.Color != "" && !hexColorRegex.MatchString(body.Color) {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid color format, must be HEX (e.g. #123abc)"})
+		return
+	}
+
+	// Валидация никнейма
+	if body.Nickname != "" && !nicknameRegex.MatchString(body.Nickname) {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Nickname must be 3-20 alphanumeric characters or underscores"})
+		return
+	}
+
+	// Хеширование пароля
 	hash, err := bcrypt.GenerateFromPassword([]byte(body.Password), 10)
-
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Failed to hash password",
-		})
-
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to hash password"})
 		return
 	}
-	// создрать юзера
-	user := models.User{Email: body.Email, Password: string(hash), PhotoUrl: &body.PhotoUrl, Role: &body.Role, Color: &body.Color, Nickname: &body.Nickname}
+
+	// Создание пользователя
+	user := models.User{
+		Email:    body.Email,
+		Password: string(hash),
+		PhotoUrl: &body.PhotoUrl,
+		Role:     &body.Role,
+		Color:    &body.Color,
+		Nickname: &body.Nickname,
+	}
+
 	result := initializers.DB.Create(&user)
-
 	if result.Error != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Failed to create user",
-		})
-
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create user"})
 		return
 	}
-	// респонд
 
-	c.JSON(http.StatusOK, gin.H{
-		"message": "success",
-	})
+	c.JSON(http.StatusOK, gin.H{"message": "success"})
 }
 
 func Login(c *gin.Context) {
@@ -215,4 +250,114 @@ func Logout(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Successfully logged out",
 	})
+}
+
+func EditUser(c *gin.Context) {
+	// стянуть айди
+	userID := c.Param("id")
+
+	// стянуть пользователя с бд
+	user, _ := c.Get("user")
+	currentUser := user.(models.User)
+
+	// перепроверить айдишник
+	if fmt.Sprint(currentUser.ID) != userID {
+		c.JSON(http.StatusForbidden, gin.H{"error": "You can only edit your own account"})
+		return
+	}
+
+	// спарсить
+	var body struct {
+		Email    *string `json:"email"`
+		Password *string `json:"password"`
+		PhotoUrl *string `json:"photoUrl"`
+		Role     *string `json:"role"`
+		Color    *string `json:"color"`
+		Nickname *string `json:"nickname"`
+	}
+
+	if err := c.BindJSON(&body); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request body"})
+		return
+	}
+	updates := make(map[string]interface{})
+
+	// почта
+	if body.Email != nil {
+		if !isValidEmail(*body.Email) {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid email format"})
+			return
+		}
+
+		var existingUser models.User
+		initializers.DB.Where("email = ?", *body.Email).First(&existingUser)
+		if existingUser.ID != 0 && existingUser.ID != currentUser.ID {
+			c.JSON(http.StatusConflict, gin.H{"error": "Email already in use"})
+			return
+		}
+		updates["email"] = *body.Email
+	}
+
+	// пароль
+	if body.Password != nil {
+		hash, err := bcrypt.GenerateFromPassword([]byte(*body.Password), 10)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to hash password"})
+			return
+		}
+		updates["password"] = string(hash)
+	}
+
+	// фото
+	if body.PhotoUrl != nil {
+		updates["photo_url"] = *body.PhotoUrl
+	}
+	//роль
+	if body.Role != nil {
+		updates["role"] = *body.Role
+	}
+	//цвет
+	if body.Color != nil {
+		updates["color"] = *body.Color
+	}
+	//ник
+	if body.Nickname != nil {
+		updates["nickname"] = *body.Nickname
+	}
+
+	// закинуть в бд
+	result := initializers.DB.Model(&currentUser).Updates(updates)
+	if result.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update user"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "User updated successfully"})
+}
+
+func DeleteUser(c *gin.Context) {
+	// стянуть айдишник
+	userID := c.Param("id")
+
+	// стянуть пользователя с бд
+	user, _ := c.Get("user")
+	currentUser := user.(models.User)
+
+	// перепроверить айдишник
+	if fmt.Sprint(currentUser.ID) != userID {
+		c.JSON(http.StatusForbidden, gin.H{"error": "You can only delete your own account"})
+		return
+	}
+
+	// удалить
+	result := initializers.DB.Delete(&currentUser)
+	if result.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to delete user"})
+		return
+	}
+
+	// рефреш куки убрать
+	c.SetCookie("RefreshToken", "", -1, "", "", false, true)
+
+	c.JSON(http.StatusOK, gin.H{"message": "User deleted successfully"})
 }

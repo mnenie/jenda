@@ -21,6 +21,8 @@ func main() {
 	r.POST("/refresh", controllers.Refresh)
 	r.POST("/logout", middleware.RequireAuth, controllers.Logout)
 	r.GET("/validate", middleware.RequireAuth, controllers.Validate)
+	r.PATCH("/users/:id", middleware.RequireAuth, controllers.EditUser)
+	r.DELETE("/users/:id", middleware.RequireAuth, controllers.DeleteUser)
 
 	r.Run()
 }
