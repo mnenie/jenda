@@ -7,3 +7,6 @@ export const card: BoardCard = {
   users: [],
   priority: 'none',
 }
+export const cards = [
+  { ...card },
+]

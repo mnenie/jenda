@@ -7,7 +7,7 @@ import type { BoardCard, Priority } from '../types'
 
 type U = Extract<BoardCard['priority'], string>
 
-export type KanbanTaskTestInstance = ComponentPublicInstance<
+type KanbanTaskTestInstance = ComponentPublicInstance<
   {
     card: BoardCard
   },
