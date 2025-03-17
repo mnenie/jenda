@@ -353,33 +353,6 @@ export default {
       view: 'View the boards',
     },
   },
-  analytics: {
-    title: 'Workspace Analytics',
-    description: 'View and analyze your activity on Jenda',
-    charts: {
-      users: {
-        name: 'Total users',
-        description: 'Number of users in the workspace',
-      },
-      online: {
-        name: 'Workspace activity',
-      },
-      tasks: {
-        name: 'Total tasks',
-        dataset: {
-          names: ['Uncompleted', 'Completed'],
-        },
-      },
-      boards: {
-        name: 'Total boards',
-      },
-    },
-    badges: ['Convenient', 'Informative', 'Anytime'],
-    share: {
-      btn: 'Share',
-      description: 'you can easily take a screenshot and send it to anyone',
-    },
-  },
   settings: {
     title: 'Settings',
     description: 'Manage your account settings and set some preferences.',
@@ -486,9 +459,29 @@ export default {
       activity: 'By activity',
       workload: 'By workload',
     },
+    view: {
+      kanban: 'Kanban',
+      timeline: 'Timeline',
+    },
+    menu: ['Change background', 'Manage labels', 'Edit board', 'Delete board'],
+    export: 'Export board',
     active: 'active',
     archived: 'archived',
-    new: 'Add new column',
+    alert: 'The board has been archived and is no longer editable.',
+    column: {
+      new: 'Add new column',
+      tooltips: {
+        actions: 'Actions for the column',
+      },
+      menu: {
+        edit: 'Edit',
+        delete: 'Delete',
+        limit: 'Set limit',
+      },
+      tasks: {
+        new: 'Add a task',
+      },
+    },
     cards: {
       add: 'Add card',
     },

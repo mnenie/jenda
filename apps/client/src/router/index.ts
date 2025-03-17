@@ -3,7 +3,7 @@ import { handleHotUpdate, routes } from 'vue-router/auto-routes'
 import { layoutResolverGuard } from './guards'
 
 export const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   // resolved: https://github.com/mnenie/jenda/issues/56
   routes,
 })

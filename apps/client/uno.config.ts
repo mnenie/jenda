@@ -50,6 +50,7 @@ export default defineConfig({
       'border-layout': 'border-neutral-200 dark:border-#1c1c1c',
       'bg-sidebar': 'bg-neutral-50 dark:bg-#1c1c1c66',
     },
+    [/^task-card-(.*)$/, ([, c]) => `bg-${c}-100/20 border-${c}-300/80 dark:(bg-${c}-100/10 border-${c}-300/30)`],
     {
       'auth-page': 'h-full flex w-68% max-[1440px]:w-80% max-[1100px]:!w-full',
       'auth-slot-container': 'relative h-full w-full mx-auto px-2rem dark:bg-#1c1c1c',

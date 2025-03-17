@@ -349,33 +349,6 @@ export default {
       view: '查看白板',
     },
   },
-  analytics: {
-    title: '工作区分析',
-    description: '查看并分析您在 Jenda 上的活动',
-    charts: {
-      users: {
-        name: '用户数量',
-        description: '工作区中的用户数量',
-      },
-      online: {
-        name: '工作区活动',
-      },
-      tasks: {
-        name: '任务数量',
-        dataset: {
-          names: ['未完成', '已完成'],
-        },
-      },
-      boards: {
-        name: '看板数量',
-      },
-    },
-    badges: ['方便', '信息丰富', '随时'],
-    share: {
-      btn: '分享',
-      description: '您可以轻松地截图并将其发送给任何人。',
-    },
-  },
   settings: {
     title: '设置',
     description: '管理您的帐户设置和设定一些偏好。',
@@ -474,9 +447,29 @@ export default {
       activity: '按活动排序',
       workload: '按工作量排序',
     },
+    view: {
+      kanban: '看板',
+      timeline: '时间轴',
+    },
+    menu: ['更改背景', '标签', '编辑', '删除'],
+    export: '导出看板',
     active: '活跃',
     archived: '已归档',
-    new: '添加新列',
+    alert: '该看板已被归档，无法再编辑。',
+    column: {
+      new: '添加新列',
+      tooltips: {
+        actions: '列的操作',
+      },
+      menu: {
+        edit: '编辑',
+        delete: '删除',
+        limit: '设置限制',
+      },
+      tasks: {
+        new: '添加任务',
+      },
+    },
     cards: {
       add: '添加卡片',
     },

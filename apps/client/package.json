@@ -8,6 +8,7 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
+    "test:unit-ui": "vitest --ui",
     "build-only": "vite build",
     "debug:build": "NODE_OPTIONS='--inspect-brk' pnpm run build",
     "type-check": "vue-tsc --build --force",
@@ -18,6 +19,7 @@
   "dependencies": {
     "@dagrejs/dagre": "1.1.4",
     "@formkit/auto-animate": "^0.8.2",
+    "@formkit/drag-and-drop": "0.4.1",
     "@tanstack/vue-table": "8.20.5",
     "@tiptap/core": "2.11.2",
     "@tiptap/extension-blockquote": "2.11.2",
@@ -93,6 +95,7 @@
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.5.2",
     "@vitejs/plugin-vue": "^5.0.5",
+    "@vitest/ui": "3.0.9",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^9.13.0",
