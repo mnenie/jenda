@@ -1,3 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`tests for UiInput > should render correctly 1`] = `"<input class="input" placeholder="jenda" type="text">"`;
+exports[`tests for UiInput > should render correctly 1`] = `
+"<div class="input-root"><input placeholder="jenda" class="input input input-default">
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
