@@ -10,5 +10,11 @@
       "path": "./tsconfig.vitest.json"
     }
   ],
-  "files": []
+  "files": [],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }
