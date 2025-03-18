@@ -9,6 +9,7 @@ import AddUsersBtn from './AddUsersBtn.vue'
 import AddLabelsBtn from './AddLabelsBtn.vue'
 import type { User } from '@/modules/auth/types'
 import type { Label } from '../../types'
+import type { DateValue } from '@internationalized/date'
 import {
   UiButton,
   UiDialogClose,
@@ -53,7 +54,7 @@ const { handleSubmit, errors } = useForm({
   validationSchema,
 })
 const { value: title } = useField<string>('title')
-const { value: timeLimit } = useField<Date | undefined>('timeLimit', undefined, {
+const { value: timeLimit } = useField<DateValue | undefined>('timeLimit', undefined, {
   initialValue: undefined,
 })
 const { value: users } = useField<UserOption[]>('users', [], {

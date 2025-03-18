@@ -1,28 +1,22 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed } from 'vue'
 import {
   DateFormatter,
   type DateValue,
   getLocalTimeZone,
 } from '@internationalized/date'
 import { Icon } from '@iconify/vue'
-import { UiButton, UiCalendar, UiPopover, UiPopoverContent, UiPopoverTrigger } from '@/shared/ui'
+import { Calendar, UiButton, UiPopover, UiPopoverContent, UiPopoverTrigger } from '@/shared/ui'
 import { cn } from '@/shared/libs/shadcn/utils'
-
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: Date): void
-}>()
 
 const df = new DateFormatter('en-US', {
   dateStyle: 'long',
 })
 
-const value = ref<DateValue>()
+const dateValue = defineModel<DateValue>()
 
-watch(value, (newValue) => {
-  if (newValue) {
-    emit('update:modelValue', newValue.toDate(getLocalTimeZone()))
-  }
+const pickerValue = computed(() => {
+  return dateValue.value ? df.format(dateValue.value.toDate(getLocalTimeZone())) : 'Выбрать дату'
 })
 </script>
 
@@ -33,15 +27,15 @@ watch(value, (newValue) => {
         variant="outline"
         :class="cn(
           'text-left font-normal',
-          !value && 'text-muted-foreground',
+          !dateValue && 'text-muted-foreground',
         )"
       >
         <Icon icon="hugeicons:calendar-02" class="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400" />
-        {{ value ? df.format(value.toDate(getLocalTimeZone())) : "Выбрать дату" }}
+        {{ pickerValue }}
       </UiButton>
     </UiPopoverTrigger>
     <UiPopoverContent class="w-auto p-0">
-      <UiCalendar v-model="value" />
+      <Calendar v-model="dateValue" />
     </UiPopoverContent>
   </UiPopover>
 </template>
