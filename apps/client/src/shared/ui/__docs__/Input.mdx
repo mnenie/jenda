@@ -11,6 +11,8 @@ The **UiInput** component is a versatile input field that supports various types
 
 <Canvas of={InputStories.DefaultInput} />
 
+<Canvas of={InputStories.FilledInput} />
+
 ### Props
 
 <Markdown>
@@ -20,5 +22,22 @@ The **UiInput** component is a versatile input field that supports various types
 | modelValue  | The input field value. **Use __v-model__ to bind this prop to a data property.**                                |
 | defaultValue| The default value                                                                                               |
 | class       | Use for customize input with unocss by type of HTMLAttributes['class']                                          |
+| variant     | The variant of the input field. Default is 'default'. Available variants are 'default' and 'filled'             |
+| leading     | The leading icon. Use for customize input with unocss by type of HTMLAttributes['class']                        |
+| trailing    | The trailing icon. Use for customize input with unocss by type of HTMLAttributes['class']                       |
   `}
 </Markdown>
+
+### Slots
+
+<Markdown>
+  {`
+| Slot       | Description                                                                                                |
+|------------|----------------------------------------------------------------------------------------------------------- |
+| leading    | Slot for content to appear at the start of the input                                                       |
+| trailing   | Slot for content to appear at the end of the input                                                         |
+`}
+</Markdown>
+
+
+<Canvas of={InputStories.SlottedInput} />
