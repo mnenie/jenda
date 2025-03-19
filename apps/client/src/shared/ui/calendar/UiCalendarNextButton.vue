@@ -19,13 +19,13 @@ const forwardedProps = useForwardProps(delegatedProps)
   <CalendarNext
     :class="cn(
       buttonVariants({ variant: 'outline' }),
-      'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',
+      'calendar-button',
       props.class,
     )"
     v-bind="forwardedProps"
   >
     <slot>
-      <div i-lucide-chevron-right class="h-4 w-4" />
+      <div i-lucide-chevron-right class="calendar-button-icon" />
     </slot>
   </CalendarNext>
 </template>
