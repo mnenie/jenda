@@ -19,9 +19,9 @@ const model = defineModel<boolean>('open')
     </UiDialogTrigger>
     <UiDialogContent>
       <UiDialogHeader>
-        <UiDialogTitle>Добавить задачу</UiDialogTitle>
+        <UiDialogTitle>{{ $t('kanban.column.tasks.forms.creating.dialogTitle') }}</UiDialogTitle>
         <UiDialogDescription>
-          Создайте новую задачу для этой колонки.
+          {{ $t('kanban.column.tasks.forms.creating.dialogDescription') }}
         </UiDialogDescription>
       </UiDialogHeader>
       <AddTaskForm @close="model = false" />

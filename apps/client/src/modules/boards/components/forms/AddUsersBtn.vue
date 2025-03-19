@@ -16,27 +16,22 @@ import {
 
 export type UserOption = Pick<User, '_id' | 'email' | 'photoUrl'>
 
-const props = defineProps<{
-  modelValue: UserOption[]
-  options: UserOption[]
-}>()
+const { usersInWorkspace } = defineProps<{ usersInWorkspace: UserOption[] }>()
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: UserOption[]): void
-}>()
+const users = defineModel<UserOption[]>('users', { required: true })
 
 function onSelected(option: UserOption) {
-  const index = props.modelValue.findIndex(user => user._id === option._id)
-  const newModel = [...props.modelValue]
+  const index = users.value.findIndex(user => user._id === option._id)
+  const addedUsers = [...users.value]
 
   if (index > -1) {
-    newModel.splice(index, 1)
+    addedUsers.splice(index, 1)
   }
   else {
-    newModel.push(option)
+    addedUsers.push(option)
   }
 
-  emit('update:modelValue', newModel)
+  users.value = addedUsers
 }
 </script>
 
@@ -48,19 +43,19 @@ function onSelected(option: UserOption) {
         class="text-muted-foreground min-w-[200px] flex justify-left"
       >
         <Icon icon="hugeicons:plus-sign-square" class="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400" />
-        <span>Добавить исполнителей</span>
+        <span>{{ $t('kanban.column.tasks.forms.creating.users.placeholder') }}</span>
       </UiButton>
     </UiPopoverTrigger>
     <UiPopoverContent class="w-auto p-0">
       <UiCommand>
-        <UiCommandInput placeholder="Поиск..." />
+        <UiCommandInput :placeholder="$t('kanban.column.tasks.forms.creating.users.commandSearch')" />
         <UiCommandList>
           <UiCommandEmpty class="p-2">
-            Ничего не найдено :/
+            {{ $t('kanban.column.tasks.forms.creating.users.commandEmpty') }}
           </UiCommandEmpty>
-          <UiCommandGroup heading="Доступные участники">
+          <UiCommandGroup :heading="$t('kanban.column.tasks.forms.creating.users.commandHeading')">
             <UiCommandItem
-              v-for="i in options"
+              v-for="i in usersInWorkspace"
               :key="i._id"
               class="flex items-center justify-between"
               :value="i.email"
@@ -72,7 +67,7 @@ function onSelected(option: UserOption) {
               </div>
               <div class="flex h-4 w-4 items-center justify-center">
                 <div
-                  v-if="modelValue.some((user) => user._id === i._id)"
+                  v-if="users?.some((user) => user._id === i._id)"
                   i-lucide-check
                   class="h-4 w-4"
                 />

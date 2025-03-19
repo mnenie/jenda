@@ -6,17 +6,24 @@ import {
   getLocalTimeZone,
 } from '@internationalized/date'
 import { Icon } from '@iconify/vue'
-import { Calendar, UiButton, UiPopover, UiPopoverContent, UiPopoverTrigger } from '@/shared/ui'
+import { useI18n } from 'vue-i18n'
+import { UiButton, UiCalendar, UiPopover, UiPopoverContent, UiPopoverTrigger } from '@/shared/ui'
 import { cn } from '@/shared/libs/shadcn/utils'
+import { getCurrentLocale } from '@/shared/libs/i18n/utils/getLocale'
 
-const df = new DateFormatter('en-US', {
+const { t } = useI18n()
+const locale = computed(() => {
+  return getCurrentLocale.value
+})
+
+const df = new DateFormatter(locale.value, {
   dateStyle: 'long',
 })
 
 const dateValue = defineModel<DateValue>()
 
 const pickerValue = computed(() => {
-  return dateValue.value ? df.format(dateValue.value.toDate(getLocalTimeZone())) : 'Выбрать дату'
+  return dateValue.value ? df.format(dateValue.value.toDate(getLocalTimeZone())) : t('kanban.column.tasks.forms.creating.timeLimit.placeholder')
 })
 </script>
 
@@ -35,7 +42,7 @@ const pickerValue = computed(() => {
       </UiButton>
     </UiPopoverTrigger>
     <UiPopoverContent class="w-auto p-0">
-      <Calendar v-model="dateValue" />
+      <UiCalendar v-model="dateValue" />
     </UiPopoverContent>
   </UiPopover>
 </template>

@@ -4,9 +4,11 @@ import { useField, useForm } from 'vee-validate'
 import { toast } from 'vue-sonner'
 import { createReusableTemplate } from '@vueuse/core'
 import { Icon } from '@iconify/vue'
+import { useI18n } from 'vue-i18n'
 import VisibleLabels from '../additions/VisibleLabels.vue'
 import AddUsersBtn from './AddUsersBtn.vue'
 import AddLabelsBtn from './AddLabelsBtn.vue'
+import TaskDatePicker from './TaskDatePicker.vue'
 import type { User } from '@/modules/auth/types'
 import type { Label } from '../../types'
 import type { DateValue } from '@internationalized/date'
@@ -20,7 +22,6 @@ import {
   UiInput,
 } from '@/shared/ui'
 import { z } from '@/shared/libs/vee-validate'
-import DatePicker from '@/modules/common/components/DatePicker.vue'
 import UserAvatars from '@/modules/common/components/UserAvatars.vue'
 
 export type UserOption = Pick<User, '_id' | 'email' | 'photoUrl'>
@@ -29,10 +30,25 @@ const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
+const { t } = useI18n()
+
 const validationSchema = toTypedSchema(
   z.object({
     title: z.string().min(1),
-    timeLimit: z.date().optional(),
+    timeLimit: z.any().refine(
+      (val) => {
+        if (!val)
+          return true
+
+        const today = new Date()
+        today.setHours(0, 0, 0, 0)
+
+        return val.toDate() >= today
+      },
+      {
+        message: t('kanban.column.tasks.forms.creating.timeLimit.error'),
+      },
+    ),
     users: z.array(
       z.object({
         _id: z.string(),
@@ -65,15 +81,7 @@ const { value: labels } = useField<Label[]>('labels', [], {
 })
 
 const onAddTask = handleSubmit((values) => {
-  const userEmails = values.users?.map(user => user.email).join(', ') || '[]'
-  const userLabels = values.labels?.map(user => user.name).join(', ') || '[]'
-
-  toast.success(`
-    title: ${values.title};
-    timeLimit: ${values.timeLimit};
-    users emails: ${userEmails};
-    labels: ${userLabels};
-  `)
+  toast.success(`${JSON.stringify(values, null, 2)}`)
 
   emit('close')
 })
@@ -112,7 +120,7 @@ const mockLabels = [
       <UiFormLabel
         :for="field"
       >
-        {{ field }}
+        {{ $t(`kanban.column.tasks.forms.creating.${field}.label`) }}
       </UiFormLabel>
       <component :is="$slots.default" />
       <UiFormMessage v-if="error" :content="error" />
@@ -123,12 +131,12 @@ const mockLabels = [
       <UiInput
         id="title"
         v-model="title"
-        placeholder="Придумайте задачу"
+        :placeholder="$t('kanban.column.tasks.forms.creating.title.placeholder')"
       />
     </ReuseTemplate>
     <ReuseTemplate field="timeLimit" :error="errors.timeLimit">
       <div class="flex gap-2 items-center">
-        <DatePicker id="timeLimit" v-model="timeLimit" />
+        <TaskDatePicker id="timeLimit" v-model="timeLimit" />
         <Icon
           v-if="timeLimit !== undefined"
           icon="hugeicons:delete-02"
@@ -139,7 +147,7 @@ const mockLabels = [
     </ReuseTemplate>
     <ReuseTemplate field="users" :error="errors.users">
       <div class="flex gap-2 items-center">
-        <AddUsersBtn id="users" v-model="users" :options="mockUsers" />
+        <AddUsersBtn id="users" v-model:users="users" :users-in-workspace="mockUsers" />
         <UserAvatars
           v-if="users.length > 0"
           :users="users"
@@ -151,7 +159,7 @@ const mockLabels = [
     </ReuseTemplate>
     <ReuseTemplate field="labels" :error="errors.labels">
       <div class="flex gap-2 items-center">
-        <AddLabelsBtn id="labels" v-model="labels" :options="mockLabels" />
+        <AddLabelsBtn id="labels" v-model:labels="labels" :labels-in-workspace="mockLabels" />
         <VisibleLabels
           v-if="labels.length > 0"
           :labels="labels"
@@ -163,11 +171,11 @@ const mockLabels = [
     <UiDialogFooter class="sm:justify-end">
       <UiDialogClose as-child>
         <UiButton type="button" size="sm" variant="secondary">
-          Закрыть
+          {{ $t('common.create.btns', 1) }}
         </UiButton>
       </UiDialogClose>
       <UiButton type="submit" size="sm" variant="solid">
-        Создать
+        {{ $t('common.create.btns', 2) }}
       </UiButton>
     </UiDialogFooter>
   </form>

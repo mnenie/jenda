@@ -15,18 +15,15 @@ import {
   UiPopoverTrigger,
 } from '@/shared/ui'
 
-const props = defineProps<{
-  modelValue: Label[]
-  options: Label[]
+const { labelsInWorkspace } = defineProps<{
+  labelsInWorkspace: Label[]
 }>()
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: Label[]): void
-}>()
+const labels = defineModel<Label[]>('labels', { required: true })
 
 function onSelected(option: Label) {
-  const index = props.modelValue.findIndex(user => user.id === option.id)
-  const newModel = [...props.modelValue]
+  const index = labels.value.findIndex(user => user.id === option.id)
+  const newModel = [...labels.value]
 
   if (index > -1) {
     newModel.splice(index, 1)
@@ -35,7 +32,7 @@ function onSelected(option: Label) {
     newModel.push(option)
   }
 
-  emit('update:modelValue', newModel)
+  labels.value = newModel
 }
 </script>
 
@@ -47,19 +44,19 @@ function onSelected(option: Label) {
         class="text-muted-foreground flex justify-left"
       >
         <Icon icon="hugeicons:label" class="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400" />
-        <span>Добавить лейбл</span>
+        <span>{{ $t('kanban.column.tasks.forms.creating.labels.placeholder') }}</span>
       </UiButton>
     </UiPopoverTrigger>
     <UiPopoverContent class="w-auto p-0">
       <UiCommand>
-        <UiCommandInput placeholder="Поиск..." />
+        <UiCommandInput :placeholder="$t('kanban.column.tasks.forms.creating.labels.commandSearch')" />
         <UiCommandList>
           <UiCommandEmpty class="p-2">
-            Ничего не найдено :/
+            {{ $t('kanban.column.tasks.forms.creating.labels.commandEmpty') }}
           </UiCommandEmpty>
-          <UiCommandGroup heading="Доступные участники">
+          <UiCommandGroup :heading="$t('kanban.column.tasks.forms.creating.labels.commandHeading')">
             <UiCommandItem
-              v-for="i in options"
+              v-for="i in labelsInWorkspace"
               :key="i.id"
               class="flex items-center justify-between"
               :value="i.name"
@@ -67,11 +64,10 @@ function onSelected(option: Label) {
             >
               <div class="flex items-center gap-2">
                 <LabelItem :label="i" />
-                <!-- <span>{{ i.name }}</span> -->
               </div>
               <div class="flex h-4 w-4 items-center justify-center">
                 <div
-                  v-if="modelValue.some((user) => user.id === i.id)"
+                  v-if="labels.some((label) => label.id === i.id)"
                   i-lucide-check
                   class="h-4 w-4"
                 />
