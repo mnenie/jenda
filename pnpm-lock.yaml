@@ -286,8 +286,8 @@ importers:
         specifier: 1.1.0
         version: 1.1.0(@unocss/preset-wind@66.0.0)(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5)))
       unocss-preset-shadcn:
-        specifier: 0.3.1
-        version: 0.3.1(unocss-preset-animations@1.1.0(@unocss/preset-wind@66.0.0)(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5))))(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5)))
+        specifier: 0.5.0
+        version: 0.5.0(unocss-preset-animations@1.1.0(@unocss/preset-wind@66.0.0)(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5))))(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5)))
       unplugin-vue-router:
         specifier: 0.12.0
         version: 0.12.0(vue-router@4.5.0(vue@3.5.13(typescript@5.4.5)))(vue@3.5.13(typescript@5.4.5))
@@ -4762,11 +4762,11 @@ packages:
       '@unocss/preset-wind': '>= 0.56.0 < 1'
       unocss: '>= 0.56.0 < 1'
 
-  unocss-preset-shadcn@0.3.1:
-    resolution: {integrity: sha512-b17P8vUKYuxEYthgCVlrMLvy4FVSWxAwAf6d0kYsWYFymbb8VBacBfXrpu+anLTv7IiIgHgkRVNTnruVKIjC8Q==}
+  unocss-preset-shadcn@0.5.0:
+    resolution: {integrity: sha512-e/bF/+b5adcolHio3kst3WVF+f09+BiDkyTshUVqcWXB0RabQ0T8lzqfM3KAegTTi1iJo1jjCZoE88cUzaVDmQ==}
     peerDependencies:
-      unocss: '>= 0.56.0 < 1'
-      unocss-preset-animations: ^1.0.1
+      unocss: '>=0.56.0 < 101'
+      unocss-preset-animations: ^1.1.1
 
   unocss@66.0.0:
     resolution: {integrity: sha512-SHstiv1s7zGPSjzOsADzlwRhQM+6817+OqQE3Fv+N/nn2QLNx1bi3WXybFfz5tWkzBtyTZlwdPmeecsIs1yOCA==}
@@ -4953,8 +4953,8 @@ packages:
   vue-component-type-helpers@2.2.0:
     resolution: {integrity: sha512-cYrAnv2me7bPDcg9kIcGwjJiSB6Qyi08+jLDo9yuvoFQjzHiPTzML7RnkJB1+3P6KMsX/KbCD4QE3Tv/knEllw==}
 
-  vue-component-type-helpers@3.0.0-alpha.2:
-    resolution: {integrity: sha512-dv9YzsuJFLnpRNxKU0exwIlCIA/v+rXrgCsEtaENsFJLPFMw1Sr4IRctilwfjnjCzoJGgGACHRZfxo6ZwlH2fQ==}
+  vue-component-type-helpers@2.2.8:
+    resolution: {integrity: sha512-4bjIsC284coDO9om4HPA62M7wfsTvcmZyzdfR0aUlFXqq4tXxM1APyXpNVxPC8QazKw9OhmZNHBVDA6ODaZsrA==}
 
   vue-demi@0.13.11:
     resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
@@ -6271,7 +6271,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.13(typescript@5.4.5)
-      vue-component-type-helpers: 3.0.0-alpha.2
+      vue-component-type-helpers: 2.2.8
 
   '@stylistic/eslint-plugin@2.11.0(eslint@9.14.0(jiti@2.4.2))(typescript@5.7.2)':
     dependencies:
@@ -10156,7 +10156,7 @@ snapshots:
       '@unocss/preset-wind': 66.0.0
       unocss: 66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5))
 
-  unocss-preset-shadcn@0.3.1(unocss-preset-animations@1.1.0(@unocss/preset-wind@66.0.0)(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5))))(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5))):
+  unocss-preset-shadcn@0.5.0(unocss-preset-animations@1.1.0(@unocss/preset-wind@66.0.0)(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5))))(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5))):
     dependencies:
       unocss: 66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5))
       unocss-preset-animations: 1.1.0(@unocss/preset-wind@66.0.0)(unocss@66.0.0(postcss@8.5.1)(vite@5.4.12(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5)))
@@ -10432,7 +10432,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.0: {}
 
-  vue-component-type-helpers@3.0.0-alpha.2: {}
+  vue-component-type-helpers@2.2.8: {}
 
   vue-demi@0.13.11(vue@3.5.13(typescript@5.4.5)):
     dependencies:
