@@ -24,6 +24,17 @@ func isValidEmail(email string) bool {
 	return emailRegex.MatchString(email)
 }
 
+// SignUp godoc
+// @Summary Register a new user
+// @Description Create a new user account
+// @Tags authentication
+// @Accept json
+// @Produce json
+// @Param request body controllers.SignUpRequest true "User registration data"
+// @Success 200 {object} controllers.SimpleResponse
+// @Failure 400 {object} controllers.ErrorResponse
+// @Failure 500 {object} controllers.ErrorResponse
+// @Router /signup [post]
 func SignUp(c *gin.Context) {
 	var body struct {
 		Email    string
@@ -95,6 +106,17 @@ func SignUp(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "success"})
 }
 
+// Login godoc
+// @Summary Authenticate user
+// @Description Log in with email and password
+// @Tags authentication
+// @Accept json
+// @Produce json
+// @Param request body controllers.LoginRequest true "Credentials"
+// @Success 200 {object} controllers.LoginResponse
+// @Failure 400 {object} controllers.ErrorResponse
+// @Failure 401 {object} controllers.ErrorResponse
+// @Router /login [post]
 func Login(c *gin.Context) {
 	var body struct {
 		Email    string
@@ -156,6 +178,15 @@ func Login(c *gin.Context) {
 	})
 }
 
+// Validate godoc
+// @Summary Validate authentication
+// @Description Check if user is authenticated
+// @Tags authentication
+// @Produce json
+// @Security BearerAuth
+// @Success 200 {object} models.User
+// @Failure 401 {object} controllers.ErrorResponse
+// @Router /validate [get]
 func Validate(c *gin.Context) {
 	user, _ := c.Get("user")
 	c.JSON(http.StatusOK, gin.H{
@@ -164,6 +195,14 @@ func Validate(c *gin.Context) {
 
 }
 
+// Refresh godoc
+// @Summary Refresh access token
+// @Description Get new access token using refresh token
+// @Tags authentication
+// @Produce json
+// @Success 200 {object} controllers.LoginResponse
+// @Failure 401 {object} controllers.ErrorResponse
+// @Router /refresh [post]
 func Refresh(c *gin.Context) {
 	refreshTokenString, err := c.Cookie("RefreshToken")
 	if err != nil {
@@ -236,6 +275,15 @@ func Refresh(c *gin.Context) {
 	})
 }
 
+// Logout godoc
+// @Summary Log out user
+// @Description Invalidate refresh token and clear cookies
+// @Tags authentication
+// @Produce json
+// @Security BearerAuth
+// @Success 200 {object} controllers.SimpleResponse
+// @Failure 401 {object} controllers.ErrorResponse
+// @Router /logout [post]
 func Logout(c *gin.Context) {
 	user, _ := c.Get("user")
 	currentUser := user.(models.User)
@@ -252,6 +300,20 @@ func Logout(c *gin.Context) {
 	})
 }
 
+// EditUser godoc
+// @Summary Update user profile
+// @Description Update user information
+// @Tags users
+// @Accept json
+// @Produce json
+// @Param id path string true "User ID"
+// @Param request body controllers.EditUserRequest true "Update data"
+// @Security BearerAuth
+// @Success 200 {object} controllers.SimpleResponse
+// @Failure 400 {object} controllers.ErrorResponse
+// @Failure 403 {object} controllers.ErrorResponse
+// @Failure 500 {object} controllers.ErrorResponse
+// @Router /users/{id} [patch]
 func EditUser(c *gin.Context) {
 	// стянуть айди
 	userID := c.Param("id")
@@ -335,6 +397,17 @@ func EditUser(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "User updated successfully"})
 }
 
+// DeleteUser godoc
+// @Summary Delete user account
+// @Description Permanently delete user account
+// @Tags users
+// @Produce json
+// @Param id path string true "User ID"
+// @Security BearerAuth
+// @Success 200 {object} controllers.SimpleResponse
+// @Failure 403 {object} controllers.ErrorResponse
+// @Failure 500 {object} controllers.ErrorResponse
+// @Router /users/{id} [delete]
 func DeleteUser(c *gin.Context) {
 	// стянуть айдишник
 	userID := c.Param("id")
@@ -360,4 +433,39 @@ func DeleteUser(c *gin.Context) {
 	c.SetCookie("RefreshToken", "", -1, "", "", false, true)
 
 	c.JSON(http.StatusOK, gin.H{"message": "User deleted successfully"})
+}
+
+type SignUpRequest struct {
+	Email    string  `json:"email" example:"user@example.com"`
+	Password string  `json:"password" example:"strongpassword123"`
+	PhotoUrl *string `json:"photoUrl,omitempty" example:"https://example.com/photo.jpg"`
+	Role     *string `json:"role,omitempty" example:"user"`
+	Color    *string `json:"color,omitempty" example:"#ff0000"`
+	Nickname *string `json:"nickname,omitempty" example:"cool_user123"`
+}
+
+type LoginRequest struct {
+	Email    string `json:"email" example:"user@example.com"`
+	Password string `json:"password" example:"strongpassword123"`
+}
+
+type LoginResponse struct {
+	AccessToken string `json:"accessToken" example:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."`
+}
+
+type EditUserRequest struct {
+	Email    *string `json:"email,omitempty" example:"new.email@example.com"`
+	Password *string `json:"password,omitempty" example:"newpassword123"`
+	PhotoUrl *string `json:"photoUrl,omitempty" example:"https://example.com/new-photo.jpg"`
+	Role     *string `json:"role,omitempty" example:"user"`
+	Color    *string `json:"color,omitempty" example:"#00ff00"`
+	Nickname *string `json:"nickname,omitempty" example:"updated_user"`
+}
+
+type SimpleResponse struct {
+	Message string `json:"message" example:"success"`
+}
+
+type ErrorResponse struct {
+	Error string `json:"error" example:"error description"`
 }
