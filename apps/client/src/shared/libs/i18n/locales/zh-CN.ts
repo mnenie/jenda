@@ -107,6 +107,18 @@ export default {
     },
     columns: ['看板名称', '标签', '参与者', '任务', '估算', '创建日期'],
   },
+  board: {
+    remove: {
+      title: '删除看板',
+      description: '您确定要删除此看板吗？所有相关数据都将被删除。',
+    },
+    menu: {
+      background: '更换背景',
+      labels: '标签',
+      edit: '编辑',
+      delete: '删除',
+    },
+  },
   notes: {
     create: '添加笔记 | 添加新笔记',
     remove: '删除',
@@ -191,7 +203,7 @@ export default {
   common: {
     remove: {
       warning: '此操作无法撤销。',
-      btns: '取消 | 删除',
+      btns: '取消 | 删除 | 删除',
     },
   },
   workflows: {
