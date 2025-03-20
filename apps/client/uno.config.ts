@@ -24,7 +24,7 @@ export default defineConfig({
     presetAnimations(),
     presetShadcn(
       { color: 'neutral' },
-      { componentLibrary: 'radix' },
+      { componentLibrary: 'radix', globals: false },
     ),
     presetIcons({
       extraProperties: {

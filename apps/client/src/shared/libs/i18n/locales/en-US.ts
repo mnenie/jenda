@@ -71,7 +71,7 @@ export default {
           ],
         },
         labels: {
-          title: 'Labels',
+          title: 'Manage labelsLabels',
         },
       },
       search: 'Find a board...',
@@ -108,6 +108,18 @@ export default {
       description_tasks: 'Solve and complete the tasks you started',
     },
     columns: ['Board name', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
+  },
+  board: {
+    remove: {
+      title: 'Delete board',
+      description: 'Are you sure you want to delete this board? All associated data will be removed.',
+    },
+    menu: {
+      background: 'Change background',
+      labels: 'Manage labels',
+      edit: 'Edit board',
+      delete: 'Delete board',
+    },
   },
   notes: {
     create: 'Add note | Add new note',
@@ -193,7 +205,7 @@ export default {
   common: {
     remove: {
       warning: 'This action is irreversible.',
-      btns: 'Cancel | Delete',
+      btns: 'Cancel | Delete | Deleting',
     },
     create: {
       btns: 'Cancel | Create',
