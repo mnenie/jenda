@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useBoardsStore } from '../../stores/boards'
+import ExportKanban from '../kanban/ExportKanban.vue'
 import BoardNameMenu from './BoardNameMenu.vue'
 import ViewDisplay from './ViewDisplay.vue'
-import ExportKanban from './ExportKanban.vue'
 import UserAvatars from '@/modules/common/components/UserAvatars.vue'
 
 const boardStore = useBoardsStore()

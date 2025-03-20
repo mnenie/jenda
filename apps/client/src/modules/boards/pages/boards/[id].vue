@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import ActionsPanel from '../../components/kanban/ActionsPanel.vue'
-import ArchivedAlert from '../../components/kanban/ArchivedAlert.vue'
+import ActionsPanel from '../../components/board/ActionsPanel.vue'
+import ArchivedAlert from '../../components/board/ArchivedAlert.vue'
 import EmptyColumns from '../../components/kanban/columns/EmptyColumns.vue'
 import { useBoardsStore } from '../../stores/boards'
 import DnDKanbanContainer from '../../components/kanban/DnDKanbanContainer.vue'
