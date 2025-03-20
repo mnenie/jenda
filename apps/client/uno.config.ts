@@ -22,7 +22,10 @@ export default defineConfig({
       ],
     }),
     presetAnimations(),
-    presetShadcn({ color: 'neutral' }, false),
+    presetShadcn(
+      { color: 'neutral' },
+      { componentLibrary: 'radix', globals: false },
+    ),
     presetIcons({
       extraProperties: {
         'display': 'inline-block',
