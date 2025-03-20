@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, provide, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { Icon } from '@iconify/vue'
 import { useMagicKeys } from '@vueuse/core'
 import { useBoardsStore } from '../../stores/boards'
+import { BOARD_MENU_KEY } from '../../constants/keys'
 import RemoveBoard from './RemoveBoard.vue'
+import BoardEditMenuItem from './BoardEditMenuItem.vue'
 import {
   UiBadge,
   UiButton,
@@ -35,9 +37,17 @@ const status = computed({
 
 const isMenuOpen = ref(false)
 
+function closeMenu() {
+  isMenuOpen.value = false
+}
+
 const { alt_meta_p, ctrl_meta_0, alt_meta_x, alt_meta_e } = useMagicKeys()
 
 // _todo[skip_ci]
+
+provide(BOARD_MENU_KEY, {
+  closeMenu,
+})
 </script>
 
 <template>
@@ -77,7 +87,8 @@ const { alt_meta_p, ctrl_meta_0, alt_meta_x, alt_meta_e } = useMagicKeys()
         </UiBadge>
       </UiDropdownMenuItem>
       <UiDropdownMenuSeparator />
-      <RemoveBoard @close-menu="isMenuOpen = false" />
+      <BoardEditMenuItem />
+      <RemoveBoard />
     </UiDropdownMenuContent>
   </UiDropdownMenu>
 </template>

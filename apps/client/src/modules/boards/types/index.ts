@@ -14,6 +14,8 @@ export interface Label {
 
 export type Status = 'active' | 'archived'
 
+type Visibility = 'private' | 'shared'
+
 export type Priority = 'none' | 'low' | 'medium' | 'high'
 
 type Comment = {
@@ -43,6 +45,7 @@ export interface Board extends DateParams {
   creator?: User
   // fix
   date?: string
+  visibility?: Visibility
 }
 
 export interface Card extends DateParams {

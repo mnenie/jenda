@@ -1,11 +1,8 @@
 import { computed, inject, provide, toValue } from 'vue'
-import type { InjectionKey, Ref } from 'vue'
+import { FILTERED_BOARDS_KEY } from '../constants/keys'
+import type { Ref } from 'vue'
 import type { BoardRow } from '../types'
-
-interface FilteredBoardsContext {
-  sortModel: Ref<string>
-  advancedModel: Ref<string[]>
-}
+import type { FilteredBoardsContext } from '../types/contexts'
 
 export function useFilteredBoards<U extends BoardRow>(
   boards: Ref<U[]>,
@@ -53,12 +50,10 @@ export function useFilteredBoards<U extends BoardRow>(
   }
 }
 
-const key: InjectionKey<FilteredBoardsContext> = Symbol('filtered-boards')
-
 export function provideFilteredBoardsContext<T extends FilteredBoardsContext>(value: T) {
-  provide(key, value)
+  provide(FILTERED_BOARDS_KEY, value)
 }
 
 export function useFilteredBoardsContext() {
-  return inject(key)!
+  return inject(FILTERED_BOARDS_KEY)!
 }

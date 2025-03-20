@@ -120,6 +120,22 @@ export default {
       edit: 'Edit board',
       delete: 'Delete board',
     },
+    forms: {
+      edit: {
+        title: 'Edit Board',
+        description: 'You can change the board name, color, and its visibility.',
+        name: {
+          label: 'Name',
+          placeholder: 'Enter a name for the board',
+        },
+        visibility: {
+          label: 'Visibility',
+          tabs: 'Private | Shared',
+          alert: 'By switching from private to shared, your board will become accessible to other users in your workspace.',
+        },
+        btns: 'Cancel | Apply',
+      },
+    },
   },
   notes: {
     create: 'Add note | Add new note',

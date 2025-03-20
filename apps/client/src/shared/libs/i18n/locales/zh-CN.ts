@@ -118,6 +118,22 @@ export default {
       edit: '编辑',
       delete: '删除',
     },
+    forms: {
+      edit: {
+        title: '编辑看板',
+        description: '您可以更改看板名称、颜色及其可见性。',
+        name: {
+          label: '名称',
+          placeholder: '输入看板名称',
+        },
+        visibility: {
+          label: '可见性',
+          tabs: '私有 | 共享',
+          alert: '将您的看板从私有切换到共享后，工作区中的其他用户将可以访问您的看板。',
+        },
+        btns: '取消 | 应用',
+      },
+    },
   },
   notes: {
     create: '添加笔记 | 添加新笔记',
