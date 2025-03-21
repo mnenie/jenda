@@ -72,14 +72,13 @@ const [_cardsTR, cards] = useDragAndDrop(props.column.cards ?? [], {
     >
       <slot v-if="cards.length" name="column-content" :column :cards />
     </div>
-    <AddTaskDialog>
+    <AddTaskDialog :column-id="column._id">
       <UiButton variant="ghost" size="sm" class="w-full justify-start h-8 px-1.5">
         <Icon icon="lucide:plus" class="min-w-4.4 min-h-4.4 text-neutral-500 dark:text-neutral-400" />
         <span class="text-default fw500 text-neutral-600 dark:text-neutral-400">
           {{ $t('kanban.column.tasks.new') }}
         </span>
       </UiButton>
-      <!-- <AddTaskDialog /> -->
     </AddTaskDialog>
   </div>
 </template>

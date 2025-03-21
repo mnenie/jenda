@@ -11,6 +11,10 @@ import { UiButton, UiCalendar, UiPopover, UiPopoverContent, UiPopoverTrigger } f
 import { cn } from '@/shared/libs/shadcn/utils'
 import { getCurrentLocale } from '@/shared/libs/i18n/utils/getLocale'
 
+const props = defineProps<{
+  todayAndDisabled?: boolean
+}>()
+
 const { t } = useI18n()
 const locale = computed(() => {
   return getCurrentLocale.value
@@ -23,6 +27,9 @@ const df = new DateFormatter(locale.value, {
 const dateValue = defineModel<DateValue>()
 
 const pickerValue = computed(() => {
+  if (props.todayAndDisabled) {
+    return df.format(new Date())
+  }
   return dateValue.value ? df.format(dateValue.value.toDate(getLocalTimeZone())) : t('kanban.column.tasks.forms.creating.timeLimit.placeholder')
 })
 </script>
@@ -31,9 +38,10 @@ const pickerValue = computed(() => {
   <UiPopover>
     <UiPopoverTrigger as-child>
       <UiButton
+        :disabled="todayAndDisabled"
         variant="outline"
         :class="cn(
-          'text-left font-normal',
+          'text-left font-normal w-full justify-start',
           !dateValue && 'text-muted-foreground',
         )"
       >

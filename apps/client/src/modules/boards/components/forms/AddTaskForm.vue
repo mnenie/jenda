@@ -1,16 +1,17 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
 import { toast } from 'vue-sonner'
 import { createReusableTemplate } from '@vueuse/core'
 import { Icon } from '@iconify/vue'
 import { useI18n } from 'vue-i18n'
-import VisibleLabels from '../additions/VisibleLabels.vue'
-import AddUsersBtn from './AddUsersBtn.vue'
-import AddLabelsBtn from './AddLabelsBtn.vue'
+import { storeToRefs } from 'pinia'
+import { useBoardsStore } from '../../stores/boards'
+import AddUsersBox from './AddUsersBox.vue'
 import TaskDatePicker from './TaskDatePicker.vue'
-import type { User } from '@/modules/auth/types'
-import type { Label } from '../../types'
+import AddLabelsBox from './AddLabelsBox.vue'
+import type { Label, UserOption } from '../../types'
 import type { DateValue } from '@internationalized/date'
 import {
   UiButton,
@@ -22,13 +23,17 @@ import {
   UiInput,
 } from '@/shared/ui'
 import { z } from '@/shared/libs/vee-validate'
-import UserAvatars from '@/modules/common/components/UserAvatars.vue'
 
-export type UserOption = Pick<User, '_id' | 'email' | 'photoUrl'>
+const props = defineProps<{
+  columnId: string
+}>()
 
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
+
+const boardsStore = useBoardsStore()
+const { board } = storeToRefs(boardsStore)
 
 const { t } = useI18n()
 
@@ -49,20 +54,6 @@ const validationSchema = toTypedSchema(
         message: t('kanban.column.tasks.forms.creating.timeLimit.error'),
       },
     ),
-    users: z.array(
-      z.object({
-        _id: z.string(),
-        email: z.string().email(),
-        photoUrl: z.string().url().optional(),
-      }),
-    ).optional(),
-    labels: z.array(
-      z.object({
-        id: z.string(),
-        name: z.string(),
-        color: z.string(),
-      }),
-    ).optional(),
   }),
 )
 
@@ -73,17 +64,29 @@ const { value: title } = useField<string>('title')
 const { value: timeLimit } = useField<DateValue | undefined>('timeLimit', undefined, {
   initialValue: undefined,
 })
-const { value: users } = useField<UserOption[]>('users', [], {
-  initialValue: [],
-})
-const { value: labels } = useField<Label[]>('labels', [], {
-  initialValue: [],
-})
+const users = ref<UserOption[]>([])
+const labels = ref<Label[]>([])
 
 const onAddTask = handleSubmit((values) => {
-  toast.success(`${JSON.stringify(values, null, 2)}`)
+  try {
+    const column = board.value.columns?.find(b => b._id === props.columnId)
+    const columnCards = column?.cards
 
-  emit('close')
+    const newCard = {
+      _id: Math.random().toString(),
+      title: values.title,
+      timeLimit: values.timeLimit,
+      users: users.value,
+      labels: labels.value,
+      // + maybe creator
+    }
+    columnCards?.push(newCard)
+
+    emit('close')
+  }
+  catch {
+    toast.error('error')
+  }
 })
 
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
@@ -99,6 +102,46 @@ const mockUsers = [
     email: 'nick@mail.ru',
     photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
   },
+  {
+    _id: '3',
+    email: 'nick3@mail.ru',
+    photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+  },
+  {
+    _id: '4',
+    email: 'nick4@mail.ru',
+    photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+  },
+  {
+    _id: '5',
+    email: 'nick5@mail.ru',
+    photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+  },
+  {
+    _id: '6',
+    email: 'nick6@mail.ru',
+    photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+  },
+  {
+    _id: '7',
+    email: 'nick7@mail.ru',
+    photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+  },
+  {
+    _id: '8',
+    email: 'nick8@mail.ru',
+    photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+  },
+  {
+    _id: '9',
+    email: 'nick9@mail.ru',
+    photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+  },
+  {
+    _id: '10',
+    email: 'nick10@mail.ru',
+    photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+  },
 ]
 const mockLabels = [
   {
@@ -111,12 +154,52 @@ const mockLabels = [
     name: 'backend',
     color: '#fca326',
   },
+  {
+    id: '3',
+    name: 'design',
+    color: '#f472b6',
+  },
+  {
+    id: '4',
+    name: 'testing',
+    color: '#34d399',
+  },
+  {
+    id: '5',
+    name: 'qa',
+    color: '#a78bfa',
+  },
+  {
+    id: '6',
+    name: 'documentation',
+    color: '#60a5fa',
+  },
+  {
+    id: '7',
+    name: 'management',
+    color: '#f87171',
+  },
+  {
+    id: '8',
+    name: 'security',
+    color: '#facc15',
+  },
+  {
+    id: '9',
+    name: 'devops',
+    color: '#6b7280',
+  },
+  {
+    id: '10',
+    name: 'analytics',
+    color: '#10b981',
+  },
 ]
 </script>
 
 <template>
   <DefineTemplate v-slot="{ $slots, field, error }">
-    <UiFormField class="mb-3">
+    <UiFormField class="mb-3 w-full">
       <UiFormLabel
         :for="field"
       >
@@ -134,38 +217,35 @@ const mockLabels = [
         :placeholder="$t('kanban.column.tasks.forms.creating.title.placeholder')"
       />
     </ReuseTemplate>
-    <ReuseTemplate field="timeLimit" :error="errors.timeLimit">
-      <div class="flex gap-2 items-center">
-        <TaskDatePicker id="timeLimit" v-model="timeLimit" />
-        <Icon
-          v-if="timeLimit !== undefined"
-          icon="hugeicons:delete-02"
-          class="w-4 h-4 text-neutral-500 dark:text-neutral-400 cursor-pointer"
-          @click="timeLimit = undefined"
-        />
+    <div class="flex gap-5 items-start">
+      <UiFormField class="mb-3 w-full">
+        <UiFormLabel>
+          {{ $t(`kanban.column.tasks.forms.creating.timeLimit.creationDate`) }}
+        </UiFormLabel>
+        <div class="flex gap-2 items-center w-full">
+          <TaskDatePicker :today-and-disabled="true" />
+        </div>
+      </UiFormField>
+      <ReuseTemplate field="timeLimit" :error="errors.timeLimit">
+        <div class="flex gap-2 items-center w-full">
+          <TaskDatePicker id="timeLimit" v-model="timeLimit" />
+          <Icon
+            v-if="timeLimit !== undefined"
+            icon="hugeicons:cancel-01"
+            class="w-4 h-4 text-neutral-500 dark:text-neutral-400 cursor-pointer"
+            @click="timeLimit = undefined"
+          />
+        </div>
+      </ReuseTemplate>
+    </div>
+    <ReuseTemplate field="users">
+      <div class="flex gap-2 flex-wrap w-full">
+        <AddUsersBox id="users" v-model:users="users" :options="mockUsers" />
       </div>
     </ReuseTemplate>
-    <ReuseTemplate field="users" :error="errors.users">
-      <div class="flex gap-2 items-center">
-        <AddUsersBtn id="users" v-model:users="users" :users-in-workspace="mockUsers" />
-        <UserAvatars
-          v-if="users.length > 0"
-          :users="users"
-          :max="3"
-          avatar="w-6 h-6"
-          class="mr-2"
-        />
-      </div>
-    </ReuseTemplate>
-    <ReuseTemplate field="labels" :error="errors.labels">
-      <div class="flex gap-2 items-center">
-        <AddLabelsBtn id="labels" v-model:labels="labels" :labels-in-workspace="mockLabels" />
-        <VisibleLabels
-          v-if="labels.length > 0"
-          :labels="labels"
-          :max="3"
-          class="mr-2"
-        />
+    <ReuseTemplate field="labels">
+      <div class="flex gap-2 flex-wrap w-full">
+        <AddLabelsBox id="labels" v-model:labels="labels" :options="mockLabels" />
       </div>
     </ReuseTemplate>
     <UiDialogFooter class="sm:justify-end">

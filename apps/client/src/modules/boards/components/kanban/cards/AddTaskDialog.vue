@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import {
   UiDialog,
   UiDialogContent,
@@ -9,7 +10,11 @@ import {
 } from '@/shared/ui'
 import AddTaskForm from '@/modules/boards/components/forms/AddTaskForm.vue'
 
-const model = defineModel<boolean>('open')
+defineProps<{
+  columnId: string
+}>()
+
+const model = ref(false)
 </script>
 
 <template>
@@ -24,7 +29,7 @@ const model = defineModel<boolean>('open')
           {{ $t('kanban.column.tasks.forms.creating.dialogDescription') }}
         </UiDialogDescription>
       </UiDialogHeader>
-      <AddTaskForm @close="model = false" />
+      <AddTaskForm :column-id="columnId" @close="model = false" />
     </UiDialogContent>
   </UiDialog>
 </template>

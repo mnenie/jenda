@@ -507,6 +507,7 @@ export default {
               placeholder: 'Придумайте задачу',
             },
             timeLimit: {
+              creationDate: 'Дата создания',
               label: 'Срок выполнения',
               placeholder: 'Выберите дату',
               error: 'Нельзя выбрать прошедшую дату',
