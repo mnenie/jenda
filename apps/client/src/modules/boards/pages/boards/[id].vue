@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, shallowRef } from 'vue'
 import { storeToRefs } from 'pinia'
 import ActionsPanel from '../../components/board-shell/ActionsPanel.vue'
 import ArchivedAlert from '../../components/board-shell/ArchivedAlert.vue'
@@ -7,12 +7,29 @@ import EmptyColumns from '../../components/kanban/columns/EmptyColumns.vue'
 import { useBoardsStore } from '../../stores/boards'
 import DnDKanbanContainer from '../../components/kanban/DnDKanbanContainer.vue'
 import AddNewColumn from '../../components/kanban/columns/AddNewColumn.vue'
+import BoardImages from '../../components/board-shell/BoardImages.vue'
+import { provideBoardMenuContext } from '../../composables/menu'
 import { cn } from '@/shared/libs/shadcn/utils'
 
 const boardsStore = useBoardsStore()
 const { board } = storeToRefs(boardsStore)
 
 const isReadonly = computed(() => board.value.status === 'archived')
+
+const boardImage = computed(() => board.value.image ? `url(${board.value.image})` : '')
+
+const imagesPopover = shallowRef(false)
+const isBoardMenuOpen = shallowRef(false)
+
+function closeMenu() {
+  isBoardMenuOpen.value = false
+}
+
+provideBoardMenuContext({
+  closeMenu,
+  imagesPopover,
+  isBoardMenuOpen,
+})
 
 // unplugin
 definePage({
@@ -39,7 +56,10 @@ definePage({
 </script>
 
 <template>
-  <div class="h-full w-full">
+  <div
+    class="h-full w-full bg-cover bg-center"
+    :style="{ backgroundImage: boardImage }"
+  >
     <div class="relative h-full w-full p-3.5 px-15px">
       <ActionsPanel />
       <div
@@ -54,6 +74,7 @@ definePage({
       </div>
       <EmptyColumns v-else />
       <ArchivedAlert />
+      <BoardImages />
     </div>
   </div>
 </template>

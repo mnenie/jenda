@@ -1,23 +1,20 @@
 interface MenuItem {
-  value?: string
+  tPrefix: string
   shortcut: string
+  select?: () => void
 }
 
-export const menuValues = [
+export const menuItems = [
   {
-    value: 'background',
-    shortcut: '⌥⌘P',
+    tPrefix: 'edit',
+    shortcut: '⌘⌃E',
   },
   {
-    value: 'labels',
-    shortcut: '⌃⌘O',
+    tPrefix: 'background',
+    shortcut: '⌘I',
   },
   {
-    value: 'edit',
-    shortcut: '⌥⌘E',
-  },
-  {
-    value: 'delete',
-    shortcut: '⌥⌘X',
+    tPrefix: 'delete',
+    shortcut: '⌘⌃B',
   },
 ] satisfies MenuItem[]

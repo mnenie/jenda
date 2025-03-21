@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { inject } from 'vue'
 import EditBoardForm from '../forms/EditBoardForm.vue'
-import { BOARD_MENU_KEY } from '../../constants/keys'
+import { useBoardMenuContext } from '../../composables/menu'
 import {
   UiDialog,
   UiDialogContent,
@@ -11,7 +10,7 @@ import {
   UiDialogTrigger,
 } from '@/shared/ui'
 
-const { closeMenu } = inject(BOARD_MENU_KEY)!
+const { closeMenu } = useBoardMenuContext()
 
 const modelEditDialog = defineModel<boolean>('open')
 

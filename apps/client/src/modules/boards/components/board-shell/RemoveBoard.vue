@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { inject, shallowRef } from 'vue'
-import { useMagicKeys, whenever } from '@vueuse/core'
+import { shallowRef } from 'vue'
 import { toast } from 'vue-sonner'
-import { BOARD_MENU_KEY } from '../../constants/keys'
-import MenuItem from './MenuItem.vue'
+import { useBoardMenuContext } from '../../composables/menu'
 import RemoveDialog from '@/modules/common/components/dialogs/RemoveDialog.vue'
 
-const modelOpenWithShortcut = shallowRef(false)
+const modelOpenWithShortcut = defineModel<boolean>('open')
 const loading = shallowRef(false)
 
-const { closeMenu } = inject(BOARD_MENU_KEY)!
+const { closeMenu } = useBoardMenuContext()
 
 async function removeBoard() {
   try {
@@ -24,13 +22,10 @@ async function removeBoard() {
     loading.value = false
     toast.error('error')
   }
+  finally {
+    loading.value = false
+  }
 }
-
-const { meta_ctrl_b } = useMagicKeys()
-
-whenever(meta_ctrl_b, () => {
-  modelOpenWithShortcut.value = true
-})
 </script>
 
 <template>
@@ -41,7 +36,7 @@ whenever(meta_ctrl_b, () => {
     @remove="removeBoard"
   >
     <template #trigger>
-      <MenuItem class="hover:!bg-#dc262611 !text-red-500 " t-prefix="delete" shortcut="⌘⌃B" />
+      <slot :loading />
     </template>
   </RemoveDialog>
 </template>

@@ -46,6 +46,7 @@ export interface Board extends DateParams {
   // fix
   date?: string
   visibility?: Visibility
+  image?: string
 }
 
 export interface Card extends DateParams {

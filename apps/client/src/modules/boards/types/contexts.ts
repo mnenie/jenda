@@ -7,4 +7,6 @@ export interface FilteredBoardsContext {
 
 export interface BoardMenuContext {
   closeMenu: () => void
+  imagesPopover: Ref<boolean>
+  isBoardMenuOpen: Ref<boolean>
 }

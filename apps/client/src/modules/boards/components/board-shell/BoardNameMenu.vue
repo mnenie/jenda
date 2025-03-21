@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { computed, provide, ref } from 'vue'
+import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { Icon } from '@iconify/vue'
-import { useMagicKeys } from '@vueuse/core'
+import { useMagicKeys, whenever } from '@vueuse/core'
 import { useBoardsStore } from '../../stores/boards'
-import { BOARD_MENU_KEY } from '../../constants/keys'
+import { useBoardMenuContext, useDialogsShortcuts } from '../../composables/menu'
+import EditBoardDialog from '../dialogs/EditBoardDialog.vue'
 import RemoveBoard from './RemoveBoard.vue'
-import BoardEditMenuItem from './BoardEditMenuItem.vue'
+import DdMenuItems from './DdMenuItems.vue'
 import {
   UiBadge,
   UiButton,
@@ -35,23 +36,21 @@ const status = computed({
   },
 })
 
-const isMenuOpen = ref(false)
+const { isBoardMenuOpen, imagesPopover } = useBoardMenuContext()
 
-function closeMenu() {
-  isMenuOpen.value = false
-}
+const { isEditDialogOpen, isRemoveDialogOpen } = useDialogsShortcuts()
 
-const { alt_meta_p, ctrl_meta_0, alt_meta_x, alt_meta_e } = useMagicKeys()
+const { meta_i } = useMagicKeys()
+
+whenever(meta_i, () => {
+  imagesPopover.value = true
+})
 
 // _todo[skip_ci]
-
-provide(BOARD_MENU_KEY, {
-  closeMenu,
-})
 </script>
 
 <template>
-  <UiDropdownMenu v-model:open="isMenuOpen">
+  <UiDropdownMenu v-model:open="isBoardMenuOpen">
     <UiDropdownMenuTrigger as-child>
       <UiButton variant="secondary" class="shadow-none">
         <div
@@ -87,8 +86,13 @@ provide(BOARD_MENU_KEY, {
         </UiBadge>
       </UiDropdownMenuItem>
       <UiDropdownMenuSeparator />
-      <BoardEditMenuItem />
-      <RemoveBoard />
+      <DdMenuItems
+        @edit="isEditDialogOpen = true"
+        @delete="isRemoveDialogOpen = true"
+        @background="imagesPopover = true"
+      />
     </UiDropdownMenuContent>
   </UiDropdownMenu>
+  <RemoveBoard v-model:open="isRemoveDialogOpen" />
+  <EditBoardDialog v-model:open="isEditDialogOpen" />
 </template>
