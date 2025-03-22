@@ -71,7 +71,7 @@ export default {
           ],
         },
         labels: {
-          title: 'Labels',
+          title: 'Manage labelsLabels',
         },
       },
       search: 'Find a board...',
@@ -108,6 +108,18 @@ export default {
       description_tasks: 'Solve and complete the tasks you started',
     },
     columns: ['Board name', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
+  },
+  board: {
+    remove: {
+      title: 'Delete board',
+      description: 'Are you sure you want to delete this board? All associated data will be removed.',
+    },
+    menu: {
+      background: 'Change background',
+      labels: 'Manage labels',
+      edit: 'Edit board',
+      delete: 'Delete board',
+    },
   },
   notes: {
     create: 'Add note | Add new note',
@@ -193,7 +205,10 @@ export default {
   common: {
     remove: {
       warning: 'This action is irreversible.',
-      btns: 'Cancel | Delete',
+      btns: 'Cancel | Delete | Deleting',
+    },
+    create: {
+      btns: 'Cancel | Create',
     },
   },
   workflows: {
@@ -479,7 +494,38 @@ export default {
         limit: 'Set limit',
       },
       tasks: {
-        new: 'Add a task',
+        new: 'Add task',
+        forms: {
+          creating: {
+            dialogTitle: 'Create task',
+            dialogDescription: 'You can create a new task for this column.',
+            title: {
+              label: 'Title',
+              placeholder: 'Enter the task title',
+            },
+            timeLimit: {
+              creationDate: 'Creation date',
+              label: 'Time limit',
+              placeholder: 'Select date',
+              error: 'You cannot select a past date',
+            },
+            users: {
+              label: 'Assignees',
+              placeholder: 'Add assignees',
+              commandHeading: 'Available assignees',
+              commandEmpty: 'Nothing found :/',
+              commandSearch: 'Search...',
+            },
+            labels: {
+              label: 'Labels',
+              placeholder: 'Add labels',
+              commandHeading: 'Available labels',
+              commandEmpty: 'Nothing found :/',
+              commandSearch: 'Search...',
+            },
+            btns: 'Cancel | Create',
+          },
+        },
       },
     },
     cards: {

@@ -108,6 +108,18 @@ export default {
     },
     columns: ['Название доски', 'Лейблы', 'Участники', 'Задачи', 'Оценка', 'Дата создания'],
   },
+  board: {
+    remove: {
+      title: 'Удаление доски',
+      description: 'Вы действительно хотите удалить эту доску? Все связанные с ней данные будут удалены.',
+    },
+    menu: {
+      background: 'Сменить фон',
+      labels: 'Лейблы',
+      edit: 'Редактировать',
+      delete: 'Удалить',
+    },
+  },
   notes: {
     create: 'Добавить заметку | Добавить новую заметку',
     remove: 'Удалить',
@@ -192,7 +204,10 @@ export default {
   common: {
     remove: {
       warning: 'Это действие необратимо.',
-      btns: 'Отмена | Удалить',
+      btns: 'Отмена | Удалить | Удаление',
+    },
+    create: {
+      btns: 'Отмена | Создать',
     },
   },
   workflows: {
@@ -483,6 +498,37 @@ export default {
       },
       tasks: {
         new: 'Добавить задачу',
+        forms: {
+          creating: {
+            dialogTitle: 'Создание задачи',
+            dialogDescription: 'Вы можете создать создать новую задачу для этой колонки.',
+            title: {
+              label: 'Название',
+              placeholder: 'Придумайте задачу',
+            },
+            timeLimit: {
+              creationDate: 'Дата создания',
+              label: 'Срок выполнения',
+              placeholder: 'Выберите дату',
+              error: 'Нельзя выбрать прошедшую дату',
+            },
+            users: {
+              label: 'Исполнители',
+              placeholder: 'Добавить исполнителей',
+              commandHeading: 'Доступные исполнители',
+              commandEmpty: 'Ничего не найдено :/',
+              commandSearch: 'Поиск...',
+            },
+            labels: {
+              label: 'Лейблы',
+              placeholder: 'Добавить лейблы',
+              commandHeading: 'Доступные лейблы',
+              commandEmpty: 'Ничего не найдено :/',
+              commandSearch: 'Поиск...',
+            },
+            btns: 'Отмена | Создать',
+          },
+        },
       },
     },
     cards: {

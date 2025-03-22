@@ -20,6 +20,7 @@
     "@dagrejs/dagre": "1.1.4",
     "@formkit/auto-animate": "^0.8.2",
     "@formkit/drag-and-drop": "0.4.1",
+    "@internationalized/date": "3.7.0",
     "@tanstack/vue-table": "8.20.5",
     "@tiptap/core": "2.11.2",
     "@tiptap/extension-blockquote": "2.11.2",

@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { Icon } from '@iconify/vue'
-import { useI18n } from 'vue-i18n'
 import { useMagicKeys } from '@vueuse/core'
 import { useBoardsStore } from '../../stores/boards'
-import { menuValues } from '../../constants/board-menu'
+import RemoveBoard from './RemoveBoard.vue'
 import {
   UiBadge,
   UiButton,
@@ -13,11 +12,9 @@ import {
   UiDropdownMenuContent,
   UiDropdownMenuItem,
   UiDropdownMenuSeparator,
-  UiDropdownMenuShortcut,
   UiDropdownMenuTrigger,
   UiSwitch,
 } from '@/shared/ui'
-import { cn } from '@/shared/libs/shadcn/utils'
 
 const boardsStore = useBoardsStore()
 const { board } = storeToRefs(boardsStore)
@@ -36,15 +33,7 @@ const status = computed({
   },
 })
 
-const { t, tm } = useI18n()
-
-const menuLocaleArr = computed(() => {
-  const _arr = tm('kanban.menu')
-  return _arr.map((item: string, id: number) => ({
-    value: item,
-    shortcut: menuValues[id].shortcut,
-  }))
-})
+const isMenuOpen = ref(false)
 
 const { alt_meta_p, ctrl_meta_0, alt_meta_x, alt_meta_e } = useMagicKeys()
 
@@ -52,7 +41,7 @@ const { alt_meta_p, ctrl_meta_0, alt_meta_x, alt_meta_e } = useMagicKeys()
 </script>
 
 <template>
-  <UiDropdownMenu>
+  <UiDropdownMenu v-model:open="isMenuOpen">
     <UiDropdownMenuTrigger as-child>
       <UiButton variant="secondary" class="shadow-none">
         <div
@@ -83,21 +72,12 @@ const { alt_meta_p, ctrl_meta_0, alt_meta_x, alt_meta_e } = useMagicKeys()
           :class="board.status === 'active' ? 'badge-soft-green' : 'badge-soft-red'"
         >
           <span class="text-default fw400 whitespace-nowrap">
-            {{ t(`kanban.${board.status}`) }}
+            {{ $t(`kanban.${board.status}`) }}
           </span>
         </UiBadge>
       </UiDropdownMenuItem>
       <UiDropdownMenuSeparator />
-      <UiDropdownMenuItem
-        v-for="item, idx in menuLocaleArr"
-        :key="item.value"
-        :class="cn({ 'hover:!bg-#dc262611 !text-red-500': menuLocaleArr.length - 1 === idx }, 'cursor-pointer')"
-      >
-        <span class="text-default fw370">{{ item.value }}</span>
-        <UiDropdownMenuShortcut class="text-neutral-500">
-          {{ item.shortcut }}
-        </UiDropdownMenuShortcut>
-      </UiDropdownMenuItem>
+      <RemoveBoard @close-menu="isMenuOpen = false" />
     </UiDropdownMenuContent>
   </UiDropdownMenu>
 </template>

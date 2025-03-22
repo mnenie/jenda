@@ -32,7 +32,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     :class="cn(buttonVariants({ variant, size }), btnClass)"
     :disabled="loading || disabled"
   >
-    <DefineTemplate v-if="loading">
+    <DefineTemplate>
       <slot name="loading">
         <div i-lucide-loader-circle class="h-4 w-4 animate-spin" />
       </slot>

@@ -37,7 +37,7 @@ const priorityColor = computed(() => priorities[props.card.priority!])
       )"
     />
     <div v-if="card.labels?.length" class="flex items-center justify-between gap-2 w-full mb-1.5">
-      <VisibleLabels :labels="card.labels" :max="2" class="gap-2" label-class="!max-w-40" />
+      <VisibleLabels :labels="card.labels" :max="3" class="gap-2" label-class="!max-w-40" />
     </div>
     <div class="flex flex-col w-full gap-1 mb-4">
       <p class="text-default font-medium mb-1 truncate">

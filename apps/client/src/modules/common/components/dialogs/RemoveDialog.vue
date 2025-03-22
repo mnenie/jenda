@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import {
   UiButton,
   UiDialog,
@@ -9,8 +11,9 @@ import {
   UiDialogTrigger,
 } from '@/shared/ui'
 
-defineProps<{
+const props = defineProps<{
   tPrefix: string
+  deleting?: boolean
 }>()
 
 const emits = defineEmits<{
@@ -18,6 +21,18 @@ const emits = defineEmits<{
 }>()
 
 const model = defineModel<boolean>('open')
+
+const { t } = useI18n()
+
+const removeBthText = computed(() => {
+  return props.deleting ? t('common.remove.btns', 2) : t('common.remove.btns', 1)
+})
+
+function onRemove() {
+  if (props.deleting)
+    return
+  emits('remove')
+}
 </script>
 
 <template>
@@ -37,14 +52,12 @@ const model = defineModel<boolean>('open')
         <div class="flex gap-2 justify-end">
           <UiDialogClose as-child>
             <UiButton variant="secondary">
-              {{ $t('common.remove.btns', 1) }}
+              {{ $t('common.remove.btns', 0) }}
             </UiButton>
           </UiDialogClose>
-          <UiDialogClose as-child>
-            <UiButton variant="destructive" @click="emits('remove')">
-              {{ $t('common.remove.btns', 2) }}
-            </UiButton>
-          </UiDialogClose>
+          <UiButton :loading="deleting" variant="destructive" @click="onRemove">
+            {{ removeBthText }}
+          </UiButton>
         </div>
       </div>
     </UiDialogContent>
