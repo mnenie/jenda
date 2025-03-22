@@ -222,6 +222,9 @@ export default {
       warning: 'Это действие необратимо.',
       btns: 'Отмена | Удалить | Удаление',
     },
+    create: {
+      btns: 'Отмена | Создать',
+    },
   },
   workflows: {
     create: 'Добавить процесс | Добавить новый процесс',
@@ -511,6 +514,37 @@ export default {
       },
       tasks: {
         new: 'Добавить задачу',
+        forms: {
+          creating: {
+            dialogTitle: 'Создание задачи',
+            dialogDescription: 'Вы можете создать создать новую задачу для этой колонки.',
+            title: {
+              label: 'Название',
+              placeholder: 'Придумайте задачу',
+            },
+            timeLimit: {
+              creationDate: 'Дата создания',
+              label: 'Срок выполнения',
+              placeholder: 'Выберите дату',
+              error: 'Нельзя выбрать прошедшую дату',
+            },
+            users: {
+              label: 'Исполнители',
+              placeholder: 'Добавить исполнителей',
+              commandHeading: 'Доступные исполнители',
+              commandEmpty: 'Ничего не найдено :/',
+              commandSearch: 'Поиск...',
+            },
+            labels: {
+              label: 'Лейблы',
+              placeholder: 'Добавить лейблы',
+              commandHeading: 'Доступные лейблы',
+              commandEmpty: 'Ничего не найдено :/',
+              commandSearch: 'Поиск...',
+            },
+            btns: 'Отмена | Создать',
+          },
+        },
       },
     },
     cards: {

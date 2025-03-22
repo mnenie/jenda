@@ -80,3 +80,5 @@ export interface StatusBadge {
   indicator: string
   status: Status
 }
+
+export type UserOption = Omit<User, 'role'>

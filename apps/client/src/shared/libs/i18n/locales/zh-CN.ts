@@ -221,6 +221,9 @@ export default {
       warning: '此操作无法撤销。',
       btns: '取消 | 删除 | 删除',
     },
+    create: {
+      btns: '取消 | 创建',
+    },
   },
   workflows: {
     create: '添加流程 | 添加新流程',
@@ -496,6 +499,37 @@ export default {
       },
       tasks: {
         new: '添加任务',
+        forms: {
+          creating: {
+            dialogTitle: '创建任务',
+            dialogDescription: '您可以为此列创建一个新任务。',
+            title: {
+              label: '标题',
+              placeholder: '输入任务标题',
+            },
+            timeLimit: {
+              creationDate: '创建日期',
+              label: '时间限制',
+              placeholder: '选择日期',
+              error: '不能选择过去的时间',
+            },
+            users: {
+              label: '执行者',
+              placeholder: '添加执行者',
+              commandHeading: '可用执行者',
+              commandEmpty: '未找到 :/',
+              commandSearch: '搜索...',
+            },
+            labels: {
+              label: '标签',
+              placeholder: '添加标签',
+              commandHeading: '可用标签',
+              commandEmpty: '未找到 :/',
+              commandSearch: '搜索...',
+            },
+            btns: '取消 | 创建',
+          },
+        },
       },
     },
     cards: {

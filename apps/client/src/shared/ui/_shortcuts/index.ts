@@ -19,6 +19,7 @@ import { _switch } from './switch'
 import { textarea } from './textarea'
 import { sheet } from './sheet'
 import { collapsible } from './collapsible'
+import { calendar } from './calendar'
 import type { Preset, StaticShortcutMap } from '@unocss/core'
 
 export const shortcuts = [
@@ -43,4 +44,5 @@ export const shortcuts = [
   ...tagsInput,
   ...sheet,
   ...collapsible,
+  ...calendar,
 ] as Exclude<Preset['shortcuts'], undefined | StaticShortcutMap>

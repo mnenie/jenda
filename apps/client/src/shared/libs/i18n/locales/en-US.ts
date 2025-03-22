@@ -223,6 +223,9 @@ export default {
       warning: 'This action is irreversible.',
       btns: 'Cancel | Delete | Deleting',
     },
+    create: {
+      btns: 'Cancel | Create',
+    },
   },
   workflows: {
     create: 'Add workflow | Add a new workflow',
@@ -507,7 +510,38 @@ export default {
         limit: 'Set limit',
       },
       tasks: {
-        new: 'Add a task',
+        new: 'Add task',
+        forms: {
+          creating: {
+            dialogTitle: 'Create task',
+            dialogDescription: 'You can create a new task for this column.',
+            title: {
+              label: 'Title',
+              placeholder: 'Enter the task title',
+            },
+            timeLimit: {
+              creationDate: 'Creation date',
+              label: 'Time limit',
+              placeholder: 'Select date',
+              error: 'You cannot select a past date',
+            },
+            users: {
+              label: 'Assignees',
+              placeholder: 'Add assignees',
+              commandHeading: 'Available assignees',
+              commandEmpty: 'Nothing found :/',
+              commandSearch: 'Search...',
+            },
+            labels: {
+              label: 'Labels',
+              placeholder: 'Add labels',
+              commandHeading: 'Available labels',
+              commandEmpty: 'Nothing found :/',
+              commandSearch: 'Search...',
+            },
+            btns: 'Cancel | Create',
+          },
+        },
       },
     },
     cards: {

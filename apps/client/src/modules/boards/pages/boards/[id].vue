@@ -57,7 +57,7 @@ definePage({
 
 <template>
   <div
-    class="h-full w-full bg-cover bg-center"
+    class="h-dvh w-full bg-cover bg-center"
     :style="{ backgroundImage: boardImage }"
   >
     <div class="relative h-full w-full p-3.5 px-15px">
