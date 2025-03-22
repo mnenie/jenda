@@ -10,8 +10,8 @@ defineProps<{
 
 <template>
   <div class="w-full flex items-center justify-between">
-    <UserLabel :user :closable="false" class="!bg-transparent" />
-    <UiBadge variant="secondary" class="!bg-transparent">
+    <UserLabel :user :closable="false" class="!bg-transparent !text-small" />
+    <UiBadge variant="secondary" class="!bg-transparent !text-small fw400">
       {{ user.role }}
     </UiBadge>
   </div>

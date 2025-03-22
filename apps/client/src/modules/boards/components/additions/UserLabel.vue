@@ -22,6 +22,6 @@ const emit = defineEmits<{
     @close="emit('remove')"
   >
     <img :src="user.photoUrl" :alt="user.email" class="w-5 h-5 rounded-full" />
-    <span :class="cn('!text-small text-neutral-600 dark:text-neutral-200 mb-px', removable && 'truncate')">{{ user.email }}</span>
+    <span :class="cn('!text-13px 2xl:!text-small text-neutral-600 dark:text-neutral-200 mb-px', removable && 'truncate')">{{ user.email }}</span>
   </UiBadge>
 </template>

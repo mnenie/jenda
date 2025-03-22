@@ -32,7 +32,7 @@ const [removeLabel, addLabel] = useTaskCombobox(labels, 'id')
         :key="label.id"
         :label
         :removable="true"
-        class="!text-small px-1.5px py-0 !h-fit"
+        class="!text-13px 2xl:!text-small px-1.5px py-0 !h-fit"
         @remove="removeLabel(label)"
       />
     </template>
