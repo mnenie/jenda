@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import ActionsPanel from '../../components/kanban/ActionsPanel.vue'
-import ArchivedAlert from '../../components/kanban/ArchivedAlert.vue'
+import ActionsPanel from '../../components/board/ActionsPanel.vue'
+import ArchivedAlert from '../../components/board/ArchivedAlert.vue'
 import EmptyColumns from '../../components/kanban/columns/EmptyColumns.vue'
 import { useBoardsStore } from '../../stores/boards'
 import DnDKanbanContainer from '../../components/kanban/DnDKanbanContainer.vue'
@@ -35,7 +35,7 @@ definePage({
 </script>
 
 <template>
-  <div class="h-full w-full">
+  <div class="h-dvh w-full">
     <div class="relative h-full w-full p-3.5 px-15px">
       <ActionsPanel />
       <div v-if="board.columns?.length" class="w-full h-full overflow-x-auto flex items-start justify-start gap-3 overflow-y-hidden py-4">

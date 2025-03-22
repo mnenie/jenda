@@ -107,6 +107,18 @@ export default {
     },
     columns: ['看板名称', '标签', '参与者', '任务', '估算', '创建日期'],
   },
+  board: {
+    remove: {
+      title: '删除看板',
+      description: '您确定要删除此看板吗？所有相关数据都将被删除。',
+    },
+    menu: {
+      background: '更换背景',
+      labels: '标签',
+      edit: '编辑',
+      delete: '删除',
+    },
+  },
   notes: {
     create: '添加笔记 | 添加新笔记',
     remove: '删除',
@@ -191,7 +203,10 @@ export default {
   common: {
     remove: {
       warning: '此操作无法撤销。',
-      btns: '取消 | 删除',
+      btns: '取消 | 删除 | 删除',
+    },
+    create: {
+      btns: '取消 | 创建',
     },
   },
   workflows: {
@@ -468,6 +483,37 @@ export default {
       },
       tasks: {
         new: '添加任务',
+        forms: {
+          creating: {
+            dialogTitle: '创建任务',
+            dialogDescription: '您可以为此列创建一个新任务。',
+            title: {
+              label: '标题',
+              placeholder: '输入任务标题',
+            },
+            timeLimit: {
+              creationDate: '创建日期',
+              label: '时间限制',
+              placeholder: '选择日期',
+              error: '不能选择过去的时间',
+            },
+            users: {
+              label: '执行者',
+              placeholder: '添加执行者',
+              commandHeading: '可用执行者',
+              commandEmpty: '未找到 :/',
+              commandSearch: '搜索...',
+            },
+            labels: {
+              label: '标签',
+              placeholder: '添加标签',
+              commandHeading: '可用标签',
+              commandEmpty: '未找到 :/',
+              commandSearch: '搜索...',
+            },
+            btns: '取消 | 创建',
+          },
+        },
       },
     },
     cards: {
