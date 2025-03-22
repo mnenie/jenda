@@ -207,6 +207,9 @@ importers:
       '@iconify/vue':
         specifier: 4.1.2
         version: 4.1.2(vue@3.5.13(typescript@5.4.5))
+      '@pinia/testing':
+        specifier: 1.0.0
+        version: 1.0.0(pinia@2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5)))
       '@rushstack/eslint-patch':
         specifier: ^1.8.0
         version: 1.10.5
@@ -1142,6 +1145,11 @@ packages:
   '@parcel/watcher@2.5.1':
     resolution: {integrity: sha512-dfUnCxiN9H4ap84DvD2ubjw+3vUNpstxa0TneY/Paat8a3R4uQZDLSvWjmznAY/DoahqTHl9V46HF/Zs3F29pg==}
     engines: {node: '>= 10.0.0'}
+
+  '@pinia/testing@1.0.0':
+    resolution: {integrity: sha512-a0QquMJqIdgOsb64f8u6YznRbZD4aJxjpyiWXJbs6e2mn7qn6xx/y1hSdTzqK8jfjX0rGPYniHHvF6zpP73ilg==}
+    peerDependencies:
+      pinia: '>=3.0.0'
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -5951,6 +5959,10 @@ snapshots:
       '@parcel/watcher-win32-ia32': 2.5.1
       '@parcel/watcher-win32-x64': 2.5.1
     optional: true
+
+  '@pinia/testing@1.0.0(pinia@2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5)))':
+    dependencies:
+      pinia: 2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5))
 
   '@pkgjs/parseargs@0.11.0':
     optional: true

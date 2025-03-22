@@ -80,6 +80,7 @@
     "@iconify-json/lucide": "1.2.17",
     "@iconify/utils": "2.2.1",
     "@iconify/vue": "4.1.2",
+    "@pinia/testing": "1.0.0",
     "@rushstack/eslint-patch": "^1.8.0",
     "@storybook/addon-essentials": "^8.1.10",
     "@storybook/addon-interactions": "^8.1.10",
