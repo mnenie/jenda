@@ -39,18 +39,31 @@ const pickerValue = computed(() => {
     <UiPopoverTrigger as-child>
       <UiButton
         :disabled="todayAndDisabled"
-        variant="outline"
+        variant="ghost"
         :class="cn(
-          'text-left font-normal w-full justify-start',
+          '!input-filled text-left w-full justify-start shadow-none justify-between',
           !dateValue && 'text-muted-foreground',
         )"
       >
-        <Icon icon="hugeicons:calendar-02" class="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400" />
-        {{ pickerValue }}
+        <div class="flex items-center gap-1">
+          <Icon icon="hugeicons:calendar-02" class="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400" />
+          <span class="fw400">{{ pickerValue }}</span>
+        </div>
+        <div
+          v-if="dateValue !== undefined"
+          style="pointer-events: auto"
+          class="hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-md flex items-center justify-center w-5 h-5 transition-all"
+          @click.stop="dateValue = undefined"
+        >
+          <Icon
+            icon="hugeicons:cancel-01"
+            class="w-3.6 h-3.6 text-neutral-500 dark:text-neutral-400 cursor-pointer"
+          />
+        </div>
       </UiButton>
     </UiPopoverTrigger>
-    <UiPopoverContent class="w-auto p-0">
-      <UiCalendar v-model="dateValue" />
+    <UiPopoverContent class="w-full p-0">
+      <UiCalendar v-model="dateValue" :is-date-disabled="(date) => date.toDate(getLocalTimeZone()) <= new Date" class="w-220px" />
     </UiPopoverContent>
   </UiPopover>
 </template>

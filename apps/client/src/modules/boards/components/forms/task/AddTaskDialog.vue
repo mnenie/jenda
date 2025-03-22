@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import AddTaskForm from './AddTaskForm.vue'
 import {
   UiDialog,
   UiDialogContent,
@@ -8,11 +9,6 @@ import {
   UiDialogTitle,
   UiDialogTrigger,
 } from '@/shared/ui'
-import AddTaskForm from '@/modules/boards/components/forms/AddTaskForm.vue'
-
-defineProps<{
-  columnId: string
-}>()
 
 const model = ref(false)
 </script>
@@ -22,14 +18,14 @@ const model = ref(false)
     <UiDialogTrigger as-child>
       <slot />
     </UiDialogTrigger>
-    <UiDialogContent>
+    <UiDialogContent class="min-w-xl">
       <UiDialogHeader>
         <UiDialogTitle>{{ $t('kanban.column.tasks.forms.creating.dialogTitle') }}</UiDialogTitle>
         <UiDialogDescription>
           {{ $t('kanban.column.tasks.forms.creating.dialogDescription') }}
         </UiDialogDescription>
       </UiDialogHeader>
-      <AddTaskForm :column-id="columnId" @close="model = false" />
+      <AddTaskForm @close="model = false" />
     </UiDialogContent>
   </UiDialog>
 </template>

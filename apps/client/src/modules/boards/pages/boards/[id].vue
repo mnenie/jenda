@@ -35,7 +35,7 @@ definePage({
 </script>
 
 <template>
-  <div class="h-full w-full">
+  <div class="h-dvh w-full">
     <div class="relative h-full w-full p-3.5 px-15px">
       <ActionsPanel />
       <div v-if="board.columns?.length" class="w-full h-full overflow-x-auto flex items-start justify-start gap-3 overflow-y-hidden py-4">

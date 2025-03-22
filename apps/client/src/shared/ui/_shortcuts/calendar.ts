@@ -11,7 +11,7 @@ export const staticColendar: Record<`${CalendarPrefix}-${string}` | CalendarPref
   'calendar-cell-trigger-outside-view': 'data-[outside-view]:text-neutral-500 data-[outside-view]:opacity-50 [&[data-outside-view][data-selected]]:bg-neutral-100/50 [&[data-outside-view][data-selected]]:text-neutral-500 [&[data-outside-view][data-selected]]:opacity-30 dark:data-[outside-view]:text-neutral-400 dark:[&[data-outside-view][data-selected]]:bg-neutral-800/50 dark:[&[data-outside-view][data-selected]]:text-neutral-400',
 
   'calendar-grid': 'w-full border-collapse space-y-1',
-  'calendar-grid-row': 'flex',
+  'calendar-grid-row': 'flex justify-around',
   'calendar-grid-row-body': 'mt-2 w-full',
   'calendar-head-cell': 'w-8 rounded-md text-[0.8rem] font-normal text-neutral-500 dark:text-neutral-400',
   'calendar-header': 'relative flex w-full items-center justify-between pt-1',

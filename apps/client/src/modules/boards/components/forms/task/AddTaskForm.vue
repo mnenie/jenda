@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref, shallowRef, toValue } from 'vue'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
 import { toast } from 'vue-sonner'
 import { createReusableTemplate } from '@vueuse/core'
-import { Icon } from '@iconify/vue'
-import { useI18n } from 'vue-i18n'
-import { storeToRefs } from 'pinia'
-import { useBoardsStore } from '../../stores/boards'
+import { useKanbanContext } from '../../../composables/kanban'
 import AddUsersBox from './AddUsersBox.vue'
-import TaskDatePicker from './TaskDatePicker.vue'
 import AddLabelsBox from './AddLabelsBox.vue'
-import type { Label, UserOption } from '../../types'
+import DateFields from './DateFields.vue'
+import type { Label, UserOption } from '../../../types'
 import type { DateValue } from '@internationalized/date'
 import {
   UiButton,
@@ -24,36 +21,13 @@ import {
 } from '@/shared/ui'
 import { z } from '@/shared/libs/vee-validate'
 
-const props = defineProps<{
-  columnId: string
-}>()
-
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
-const boardsStore = useBoardsStore()
-const { board } = storeToRefs(boardsStore)
-
-const { t } = useI18n()
-
 const validationSchema = toTypedSchema(
   z.object({
     title: z.string().min(1),
-    timeLimit: z.any().refine(
-      (val) => {
-        if (!val)
-          return true
-
-        const today = new Date()
-        today.setHours(0, 0, 0, 0)
-
-        return val.toDate() >= today
-      },
-      {
-        message: t('kanban.column.tasks.forms.creating.timeLimit.error'),
-      },
-    ),
   }),
 )
 
@@ -61,31 +35,45 @@ const { handleSubmit, errors } = useForm({
   validationSchema,
 })
 const { value: title } = useField<string>('title')
-const { value: timeLimit } = useField<DateValue | undefined>('timeLimit', undefined, {
-  initialValue: undefined,
-})
+
+const timeLimit = shallowRef<DateValue>()
+
 const users = ref<UserOption[]>([])
+
+const creatorOrUsers = computed(() => {
+  return users.value.length
+    ? users.value
+    : [
+        { _id: 'creator', email: 'creator@mail.ru', photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4' },
+      ]
+})
+
 const labels = ref<Label[]>([])
 
-const onAddTask = handleSubmit((values) => {
-  try {
-    const column = board.value.columns?.find(b => b._id === props.columnId)
-    const columnCards = column?.cards
+const loading = shallowRef(false)
 
+const { cards } = useKanbanContext()
+
+const onAddTask = handleSubmit(async (values) => {
+  loading.value = true
+  await new Promise<void>(resolve => setTimeout(resolve, 2000))
+  try {
     const newCard = {
       _id: Math.random().toString(),
       title: values.title,
-      timeLimit: values.timeLimit,
-      users: users.value,
+      timeLimit: timeLimit.value,
+      users: creatorOrUsers.value,
       labels: labels.value,
-      // + maybe creator
     }
-    columnCards?.push(newCard)
-
+    toValue(cards)?.push(newCard)
     emit('close')
+    toast.success('success')
   }
   catch {
     toast.error('error')
+  }
+  finally {
+    loading.value = false
   }
 })
 
@@ -96,21 +84,25 @@ const mockUsers = [
     _id: '1',
     email: 'alex@mail.ru',
     photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
+    role: 'admin',
   },
   {
     _id: '2',
     email: 'nick@mail.ru',
     photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+    role: 'admin',
   },
   {
     _id: '3',
     email: 'nick3@mail.ru',
     photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+    role: 'admin',
   },
   {
     _id: '4',
     email: 'nick4@mail.ru',
     photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
+    role: 'admin',
   },
   {
     _id: '5',
@@ -206,7 +198,7 @@ const mockLabels = [
         {{ $t(`kanban.column.tasks.forms.creating.${field}.label`) }}
       </UiFormLabel>
       <component :is="$slots.default" />
-      <UiFormMessage v-if="error" :content="error" />
+      <UiFormMessage v-if="error" :content="error" class="transition-all" />
     </UiFormField>
   </DefineTemplate>
   <form @submit.prevent="onAddTask">
@@ -214,30 +206,11 @@ const mockLabels = [
       <UiInput
         id="title"
         v-model="title"
+        variant="filled"
         :placeholder="$t('kanban.column.tasks.forms.creating.title.placeholder')"
       />
     </ReuseTemplate>
-    <div class="flex gap-5 items-start">
-      <UiFormField class="mb-3 w-full">
-        <UiFormLabel>
-          {{ $t(`kanban.column.tasks.forms.creating.timeLimit.creationDate`) }}
-        </UiFormLabel>
-        <div class="flex gap-2 items-center w-full">
-          <TaskDatePicker :today-and-disabled="true" />
-        </div>
-      </UiFormField>
-      <ReuseTemplate field="timeLimit" :error="errors.timeLimit">
-        <div class="flex gap-2 items-center w-full">
-          <TaskDatePicker id="timeLimit" v-model="timeLimit" />
-          <Icon
-            v-if="timeLimit !== undefined"
-            icon="hugeicons:cancel-01"
-            class="w-4 h-4 text-neutral-500 dark:text-neutral-400 cursor-pointer"
-            @click="timeLimit = undefined"
-          />
-        </div>
-      </ReuseTemplate>
-    </div>
+    <DateFields v-model:limit="timeLimit" />
     <ReuseTemplate field="users">
       <div class="flex gap-2 flex-wrap w-full">
         <AddUsersBox id="users" v-model:users="users" :options="mockUsers" />
@@ -254,7 +227,7 @@ const mockLabels = [
           {{ $t('common.create.btns', 1) }}
         </UiButton>
       </UiDialogClose>
-      <UiButton type="submit" size="sm" variant="solid">
+      <UiButton :loading type="submit" size="sm" variant="solid">
         {{ $t('common.create.btns', 2) }}
       </UiButton>
     </UiDialogFooter>
