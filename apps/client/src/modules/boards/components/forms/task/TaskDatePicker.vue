@@ -63,7 +63,7 @@ const pickerValue = computed(() => {
       </UiButton>
     </UiPopoverTrigger>
     <UiPopoverContent class="w-full p-0">
-      <UiCalendar v-model="dateValue" :is-date-disabled="(date) => date.toDate(getLocalTimeZone()) <= new Date" class="w-220px" />
+      <UiCalendar v-model="dateValue" :is-date-disabled="(date) => date.toDate(getLocalTimeZone()) <= new Date" class="w-fit" />
     </UiPopoverContent>
   </UiPopover>
 </template>
