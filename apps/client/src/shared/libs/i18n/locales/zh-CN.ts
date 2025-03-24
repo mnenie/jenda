@@ -118,6 +118,44 @@ export default {
       edit: '编辑',
       delete: '删除',
     },
+    alerts: {
+      image: {
+        title: '可用图片',
+        description: '为您的看板选择一张图片',
+      },
+    },
+    forms: {
+      edit: {
+        title: '编辑看板',
+        description: '您可以更改看板名称、颜色及其可见性。',
+        name: {
+          label: '名称',
+          placeholder: '输入看板名称',
+        },
+        visibility: {
+          label: '可见性',
+          tabs: '私有 | 共享',
+          alert: '将您的看板从私有切换到共享后，工作区中的其他用户将可以访问您的看板。',
+        },
+        btns: '取消 | 应用',
+      },
+      labels: {
+        title: '标签管理',
+        description: '配置和管理看板的标签',
+        actions: {
+          search: '搜索标签',
+          add: '添加标签',
+          new_placeholder: '输入标签名称',
+          edit: '编辑',
+          delete: '删除',
+          save: '保存',
+          cancel: '取消',
+        },
+        errors: {
+          exists: '已存在同名标签',
+        },
+      },
+    },
   },
   notes: {
     create: '添加笔记 | 添加新笔记',

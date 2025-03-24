@@ -20,6 +20,7 @@ interface InputProps {
   trailing?: IconifyIcon | string
   iconClass?: HTMLAttributes['class']
   type?: InputHTMLAttributes['type']
+  root?: HTMLAttributes['class']
 }
 
 defineOptions({
@@ -41,11 +42,12 @@ const modelValue = useVModel(props, 'modelValue', emits, {
 
 defineExpose({
   inputRef,
+  focus: () => inputRef.value?.focus(),
 })
 </script>
 
 <template>
-  <Primitive :as="as" class="input-root">
+  <Primitive :as="as" :class="cn(root, 'input-root')">
     <input
       ref="input"
       v-bind="$attrs"

@@ -6,6 +6,7 @@ import UnpluginVueRouterExtend from 'unplugin-vue-router-extend/vite'
 import UnpluginVueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 // import Sonda from 'sonda/vite'
 
 // fix: uvr v0.11.2
@@ -39,6 +40,12 @@ export default defineConfig({
     }),
     vueDevTools(),
     UnoCSS(),
+    ViteImageOptimizer({
+      include: [
+        '@/shared/assets/**/*.{png,jpg,jpeg,webp,svg}',
+        'public/**/*.{png,jpg,jpeg,webp,svg}',
+      ],
+    }),
     // Sonda(),
     vue(),
   ],

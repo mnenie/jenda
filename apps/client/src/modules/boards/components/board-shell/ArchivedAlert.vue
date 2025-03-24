@@ -11,7 +11,7 @@ const { board } = storeToRefs(boardStore)
   <UiAlert
     v-if="board.status === 'archived'"
     variant="warning"
-    class="absolute bottom-0 left-1/2 translate-x--1/2 px-3 py-2"
+    class="sticky w-fit bottom-3 left-1/2 translate-x--1/2 px-3 py-2"
   >
     <span class="text-yellow-800 dark:text-yellow-100">{{ $t('kanban.alert') }}</span>
   </UiAlert>
