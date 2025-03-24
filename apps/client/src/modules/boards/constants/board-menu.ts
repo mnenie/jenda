@@ -10,6 +10,10 @@ export const menuItems = [
     shortcut: '⌘⌃E',
   },
   {
+    tPrefix: 'labels',
+    shortcut: '⌘⌃L',
+  },
+  {
     tPrefix: 'background',
     shortcut: '⌘I',
   },

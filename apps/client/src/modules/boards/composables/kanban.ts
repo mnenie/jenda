@@ -1,11 +1,8 @@
-import { inject, provide, toValue } from 'vue'
+import { computed, inject, provide, toValue } from 'vue'
 import { makeDestructurable } from '@vueuse/core'
 import type { InjectionKey, MaybeRefOrGetter, Ref } from 'vue'
-import type { BoardCard } from '../types'
-
-interface KanbanContext {
-  cards: MaybeRefOrGetter<BoardCard[]>
-}
+import type { KanbanContext } from '../types/contexts'
+import type { Label } from '../types'
 
 export function useTaskCombobox<T, K extends keyof T>(items: Ref<T[]>, key: K) {
   function removeById(userId: T[K]) {
@@ -38,4 +35,10 @@ export function provideKanbanContext<T extends KanbanContext>(value: T) {
 
 export function useKanbanContext() {
   return inject(key)!
+}
+
+export function useFilteredLabels(labels: MaybeRefOrGetter<Label[]>, search: MaybeRefOrGetter<string>) {
+  return computed(() => (
+    [...toValue(labels)].filter(label => label.name.toLowerCase().includes(toValue(search).toLowerCase()))
+  ))
 }

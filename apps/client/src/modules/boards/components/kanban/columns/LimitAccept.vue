@@ -9,7 +9,7 @@ const props = defineProps<{
 }>()
 
 const acceptColor = computed(() => {
-  if (props.column.limit && props.cards.length === props.column.limit)
+  if (props.column.limit && props.cards.length >= props.column.limit)
     return '!text-red-400 dark:!text-red-500'
   return ''
 })

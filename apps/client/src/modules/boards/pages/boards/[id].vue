@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, shallowRef } from 'vue'
+import { computed, shallowRef, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import ActionsPanel from '../../components/board-shell/ActionsPanel.vue'
 import ArchivedAlert from '../../components/board-shell/ArchivedAlert.vue'
@@ -24,6 +24,12 @@ const isBoardMenuOpen = shallowRef(false)
 function closeMenu() {
   isBoardMenuOpen.value = false
 }
+
+watch(() => board.value.status, (status) => {
+  if (status === 'archived') {
+    imagesPopover.value = false
+  }
+})
 
 provideBoardMenuContext({
   closeMenu,
@@ -57,7 +63,7 @@ definePage({
 
 <template>
   <div
-    class="h-dvh w-full bg-cover bg-center"
+    class="relative h-dvh w-full bg-cover bg-bottom bg-no-repeat"
     :style="{ backgroundImage: boardImage }"
   >
     <div class="relative h-full w-full p-3.5 px-15px">
@@ -73,8 +79,8 @@ definePage({
         <AddNewColumn :is-readonly />
       </div>
       <EmptyColumns v-else />
-      <ArchivedAlert />
-      <BoardImages />
     </div>
+    <ArchivedAlert />
+    <BoardImages />
   </div>
 </template>

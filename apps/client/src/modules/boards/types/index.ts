@@ -10,6 +10,8 @@ export interface Label {
   id?: string
   name: string
   color: string
+  taskCount?: number
+  status?: 'default' | 'editing'
 }
 
 export type Status = 'active' | 'archived'
@@ -21,7 +23,7 @@ export type Priority = 'none' | 'low' | 'medium' | 'high'
 type Comment = {
   _id: string
   message: string
-  user: Omit<User, 'email'>
+  user: Omit<User, 'email' | 'role'>
 }
 
 type Asset = {
@@ -75,10 +77,8 @@ export interface Column extends DateParams {
   color?: string
 }
 
-export interface StatusBadge {
-  _id: string
-  indicator: string
-  status: Status
+export interface LabelWithStatus extends Label {
+  status: 'default' | 'editing'
 }
 
 export type UserOption = Omit<User, 'role'>

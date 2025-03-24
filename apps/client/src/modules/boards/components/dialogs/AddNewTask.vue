@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import AddTaskForm from './AddTaskForm.vue'
+import AddTaskForm from '../forms/AddTaskForm.vue'
 import {
   UiDialog,
   UiDialogContent,

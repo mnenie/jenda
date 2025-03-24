@@ -5,6 +5,7 @@ import MenuItem from './MenuItem.vue'
 
 const emits = defineEmits<{
   (e: 'edit'): void
+  (e: 'labels'): void
   (e: 'background'): void
   (e: 'delete'): void
 }>()
@@ -21,8 +22,8 @@ const ddItems = markRaw(menuItems.map(item => ({
     :key="tPrefix"
     :shortcut="shortcut"
     :t-prefix="tPrefix"
-    :class="{ 'hover:!bg-#dc262611 !text-red-500': tPrefix === 'delete' }"
-    :prevent="tPrefix === 'background' ? false : true"
+    :class="{ 'dropdown-menu-destructive-item': tPrefix === 'delete' }"
+    :prevent="false"
     @click="select"
   />
 </template>

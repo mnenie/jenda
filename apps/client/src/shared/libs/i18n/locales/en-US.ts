@@ -120,6 +120,12 @@ export default {
       edit: 'Edit board',
       delete: 'Delete board',
     },
+    alerts: {
+      image: {
+        title: 'Available images',
+        description: 'Select one of the images for your board',
+      },
+    },
     forms: {
       edit: {
         title: 'Edit Board',
@@ -134,6 +140,22 @@ export default {
           alert: 'By switching from private to shared, your board will become accessible to other users in your workspace.',
         },
         btns: 'Cancel | Apply',
+      },
+      labels: {
+        title: 'Labels management',
+        description: 'Configure and manage labels for your board',
+        actions: {
+          search: 'Search labels',
+          add: 'Create',
+          new_placeholder: 'Enter label name',
+          edit: 'Edit',
+          delete: 'Delete',
+          save: 'Save',
+          cancel: 'Cancel',
+        },
+        errors: {
+          exists: 'Label with this name already exists',
+        },
       },
     },
   },

@@ -5,8 +5,9 @@ import { Icon } from '@iconify/vue'
 import { useMagicKeys, whenever } from '@vueuse/core'
 import { useBoardsStore } from '../../stores/boards'
 import { useBoardMenuContext, useDialogsShortcuts } from '../../composables/menu'
-import EditBoardDialog from '../dialogs/EditBoardDialog.vue'
-import RemoveBoard from './RemoveBoard.vue'
+import EditBoard from '../dialogs/EditBoard.vue'
+import RemoveBoard from '../dialogs/RemoveBoard.vue'
+import ManageLabels from '../dialogs/ManageLabels.vue'
 import DdMenuItems from './DdMenuItems.vue'
 import {
   UiBadge,
@@ -36,14 +37,15 @@ const status = computed({
   },
 })
 
-const { isBoardMenuOpen, imagesPopover } = useBoardMenuContext()
+const { isBoardMenuOpen, imagesPopover, closeMenu } = useBoardMenuContext()
 
-const { isEditDialogOpen, isRemoveDialogOpen } = useDialogsShortcuts()
+const { isEdit, isRemove, isLabels } = useDialogsShortcuts()
 
 const { meta_i } = useMagicKeys()
 
 whenever(meta_i, () => {
   imagesPopover.value = true
+  closeMenu()
 })
 
 // _todo[skip_ci]
@@ -87,12 +89,14 @@ whenever(meta_i, () => {
       </UiDropdownMenuItem>
       <UiDropdownMenuSeparator />
       <DdMenuItems
-        @edit="isEditDialogOpen = true"
-        @delete="isRemoveDialogOpen = true"
+        @edit="isEdit = true"
+        @delete="isRemove = true"
+        @labels="isLabels = true"
         @background="imagesPopover = true"
       />
     </UiDropdownMenuContent>
   </UiDropdownMenu>
-  <RemoveBoard v-model:open="isRemoveDialogOpen" />
-  <EditBoardDialog v-model:open="isEditDialogOpen" />
+  <RemoveBoard v-model:open="isRemove" />
+  <EditBoard v-model:open="isEdit" />
+  <ManageLabels v-model:open="isLabels" />
 </template>
