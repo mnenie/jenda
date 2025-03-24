@@ -10,7 +10,7 @@ export const staticInput: Record<`${InputPrefix}-${string}` | InputPrefix, strin
   'input-icon': 'w-4 h-4 dark:text-neutral-200',
 
   'input-default': '',
-  'input-filled': 'bg-neutral-100 border-neutral-100 focus-visible:ring-neutral-200 dark:(bg-neutral-800 border-neutral-800 focus-visible:ring-neutral-700)',
+  'input-filled': 'bg-neutral-100 border-neutral-100 focus-visible:ring-neutral-200 dark:(bg-#2e2e2e border-#2e2e2e focus-visible:ring-neutral-700)',
 }
 
 export const input = [
