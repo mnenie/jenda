@@ -36,7 +36,7 @@ onBeforeMount(async () => {
         class="w-24 h-14 rounded-md border border-neutral-700 cursor-pointer"
         @click="boardStore.selectBoardImage(image)"
       />
-      <div class="flex cursor-pointer items-center justify-center w-24 h-14 rounded-md bg-neutral-200 dark:bg-neutral-700/40" @click="selectImage(undefined)">
+      <div class="flex cursor-pointer items-center justify-center w-24 h-14 rounded-md bg-neutral-200 dark:bg-neutral-700/40" @click="boardStore.selectBoardImage(undefined)">
         <div i-hugeicons-image-delete-01 />
       </div>
     </div>
