@@ -7,7 +7,7 @@ export default {
     app.directive('auto-animate', {
       mounted(el, binding) {
         const config: Partial<AutoAnimateOptions> = {
-          duration: binding.value?.duration || 200,
+          duration: binding.value?.duration || 150,
           easing: binding.value?.easing || 'ease-in',
           disrespectUserMotionPreference: false,
           ...binding.value,
