@@ -15,13 +15,6 @@ const props = defineProps<{
   column: T
 }>()
 
-const colors = ['#32a852', '#c2c734', '#a934c9', '#c93434', '#309dc2'] as const
-
-// пофиксить с бэком
-const getRandomColor = computed(() => {
-  return colors[Math.floor(Math.random() * colors.length)]
-})
-
 const [_cardsTR, cards] = useDragAndDrop(props.column.cards ?? [], {
   plugins: [
     animations({
@@ -43,6 +36,8 @@ const isDisabled = computed(() => {
 
 provideKanbanContext({
   cards,
+  id: props.column._id,
+  currentLimit: props.column.limit,
 })
 </script>
 
@@ -53,7 +48,7 @@ provideKanbanContext({
         <div class="flex items-center gap-1">
           <div
             class="w-4 h-4 rounded-full border-1.5"
-            :style="{ borderColor: getRandomColor, backgroundColor: `${getRandomColor}20` }"
+            :style="{ borderColor: column.color, backgroundColor: `${column.color}20` }"
           />
           <span class="text-default ml-0.5 fw500 text-neutral-800 dark:text-neutral-200">
             {{ column.title }}

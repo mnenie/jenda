@@ -12,6 +12,7 @@ export const useBoardsStore = defineStore('boards', () => {
       {
         _id: '1',
         title: 'TODO',
+        color: '#ffc301',
         cards: [{
           _id: '1',
           title: 'feat(kanban): add drag and drop',

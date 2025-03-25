@@ -14,4 +14,6 @@ export interface BoardMenuContext {
 
 export interface KanbanContext {
   cards: MaybeRefOrGetter<BoardCard[]>
+  id: string
+  currentLimit: number | undefined
 }

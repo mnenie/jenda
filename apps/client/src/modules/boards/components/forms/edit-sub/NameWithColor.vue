@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { UiButton, UiColorPicker, UiInput } from '@/shared/ui'
 
+defineProps<{
+  tPrefix: string
+  tField: string
+}>()
+
 const name = defineModel<string>('name')
 const color = defineModel<string>('color', {
   default: '#ffffff',
@@ -19,7 +24,7 @@ const popoverModel = defineModel<boolean>('popover')
     <UiInput
       id="name"
       v-model="name"
-      :placeholder="$t('board.forms.edit.name.placeholder')"
+      :placeholder="$t(`${tPrefix}.forms.edit.${tField}.placeholder`)"
       class="rounded-l-none border-none focus:ring-0"
     />
   </div>

@@ -510,6 +510,36 @@ export default {
     archived: '已归档',
     alert: '该看板已被归档，无法再编辑。',
     column: {
+      forms: {
+        settingLimit: {
+          dialogTitle: '设置限制',
+          dialogDescription: '您可以设置列的限制。',
+          limit: {
+            label: '列限制',
+            placeholder: '输入限制',
+          },
+          errors: {
+            min: '限制不能小于当前任务数量 - {count}',
+            max: '限制不能大于 100',
+          },
+        },
+        edit: {
+          dialogTitle: '编辑列',
+          dialogDescription: '  ',
+          title: {
+            label: '列名称',
+            placeholder: '输入列名称',
+          },
+          description: {
+            label: '列描述',
+            placeholder: '输入列描述',
+          },
+        },
+      },
+      remove: {
+        title: '删除列',
+        description: '您确定要删除此列吗？所有相关数据都将被删除。',
+      },
       new: '添加新列',
       tooltips: {
         actions: '列的操作',

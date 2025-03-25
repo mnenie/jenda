@@ -5,7 +5,7 @@ import { createReusableTemplate } from '@vueuse/core'
 import { useField, useForm } from 'vee-validate'
 import { storeToRefs } from 'pinia'
 import { useBoardsStore } from '../../stores/boards'
-import BoardName from './edit-sub/BoardName.vue'
+import NameWithColor from './edit-sub/NameWithColor.vue'
 import VisibilityTabs from './edit-sub/VisibilityTabs.vue'
 import VisibleAlert from './edit-sub/VisibleAlert.vue'
 import { UiButton, UiDialogClose, UiFormField, UiFormLabel, UiFormMessage } from '@/shared/ui'
@@ -64,7 +64,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
       <div class="grid gap-6">
         <div class="grid gap-4">
           <ReuseTemplate field="name" :error="errors.name">
-            <BoardName v-model:name="name" v-model:color="color" v-model:popover="popoverModel" />
+            <NameWithColor v-model:name="name" v-model:color="color" v-model:popover="popoverModel" t-prefix="board" t-field="name" />
           </ReuseTemplate>
           <ReuseTemplate field="visibility">
             <VisibilityTabs v-model:tabs="tabsValue" />
