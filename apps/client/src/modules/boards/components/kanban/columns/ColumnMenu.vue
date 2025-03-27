@@ -1,36 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { shallowRef, type ShallowRef } from 'vue'
 import { Icon } from '@iconify/vue'
+import RemoveColumn from '../../dialogs/RemoveColumn.vue'
+import SetColumnLimit from '../../dialogs/SetColumnLimit.vue'
+import EditColumn from '../../dialogs/EditColumn.vue'
+import ColumnMenuItem from './ColumnMenuItem.vue'
 import {
   UiDropdownMenu,
   UiDropdownMenuContent,
-  UiDropdownMenuItem,
   UiDropdownMenuTrigger,
 } from '@/shared/ui'
-import { cn } from '@/shared/libs/shadcn/utils'
+import { columnMenuItems } from '@/modules/boards/constants/column-menu'
 
-interface MenuItem {
-  prefix: string
-  icon: string
-  class?: string
+const isEdit = shallowRef(false)
+const isLimit = shallowRef(false)
+const isDelete = shallowRef(false)
+
+const _dialogsStates: Record<string, ShallowRef<boolean>> = {
+  edit: isEdit,
+  limit: isLimit,
+  delete: isDelete,
+} as const
+
+function selectMenuItem(prefix: keyof typeof _dialogsStates) {
+  _dialogsStates[prefix].value = true
 }
-
-// _todo(events)[skip ci]
-const menuItems = ref<MenuItem[]>([
-  {
-    prefix: 'edit',
-    icon: 'bytesize:edit',
-  },
-  {
-    prefix: 'limit',
-    icon: 'tabler:numbers',
-  },
-  {
-    prefix: 'delete',
-    icon: 'hugeicons:delete-03',
-    class: 'hover:!bg-#dc262611 !text-red-500',
-  },
-])
 </script>
 
 <template>
@@ -47,10 +41,16 @@ const menuItems = ref<MenuItem[]>([
       />
     </UiDropdownMenuTrigger>
     <UiDropdownMenuContent align="end" class="w-fit min-w-40">
-      <UiDropdownMenuItem v-for="item in menuItems" :key="item.prefix" :class="cn(item.class, 'cursor-pointer rounded-md')">
-        <Icon :icon="item.icon" :class="cn('min-w-4.4 min-h-4.4 text-neutral-500', item.class)" />
-        <span>{{ $t(`kanban.column.menu.${item.prefix}`) }}</span>
-      </UiDropdownMenuItem>
+      <ColumnMenuItem
+        v-for="item in columnMenuItems"
+        :key="item.prefix"
+        :prefix="item.prefix"
+        :icon="item.icon"
+        @select="selectMenuItem"
+      />
     </UiDropdownMenuContent>
   </UiDropdownMenu>
+  <EditColumn v-model:open="isEdit" />
+  <SetColumnLimit v-model:open="isLimit" />
+  <RemoveColumn v-model:open="isDelete" />
 </template>

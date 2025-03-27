@@ -248,6 +248,9 @@ export default {
     create: {
       btns: 'Cancel | Create',
     },
+    edit: {
+      btns: 'Cancel | Apply',
+    },
   },
   workflows: {
     create: 'Add workflow | Add a new workflow',
@@ -507,6 +510,7 @@ export default {
       'authorization via google will be replaced with gitlab after 28.02.2025',
   },
   kanban: {
+    empty: 'Create a new column to get started',
     sorting: {
       all: 'All Tasks',
       activity: 'By activity',
@@ -522,6 +526,36 @@ export default {
     archived: 'archived',
     alert: 'The board has been archived and is no longer editable.',
     column: {
+      forms: {
+        settingLimit: {
+          dialogTitle: 'Column limit',
+          dialogDescription: 'Set a limit on the number of tasks in the column.',
+          limit: {
+            label: 'Column limit',
+            placeholder: 'Enter the limit',
+          },
+          errors: {
+            min: 'The limit cannot be less than the current number of tasks - {count}',
+            max: 'The limit cannot be greater than 100',
+          },
+        },
+        edit: {
+          dialogTitle: 'Editing column',
+          dialogDescription: 'You can edit the name and description of the column.',
+          title: {
+            label: 'Column name',
+            placeholder: 'Enter the name',
+          },
+          description: {
+            label: 'Column description',
+            placeholder: 'Enter the description',
+          },
+        },
+      },
+      remove: {
+        title: 'Column deletion',
+        description: 'Are you sure you want to delete this column? All associated data will be removed.',
+      },
       new: 'Add new column',
       tooltips: {
         actions: 'Actions for the column',
