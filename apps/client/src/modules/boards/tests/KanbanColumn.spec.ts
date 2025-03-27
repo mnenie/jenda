@@ -71,10 +71,21 @@ describe('tests for column at kanban', () => {
     })
   })
 
-  it.todo('should render column correctly with one of the colors')
-
   it('should work with slot for cards', () => {
     expect(_wrapper.html()).toContain('_test title card')
+  })
+
+  it('should reactively update column properties in template', async () => {
+    const updatedFields = {
+      ..._wrapper.props().column,
+      title: 'new title',
+      description: 'new description',
+      color: '#color',
+    }
+    await _wrapper.setProps({ column: updatedFields })
+    await nextTick()
+    expect(_wrapper.html()).toContain('new title')
+    expect(_wrapper.html()).toContain('new description')
   })
 
   describe('useDragAndDrop composable behavior', () => {

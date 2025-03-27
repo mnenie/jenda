@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { computed, shallowRef } from 'vue'
+import { shallowRef } from 'vue'
 import { createReusableTemplate } from '@vueuse/core'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
 import { z } from 'zod'
 import { toast } from 'vue-sonner'
-import { storeToRefs } from 'pinia'
-import { useBoardsStore } from '../../stores/boards'
 import { useKanbanContext } from '../../composables/kanban'
 import NameWithColor from './edit-sub/NameWithColor.vue'
 import { UiButton, UiDialogClose, UiDialogFooter, UiFormField, UiFormLabel, UiFormMessage, UiTextarea } from '@/shared/ui'
@@ -23,26 +21,25 @@ const validationSchema = toTypedSchema(
 const loading = shallowRef(false)
 const popoverModel = shallowRef(false)
 
-const boardsStore = useBoardsStore()
-const { board } = storeToRefs(boardsStore)
-
-const { id } = useKanbanContext()
-const column = computed(() => board.value.columns?.find(column => column._id === id))
+const { column } = useKanbanContext()
 
 const { handleSubmit, errors } = useForm({
   validationSchema,
 })
 const { value: title } = useField<string>('title', {}, { initialValue: column.value?.title })
+
 const color = shallowRef<string>(column.value?.color || '#ffffff')
 const description = shallowRef<string>(column.value?.description || '')
+
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 
 const editColumn = handleSubmit(async (values) => {
   loading.value = true
   await new Promise<void>(resolve => setTimeout(resolve, 500))
   try {
-    column.value!.title = values.title
-    column.value!.color = color.value
-    column.value!.description = description.value
+    column.value.title = values.title
+    column.value.color = color.value
+    column.value.description = description.value
 
     emit('close')
     toast.success('success')
@@ -54,8 +51,6 @@ const editColumn = handleSubmit(async (values) => {
     loading.value = false
   }
 })
-
-const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>
@@ -72,10 +67,21 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
   </DefineTemplate>
   <form @submit.prevent="editColumn">
     <ReuseTemplate field="title" :error="errors.title">
-      <NameWithColor v-model:name="title" v-model:color="color" v-model:popover="popoverModel" t-prefix="kanban.column" t-field="title" />
+      <NameWithColor
+        v-model:name="title"
+        v-model:color="color"
+        v-model:popover="popoverModel"
+        t-prefix="kanban.column"
+        t-field="title"
+      />
     </ReuseTemplate>
     <ReuseTemplate field="description">
-      <UiTextarea id="description" v-model="description" :placeholder="$t('kanban.column.forms.edit.description.placeholder')" class="max-h-100" />
+      <UiTextarea
+        id="description"
+        v-model="description"
+        :placeholder="$t('kanban.column.forms.edit.description.placeholder')"
+        class="max-h-100 input-filled shadow-sm"
+      />
     </ReuseTemplate>
     <UiDialogFooter class="sm:justify-end mt-7">
       <UiDialogClose as-child>

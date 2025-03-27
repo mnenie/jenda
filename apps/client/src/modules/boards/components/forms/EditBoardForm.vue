@@ -34,6 +34,8 @@ const color = shallowRef<string>(board.value.color ?? '#ffffff')
 const tabsValue = shallowRef()
 const popoverModel = shallowRef(false)
 
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
+
 const onEditBoard = handleSubmit((values) => {
   board.value = {
     ...board.value,
@@ -43,8 +45,6 @@ const onEditBoard = handleSubmit((values) => {
   }
   emit('closeDialog')
 })
-
-const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>

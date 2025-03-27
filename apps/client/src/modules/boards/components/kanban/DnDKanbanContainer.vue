@@ -6,16 +6,22 @@ import CardItem from './cards/CardItem.vue'
 import type { Column } from '../../types'
 import { cn } from '@/shared/libs/shadcn/utils'
 
-const props = defineProps<{
-  columns: T[]
+defineProps<{
   isReadonly?: boolean
 }>()
 
-// __NO SID
-const [_columnsTR, columns] = useDragAndDrop(props.columns, {
+const columnsModel = defineModel<T[]>('columns', {
+  required: true,
+})
+
+// __NO SIDE EFFECTS__
+const [_columnsTR, columns] = useDragAndDrop(columnsModel.value, {
   plugins: [animations()],
   dragHandle: '.column-handle',
   group: 'kanban',
+  onDragend: () => {
+    columnsModel.value = columns.value
+  },
 })
 </script>
 

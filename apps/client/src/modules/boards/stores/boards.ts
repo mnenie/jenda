@@ -1,6 +1,6 @@
 import { ref, shallowRef, triggerRef } from 'vue'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { Board, BoardRow, Label } from '../types'
+import type { Board, BoardRow, Column, Label } from '../types'
 
 export const useBoardsStore = defineStore('boards', () => {
   const boards = shallowRef<BoardRow[]>([])
@@ -13,83 +13,7 @@ export const useBoardsStore = defineStore('boards', () => {
         _id: '1',
         title: 'TODO',
         color: '#ffc301',
-        cards: [{
-          _id: '1',
-          title: 'feat(kanban): add drag and drop',
-          priority: 'none',
-          subtasks: [
-            {
-              _id: '1',
-              title: 'subtask 1',
-            },
-            {
-              _id: '2',
-              title: 'do this thing today dsadsadas dsadsadasdsadsd',
-            },
-          ],
-          labels: [{
-            id: '1',
-            name: 'feat: add i18n dsadsd dsadsad',
-            color: '#fcba03',
-          }, {
-            id: '1',
-            name: 'feat: add i18n dsadsd dsadsad',
-            color: '#32a852',
-          }, {
-            id: '1',
-            name: 'fix: i18n',
-            color: '#fcba03',
-          }, {
-            id: '1',
-            name: 'fix: i18n',
-            color: '#fcba03',
-          }],
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          users: [
-            {
-              _id: '1',
-              email: 'alex',
-              photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
-            },
-            {
-              _id: '2',
-              email: 'nick',
-              photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
-            },
-          ],
-        }, {
-          _id: '2',
-          title: 'feat(k): add drag and drop',
-          estimate: 8,
-          priority: 'medium',
-          subtasks: [],
-          labels: [],
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          users: [
-            {
-              _id: '1',
-              email: 'alex',
-              photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
-            },
-            {
-              _id: '2',
-              email: 'nick',
-              photoUrl: 'https://avatars.githubusercontent.com/u/121338834?v=4',
-            },
-            {
-              _id: '3',
-              email: 'slava',
-              photoUrl: 'https://avatars.githubusercontent.com/u/83920644?s=40&u=0d424933b73f12366cc94dcb7dccedf30f85bbfb&v=4',
-            },
-            {
-              _id: '4',
-              email: 'airat',
-              photoUrl: 'https://avatars.githubusercontent.com/u/95149637?s=130&v=4',
-            },
-          ],
-        }],
+        cards: [],
         estimate: 2,
         description: 'Tasks waiting in the queue',
       },
@@ -99,6 +23,22 @@ export const useBoardsStore = defineStore('boards', () => {
         limit: 2,
         cards: [],
         description: 'This is ready to be picked up',
+        estimate: 0,
+      },
+      {
+        _id: '3',
+        title: 'In review',
+        color: '#5c63bd',
+        cards: [],
+        description: 'This is in review',
+        estimate: 0,
+      },
+      {
+        _id: '4',
+        title: 'In review',
+        color: '#5c63bd',
+        cards: [],
+        description: 'This is in review',
         estimate: 0,
       },
     ],
@@ -189,6 +129,13 @@ export const useBoardsStore = defineStore('boards', () => {
     }
   }
 
+  function removeColumn(column: Column) {
+    const index = board.value.columns!.findIndex(c => c._id === column._id)
+    if (index !== -1) {
+      board.value.columns!.splice(index, 1)
+    }
+  }
+
   return {
     boards,
     board,
@@ -198,6 +145,7 @@ export const useBoardsStore = defineStore('boards', () => {
     selectBoardImage,
     removeLabel,
     addLabel,
+    removeColumn,
   }
 })
 

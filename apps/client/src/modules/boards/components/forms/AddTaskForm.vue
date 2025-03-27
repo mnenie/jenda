@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, shallowRef, toValue } from 'vue'
+import { computed, ref, shallowRef } from 'vue'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
 import { toast } from 'vue-sonner'
@@ -59,6 +59,8 @@ const loading = shallowRef(false)
 
 const { cards } = useKanbanContext()
 
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
+
 const onAddTask = handleSubmit(async (values) => {
   loading.value = true
   await new Promise<void>(resolve => setTimeout(resolve, 2000))
@@ -70,7 +72,7 @@ const onAddTask = handleSubmit(async (values) => {
       users: creatorOrUsers.value,
       labels: labels.value,
     }
-    toValue(cards)?.push(newCard)
+    cards.value?.push(newCard)
     emit('close')
     toast.success('success')
   }
@@ -81,8 +83,6 @@ const onAddTask = handleSubmit(async (values) => {
     loading.value = false
   }
 })
-
-const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>

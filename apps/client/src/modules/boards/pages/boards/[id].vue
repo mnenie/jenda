@@ -66,21 +66,26 @@ definePage({
     class="relative h-dvh w-full bg-cover bg-bottom bg-no-repeat"
     :style="{ backgroundImage: boardImage }"
   >
-    <div class="relative h-full w-full p-3.5 px-15px">
+    <div class="relative h-full w-full grid" style="grid-template-rows: auto 1fr">
       <ActionsPanel />
-      <div
-        v-if="board.columns?.length"
-        :class="cn(
-          'w-full h-full overflow-x-auto flex items-start justify-start gap-3 overflow-y-hidden py-4',
-          { 'opacity-50 cursor-not-allowed': board.status === 'archived' },
-        )"
-      >
-        <DnDKanbanContainer :columns="board.columns" :is-readonly />
-        <AddNewColumn :is-readonly />
+      <div class="relative h-[calc(100%-52px)] w-full overflow-hidden">
+        <div
+          :class="cn(
+            'w-full h-full overflow-x-auto scrollbar flex items-start gap-3 overflow-y-hidden py-4 px-[15px]',
+            { 'opacity-50 cursor-not-allowed': board.status === 'archived' },
+          )"
+        >
+          <DnDKanbanContainer v-if="board.columns?.length" v-model:columns="board.columns" :is-readonly />
+          <AddNewColumn :is-readonly />
+        </div>
       </div>
-      <EmptyColumns v-else />
+      <EmptyColumns v-if="!board.columns?.length" />
     </div>
     <ArchivedAlert />
     <BoardImages />
   </div>
 </template>
+
+<style scoped>
+@import '@/styles/_scrollbar';
+</style>

@@ -15,8 +15,20 @@ defineEmits<{
 </script>
 
 <template>
-  <UiDropdownMenuItem :class="cn('cursor-pointer rounded-md', { 'hover:!bg-#dc262611 !text-red-500': prefix === 'delete' })" @select="$emit('select', prefix)">
-    <Icon :icon :class="cn('min-w-4.4 min-h-4.4 text-neutral-500', { 'hover:!bg-#dc262611 !text-red-500': prefix === 'delete' })" />
+  <UiDropdownMenuItem
+    :class="cn(
+      'cursor-pointer rounded-md',
+      { 'dropdown-menu-destructive-item': prefix === 'delete' },
+    )"
+    @select="$emit('select', prefix)"
+  >
+    <Icon
+      :icon
+      :class="cn(
+        'min-w-4.4 min-h-4.4 text-neutral-500',
+        { 'dropdown-menu-destructive-item': prefix === 'delete' },
+      )"
+    />
     <span>{{ $t(`kanban.column.menu.${prefix}`) }}</span>
   </UiDropdownMenuItem>
 </template>

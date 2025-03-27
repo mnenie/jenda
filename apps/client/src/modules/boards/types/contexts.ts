@@ -1,5 +1,5 @@
-import type { MaybeRefOrGetter, Ref } from "vue"
-import type { BoardCard } from "."
+import type { Ref } from "vue"
+import type { BoardCard, Column } from "."
 
 export interface FilteredBoardsContext {
   sortModel: Ref<string>
@@ -13,7 +13,6 @@ export interface BoardMenuContext {
 }
 
 export interface KanbanContext {
-  cards: MaybeRefOrGetter<BoardCard[]>
-  id: string
-  currentLimit: number | undefined
+  cards: Ref<BoardCard[]>
+  column: Ref<Omit<Column, 'cards'>>
 }

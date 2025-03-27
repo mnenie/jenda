@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shallowRef } from 'vue'
+import { shallowRef, type ShallowRef } from 'vue'
 import { Icon } from '@iconify/vue'
 import RemoveColumn from '../../dialogs/RemoveColumn.vue'
 import SetColumnLimit from '../../dialogs/SetColumnLimit.vue'
@@ -16,18 +16,14 @@ const isEdit = shallowRef(false)
 const isLimit = shallowRef(false)
 const isDelete = shallowRef(false)
 
-function onSelect(prefix: string) {
-  switch (prefix) {
-    case 'edit':
-      isEdit.value = true
-      break
-    case 'limit':
-      isLimit.value = true
-      break
-    case 'delete':
-      isDelete.value = true
-      break
-  }
+const _dialogsStates: Record<string, ShallowRef<boolean>> = {
+  edit: isEdit,
+  limit: isLimit,
+  delete: isDelete,
+} as const
+
+function selectMenuItem(prefix: keyof typeof _dialogsStates) {
+  _dialogsStates[prefix].value = true
 }
 </script>
 
@@ -50,7 +46,7 @@ function onSelect(prefix: string) {
         :key="item.prefix"
         :prefix="item.prefix"
         :icon="item.icon"
-        @select="onSelect"
+        @select="selectMenuItem"
       />
     </UiDropdownMenuContent>
   </UiDropdownMenu>

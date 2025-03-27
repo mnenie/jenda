@@ -5,9 +5,7 @@ import { z } from 'zod'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useField, useForm } from 'vee-validate'
 import { useI18n } from 'vue-i18n'
-import { storeToRefs } from 'pinia'
 import { useKanbanContext } from '../../composables/kanban'
-import { useBoardsStore } from '../../stores/boards'
 import { UiButton, UiDialogClose, UiDialogFooter, UiFormField, UiFormLabel, UiFormMessage, UiInput } from '@/shared/ui'
 
 const emit = defineEmits<{
@@ -16,35 +14,31 @@ const emit = defineEmits<{
 
 const loading = shallowRef(false)
 
-const boardsStore = useBoardsStore()
-const { board } = storeToRefs(boardsStore)
-
 const { t } = useI18n()
 
-const { cards, id, currentLimit } = useKanbanContext()
+const { cards, column } = useKanbanContext()
+
 const tasksCount = computed(() => toValue(cards).length)
 
-const validationSchema = computed(() => toTypedSchema(
+const validationSchema = toTypedSchema(
   z.object({
     limit: z.coerce.number()
       .min(tasksCount.value, t('kanban.column.forms.settingLimit.errors.min', { count: tasksCount.value }))
       .max(100, t('kanban.column.forms.settingLimit.errors.max')),
   }),
-))
+)
 
 const { handleSubmit, errors } = useForm({
   validationSchema,
 })
 
-const { value: limit } = useField<number>('limit', {}, { initialValue: currentLimit })
+const { value: limit } = useField<number>('limit', undefined, { initialValue: column.value.limit })
 
 const setColumnLimit = handleSubmit(async (values) => {
   loading.value = true
   await new Promise<void>(resolve => setTimeout(resolve, 500))
   try {
-    const column = board.value.columns?.find(column => column._id === id)
-    column!.limit = values.limit
-
+    column.value.limit = values.limit
     emit('close')
     toast.success('success')
   }
