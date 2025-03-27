@@ -246,6 +246,9 @@ export default {
     create: {
       btns: '取消 | 创建',
     },
+    edit: {
+      btns: '取消 | 保存',
+    },
   },
   workflows: {
     create: '添加流程 | 添加新流程',
@@ -495,6 +498,7 @@ export default {
     auth_alert: '通过 google 的授权将在 2025 年 02 月 28 日后被 gitlab 替代',
   },
   kanban: {
+    empty: '创建一个新列以开始',
     sorting: {
       all: '所有任务',
       activity: '按活动排序',

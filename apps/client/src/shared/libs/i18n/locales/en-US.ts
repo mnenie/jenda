@@ -248,6 +248,9 @@ export default {
     create: {
       btns: 'Cancel | Create',
     },
+    edit: {
+      btns: 'Cancel | Apply',
+    },
   },
   workflows: {
     create: 'Add workflow | Add a new workflow',
@@ -507,6 +510,7 @@ export default {
       'authorization via google will be replaced with gitlab after 28.02.2025',
   },
   kanban: {
+    empty: 'Create a new column to get started',
     sorting: {
       all: 'All Tasks',
       activity: 'By activity',
@@ -524,8 +528,8 @@ export default {
     column: {
       forms: {
         settingLimit: {
-          dialogTitle: 'Setting limit',
-          dialogDescription: 'You can set a limit on the number of tasks in the column.',
+          dialogTitle: 'Column limit',
+          dialogDescription: 'Set a limit on the number of tasks in the column.',
           limit: {
             label: 'Column limit',
             placeholder: 'Enter the limit',
