@@ -1,5 +1,6 @@
 import type { Ref } from "vue"
-import type { BoardCard, Column } from "."
+import type { BoardCard } from "./board"
+import type { Column } from "./column"
 
 export interface FilteredBoardsContext {
   sortModel: Ref<string>
