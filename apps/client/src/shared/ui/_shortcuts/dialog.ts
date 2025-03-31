@@ -3,7 +3,7 @@ type DialogPrefix = 'dialog'
 export const staticDialog: Record<`${DialogPrefix}-${string}` | DialogPrefix, string> = {
   'dialog': '',
   'dialog-overlay': 'fixed inset-0 z-999 bg-black/60',
-  'dialog-content': 'fixed left-1/2 top-1/2 z-1000 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 border border-neutral-200 bg-white p-5 shadow-lg duration-200 sm:rounded-lg dark:(border-neutral-800 bg-neutral-800)',
+  'dialog-content': 'fixed left-1/2 top-1/2 z-1000 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 border border-neutral-200 bg-white p-5 2xl:p-4 shadow-lg duration-200 sm:rounded-lg dark:(border-neutral-800 bg-neutral-800)',
   'dialog-close': 'w-4 h-4 flex items-center justify-center rounded-sm opacity-70 bg-transparent data-[state=open]:text-neutral-500 dark:data-[state=open]:text-neutral-400 ring-offset-0 transition-opacity hover:opacity-100 focus:outline-none focus:ring-0 disabled:pointer-events-none dark:(ring-offset-0 focus:ring-0)',
   'dialog-title': 'text-xl 2xl:text-lg font-semibold leading-none tracking-tight',
   'dialog-description': 'text-default text-neutral-500 dark:text-neutral-400',

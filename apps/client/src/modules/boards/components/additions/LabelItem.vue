@@ -23,7 +23,7 @@ const isDark = useDark()
     :close-icon="formatLabelColor(label.color, isDark ? 10 : 100) || ''"
     variant="soft"
     :class="cn(
-      'shadow-none rounded-lg !text-12px 2xl:!text-xs fw450 py-0 px-1 bg-neutral-100 text-neutral-800 dark:(bg-neutral-700/80 text-neutral-100)',
+      'shadow-none rounded-lg text-12px fw450 py-0 px-1 bg-neutral-100 text-neutral-800 dark:(bg-neutral-700/80 text-neutral-100)',
       { 'flex items-center gap-1 !max-w-full': removable },
     )"
     :style="{

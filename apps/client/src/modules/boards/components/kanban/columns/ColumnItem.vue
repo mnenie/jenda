@@ -41,7 +41,7 @@ provideKanbanContext({
 </script>
 
 <template>
-  <div class="rounded-lg h-fit max-h-full flex flex-col justify-between gap-0.5 min-w-280px  max-w-280px w-full bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
+  <div class="rounded-lg h-fit max-h-full flex flex-col justify-between gap-0.5 min-w-280px max-w-280px w-full bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
     <div class="flex items-start flex-col gap-1 w-full p-1.5 pb-0">
       <div draggable="true" class="flex items-center justify-between p-2 px-1 h-7 w-full" aria-selected="false">
         <div draggable="true" class="column-handle cursor-grab active:cursor-grabbing flex items-center gap-1 w-full">

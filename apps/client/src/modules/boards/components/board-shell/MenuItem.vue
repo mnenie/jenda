@@ -30,7 +30,7 @@ function onSelectItem(e: Event) {
   >
     <span class="text-default fw370">{{ $t(`board.menu.${tPrefix}`) }}</span>
     <UiDropdownMenuShortcut class="text-neutral-500">
-      <UiBadge variant="secondary" class="px-1 py-px">
+      <UiBadge variant="secondary" class="px-1 py-px 2xl:text-10px">
         {{ shortcut }}
       </UiBadge>
     </UiDropdownMenuShortcut>

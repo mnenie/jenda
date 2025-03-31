@@ -2,7 +2,7 @@ type CommandPrefix = 'command'
 
 export const staticCommand: Record<`${CommandPrefix}-${string}` | CommandPrefix, string> = {
   'command': 'flex h-full w-full flex-col rounded-md bg-white text-neutral-950 dark:(bg-neutral-800 text-neutral-50)',
-  'command-dialog': 'overflow-hidden p-0 shadow-lg',
+  'command-dialog': 'overflow-hidden !p-0 shadow-lg',
   'command-empty': 'py-6 text-center text-default',
   'command-group': 'overflow-y-auto overflow-x-hidden p-1 text-neutral-950',
   'command-group-label': 'px-2 py-1.5 text-small font-medium text-neutral-500 dark:text-neutral-400',

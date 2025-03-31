@@ -24,6 +24,7 @@ const [removeUser, addUser] = useTaskCombobox(users, '_id')
     v-model:search-term="searchTerm"
     :items="options"
     value-property="email"
+    t-prefix="users"
     id-property="_id"
     @add="addUser($event)"
   >

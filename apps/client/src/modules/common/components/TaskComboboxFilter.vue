@@ -20,6 +20,7 @@ const { idProperty = 'id', ...props } = defineProps<{
   valueProperty: keyof T
   // deprecated когда пофиксим типы на id у сущностей
   idProperty: 'id' | '_id'
+  tPrefix?: string
 }>()
 
 const emits = defineEmits <{
@@ -45,21 +46,20 @@ const modelValues = computed(() => model.value.map(i => i[props.valueProperty]) 
     <ComboboxAnchor class="input input-filled h-unset">
       <TagsInputRoot
         delimiter=""
-        class="flex gap-2 items-center rounded-lg flex-wrap wrap-normal w-full"
+        class="flex gap-2 items-center rounded-lg flex-wrap w-full"
       >
         <slot name="input-content" :values="model" />
         <ComboboxInput as-child>
           <UiTagsInputInput
-            class="w-full"
-            :placeholder="$t('kanban.column.tasks.forms.creating.labels.commandSearch')"
+            :placeholder="$t(`kanban.column.tasks.forms.creating.${tPrefix}.commandSearch`)"
             @keydown.enter.prevent
           />
         </ComboboxInput>
       </TagsInputRoot>
     </ComboboxAnchor>
-    <ComboboxContent class="absolute z-10 w-full mt-2 bg-white dark:bg-gray-800 overflow-hidden rounded shadow-sm">
-      <ComboboxViewport class="p-[5px] max-h-180px overflow-y-auto">
-        <ComboboxEmpty class="text-neutral-400 text-small fw400 text-center py-2">
+    <ComboboxContent class="absolute z-10 w-full mt-2 bg-white dark:bg-#2e2e2e overflow-hidden rounded shadow-sm">
+      <ComboboxViewport class="p-1.5 max-h-180px overflow-y-auto">
+        <ComboboxEmpty class="text-neutral-400 text-small 2xl:text-default fw400 text-center py-2">
           {{ $t('kanban.column.tasks.forms.creating.labels.commandEmpty') }}
         </ComboboxEmpty>
         <ComboboxGroup class="flex flex-col gap-1">
@@ -67,7 +67,7 @@ const modelValues = computed(() => model.value.map(i => i[props.valueProperty]) 
             v-for="option in items"
             :key="option[idProperty as I] as string"
             :value="option[valueProperty] as string"
-            class="flex items-center justify-between text-sm h-26px px-3 rounded-md select-none cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            class="flex items-center justify-between text-sm h-26px px-3 rounded-md select-none cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-700/40"
             @click="emits('add', option)"
           >
             <slot name="box-content" :item="option" />

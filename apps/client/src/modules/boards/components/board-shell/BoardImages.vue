@@ -21,7 +21,7 @@ onBeforeMount(async () => {
 
 <template>
   <UiAlert v-model:open="imagesPopover" with-animation rp="0" closable variant="default" class="sticky w-fit mb-0 bottom-2.5 left-1/2 translate-x--1/2 p-2 rounded-lg border-none flex flex-col gap-2" @close="imagesPopover = false">
-    <div class="flex items-start gap-1 flex-col w-full">
+    <div class="flex items-start gap-1 flex-col w-full text-default">
       {{ $t('board.alerts.image.title') }}
       <span class="text-sm text-neutral-500">
         {{ $t('board.alerts.image.description') }}

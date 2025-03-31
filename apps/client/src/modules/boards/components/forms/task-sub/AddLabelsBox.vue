@@ -23,6 +23,7 @@ const [removeLabel, addLabel] = useTaskCombobox(labels, 'id')
     v-model:search-term="searchTerm"
     :items="options"
     value-property="name"
+    t-prefix="labels"
     id-property="id"
     @add="addLabel($event)"
   >
@@ -32,12 +33,12 @@ const [removeLabel, addLabel] = useTaskCombobox(labels, 'id')
         :key="label.id"
         :label
         :removable="true"
-        class="!text-13px 2xl:!text-small px-1.5px py-0 !h-fit"
+        class="text-13px px-1.5px py-0 !h-fit"
         @remove="removeLabel(label)"
       />
     </template>
     <template #box-content="{ item }">
-      <LabelItem :label="item" />
+      <LabelItem :label="item" class="text-13px" />
     </template>
   </TaskComboboxFilter>
 </template>

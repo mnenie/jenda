@@ -57,7 +57,7 @@ function cancel(label: Label) {
 </script>
 
 <template>
-  <UiTable class="p-0 border-none max-h-400px">
+  <UiTable class="p-0 border-none max-h-400px scrollbar">
     <UiTableBody class="p-0 gap-0">
       <UiTableRow
         v-for="label in labels"
@@ -67,7 +67,7 @@ function cancel(label: Label) {
         <div>
           <UiTableCell class="!pl-0 w-full border-none">
             <div v-if="label.status !== 'editing'" class="flex items-center gap-2">
-              <LabelItem :label="label" class="!text-13px 2xl:!text-small w-fit max-w-240px" />
+              <LabelItem :label="label" class="!text-13px w-fit max-w-240px" />
               <div class="flex items-center gap-1">
                 <Icon icon="codicon:issue-draft" class="w-4 h-4 text-green-500" />
                 <span class="text-default dark:text-neutral-200">
@@ -119,3 +119,7 @@ function cancel(label: Label) {
     </UiTableBody>
   </UiTable>
 </template>
+
+<style scoped>
+@import '@/styles/_scrollbar';
+</style>

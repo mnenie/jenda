@@ -74,7 +74,7 @@ whenever(meta_i, () => {
           v-model:checked="status"
           variant="solid"
           thumb="solid"
-          class="w-9 h-6 data-[state=checked]:bg-green-600 dark:data-[state=checked]:bg-green-800"
+          class="w-9 h-6 2xl:(w-8.8 h-5) data-[state=checked]:bg-green-600 dark:data-[state=checked]:bg-green-800"
           thumb-class="w-4 h-4"
         />
         <UiBadge
