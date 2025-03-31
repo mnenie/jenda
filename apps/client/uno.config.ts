@@ -10,7 +10,7 @@ import {
 import presetAnimations from 'unocss-preset-animations'
 import { presetShadcn } from 'unocss-preset-shadcn'
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
-import presetJendaUI from './src/shared/libs/unocss/presets/presetUiKit'
+import { presetJendaUI, presetModules } from './src/shared/libs/unocss/presets'
 
 export default defineConfig({
   presets: [
@@ -32,12 +32,13 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
       collections: {
-        lucid: () => import('@iconify-json/lucide/icons.json').then(i => i.default),
+        lucide: () => import('@iconify-json/lucide/icons.json').then(i => i.default),
         huge: () => import('@iconify-json/hugeicons/icons.json').then(i => i.default),
         jenda: FileSystemIconLoader('./src/shared/assets/icons/custom-jenda'),
       },
     }),
     presetJendaUI(),
+    presetModules(),
     presetTypography(),
   ],
   shortcuts: [
@@ -52,12 +53,6 @@ export default defineConfig({
       'bg-main': 'bg-white dark:bg-#262626',
       'border-layout': 'border-neutral-200 dark:border-#1c1c1c',
       'bg-sidebar': 'bg-neutral-50 dark:bg-#1c1c1c66',
-    },
-    [/^task-card-(.*)$/, ([, c]) => `bg-${c}-100/20 border-${c}-300/80 dark:(bg-${c}-100/10 border-${c}-300/30)`],
-    {
-      'auth-page': 'h-full flex w-68% max-[1440px]:w-80% max-[1100px]:!w-full',
-      'auth-slot-container': 'relative h-full w-full mx-auto px-2rem dark:bg-#1c1c1c',
-      'form-container': 'relative flex w-460px flex-col gap-2 max-[520px]:!w-full max-[1100px]:!w-460px max-[1200px]:w-360px',
     },
   ],
   configDeps: [
