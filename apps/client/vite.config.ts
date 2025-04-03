@@ -26,6 +26,7 @@ export default defineConfig({
         './src/modules/members/pages',
         './src/modules/workflows/pages',
         './src/modules/boards/pages',
+        './src/modules/tasks/pages',
         './src/modules/workspace/pages',
         './src/modules/notes/pages',
         './src/modules/settings/pages',
