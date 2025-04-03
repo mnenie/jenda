@@ -31,7 +31,7 @@ useHead({
 </script>
 
 <template>
-  <div v-if="$route.name !== 'boards-id'" class="w-full h-full flex flex-col">
+  <div v-if="$route.name !== 'boards-id' && $route.name !== 'tasks-id'" class="w-full h-full flex flex-col">
     <BoardsViewManager />
     <EmptyBoards v-if="boards.length === 0" />
   </div>

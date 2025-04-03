@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, shallowRef, watch } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useHead } from '@unhead/vue'
 import ActionsPanel from '../../components/board-shell/ActionsPanel.vue'
 import ArchivedAlert from '../../components/board-shell/ArchivedAlert.vue'
 import EmptyColumns from '../../components/kanban/columns/EmptyColumns.vue'
@@ -37,9 +38,13 @@ provideBoardMenuContext({
   isBoardMenuOpen,
 })
 
+useHead({
+  title: 'All tasks - Jenda',
+})
+
 // unplugin
 definePage({
-  alias: ['/n/:id'],
+  alias: ['/n/:boardId'],
   meta: {
     requiresAuth: true,
     breadcrumb: [
@@ -53,7 +58,7 @@ definePage({
       {
         name: 'boards-id',
         value: 'board 1',
-        to: { name: 'boards-id', params: { id: '1' } },
+        to: { name: 'boards-id', params: { boardId: '1' } },
       },
     ],
   },
@@ -84,6 +89,7 @@ definePage({
     <ArchivedAlert />
     <BoardImages />
   </div>
+  <RouterView />
 </template>
 
 <style scoped>

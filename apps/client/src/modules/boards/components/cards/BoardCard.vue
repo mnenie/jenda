@@ -27,7 +27,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
   <div
     class="relative cursor-pointer p-2 w-full flex flex-col justify-between h-full border border-solid border-neutral-200 rounded-8px dark:border-neutral-700"
     :class="board.status === 'archived' && 'opacity-50 pointer-events-none'"
-    @click="$router.push({ name: 'boards-id', params: { id: board._id! } })"
+    @click="$router.push({ name: 'boards-id', params: { boardId: board._id! } })"
   >
     <div class="flex items-center justify-between mb-3">
       <div class="flex items-center gap-2">
@@ -44,7 +44,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
       </UiButton>
     </div>
     <div class="max-w-100% flex items-center gap-1.5 mb-4">
-      <VisibleLabels :labels="board.labels" />
+      <VisibleLabels :labels="board.labels" label-class="!text-12px" />
     </div>
     <div class="flex items-center gap-2 justify-between">
       <UserAvatars avatar="!w-20px !h-20px" :users="board.users" :max="3" />

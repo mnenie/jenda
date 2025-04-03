@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 // @ts-expect-error missing type
 import { Pane, Splitpanes } from 'splitpanes'
+import { useRoute } from 'vue-router/auto'
 import AppSidebar from '../components/sidebar/AppSidebar.vue'
 import HeaderMain from '../components/headers/HeaderMain.vue'
 import { provideExpandedContext } from '@/shared/composables/expanded'
@@ -11,6 +12,12 @@ import 'splitpanes/dist/splitpanes.css'
 
 const isExpanded = useLocalStorage('isExpanded', true)
 const transitionFl = ref<boolean>(false)
+
+const route = useRoute()
+
+const isRouteIsId = computed(() => {
+  return /^(?:boards|tasks|workflows)-id$/.test(route.name as string)
+})
 
 const sidebarSize = computed(() => isExpanded.value ? '275' : '58')
 
@@ -39,7 +46,7 @@ provideExpandedContext({
         <div
           class="relative h-full w-full !bg-main"
           :style="{
-            padding: ($route.name !== 'boards-id' && $route.name !== 'workflows-id') ? '12px 20px 12px 20px' : '0',
+            padding: !isRouteIsId ? '12px 20px 12px 20px' : '0',
           }"
         >
           <slot />

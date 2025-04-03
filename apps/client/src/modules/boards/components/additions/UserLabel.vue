@@ -18,10 +18,10 @@ const emit = defineEmits<{
   <UiBadge
     :closable
     variant="secondary"
-    class="gap-1.5 rounded-lg px-1.5px py-0 !h-fit fw500"
+    class="gap-1.5 rounded-lg px-1.5px py-0 !h-5.5 fw500"
     @close="emit('remove')"
   >
     <img :src="user.photoUrl" :alt="user.email" class="w-5 h-5 rounded-full" />
-    <span :class="cn('text-13px 2xl:text-default text-neutral-600 dark:text-neutral-200 mb-px', removable && 'truncate', $attrs['name-class'] as string)">{{ user.email }}</span>
+    <span :class="cn('!text-default fw420 text-neutral-600 dark:text-neutral-200 mb-px', removable && 'truncate', $attrs['name-class'] as string)">{{ user.email }}</span>
   </UiBadge>
 </template>

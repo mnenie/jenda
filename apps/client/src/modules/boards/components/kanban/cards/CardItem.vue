@@ -1,5 +1,6 @@
 <script setup lang="ts" generic="U extends Extract<T['priority'], string>, T extends BoardCard">
 import { computed } from 'vue'
+import { useRoute } from 'vue-router/auto'
 import VisibleLabels from '../../additions/VisibleLabels.vue'
 import CardBottomPanel from './CardBottomPanel.vue'
 import type { BoardCard, Priority } from '@/modules/boards/types'
@@ -10,6 +11,8 @@ const props = defineProps<{
   card: T
   subtasks?: Pick<T, 'subtasks'>[]
 }>()
+
+const route = useRoute('boards-id')
 
 const priorities = {
   none: '',
@@ -28,6 +31,7 @@ const priorityColor = computed(() => priorities[props.card.priority!])
       'relative z-99 w-full cursor-grab active:cursor-grabbing p-2.5 rounded-md border border-neutral-200 bg-white flex flex-col items-start dark:(border-neutral-700 bg-#2e2e2e)',
       priorityColor && 'border-none',
     )"
+    @click="$router.push({ name: 'tasks-id', params: { boardId: route.params.boardId, taskId: props.card._id } })"
   >
     <div
       v-if="priorityColor"
@@ -37,7 +41,7 @@ const priorityColor = computed(() => priorities[props.card.priority!])
       )"
     />
     <div v-if="card.labels?.length" class="flex items-center justify-between gap-2 w-full mb-1.5">
-      <VisibleLabels :labels="card.labels" :max="3" class="gap-2" label-class="!max-w-40" />
+      <VisibleLabels :labels="card.labels" :max="3" class="gap-2" label-class="!max-w-40 !text-12px" />
     </div>
     <div class="flex flex-col w-full gap-1 mb-4">
       <p class="text-default font-medium mb-1 truncate">
