@@ -4,6 +4,7 @@ export default {
     email: '{validation} must be a valid',
     url: '{validation} must be a valid',
   },
+  invalidType: 'Invalid data type',
   tooSmall: {
     string: {
       exact: '{validation} must be at least {minimum} characters',

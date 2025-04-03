@@ -2,14 +2,14 @@
 import { computed, inject } from 'vue'
 import { Icon } from '@iconify/vue'
 import { createReusableTemplate } from '@vueuse/core'
-import LabelItem from '../additions/LabelItem.vue'
 import BoardChar from '../additions/BoardChar.vue'
+import VisibleLabels from '../additions/VisibleLabels.vue'
 import type { BoardRow } from '../../types'
 import { DayjsInjectionKey } from '@/plugins/dayjs'
 import UserAvatars from '@/modules/common/components/UserAvatars.vue'
-import { UiBadge, UiButton } from '@/shared/ui'
+import { UiButton } from '@/shared/ui'
 
-const props = defineProps<{
+defineProps<{
   board: T
 }>()
 
@@ -20,9 +20,6 @@ const createdAt = computed(() =>
     return dayjs(board.createdAt).format('L')
   })
 
-const visibleLabels = computed(() => props.board.labels.slice(0, 3))
-const remainingLabels = computed(() => Math.max(props.board.labels.length - 3, 0))
-
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
@@ -30,7 +27,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
   <div
     class="relative cursor-pointer p-2 w-full flex flex-col justify-between h-full border border-solid border-neutral-200 rounded-8px dark:border-neutral-700"
     :class="board.status === 'archived' && 'opacity-50 pointer-events-none'"
-    @click="$router.push({ name: 'boards-id', params: { id: board._id! } })"
+    @click="$router.push({ name: 'boards-id', params: { boardId: board._id! } })"
   >
     <div class="flex items-center justify-between mb-3">
       <div class="flex items-center gap-2">
@@ -47,17 +44,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
       </UiButton>
     </div>
     <div class="max-w-100% flex items-center gap-1.5 mb-4">
-      <div class="flex items-center gap-1 w-full">
-        <LabelItem
-          v-for="label in visibleLabels"
-          :key="label.name"
-          :label="label"
-          class="max-w-60px truncate"
-        />
-        <UiBadge v-if="remainingLabels > 0" variant="soft" class="shadow-none rounded-lg !text-12px 2xl:!text-xs fw450 py-0 px-1 bg-neutral-100 text-neutral-800 dark:(bg-neutral-700/80 text-neutral-100)">
-          +{{ remainingLabels }}
-        </UiBadge>
-      </div>
+      <VisibleLabels :labels="board.labels" label-class="!text-12px" />
     </div>
     <div class="flex items-center gap-2 justify-between">
       <UserAvatars avatar="!w-20px !h-20px" :users="board.users" :max="3" />

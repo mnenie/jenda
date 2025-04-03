@@ -26,6 +26,8 @@ const { value: name } = useField<string>('name')
 const router = useRouter()
 const boardsStore = useBoardsStore()
 
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
+
 const onBoardCreation = handleSubmit((values) => {
   boardsStore.addBoard({
     _id: Math.random().toString(),
@@ -38,8 +40,6 @@ const onBoardCreation = handleSubmit((values) => {
   })
   router.push({ name: 'boards' })
 })
-
-const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
 </script>
 
 <template>

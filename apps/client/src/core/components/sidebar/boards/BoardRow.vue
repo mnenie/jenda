@@ -12,7 +12,7 @@ const props = defineProps<{
 
 const route = useRoute('boards-id')
 
-const isBoardActive = computed(() => route.params.id === props.board._id && route.name === 'boards-id')
+const isBoardActive = computed(() => route.params.boardId === props.board._id && route.name === 'boards-id')
 
 const boardStyle = computed(() => ({
   backgroundColor: props.board.color ? `${props.board.color}33` : '#266df033',
@@ -31,7 +31,7 @@ const { isExpanded } = useExpandedContext()
     }"
     :to="{
       name: 'boards-id',
-      params: { id: board._id },
+      params: { boardId: board._id },
     }"
     class="flex items-center justify-start w-full"
   >

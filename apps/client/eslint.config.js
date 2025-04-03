@@ -75,6 +75,7 @@ export default jendaEslintConfig(
         },
       ],
       'perfectionist/sort-imports': 'off',
+      'import-x/first': 'off',
     },
   },
   {

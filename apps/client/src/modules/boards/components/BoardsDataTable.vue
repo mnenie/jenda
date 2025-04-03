@@ -53,7 +53,7 @@ defineExpose({
     <template #labels-cell="{ cell }">
       <div class="w-full whitespace-nowrap text-neutral-500">
         <template v-if="cell.row.original.labels.length > 0">
-          <LabelItem v-for="label in cell.row.original.labels" :key="label.name" :label="label" class="mr-1.5 py-px px-1.5" />
+          <LabelItem v-for="label in cell.row.original.labels" :key="label.name" :label="label" class="mr-1.5 py-px px-1.5 !text-12px" />
         </template>
         <template v-else>
           <span class="text-neutral-500">-</span>

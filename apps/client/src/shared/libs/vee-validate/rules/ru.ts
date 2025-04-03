@@ -4,6 +4,7 @@ export default {
     email: '{validation} должна быть валидной',
     url: '{validation} должен быть валидным',
   },
+  invalidType: 'Неверный тип данных',
   tooSmall: {
     string: {
       exact: 'длина должна быть не менее {minimum} символов',

@@ -4,6 +4,7 @@ export default {
     email: '{validation} 必须是有效的',
     url: '{validation} 必须是有效的',
   },
+  invalidType: '无效的数据类型',
   tooSmall: {
     string: {
       exact: '长度必须至少为 {minimum} 个字符',

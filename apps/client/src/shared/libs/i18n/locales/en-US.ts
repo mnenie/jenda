@@ -71,7 +71,7 @@ export default {
           ],
         },
         labels: {
-          title: 'Labels',
+          title: 'Manage labelsLabels',
         },
       },
       search: 'Find a board...',
@@ -108,6 +108,56 @@ export default {
       description_tasks: 'Solve and complete the tasks you started',
     },
     columns: ['Board name', 'Labels', 'Participants', 'Tasks', 'Estimate', 'Creation date'],
+  },
+  board: {
+    remove: {
+      title: 'Delete board',
+      description: 'Are you sure you want to delete this board? All associated data will be removed.',
+    },
+    menu: {
+      background: 'Change background',
+      labels: 'Manage labels',
+      edit: 'Edit board',
+      delete: 'Delete board',
+    },
+    alerts: {
+      image: {
+        title: 'Available images',
+        description: 'Select one of the images for your board',
+      },
+    },
+    forms: {
+      edit: {
+        title: 'Edit Board',
+        description: 'You can change the board name, color, and its visibility.',
+        name: {
+          label: 'Name',
+          placeholder: 'Enter a name for the board',
+        },
+        visibility: {
+          label: 'Visibility',
+          tabs: 'Private | Shared',
+          alert: 'By switching from private to shared, your board will become accessible to other users in your workspace.',
+        },
+        btns: 'Cancel | Apply',
+      },
+      labels: {
+        title: 'Labels management',
+        description: 'Configure and manage labels for your board',
+        actions: {
+          search: 'Search labels',
+          add: 'Create',
+          new_placeholder: 'Enter label name',
+          edit: 'Edit',
+          delete: 'Delete',
+          save: 'Save',
+          cancel: 'Cancel',
+        },
+        errors: {
+          exists: 'Label with this name already exists',
+        },
+      },
+    },
   },
   notes: {
     create: 'Add note | Add new note',
@@ -193,7 +243,13 @@ export default {
   common: {
     remove: {
       warning: 'This action is irreversible.',
-      btns: 'Cancel | Delete',
+      btns: 'Cancel | Delete | Deleting',
+    },
+    create: {
+      btns: 'Cancel | Create',
+    },
+    edit: {
+      btns: 'Cancel | Apply',
     },
   },
   workflows: {
@@ -353,33 +409,6 @@ export default {
       view: 'View the boards',
     },
   },
-  analytics: {
-    title: 'Workspace Analytics',
-    description: 'View and analyze your activity on Jenda',
-    charts: {
-      users: {
-        name: 'Total users',
-        description: 'Number of users in the workspace',
-      },
-      online: {
-        name: 'Workspace activity',
-      },
-      tasks: {
-        name: 'Total tasks',
-        dataset: {
-          names: ['Uncompleted', 'Completed'],
-        },
-      },
-      boards: {
-        name: 'Total boards',
-      },
-    },
-    badges: ['Convenient', 'Informative', 'Anytime'],
-    share: {
-      btn: 'Share',
-      description: 'you can easily take a screenshot and send it to anyone',
-    },
-  },
   settings: {
     title: 'Settings',
     description: 'Manage your account settings and set some preferences.',
@@ -481,14 +510,96 @@ export default {
       'authorization via google will be replaced with gitlab after 28.02.2025',
   },
   kanban: {
+    empty: 'Create a new column to get started',
     sorting: {
       all: 'All Tasks',
       activity: 'By activity',
       workload: 'By workload',
     },
+    view: {
+      kanban: 'Kanban',
+      timeline: 'Timeline',
+    },
+    menu: ['Change background', 'Manage labels', 'Edit board', 'Delete board'],
+    export: 'Export board',
     active: 'active',
     archived: 'archived',
-    new: 'Add new column',
+    alert: 'The board has been archived and is no longer editable.',
+    column: {
+      forms: {
+        settingLimit: {
+          dialogTitle: 'Column limit',
+          dialogDescription: 'Set a limit on the number of tasks in the column.',
+          limit: {
+            label: 'Column limit',
+            placeholder: 'Enter the limit',
+          },
+          errors: {
+            min: 'The limit cannot be less than the current number of tasks - {count}',
+            max: 'The limit cannot be greater than 100',
+          },
+        },
+        edit: {
+          dialogTitle: 'Editing column',
+          dialogDescription: 'You can edit the name and description of the column.',
+          title: {
+            label: 'Column name',
+            placeholder: 'Enter the name',
+          },
+          description: {
+            label: 'Column description',
+            placeholder: 'Enter the description',
+          },
+        },
+      },
+      remove: {
+        title: 'Column deletion',
+        description: 'Are you sure you want to delete this column? All associated data will be removed.',
+      },
+      new: 'Add new column',
+      tooltips: {
+        actions: 'Actions for the column',
+      },
+      menu: {
+        edit: 'Edit',
+        delete: 'Delete',
+        limit: 'Set limit',
+      },
+      tasks: {
+        new: 'Add task',
+        forms: {
+          creating: {
+            dialogTitle: 'Create task',
+            dialogDescription: 'You can create a new task for this column.',
+            title: {
+              label: 'Title',
+              placeholder: 'Enter the task title',
+            },
+            timeLimit: {
+              creationDate: 'Creation date',
+              label: 'Time limit',
+              placeholder: 'Select date',
+              error: 'You cannot select a past date',
+            },
+            users: {
+              label: 'Assignees',
+              placeholder: 'Add assignees',
+              commandHeading: 'Available assignees',
+              commandEmpty: 'Nothing found :/',
+              commandSearch: 'Search...',
+            },
+            labels: {
+              label: 'Labels',
+              placeholder: 'Add labels',
+              commandHeading: 'Available labels',
+              commandEmpty: 'Nothing found :/',
+              commandSearch: 'Search...',
+            },
+            btns: 'Cancel | Create',
+          },
+        },
+      },
+    },
     cards: {
       add: 'Add card',
     },

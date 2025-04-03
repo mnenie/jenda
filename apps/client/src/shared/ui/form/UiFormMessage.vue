@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue'
+import { computed, type HTMLAttributes, useAttrs } from 'vue'
 import { Icon, type IconifyIcon } from '@iconify/vue'
 import { twMerge } from 'tailwind-merge'
+import { cn } from '@/shared/libs/shadcn/utils'
 
 interface MessageProps {
   icon?: IconifyIcon | string
   type?: 'error' | 'warning'
-  content: string
+  content?: string
+  class?: HTMLAttributes['class']
 }
 
-const { type = 'error', icon, content } = defineProps<MessageProps>()
+const { type = 'error', icon, content, ...props } = defineProps<MessageProps>()
 
 const colors: Record<string, string> = {
   error: 'text-red-500',
@@ -29,13 +31,15 @@ const classes = computed(() => {
 })
 
 const message = computed(() => {
-  return content.charAt(0).toUpperCase() + content.slice(1).toLowerCase()
+  return content!.charAt(0).toUpperCase() + content!.slice(1).toLowerCase()
 })
 </script>
 
 <template>
-  <div :class="classes">
-    <Icon v-if="icon" :icon="icon" />
-    <span>{{ message }}</span>
+  <div :class="cn(classes, props.class)">
+    <slot>
+      <Icon v-if="icon" :icon="icon" />
+      <span>{{ message }}</span>
+    </slot>
   </div>
 </template>

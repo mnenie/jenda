@@ -1,13 +1,13 @@
-::-webkit-scrollbar {
+.scrollbar::-webkit-scrollbar {
   background-color: transparent;
-  height: 0.6em;
-  width: 0.6em;
+  height: 0.45em;
+  width: 0.45em;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-neutral-100 dark:bg-neutral-700/20;
+  @apply bg-transparent;
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-neutral-300 rounded-xl dark:bg-neutral-700;
+.scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300 rounded dark:bg-neutral-700;
 }

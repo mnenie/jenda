@@ -41,13 +41,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   <DialogPortal :disabled="!portal">
     <DialogOverlay
       :class="cn(
-        'sheet-overlay',
+        portal ? 'sheet-portal-overlay' : 'sheet-overlay',
         'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       )"
     />
 
     <DialogContent
-      :class="cn(sheetVariants({ side }), props.class)"
+      :class="cn(sheetVariants({ side }), props.class, portal && 'shadow-[0_4px_60px_#00000040]')"
       v-bind="{ ...forwarded, ...$attrs }"
     >
       <slot />

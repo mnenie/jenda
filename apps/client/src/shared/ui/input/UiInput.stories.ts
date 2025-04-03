@@ -16,6 +16,17 @@ export default {
     placeholder: {
       control: { type: 'text' },
     },
+    leading: {
+      control: { type: 'text' },
+    },
+    trailing: {
+      control: { type: 'text' },
+    },
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'filled'],
+      defaultValue: 'default',
+    },
   },
 } as Meta<typeof UiInput>
 
@@ -30,3 +41,16 @@ const Template: StoryFn<typeof UiInput> = (args) => {
 }
 
 export const DefaultInput: StoryFn<typeof UiInput> = Template.bind({})
+
+export const FilledInput: StoryFn<typeof UiInput> = Template.bind({})
+
+FilledInput.args = {
+  variant: 'filled',
+}
+
+export const SlottedInput: StoryFn<typeof UiInput> = Template.bind({})
+
+SlottedInput.args = {
+  variant: 'default',
+  leading: 'lucide:search',
+}

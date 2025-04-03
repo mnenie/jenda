@@ -107,6 +107,56 @@ export default {
     },
     columns: ['看板名称', '标签', '参与者', '任务', '估算', '创建日期'],
   },
+  board: {
+    remove: {
+      title: '删除看板',
+      description: '您确定要删除此看板吗？所有相关数据都将被删除。',
+    },
+    menu: {
+      background: '更换背景',
+      labels: '标签',
+      edit: '编辑',
+      delete: '删除',
+    },
+    alerts: {
+      image: {
+        title: '可用图片',
+        description: '为您的看板选择一张图片',
+      },
+    },
+    forms: {
+      edit: {
+        title: '编辑看板',
+        description: '您可以更改看板名称、颜色及其可见性。',
+        name: {
+          label: '名称',
+          placeholder: '输入看板名称',
+        },
+        visibility: {
+          label: '可见性',
+          tabs: '私有 | 共享',
+          alert: '将您的看板从私有切换到共享后，工作区中的其他用户将可以访问您的看板。',
+        },
+        btns: '取消 | 应用',
+      },
+      labels: {
+        title: '标签管理',
+        description: '配置和管理看板的标签',
+        actions: {
+          search: '搜索标签',
+          add: '添加标签',
+          new_placeholder: '输入标签名称',
+          edit: '编辑',
+          delete: '删除',
+          save: '保存',
+          cancel: '取消',
+        },
+        errors: {
+          exists: '已存在同名标签',
+        },
+      },
+    },
+  },
   notes: {
     create: '添加笔记 | 添加新笔记',
     remove: '删除',
@@ -191,7 +241,13 @@ export default {
   common: {
     remove: {
       warning: '此操作无法撤销。',
-      btns: '取消 | 删除',
+      btns: '取消 | 删除 | 删除',
+    },
+    create: {
+      btns: '取消 | 创建',
+    },
+    edit: {
+      btns: '取消 | 保存',
     },
   },
   workflows: {
@@ -349,33 +405,6 @@ export default {
       view: '查看白板',
     },
   },
-  analytics: {
-    title: '工作区分析',
-    description: '查看并分析您在 Jenda 上的活动',
-    charts: {
-      users: {
-        name: '用户数量',
-        description: '工作区中的用户数量',
-      },
-      online: {
-        name: '工作区活动',
-      },
-      tasks: {
-        name: '任务数量',
-        dataset: {
-          names: ['未完成', '已完成'],
-        },
-      },
-      boards: {
-        name: '看板数量',
-      },
-    },
-    badges: ['方便', '信息丰富', '随时'],
-    share: {
-      btn: '分享',
-      description: '您可以轻松地截图并将其发送给任何人。',
-    },
-  },
   settings: {
     title: '设置',
     description: '管理您的帐户设置和设定一些偏好。',
@@ -469,14 +498,96 @@ export default {
     auth_alert: '通过 google 的授权将在 2025 年 02 月 28 日后被 gitlab 替代',
   },
   kanban: {
+    empty: '创建一个新列以开始',
     sorting: {
       all: '所有任务',
       activity: '按活动排序',
       workload: '按工作量排序',
     },
+    view: {
+      kanban: '看板',
+      timeline: '时间轴',
+    },
+    menu: ['更改背景', '标签', '编辑', '删除'],
+    export: '导出看板',
     active: '活跃',
     archived: '已归档',
-    new: '添加新列',
+    alert: '该看板已被归档，无法再编辑。',
+    column: {
+      forms: {
+        settingLimit: {
+          dialogTitle: '设置限制',
+          dialogDescription: '您可以设置列的限制。',
+          limit: {
+            label: '列限制',
+            placeholder: '输入限制',
+          },
+          errors: {
+            min: '限制不能小于当前任务数量 - {count}',
+            max: '限制不能大于 100',
+          },
+        },
+        edit: {
+          dialogTitle: '编辑列',
+          dialogDescription: '  ',
+          title: {
+            label: '列名称',
+            placeholder: '输入列名称',
+          },
+          description: {
+            label: '列描述',
+            placeholder: '输入列描述',
+          },
+        },
+      },
+      remove: {
+        title: '删除列',
+        description: '您确定要删除此列吗？所有相关数据都将被删除。',
+      },
+      new: '添加新列',
+      tooltips: {
+        actions: '列的操作',
+      },
+      menu: {
+        edit: '编辑',
+        delete: '删除',
+        limit: '设置限制',
+      },
+      tasks: {
+        new: '添加任务',
+        forms: {
+          creating: {
+            dialogTitle: '创建任务',
+            dialogDescription: '您可以为此列创建一个新任务。',
+            title: {
+              label: '标题',
+              placeholder: '输入任务标题',
+            },
+            timeLimit: {
+              creationDate: '创建日期',
+              label: '时间限制',
+              placeholder: '选择日期',
+              error: '不能选择过去的时间',
+            },
+            users: {
+              label: '执行者',
+              placeholder: '添加执行者',
+              commandHeading: '可用执行者',
+              commandEmpty: '未找到 :/',
+              commandSearch: '搜索...',
+            },
+            labels: {
+              label: '标签',
+              placeholder: '添加标签',
+              commandHeading: '可用标签',
+              commandEmpty: '未找到 :/',
+              commandSearch: '搜索...',
+            },
+            btns: '取消 | 创建',
+          },
+        },
+      },
+    },
     cards: {
       add: '添加卡片',
     },
