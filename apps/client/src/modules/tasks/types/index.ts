@@ -3,7 +3,7 @@ import type {Card} from '@/modules/boards/types';
 
 interface Activity {
   id: string
-  user?: Pick<User, 'email' | 'photoUrl' | '_id'>
+  user: Pick<User, 'email' | 'photoUrl' | '_id'>
   action: string
   date: Date
   type: 'status' | 'assignee' | 'estimate' | 'date' | 'asset' | 'title' | 'description' | 'labels'
@@ -11,5 +11,5 @@ interface Activity {
 
 export interface Task extends Card {
   description?: string,
-  activities: Activity[],
+  activities?: Activity[],
 }
