@@ -41,6 +41,9 @@ export default {
     },
     share: '分享',
   },
+  tasks: {
+    title_empty: '无标题',
+  },
   boards: {
     create: '添加看板 | 添加新看板',
     routeCreate: '添加看板',

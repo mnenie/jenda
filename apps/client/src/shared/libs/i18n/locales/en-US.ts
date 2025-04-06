@@ -42,6 +42,9 @@ export default {
     },
     share: 'Share link',
   },
+  tasks: {
+    title_empty: 'No title',
+  },
   boards: {
     create: 'Add board | Add new board',
     remove: 'Delete',

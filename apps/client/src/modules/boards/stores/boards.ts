@@ -13,7 +13,22 @@ export const useBoardsStore = defineStore('boards', () => {
         _id: '1',
         title: 'TODO',
         color: '#ffc301',
-        cards: [],
+        cards: [{
+          _id: '1',
+          title: 'Add i18n support',
+          priority: 'low',
+          labels: [{
+            id: '1',
+            name: 'feature',
+            color: '#00ff00',
+          }],
+          users: [{
+            _id: '1',
+            email: 'alex',
+            photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
+          }],
+          estimate: 4,
+        }],
         estimate: 2,
         description: 'Tasks waiting in the queue',
       },

@@ -41,6 +41,9 @@ export default {
     },
     share: 'Поделиться',
   },
+  tasks: {
+    title_empty: 'Без названия',
+  },
   boards: {
     create: 'Добавить доску | Добавить новую доску',
     routeCreate: 'Добавить доску',
