@@ -1,0 +1,20 @@
+{/* ContextMenu.mdx */}
+
+import { Canvas, Story, Meta, Markdown } from '@storybook/blocks';
+import * as ContextMenuStories from '../context-menu/UiContextMenu.stories';
+
+<Meta of={ContextMenuStories} name="Docs" />
+
+# UiContext
+
+The **UiContext** component displays a menu to the user — such as a set of actions or functions — triggered by a button.
+
+### Main Components:
+
+`UiContext`, `UiContextTrigger`, `UiContextContent`, `UiContextItem`,
+
+<Canvas of={ContextMenuStories.DefaultContext} />
+
+### Props
+
+refs: https://www.radix-vue.com/components/context-menu
