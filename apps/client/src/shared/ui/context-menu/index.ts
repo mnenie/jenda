@@ -1,0 +1,8 @@
+export { default as UiContextMenu } from './UiContextMenu.vue'
+export { default as UiContextMenuContent } from './UiContextMenuContent.vue'
+export { default as UiContextMenuGroup } from './UiContextMenuGroup.vue'
+export { default as UiContextMenuItem } from './UiContextMenuItem.vue'
+export { default as UiContextMenuLabel } from './UiContextMenuLabel.vue'
+export { default as UiContextMenuSeparator } from './UiContextMenuSeparator.vue'
+export { default as UiContextMenuShortcut } from './UiContextMenuShortcut.vue'
+export { default as UiContextMenuTrigger } from './UiContextMenuTrigger.vue'
