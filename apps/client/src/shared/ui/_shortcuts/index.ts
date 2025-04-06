@@ -20,6 +20,7 @@ import { textarea } from './textarea'
 import { sheet } from './sheet'
 import { collapsible } from './collapsible'
 import { calendar } from './calendar'
+import { contextMenu } from './context-menu'
 import type { PresetShortcuts } from '../../libs/unocss/types'
 import type { StaticShortcutMap } from 'unocss'
 
@@ -46,4 +47,5 @@ export const shortcuts = [
   ...sheet,
   ...collapsible,
   ...calendar,
+  ...contextMenu,
 ] as PresetShortcuts<StaticShortcutMap>
