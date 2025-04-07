@@ -612,6 +612,9 @@ export default {
       update: '应用更改',
     },
   },
+  task: {
+    tabs: '子任务 | 评论 | 活动',
+  },
   welcome: {
     header: {
       links: ['关于', '看板', '协作', '活动', '成员', '聊天'],

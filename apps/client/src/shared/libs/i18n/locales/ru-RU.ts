@@ -628,6 +628,9 @@ export default {
       update: 'Применить изменения',
     },
   },
+  task: {
+    tabs: 'Сабтаски | Комментарии | Действия',
+  },
   welcome: {
     header: {
       links: [

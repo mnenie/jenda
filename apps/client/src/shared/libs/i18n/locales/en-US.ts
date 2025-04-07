@@ -625,6 +625,9 @@ export default {
       update: 'Apply changes',
     },
   },
+  task: {
+    tabs: 'Subtasks | Comments | Activity',
+  },
   welcome: {
     header: {
       links: [
