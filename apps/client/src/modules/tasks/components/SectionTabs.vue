@@ -1,39 +1,38 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { TabsIndicator, TabsList, TabsTrigger } from 'radix-vue'
 import { useLocalStorage } from '@vueuse/core'
-import type { Comment } from '@/modules/boards/types'
+import { storeToRefs } from 'pinia'
+import { useTaskStore } from '../stores/task'
 import { UiBadge, UiTabs, UiTabsContent } from '@/shared/ui'
 
-defineProps<{
-  comments?: Comment[]
-}>()
+const taskStore = useTaskStore()
+const { task } = storeToRefs(taskStore)
 
-const defaultTab = useLocalStorage('default-task-tab', 'subtasks')
+const tab = useLocalStorage('default-task-tab', 'subtasks')
 
-const tabs = ['subtasks', 'comments', 'actions'] as const
+const tabs = ['subtasks', 'comments', 'actions', 'assets'] as const
+
+const commentsCount = computed(() => {
+  return task.value.commentsGroup?.reduce((acc, group) => acc + group.comments.length, 0) ?? 0
+})
 </script>
 
 <template>
-  <UiTabs v-model="defaultTab" class="tabs-primary h-full">
+  <UiTabs v-model="tab" class="tabs-primary h-full overflow-hidden">
     <TabsList class="tabs-list-primary">
       <TabsIndicator class="tabs-indicator">
         <div class="bg-blue-500 w-full h-full" />
       </TabsIndicator>
-      <TabsTrigger value="subtasks" class="tabs-trigger-primary">
-        {{ $t('task.tabs', 0) }}
-      </TabsTrigger>
-      <TabsTrigger value="comments" class="tabs-trigger-primary gap-2">
-        {{ $t('task.tabs', 1) }}
-        <UiBadge v-if="comments?.length" variant="secondary" class="px-1 py-0 rounded-lg">
-          {{ comments.length }}
+      <TabsTrigger v-for="trigger, index in tabs" :key="trigger" :value="trigger" class="tabs-trigger-primary" :class="{ 'gap-2': trigger === 'comments' }">
+        {{ $t(`task.tabs[${index}]`) }}
+        <UiBadge v-if="task.commentsGroup?.length && trigger === 'comments'" variant="secondary" class="px-1 py-0 rounded-lg">
+          {{ commentsCount }}
         </UiBadge>
       </TabsTrigger>
-      <TabsTrigger value="actions" class="tabs-trigger-primary">
-        {{ $t('task.tabs', 3) }}
-      </TabsTrigger>
     </TabsList>
-    <UiTabsContent v-for="tab in tabs" :key="tab" :value="tab" class="h-full">
-      <slot :name="tab" />
+    <UiTabsContent v-for="section in tabs" :key="section" :value="section" class="relative h-full overflow-y-auto mt-1">
+      <slot :name="section" />
     </UiTabsContent>
   </UiTabs>
 </template>
