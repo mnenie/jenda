@@ -1,5 +1,5 @@
+import type { DateParams } from "@/modules/common/types"
 import type { BoardCard } from "./board"
-import type { DateParams } from "./shared"
 
 export interface Column extends DateParams {
   _id: string
