@@ -1,8 +1,9 @@
 import type { User } from "@/modules/auth/types"
-import type { DateParams, Label, Visibility } from "./shared"
+import type { Label, Visibility } from "./shared"
 import type { Column } from "./column"
 import type { Status } from "./shared"
 import type { Card } from "./task"
+import type { DateParams } from "@/modules/common/types"
 
 export interface BoardRow extends Omit<Board, 'columns'> {
   tasks?: number

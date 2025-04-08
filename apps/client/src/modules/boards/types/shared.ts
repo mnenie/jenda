@@ -1,11 +1,5 @@
 import type { User } from "@/modules/auth/types"
 
-export interface DateParams {
-  createdAt?: Date
-  updatedAt?: Date
-  deletedAt?: Date
-}
-
 type S<T extends string> = T
 
 export interface Label {
