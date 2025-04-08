@@ -1,0 +1,33 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import ProfileImage from './ProfileImage.vue'
+import ContextMenu from './ContextMenu.vue'
+import CommentBox from './CommentBox.vue'
+import type { Comment } from '../../types/comment'
+import { useUserStore } from '@/modules/auth/stores/auth'
+import { UiContextMenu, UiContextMenuTrigger } from '@/shared/ui'
+
+const props = defineProps<{
+  comment: Comment
+  link?: boolean
+}>()
+
+const authStore = useUserStore()
+const { user } = storeToRefs(authStore)
+
+const isCurrentUser = computed(() => user.value._id === props.comment.user._id)
+</script>
+
+<template>
+  <UiContextMenu>
+    <UiContextMenuTrigger class="flex items-end gap-10 px-4 py-2 rounded-md justify-between w-full w-full data-[state=open]:bg-neutral-100 dark:data-[state=open]:bg-neutral-800">
+      <div class="relative flex items-start gap-px w-full">
+        <div v-if="link" class="absolute w-px h-[calc(100%-18px)] left-3 top-8 bg-neutral-200 dark:bg-neutral-700 rounded-full" />
+        <ProfileImage :user="comment.user" />
+        <CommentBox :comment="comment" :is-current-user />
+      </div>
+    </UiContextMenuTrigger>
+    <ContextMenu :is-current-user />
+  </UiContextMenu>
+</template>
