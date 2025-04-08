@@ -20,7 +20,7 @@
     "lint": "pnpm -r lint",
     "lint:inspect": "npx @eslint/config-inspector",
     "test:unit": "pnpm -r test:unit",
-    "type-check": "pnpm -r typecheck",
+    "type-check": "pnpm -r type-check",
     "pre-commit": "pnpm -r lint && pnpm -r typecheck",
     "prepare": "husky"
   },
