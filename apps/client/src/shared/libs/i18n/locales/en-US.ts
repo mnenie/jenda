@@ -626,7 +626,14 @@ export default {
     },
   },
   task: {
-    tabs: 'Subtasks | Comments | Activity',
+    tabs: ['Subtasks', 'Comments', 'Actions', 'Assets'],
+    actions: ['Copy link', 'Edit', 'Delete'],
+    comments: {
+      reply: 'Reply',
+      day: 'Today | Yesterday | {n} days ago',
+      assignee: 'assignee',
+      write: 'Write a comment',
+    },
   },
   welcome: {
     header: {

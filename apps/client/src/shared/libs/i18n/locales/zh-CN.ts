@@ -613,7 +613,14 @@ export default {
     },
   },
   task: {
-    tabs: '子任务 | 评论 | 活动',
+    tabs: ['子任务', '评论', '操作', '资产'],
+    actions: ['复制链接', '编辑', '删除'],
+    comments: {
+      reply: '回复',
+      day: '今天 | 昨天 | {n} 天前',
+      assignee: '执行人',
+      write: '发表评论',
+    },
   },
   welcome: {
     header: {
