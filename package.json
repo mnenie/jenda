@@ -20,8 +20,9 @@
     "lint": "pnpm -r lint",
     "lint:inspect": "npx @eslint/config-inspector",
     "test:unit": "pnpm -r test:unit",
-    "type-check": "pnpm -r type-check",
-    "pre-commit": "pnpm -r lint && pnpm -r typecheck",
+    "type-check": "sh -c 'pnpm type-check:workspace'",
+    "type-check:workspace": "pnpm --filter \"./{apps,packages}/**\" type-check",
+    "pre-commit": "pnpm lint-staged && pnpm test:unit run",
     "prepare": "husky"
   },
   "devDependencies": {
