@@ -620,6 +620,10 @@ export default {
       day: '今天 | 昨天 | {n} 天前',
       assignee: '执行人',
       write: '发表评论',
+      empty: {
+        title: '暂无评论',
+        description: '成为第一个评论此任务的人',
+      },
     },
   },
   welcome: {

@@ -633,6 +633,10 @@ export default {
       day: 'Today | Yesterday | {n} days ago',
       assignee: 'assignee',
       write: 'Write a comment',
+      empty: {
+        title: 'No comments',
+        description: 'Be the first to comment on this task',
+      },
     },
   },
   welcome: {

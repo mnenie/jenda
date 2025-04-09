@@ -26,7 +26,7 @@ const commentsCount = computed(() => {
       </TabsIndicator>
       <TabsTrigger v-for="trigger, index in tabs" :key="trigger" :value="trigger" class="tabs-trigger-primary" :class="{ 'gap-2': trigger === 'comments' }">
         {{ $t(`task.tabs[${index}]`) }}
-        <UiBadge v-if="task.commentsGroup?.length && trigger === 'comments'" variant="secondary" class="px-1 py-0 rounded-lg">
+        <UiBadge v-if="trigger === 'comments'" variant="secondary" class="px-1 py-0 rounded-lg">
           {{ commentsCount }}
         </UiBadge>
       </TabsTrigger>

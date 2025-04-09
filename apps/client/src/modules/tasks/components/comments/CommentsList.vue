@@ -25,7 +25,7 @@ function formatDate(d: DateParams['createdAt']) {
 </script>
 
 <template>
-  <div v-if="task.commentsGroup" class="flex h-full flex-col overflow-y-auto scrollbar pb-14">
+  <div class="flex h-full flex-col overflow-y-auto scrollbar pb-14">
     <div v-for="group, groupIndex in task.commentsGroup" :key="groupIndex">
       <span class="text-small text-center text-neutral-400 mt-2 block">
         {{ formatDate(group.date) }}
