@@ -1,4 +1,5 @@
 import type { FlatMockServerConfig } from 'mock-config-server'
+import { board_data } from './constants/board'
 import { task_data } from './constants/task'
 
 const flatMockServerConfig: FlatMockServerConfig = [
@@ -8,7 +9,7 @@ const flatMockServerConfig: FlatMockServerConfig = [
   {
     configs: [
       {
-        path: '/task/:taskId',
+        path: '/tasks/:taskId',
         method: 'get',
         routes: [
           {
@@ -20,7 +21,30 @@ const flatMockServerConfig: FlatMockServerConfig = [
                 },
               },
             },
-            data: task_data,
+            data: args => ({
+              ...task_data,
+              _id: args.params.taskId,
+            }),
+          },
+        ],
+      },
+      {
+        path: '/boards/:boardId',
+        method: 'get',
+        routes: [
+          {
+            entities: {
+              params: {
+                boardId: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
+              },
+            },
+            data: args => ({
+              ...board_data,
+              _id: args.params.boardId,
+            }),
           },
         ],
       },
