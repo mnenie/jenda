@@ -54,6 +54,7 @@
     "clsx": "2.1.1",
     "dayjs": "1.11.13",
     "floating-vue": "^5.2.2",
+    "ofetch": "1.4.1",
     "pinia": "^2.1.7",
     "radix-vue": "^1.9.17",
     "splitpanes": "^3.1.5",

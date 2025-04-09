@@ -1,0 +1,15 @@
+{
+  "name": "@jenda/mock-config-server",
+  "version": "1.0.0",
+  "description": "mock config server",
+  "main": "mock-server.config.ts",
+  "scripts": {
+    "dev:mock-server": "npx mock-config-server"
+  },
+  "keywords": ["mock-config-server"],
+  "author": "Alex Peshkov",
+  "license": "ISC",
+  "devDependencies": {
+    "mock-config-server": "4.0.3"
+  }
+}
