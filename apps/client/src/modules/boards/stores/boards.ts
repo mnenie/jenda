@@ -13,7 +13,29 @@ export const useBoardsStore = defineStore('boards', () => {
         _id: '1',
         title: 'TODO',
         color: '#ffc301',
-        cards: [],
+        cards: [{
+          _id: '1',
+          title: 'Add i18n support',
+          priority: 'low',
+          labels: [{
+            id: '1',
+            name: 'feature',
+            color: '#00ff00',
+          }],
+          users: [
+            {
+              _id: '1',
+              email: 'alex',
+              photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
+            },
+            {
+              _id: '2',
+              email: 'airat@gmail.com',
+              photoUrl: 'https://avatars.githubusercontent.com/u/95149637?s=100&v=4',
+            },
+          ],
+          estimate: 4,
+        }],
         estimate: 2,
         description: 'Tasks waiting in the queue',
       },
@@ -80,7 +102,7 @@ export const useBoardsStore = defineStore('boards', () => {
       status: 'default',
     }, {
       id: '4',
-      name: 'hello world lorem ipsum d dkjsadhjkshdkjashdaskjds dhaskjhdjk',
+      name: 'hello world lorem ipsum',
       color: '#af65bf',
       taskCount: 0,
       status: 'default',

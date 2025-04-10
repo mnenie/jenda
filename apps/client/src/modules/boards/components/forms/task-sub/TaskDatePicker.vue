@@ -13,6 +13,8 @@ import { getCurrentLocale } from '@/shared/libs/i18n/utils/getLocale'
 
 const props = defineProps<{
   todayAndDisabled?: boolean
+  inputClass?: string
+  noIcon?: boolean
 }>()
 
 const { t } = useI18n()
@@ -43,10 +45,11 @@ const pickerValue = computed(() => {
         :class="cn(
           '!input-filled text-left w-full justify-start shadow-none justify-between',
           !dateValue && 'text-muted-foreground',
+          inputClass,
         )"
       >
         <div class="flex items-center gap-1">
-          <Icon icon="hugeicons:calendar-02" class="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400" />
+          <Icon v-if="!noIcon" icon="hugeicons:calendar-02" class="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400" />
           <span class="fw400">{{ pickerValue }}</span>
         </div>
         <div

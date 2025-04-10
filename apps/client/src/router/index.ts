@@ -10,9 +10,9 @@ export const router = createRouter({
 
 router.beforeEach((to, from) => {
   // Needs to add guard auth logic in router
-  if (to.meta.requiresAuth === true) {
-    return router.push({ name: 'sign-in' })
-  }
+  // if (to.meta.requiresAuth === true) {
+  //   return router.push({ name: 'sign-in' })
+  // }
 })
 
 router.beforeEach(layoutResolverGuard)
