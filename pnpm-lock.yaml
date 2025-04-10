@@ -35,6 +35,12 @@ importers:
       '@internationalized/date':
         specifier: 3.7.0
         version: 3.7.0
+      '@pinia/colada':
+        specifier: 0.14.2
+        version: 0.14.2(pinia@2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5)))
+      '@pinia/colada-plugin-retry':
+        specifier: 0.0.5
+        version: 0.0.5(@pinia/colada@0.14.2(pinia@2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5))))
       '@tanstack/vue-table':
         specifier: 8.20.5
         version: 8.20.5(vue@3.5.13(typescript@5.4.5))
@@ -1275,6 +1281,16 @@ packages:
     resolution: {integrity: sha512-dfUnCxiN9H4ap84DvD2ubjw+3vUNpstxa0TneY/Paat8a3R4uQZDLSvWjmznAY/DoahqTHl9V46HF/Zs3F29pg==}
     engines: {node: '>= 10.0.0'}
 
+  '@pinia/colada-plugin-retry@0.0.5':
+    resolution: {integrity: sha512-OiXnphyOMFrazUHUzKpQ159CXjNP63IvaZOqD1pzZka9moO935mpaSFm3JXcdvzzWrQMF6F3OgeXZjP3oPYaRg==}
+    peerDependencies:
+      '@pinia/colada': ^0.14.2
+
+  '@pinia/colada@0.14.2':
+    resolution: {integrity: sha512-nixr1cqkk5RHrafXfJPk7J/F1srCFZTvhrdNfUEx3/N2lRamcYlayniYDwqlRPOw8PHmsRKyRAGgwDiV76sGJA==}
+    peerDependencies:
+      pinia: ^2.2.6 || ^3.0.0
+
   '@pinia/testing@1.0.0':
     resolution: {integrity: sha512-a0QquMJqIdgOsb64f8u6YznRbZD4aJxjpyiWXJbs6e2mn7qn6xx/y1hSdTzqK8jfjX0rGPYniHHvF6zpP73ilg==}
     peerDependencies:
@@ -2289,6 +2305,9 @@ packages:
 
   '@vue/devtools-api@7.7.0':
     resolution: {integrity: sha512-bHEv6kT85BHtyGgDhE07bAUMAy7zpv6nnR004nSTd0wWMrAOtcrYoXO5iyr20Hkf5jR8obQOfS3byW+I3l2CCA==}
+
+  '@vue/devtools-api@7.7.2':
+    resolution: {integrity: sha512-1syn558KhyN+chO5SjlZIwJ8bV/bQ1nOVTG66t2RbG66ZGekyiYNmRO7X9BJCXQqPsFHlnksqvPhce2qpzxFnA==}
 
   '@vue/devtools-core@7.7.2':
     resolution: {integrity: sha512-lexREWj1lKi91Tblr38ntSsy6CvI8ba7u+jmwh2yruib/ltLUcsIzEjCnrkh1yYGGIKXbAuYV2tOG10fGDB9OQ==}
@@ -6554,6 +6573,15 @@ snapshots:
       '@parcel/watcher-win32-x64': 2.5.1
     optional: true
 
+  '@pinia/colada-plugin-retry@0.0.5(@pinia/colada@0.14.2(pinia@2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5))))':
+    dependencies:
+      '@pinia/colada': 0.14.2(pinia@2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5)))
+
+  '@pinia/colada@0.14.2(pinia@2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5)))':
+    dependencies:
+      '@vue/devtools-api': 7.7.2
+      pinia: 2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5))
+
   '@pinia/testing@1.0.0(pinia@2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5)))':
     dependencies:
       pinia: 2.3.0(typescript@5.4.5)(vue@3.5.13(typescript@5.4.5))
@@ -7840,6 +7868,10 @@ snapshots:
   '@vue/devtools-api@7.7.0':
     dependencies:
       '@vue/devtools-kit': 7.7.1
+
+  '@vue/devtools-api@7.7.2':
+    dependencies:
+      '@vue/devtools-kit': 7.7.2
 
   '@vue/devtools-core@7.7.2(vite@5.4.17(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.4.5))':
     dependencies:
