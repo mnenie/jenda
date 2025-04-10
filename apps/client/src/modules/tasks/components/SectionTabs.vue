@@ -2,12 +2,10 @@
 import { computed } from 'vue'
 import { TabsIndicator, TabsList, TabsTrigger } from 'radix-vue'
 import { useLocalStorage } from '@vueuse/core'
-import { storeToRefs } from 'pinia'
-import { useTaskStore } from '../stores/task'
+import { useTaskData } from '../loaders/task-cl'
 import { UiBadge, UiTabs, UiTabsContent } from '@/shared/ui'
 
-const taskStore = useTaskStore()
-const { task } = storeToRefs(taskStore)
+const { data: task } = useTaskData()
 
 const tab = useLocalStorage('default-task-tab', 'subtasks')
 

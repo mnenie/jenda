@@ -25,9 +25,9 @@ const isCurrentUser = computed(() => user.value._id === props.comment.user._id)
       <div class="relative flex items-start gap-px w-full">
         <div v-if="link" class="absolute w-px h-[calc(100%-18px)] left-3 top-8 bg-neutral-200 dark:bg-neutral-700 rounded-full" />
         <ProfileImage :user="comment.user" />
-        <CommentBox :comment="comment" :is-current-user />
+        <CommentBox :comment :is-current-user />
       </div>
     </UiContextMenuTrigger>
-    <ContextMenu :is-current-user />
+    <ContextMenu :comment :is-current-user />
   </UiContextMenu>
 </template>

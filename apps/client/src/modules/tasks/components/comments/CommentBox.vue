@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useTaskStore } from '../../stores/task'
 import { emojis } from '../../constants/emojies'
+import { useTaskData } from '../../loaders/task-cl'
 import EmojiPicker from './EmojiPicker.vue'
 import type { Comment } from '../../types/comment'
 import { cn } from '@/shared/libs/shadcn/utils'
@@ -14,8 +13,7 @@ const props = defineProps<{
   isCurrentUser?: boolean
 }>()
 
-const taskStore = useTaskStore()
-const { task } = storeToRefs(taskStore)
+const { data: task } = useTaskData()
 
 const dayjs = inject(DayjsInjectionKey)!
 
@@ -44,13 +42,17 @@ const isAssignee = computed(() =>
           <UiBadge v-if="isAssignee" variant="outline" class="px-1 py-0 rounded-lg ml--0.5">
             {{ $t('task.comments.assignee') }}
           </UiBadge>
+          <div v-if="comment.replies" class="flex items-center gap-0.5 text-small text-neutral-400">
+            <span i-lucide-reply />
+            <span>{{ comment.replies }}</span>
+          </div>
         </div>
         <span class="text-sm text-neutral-400 text-nowrap ml-auto">{{ createdAt }}</span>
       </div>
     </div>
     <div
       :class="cn(
-        'flex flex-col gap-1 px-2.5 pt-2 rounded-md rounded-t-none w-fit max-w-90%',
+        'flex flex-col gap-1.4 px-2.5 pt-1.5 rounded-md rounded-t-none w-fit max-w-90%',
       )"
     >
       <div class="text-default" v-html="comment.message" />
