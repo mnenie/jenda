@@ -42,7 +42,30 @@ export default {
     share: 'Поделиться',
   },
   tasks: {
-    title_empty: 'Без названия',
+    title: {
+      label: 'Название',
+      title_empty: 'Без названия',
+    },
+    users: {
+      label: 'Исполнители',
+      input_placeholder: 'Поиск пользователя...',
+    },
+    labels: {
+      label: 'Лейблы',
+      input_placeholder: 'Поиск лейбла...',
+    },
+    description: {
+      label: 'Описание',
+      input_placeholder: 'Введите описание задачи...',
+    },
+    timeLimit: {
+      label: 'Срок',
+      input_placeholder: 'Выберите дату...',
+    },
+    estimate: {
+      label: 'Оценка',
+      input_placeholder: 'Введите оценку...',
+    },
   },
   boards: {
     create: 'Добавить доску | Добавить новую доску',

@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useRouter } from 'vue-router/auto'
-import { storeToRefs } from 'pinia'
 import { UiSheet, UiSheetContent, UiSheetHeader } from '@/shared/ui'
-import TaskAttributes from '@/modules/tasks/components/attributes/TaskAttributes.vue'
-import { useBoardsStore } from '@/modules/boards/stores/boards'
-import { provideTaskContext } from '@/modules/tasks/composables/task'
+import TaskAttributes from '@/modules/tasks/components/TaskAttributes.vue'
 
 const router = useRouter()
 
@@ -16,15 +12,6 @@ definePage({
   },
   name: 'tasks-id',
   path: '/boards/:boardId/tasks/:taskId',
-})
-
-const boardStore = useBoardsStore()
-const { board } = storeToRefs(boardStore)
-
-const taskInBoard = computed(() => board.value.columns![0].cards![0])
-
-provideTaskContext({
-  taskInBoard,
 })
 </script>
 

@@ -43,7 +43,30 @@ export default {
     share: 'Share link',
   },
   tasks: {
-    title_empty: 'No title',
+    title: {
+      label: 'Title',
+      title_empty: 'No title',
+    },
+    users: {
+      label: 'Users',
+      input_placeholder: 'Search user...',
+    },
+    labels: {
+      label: 'Labels',
+      input_placeholder: 'Search label...',
+    },
+    description: {
+      label: 'Description',
+      input_placeholder: 'Enter task description...',
+    },
+    timeLimit: {
+      label: 'Time limit',
+      input_placeholder: 'Select date...',
+    },
+    estimate: {
+      label: 'Estimate',
+      input_placeholder: 'Enter estimate...',
+    },
   },
   boards: {
     create: 'Add board | Add new board',

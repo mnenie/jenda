@@ -24,7 +24,7 @@ const priorities = {
 } as const satisfies Record<U | Priority, string>
 
 const priorityColor = computed(() => priorities[props.card.priority!])
-const title = computed(() => props.card.title || t('tasks.title_empty'))
+const title = computed(() => props.card.title || t('tasks.title.title_empty'))
 </script>
 
 <template>

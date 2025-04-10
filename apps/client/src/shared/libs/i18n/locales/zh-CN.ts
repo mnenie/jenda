@@ -42,7 +42,30 @@ export default {
     share: '分享',
   },
   tasks: {
-    title_empty: '无标题',
+    title: {
+      label: '标题',
+      title_empty: '无标题',
+    },
+    users: {
+      label: '参与者',
+      input_placeholder: '搜索参与者...',
+    },
+    labels: {
+      label: '标签',
+      input_placeholder: '搜索标签...',
+    },
+    description: {
+      label: '描述',
+      input_placeholder: '输入任务描述...',
+    },
+    timeLimit: {
+      label: '时间限制',
+      input_placeholder: '选择日期...',
+    },
+    estimate: {
+      label: '估算',
+      input_placeholder: '输入估算...',
+    },
   },
   boards: {
     create: '添加看板 | 添加新看板',

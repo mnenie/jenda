@@ -22,11 +22,18 @@ export const useBoardsStore = defineStore('boards', () => {
             name: 'feature',
             color: '#00ff00',
           }],
-          users: [{
-            _id: '1',
-            email: 'alex',
-            photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
-          }],
+          users: [
+            {
+              _id: '1',
+              email: 'alex',
+              photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
+            },
+            {
+              _id: '2',
+              email: 'airat@gmail.com',
+              photoUrl: 'https://avatars.githubusercontent.com/u/95149637?s=100&v=4',
+            },
+          ],
           estimate: 4,
         }],
         estimate: 2,
@@ -95,7 +102,7 @@ export const useBoardsStore = defineStore('boards', () => {
       status: 'default',
     }, {
       id: '4',
-      name: 'hello world lorem ipsum d dkjsadhjkshdkjashdaskjds dhaskjhdjk',
+      name: 'hello world lorem ipsum',
       color: '#af65bf',
       taskCount: 0,
       status: 'default',
