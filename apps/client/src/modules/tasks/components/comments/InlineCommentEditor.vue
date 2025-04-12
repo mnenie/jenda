@@ -2,26 +2,20 @@
 import { shallowRef, useTemplateRef, watch } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useFileDialog, watchDebounced } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
 import { useEditComment } from '../../composables/edit-comment.shared'
 import { useCommentsMutations } from '../../mutations/comments'
 import TiptapEditor from '@/modules/editor/components/TiptapEditor.vue'
 import { cn } from '@/shared/libs/shadcn/utils'
+import { useUserStore } from '@/modules/auth/stores/auth'
 
 const editor = shallowRef<any>('')
 
-const editorRef = useTemplateRef<InstanceType<typeof TiptapEditor>>('editorRef')
+const editorInstance = useTemplateRef<InstanceType<typeof TiptapEditor>>('editorInstance')
 
 const { isEditPanelOpen, editableCommentMessage, closeEditPanel, editingCommentId } = useEditComment()
 
-const { updateComment } = useCommentsMutations()
-
-function updateCommentMessage() {
-  updateComment({
-    _id: editingCommentId.value,
-    message: editor.value,
-  })
-  closeEditPanel()
-}
+const { updateComment, createComment } = useCommentsMutations()
 
 const { open, onChange } = useFileDialog({
   accept: 'image/*',
@@ -35,9 +29,38 @@ function setImageToPosition() {
     if (!files)
       return
     currentFileByUrl.value = `${window.location.origin}/api/files/${files[0].name}`
-    if (editorRef.value && currentFileByUrl.value)
-      editorRef.value.chaining()?.setImage({ src: currentFileByUrl.value }).run()
+    if (editorInstance.value && currentFileByUrl.value)
+      editorInstance.value.chaining()?.setImage({ src: currentFileByUrl.value }).run()
   })
+}
+
+const userStore = useUserStore()
+const { user } = storeToRefs(userStore)
+
+function updateCommentMessage() {
+  updateComment({
+    _id: editingCommentId.value,
+    message: editor.value,
+  })
+  closeEditPanel()
+}
+
+function createCommentWithClean() {
+  createComment({
+    message: editor.value,
+    user: user.value,
+    createdAt: new Date().toISOString(),
+  })
+  editor.value = ''
+}
+
+function postOrUpdateComment() {
+  if (isEditPanelOpen.value) {
+    updateCommentMessage()
+  }
+  else {
+    createCommentWithClean()
+  }
 }
 
 watch(editableCommentMessage, (message) => {
@@ -45,7 +68,7 @@ watch(editableCommentMessage, (message) => {
 }, { immediate: true })
 
 watchDebounced(editableCommentMessage, (message) => {
-  message && editorRef.value?.focus()
+  message && editorInstance.value?.focus()
 }, { debounce: 200, flush: 'post' })
 </script>
 
@@ -64,7 +87,7 @@ watchDebounced(editableCommentMessage, (message) => {
       <div class="absolute h-full bg-white w-full left-0 rounded-t-lg" />
       <div class="w-full relative items-center">
         <TiptapEditor
-          ref="editorRef"
+          ref="editorInstance"
           v-model="editor"
           :expanded="false"
           section="task.comments"
@@ -74,7 +97,7 @@ watchDebounced(editableCommentMessage, (message) => {
           )"
         />
         <Icon icon="teenyicons:attach-solid" class="min-w-4.6 min-h-4.6 absolute left-2 flex items-center bottom-4.7" @click="setImageToPosition" />
-        <Icon icon="ion:send" class="min-w-5 min-h-5 absolute right-2 flex items-center text-blue-600 bottom-4.6" @click="updateCommentMessage" />
+        <Icon icon="ion:send" class="min-w-5 min-h-5 absolute right-2 flex items-center text-blue-600 bottom-4.6" @click="postOrUpdateComment" />
       </div>
     </div>
   </div>

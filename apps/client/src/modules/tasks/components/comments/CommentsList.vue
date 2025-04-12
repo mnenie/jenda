@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useTaskDataLoader as useTaskData } from '../../loaders/task-cl'
+import { useCommentsQuery } from '../../queries/comments'
 import CommentItem from './CommentItem.vue'
 import type { DateParams } from '@/modules/common/types'
 import { DayjsInjectionKey } from '@/plugins/dayjs'
 
 const { t } = useI18n()
 
-const { data: task } = useTaskData()
+const { data: commentsGroup } = useCommentsQuery()
 
 const dayjs = inject(DayjsInjectionKey)!
 
@@ -24,7 +24,7 @@ function formatDate(d: DateParams['createdAt']) {
 
 <template>
   <div class="flex h-full flex-col overflow-y-auto scrollbar pb-14 mt-1">
-    <div v-for="group, groupIndex in task.commentsGroup" :key="groupIndex">
+    <div v-for="group, groupIndex in commentsGroup" :key="groupIndex">
       <span v-if="group.comments.length" class="text-small text-center text-neutral-400 mt-1 block">
         {{ formatDate(group.date) }}
       </span>

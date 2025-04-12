@@ -85,7 +85,6 @@ export const useBoardsStore = defineStore('boards', () => {
       taskCount: 0,
       status: 'default',
     }],
-    updatedAt: new Date(),
     creator: {
       _id: '1',
       email: 'alex',
