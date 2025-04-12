@@ -9,12 +9,13 @@ import type { Editor } from '@tiptap/vue-3'
 
 defineProps<{
   editor: Editor
+  expanded?: boolean
 }>()
 </script>
 
 <template>
   <BubbleMenu class="flex items-center" :editor>
-    <AiOffer />
+    <AiOffer v-if="expanded" />
     <AdditionalItems :editor />
     <TextStyleItems :editor />
     <TextLink :editor />

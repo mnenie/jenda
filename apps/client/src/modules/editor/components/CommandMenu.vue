@@ -28,6 +28,7 @@ function selectItem(index: number) {
     <UiDropdownMenuTrigger />
     <UiDropdownMenuContent
       :loop="true"
+      :portal="true"
       side="right"
       :side-offset="10"
       align="start"
