@@ -630,13 +630,17 @@ export default {
     actions: ['Copy link', 'Edit', 'Delete'],
     comments: {
       reply: 'Reply',
+      editing: 'editing',
       day: 'Today | Yesterday | {n} days ago',
-      assignee: 'assignee',
-      write: 'Write a comment',
+      assignee: 'Assignee',
       empty: {
         title: 'No comments',
-        description: 'Be the first to comment on this task',
+        description: 'Be the first to leave a comment',
       },
+      editor: {
+        placeholder: 'Share your thoughts...',
+      },
+      copied: 'Link copied successfully!',
     },
   },
   welcome: {

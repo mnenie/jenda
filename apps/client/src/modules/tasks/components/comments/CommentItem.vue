@@ -17,6 +17,7 @@ const authStore = useUserStore()
 const { user } = storeToRefs(authStore)
 
 const isCurrentUser = computed(() => user.value._id === props.comment.user._id)
+const isUserAdmin = computed(() => user.value.role === 'admin')
 </script>
 
 <template>
@@ -28,6 +29,6 @@ const isCurrentUser = computed(() => user.value._id === props.comment.user._id)
         <CommentBox :comment :is-current-user />
       </div>
     </UiContextMenuTrigger>
-    <ContextMenu :comment :is-current-user />
+    <ContextMenu :comment :is-current-user :is-user-admin />
   </UiContextMenu>
 </template>

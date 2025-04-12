@@ -2,56 +2,55 @@
 import { shallowRef } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useClipboard } from '@vueuse/core'
-import { useDeleteComment } from '../../mutations/comments'
-
+import { toast } from 'vue-sonner'
+import { useI18n } from 'vue-i18n'
+import { useCommentsMutations } from '../../mutations/comments'
+import { useEditComment } from '../../composables/edit-comment.shared'
 import type { Comment } from '../../types/comment'
 import { UiContextMenuContent, UiContextMenuItem } from '@/shared/ui'
 
 const props = defineProps<{
   comment: Comment
   isCurrentUser: boolean
+  isUserAdmin: boolean
 }>()
 
-const source = shallowRef(`#${props.comment._id}`)
+// _todo [skip ci]
+const source = shallowRef(`\`${`#${props.comment._id}`}\``)
+
+const { t } = useI18n()
+
 const { copy } = useClipboard({
   source,
 })
+const { deleteComment } = useCommentsMutations()
 
-const { deleteComment, asyncStatus } = useDeleteComment()
-
-// _todo[skip_ci]: добавить действия
-
-const actions = [
-  {
-    prefix: 'copy',
-    icon: 'hugeicons:link-02',
-    action: () => copy(source.value),
-  },
-  {
-    prefix: 'edit',
-    icon: 'hugeicons:message-01',
-    action: () => copy(source.value),
-  },
-  {
-    prefix: 'delete',
-    icon: 'hugeicons:delete-04',
-    action: () => deleteComment(props.comment._id),
-  },
-] as const
+function copyLink() {
+  copy(source.value)
+  toast.success(t('task.comments.copied'), {
+    duration: 1000,
+  })
+}
+const { openEditPanel } = useEditComment()
 </script>
 
 <template>
   <UiContextMenuContent class="relative">
+    <UiContextMenuItem @select="copyLink">
+      <Icon icon="hugeicons:link-02" class="w-4 h-4" />
+      {{ $t('task.actions[0]') }}
+    </UiContextMenuItem>
+    <UiContextMenuItem v-if="isCurrentUser" @select="openEditPanel(comment)">
+      <Icon icon="hugeicons:message-01" class="w-4 h-4" />
+      {{ $t('task.actions[1]') }}
+    </UiContextMenuItem>
     <UiContextMenuItem
-      v-for="action, idx in actions"
-      :key="action.prefix"
-      :class="{
-        'dropdown-menu-destructive-item': action.prefix === 'delete',
-      }"
-      @select="action.action"
+      v-if="isCurrentUser || isUserAdmin"
+      class="dropdown-menu-destructive-item"
+      @select="deleteComment(comment._id)"
     >
-      <Icon :icon="action.icon" class="w-4 h-4" />
-      {{ $t(`task.actions[${idx}]`) }}
+      <Icon icon="hugeicons:delete-04" class="w-4 h-4" />
+      {{ $t('task.actions[2]') }}
     </UiContextMenuItem>
   </UiContextMenuContent>
 </template>

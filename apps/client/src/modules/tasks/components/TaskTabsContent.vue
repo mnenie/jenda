@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useTaskData } from '../loaders/task-cl'
+import { useTaskDataLoader as useTaskData } from '../loaders/task-cl'
 import CommentsList from './comments/CommentsList.vue'
-import WriteNewComment from './comments/WriteNewComment.vue'
+import InlineCommentEditor from './comments/InlineCommentEditor.vue'
 import SectionTabs from './SectionTabs.vue'
 import EmptyComments from './comments/EmptyComments.vue'
 
@@ -15,7 +15,7 @@ const { data: task } = useTaskData()
         <CommentsList v-if="task.commentsGroup?.length" />
         <EmptyComments v-else />
       </div>
-      <WriteNewComment />
+      <InlineCommentEditor />
     </template>
   </SectionTabs>
 </template>

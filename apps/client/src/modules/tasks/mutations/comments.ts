@@ -1,46 +1,79 @@
-import { toRaw } from 'vue'
 import { defineMutation, useMutation, useQueryCache } from '@pinia/colada'
 import { toast } from 'vue-sonner'
-import { deleteCommentById } from '../api'
-import { useTaskData } from '../loaders/task-cl'
+import { deleteCommentById, patchComment } from '../api'
+import { useTaskDataLoader } from '../loaders/task-cl'
+import { useEditComment } from '../composables/edit-comment.shared'
 import type { Task } from '../types'
+import type { Comment } from '../types/comment'
 
-export const useDeleteComment = defineMutation(() => {
-  const { data: task } = useTaskData()
+export const useCommentsMutations = defineMutation(() => {
+  const { data: task } = useTaskDataLoader()
   const queryCache = useQueryCache()
+  const { editingCommentId, closeEditPanel } = useEditComment()
 
   const getCacheKey = () => ['task-loader', task.value?._id].filter(Boolean)
 
-  const { mutate, ...mutation } = useMutation({
+  const ErrorFn = async (err: Error, prevTask: Task | undefined, timeout: number = 1000) => {
+    await new Promise(resolve => setTimeout(resolve, timeout))
+    if (prevTask) {
+      queryCache.setQueryData(getCacheKey(), prevTask)
+    }
+    toast.error(err.message)
+  }
+
+  const { mutate: deleteComment } = useMutation({
     mutation: deleteCommentById,
-    onMutate: (id) => {
-      const key = getCacheKey()
-      const prev = queryCache.getQueryData<Task>(key)
-      if (!prev || !task.value)
-        return { prev }
-
-      const updated = structuredClone(toRaw(prev))
-
-      updated.commentsGroup?.forEach((group) => {
-        const index = group.comments.findIndex(c => c._id === id)
-        if (index > -1)
-          group.comments.splice(index, 1)
-      })
-      updated.commentsGroup = updated.commentsGroup?.filter(g => g.comments.length > 0)
-      queryCache.setQueryData(key, updated)
-      return { prev }
-    },
-    onError: (err, _, context) => {
-      const key = getCacheKey()
-      if (context?.prev && key[1]) {
-        queryCache.setQueryData(key, context.prev)
+    onMutate: (commentId) => {
+      if (editingCommentId.value === commentId) {
+        closeEditPanel()
       }
-      toast.error(err)
+      const key = getCacheKey()
+      const prevTask = queryCache.getQueryData<Task>(key)
+      if (!prevTask?.commentsGroup)
+        return { prevTask }
+
+      const optimisticTask = {
+        ...prevTask,
+        commentsGroup: prevTask.commentsGroup
+          .map(group => ({
+            ...group,
+            comments: group.comments.filter(c => c._id !== commentId),
+          }))
+          .filter(group => group.comments.length > 0),
+      }
+      queryCache.setQueryData(key, optimisticTask)
+      return { prevTask, commentId }
     },
+    onError: async (err, _, { prevTask }) => ErrorFn(err, prevTask),
+  })
+
+  const { mutate: updateComment, ...mutations } = useMutation<Comment, Partial<Comment>>({
+    mutation: patchComment,
+    onMutate: async (comment) => {
+      const key = getCacheKey()
+      const prevTask = queryCache.getQueryData<Task>(key)
+      if (!prevTask?.commentsGroup)
+        return { prevTask }
+
+      const optimisticTask = {
+        ...prevTask,
+        commentsGroup: prevTask.commentsGroup.map(group => ({
+          ...group,
+          comments: group.comments.map(c =>
+            c._id === comment._id ? { ...c, ...comment } : c,
+          ),
+        })),
+      }
+      queryCache.setQueryData(key, optimisticTask)
+      return { prevTask }
+    },
+    onError: async (err: Error, _: Partial<Comment>, context: { prevTask?: Task }) =>
+      ErrorFn(err, context?.prevTask, 0),
   })
 
   return {
-    ...mutation,
-    deleteComment: mutate,
+    ...mutations,
+    deleteComment,
+    updateComment,
   }
 })

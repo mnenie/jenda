@@ -1,8 +1,8 @@
 <script lang="ts">
 import { useRouter } from 'vue-router/auto'
-import { useTaskData } from '@/modules/tasks/loaders/task-cl'
+import { useTaskDataLoader } from '@/modules/tasks/loaders/task-cl'
 
-export { useTaskData }
+export { useTaskDataLoader }
 </script>
 
 <script setup lang="ts">

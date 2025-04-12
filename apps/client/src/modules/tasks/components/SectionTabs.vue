@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { TabsIndicator, TabsList, TabsTrigger } from 'radix-vue'
 import { useLocalStorage } from '@vueuse/core'
-import { useTaskData } from '../loaders/task-cl'
+import { useTaskDataLoader as useTaskData } from '../loaders/task-cl'
 import { UiBadge, UiTabs, UiTabsContent } from '@/shared/ui'
 
 const { data: task } = useTaskData()

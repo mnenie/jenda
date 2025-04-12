@@ -7,7 +7,8 @@ export const useUserStore = defineStore('user', () => {
     _id: '1',
     email: 'alex@mail.ru',
     photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
-  } as User)
+    role: 'admin',
+  })
 
   return {
     user,

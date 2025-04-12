@@ -16,7 +16,8 @@ export interface Comment extends DateParams {
   message: string
   user: User
   replies?: number;
-  reactions?: CommentReaction[]
+  reactions?: CommentReaction[];
+  isEdit?: boolean;
 }
 
 export interface Emoji {

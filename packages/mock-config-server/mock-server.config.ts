@@ -48,6 +48,61 @@ const flatMockServerConfig: FlatMockServerConfig = [
           },
         ],
       },
+      {
+        method: 'delete',
+        path: '/tasks/comments/:id',
+        routes: [
+          {
+            data: args => ({
+              _id: args.params.id,
+            }),
+            entities: {
+              params: {
+                id: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
+              },
+            },
+          },
+        ],
+      },
+      {
+        method: 'patch',
+        path: '/tasks/comments/:id',
+        routes: [
+          {
+            data: (args) => {
+              return {
+                updatedComment: {
+                  user: {
+                    _id: '1',
+                    email: 'alex@test.com',
+                    photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
+                    role: 'admin',
+                  },
+                  _id: args.params.id,
+                  ...args.body,
+                },
+              }
+            },
+            entities: {
+              params: {
+                id: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
+              },
+              body: {
+                checkMode: 'function',
+                value: (body) => {
+                  return typeof body === 'object' && body !== null
+                },
+              },
+            },
+          },
+        ],
+      },
     ],
   },
 ]

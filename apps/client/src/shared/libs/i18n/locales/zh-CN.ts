@@ -617,13 +617,17 @@ export default {
     actions: ['复制链接', '编辑', '删除'],
     comments: {
       reply: '回复',
+      editing: '编辑中',
       day: '今天 | 昨天 | {n} 天前',
-      assignee: '执行人',
-      write: '发表评论',
+      assignee: '负责人',
       empty: {
         title: '暂无评论',
-        description: '成为第一个评论此任务的人',
+        description: '成为第一个评论的人',
       },
+      editor: {
+        placeholder: '分享你的想法...',
+      },
+      copied: '链接复制成功！',
     },
   },
   welcome: {
