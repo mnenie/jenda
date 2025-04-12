@@ -86,16 +86,18 @@ export const useCommentsMutations = defineMutation(<T extends Comment, U extends
       )
 
       const optimisticGroups = index !== -1
-        ? Object.assign([], prevComments, {
-          [index]: {
-            ...prevComments[index],
-            comments: [...prevComments[index].comments, optimisticComment],
-          },
-        })
+        ? [
+            ...prevComments.slice(0, index),
+            {
+              ...prevComments[index],
+              comments: [...prevComments[index].comments, optimisticComment],
+            },
+            ...prevComments.slice(index + 1),
+          ]
         : [...prevComments, {
             date: newComment.createdAt,
             comments: [optimisticComment],
-          }] as U[]
+          }]
       queryCache.setQueryData(key, optimisticGroups)
       return { prevComments, optimisticGroups, optimisticComment }
     },
