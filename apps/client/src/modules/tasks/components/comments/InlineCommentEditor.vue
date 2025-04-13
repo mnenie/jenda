@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shallowRef, useTemplateRef, watch } from 'vue'
+import { nextTick, shallowRef, useTemplateRef, watch } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useFileDialog, watchDebounced } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
@@ -45,11 +45,20 @@ function updateCommentMessage() {
   closeEditPanel()
 }
 
-function createCommentWithClean() {
+async function createCommentWithClean() {
   createComment({
     message: editor.value,
     user: user.value,
     createdAt: new Date().toISOString(),
+  })
+  await nextTick(() => {
+    const messager = document.getElementById('messager')
+    if (messager) {
+      messager.scrollTo({
+        top: messager.scrollHeight,
+        behavior: 'smooth',
+      })
+    }
   })
   editor.value = ''
 }

@@ -12,18 +12,19 @@ const { data: commentsGroup } = useCommentsQuery()
 
 const dayjs = inject(DayjsInjectionKey)!
 
-// не нрав надо пофиксить _todo[skip ci]
 function formatDate(d: DateParams['createdAt']) {
-  return dayjs(d).isSame(dayjs(), 'day')
-    ? t('task.comments.day', 0)
-    : dayjs(d).isSame(dayjs().subtract(1, 'day'), 'day')
-      ? t('task.comments.day', 1)
-      : dayjs(d).format('D MMMM YYYY')
+  if (dayjs(d).isSame(dayjs(), 'day')) {
+    return t('task.comments.today')
+  }
+  if (dayjs(d).isSame(dayjs().subtract(1, 'day'), 'day')) {
+    return t('task.comments.yesterday')
+  }
+  return dayjs(d).format('D MMMM YYYY')
 }
 </script>
 
 <template>
-  <div class="flex h-full flex-col overflow-y-auto scrollbar pb-14 mt-1">
+  <div id="messager" class="flex h-full flex-col overflow-y-auto scrollbar pb-14 mt-1">
     <div v-for="group, groupIndex in commentsGroup" :key="groupIndex">
       <span v-if="group.comments.length" class="text-small text-center text-neutral-400 mt-1 block">
         {{ formatDate(group.date) }}

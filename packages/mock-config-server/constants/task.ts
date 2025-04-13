@@ -22,6 +22,17 @@ export const task_data = {
             photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
             role: 'admin',
           },
+          reactions: [
+            {
+              type: 'fire',
+              symbol: 'noto:fire',
+              count: 2,
+              users: [
+                '2',
+                '3',
+              ],
+            },
+          ],
           replies: 3,
         },
         {

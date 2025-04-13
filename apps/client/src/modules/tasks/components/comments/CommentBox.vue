@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { emojis } from '../../constants/emojies'
 import { useTaskDataLoader as useTaskData } from '../../loaders/task-cl'
 import { useEditComment } from '../../composables/edit-comment.shared'
 import EmojiPicker from './EmojiPicker.vue'
@@ -63,8 +62,8 @@ const isAssignee = computed(() =>
       )"
     >
       <div class="text-default jenda-editor" v-html="comment.message" />
-      <div class="flex items-center gap-2">
-        <EmojiPicker :emojis />
+      <div class="flex items-center gap-1">
+        <EmojiPicker :comment />
         <UiButton variant="ghost" class="!h-unset p-1 px-0 rounded-lg !bg-transparent !text-small text-neutral-500">
           {{ $t('task.comments.reply') }}
         </UiButton>

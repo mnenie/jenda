@@ -1,33 +1,41 @@
-<script setup lang="ts" generic="E extends Readonly<Emoji>">
+<script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import type { Emoji } from '../../types/comment'
-import { UiButton, UiContextMenuItem, UiDropdownMenu, UiDropdownMenuContent, UiDropdownMenuTrigger } from '@/shared/ui'
+import { storeToRefs } from 'pinia'
+import { useEmojiPicker } from '../../composables/emoji-picker'
+import { emojis } from '../../constants/emojies'
+import EmojisDdMenu from './EmojisDdMenu.vue'
+import type { Comment } from '../../types/comment'
+import { useUserStore } from '@/modules/auth/stores/auth'
+import { cn } from '@/shared/libs/shadcn/utils'
+import { UiBadge } from '@/shared/ui'
 
-defineProps<{
-  emojis: E[]
+const props = defineProps<{
+  comment: Comment
 }>()
 
-const emit = defineEmits<{
-  (e: 'chooseEmoji', emoji: E): void
-}>()
+const userStore = useUserStore()
+const { user } = storeToRefs(userStore)
+
+const { reactions, removeOrSetReaction } = useEmojiPicker(props.comment, user.value._id)
 </script>
 
 <template>
-  <UiDropdownMenu>
-    <UiDropdownMenuTrigger as-child>
-      <UiButton
-        variant="secondary"
-        class="!h-unset p-1 px-2 rounded-full !text-small text-neutral-500 gap-1 shadow-none"
-      >
-        <Icon icon="lucide:smile-plus" class="w-4 h-4" />
-      </UiButton>
-    </UiDropdownMenuTrigger>
-    <UiDropdownMenuContent align="start" side="top">
-      <div class="flex">
-        <UiContextMenuItem v-for="emoji in emojis" :key="emoji.type" class="p-1.5" @select="emit('chooseEmoji', emoji)">
-          <Icon :icon="emoji.symbol" class="min-w-4.4 min-h-4.4 text-neutral-500 dark:text-neutral-400" />
-        </UiContextMenuItem>
+  <div :class="cn('flex items-center gap-1 mr-1.5', reactions.length ? 'mr-1.5' : 'mr-1')">
+    <EmojisDdMenu :emojis :reactions @choose-emoji="removeOrSetReaction($event)" />
+    <template v-if="reactions.length">
+      <div v-for="emoji in reactions" :key="emoji.type" class="flex items-center gap-0.5">
+        <UiBadge
+          variant="secondary"
+          :class="cn(
+            'px-0.5 py-0 rounded-lg gap-1 w-fit cursor-pointer',
+            { 'bg-blue-100/80': emoji.users?.includes(user._id) },
+          )"
+          @click="removeOrSetReaction(emoji)"
+        >
+          <Icon :icon="emoji.symbol" class="min-w-4 min-h-4" />
+          <span v-if="emoji.count" class="text-sm text-neutral-800">{{ emoji.count }}</span>
+        </UiBadge>
       </div>
-    </UiDropdownMenuContent>
-  </UiDropdownMenu>
+    </template>
+  </div>
 </template>
