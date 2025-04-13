@@ -640,6 +640,10 @@ export default {
         title: 'Нет комментариев',
         description: 'Станьте первым, кто оставит комментарий',
       },
+      role: {
+        admin: 'админ',
+        member: 'участник',
+      },
       editor: {
         placeholder: 'Поделитесь вашими мыслями...',
       },

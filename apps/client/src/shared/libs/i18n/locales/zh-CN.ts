@@ -624,6 +624,10 @@ export default {
         title: '暂无评论',
         description: '成为第一个评论的人',
       },
+      role: {
+        admin: '管理员',
+        member: '成员',
+      },
       editor: {
         placeholder: '分享你的想法...',
       },

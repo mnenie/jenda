@@ -48,7 +48,7 @@ const replies = computed(() => {
         <div class="flex items-center gap-2">
           <span class="text-default fw500 dark:text-neutral-100">{{ comment.user.email }}</span>
           <UiBadge variant="outline" class="px-1 py-0 rounded-lg">
-            {{ comment.user.role }}
+            {{ $t(`task.comments.role.${comment.user.role}`) }}
           </UiBadge>
           <UiBadge v-if="isAssignee" variant="outline" class="px-1 py-0 rounded-lg ml--0.5">
             {{ $t('task.comments.assignee') }}
@@ -82,7 +82,7 @@ const replies = computed(() => {
           </div>
         </div>
       </div>
-      <div class="text-default jenda-editor" v-html="comment.message" />
+      <div class="text-default jenda-editor dark:text-neutral-300" v-html="comment.message" />
       <div class="flex items-center gap-1">
         <EmojiPicker :comment />
         <UiButton

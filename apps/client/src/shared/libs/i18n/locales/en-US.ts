@@ -632,10 +632,14 @@ export default {
       reply: 'Reply',
       edit: 'editing | edited',
       day: 'Today | Yesterday | {n} days ago',
-      assignee: 'Assignee',
+      assignee: 'assignee',
       empty: {
         title: 'No comments',
         description: 'Be the first to leave a comment',
+      },
+      role: {
+        admin: 'admin',
+        member: 'member',
       },
       editor: {
         placeholder: 'Share your thoughts...',
