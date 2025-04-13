@@ -20,7 +20,7 @@ const commentsCount = computed(() => {
   <UiTabs v-model="tab" class="tabs-primary h-full overflow-hidden">
     <TabsList class="tabs-list-primary">
       <TabsIndicator class="tabs-indicator">
-        <div class="bg-blue-500 w-full h-full" />
+        <div class="bg-blue-500 w-full h-full rounded-lg dark:bg-blue-600" />
       </TabsIndicator>
       <TabsTrigger v-for="trigger, index in tabs" :key="trigger" :value="trigger" class="tabs-trigger-primary" :class="{ 'gap-2': trigger === 'comments' }">
         {{ $t(`task.tabs[${index}]`) }}
