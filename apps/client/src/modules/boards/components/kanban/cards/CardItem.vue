@@ -1,6 +1,7 @@
 <script setup lang="ts" generic="U extends Extract<T['priority'], string>, T extends BoardCard">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router/auto'
+import { useI18n } from 'vue-i18n'
 import VisibleLabels from '../../additions/VisibleLabels.vue'
 import CardBottomPanel from './CardBottomPanel.vue'
 import type { BoardCard, Priority } from '@/modules/boards/types'
@@ -13,6 +14,7 @@ const props = defineProps<{
 }>()
 
 const route = useRoute('boards-id')
+const { t } = useI18n()
 
 const priorities = {
   none: '',
@@ -22,6 +24,7 @@ const priorities = {
 } as const satisfies Record<U | Priority, string>
 
 const priorityColor = computed(() => priorities[props.card.priority!])
+const title = computed(() => props.card.title || t('tasks.title.title_empty'))
 </script>
 
 <template>
@@ -44,8 +47,8 @@ const priorityColor = computed(() => priorities[props.card.priority!])
       <VisibleLabels :labels="card.labels" :max="3" class="gap-2" label-class="!max-w-40 !text-12px" />
     </div>
     <div class="flex flex-col w-full gap-1 mb-4">
-      <p class="text-default font-medium mb-1 truncate">
-        {{ card.title }}
+      <p :class="cn('text-default font-medium mb-1 truncate', { 'text-neutral-500 !text-base 2xl:!text-sm': !card.title })">
+        {{ title }}
       </p>
       <div class="flex items-stretch gap-1.5 w-full h-fit ml-0.5">
         <div class="min-w-2px bg-neutral-200 rounded-xl dark:bg-neutral-600" />

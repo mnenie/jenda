@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router/auto'
 import { UiSheet, UiSheetContent, UiSheetHeader } from '@/shared/ui'
+import TaskAttributes from '@/modules/tasks/components/TaskAttributes.vue'
 
 const router = useRouter()
 
@@ -17,7 +18,7 @@ definePage({
 <template>
   <UiSheet :default-open="true">
     <UiSheetContent
-      class="p-0 min-w-xl"
+      class="pt-0 min-w-xl"
       :portal="true"
       @close-auto-focus="router.push(
         { name: 'boards-id', params: { boardId: '1' } },
@@ -26,6 +27,7 @@ definePage({
       <UiSheetHeader :custom="true">
         @module/tasks
       </UiSheetHeader>
+      <TaskAttributes />
     </UiSheetContent>
   </UiSheet>
 </template>
