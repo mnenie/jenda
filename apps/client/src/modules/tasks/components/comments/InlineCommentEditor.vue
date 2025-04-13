@@ -37,7 +37,7 @@ watch(commentMessage, (message) => {
           <div class="min-w-0.5 absolute h-full left--2 bg-blue-500 rounded-lg self-center" />
           <div class=" truncate text-neutral-500 line-clamp-1 ml-1" v-html="commentMessage" />
         </div>
-        <Icon icon="lucide:x" class="min-w-4 min-h-4 cursor-pointer text-neutral-500 hover:text-neutral-900 transition-colors" @click="closeEditOrReplyPanel" />
+        <Icon icon="lucide:x" class="min-w-4 min-h-4 cursor-pointer text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-300 dark:text-neutral-400 transition-colors" @click="closeEditOrReplyPanel" />
       </div>
     </Transition>
     <div class="w-full relative">
@@ -53,7 +53,7 @@ watch(commentMessage, (message) => {
             { '!rounded-t-none !pt-0': isPanelOpen },
           )"
         />
-        <Icon icon="teenyicons:attach-solid" class="min-w-4.6 min-h-4.6 absolute left-2 flex items-center bottom-4.7 dark:text-neutral-200" @click="setImageToPosition" />
+        <Icon icon="teenyicons:attach-solid" class="min-w-4.6 min-h-4.6 absolute left-2 flex items-center bottom-4.7 dark:text-neutral-300" @click="setImageToPosition" />
         <Icon icon="ion:send" class="min-w-5 min-h-5 absolute right-2 flex items-center text-blue-600 bottom-4.6" @click="postOrUpdateComment" />
       </div>
     </div>
