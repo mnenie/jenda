@@ -3,14 +3,14 @@ import { defineMutation, useMutation, useQueryCache } from '@pinia/colada'
 import { toast } from 'vue-sonner'
 import { deleteCommentById, patchComment, postComment } from '../api'
 import { useTaskDataLoader } from '../loaders/task-cl'
-import { useEditComment } from '../composables/edit-comment.shared'
+import { useCommentInteractions } from '../composables/comment-interactions.shared'
 import type { Comment, CommentGroup } from '../types/comment'
 import { DayjsInjectionKey } from '@/plugins/dayjs'
 
 export const useCommentsMutations = defineMutation(<T extends Comment, U extends CommentGroup>() => {
   const { data: task } = useTaskDataLoader()
   const queryCache = useQueryCache()
-  const { editingCommentId, closeEditPanel } = useEditComment()
+  const { commentId: cId, closeEditOrReplyPanel } = useCommentInteractions()
 
   const dayjs = inject(DayjsInjectionKey)!
 
@@ -27,8 +27,8 @@ export const useCommentsMutations = defineMutation(<T extends Comment, U extends
   const { mutate: deleteComment } = useMutation({
     mutation: deleteCommentById,
     onMutate: (commentId) => {
-      if (editingCommentId.value === commentId) {
-        closeEditPanel()
+      if (cId.value === commentId) {
+        closeEditOrReplyPanel()
       }
       const key = getCacheKey()
       const prevComments = queryCache.getQueryData<U[]>(key)

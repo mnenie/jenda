@@ -5,13 +5,19 @@ import type { DateParams } from "@/modules/common/types";
 type EmojiKey = keyof typeof EMOJI_TYPES;
 type ReactionValue = typeof EMOJI_TYPES[EmojiKey];
 
+export interface ReplyFrom {
+  _id: Comment['_id'];
+  user: Pick<User, 'email'>;
+  message: string;
+}
+
 export interface Comment extends DateParams {
   _id: string
   message: string
   user: User
-  replies?: number;
+  from?: ReplyFrom
+  isEdit?: boolean
   reactions?: Emoji[];
-  isEdit?: boolean;
 }
 
 export interface Emoji {

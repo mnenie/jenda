@@ -8,5 +8,5 @@ defineProps<{
 </script>
 
 <template>
-  <UserAvatar :img="user.photoUrl" class="!w-25px !h-25px" />
+  <UserAvatar :img="user.photoUrl" class="min-w-25px !w-25px !h-25px" />
 </template>

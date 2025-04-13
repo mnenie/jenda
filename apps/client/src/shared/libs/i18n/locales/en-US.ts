@@ -630,7 +630,7 @@ export default {
     actions: ['Copy link', 'Edit', 'Delete'],
     comments: {
       reply: 'Reply',
-      editing: 'editing',
+      edit: 'editing | edited',
       day: 'Today | Yesterday | {n} days ago',
       assignee: 'Assignee',
       empty: {

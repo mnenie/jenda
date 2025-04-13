@@ -5,7 +5,7 @@ import { useClipboard } from '@vueuse/core'
 import { toast } from 'vue-sonner'
 import { useI18n } from 'vue-i18n'
 import { useCommentsMutations } from '../../mutations/comments'
-import { useEditComment } from '../../composables/edit-comment.shared'
+import { useCommentInteractions } from '../../composables/comment-interactions.shared'
 import type { Comment } from '../../types/comment'
 import { UiContextMenuContent, UiContextMenuItem } from '@/shared/ui'
 
@@ -31,16 +31,16 @@ function copyLink() {
     duration: 1000,
   })
 }
-const { openEditPanel } = useEditComment()
+const { openEditOrReplyPanel } = useCommentInteractions()
 </script>
 
 <template>
-  <UiContextMenuContent class="relative">
+  <UiContextMenuContent class="relative min-w-40">
     <UiContextMenuItem @select="copyLink">
       <Icon icon="hugeicons:link-02" class="w-4 h-4" />
       {{ $t('task.actions[0]') }}
     </UiContextMenuItem>
-    <UiContextMenuItem v-if="isCurrentUser" @select="openEditPanel(comment)">
+    <UiContextMenuItem @select="openEditOrReplyPanel(comment, 'edit')">
       <Icon icon="hugeicons:message-01" class="w-4 h-4" />
       {{ $t('task.actions[1]') }}
     </UiContextMenuItem>

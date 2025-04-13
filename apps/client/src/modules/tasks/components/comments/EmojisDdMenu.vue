@@ -32,7 +32,7 @@ function isReactionActive(emoji: E) {
         variant="secondary"
         class="!h-unset p-1 px-2 rounded-full !text-small text-neutral-500 gap-1 shadow-none"
       >
-        <Icon icon="lucide:smile-plus" class="w-4 h-4" />
+        <Icon icon="lucide:smile-plus" class="w-4 h-4 dark:text-neutral-400" />
       </UiButton>
     </UiDropdownMenuTrigger>
     <UiDropdownMenuContent align="start" side="top">
@@ -42,11 +42,11 @@ function isReactionActive(emoji: E) {
           :key="emoji.type"
           :class="cn(
             'p-1.5 rounded-lg',
-            { '!bg-blue-100/40': isReactionActive(emoji) },
+            { '!bg-blue-100/40 dark:!bg-blue-800/40': isReactionActive(emoji) },
           )"
           @click="emit('chooseEmoji', emoji)"
         >
-          <Icon :icon="emoji.symbol" class="min-w-4.4 min-h-4.4 text-neutral-500 dark:text-neutral-400" />
+          <Icon :icon="emoji.symbol" class="min-w-4.4 min-h-4.4" />
         </UiDropdownMenuItem>
       </div>
     </UiDropdownMenuContent>

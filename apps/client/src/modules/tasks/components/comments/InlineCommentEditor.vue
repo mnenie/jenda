@@ -1,99 +1,47 @@
-<script setup lang="ts">
-import { nextTick, shallowRef, useTemplateRef, watch } from 'vue'
+<script setup lang="ts" generic="T extends typeof TiptapEditor, E extends InstanceType<T>">
+import { shallowRef, useTemplateRef, watch } from 'vue'
 import { Icon } from '@iconify/vue'
-import { useFileDialog, watchDebounced } from '@vueuse/core'
-import { storeToRefs } from 'pinia'
-import { useEditComment } from '../../composables/edit-comment.shared'
-import { useCommentsMutations } from '../../mutations/comments'
+import { useCommentInteractions } from '../../composables/comment-interactions.shared'
+import { useCommentEditor } from '../../composables/editor'
+import type { ShallowRef } from 'vue'
 import TiptapEditor from '@/modules/editor/components/TiptapEditor.vue'
 import { cn } from '@/shared/libs/shadcn/utils'
-import { useUserStore } from '@/modules/auth/stores/auth'
 
-const editor = shallowRef<any>('')
+const editor = shallowRef<string>('')
 
-const editorInstance = useTemplateRef<InstanceType<typeof TiptapEditor>>('editorInstance')
+const editorInstance = useTemplateRef<E>('editorInstance')
 
-const { isEditPanelOpen, editableCommentMessage, closeEditPanel, editingCommentId } = useEditComment()
+const { isPanelOpen, action, commentMessage, closeEditOrReplyPanel, contextMenuState } = useCommentInteractions()
 
-const { updateComment, createComment } = useCommentsMutations()
+const { setImageToPosition, postOrUpdateComment } = useCommentEditor<T, E>(
+  editorInstance as Readonly<ShallowRef<E>>,
+  editor,
+)
 
-const { open, onChange } = useFileDialog({
-  accept: 'image/*',
-})
+watch([contextMenuState, commentMessage], () => {
+  editorInstance.value?.focus()
+}, { flush: 'post' })
 
-const currentFileByUrl = shallowRef<string>()
-
-function setImageToPosition() {
-  open()
-  onChange((files) => {
-    if (!files)
-      return
-    currentFileByUrl.value = `${window.location.origin}/api/files/${files[0].name}`
-    if (editorInstance.value && currentFileByUrl.value)
-      editorInstance.value.chaining()?.setImage({ src: currentFileByUrl.value }).run()
-  })
-}
-
-const userStore = useUserStore()
-const { user } = storeToRefs(userStore)
-
-function updateCommentMessage() {
-  updateComment({
-    _id: editingCommentId.value,
-    message: editor.value,
-  })
-  closeEditPanel()
-}
-
-async function createCommentWithClean() {
-  createComment({
-    message: editor.value,
-    user: user.value,
-    createdAt: new Date().toISOString(),
-  })
-  await nextTick(() => {
-    const messager = document.getElementById('messager')
-    if (messager) {
-      messager.scrollTo({
-        top: messager.scrollHeight,
-        behavior: 'smooth',
-      })
-    }
-  })
-  editor.value = ''
-}
-
-function postOrUpdateComment() {
-  if (isEditPanelOpen.value) {
-    updateCommentMessage()
+watch(commentMessage, (message) => {
+  if (action.value !== 'reply') {
+    editor.value = message
   }
-  else {
-    createCommentWithClean()
-  }
-}
-
-watch(editableCommentMessage, (message) => {
-  editor.value = message
 }, { immediate: true })
-
-watchDebounced(editableCommentMessage, (message) => {
-  message && editorInstance.value?.focus()
-}, { debounce: 200, flush: 'post' })
 </script>
 
 <template>
   <div class="left-4 bottom-0 w-[calc(100%-2rem)] z-10 absolute rounded-lg">
     <Transition name="slide-fade">
-      <div v-if="isEditPanelOpen" class="p-2 px-4 pl-6 bg-neutral-100 rounded-md rounded-b-none flex items-center w-full justify-between gap-2 truncate">
+      <div v-if="isPanelOpen" class="p-2 px-4 pl-6 bg-neutral-100 rounded-md rounded-b-none flex items-center w-full justify-between gap-2 truncate dark:bg-#2e2e2e">
         <div class="flex items-center gap-2 max-w-96% h-full relative">
           <div class="min-w-0.5 absolute h-full left--2 bg-blue-500 rounded-lg self-center" />
-          <div class=" truncate text-neutral-500 line-clamp-1 ml-1" v-html="editableCommentMessage" />
+          <div class=" truncate text-neutral-500 line-clamp-1 ml-1" v-html="commentMessage" />
         </div>
-        <Icon icon="lucide:x" class="min-w-4 min-h-4 cursor-pointer text-neutral-500 hover:text-neutral-900 transition-colors" @click="closeEditPanel" />
+        <Icon icon="lucide:x" class="min-w-4 min-h-4 cursor-pointer text-neutral-500 hover:text-neutral-900 transition-colors" @click="closeEditOrReplyPanel" />
       </div>
     </Transition>
     <div class="w-full relative">
-      <div class="absolute h-full bg-white w-full left-0 rounded-t-lg" />
+      <div class="absolute h-full bg-white w-full left-0 rounded-t-lg dark:bg-neutral-800" />
       <div class="w-full relative items-center">
         <TiptapEditor
           ref="editorInstance"
@@ -102,10 +50,10 @@ watchDebounced(editableCommentMessage, (message) => {
           section="task.comments"
           :class="cn(
             'max-h-200px !w-full input-filled !px-9 !py-2 overflow-y-auto rounded-md !cursor-text mb-2 space-y-1',
-            { '!rounded-t-none !pt-0': isEditPanelOpen },
+            { '!rounded-t-none !pt-0': isPanelOpen },
           )"
         />
-        <Icon icon="teenyicons:attach-solid" class="min-w-4.6 min-h-4.6 absolute left-2 flex items-center bottom-4.7" @click="setImageToPosition" />
+        <Icon icon="teenyicons:attach-solid" class="min-w-4.6 min-h-4.6 absolute left-2 flex items-center bottom-4.7 dark:text-neutral-200" @click="setImageToPosition" />
         <Icon icon="ion:send" class="min-w-5 min-h-5 absolute right-2 flex items-center text-blue-600 bottom-4.6" @click="postOrUpdateComment" />
       </div>
     </div>
@@ -116,8 +64,8 @@ watchDebounced(editableCommentMessage, (message) => {
 .slide-fade-enter-active,
 .slide-fade-leave-active {
   transition:
-    opacity 0.15s ease-out,
-    transform 0.15s ease-out;
+    opacity 0.05s ease-out,
+    transform 0.05s ease-out;
   will-change: transform, opacity;
 }
 

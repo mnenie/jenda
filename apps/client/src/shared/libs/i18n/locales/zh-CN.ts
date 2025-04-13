@@ -617,7 +617,7 @@ export default {
     actions: ['复制链接', '编辑', '删除'],
     comments: {
       reply: '回复',
-      editing: '编辑中',
+      edit: '编辑中 | 已编辑',
       day: '今天 | 昨天 | {n} 天前',
       assignee: '负责人',
       empty: {
