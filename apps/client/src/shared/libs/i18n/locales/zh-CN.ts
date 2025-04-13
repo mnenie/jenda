@@ -612,6 +612,28 @@ export default {
       update: '应用更改',
     },
   },
+  task: {
+    tabs: ['子任务', '评论', '操作', '资产'],
+    actions: ['复制链接', '编辑', '删除'],
+    comments: {
+      reply: '回复',
+      edit: '编辑中 | 已编辑',
+      day: '今天 | 昨天 | {n} 天前',
+      assignee: '负责人',
+      empty: {
+        title: '暂无评论',
+        description: '成为第一个评论的人',
+      },
+      role: {
+        admin: '管理员',
+        member: '成员',
+      },
+      editor: {
+        placeholder: '分享你的想法...',
+      },
+      copied: '链接复制成功！',
+    },
+  },
   welcome: {
     header: {
       links: ['关于', '看板', '协作', '活动', '成员', '聊天'],

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, watch } from 'vue'
+import { type HTMLAttributes, onBeforeUnmount, onMounted, watch } from 'vue'
 import { EditorContent, useEditor } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import Placeholder from '@tiptap/extension-placeholder'
@@ -16,6 +16,7 @@ import Blockquote from '@tiptap/extension-blockquote'
 import Underline from '@tiptap/extension-underline'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
+import { twMerge } from 'tailwind-merge'
 import useHighlighter from '../composables/highlighter'
 import useConverter from '../composables/converter'
 import { SlashMenu } from '../plugins/suggestions'
@@ -23,9 +24,12 @@ import Linter, { Punctuation, SingleH1 } from '../plugins/linter'
 import BubbleMenu from './BubbleMenu.vue'
 import type { Content } from '@tiptap/vue-3'
 
-const props = defineProps<{
+const { section = 'note', expanded = true, ...props } = defineProps<{
   modelValue: Content
   isLinterEnabled?: boolean
+  class?: HTMLAttributes['class']
+  section?: 'note' | 'task.comments'
+  expanded?: boolean
 }>()
 
 const emits = defineEmits<{
@@ -52,8 +56,10 @@ const editor = useEditor({
       plugins: [Punctuation, SingleH1],
     }),
     Placeholder.configure({
+      emptyEditorClass: 'is-empty',
+      emptyNodeClass: 'is-empty',
       placeholder: () => {
-        return t('note.editor.placeholder')
+        return t(`${section}.editor.placeholder`)
       },
     }),
     SlashMenu,
@@ -88,7 +94,7 @@ const editor = useEditor({
   autofocus: 'end',
   editorProps: {
     attributes: {
-      class: 'jenda-editor',
+      class: twMerge(['jenda-editor', props.class]),
       spellcheck: 'false',
     },
   },
@@ -104,6 +110,26 @@ watch(
     }
   },
 )
+
+watch(() => editor.value, () => {
+  if (expanded && editor.value) {
+    const PluginExt = editor.value.extensionManager.extensions.find(ext => ext.name === 'placeholder')
+    PluginExt!.options!.emptyNodeClass = 'is-empty-expanded'
+  }
+}, { immediate: true, flush: 'post' })
+
+watch(() => props.class, (classVal) => {
+  if (classVal && editor.value) {
+    editor.value.setOptions({
+      editorProps: {
+        attributes: {
+          class: twMerge(['jenda-editor', classVal]),
+        },
+      },
+    })
+  }
+})
+
 // BAD: with tiptap rules :/
 watch(() => props.isLinterEnabled, () => {
   if (editor.value) {
@@ -123,11 +149,16 @@ onMounted(() => {
 onBeforeUnmount(() => {
   editor.value?.destroy()
 })
+
+defineExpose({
+  focus: () => editor.value?.commands.focus(),
+  chaining: () => editor.value?.chain().focus(),
+})
 </script>
 
 <template>
   <div class="overflow-auto">
     <EditorContent :editor />
-    <BubbleMenu v-if="editor" :editor />
+    <BubbleMenu v-if="editor" :editor :expanded />
   </div>
 </template>

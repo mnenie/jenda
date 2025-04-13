@@ -80,6 +80,7 @@ export default defineConfig({
     './src/shared/ui/_shortcuts/sheet.ts',
     './src/shared/ui/_shortcuts/collapsible.ts',
     './src/shared/ui/_shortcuts/calendar.ts',
+    './src/shared/ui/_shortcuts/context-menu.ts',
     './src/shared/ui/_shortcuts/index.ts',
   ],
   content: {

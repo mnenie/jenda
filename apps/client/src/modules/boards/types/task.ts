@@ -1,11 +1,7 @@
+import type { Label, Priority } from "./shared"
 import type { User } from "@/modules/auth/types"
-import type { Label, Priority, DateParams } from "./shared"
-
-type Comment = {
-  _id: string
-  message: string
-  user: Omit<User, 'email' | 'role'>
-}
+import type { Comment } from "@/modules/tasks/types/comment"
+import type { DateParams } from "@/modules/common/types"
 
 type Asset = {
   _id: string

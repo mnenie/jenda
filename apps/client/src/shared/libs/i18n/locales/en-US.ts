@@ -625,6 +625,28 @@ export default {
       update: 'Apply changes',
     },
   },
+  task: {
+    tabs: ['Subtasks', 'Comments', 'Actions', 'Assets'],
+    actions: ['Copy link', 'Edit', 'Delete'],
+    comments: {
+      reply: 'Reply',
+      edit: 'editing | edited',
+      day: 'Today | Yesterday | {n} days ago',
+      assignee: 'assignee',
+      empty: {
+        title: 'No comments',
+        description: 'Be the first to leave a comment',
+      },
+      role: {
+        admin: 'admin',
+        member: 'member',
+      },
+      editor: {
+        placeholder: 'Share your thoughts...',
+      },
+      copied: 'Link copied successfully!',
+    },
+  },
   welcome: {
     header: {
       links: [
