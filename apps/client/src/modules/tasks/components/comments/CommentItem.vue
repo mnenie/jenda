@@ -9,6 +9,10 @@ import type { Comment } from '../../types/comment'
 import { useUserStore } from '@/modules/auth/stores/auth'
 import { UiContextMenu, UiContextMenuTrigger } from '@/shared/ui'
 
+defineOptions({
+  inheritAttrs: false,
+})
+
 const props = defineProps<{
   comment: Comment
   link?: boolean

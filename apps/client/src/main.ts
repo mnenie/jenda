@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import { createHead } from '@unhead/vue'
 import { vTooltip } from 'floating-vue'
 import Vue3Marquee from 'vue3-marquee'
-
 // @ts-expect-error: unresolved type definitions for vue-writer
 import VueWriter from 'vue-writer'
 import { DataLoaderPlugin } from 'unplugin-vue-router/data-loaders'
