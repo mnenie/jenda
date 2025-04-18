@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
+import DOMPurify from 'dompurify'
 import { useTaskDataLoader as useTaskData } from '../../loaders/task-cl'
 import { useCommentInteractions } from '../../composables/comment-interactions.shared'
 import { useCommentsQuery } from '../../queries/comments'
@@ -34,6 +35,13 @@ const replies = computed(() => {
   return comments.value?.reduce((acc, group) => (
     acc + group.comments.filter(c => c.from?._id === props.comment._id).length
   ), 0)
+})
+
+const sanitizedCommentMessage = computed(() => {
+  return DOMPurify.sanitize(props.comment.message, {
+    ALLOWED_ATTR: ['class', 'style', 'src', 'alt', 'href', 'target'],
+    ALLOW_DATA_ATTR: true,
+  })
 })
 </script>
 
@@ -82,7 +90,7 @@ const replies = computed(() => {
           </div>
         </div>
       </div>
-      <div class="text-default jenda-editor dark:text-neutral-300" v-html="comment.message" />
+      <div class="text-default jenda-editor dark:text-neutral-300" v-html="sanitizedCommentMessage" />
       <div class="flex items-center gap-1">
         <EmojiPicker :comment />
         <UiButton
