@@ -2,6 +2,8 @@ import type { User } from '@/modules/auth/types';
 import type { Card } from '@/modules/boards/types';
 import type { CommentGroup } from './comment';
 
+export type TaskView = 'compact' | 'expanded'
+
 interface Activity {
   id: string
   user: Pick<User, 'email' | 'photoUrl' | '_id'>

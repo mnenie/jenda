@@ -15,6 +15,7 @@ export interface Card extends DateParams {
   labels?: Label[]
   subtasks?: Pick<Partial<Card>, 'title' | '_id' | 'labels' | 'users'>[]
   users: User[],
+  image?: string
   creator: User
   estimate?: number
   comments?: Comment[]
