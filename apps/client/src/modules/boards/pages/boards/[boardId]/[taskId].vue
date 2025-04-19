@@ -1,15 +1,21 @@
 <script lang="ts">
-import { useRouter } from 'vue-router/auto'
+import { useRoute, useRouter } from 'vue-router/auto'
+import { useLocalStorage } from '@vueuse/core'
+import type { TaskView } from '@/modules/tasks/types'
 import { useTaskDataLoader } from '@/modules/tasks/loaders/task-cl'
 
 export { useTaskDataLoader }
 </script>
 
 <script setup lang="ts">
-import { UiSheet, UiSheetContent, UiSheetHeader } from '@/shared/ui'
-import TaskTabsContent from '@/modules/tasks/components/TaskTabsContent.vue'
+import { UiSheet, UiSheetContent } from '@/shared/ui'
+import TaskViewContainer from '@/modules/tasks/components/TaskViewContainer.vue'
+import TaskTopPanel from '@/modules/tasks/components/top-panel/TaskTopPanel.vue'
 
 const router = useRouter()
+const route = useRoute('tasks-id')
+
+const view = useLocalStorage<TaskView>('task-view', 'compact')
 
 // unplugin
 definePage({
@@ -24,16 +30,18 @@ definePage({
 <template>
   <UiSheet :default-open="true">
     <UiSheetContent
-      class="p-0 min-w-2xl h-full w-full flex flex-col overflow-x-hidden overflow-y-hidden"
+      class="p-0 h-full w-full flex flex-col overflow-x-hidden overflow-y-hidden transition-[min-width] !duration-200 ease-in !gap-0"
+      :class="[view === 'compact' ? 'min-w-2xl' : 'min-w-6xl']"
       :portal="true"
       @close-auto-focus="router.push(
-        { name: 'boards-id', params: { boardId: '1' } },
+        {
+          name: 'boards-id',
+          params: { boardId: route.params.boardId },
+        },
       )"
     >
-      <UiSheetHeader :custom="true">
-        @module/tasks
-      </UiSheetHeader>
-      <TaskTabsContent />
+      <TaskTopPanel />
+      <TaskViewContainer :view />
     </UiSheetContent>
   </UiSheet>
 </template>
