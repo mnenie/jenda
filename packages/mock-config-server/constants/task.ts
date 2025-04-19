@@ -1,6 +1,8 @@
 export const task_data = {
   title: 'test title',
   description: 'test description',
+  timer: 75,
+  executing: false,
   users: [
     {
       _id: '2',
