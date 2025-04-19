@@ -1,11 +1,6 @@
-import { ref } from 'vue'
+import type { DdBasicMenuItem } from '@/modules/common/types'
 
-interface ColumnMenuItem {
-  prefix: string
-  icon: string
-}
-
-export const columnMenuItems = ref<ColumnMenuItem[]>([
+export const columnMenuItems = [
   {
     prefix: 'edit',
     icon: 'bytesize:edit',
@@ -18,4 +13,4 @@ export const columnMenuItems = ref<ColumnMenuItem[]>([
     prefix: 'delete',
     icon: 'hugeicons:delete-03',
   },
-])
+] satisfies DdBasicMenuItem[]
