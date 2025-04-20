@@ -1,5 +1,5 @@
 import { defineQuery, useQuery } from '@pinia/colada'
-import { getTaskComments } from '../api'
+import { getTaskComments } from '../api/comments'
 import { useTaskDataLoader } from '../loaders/task-cl'
 
 export const useCommentsQuery = defineQuery(() => {

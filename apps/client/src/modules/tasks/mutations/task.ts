@@ -1,6 +1,6 @@
 import { defineMutation, useMutation, useQueryCache } from '@pinia/colada'
 import { toast } from 'vue-sonner'
-import { deleteTaskById, patchTask } from '../api'
+import { deleteTaskById, patchTask } from '../api/task'
 import { useTaskDataLoader as useTaskData } from '../loaders/task-cl'
 import type { Task } from '../types'
 import { useBoardsStore } from '@/modules/boards/stores/boards'
