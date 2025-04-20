@@ -4,13 +4,13 @@ import { Icon } from '@iconify/vue'
 import RemoveColumn from '../../dialogs/RemoveColumn.vue'
 import SetColumnLimit from '../../dialogs/SetColumnLimit.vue'
 import EditColumn from '../../dialogs/EditColumn.vue'
-import ColumnMenuItem from './ColumnMenuItem.vue'
 import {
   UiDropdownMenu,
   UiDropdownMenuContent,
   UiDropdownMenuTrigger,
 } from '@/shared/ui'
 import { columnMenuItems } from '@/modules/boards/constants/column-menu'
+import BasicDdMenuItem from '@/modules/common/components/BasicDdMenuItem.vue'
 
 const isEdit = shallowRef(false)
 const isLimit = shallowRef(false)
@@ -41,10 +41,10 @@ function selectMenuItem(prefix: keyof typeof _dialogsStates) {
       />
     </UiDropdownMenuTrigger>
     <UiDropdownMenuContent align="end" class="w-fit min-w-40">
-      <ColumnMenuItem
+      <BasicDdMenuItem
         v-for="item in columnMenuItems"
         :key="item.prefix"
-        :prefix="item.prefix"
+        :prefix="`kanban.column.menu.${item.prefix}`"
         :icon="item.icon"
         @select="selectMenuItem"
       />

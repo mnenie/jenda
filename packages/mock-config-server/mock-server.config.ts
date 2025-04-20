@@ -29,6 +29,34 @@ const flatMockServerConfig: FlatMockServerConfig = [
         ],
       },
       {
+        path: '/tasks/:taskId',
+        method: 'patch',
+        routes: [
+          {
+            entities: {
+              params: {
+                taskId: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
+              },
+              body: {
+                checkMode: 'function',
+                value: (body) => {
+                  return typeof body === 'object' && body !== null
+                },
+              },
+            },
+            data: args => ({
+              ...task_data,
+              _id: args.params.taskId,
+              ...args.body,
+              updatedAt: new Date().toISOString(),
+            }),
+          },
+        ],
+      },
+      {
         path: '/boards/:boardId',
         method: 'get',
         routes: [

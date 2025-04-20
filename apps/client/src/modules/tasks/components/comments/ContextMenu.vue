@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { shallowRef } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useClipboard } from '@vueuse/core'
 import { toast } from 'vue-sonner'
@@ -16,17 +15,16 @@ const props = defineProps<{
 }>()
 
 // _todo [skip ci]
-const source = shallowRef(`\`${`#${props.comment._id}`}\``)
 
 const { t } = useI18n()
 
-const { copy } = useClipboard({
-  source,
+const clipboard = useClipboard({
+  source: `\`${`#${props.comment._id}`}\``,
 })
 const { deleteComment } = useCommentsMutations()
 
 function copyLink() {
-  copy(source.value)
+  clipboard.copy()
   toast.success(t('task.comments.copied'), {
     duration: 1000,
   })
@@ -38,11 +36,11 @@ const { openEditOrReplyPanel } = useCommentInteractions()
   <UiContextMenuContent class="relative min-w-40">
     <UiContextMenuItem @select="copyLink">
       <Icon icon="hugeicons:link-02" class="w-4 h-4" />
-      {{ $t('task.actions[0]') }}
+      {{ $t('task.comments.actions[0]') }}
     </UiContextMenuItem>
     <UiContextMenuItem @select="openEditOrReplyPanel(comment, 'edit')">
       <Icon icon="hugeicons:message-01" class="w-4 h-4" />
-      {{ $t('task.actions[1]') }}
+      {{ $t('task.comments.actions[1]') }}
     </UiContextMenuItem>
     <UiContextMenuItem
       v-if="isCurrentUser || isUserAdmin"
@@ -50,7 +48,7 @@ const { openEditOrReplyPanel } = useCommentInteractions()
       @select="deleteComment(comment._id)"
     >
       <Icon icon="hugeicons:delete-04" class="w-4 h-4" />
-      {{ $t('task.actions[2]') }}
+      {{ $t('task.comments.actions[2]') }}
     </UiContextMenuItem>
   </UiContextMenuContent>
 </template>

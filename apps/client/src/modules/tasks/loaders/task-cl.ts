@@ -1,5 +1,5 @@
 import { defineColadaLoader } from 'unplugin-vue-router/data-loaders/pinia-colada'
-import { getTaskById } from '../api'
+import { getTaskById } from '../api/task'
 
 export const useTaskDataLoader = defineColadaLoader('tasks-id', {
   async query(route, { signal }) {

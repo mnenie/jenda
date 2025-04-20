@@ -614,8 +614,8 @@ export default {
   },
   task: {
     tabs: ['子任务', '评论', '操作', '资产'],
-    actions: ['复制链接', '编辑', '删除'],
     comments: {
+      actions: ['复制链接', '编辑', '删除'],
       reply: '回复',
       edit: '编辑中 | 已编辑',
       day: '今天 | 昨天 | {n} 天前',
@@ -632,6 +632,28 @@ export default {
         placeholder: '分享你的想法...',
       },
       copied: '链接复制成功！',
+    },
+    menu: {
+      background: '选择封面',
+      link: '复制链接',
+      delete: '删除',
+    },
+    view: {
+      expanded: '切换到紧凑视图',
+      compact: '切换到扩展视图',
+    },
+    panel: {
+      tooltip: {
+        users: '{n} 位参与者',
+      },
+    },
+    remove: {
+      title: '删除任务',
+      description: '您确定要删除此任务吗？所有相关数据将被删除。',
+    },
+    copied: {
+      title: '任务链接已复制！',
+      description: '使用 Ctrl+V（Mac 上使用 Cmd+V）粘贴链接。',
     },
   },
   welcome: {

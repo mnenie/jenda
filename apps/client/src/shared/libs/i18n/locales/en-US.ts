@@ -627,8 +627,8 @@ export default {
   },
   task: {
     tabs: ['Subtasks', 'Comments', 'Actions', 'Assets'],
-    actions: ['Copy link', 'Edit', 'Delete'],
     comments: {
+      actions: ['Copy link', 'Edit', 'Delete'],
       reply: 'Reply',
       edit: 'editing | edited',
       day: 'Today | Yesterday | {n} days ago',
@@ -645,6 +645,28 @@ export default {
         placeholder: 'Share your thoughts...',
       },
       copied: 'Link copied successfully!',
+    },
+    menu: {
+      background: 'Select cover',
+      link: 'Copy link',
+      delete: 'Delete',
+    },
+    view: {
+      expanded: 'Switch to compact view',
+      compact: 'Switch to expanded view',
+    },
+    panel: {
+      tooltip: {
+        users: '{n} participant | {n} participants',
+      },
+    },
+    remove: {
+      title: 'Delete task',
+      description: 'Are you sure you want to delete this task? All related data will be removed.',
+    },
+    copied: {
+      title: 'Task link copied!',
+      description: 'Use Ctrl+V (Cmd+V for Mac) to paste the link.',
     },
   },
   welcome: {

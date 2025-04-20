@@ -9,6 +9,7 @@ export const buttonVariants = cva('btn', {
       solid: 'btn-solid',
       destructive: 'btn-colorized-red',
       success: 'btn-colorized-green',
+      executing: 'btn-colorized-soft-yellow',
       outline: 'btn-outline',
       secondary: 'btn-secondary',
       ghost: 'btn-ghost',

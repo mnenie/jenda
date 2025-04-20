@@ -33,7 +33,7 @@ const { reactions, removeOrSetReaction } = useEmojiPicker(props.comment, user.va
           @click="removeOrSetReaction(emoji)"
         >
           <Icon :icon="emoji.symbol" class="min-w-4 min-h-4" />
-          <span v-if="emoji.count" class="text-sm text-neutral-800 dark:text-neutral-200">{{ emoji.count }}</span>
+          <span v-if="emoji.count" class="text-sm text-neutral-800 dark:text-neutral-200 select-none">{{ emoji.count }}</span>
         </UiBadge>
       </div>
     </template>

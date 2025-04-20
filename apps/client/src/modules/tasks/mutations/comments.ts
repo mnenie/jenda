@@ -1,7 +1,7 @@
 import { inject } from 'vue'
 import { defineMutation, useMutation, useQueryCache } from '@pinia/colada'
 import { toast } from 'vue-sonner'
-import { deleteCommentById, patchComment, postComment } from '../api'
+import { deleteCommentById, patchComment, postComment } from '../api/comments'
 import { useTaskDataLoader } from '../loaders/task-cl'
 import { useCommentInteractions } from '../composables/comment-interactions.shared'
 import type { Comment, CommentGroup } from '../types/comment'

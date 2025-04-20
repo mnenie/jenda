@@ -1,13 +1,13 @@
 import type { DdBasicMenuItem } from '@/modules/common/types'
 
-export const columnMenuItems = [
+export const taskMenuItems = [
   {
-    prefix: 'edit',
-    icon: 'bytesize:edit',
+    prefix: 'background',
+    icon: 'mingcute:background-fill',
   },
   {
-    prefix: 'limit',
-    icon: 'tabler:numbers',
+    prefix: 'link',
+    icon: 'hugeicons:link-02',
   },
   {
     prefix: 'delete',
