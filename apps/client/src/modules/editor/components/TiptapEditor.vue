@@ -76,7 +76,9 @@ const editor = useEditor({
     Color,
     TextStyle,
     Typography,
-    Image,
+    Image.configure({
+      allowBase64: true,
+    }),
     Highlight.configure({
       multicolor: true,
     }),
