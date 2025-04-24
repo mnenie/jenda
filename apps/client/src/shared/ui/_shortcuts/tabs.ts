@@ -8,7 +8,7 @@ export const staticTabs: Record<`${TabsPrefix}-${string}` | TabsPrefix, string> 
   'tabs-list-primary': 'relative shrink-0 flex border-b border-neutral-200 dark:border-neutral-700',
   'tabs-primary': 'flex flex-col w-full',
   'tabs-indicator': 'absolute px-4 left-px h-2px bottom-0 w-[--radix-tabs-indicator-size] translate-x-[--radix-tabs-indicator-position] translate-y-[1px] rounded-full transition-[width,transform] duration-200',
-  'tabs-trigger-primary': 'bg-white px-5 text-default h-40px flex items-center justify-center leading-none select-none rounded-tl-md outline-none cursor-default focus-visible:relative focus-visible:shadow-[0_0_0_2px] focus-visible:shadow-black dark:bg-neutral-800 dark:text-neutral-200',
+  'tabs-trigger-primary': 'bg-white px-5 text-default h-36px flex items-center justify-center leading-none cursor-pointer select-none rounded-tl-md outline-none cursor-default focus-visible:relative focus-visible:shadow-[0_0_0_2px] focus-visible:shadow-black dark:bg-neutral-800 dark:text-neutral-200',
 }
 
 export const tabs = [
