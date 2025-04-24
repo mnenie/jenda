@@ -633,6 +633,15 @@ export default {
       },
       copied: '链接复制成功！',
     },
+    description: {
+      editor: {
+        placeholder: '描述任务详情...',
+      },
+      status: {
+        edited: '编辑',
+        created: '创建',
+      },
+    },
     menu: {
       background: '选择封面',
       link: '复制链接',

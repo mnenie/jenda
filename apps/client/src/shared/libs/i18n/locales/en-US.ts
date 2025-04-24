@@ -646,6 +646,15 @@ export default {
       },
       copied: 'Link copied successfully!',
     },
+    description: {
+      editor: {
+        placeholder: 'Describe task details...',
+      },
+      status: {
+        edited: 'edited',
+        created: 'created',
+      },
+    },
     menu: {
       background: 'Select cover',
       link: 'Copy link',

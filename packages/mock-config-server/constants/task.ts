@@ -1,6 +1,14 @@
 export const task_data = {
   title: 'test title',
-  description: 'test description',
+  description: {
+    content: undefined,
+    updatedBy: {
+      _id: '1',
+      email: 'mnenie',
+      photoUrl: 'https://avatars.githubusercontent.com/u/121057011?v=4',
+    },
+    status: 'created',
+  },
   timer: 75,
   executing: false,
   users: [
