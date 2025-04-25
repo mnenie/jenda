@@ -626,7 +626,7 @@ export default {
     },
   },
   task: {
-    tabs: ['Subtasks', 'Comments', 'Actions', 'Assets'],
+    tabs: ['Subtasks', 'Comments', 'Actions', 'Attachments'],
     comments: {
       actions: ['Copy link', 'Edit', 'Delete'],
       reply: 'Reply',
@@ -645,6 +645,18 @@ export default {
         placeholder: 'Share your thoughts...',
       },
       copied: 'Link copied successfully!',
+    },
+    attachments: {
+      title: 'All attachments',
+      empty: {
+        title: 'No attachments',
+        description: 'Drag and drop files here or | select files',
+      },
+      alert: 'You can upload up to {count} files',
+      download: {
+        all: 'Download all',
+        one: 'Download',
+      },
     },
     description: {
       editor: {
