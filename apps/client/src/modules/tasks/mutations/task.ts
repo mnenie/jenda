@@ -21,7 +21,7 @@ export const useTaskMutations = defineMutation(<T extends Task>() => {
   }
 
   const { mutate: updateTask } = useMutation<T, Partial<T>>({
-    mutation: patchTask,
+    mutation: data => patchTask({ ...data, _id: task.value?._id }) as Promise<T>,
     onMutate: (data) => {
       const key = getCacheKey()
       const prevTask = queryCache.getQueryData<T>(key)

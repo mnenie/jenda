@@ -10,7 +10,7 @@ const { data: task } = useTaskData()
 
 const tab = useLocalStorage('default-task-tab', 'comments')
 
-const tabs = ['description', 'comments', 'actions', 'assets'] as const
+const tabs = ['description', 'comments', 'actions', 'attachments'] as const
 
 const commentsCount = computed(() => {
   return task.value.commentsGroup?.reduce((acc, group) => acc + group.comments.length, 0) ?? 0
@@ -29,13 +29,25 @@ const commentsCount = computed(() => {
         :value="trigger"
         :class="cn(
           'tabs-trigger-primary',
-          { 'gap-2': trigger === 'comments' },
+          { 'gap-2': trigger === 'comments' || trigger === 'attachments' },
           [tab === trigger ? 'dark:text-neutral-200' : 'text-neutral-500 dark:text-neutral-400'],
         )"
       >
         {{ $t(`task.tabs[${index}]`) }}
         <UiBadge v-if="trigger === 'comments'" variant="secondary" class="px-1 py-0 rounded-lg">
           {{ commentsCount }}
+        </UiBadge>
+        <UiBadge
+          v-if="trigger === 'attachments'"
+          v-tooltip.bottom-start="{
+            content: $t('task.attachments.alert', { count: 2 }),
+            delay: 100,
+            triggers: ['hover'],
+          }"
+          variant="soft"
+          class="px-1 py-0 rounded-lg"
+        >
+          Free
         </UiBadge>
       </TabsTrigger>
     </TabsList>

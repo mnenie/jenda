@@ -3,10 +3,7 @@ import type { User } from "@/modules/auth/types"
 import type { Comment } from "@/modules/tasks/types/comment"
 import type { DateParams } from "@/modules/common/types"
 
-type Asset = {
-  _id: string
-  file: Blob | File | string
-}
+export type Attachment<F extends File | Blob> = F
 
 export interface Card extends DateParams {
   _id: string
@@ -20,5 +17,5 @@ export interface Card extends DateParams {
   estimate?: number
   comments?: Comment[]
   timeLimit?: Date
-  assets?: Asset[]
+  attachments?: Attachment<File>[]
 }
