@@ -25,7 +25,7 @@ export const useCommentsMutations = defineMutation(<T extends Comment, U extends
   }
 
   const { mutate: deleteComment } = useMutation({
-    mutation: deleteCommentById,
+    mutation: (commentId: string) => deleteCommentById(task.value!._id, commentId),
     onMutate: (commentId) => {
       if (cId.value === commentId) {
         closeEditOrReplyPanel()
@@ -47,7 +47,7 @@ export const useCommentsMutations = defineMutation(<T extends Comment, U extends
   })
 
   const { mutate: updateComment } = useMutation<T, Partial<T>>({
-    mutation: patchComment,
+    mutation: comment => patchComment(task.value!._id, comment) as Promise<T>,
     onMutate: async (comment) => {
       const key = getCacheKey()
       const prevComments = queryCache.getQueryData<U[]>(key)
@@ -68,7 +68,8 @@ export const useCommentsMutations = defineMutation(<T extends Comment, U extends
   })
 
   const { mutate: createComment, ...postMutations } = useMutation<T, Partial<T>>({
-    mutation: postComment,
+    mutation: newComment =>
+      postComment(task.value!._id, newComment) as Promise<T>,
     onMutate: async (newComment) => {
       const key = getCacheKey()
       queryCache.cancelQueries({ key })

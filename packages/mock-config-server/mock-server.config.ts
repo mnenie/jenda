@@ -97,15 +97,20 @@ const flatMockServerConfig: FlatMockServerConfig = [
       },
       {
         method: 'delete',
-        path: '/tasks/comments/:id',
+        path: '/tasks/:taskId/comments/:id',
         routes: [
           {
             data: args => ({
               _id: args.params.id,
+              taskId: args.params.taskId,
             }),
             entities: {
               params: {
                 id: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
+                taskId: {
                   checkMode: 'function',
                   value: actualValue => +actualValue >= 0,
                 },
@@ -116,11 +121,12 @@ const flatMockServerConfig: FlatMockServerConfig = [
       },
       {
         method: 'post',
-        path: '/tasks/comments',
+        path: '/tasks/:taskId/comments',
         routes: [
           {
             data: args => ({
               ...args.body,
+              taskId: args.params.taskId,
               _id: `${Date.now()}`,
               createdAt: new Date().toISOString(),
             }),
@@ -131,17 +137,24 @@ const flatMockServerConfig: FlatMockServerConfig = [
                   return typeof body === 'object' && body !== null
                 },
               },
+              params: {
+                taskId: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
+              },
             },
           },
         ],
       },
       {
         method: 'patch',
-        path: '/tasks/comments/:id',
+        path: '/tasks/:taskId/comments/:id',
         routes: [
           {
             data: (args) => {
               return {
+                taskId: args.params.taskId,
                 updatedComment: {
                   user: {
                     _id: '1',
@@ -160,6 +173,10 @@ const flatMockServerConfig: FlatMockServerConfig = [
                   checkMode: 'function',
                   value: actualValue => +actualValue >= 0,
                 },
+                taskId: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
               },
               body: {
                 checkMode: 'function',
@@ -168,6 +185,25 @@ const flatMockServerConfig: FlatMockServerConfig = [
                 },
               },
             },
+          },
+        ],
+      },
+      {
+        path: '/tasks/:taskId/attachments',
+        method: 'get',
+        routes: [
+          {
+            entities: {
+              params: {
+                taskId: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
+              },
+            },
+            data: () => (
+              [...task_data.attachments]
+            ),
           },
         ],
       },
