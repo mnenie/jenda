@@ -108,12 +108,12 @@
 
 .tiptap .is-empty:first-child::before {
   content: attr(data-placeholder);
-  @apply text-default dark:text-neutral-400 pointer-events-none h-0 float-left text-neutral-500;
+  @apply text-default dark:text-neutral-400 pointer-events-none h-0 float-left text-neutral-400;
 }
 
 .tiptap .is-empty-expanded::before {
   content: attr(data-placeholder);
-  @apply text-default dark:text-neutral-400 pointer-events-none h-0 float-left text-neutral-500;
+  @apply text-default dark:text-neutral-400 pointer-events-none h-0 float-left text-neutral-400;
 }
 
 .tippy-box {

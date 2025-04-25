@@ -1,5 +1,5 @@
 import { isRef, nextTick, shallowRef, toRaw, toValue } from 'vue'
-import { useFileDialog } from '@vueuse/core'
+import { useBase64, useFileDialog } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useCommentsMutations } from '../mutations/comments'
 import { useCommentInteractions } from './comment-interactions.shared'
@@ -11,9 +11,11 @@ export function useCommentEditor<T extends new (...args: unknown[]) => any, E ex
   editorInstance: Readonly<ShallowRef<E>>,
   editor: MaybeRefOrGetter<string>,
 ) {
-  const currentFileByUrl = shallowRef<string>()
+  const currentFileByUrl = shallowRef<File>()
 
+  const base64 = useBase64(currentFileByUrl)
   const { open, onChange } = useFileDialog({ accept: 'image/*' })
+
   const { updateComment, createComment } = useCommentsMutations()
 
   const { isPanelOpen, action, commentMessage, commentId, closeEditOrReplyPanel, repliedUser } = useCommentInteractions()
@@ -21,14 +23,15 @@ export function useCommentEditor<T extends new (...args: unknown[]) => any, E ex
   const userStore = useUserStore()
   const { user } = storeToRefs(userStore)
 
-  function setImageToPosition() {
+  async function setImageToPosition() {
     open()
-    onChange((files) => {
+    onChange(async (files) => {
       if (!files)
         return
-      currentFileByUrl.value = `${window.location.origin}/api/files/${files[0].name}`
+      currentFileByUrl.value = files[0]
+      const response64 = await base64.execute()
       if (toValue(editorInstance) && currentFileByUrl.value) {
-        toValue(editorInstance).chaining()?.setImage({ src: currentFileByUrl.value }).run()
+        toValue(editorInstance).chaining()?.setImage({ src: response64 }).run()
       }
     })
   }

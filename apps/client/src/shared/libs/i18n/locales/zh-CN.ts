@@ -633,6 +633,29 @@ export default {
       },
       copied: '链接复制成功！',
     },
+    attachments: {
+      title: '所有附件',
+      empty: {
+        title: '没有附件',
+        description: '将文件拖到此处或|选择文件',
+      },
+      alert: '您最多可以上传{count}个文件',
+      download: {
+        all: '下载全部',
+        one: '下载',
+      },
+      too_large: '所选文件太大，请选择其他文件',
+      delete: '删除',
+    },
+    description: {
+      editor: {
+        placeholder: '描述任务详情...',
+      },
+      status: {
+        edited: '编辑',
+        created: '创建',
+      },
+    },
     menu: {
       background: '选择封面',
       link: '复制链接',

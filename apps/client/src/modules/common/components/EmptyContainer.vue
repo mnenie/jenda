@@ -15,8 +15,10 @@ defineProps<{
     <p class="text-default mb-1 text-neutral-500 dark:text-neutral-400 text-center">
       {{ $t(`${tPrefix}.empty.title`) }}
     </p>
-    <p class="text-default text-neutral-400 dark:text-neutral-400 text-center">
-      {{ $t(`${tPrefix}.empty.description`) }}
-    </p>
+    <slot name="description">
+      <p class="text-default text-neutral-400 dark:text-neutral-400 text-center">
+        {{ $t(`${tPrefix}.empty.description`) }}
+      </p>
+    </slot>
   </div>
 </template>

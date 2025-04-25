@@ -24,12 +24,13 @@ import Linter, { Punctuation, SingleH1 } from '../plugins/linter'
 import BubbleMenu from './BubbleMenu.vue'
 import type { Content } from '@tiptap/vue-3'
 
-const { section = 'note', expanded = true, ...props } = defineProps<{
+const { section = 'note', expanded = true, autofocus = true, ...props } = defineProps<{
   modelValue: Content
   isLinterEnabled?: boolean
   class?: HTMLAttributes['class']
-  section?: 'note' | 'task.comments'
+  section?: 'note' | 'task.comments' | 'task.description'
   expanded?: boolean
+  autofocus?: boolean
 }>()
 
 const emits = defineEmits<{
@@ -76,7 +77,9 @@ const editor = useEditor({
     Color,
     TextStyle,
     Typography,
-    Image,
+    Image.configure({
+      allowBase64: true,
+    }),
     Highlight.configure({
       multicolor: true,
     }),
@@ -91,7 +94,7 @@ const editor = useEditor({
     SmilieReplacer,
   ],
   editable: true,
-  autofocus: 'end',
+  autofocus: autofocus ? 'end' : false,
   editorProps: {
     attributes: {
       class: twMerge(['jenda-editor', props.class]),
@@ -157,8 +160,8 @@ defineExpose({
 </script>
 
 <template>
-  <div class="overflow-auto">
-    <EditorContent :editor />
+  <div class="overflow-auto h-full">
+    <EditorContent :editor style="height: 100%;" />
     <BubbleMenu v-if="editor" :editor :expanded />
   </div>
 </template>
