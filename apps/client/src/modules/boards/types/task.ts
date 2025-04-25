@@ -2,8 +2,7 @@ import type { Label, Priority } from "./shared"
 import type { User } from "@/modules/auth/types"
 import type { Comment } from "@/modules/tasks/types/comment"
 import type { DateParams } from "@/modules/common/types"
-
-export type Attachment<F extends File | Blob> = F
+import type { Attachment } from "@/modules/tasks/types"
 
 export interface Card extends DateParams {
   _id: string

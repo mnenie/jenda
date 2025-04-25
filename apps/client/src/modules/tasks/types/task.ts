@@ -4,6 +4,8 @@ import type { CommentGroup } from './comment';
 
 export type TaskView = 'compact' | 'expanded'
 
+export type Attachment<F extends File | Blob> = F
+
 interface Activity {
   id: string
   user: Pick<User, 'email' | 'photoUrl' | '_id'>
