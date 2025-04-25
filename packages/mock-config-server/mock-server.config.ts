@@ -207,6 +207,52 @@ const flatMockServerConfig: FlatMockServerConfig = [
           },
         ],
       },
+      {
+        method: 'post',
+        path: '/tasks/:taskId/attachments',
+        routes: [
+          {
+            data: args => ({
+              ...args.body,
+              taskId: args.params.taskId,
+            }),
+            entities: {
+              body: {
+                checkMode: 'function',
+                value: (body) => {
+                  return typeof body === 'object' && body !== null
+                },
+              },
+              params: {
+                taskId: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
+              },
+            },
+          },
+        ],
+      },
+      {
+        method: 'delete',
+        path: '/tasks/:taskId/attachments/:id',
+        routes: [
+          {
+            data: args => ({
+              _id: args.params.id,
+              taskId: args.params.taskId,
+            }),
+            entities: {
+              params: {
+                taskId: {
+                  checkMode: 'function',
+                  value: actualValue => +actualValue >= 0,
+                },
+              },
+            },
+          },
+        ],
+      },
     ],
   },
 ]

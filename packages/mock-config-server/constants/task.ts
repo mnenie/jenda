@@ -105,6 +105,7 @@ export const task_data = {
       ],
     },
   ],
+  attachments: [],
   creator: {
     _id: '1',
     email: 'alex@test.com',

@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import { useCommentsQuery } from '../queries/comments'
+import CommentsTabContent from './comments/CommentsTabContent.vue'
 import type { TaskView } from '../types'
 import TaskTabsContent from '@/modules/tasks/components/TaskTabsContent.vue'
-import CommentsList from '@/modules/tasks/components/comments/CommentsList.vue'
-import EmptyComments from '@/modules/tasks/components/comments/EmptyComments.vue'
-import InlineCommentEditor from '@/modules/tasks/components/comments/InlineCommentEditor.vue'
 
 defineProps<{
   view: TaskView
 }>()
-
-const { data: comments } = useCommentsQuery()
 </script>
 
 <template>
@@ -22,11 +17,7 @@ const { data: comments } = useCommentsQuery()
         main task content
       </div>
       <div class="relative h-full w-full overflow-y-auto">
-        <div class="h-full w-full overflow-y-hidden bg-transparent">
-          <CommentsList v-if="comments?.length" class="!mt-0" />
-          <EmptyComments v-else />
-        </div>
-        <InlineCommentEditor />
+        <CommentsTabContent />
       </div>
     </div>
   </div>
