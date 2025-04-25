@@ -657,6 +657,8 @@ export default {
         all: 'Download all',
         one: 'Download',
       },
+      too_large: 'The selected file is too large, please choose another one',
+      delete: 'Delete',
     },
     description: {
       editor: {

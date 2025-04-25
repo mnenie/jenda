@@ -644,6 +644,8 @@ export default {
         all: '下载全部',
         one: '下载',
       },
+      too_large: '所选文件太大，请选择其他文件',
+      delete: '删除',
     },
     description: {
       editor: {
