@@ -49,7 +49,7 @@ watch(commentMessage, (message) => {
           :expanded="false"
           section="task.comments"
           :class="cn(
-            'max-h-200px !w-full input-filled !px-9 !py-2 overflow-y-auto rounded-md !cursor-text mb-2 space-y-1',
+            'max-h-200px !w-full input-filled !px-9 !py-2 overflow-y-auto rounded-md !cursor-text mb-2 space-y-0',
             { '!rounded-t-none !pt-0': isPanelOpen },
           )"
         />

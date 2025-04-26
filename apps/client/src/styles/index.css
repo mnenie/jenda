@@ -3,4 +3,4 @@
 @import './_base';
 @import './_exceptions';
 @import './_families';
-@import '@/modules/editor/styles';
+@import '../modules/editor/styles/index.css';
