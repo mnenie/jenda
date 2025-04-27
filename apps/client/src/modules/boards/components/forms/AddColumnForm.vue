@@ -22,7 +22,7 @@ const { board } = storeToRefs(boardStore)
 
 const validationSchema = toTypedSchema(
   z.object({
-    title: z.string().min(2),
+    title: z.string().min(2).max(15).refine(value => !board.value.columns!.some(column => column.title === value), { message: 'Колонка с таким названием уже существует' }),
   }),
 )
 
@@ -56,10 +56,10 @@ const addColumn = handleSubmit(async (values) => {
     }
 
     emit('close')
-    toast.success('success')
+    toast.success('Success!')
   }
   catch {
-    toast.error('error')
+    toast.error('Error!')
   }
   finally {
     loading.value = false
@@ -82,7 +82,7 @@ const addColumn = handleSubmit(async (values) => {
     </DefineTemplate>
     <form @submit.prevent="addColumn">
       <div>
-        <ReuseTemplate field="title" :error="errors.title" /> <!-- TODO: error display -->
+        <ReuseTemplate field="title" :error="errors.title" />
         <NameWithColor
           v-model:name="title"
           v-model:color="color"
