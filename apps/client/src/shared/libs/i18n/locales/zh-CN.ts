@@ -539,6 +539,19 @@ export default {
             placeholder: '输入列描述',
           },
         },
+        add: {
+          dialogTitle: '添加列',
+          dialogDescription: '您可以为看板添加一个新列。',
+          title: {
+            label: '列名称',
+            placeholder: '输入列名称',
+            error: '列名称已存在',
+          },
+          description: {
+            label: '列描述',
+            placeholder: '输入列描述',
+          },
+        },
       },
       remove: {
         title: '删除列',
