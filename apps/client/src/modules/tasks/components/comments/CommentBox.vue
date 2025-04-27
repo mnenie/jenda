@@ -106,6 +106,14 @@ const sanitizedCommentMessage = computed(() => {
 </template>
 
 <style scoped>
+.jenda-editor > :not([hidden]) ~ :not([hidden]) {
+  margin-top: calc(0.1rem * calc(1 - var(--un-space-y-reverse)));
+}
+
+:deep(.jenda-editor) p {
+  min-height: 1.5rem !important;
+}
+
 .pulsing-dots {
   animation: pulseOpacity 1.5s infinite ease-in-out;
 }

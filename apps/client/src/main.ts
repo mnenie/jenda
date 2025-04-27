@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { createHead } from '@unhead/vue'
+import { createHead } from '@unhead/vue/client'
 import { vTooltip } from 'floating-vue'
 import Vue3Marquee from 'vue3-marquee'
 // @ts-expect-error: unresolved type definitions for vue-writer
