@@ -8,7 +8,6 @@ import { defineConfig, loadEnv } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import Sonda from 'sonda/vite'
-import type { PluginOption } from 'vite'
 
 // fix: uvr v0.11.2
 const routeMap = new Map<string, any>()
@@ -55,15 +54,11 @@ export default defineConfig(({ mode }) => {
         format: 'html',
         filename: 'bundle-analyzer.html',
         gzip: true,
-        // disable: not compatible with rolldown-vite
-      }) as unknown as PluginOption,
+      }),
       vue(),
     ],
     define: {
       __BUILD_ANALYZER__: JSON.stringify(env.BUILD_ANALYZER),
-    },
-    worker: {
-      format: 'es',
     },
     build: {
       sourcemap: !!env.BUILD_ANALYZER,
@@ -72,9 +67,6 @@ export default defineConfig(({ mode }) => {
       lightningcss: {
         errorRecovery: true,
       },
-    },
-    experimental: {
-      enableNativePlugin: mode === 'development' ? false : 'resolver',
     },
     resolve: {
       alias: {
