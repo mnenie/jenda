@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { ref, shallowRef } from 'vue'
+import { shallowRef } from 'vue'
 import { toTypedSchema } from '@vee-validate/zod'
-import { z } from 'zod'
 import { useField, useForm } from 'vee-validate'
 import { createReusableTemplate } from '@vueuse/core'
 import { toast } from 'vue-sonner'
 import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n'
 import { useBoardsStore } from '../../stores/boards'
 import NameWithColor from './edit-sub/NameWithColor.vue'
+import type { Column } from '../../types'
+import { z } from '@/shared/libs/vee-validate'
 import { UiButton, UiDialogFooter, UiFormField, UiFormLabel, UiFormMessage, UiTextarea } from '@/shared/ui'
 
 const emit = defineEmits<{
@@ -15,14 +17,21 @@ const emit = defineEmits<{
 }>()
 
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
-const popoverModel = ref(false)
+const popoverModel = shallowRef(false)
 
 const boardStore = useBoardsStore()
 const { board } = storeToRefs(boardStore)
 
+const { t } = useI18n()
+
 const validationSchema = toTypedSchema(
   z.object({
-    title: z.string().min(2).max(15).refine(value => !board.value.columns!.some(column => column.title === value), { message: 'Колонка с таким названием уже существует' }),
+    title: z.string()
+      .min(2)
+      .max(15)
+      .refine(value => !board.value.columns!.some(column => column.title === value), {
+        message: t('kanban.column.forms.add.title.error'),
+      }),
   }),
 )
 
@@ -32,12 +41,11 @@ const { handleSubmit, errors } = useForm({
 
 const { value: title } = useField<string>('title', {}, { initialValue: '' })
 
-const color = shallowRef<string>('#ffffff')
+const color = shallowRef<string>('#5f72bd')
 const description = shallowRef<string>('')
 
 const loading = shallowRef(false)
 
-// TODO: link to backend
 const addColumn = handleSubmit(async (values) => {
   loading.value = true
   await new Promise<void>(resolve => setTimeout(resolve, 500))
@@ -46,15 +54,12 @@ const addColumn = handleSubmit(async (values) => {
       _id: Math.random().toString(),
       title: values.title,
       description: description.value,
-      cards: [],
-      estimate: 0,
-      limit: undefined,
       color: color.value,
-    }
+      estimate: 0,
+    } satisfies Column
     if (board.value) {
       board.value.columns!.push(newColumn)
     }
-
     emit('close')
     toast.success('Success!')
   }
@@ -70,7 +75,7 @@ const addColumn = handleSubmit(async (values) => {
 <template>
   <div class="space-y-2">
     <DefineTemplate v-slot="{ $slots, field, error }">
-      <UiFormField class="mb-3 w-full">
+      <UiFormField v-auto-animate class="mb-3 w-full">
         <UiFormLabel
           :for="field"
         >
@@ -82,23 +87,25 @@ const addColumn = handleSubmit(async (values) => {
     </DefineTemplate>
     <form @submit.prevent="addColumn">
       <div>
-        <ReuseTemplate field="title" :error="errors.title" />
-        <NameWithColor
-          v-model:name="title"
-          v-model:color="color"
-          v-model:popover="popoverModel"
-          t-prefix="kanban.column"
-          t-field="title"
-        />
+        <ReuseTemplate field="title" :error="errors.title">
+          <NameWithColor
+            v-model:name="title"
+            v-model:color="color"
+            v-model:popover="popoverModel"
+            t-prefix="kanban.column"
+            t-field="title"
+          />
+        </ReuseTemplate>
       </div>
       <div>
-        <ReuseTemplate field="description" class="mt-3" />
-        <UiTextarea
-          id="description"
-          v-model="description"
-          :placeholder="$t('kanban.column.forms.edit.description.placeholder')"
-          class="max-h-100 input-filled shadow-sm"
-        />
+        <ReuseTemplate field="description" class="mt-3">
+          <UiTextarea
+            id="description"
+            v-model="description"
+            :placeholder="$t('kanban.column.forms.edit.description.placeholder')"
+            class="max-h-100 input-filled shadow-sm"
+          />
+        </ReuseTemplate>
       </div>
       <UiDialogFooter class="sm:justify-end mt-7">
         <UiDialogClose as-child>
@@ -106,7 +113,7 @@ const addColumn = handleSubmit(async (values) => {
             {{ $t('common.edit.btns', 1) }}
           </UiButton>
         </UiDialogClose>
-        <UiButton type="submit" size="sm" variant="solid">
+        <UiButton type="submit" :disabled="!!errors.title || loading" size="sm" variant="solid">
           {{ $t('common.edit.btns', 2) }}
         </UiButton>
       </UiDialogFooter>
