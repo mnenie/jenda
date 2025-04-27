@@ -319,7 +319,7 @@ importers:
         specifier: 0.1.15
         version: 0.1.15(rollup@4.40.0)(vue-router@4.5.0(vue@3.5.13(typescript@5.4.5)))(vue@3.5.13(typescript@5.4.5))
       vite:
-        specifier: npm:rolldown-vite@^6.3.5
+        specifier: npm:rolldown-vite@latest
         version: rolldown-vite@6.3.5(@types/node@22.10.1)(esbuild@0.24.2)(jiti@2.4.2)(sass@1.81.0)(typescript@5.4.5)(yaml@2.7.0)
       vite-plugin-image-optimizer:
         specifier: 1.1.8
@@ -936,8 +936,8 @@ packages:
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
 
-  '@eslint-community/eslint-utils@4.6.0':
-    resolution: {integrity: sha512-WhCn7Z7TauhBtmzhvKpoQs0Wwb/kBcy4CwpuI0/eEIr2Lx2auxmulAzLr91wVZJaz47iUZdkXOK7WlAfxGKCnA==}
+  '@eslint-community/eslint-utils@4.6.1':
+    resolution: {integrity: sha512-KTsJMmobmbrFLe3LDh0PC2FXpcSYJt/MLjlkh/9LEnmKYLSYmT/0EW9JWANjeoemiuZrmogti0tW5Ch+qNUYDw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
@@ -6523,7 +6523,7 @@ snapshots:
       eslint: 9.14.0(jiti@2.4.2)
       eslint-visitor-keys: 3.4.3
 
-  '@eslint-community/eslint-utils@4.6.0(eslint@9.14.0(jiti@2.4.2))':
+  '@eslint-community/eslint-utils@4.6.1(eslint@9.14.0(jiti@2.4.2))':
     dependencies:
       eslint: 9.14.0(jiti@2.4.2)
       eslint-visitor-keys: 3.4.3
@@ -7790,7 +7790,7 @@ snapshots:
 
   '@typescript-eslint/utils@8.20.0(eslint@9.14.0(jiti@2.4.2))(typescript@5.4.5)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.6.0(eslint@9.14.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.6.1(eslint@9.14.0(jiti@2.4.2))
       '@typescript-eslint/scope-manager': 8.20.0
       '@typescript-eslint/types': 8.20.0
       '@typescript-eslint/typescript-estree': 8.20.0(typescript@5.4.5)
@@ -7801,7 +7801,7 @@ snapshots:
 
   '@typescript-eslint/utils@8.20.0(eslint@9.14.0(jiti@2.4.2))(typescript@5.7.2)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.6.0(eslint@9.14.0(jiti@2.4.2))
+      '@eslint-community/eslint-utils': 4.6.1(eslint@9.14.0(jiti@2.4.2))
       '@typescript-eslint/scope-manager': 8.20.0
       '@typescript-eslint/types': 8.20.0
       '@typescript-eslint/typescript-estree': 8.20.0(typescript@5.7.2)
