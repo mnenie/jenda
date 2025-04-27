@@ -545,6 +545,7 @@ export default {
           title: {
             label: '列名称',
             placeholder: '输入列名称',
+            error: '列名称已存在',
           },
           description: {
             label: '列描述',

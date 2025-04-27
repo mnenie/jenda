@@ -557,6 +557,7 @@ export default {
           title: {
             label: 'Column name',
             placeholder: 'Enter the name',
+            error: 'Column with this name already exists',
           },
           description: {
             label: 'Column description',

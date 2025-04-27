@@ -560,6 +560,7 @@ export default {
           title: {
             label: 'Название колонки',
             placeholder: 'Введите название',
+            error: 'Колонка с таким названием уже существует',
           },
           description: {
             label: 'Описание колонки',
