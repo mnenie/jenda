@@ -26,7 +26,7 @@ const validationSchema = toTypedSchema(
   }),
 )
 
-const { handleSubmit } = useForm({
+const { handleSubmit, errors } = useForm({
   validationSchema,
 })
 
@@ -82,7 +82,7 @@ const addColumn = handleSubmit(async (values) => {
     </DefineTemplate>
     <form @submit.prevent="addColumn">
       <div>
-        <ReuseTemplate field="title" :error="null" /> <!-- TODO: error display -->
+        <ReuseTemplate field="title" :error="errors.title" /> <!-- TODO: error display -->
         <NameWithColor
           v-model:name="title"
           v-model:color="color"
@@ -92,7 +92,7 @@ const addColumn = handleSubmit(async (values) => {
         />
       </div>
       <div>
-        <ReuseTemplate field="description" />
+        <ReuseTemplate field="description" class="mt-3" />
         <UiTextarea
           id="description"
           v-model="description"
