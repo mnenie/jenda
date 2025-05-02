@@ -9,6 +9,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiCollapsible',
   component: UiCollapsible,
+  tags: ['autodocs'],
   args: {
     open: true,
     // ...

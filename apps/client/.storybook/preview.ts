@@ -38,6 +38,7 @@ const preview: Preview = {
     },
     docs: {
       theme: themes.light,
+      autodocs: true,
     },
     backgrounds: {
       disable: true,

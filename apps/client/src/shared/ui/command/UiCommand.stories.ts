@@ -9,6 +9,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiCommand',
   component: UiCommand,
+  tags: ['autodocs'],
 } as Meta<typeof UiCommand>
 
 const Template: StoryFn<typeof UiCommand> = args => ({

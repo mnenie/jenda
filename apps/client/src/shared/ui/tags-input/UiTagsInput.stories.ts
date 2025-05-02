@@ -10,6 +10,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiTagsInput',
   component: UiTagsInput,
+  tags: ['autodocs'],
   argTypes: {
     modelValue: {
       control: 'object',

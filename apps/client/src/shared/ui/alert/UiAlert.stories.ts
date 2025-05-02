@@ -4,6 +4,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiAlert',
   component: UiAlert,
+  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },

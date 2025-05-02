@@ -4,6 +4,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiButton',
   component: UiButton,
+  tags: ['autodocs'],
   argTypes: {
     size: {
       control: { type: 'radio' },

@@ -9,6 +9,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiDialog',
   component: UiDialog,
+  tags: ['autodocs'],
 } as Meta<typeof UiDialog>
 
 const Template: StoryFn<typeof UiDialog> = args => ({

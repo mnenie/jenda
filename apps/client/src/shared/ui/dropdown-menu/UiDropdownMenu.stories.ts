@@ -10,6 +10,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiDropdownMenu',
   component: UiDropdownMenu,
+  tags: ['autodocs'],
 } as Meta<typeof UiDropdownMenu>
 
 const Template: StoryFn<typeof UiDropdownMenu> = args => ({

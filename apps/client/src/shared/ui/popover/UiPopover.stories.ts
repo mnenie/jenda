@@ -9,6 +9,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 
 export default {
   title: 'UiPopover',
+  tags: ['autodocs'],
   component: UiPopover,
 } as Meta<typeof UiPopover>
 

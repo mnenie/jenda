@@ -9,6 +9,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiTabs',
   component: UiTabs,
+  tags: ['autodocs'],
 } as Meta<typeof UiTabs>
 
 const Template: StoryFn<typeof UiTabs> = args => ({

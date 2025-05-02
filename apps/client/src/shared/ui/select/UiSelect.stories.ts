@@ -13,6 +13,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiSelect',
   component: UiSelect,
+  tags: ['autodocs'],
 } as Meta<typeof UiSelect>
 
 const Template: StoryFn<typeof UiSelect> = args => ({

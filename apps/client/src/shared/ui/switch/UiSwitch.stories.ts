@@ -4,6 +4,7 @@ import type { Meta, StoryFn } from '@storybook/vue3'
 export default {
   title: 'UiSwitch',
   component: UiSwitch,
+  tags: ['autodocs'],
   argTypes: {
     modelValue: {
       control: { type: 'boolean' },
