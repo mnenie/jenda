@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { UiFormField, UiFormLabel, UiFormMessage } from '..'
-import { UiButton, UiInput } from '../../index'
+import { UiButton, UiInput } from '../../../index'
 </script>
 
 <template>

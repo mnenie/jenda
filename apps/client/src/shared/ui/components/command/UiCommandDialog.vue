@@ -1,10 +1,10 @@
 <script setup lang="ts" generic="T extends string">
 import { useForwardPropsEmits } from 'radix-vue'
 import { reactiveOmit } from '@vueuse/core'
+import { UiDialog, UiDialogContent } from '../dialog'
 import UiCommand from './UiCommand.vue'
 import type { HTMLAttributes } from 'vue'
 import type { DialogRootEmits, DialogRootProps } from 'radix-vue'
-import { UiDialog, UiDialogContent } from '@/shared/ui/dialog'
 import { cn } from '@/shared/libs/shadcn/utils'
 
 const props = defineProps<DialogRootProps & { class?: HTMLAttributes['class'] }>()

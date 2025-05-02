@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`tests for UiAlert > should have content at slot and render x icon 1`] = `
-"<define-template-stub data-v-6b4ab06c=""></define-template-stub>
-<reuse-template-stub data-v-6b4ab06c=""></reuse-template-stub>"
+"<define-template-stub data-v-ae35e8b1=""></define-template-stub>
+<reuse-template-stub data-v-ae35e8b1=""></reuse-template-stub>"
 `;

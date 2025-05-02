@@ -4,7 +4,7 @@ import {
   UiFormLabel,
   UiFormMessage,
   UiInput,
-} from '..'
+} from '../..'
 import type { Meta, StoryFn } from '@storybook/vue3'
 
 export default {

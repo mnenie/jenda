@@ -3,7 +3,7 @@ import {
   UiPinInputGroup,
   UiPinInputInput,
   UiPinInputSeparator,
-} from '..'
+} from '../..'
 import type { Meta, StoryFn } from '@storybook/vue3'
 
 export default {

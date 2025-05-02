@@ -7,8 +7,8 @@ import {
   UiDropdownMenuContent,
   UiDropdownMenuItem,
   UiDropdownMenuTrigger,
+  UiSwitch,
 } from '@/shared/ui'
-import { UiSwitch } from '@/shared/ui/switch'
 
 const route = useRoute('notes-slug')
 

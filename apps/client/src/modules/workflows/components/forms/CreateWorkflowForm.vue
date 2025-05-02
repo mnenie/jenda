@@ -6,9 +6,8 @@ import { useField, useForm } from 'vee-validate'
 import { useRouter } from 'vue-router/auto'
 import { storeToRefs } from 'pinia'
 import { useWorkflowsStore } from '../../stores/workflows'
-import { UiButton, UiFormField, UiFormLabel, UiFormMessage, UiInput } from '@/shared/ui'
+import { UiButton, UiFormField, UiFormLabel, UiFormMessage, UiInput, UiTextarea } from '@/shared/ui'
 import { z } from '@/shared/libs/vee-validate'
-import { UiTextarea } from '@/shared/ui/textarea'
 import { useUserStore } from '@/modules/auth/stores/auth'
 
 const validationSchema = toTypedSchema(

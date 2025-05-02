@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { computed, type HTMLAttributes } from 'vue'
-import { PaginationLast, type PaginationLastProps } from 'radix-vue'
-import {
-  UiButton,
-} from '@/shared/ui/button'
+import { PaginationPrev, type PaginationPrevProps } from 'radix-vue'
+import { UiButton } from '../button'
 import { cn } from '@/shared/libs/shadcn/utils'
 
-const props = withDefaults(defineProps<PaginationLastProps & { class?: HTMLAttributes['class'] }>(), {
+const props = withDefaults(defineProps<PaginationPrevProps & { class?: HTMLAttributes['class'] }>(), {
   asChild: true,
 })
 
@@ -18,7 +16,7 @@ const delegatedProps = computed(() => {
 </script>
 
 <template>
-  <PaginationLast v-bind="delegatedProps">
+  <PaginationPrev v-bind="delegatedProps">
     <UiButton
       :class="cn(
         'pagination-item',
@@ -28,8 +26,8 @@ const delegatedProps = computed(() => {
       variant="outline"
     >
       <slot>
-        <span i-lucide-chevrons-right class="min-w-3.5" />
+        <span i-lucide-chevron-left class="min-w-3.5" />
       </slot>
     </UiButton>
-  </PaginationLast>
+  </PaginationPrev>
 </template>
