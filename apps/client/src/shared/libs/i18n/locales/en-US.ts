@@ -551,6 +551,19 @@ export default {
             placeholder: 'Enter the description',
           },
         },
+        add: {
+          dialogTitle: 'Add column',
+          dialogDescription: 'You can add a new column to the board.',
+          title: {
+            label: 'Column name',
+            placeholder: 'Enter the name',
+            error: 'Column with this name already exists',
+          },
+          description: {
+            label: 'Column description',
+            placeholder: 'Enter the description',
+          },
+        },
       },
       remove: {
         title: 'Column deletion',

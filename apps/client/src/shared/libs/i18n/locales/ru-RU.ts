@@ -554,6 +554,19 @@ export default {
             placeholder: 'Введите описание',
           },
         },
+        add: {
+          dialogTitle: 'Добавление колонки',
+          dialogDescription: 'Вы можете добавить новую колонку.',
+          title: {
+            label: 'Название колонки',
+            placeholder: 'Введите название',
+            error: 'Колонка с таким названием уже существует',
+          },
+          description: {
+            label: 'Описание колонки',
+            placeholder: 'Введите описание',
+          },
+        },
       },
       remove: {
         title: 'Удаление колонки',
