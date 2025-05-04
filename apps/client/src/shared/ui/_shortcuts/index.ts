@@ -21,6 +21,7 @@ import { sheet } from './sheet'
 import { collapsible } from './collapsible'
 import { calendar } from './calendar'
 import { contextMenu } from './context-menu'
+import { combobox } from './combobox'
 import type { PresetShortcuts } from '../../libs/unocss/types'
 import type { StaticShortcutMap } from 'unocss'
 
@@ -48,4 +49,5 @@ export const shortcuts = [
   ...collapsible,
   ...calendar,
   ...contextMenu,
+  ...combobox,
 ] as PresetShortcuts<StaticShortcutMap>
