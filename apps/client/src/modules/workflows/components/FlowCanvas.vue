@@ -50,6 +50,7 @@ const pickerStore = usePickerStore()
 onNodesChange(async (changes) => {
   for (const change of changes) {
     if (change.type === 'remove' && change.id === pickerStore.selectedNode?.id) {
+      flowStore.removeNode(change.id)
       pickerStore.clearSelection()
     }
   }

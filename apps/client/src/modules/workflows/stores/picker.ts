@@ -28,7 +28,7 @@ export const usePickerStore = defineStore('picker', () => {
     if (!selectedNode.value) {
       isSettingsOpen.value = false
     }
-  }, { debounce: 10 })
+  }, { flush: 'post', debounce: 10 })
 
   return {
     isPickerOpen,

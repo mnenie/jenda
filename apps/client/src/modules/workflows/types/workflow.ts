@@ -17,3 +17,8 @@ export interface Workflow extends DateParams {
   runsCount?: number;
   creator: User
 }
+
+export interface Chooser {
+  label: string;
+  value: string;
+}
