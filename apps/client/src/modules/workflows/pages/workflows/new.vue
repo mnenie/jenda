@@ -10,7 +10,7 @@ definePage({
     breadcrumb: [
       {
         tKey: 'workflows',
-        icon: 'carbon:workflow-automation',
+        icon: 'proicons:play',
         name: 'workflows-new',
         to: { name: 'workflows' },
       },
