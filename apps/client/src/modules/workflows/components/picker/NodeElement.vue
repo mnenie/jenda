@@ -8,15 +8,18 @@ defineProps<{
   node: PickerNode
 }>()
 
-const { onDragStart } = useDragAndDrop()
+const { onDragStart, isDragOver } = useDragAndDrop()
 </script>
 
 <template>
   <UiButton
     variant="dashed"
     size="lg"
-    class="w-full flex items-center !h-unset gap-2 justify-start gap-2.5 px-1 py-1 rounded-xl shadow-none cursor-default"
+    class="w-full flex items-center !h-unset gap-2 justify-start gap-2.5 px-1 py-1 rounded-xl shadow-none cursor-grab"
     :draggable="true"
+    :class="{
+      'cursor-grabbing': isDragOver,
+    }"
     @dragstart="onDragStart($event, node.type!, node.data)"
   >
     <div class="flex items-center justify-center p-1.4 2xl:p-1 bg-neutral-100 border border-neutral-200 dark:(bg-#2e2e2e border-neutral-700/60) rounded-lg">
