@@ -320,7 +320,9 @@ export default {
       description: 'Here you can select any of the nodes.',
       main: 'Main',
       effects: 'Effects',
+      special: 'Special',
       links: 'Useful Links',
+      paid: 'by subscription',
       docs: {
         title: 'Documentation',
         description: 'Learn how to manage nodes in the system.',
@@ -345,6 +347,10 @@ export default {
         {
           title: 'Delay',
           description: 'Pauses an execution',
+        },
+        {
+          title: 'HTTP Request',
+          description: 'Integration with external services via REST API',
         },
         {
           title: 'Confetti',

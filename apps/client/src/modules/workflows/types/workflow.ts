@@ -1,4 +1,5 @@
 import type { User } from "@/modules/auth/types";
+import type { Node, Edge } from "@vue-flow/core";
 
 interface DateParams {
   createdAt?: Date
@@ -15,7 +16,9 @@ export interface Workflow extends DateParams {
   description: string;
   state: 'draft' | 'production';
   runsCount?: number;
-  creator: User
+  creator: User;
+  nodes?: Node[]
+  edges?: Edge[]
 }
 
 export interface Chooser {

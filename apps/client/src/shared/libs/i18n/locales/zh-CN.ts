@@ -317,8 +317,10 @@ export default {
       title: '所有节点',
       description: '在这里您可以选择任何节点。',
       main: '主要',
+      special: '特殊',
       effects: '效果',
       links: '有用的链接',
+      paid: '通过订阅',
       docs: {
         title: '文档',
         description: '了解如何管理系统中的节点。',
@@ -343,6 +345,10 @@ export default {
         {
           title: '延迟',
           description: '暂停执行指定时间',
+        },
+        {
+          title: 'HTTP请求',
+          description: '通过RESTAPI与外部服务集成',
         },
         {
           title: '彩带',
