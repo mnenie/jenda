@@ -314,6 +314,33 @@ export default {
       open: 'Open panel',
       close: 'Close panel',
     },
+    node: {
+      settings: {
+        trigger_or_action: {
+          title: 'Select the required action for the node',
+          description: 'Action',
+          placeholder: 'Select from the dropdown...',
+        },
+        panel_actions: {
+          column_create: 'Add column',
+          column_update: 'Update column',
+          column_task_create: 'Add task to column',
+          column_delete: 'Delete column',
+          task_create: 'Create task',
+          task_update: 'Update task',
+          user_add: 'New user in team',
+          you_online: 'You are online 😉',
+        },
+        combobox: {
+          placeholder: 'Search...',
+        },
+        sections: {
+          columns: 'Columns',
+          tasks: 'Tasks',
+          users: 'Users',
+        },
+      },
+    },
     empty: 'Drag elements to this area',
     nodes: {
       title: 'All Nodes',

@@ -313,6 +313,33 @@ export default {
       close: '关闭面板',
     },
     empty: '将元素拖到此区域',
+    node: {
+      settings: {
+        trigger_or_action: {
+          title: '选择节点所需的操作',
+          description: '操作',
+          placeholder: '从下拉列表中选择...',
+        },
+        panel_actions: {
+          column_create: '添加列',
+          column_update: '更新列',
+          column_task_create: '将任务添加到列',
+          column_delete: '删除列',
+          task_create: '创建任务',
+          task_update: '更新任务',
+          user_add: '团队新用户',
+          you_online: '你在线 😉',
+        },
+        combobox: {
+          placeholder: '搜索...',
+        },
+        sections: {
+          columns: '列',
+          tasks: '任务',
+          users: '用户',
+        },
+      },
+    },
     nodes: {
       title: '所有节点',
       description: '在这里您可以选择任何节点。',
