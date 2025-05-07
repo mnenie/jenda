@@ -338,6 +338,17 @@ export default {
           tasks: '任务',
           users: '用户',
         },
+        heading: {
+          title: '节点标题和描述自定义',
+          name: {
+            label: '标题',
+            placeholder: '输入节点标题',
+          },
+          description: {
+            label: '描述',
+            placeholder: '为节点创建描述...',
+          },
+        },
       },
     },
     nodes: {

@@ -339,6 +339,17 @@ export default {
           tasks: 'Tasks',
           users: 'Users',
         },
+        heading: {
+          title: 'Node title and description customization',
+          name: {
+            label: 'Title',
+            placeholder: 'Enter node title',
+          },
+          description: {
+            label: 'Description',
+            placeholder: 'Create a description for the node...',
+          },
+        },
       },
     },
     empty: 'Drag elements to this area',

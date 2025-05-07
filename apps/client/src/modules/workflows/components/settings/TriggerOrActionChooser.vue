@@ -24,9 +24,9 @@ const templateValue = computed(() =>
       <UiFormLabel for="entity" required class="text-neutral-500 dark:text-neutral-400">
         {{ t('workflow.node.settings.trigger_or_action.description') }}
       </UiFormLabel>
-      <UtilitySelectChooser v-model="value" :items="values" for-type="actions" class="w-320px">
-        <UiButton variant="outline" class="w-full !text-neutral-500 shadow-none justify-between w-full">
-          <span class="text-default">
+      <UtilitySelectChooser v-model="value" :items="values" for-type="actions" class="w-320px !max-h-260px !block">
+        <UiButton variant="outline" class="w-full shadow-none justify-between w-full">
+          <span class="text-default" :class="[value ? 'text-neutral-800 dark:text-neutral-200' : '!text-neutral-500']">
             {{ templateValue }}
           </span>
           <span i-lucide-chevron-down class="w-4 h-4" />

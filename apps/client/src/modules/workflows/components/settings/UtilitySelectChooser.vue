@@ -53,7 +53,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     </UiComboboxAnchor>
     <UiComboboxList
       v-bind="$attrs"
-      :class="cn('shadow-none max-h-fit', props.class)"
+      class="w-full shadow-none"
     >
       <div v-if="forType === 'settings'" class="relative w-full max-w-sm items-center">
         <UiComboboxInput
@@ -64,8 +64,8 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
           <div i-lucide-search class="size-4" />
         </span>
       </div>
-      <template v-if="typeof items === 'object'">
-        <div v-for="group, section in items" :key="section" class="flex flex-col py-2 w-full">
+      <div v-if="typeof items === 'object'" :class="cn('overflow-y-auto scrollbar', props.class)">
+        <div v-for="group, section in items" :key="section" class="flex flex-col py-2 w-full scrollbar">
           <span class="text-neutral-500 dark:text-neutral-400 text-small w-full px-1.5 pb-1">{{ $t(`workflow.node.settings.sections.${section}`) }}</span>
           <slot name="group" :group="group">
             <ReuseTemplate v-for="item, idx in group as T[]" :key="idx" :item>
@@ -80,7 +80,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
             </ReuseTemplate>
           </slot>
         </div>
-      </template>
+      </div>
       <template v-else>
         <ReuseTemplate v-for="item, idx in items as T[]" :key="idx" :item>
           <slot name="item" :item="item" />
@@ -89,3 +89,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
     </UiComboboxList>
   </UiCombobox>
 </template>
+
+<style scoped>
+@import '@/styles/_scrollbar.css';
+</style>
