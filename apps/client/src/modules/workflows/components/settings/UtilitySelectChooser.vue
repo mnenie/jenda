@@ -4,9 +4,10 @@ import type { Chooser } from '../../types'
 
 export type ForType<T, K> = T extends infer U ? U : K
 export type MappedT<A, K extends string> = Record<K, A[]>
+export type EntityInfer<T = any> = T extends infer U ? U : any
 </script>
 
-<script setup lang="ts" generic="T extends Chooser, K extends keyof T">
+<script setup lang="ts" generic="U extends EntityInfer, T extends Chooser, K extends keyof T">
 /* eslint-disable import/order */
 import { createReusableTemplate } from '@vueuse/core'
 import { Icon } from '@iconify/vue'
@@ -18,7 +19,7 @@ defineOptions({
 })
 
 const props = defineProps<{
-  items: MappedT<T, string> | T[]
+  items: MappedT<T, string> | T[] | U[]
   forType?: ForType<'actions' | 'settings', K>
   class?: HTMLAttributes['class']
 }>()
@@ -64,7 +65,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
           <div i-lucide-search class="size-4" />
         </span>
       </div>
-      <div v-if="typeof items === 'object'" :class="cn('overflow-y-auto scrollbar', props.class)">
+      <div v-if="!Array.isArray(items)" :class="cn('overflow-y-auto scrollbar', props.class)">
         <div v-for="group, section in items" :key="section" class="flex flex-col py-2 w-full scrollbar">
           <span class="text-neutral-500 dark:text-neutral-400 text-small w-full px-1.5 pb-1">{{ $t(`workflow.node.settings.sections.${section}`) }}</span>
           <slot name="group" :group="group">
@@ -82,7 +83,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
         </div>
       </div>
       <template v-else>
-        <ReuseTemplate v-for="item, idx in items as T[]" :key="idx" :item>
+        <ReuseTemplate v-for="item in items as U[]" :key="(item as any)._id" :item>
           <slot name="item" :item="item" />
         </ReuseTemplate>
       </template>
