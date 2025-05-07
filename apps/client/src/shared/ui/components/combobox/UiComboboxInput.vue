@@ -7,9 +7,6 @@ const props = defineProps<ComboboxInputProps & {
   class?: HTMLAttributes['class']
 }>()
 
-// with migration to reka-ui
-// const emits = defineEmits<ComboboxInputEmits>()
-
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props
 

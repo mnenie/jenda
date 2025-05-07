@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { usePickerStore } from '../../stores/picker'
 import InfoSection from './InfoSection.vue'
-import EntityChooser from './EntityChooser.vue'
+import TriggerOrActionChooser from './TriggerOrActionChooser.vue'
 import { UiSheet, UiSheetContent } from '@/shared/ui'
 
 const pickerStore = usePickerStore()
@@ -19,7 +19,7 @@ const { panel, isSettingsOpen, selectedNode } = storeToRefs(pickerStore)
       >
         <div v-if="selectedNode" class="flex items-center flex-col">
           <InfoSection :node="selectedNode" />
-          <EntityChooser />
+          <TriggerOrActionChooser />
         </div>
         <!-- dev -->
       </UiSheetContent>

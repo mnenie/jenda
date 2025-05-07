@@ -22,6 +22,6 @@ export interface Workflow extends DateParams {
 }
 
 export interface Chooser {
-  label: string;
   value: string;
+  sign?: string;
 }

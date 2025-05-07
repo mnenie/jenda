@@ -1,32 +1,34 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { values } from '../../constants/trigger_or_action'
 import UtilitySelectChooser from './UtilitySelectChooser.vue'
 import type { Chooser } from '../../types'
 import { UiButton, UiFormField, UiFormLabel } from '@/shared/ui'
 
-const frameworks = [
-  { value: 'next.js', label: 'Next.js' },
-  { value: 'sveltekit', label: 'SvelteKit' },
-  { value: 'nuxt', label: 'Nuxt' },
-  { value: 'remix', label: 'Remix' },
-  { value: 'astro', label: 'Astro' },
-] as const as Chooser[]
-
 const value = ref<Chooser>()
+
+const { t } = useI18n()
+
+const templateValue = computed(() =>
+  value.value ? t(`workflow.node.settings.panel_actions.${value.value}`) : t('workflow.node.settings.trigger_or_action.placeholder'),
+)
 </script>
 
 <template>
   <div class="w-full flex flex-col gap-2">
     <p class="text-default fw500">
-      Выберите сущность для узла
+      {{ t('workflow.node.settings.trigger_or_action.title') }}
     </p>
     <UiFormField>
       <UiFormLabel for="entity" required class="text-neutral-500 dark:text-neutral-400">
-        Сущность
+        {{ t('workflow.node.settings.trigger_or_action.description') }}
       </UiFormLabel>
-      <UtilitySelectChooser v-model="value" :items="frameworks" for="entity">
+      <UtilitySelectChooser v-model="value" :items="values" for-type="actions" class="w-320px">
         <UiButton variant="outline" class="w-full !text-neutral-500 shadow-none justify-between w-full">
-          <span class="text-default">{{ value?.label ?? $t(`workflows.node.settings.placeholder`) }}</span>
+          <span class="text-default">
+            {{ templateValue }}
+          </span>
           <span i-lucide-chevron-down class="w-4 h-4" />
         </UiButton>
       </UtilitySelectChooser>
