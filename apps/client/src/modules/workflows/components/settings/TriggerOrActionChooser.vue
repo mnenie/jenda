@@ -1,18 +1,25 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { values } from '../../constants/trigger_or_action'
+import { actionValues, triggerValues } from '../../constants/trigger_or_action'
 import UtilitySelectChooser from './UtilitySelectChooser.vue'
-import type { Chooser } from '../../types'
+import type { Chooser, PickerNode } from '../../types'
 import { UiButton, UiFormField, UiFormLabel } from '@/shared/ui'
 
-const value = ref<Chooser>()
+const props = defineProps<{
+  node: PickerNode
+}>()
+
+const value = defineModel<Chooser['value'] | undefined>({
+  required: true,
+})
 
 const { t } = useI18n()
 
 const templateValue = computed(() =>
   value.value ? t(`workflow.node.settings.panel_actions.${value.value}`) : t('workflow.node.settings.trigger_or_action.placeholder'),
 )
+const values = computed(() => props.node.data.tag === 'trigger' ? triggerValues : actionValues)
 </script>
 
 <template>
@@ -24,7 +31,7 @@ const templateValue = computed(() =>
       <UiFormLabel for="entity" required class="text-neutral-500 dark:text-neutral-400">
         {{ t('workflow.node.settings.trigger_or_action.description') }}
       </UiFormLabel>
-      <UtilitySelectChooser v-model="value" :items="values" for-type="actions" class="w-320px !max-h-260px !block">
+      <UtilitySelectChooser v-model="value" :items="values as Record<string, Chooser[]>" for-type="actions" class="w-320px !max-h-260px !block">
         <UiButton variant="outline" class="w-full shadow-none justify-between w-full">
           <span class="text-default" :class="[value ? 'text-neutral-800 dark:text-neutral-200' : '!text-neutral-500']">
             {{ templateValue }}

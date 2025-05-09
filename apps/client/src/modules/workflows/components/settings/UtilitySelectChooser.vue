@@ -24,7 +24,7 @@ const props = defineProps<{
   class?: HTMLAttributes['class']
 }>()
 
-const value = defineModel<T | undefined>({
+const value = defineModel<T['value'] | undefined>({
   required: true,
 })
 
@@ -82,11 +82,11 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
           </slot>
         </div>
       </div>
-      <template v-else>
+      <div v-else :class="cn('overflow-y-auto scrollbar', props.class)">
         <ReuseTemplate v-for="item in items as U[]" :key="(item as any)._id" :item>
           <slot name="item" :item="item" />
         </ReuseTemplate>
-      </template>
+      </div>
     </UiComboboxList>
   </UiCombobox>
 </template>
