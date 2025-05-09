@@ -316,19 +316,24 @@ export default {
     node: {
       settings: {
         trigger_or_action: {
-          title: '选择节点所需的操作',
+          title: '选择节点操作',
           description: '操作',
           placeholder: '从下拉列表中选择...',
         },
         panel_actions: {
           column_create: '添加列',
           column_update: '更新列',
-          column_task_create: '将任务添加到列',
+          column_task_create: '添加任务到列',
           column_delete: '删除列',
           task_create: '创建任务',
           task_update: '更新任务',
-          user_add: '团队新用户',
+          user_add: '新团队成员',
           you_online: '你在线 😉',
+          column_created: '列已添加',
+          column_updated: '列已更新',
+          column_deleted: '列已删除',
+          task_updated: '任务已更新',
+          column_task_created: '任务已添加到列',
         },
         combobox: {
           placeholder: '搜索...',
@@ -337,18 +342,32 @@ export default {
           columns: '列',
           tasks: '任务',
           users: '用户',
+          boards: '看板',
+          task: '任务',
         },
         heading: {
-          title: '节点标题和描述自定义',
+          title: '自定义节点标题和描述',
           name: {
             label: '标题',
             placeholder: '输入节点标题',
           },
           description: {
             label: '描述',
-            placeholder: '为节点创建描述...',
+            placeholder: '输入节点描述...',
           },
         },
+        request_body: {
+          description: '创建请求体。了解更多API信息 | 这里',
+          error: '请输入有效的JSON',
+        },
+        inputs: {
+          title: '输入',
+          board: '选择看板',
+          task: '输入任务ID',
+          column: '选择列',
+        },
+        update: '更新节点',
+        remove: '删除',
       },
     },
     nodes: {

@@ -319,7 +319,7 @@ export default {
         trigger_or_action: {
           title: 'Select the required action for the node',
           description: 'Action',
-          placeholder: 'Select from the dropdown...',
+          placeholder: 'Select from dropdown...',
         },
         panel_actions: {
           column_create: 'Add column',
@@ -328,8 +328,13 @@ export default {
           column_delete: 'Delete column',
           task_create: 'Create task',
           task_update: 'Update task',
-          user_add: 'New user in team',
+          user_add: 'New team member',
           you_online: 'You are online 😉',
+          column_created: 'Column added',
+          column_updated: 'Column updated',
+          column_deleted: 'Column deleted',
+          task_updated: 'Task updated',
+          column_task_created: 'Task added to column',
         },
         combobox: {
           placeholder: 'Search...',
@@ -338,18 +343,32 @@ export default {
           columns: 'Columns',
           tasks: 'Tasks',
           users: 'Users',
+          boards: 'Boards',
+          task: 'Task',
         },
         heading: {
-          title: 'Node title and description customization',
+          title: 'Customize node title and description',
           name: {
             label: 'Title',
             placeholder: 'Enter node title',
           },
           description: {
             label: 'Description',
-            placeholder: 'Create a description for the node...',
+            placeholder: 'Enter node description...',
           },
         },
+        request_body: {
+          description: 'Request body for creation. Read more about our API | here',
+          error: 'Please enter valid JSON',
+        },
+        inputs: {
+          title: 'Inputs',
+          board: 'Select board',
+          task: 'Enter task ID',
+          column: 'Select column',
+        },
+        update: 'Update node',
+        remove: 'Delete',
       },
     },
     empty: 'Drag elements to this area',
