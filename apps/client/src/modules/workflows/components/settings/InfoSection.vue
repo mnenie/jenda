@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import type { PickerNode } from '../../types'
+import { useSelectedNodeContext } from '../../composables/settings'
 
-defineProps<{
-  node: PickerNode
-}>()
+const { selectedNode: node } = useSelectedNodeContext()
 </script>
 
 <template>

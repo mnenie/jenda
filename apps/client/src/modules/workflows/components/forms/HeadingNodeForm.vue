@@ -2,13 +2,9 @@
 import { toTypedSchema } from '@vee-validate/zod'
 import { createReusableTemplate } from '@vueuse/core'
 import { useField, useForm } from 'vee-validate'
-import type { PickerNode } from '../../types'
+import { useSelectedNodeContext } from '../../composables/settings'
 import { UiFormField, UiFormLabel, UiFormMessage, UiInput, UiTextarea } from '@/shared/ui'
 import { z } from '@/shared/libs/vee-validate'
-
-const props = defineProps<{
-  node: PickerNode
-}>()
 
 const validationSchema = toTypedSchema(
   z.object({
@@ -16,11 +12,14 @@ const validationSchema = toTypedSchema(
     description: z.string().min(1).max(200),
   }),
 )
+
+const { selectedNode: node } = useSelectedNodeContext()
+
 const { errors } = useForm({
   validationSchema,
   initialValues: {
-    name: props.node.data.title,
-    description: props.node.data.description,
+    name: node.value.data.title,
+    description: node.value.data.description,
   },
 })
 
@@ -62,7 +61,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
           id="description"
           v-model="description"
           :placeholder="$t('workflow.node.settings.heading.description.placeholder')"
-          class="shadow-none min-h-11 h-11 max-h-30 focus:ring-0 px-2"
+          class="shadow-none min-h-14 h-14 max-h-30 focus:ring-0 px-2"
         />
       </ReuseTemplate>
     </div>
