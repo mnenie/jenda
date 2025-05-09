@@ -25,3 +25,24 @@ export interface Chooser {
   value: string;
   sign?: string;
 }
+
+type TriggerValues =
+  | 'column_created'
+  | 'column_updated'
+  | 'column_deleted'
+  | 'column_task_created'
+  | 'task_updated'
+  | 'user_add'
+  | 'you_online';
+
+type ActionValues =
+  | 'column_create'
+  | 'column_update'
+  | 'column_delete'
+  | 'task_create'
+  | 'task_update'
+  | 'column_task_create'
+
+export interface TAChooser extends Chooser {
+  value: TriggerValues | ActionValues;
+}
