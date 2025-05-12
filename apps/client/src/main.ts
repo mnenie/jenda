@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createHead } from '@unhead/vue/client'
-import { vTooltip } from 'floating-vue'
+import FloatingVue, { options } from 'floating-vue'
 import Vue3Marquee from 'vue3-marquee'
 // @ts-expect-error: unresolved type definitions for vue-writer
 import VueWriter from 'vue-writer'
@@ -40,5 +40,5 @@ app.use(autoAnimatePlugin)
 app.use(dayjsPlugin)
 app.use(Vue3Marquee)
 app.use(VueWriter)
-app.directive('tooltip', vTooltip)
+app.use(FloatingVue, options)
 app.mount('#app')
