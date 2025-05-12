@@ -55,6 +55,7 @@ defineExpose({
       v-model="modelValue"
       :disabled="disabled"
       :placeholder="placeholder"
+      :type="type"
       :class="cn(
         'input',
         inputVariants({ variant }),
