@@ -33,6 +33,16 @@ thead {
   --info-bg: var(--custom-jenda-dark);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .vue-ui-kpi {
   background: transparent !important;
 }
