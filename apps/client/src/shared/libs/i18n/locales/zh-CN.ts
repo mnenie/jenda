@@ -344,6 +344,7 @@ export default {
           users: '用户',
           boards: '看板',
           task: '任务',
+          delay: '延迟',
         },
         heading: {
           title: '自定义节点标题和描述',
@@ -365,6 +366,11 @@ export default {
           board: '选择看板',
           task: '输入任务ID',
           column: '选择列',
+        },
+        delay: {
+          title: '设置延迟（秒）',
+          tooltip: '默认: 0秒',
+          max: '最大延迟 = 1小时',
         },
         update: '更新节点',
         remove: '删除',

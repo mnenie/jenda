@@ -345,6 +345,7 @@ export default {
           users: 'Users',
           boards: 'Boards',
           task: 'Task',
+          delay: 'Delay',
         },
         heading: {
           title: 'Customize node title and description',
@@ -366,6 +367,11 @@ export default {
           board: 'Select board',
           task: 'Enter task ID',
           column: 'Select column',
+        },
+        delay: {
+          title: 'Set delay (in seconds)',
+          tooltip: 'Default: 0s',
+          max: 'Maximum delay = 1 hour',
         },
         update: 'Update node',
         remove: 'Delete',
