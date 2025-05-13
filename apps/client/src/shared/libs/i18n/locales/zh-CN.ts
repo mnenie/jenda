@@ -334,6 +334,10 @@ export default {
           column_deleted: '列已删除',
           task_updated: '任务已更新',
           column_task_created: '任务已添加到列',
+          internal_notifier: '内部通知',
+          external_vk: '发送消息到VKontakte群组',
+          external_telegram: '发送消息到Telegram群组',
+          external_discord: '发送消息到Discord频道',
         },
         combobox: {
           placeholder: '搜索...',
@@ -345,6 +349,11 @@ export default {
           boards: '看板',
           task: '任务',
           delay: '延迟',
+          internal: '内部API',
+          external: '外部API',
+          message: '消息',
+          group: '群组',
+          channel: '频道',
         },
         heading: {
           title: '自定义节点标题和描述',
@@ -366,6 +375,8 @@ export default {
           board: '选择看板',
           task: '输入任务ID',
           column: '选择列',
+          group: '输入或粘贴所需群的ID',
+          channel: '输入或粘贴所需频道的ID',
         },
         delay: {
           title: '设置延迟（秒）',

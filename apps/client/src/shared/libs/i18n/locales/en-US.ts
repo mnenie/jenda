@@ -335,6 +335,10 @@ export default {
           column_deleted: 'Column deleted',
           task_updated: 'Task updated',
           column_task_created: 'Task added to column',
+          internal_notifier: 'Internal notifications',
+          external_vk: 'Message to VKontakte group',
+          external_telegram: 'Message to Telegram group',
+          external_discord: 'Message to Discord channel',
         },
         combobox: {
           placeholder: 'Search...',
@@ -346,6 +350,11 @@ export default {
           boards: 'Boards',
           task: 'Task',
           delay: 'Delay',
+          internal: 'Internal API',
+          external: 'External API',
+          message: 'Message',
+          group: 'Group',
+          channel: 'Channel',
         },
         heading: {
           title: 'Customize node title and description',
@@ -359,7 +368,7 @@ export default {
           },
         },
         request_body: {
-          description: 'Request body for creation. Read more about our API | here',
+          description: 'Request body. Read more about our API | here',
           error: 'Please enter valid JSON',
         },
         inputs: {
@@ -367,6 +376,8 @@ export default {
           board: 'Select board',
           task: 'Enter task ID',
           column: 'Select column',
+          group: 'Enter or paste the ID of the required group',
+          channel: 'Enter or paste the ID of the required channel',
         },
         delay: {
           title: 'Set delay (in seconds)',

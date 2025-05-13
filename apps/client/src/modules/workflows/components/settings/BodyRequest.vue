@@ -6,6 +6,10 @@ import { useI18n } from 'vue-i18n'
 import { z } from '@/shared/libs/vee-validate'
 import { UiFormField, UiFormLabel, UiFormMessage, UiTextarea } from '@/shared/ui'
 
+defineProps<{
+  modelValue: string
+}>()
+
 configure({
   validateOnInput: true,
 })
@@ -37,7 +41,9 @@ const { errors } = useForm({
   validationSchema,
 })
 
-const { value: body } = useField<string>('body')
+const { value: body } = useField<string>('body', undefined, {
+  syncVModel: true,
+})
 
 watch(errorMessage, async (message) => {
   await nextTick()

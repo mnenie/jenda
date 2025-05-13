@@ -334,6 +334,10 @@ export default {
           column_deleted: 'Колонка удалена',
           task_updated: 'Задача обновлена',
           column_task_created: 'Добавлена задача в колонку',
+          internal_notifier: 'Внутренние уведомление',
+          external_vk: 'Сообщение в группу ВКонтакте',
+          external_telegram: 'Сообщение в группу Telegram',
+          external_discord: 'Сообщение в канал Discord',
         },
         combobox: {
           placeholder: 'Поиск...',
@@ -345,6 +349,11 @@ export default {
           boards: 'Доски',
           task: 'Задача',
           delay: 'Задержка',
+          internal: 'Внутренние api',
+          external: 'Внешние api',
+          message: 'Сообщение',
+          group: 'Группа',
+          channel: 'Канал',
         },
         heading: {
           title: 'Кастомизация названия и описания узла',
@@ -358,7 +367,7 @@ export default {
           },
         },
         request_body: {
-          description: 'Тело запроса для создания. Подробнее о нашем api можно почитать | тут',
+          description: 'Тело запроса. Подробнее о нашем api можно почитать | тут',
           error: 'Пожалуйста, введите валидный JSON',
         },
         inputs: {
@@ -366,6 +375,8 @@ export default {
           board: 'Выберите нужную доску',
           task: 'Введите id задачи',
           column: 'Выберите нужную колонку',
+          group: 'Введите или вставьте id нужной группу',
+          channel: 'Введите или вставьте id нужного канала',
         },
         delay: {
           title: 'Поставьте задержку (в секундах)',

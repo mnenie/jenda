@@ -46,3 +46,13 @@ type ActionValues =
 export interface TAChooser extends Chooser {
   value: TriggerValues | ActionValues;
 }
+
+type NotificationValues =
+  | 'internal_notifier'
+  | 'external_vk'
+  | 'external_telegram'
+  | 'external_discord'
+
+export interface NChooser extends Chooser {
+  value: NotificationValues;
+}

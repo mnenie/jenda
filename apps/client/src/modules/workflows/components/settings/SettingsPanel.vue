@@ -7,6 +7,7 @@ import InfoSection from './InfoSection.vue'
 import TriggerOrActionStepper from './TriggerOrActionStepper.vue'
 import SettingsPanelFooter from './SettingsPanelFooter.vue'
 import DelayField from './DelayField.vue'
+import NotificationStepper from './NotificationStepper.vue'
 import type { ShallowRef } from 'vue'
 import type { SelectedPickerNode } from '../../types'
 import { UiSheet, UiSheetContent } from '@/shared/ui'
@@ -33,6 +34,7 @@ provideSelectedNodeContext({
             v-if="selectedNode.data.tag === 'trigger' || selectedNode.data.tag === 'action'"
           />
           <DelayField v-if="selectedNode.data.tag === 'delay'" />
+          <NotificationStepper v-if="selectedNode.data.tag === 'notification'" />
         </div>
         <SettingsPanelFooter />
       </UiSheetContent>
