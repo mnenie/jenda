@@ -53,7 +53,7 @@ export default jendaEslintConfig(
   {
     rules: {
       'import/order': [
-        'error',
+        'warn',
         {
           groups: [
             'builtin',

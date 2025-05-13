@@ -20,11 +20,16 @@ export const useFlowStore = defineStore('flow', () => {
     return acc
   }, 0))
 
+  function removeNode(id: string) {
+    nodes.value = nodes.value.filter(node => node.id !== id)
+  }
+
   return {
     nodes,
     edges,
     edgesConnectionMap,
     calculateTriggers,
+    removeNode,
   }
 })
 

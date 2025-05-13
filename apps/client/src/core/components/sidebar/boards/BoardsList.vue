@@ -43,7 +43,7 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
           {{ $t('sidebar.boards_section.title') }}
         </p>
       </div>
-      <div class="overflow-y-auto overflow-x-hidden max-h-52 h-full">
+      <div class="overflow-y-auto overflow-x-hidden max-h-40 h-full scrollbar">
         <UiCollapsibleContent
           class="flex flex-col gap-1.5 justify-start w-full"
         >
@@ -62,3 +62,18 @@ const isBoardsOpen = useLocalStorage('isBoardsOpen', true)
     </div>
   </UiCollapsible>
 </template>
+
+<style scoped>
+@import '@/styles/_scrollbar.css';
+
+.scrollbar::-webkit-scrollbar {
+  height: 0.25em;
+  width: 0;
+  max-width: 0;
+}
+
+.scrollbar:hover::-webkit-scrollbar {
+  width: 0.25em;
+  max-width: 0.25em;
+}
+</style>

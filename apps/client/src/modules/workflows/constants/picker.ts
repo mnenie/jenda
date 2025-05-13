@@ -38,6 +38,16 @@ export const nodes: Record<string, PickerNode[]> = {
       },
     },
   ],
+  special: [
+    {
+      type: 'api',
+      data: {
+        icon: 'mynaui:api',
+        tag: 'rest',
+        paid: true,
+      },
+    },
+  ],
   effects: [
     {
       type: 'common',
