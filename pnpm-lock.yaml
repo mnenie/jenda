@@ -105,8 +105,8 @@ importers:
         specifier: 2.11.2
         version: 2.11.2(@tiptap/core@2.11.2(@tiptap/pm@2.11.2))(@tiptap/pm@2.11.2)(vue@3.5.13(typescript@5.4.5))
       '@unhead/vue':
-        specifier: ^2.0.9
-        version: 2.0.9(vue@3.5.13(typescript@5.4.5))
+        specifier: ^2.0.10
+        version: 2.0.10(vue@3.5.13(typescript@5.4.5))
       '@unocss/core':
         specifier: ^66.1.2
         version: 66.1.2
@@ -2231,8 +2231,8 @@ packages:
     resolution: {integrity: sha512-v/BpkeeYAsPkKCkR8BDwcno0llhzWVqPOamQrAEMdpZav2Y9OVjd9dwJyBLJWwf335B5DmlifECIkZRJCaGaHA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@unhead/vue@2.0.9':
-    resolution: {integrity: sha512-0t8YXVXvEgXkXhCb22hqPrsgun3Jqul/ZvydgBY0SlEfEbC1ioL15/1QuJwBFG3us6OnSewjbDagg4Jh478g8g==}
+  '@unhead/vue@2.0.10':
+    resolution: {integrity: sha512-lV7E1sXX6/te8+IiUwlMysBAyJT/WM5Je47cRnpU5hsvDRziSIGfim9qMWbsTouH+paavRJz1i8gk5hRzjvkcw==}
     peerDependencies:
       vue: '>=3.5.13'
 
@@ -5512,8 +5512,8 @@ packages:
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
-  unhead@2.0.9:
-    resolution: {integrity: sha512-ZLTNJ51PZPO4/3keW7FHiTMb6K+JmhhVApJA52qWNw7NMYPD8fM2eA+hUEaCA2L5bZtbRg43TT7n/lJ+/9o6pw==}
+  unhead@2.0.10:
+    resolution: {integrity: sha512-GT188rzTCeSKt55tYyQlHHKfUTtZvgubrXiwzGeXg6UjcKO3FsagaMzQp6TVDrpDY++3i7Qt0t3pnCc/ebg5yQ==}
 
   unicorn-magic@0.3.0:
     resolution: {integrity: sha512-+QBBXBCvifc56fsbuxZQ6Sic3wqqc3WWaqxs58gvJrcOuN83HGTCwz3oS5phzU9LthRNE9VrJCFCLUgHeeFnfA==}
@@ -7852,10 +7852,10 @@ snapshots:
       '@typescript-eslint/types': 8.20.0
       eslint-visitor-keys: 4.2.0
 
-  '@unhead/vue@2.0.9(vue@3.5.13(typescript@5.4.5))':
+  '@unhead/vue@2.0.10(vue@3.5.13(typescript@5.4.5))':
     dependencies:
       hookable: 5.5.3
-      unhead: 2.0.9
+      unhead: 2.0.10
       vue: 3.5.13(typescript@5.4.5)
 
   '@unocss/astro@66.1.2(vite@6.3.4(@types/node@22.10.1)(jiti@2.4.2)(lightningcss@1.29.3)(sass@1.81.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.4.5))':
@@ -11727,7 +11727,7 @@ snapshots:
 
   undici-types@6.20.0: {}
 
-  unhead@2.0.9:
+  unhead@2.0.10:
     dependencies:
       hookable: 5.5.3
 
