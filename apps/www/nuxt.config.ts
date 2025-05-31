@@ -14,17 +14,18 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   i18n: {
-    lazy: true,
-    strategy: 'prefix',
     defaultLocale: 'en',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n',
       redirectOn: 'root',
     },
-    experimental: {
-      autoImportTranslationFunctions: true,
-    },
+    strategy: 'no_prefix',
+    locales: [
+      { code: 'en', name: 'EN', file: 'en-US.ts' },
+      { code: 'ru', name: 'RU', file: 'ru-RU.ts' },
+      { code: 'zh', name: 'ZH', file: 'zh-CN.ts' },
+    ],
   },
   devtools: {
     enabled: true,
@@ -39,7 +40,7 @@ export default defineNuxtConfig({
   },
   fonts: {
     families: [
-      { name: 'Geist', src: '/geist.woff2' },
+      { name: 'Geist', src: '/fonts/geist.woff2' },
     ],
     processCSSVariables: true,
   },
