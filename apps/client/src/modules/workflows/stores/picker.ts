@@ -20,15 +20,15 @@ export const usePickerStore = defineStore('picker', () => {
     isSettingsOpen.value = false
   }
 
-  onClickOutside(target, () => {
+  onClickOutside(panel, () => {
     selectedNode.value = null
-  }, { ignore: [panel] })
+  })
 
   watchDebounced(selectedNode, () => {
     if (!selectedNode.value) {
       isSettingsOpen.value = false
     }
-  }, { debounce: 10 })
+  }, { flush: 'post', debounce: 10 })
 
   return {
     isPickerOpen,

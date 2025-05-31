@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, type HTMLAttributes, useAttrs } from 'vue'
+import { computed, type HTMLAttributes, useAttrs, useTemplateRef } from 'vue'
 import { Icon, type IconifyIcon } from '@iconify/vue'
 import { twMerge } from 'tailwind-merge'
 import { cn } from '@/shared/libs/shadcn/utils'
@@ -33,10 +33,18 @@ const classes = computed(() => {
 const message = computed(() => {
   return content!.charAt(0).toUpperCase() + content!.slice(1).toLowerCase()
 })
+
+const messageRef = useTemplateRef<HTMLElement>('message')
+
+defineExpose({
+  scrollToMessage: () => messageRef.value?.scrollIntoView({
+    behavior: 'smooth',
+  }),
+})
 </script>
 
 <template>
-  <div :class="cn(classes, props.class)">
+  <div ref="message" :class="cn(classes, props.class)">
     <slot>
       <Icon v-if="icon" :icon="icon" />
       <span>{{ message }}</span>
