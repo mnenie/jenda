@@ -13,6 +13,6 @@ export default jendaEslintConfig(
   'import/order': 'off',
   'vue/max-attributes-per-line': [
     'error',
-    { singleline: 3 },
+    { singleline: 5 },
   ],
 })
