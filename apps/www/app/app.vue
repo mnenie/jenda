@@ -10,7 +10,7 @@ useSeoMeta({
 })
 
 useHead({
-  title: 'Jenda: The Next-Gen Task Management System',
+  title: () => t('seo.title'),
   meta: [
     { key: 'theme', name: 'theme', content: color },
   ],

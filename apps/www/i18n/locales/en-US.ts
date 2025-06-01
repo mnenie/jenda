@@ -14,4 +14,31 @@ export default {
     description: 'Tasks, kanban boards, Gantt charts, processes, notes, reminders and notifications in Telegram or Discord - all for you and your team',
     stack: 'Our tech stack which we have chosen',
   },
+  features: {
+    title: 'Boost Efficiency with Smart & Intuitive Tools',
+    description: 'Stay organized, collaborate effortlessly, and manage tasks like a pro with our cutting-edge features.',
+    badge: 'Cooking for you',
+    cards: [
+      {
+        title: 'Kanban 🧑‍💻',
+        description: 'Organize and visualize your projects with our intuitive Kanban board.',
+      },
+      {
+        title: 'Automations ⚙️',
+        description: 'Manage and configure custom automation workflows.',
+      },
+      {
+        title: 'Chats 💬',
+        description: 'Easy communication, instant discussions, and a warm atmosphere - make teamwork even more enjoyable!',
+      },
+      {
+        title: 'Templates 📦',
+        description: 'Create, save and reuse templates - save time on routine work.',
+      },
+      {
+        title: 'Notes 📚',
+        description: 'Record ideas, thoughts and important information. All your notes are always at hand and well organized.',
+      },
+    ],
+  },
 }

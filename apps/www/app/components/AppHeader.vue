@@ -3,9 +3,9 @@ const { navigationMenuItems } = useNavigation()
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 px-4 py-4">
-    <div class="w-full mx-auto px-4 flex items-center justify-between gap-3 h-full">
-      <div class="flex items-center gap-6">
+  <header class="sticky top-0 z-50 px-4 py-3 bg-white/80 backdrop-blur border-b border-default sticky top-0 z-50">
+    <div class="w-full mx-auto px-32 flex items-center justify-between gap-3 h-full ">
+      <div class="flex items-center gap-6 relative">
         <a
           href="https://github.com/mnenie/jenda"
           target="_blank"
@@ -14,22 +14,25 @@ const { navigationMenuItems } = useNavigation()
           <NuxtImg src="/jenda-logo.png" class="w-24px h-24px" />
           <h3 class="text-2xl fw-600">Jenda Labs</h3>
         </a>
+        <UnaNavigationMenu
+          :_navigation-menu-trigger="{
+            class: '!navigation-menu-trigger-extended',
+          }"
+          :items="navigationMenuItems"
+        />
+        <!-- </div> -->
       </div>
-      <div class="flex items-center relative">
-        <div
-          class="relative z-10 box bg-white border border-solid border-#e3e4e8 flex items-center py-0 pl-2.5 pr-3.5 h-40px rounded-lg
-          dark:shadow-sm dark:bg-#313131 dark:border-neutral-700"
-        >
-          <UnaNavigationMenu
-            :_navigation-menu-trigger="{
-              class: '!navigation-menu-trigger-extended',
-            }"
-            :items="navigationMenuItems"
-          />
-        </div>
+      <!-- <div class="flex items-center relative">
+        <UnaNavigationMenu
+          :_navigation-menu-trigger="{
+            class: '!navigation-menu-trigger-extended',
+          }"
+          :items="navigationMenuItems"
+        />
         <CommonLanguageSwitcher />
-      </div>
-      <div class="flex items-center gap-2">
+      </div> -->
+      <div class="relative flex items-center gap-2">
+        <CommonLanguageSwitcher />
         <UnaButton label="Войти" btn="solid-white" />
         <UnaButton
           btn="solid-black"

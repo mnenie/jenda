@@ -10,7 +10,7 @@ const technologies = [
 </script>
 
 <template>
-  <div class="relative overflow-hidden px-16 pt-6">
+  <div class="relative overflow-hidden px-36 pt-6">
     <h2 class="text-left text-muted font-medium text-lg">
       {{ $t('hero.stack') }}
     </h2>
