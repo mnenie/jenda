@@ -4,6 +4,8 @@ export interface CardItem {
   description: string
   src: string
   imgClass?: HTMLAttributes['class']
+  width?: string
+  height?: string
 }
 </script>
 
@@ -27,6 +29,13 @@ defineProps<{
       cardContent: 'flex flex-col justify-between h-full',
     }"
   >
-    <NuxtImg :src="card.src" class="mt-auto max-w-unset" :class="card.imgClass" rounded="xl" />
+    <NuxtImg
+      :src="card.src"
+      :class="card.imgClass"
+      :width="card.width"
+      :height="card.height"
+      rounded="xl"
+      class="mt-auto max-w-unset object-center object-cover"
+    />
   </UnaCard>
 </template>

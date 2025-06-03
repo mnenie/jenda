@@ -10,7 +10,7 @@ const cards = computed(() => {
     title: item.title,
     description: item.description,
     ...imgs[index],
-  }))
+  })) as CardItem[]
 })
 </script>
 
