@@ -12,7 +12,7 @@ const { navigationMenuItems } = useNavigation()
           class="flex items-center gap-1 cursor-pointer mr-2"
         >
           <NuxtImg src="/jenda-logo.png" class="w-24px h-24px" />
-          <h3 class="text-2xl fw-600">Jenda Labs</h3>
+          <h3 class="text-2xl fw-600">Jenda</h3>
         </a>
         <UnaNavigationMenu
           :_navigation-menu-trigger="{
@@ -20,17 +20,7 @@ const { navigationMenuItems } = useNavigation()
           }"
           :items="navigationMenuItems"
         />
-        <!-- </div> -->
       </div>
-      <!-- <div class="flex items-center relative">
-        <UnaNavigationMenu
-          :_navigation-menu-trigger="{
-            class: '!navigation-menu-trigger-extended',
-          }"
-          :items="navigationMenuItems"
-        />
-        <CommonLanguageSwitcher />
-      </div> -->
       <div class="relative flex items-center gap-2">
         <CommonLanguageSwitcher />
         <UnaButton label="Войти" btn="solid-white" />

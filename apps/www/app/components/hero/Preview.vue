@@ -7,7 +7,7 @@
         <span style="margin-right: 3px">{{ $t('hero.badge_soon') }}</span>
       </UnaBadge>
       <h1
-        class="relative text-76px leading-tight fw500 mb-1 text-left tracking-tighter
+        class="relative text-72px leading-tight fw500 mb-1 text-left tracking-tighter
       max-[1220px]:text-68px max-[1152px]:text-64px max-[1100px]:text-62px max-[890px]:text-54px max-[680px]:!text-44px mb-8"
       >
         {{ $t('hero.title', 1) }} <span class="text-blue-600 relative">
