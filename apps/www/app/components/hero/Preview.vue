@@ -34,8 +34,8 @@
         />
       </div>
     </div>
-    <div class="block relative w-full h-600px bg-neutral-100 rounded-lg pr-0 justify-center items-center flex overflow-hidden">
-      <NuxtImg src="/dev.png" class="h-full left-0 min-w-full object-cover object-left" rounded="xl" />
+    <div class="block relative w-full h-600px bg-neutral-100 rounded-lg rounded-r-none pr-0 justify-center items-center flex overflow-hidden">
+      <NuxtImg src="/dev.png" class="h-full left-0 min-w-full object-cover object-left" rounded="xl r-none" />
     </div>
   </section>
 </template>

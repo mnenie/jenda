@@ -24,8 +24,8 @@ const planCards = computed<PlanCard[]>(() => plans.map((plan, index) => ({
 </script>
 
 <template>
-  <div class="bg-neutral-100 py-24 px-36 mb-28">
-    <CommonHorizontalSectionWrapper
+  <div class="bg-neutral-100/60 py-24 px-36 mb-28">
+    <CommonVerticalSectionWrapper
       :badge="{ label: $t('plan.badge'), icon: 'i-lucide-tag' }"
       :title="$t('plan.title')"
       :description="$t('plan.description')"
@@ -34,9 +34,9 @@ const planCards = computed<PlanCard[]>(() => plans.map((plan, index) => ({
       <UnaTabs
         v-model="tab"
         :items="_tabs"
-        class="mb-4 !w-fit self-start"
-        :una="{
-          tabsRoot: '!w-fit',
+        class="mx-auto"
+        :_tabsTrigger="{
+          class: '!w-fit',
         }"
       >
         <template #trigger="{ item }">
@@ -46,7 +46,7 @@ const planCards = computed<PlanCard[]>(() => plans.map((plan, index) => ({
           </UnaBadge>
         </template>
       </UnaTabs>
-      <div class="w-full grid grid-cols-4 gap-4 auto-rows-fr">
+      <div class="w-full grid grid-cols-4 gap-4 auto-rows-fr mt-4">
         <Motion
           v-for="card, index in planCards"
           :key="index"
@@ -58,6 +58,6 @@ const planCards = computed<PlanCard[]>(() => plans.map((plan, index) => ({
           <PlanCard :card="{ ...card, prev: planCards[index - 1]?.plan }" />
         </Motion>
       </div>
-    </CommonHorizontalSectionWrapper>
+    </CommonVerticalSectionWrapper>
   </div>
 </template>

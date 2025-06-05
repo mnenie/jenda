@@ -11,9 +11,9 @@ defineProps<{
 </script>
 
 <template>
-  <div class="w-full flex flex-col items-start gap-2 my-26">
+  <div class="w-full flex flex-col items-center gap-2 my-26">
     <UnaBadge badge="soft" size="sm" :label="badge.label" :icon="badge.icon" />
-    <h2 class="text-5xl leading-tight fw480 mb-1 text-left tracking-tighter">
+    <h2 class="text-5xl leading-tight fw480 mb-1 text-center tracking-tighter">
       {{ title }}
     </h2>
     <p class="text-lg text-neutral-500">
