@@ -96,4 +96,51 @@ export default {
       from: 'from',
     },
   },
+  questions: {
+    title: 'Frequently Asked Questions',
+    description: 'If you have any questions, we\'ve most likely already answered them! Our team is always ready to help.',
+    badge: 'FAQ',
+    arr: [
+      {
+        title: 'What is this task management tool for?',
+        answer: 'Our task manager helps you efficiently organize tasks with Kanban boards, automated workflows, and more.',
+      },
+      {
+        title: 'Is there a free trial available?',
+        answer: 'Not yet, but coming soon! We\'ll offer a 14-day free trial with full access to Pro features. All you\'ll need is your enthusiasm.',
+      },
+      {
+        title: 'Can I use it for personal planning?',
+        answer: 'Absolutely! Perfect for personal projects, freelancing, or team collaboration. Flexible settings adapt to your needs.',
+      },
+      {
+        title: 'How does the Kanban board work?',
+        answer: 'Drag-and-drop tasks between columns, assign owners, and track progress in real-time. Visual management available in all plans.',
+      },
+      {
+        title: 'Which integrations are supported?',
+        answer: 'Integrations with popular services: Weeek, GitLab, Trello, and others. New connections added regularly.',
+      },
+      {
+        title: 'What happens if I exceed plan limits?',
+        answer: 'You\'ll receive a notification to upgrade. Professional and Business plans allow adding more users.',
+      },
+      {
+        title: 'How can I contact support?',
+        answer: '24/7 support via live chat and email. Enterprise customers get a dedicated account manager.',
+      },
+      {
+        title: 'Can I change my plan?',
+        answer: 'Yes! Upgrade or downgrade anytime in billing settings. All data remains intact during transitions.',
+      },
+      {
+        title: 'What are Business plan benefits?',
+        answer: 'Unlimited workspaces, advanced analytics, and priority support. Ideal for large organizations.',
+      },
+      {
+        title: 'Are there free plan limitations?',
+        answer: 'The free tier includes up to 5 users and 3 workspaces - great for testing or small projects.',
+      },
+    ],
+  },
 }
