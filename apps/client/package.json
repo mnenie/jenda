@@ -48,7 +48,7 @@
     "@unhead/vue": "^2.0.10",
     "@unocss/core": "^66.1.3",
     "@unocss/reset": "^66.1.3",
-    "@vee-validate/zod": "^4.15.0",
+    "@vee-validate/zod": "^4.15.1",
     "@vue-flow/background": "1.3.2",
     "@vue-flow/core": "1.42.1",
     "@vueuse/core": "^13.3.0",
